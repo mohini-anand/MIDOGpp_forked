@@ -1,0 +1,9 @@
+file,variant,n_templates,auc_mitosis_vs_nucleus,auc_lookalike_vs_nucleus,discrimination,median_mitosis_rank,K,n_nuclei
+002.tiff,fused_max_all72,72,0.906,0.869,0.037,806,8,8604
+002.tiff,scale_1.0_only,24,0.94,0.904,0.036,518,8,8604
+002.tiff,scale_0.6_only,24,0.836,0.725,0.11,1413,8,8604
+002.tiff,fused_z_normalised,72,0.928,0.886,0.042,619,8,8604
+246.tiff,fused_max_all72,72,0.841,0.838,0.003,3178,115,20000
+246.tiff,scale_1.0_only,24,0.853,0.792,0.061,2933,115,20000
+246.tiff,scale_0.6_only,24,0.793,0.824,-0.031,4146,115,20000
+246.tiff,fused_z_normalised,72,0.866,0.834,0.032,2672,115,20000

@@ -130,3 +130,7 @@ dmypy.json
 
 # PyCharm
 .idea
+
+# MIDOG++ ROI images: ~150 MB each, fetched via Setup.ipynb
+images/*.tiff
+.DS_Store

@@ -1,0 +1,3 @@
+file_name,n_mitotic,n_nuclei,mitotic_base_rate_pct,seed_self_score,median_score_mitotic,median_score_lookalike,median_score_nucleus,median_score_random,p90_mitotic,p99.9_nucleus,auc_mitosis_vs_nucleus,auc_lookalike_vs_nucleus,median_mitosis_rank,K
+002.tiff,8,8604,0.093,1.0,0.7558,0.7101,0.4911,0.308,0.7882,0.789,0.94,0.904,518,8
+246.tiff,115,20000,0.575,1.0,0.5064,0.4475,0.3205,0.2755,0.6482,0.6667,0.853,0.792,2933,115
