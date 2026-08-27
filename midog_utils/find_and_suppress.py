@@ -14,9 +14,10 @@ rather than style:
   instead, which has the same effect with no artefact. (Note the reference's `'none'`
   mode does not disable masking; it sets masked pixels to 1.)
 * **The self-hit is dropped with a tight radius**, not the match radius. The minimum
-  spacing between two MIDOG++ annotations is 27 px (245.tiff), so dropping everything
-  within a 30 px match radius of the seed would delete a legitimate detection of a
-  neighbouring ground-truth object.
+  spacing between two MIDOG++ annotations anywhere in the dataset is 26.2 px (403.tiff;
+  245.tiff is 26.6), below the ~30 px match radius, so dropping everything within a match
+  radius of the seed could delete a legitimate detection of a neighbouring ground-truth
+  object.
 * **Scores are kept and used to rank.** The reference computes `match score` and then
   drops the column at bbox_tuning.py:798-801, before an NMS that is ordered by
   `x top left` rather than by score.
@@ -59,7 +60,14 @@ class FSConfig:
     peak_min_distance: int = 7
     score_threshold: float = 0.25
     max_peaks: int = 250000     # above the ~173k theoretical max, so the cap never binds
-    nms_radius: float = 25.0
+    # None = "use this image's evaluation match radius", which the caller must supply --
+    # see find_and_suppress(). A fixed radius is wrong here: the match radius is derived
+    # per image from microns-per-pixel and runs 29.6-33.1 px across these scanners, so a
+    # constant 25.0 let two detections 26 px apart both survive while both sat inside one
+    # ground-truth object's radius. One was then credited as a true positive and the other
+    # as a false positive on the very same object, inflating the FROC's FP axis with
+    # duplicates.
+    nms_radius: float = None
     self_hit_radius: float = 5.0
     max_detections: int = 10 ** 9  # no truncation: report every detection the search found
     scale_normalize: bool = False  # see template_match.fused_response; changes score semantics
@@ -69,8 +77,13 @@ class FSConfig:
         return len(self.scales) * self.n_angles * len(self.flips)
 
 
-def find_and_suppress(img_channel: np.ndarray, seed_xy, cfg: FSConfig = None):
+def find_and_suppress(img_channel: np.ndarray, seed_xy, cfg: FSConfig = None, nms_radius=None):
     """Run one single-pass search from one seed point.
+
+    ``nms_radius`` overrides ``cfg.nms_radius``; one of the two must be set. There is
+    deliberately no fallback default -- the correct value is the image's evaluation match
+    radius, which depends on that ROI's microns-per-pixel and is therefore not knowable
+    from the config alone. `experiment.run_one_image` passes it.
 
     Returns ``(detections, info)``. ``detections`` is ranked best-first with columns
     ``rank, cx, cy, score, angle, flip, scale``; ``info`` carries stage counts and
@@ -78,7 +91,13 @@ def find_and_suppress(img_channel: np.ndarray, seed_xy, cfg: FSConfig = None):
     """
     cfg = cfg or FSConfig()
     seed_x, seed_y = float(seed_xy[0]), float(seed_xy[1])
-    info = {}
+    nms_radius = cfg.nms_radius if nms_radius is None else nms_radius
+    if nms_radius is None:
+        raise ValueError(
+            "nms_radius is unset. Pass the image's evaluation match radius "
+            "(evaluate.radius_px(mpp)), or set FSConfig(nms_radius=...) explicitly."
+        )
+    info = {"nms_radius": round(float(nms_radius), 2)}
 
     patch = tm.read_padded_patch(img_channel, seed_x, seed_y, cfg.patch_size)
     if patch is None:
@@ -101,9 +120,11 @@ def find_and_suppress(img_channel: np.ndarray, seed_xy, cfg: FSConfig = None):
         fused, valid, cfg.peak_min_distance, cfg.score_threshold, cfg.max_peaks
     )
     info["n_peaks"] = len(centers)
-    info["max_score"] = float(scores[0]) if len(scores) else float("nan")
+    # Pre-removal, so this is always the seed's own self-correlation at ~1.0. Kept only
+    # as an audit trail; `max_detection_score` below is the informative number.
+    info["max_peak_score"] = float(scores[0]) if len(scores) else float("nan")
 
-    keep = nms_by_distance(centers, scores, cfg.nms_radius)
+    keep = nms_by_distance(centers, scores, nms_radius)
     centers, scores = centers[keep], scores[keep]
     info["n_after_nms"] = len(centers)
 
@@ -121,6 +142,9 @@ def find_and_suppress(img_channel: np.ndarray, seed_xy, cfg: FSConfig = None):
 
     centers, scores = centers[: cfg.max_detections], scores[: cfg.max_detections]
     info["n_detections"] = len(centers)
+    # The best *genuine* match -- i.e. what the search actually discovered, as opposed to
+    # the seed rediscovering itself.
+    info["max_detection_score"] = float(scores[0]) if len(scores) else float("nan")
     info["t_postprocess_s"] = round(time.time() - t0, 2)
 
     aug = [metas[int(best[int(y), int(x)])] for x, y in centers]

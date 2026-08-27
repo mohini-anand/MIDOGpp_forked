@@ -33,6 +33,12 @@ def select_domain_images(images: pd.DataFrame, annotations: pd.DataFrame, images
     and one pass, an image with 4 mitotic figures gives an evaluation set of 3. It also
     rules out 001.tiff automatically, which has zero category-1 annotations and so
     cannot be seeded with a mitotic figure at all. Ties break to the lower image id.
+
+    **This rule is optimistic for the method being measured, and the results should be
+    read that way.** `recall@K` uses K = the ROI's own mitotic count, so as mitosis
+    density rises the base rate climbs against a roughly constant nucleus population and
+    the metric gets easier. Picking the densest ROI per domain therefore yields
+    upper-ish bounds for each domain, not representative draws from it.
     """
     on_disk = {p.name for p in Path(images_dir).glob("*.tiff")}
     counts = (
@@ -45,7 +51,10 @@ def select_domain_images(images: pd.DataFrame, annotations: pd.DataFrame, images
     df["n_mitotic"] = df["n_mitotic"].fillna(0).astype(int)
     df = df[df["n_mitotic"] > 0]
     df = df.sort_values(["tumor_type", "n_mitotic", "image_id"], ascending=[True, False, True])
-    return df.groupby("tumor_type", as_index=False).first().reset_index(drop=True)
+    # `.head(1)`, not `.first()`: GroupBy.first() takes the first *non-null* value in each
+    # column independently and can therefore assemble a row that does not exist in the
+    # data. It happens to be safe here only because nothing is NaN after the fillna above.
+    return df.groupby("tumor_type", as_index=False).head(1).reset_index(drop=True)
 
 
 def pick_seed(gt_mitotic: pd.DataFrame, rng, border: int, roi_shape) -> pd.Series:
@@ -54,11 +63,18 @@ def pick_seed(gt_mitotic: pd.DataFrame, rng, border: int, roi_shape) -> pd.Serie
     Annotations within half a padded-patch of the edge cannot yield a rotation-safe
     template; they are excluded here rather than padded, since padding would feed
     fabricated pixels into the template.
+
+    The test is applied to the *rounded* centre, which is the predicate
+    `template_match.read_padded_patch` actually uses. Testing the unrounded float was
+    marginally looser and could pass an annotation the reader then rejected -- a seed at
+    ``cx = w - border - 0.4`` satisfied ``cx < w - border`` but rounds up to
+    ``w - border``, for which ``ix + half >= w``.
     """
     h, w = roi_shape[:2]
+    ix = np.rint(gt_mitotic["cx"].to_numpy()).astype(int)
+    iy = np.rint(gt_mitotic["cy"].to_numpy()).astype(int)
     ok = gt_mitotic[
-        (gt_mitotic["cx"] >= border) & (gt_mitotic["cx"] < w - border)
-        & (gt_mitotic["cy"] >= border) & (gt_mitotic["cy"] < h - border)
+        (ix >= border) & (ix <= w - 1 - border) & (iy >= border) & (iy <= h - 1 - border)
     ]
     if len(ok) == 0:
         raise ValueError("no mitotic annotation far enough from the ROI border to seed with")
@@ -89,11 +105,13 @@ def run_one_image(
 
     img = ch.to_channel(rgb, cfg.channel)
     t0 = time.time()
-    det, info = fs.find_and_suppress(img, (seed["cx"], seed["cy"]), cfg)
+    # Suppress at the same radius the scoring uses, so one true object cannot be counted
+    # as a hit and a duplicate false positive at the same time.
+    det, info = fs.find_and_suppress(img, (seed["cx"], seed["cy"]), cfg, nms_radius=radius)
     info["t_total_s"] = round(time.time() - t0, 1)
 
     det_out, gt_out, metrics, curve = ev.evaluate_run(
-        det, gt_eval, radius, area_mm2, score_threshold=None
+        det, gt_eval, radius, area_mm2, roi_shape=rgb.shape
     )
     metrics = {"file_name": file_name, "method": "find_and_suppress",
                "seed_ann_id": int(seed["ann_id"]), "channel": cfg.channel,
@@ -115,35 +133,48 @@ def run_one_image(
 
     if run_baselines:
         mask = bl.tissue_mask(rgb)
-        out["tissue_fraction"] = float(mask.mean())
+        tissue_fraction = round(float(mask.mean()), 4)
+        out["tissue_fraction"] = tissue_fraction
+        metrics["tissue_fraction"] = tissue_fraction
 
         blobs = bl.nucleus_blobs(rgb, mask)
-        b_det, b_gt, b_metrics, b_curve = ev.evaluate_run(blobs, gt_eval, radius, area_mm2)
+        b_det, b_gt, b_metrics, b_curve = ev.evaluate_run(
+            blobs, gt_eval, radius, area_mm2, roi_shape=rgb.shape
+        )
 
         # `recall@K` already compares at an equal budget, but the full-list recall does
-        # not -- the blob detector emits thousands more candidates than the matcher. Score
-        # it again truncated to the matcher's list length so the two are comparable at a
-        # second, much looser operating point as well.
+        # not -- the blob detector emits a different number of candidates than the
+        # matcher. Score it again truncated to the matcher's list length so the two are
+        # comparable at a second, much looser operating point as well. Record what was
+        # actually delivered: if the blob detector has fewer components than the matcher
+        # has detections, this second comparison is not equal-budget either.
         capped = blobs.head(len(det_out)).reset_index(drop=True)
         capped["rank"] = np.arange(len(capped))
-        _, _, capped_metrics, _ = ev.evaluate_run(capped, gt_eval, radius, area_mm2)
+        _, _, capped_metrics, _ = ev.evaluate_run(
+            capped, gt_eval, radius, area_mm2, roi_shape=rgb.shape
+        )
         b_metrics["mitotic_recall_at_matcher_budget"] = capped_metrics["mitotic_recall"]
         b_metrics["matcher_budget"] = len(det_out)
+        b_metrics["budget_delivered"] = len(capped)
 
         out["baseline_blobs"] = b_det
         out["baseline_blobs_curve"] = b_curve
         out["metrics"].append(
             {"file_name": file_name, "method": "nucleus_blobs", "seed_ann_id": -1,
-             "channel": "hematoxylin", "mpp": round(mpp, 4), **b_metrics}
+             "channel": "hematoxylin", "mpp": round(mpp, 4),
+             "tissue_fraction": tissue_fraction, **b_metrics}
         )
 
         rnd = bl.random_in_tissue(mask, n=len(det_out), rng=rng)
-        r_det, r_gt, r_metrics, r_curve = ev.evaluate_run(rnd, gt_eval, radius, area_mm2)
+        r_det, r_gt, r_metrics, r_curve = ev.evaluate_run(
+            rnd, gt_eval, radius, area_mm2, roi_shape=rgb.shape
+        )
         out["baseline_random"] = r_det
         out["baseline_random_curve"] = r_curve
         out["metrics"].append(
             {"file_name": file_name, "method": "random_in_tissue", "seed_ann_id": -1,
-             "channel": "-", "mpp": round(mpp, 4), **r_metrics}
+             "channel": "-", "mpp": round(mpp, 4),
+             "tissue_fraction": tissue_fraction, **r_metrics}
         )
 
     return out
@@ -163,6 +194,13 @@ def run_experiment(
 
     ``keep_images=False`` drops the decoded RGB arrays from the returned results, since
     seven 39-megapixel ROIs will not comfortably sit in a notebook's memory at once.
+
+    Each image gets its **own** generator, spawned from ``(seed, image_id)``. Building
+    ``default_rng(seed)`` fresh inside the loop -- as this used to -- makes every image
+    consume the same first draw, so `pick_seed` lands on the same relative position in
+    every eligible list (it picked the ~80th percentile of all seven). That is one fixed
+    quantile repeated, not seven independent draws, and a multi-seed sweep built on it
+    would repeat the same quantile sequence for every seed.
     """
     cfg = cfg or fs.FSConfig()
     results, metric_rows, detection_rows = {}, [], []
@@ -174,7 +212,8 @@ def run_experiment(
         t0 = time.time()
         res = run_one_image(
             fn, annotations, images_dir, cfg,
-            rng=np.random.default_rng(seed), run_baselines=run_baselines,
+            rng=np.random.default_rng([seed, int(row["image_id"])]),
+            run_baselines=run_baselines,
         )
         for m in res["metrics"]:
             m["tumor_type"] = row["tumor_type"]
@@ -193,6 +232,7 @@ def run_experiment(
             print(
                 f"    recall@K={m['recall_at_k']:.3f}  "
                 f"attraction@K={m['lookalike_attraction_at_k']:.3f}  "
+                f"coverage={m['coverage_frac']:.2f}  "
                 f"({time.time() - t0:.0f}s)",
                 flush=True,
             )
@@ -206,20 +246,24 @@ SUMMARY_COLUMNS = [
     "tumor_type", "file_name", "method", "n_gt_mitotic_eval", "n_lookalike_gt",
     "recall_at_k", "lookalike_attraction_at_k", "topk_tp", "topk_fp_lookalike",
     "topk_fp_unannotated", "sens@8fp_mm2", "sens@64fp_mm2",
-    "mitotic_recall", "lookalike_attraction", "n_detections_total",
-    "recall_unanimous", "recall_contested",
+    "n_unanimous", "recall_unanimous_at_k", "n_contested", "recall_contested_at_k",
+    "max_detection_score", "n_detections_total",
 ]
 
 FULL_LIST_COLUMNS = [
-    "tumor_type", "file_name", "all_n_detections", "all_tp", "all_fp_lookalike",
-    "all_fp_unannotated", "all_matched_any_gt", "all_matched_frac", "all_precision_mitotic",
-    "all_mitotic_gt_found", "all_mitotic_gt_missed",
+    "tumor_type", "file_name", "all_n_detections", "coverage_frac", "all_tp",
+    "all_fp_lookalike", "all_fp_unannotated", "all_matched_any_gt", "all_matched_frac",
+    "all_precision_mitotic", "all_mitotic_gt_found", "all_mitotic_gt_missed",
     "all_lookalike_gt_found", "all_lookalike_gt_missed",
 ]
 
 
 def full_list_table(metrics: pd.DataFrame, method="find_and_suppress") -> pd.DataFrame:
-    """Every detection the search returned, bucketed -- no top-K budget applied."""
+    """Every detection the search returned, bucketed -- no top-K budget applied.
+
+    ``coverage_frac`` is placed second on purpose: it is the number that says how much of
+    the rest of the row is explained by the detection list tiling the ROI.
+    """
     cols = [c for c in FULL_LIST_COLUMNS if c in metrics.columns]
     sel = metrics if method is None else metrics[metrics["method"] == method]
     return sel[cols].sort_values("tumor_type").reset_index(drop=True)
@@ -233,6 +277,9 @@ def summary_table(metrics: pd.DataFrame, method="find_and_suppress") -> pd.DataF
 
 def scale_usage(metrics: pd.DataFrame, detections: pd.DataFrame, scales=(0.6, 0.8, 1.0)) -> pd.DataFrame:
     """Which template scale actually won each detection, versus uniform expectation.
+
+    Only meaningful with ``len(FSConfig.scales) > 1``; at the single-scale default every
+    column is 0 or 1 by construction.
 
     This is a check on `fused_response`, not on the biology. `TM_CCOEFF_NORMED`
     normalises by the template's pixel count, so a smaller template has a
@@ -261,6 +308,116 @@ def scale_usage(metrics: pd.DataFrame, detections: pd.DataFrame, scales=(0.6, 0.
     return pd.DataFrame(rows).sort_values("K", ascending=False).reset_index(drop=True)
 
 
+def _rank_stats(s_target: np.ndarray, s_ref: np.ndarray):
+    """(AUC, mean rank, median rank) of ``s_target`` against the reference population.
+
+    AUC is ``P(ref < t) + 0.5 * P(ref == t)`` averaged over ``t`` -- the Mann-Whitney
+    convention, which splits ties rather than scoring them as losses.
+
+    "Rank" is how many reference scores beat a target score, i.e. where that target lands
+    in a descending ranking of the reference population (0 = top). The mean rank is
+    exactly ``(1 - AUC) * n_ref``; the median is reported separately because it is what
+    the phrase "where the typical mitotic figure lands" actually means and is far less
+    sensitive to the tail.
+    """
+    if len(s_target) == 0 or len(s_ref) == 0:
+        return float("nan"), float("nan"), float("nan")
+    srt = np.sort(np.asarray(s_ref, dtype=np.float64))
+    n = len(srt)
+    lo = np.searchsorted(srt, s_target, side="left")
+    hi = np.searchsorted(srt, s_target, side="right")
+    ranks = (n - hi) + 0.5 * (hi - lo)   # strictly-greater, ties split
+    auc = float(1.0 - ranks.mean() / n)
+    return auc, float(ranks.mean()), float(np.median(ranks))
+
+
+def _probe_variants(file_name, annotations, seed_ann_id, variants, images_dir="images",
+                    n_random=3000, pad=5, rng=None):
+    """Score one or more matcher configurations against the same sampled populations.
+
+    The expensive shared work -- decoding the ROI, building the tissue mask, segmenting
+    every nucleus, drawing the random points -- is done **once** and reused across
+    variants, so a fusion comparison costs one nucleus segmentation rather than one per
+    variant, and every variant is scored against a byte-identical reference population.
+
+    ``variants`` is a list of ``(name, FSConfig)``. Returns one row per variant.
+    """
+    from sklearn.neighbors import KDTree
+
+    rng = np.random.default_rng(1) if rng is None else rng
+    path = f"{images_dir}/{file_name}"
+
+    rgb = ds.load_roi(path)
+    mpp = ds.roi_mpp(path)
+    radius = ev.radius_px(mpp)
+    gt = ds.image_annotations(annotations, file_name)
+    seed = gt[gt["ann_id"] == seed_ann_id].iloc[0]
+    gt_eval = gt[gt["ann_id"] != seed_ann_id]
+    mit = gt_eval[gt_eval["category_id"] == ds.MITOTIC]
+    look = gt_eval[gt_eval["category_id"] == ds.LOOKALIKE]
+
+    mask = bl.tissue_mask(rgb)
+    blobs = bl.nucleus_blobs(rgb, mask)
+    n_blobs_all = len(blobs)
+    if n_blobs_all:
+        # Drop every blob sitting on an annotation, so "nucleus" means "unannotated".
+        near = KDTree(ds.points(gt)).query_radius(blobs[["cx", "cy"]].to_numpy(), r=radius)
+        blobs = blobs[[len(c) == 0 for c in near]].reset_index(drop=True)
+    rand = bl.random_in_tissue(mask, n_random, rng)
+    del mask
+
+    rows = []
+    for name, cfg in variants:
+        img = ch.to_channel(rgb, cfg.channel)
+        patch = tm.read_padded_patch(img, seed["cx"], seed["cy"], cfg.patch_size)
+        if patch is None:
+            raise ValueError(f"seed {seed_ann_id} is too close to the border of {file_name}")
+        templates, _ = tm.build_augmentations(
+            patch, cfg.base_size, cfg.scales, cfg.n_angles, cfg.flips
+        )
+        fused, _, valid = tm.fused_response(img, templates, cfg.scale_normalize)
+        fused = np.where(valid, fused, -1e9)
+
+        def peaks(xs, ys):
+            return np.array([
+                fused[max(0, int(round(y)) - pad): int(round(y)) + pad + 1,
+                      max(0, int(round(x)) - pad): int(round(x)) + pad + 1].max()
+                for x, y in zip(xs, ys)
+            ])
+
+        s_mit, s_look = peaks(mit["cx"], mit["cy"]), peaks(look["cx"], look["cy"])
+        s_nuc, s_rnd = peaks(blobs["cx"], blobs["cy"]), peaks(rand["cx"], rand["cy"])
+        s_seed = float(peaks([seed["cx"]], [seed["cy"]])[0])
+        del img, fused, valid  # ~150 MB each; everything needed is already sampled
+
+        auc_mit, mean_rank, median_rank = _rank_stats(s_mit, s_nuc)
+        auc_look, _, _ = _rank_stats(s_look, s_nuc)
+        rows.append({
+            "file_name": file_name,
+            "variant": name,
+            "n_templates": len(templates),
+            "n_mitotic": len(mit),
+            "n_nuclei_all_blobs": n_blobs_all,
+            "n_nuclei": len(blobs),           # ordinary = unannotated
+            "mitotic_base_rate_pct": round(100 * len(mit) / max(n_blobs_all, 1), 3),
+            "seed_self_score": round(s_seed, 4),
+            "median_score_mitotic": round(float(np.median(s_mit)), 4),
+            "median_score_lookalike": round(float(np.median(s_look)), 4),
+            "median_score_nucleus": round(float(np.median(s_nuc)), 4),
+            "median_score_random": round(float(np.median(s_rnd)), 4),
+            "p90_mitotic": round(float(np.percentile(s_mit, 90)), 4),
+            "p99.9_nucleus": round(float(np.percentile(s_nuc, 99.9)), 4),
+            "auc_mitosis_vs_nucleus": round(auc_mit, 3),
+            "auc_lookalike_vs_nucleus": round(auc_look, 3),
+            "discrimination": round(auc_mit - auc_look, 3),
+            "mean_mitosis_rank": int(round(mean_rank)),
+            "median_mitosis_rank": int(round(median_rank)),
+            "K": len(mit),
+        })
+    del rgb
+    return rows
+
+
 def score_probe(file_name, annotations, seed_ann_id, images_dir="images", cfg=None,
                 n_random=3000, pad=5, rng=None):
     """Does the response map score mitotic figures above ordinary nuclei at all?
@@ -270,62 +427,58 @@ def score_probe(file_name, annotations, seed_ann_id, images_dir="images", cfg=No
     fused map directly at annotated locations, at detected nucleus centroids, and at random
     tissue points.
 
-    ``auc_mitosis_vs_nucleus`` is P(a random mitotic figure outscores a random ordinary
-    nucleus); 0.5 means no signal. ``median_mitosis_rank`` = ``(1 - auc) * n_nuclei`` is
-    roughly where the typical mitotic figure lands in a ranking of every nucleus in the ROI
-    -- compare it against ``K`` to see how far short the ranking falls.
+    ``auc_mitosis_vs_nucleus`` is P(a random mitotic figure outscores a random *ordinary*
+    nucleus); 0.5 means no signal. "Ordinary" is enforced: blob centroids within the match
+    radius of any annotation -- mitotic, look-alike, or the seed itself -- are removed from
+    the reference population, so the comparison is against unannotated nuclei rather than
+    against a set that silently contains the very objects being scored. Ties are split
+    (Mann-Whitney) rather than scored as losses.
+
+    ``mean_mitosis_rank`` = ``(1 - AUC) * n_nuclei`` and ``median_mitosis_rank`` say where
+    a mitotic figure lands in a ranking of every ordinary nucleus in the ROI -- compare
+    them against ``K`` to see how far short the ranking falls. The two used to be
+    conflated: ``(1 - AUC) * n`` is an expectation, and was reported under the name
+    "median".
 
     A local max over a +-``pad`` window is taken rather than the exact centre pixel, since
     the annotated click need not sit on the correlation peak.
     """
     cfg = cfg or fs.FSConfig()
-    rng = np.random.default_rng(1) if rng is None else rng
-    path = f"{images_dir}/{file_name}"
+    row = _probe_variants(file_name, annotations, seed_ann_id, [("default", cfg)],
+                          images_dir, n_random, pad, rng)[0]
+    row.pop("variant")
+    row.pop("n_templates")
+    return row
 
-    rgb = ds.load_roi(path)
-    img = ch.to_channel(rgb, cfg.channel)
-    gt = ds.image_annotations(annotations, file_name)
-    seed = gt[gt["ann_id"] == seed_ann_id].iloc[0]
-    gt_eval = gt[gt["ann_id"] != seed_ann_id]
-    mit = gt_eval[gt_eval["category_id"] == ds.MITOTIC]
-    look = gt_eval[gt_eval["category_id"] == ds.LOOKALIKE]
 
-    patch = tm.read_padded_patch(img, seed["cx"], seed["cy"], cfg.patch_size)
-    templates, _ = tm.build_augmentations(patch, cfg.base_size, cfg.scales, cfg.n_angles, cfg.flips)
-    fused, _, valid = tm.fused_response(img, templates, cfg.scale_normalize)
-    fused = np.where(valid, fused, -1e9)
+# The fusion comparison behind FSConfig.scales defaulting to a single 51 px template.
+FUSION_VARIANTS = [
+    ("fused_max_multiscale", dict(scales=(0.6, 0.8, 1.0), scale_normalize=False)),
+    ("fused_z_normalised", dict(scales=(0.6, 0.8, 1.0), scale_normalize=True)),
+    ("scale_1.0_only", dict(scales=(1.0,), scale_normalize=False)),
+    ("scale_0.6_only", dict(scales=(0.6,), scale_normalize=False)),
+]
 
-    mask = bl.tissue_mask(rgb)
-    blobs = bl.nucleus_blobs(rgb, mask)
-    rand = bl.random_in_tissue(mask, n_random, rng)
 
-    def peaks(xs, ys):
-        return np.array([
-            fused[max(0, int(round(y)) - pad): int(round(y)) + pad + 1,
-                  max(0, int(round(x)) - pad): int(round(x)) + pad + 1].max()
-            for x, y in zip(xs, ys)
-        ])
+def fusion_variants(file_names, annotations, seed_ann_ids, images_dir="images", cfg=None,
+                    variants=None, n_random=3000, pad=5, rng=None) -> pd.DataFrame:
+    """Compare response-map fusion strategies on the same images and reference nuclei.
 
-    s_mit, s_look = peaks(mit["cx"], mit["cy"]), peaks(look["cx"], look["cy"])
-    s_nuc, s_rnd = peaks(blobs["cx"], blobs["cy"]), peaks(rand["cx"], rand["cy"])
-    s_seed = float(peaks([seed["cx"]], [seed["cy"]])[0])
-    auc = lambda s: float(np.mean([(s_nuc < v).mean() for v in s])) if len(s) else float("nan")
-    auc_mit = auc(s_mit)
+    This is the evidence for `FSConfig.scales` defaulting to a single 51 px template, and
+    it belongs in the notebook rather than in a comment: the conclusion is not the same on
+    every image, and a table showing only one of them reads as more settled than it is.
 
-    del rgb, img, fused, valid  # ~150 MB each; everything needed is already sampled
-    return {
-        "file_name": file_name,
-        "n_mitotic": len(mit), "n_nuclei": len(blobs),
-        "mitotic_base_rate_pct": round(100 * len(mit) / max(len(blobs), 1), 3),
-        "seed_self_score": round(s_seed, 4),
-        "median_score_mitotic": round(float(np.median(s_mit)), 4),
-        "median_score_lookalike": round(float(np.median(s_look)), 4),
-        "median_score_nucleus": round(float(np.median(s_nuc)), 4),
-        "median_score_random": round(float(np.median(s_rnd)), 4),
-        "p90_mitotic": round(float(np.percentile(s_mit, 90)), 4),
-        "p99.9_nucleus": round(float(np.percentile(s_nuc, 99.9)), 4),
-        "auc_mitosis_vs_nucleus": round(auc_mit, 3),
-        "auc_lookalike_vs_nucleus": round(auc(s_look), 3),
-        "median_mitosis_rank": int((1 - auc_mit) * len(blobs)),
-        "K": len(mit),
-    }
+    ``discrimination`` (mitosis-vs-nucleus AUC minus look-alike-vs-nucleus AUC) is
+    reported alongside, because it -- not the raw AUC the default was chosen on -- is the
+    quantity the experiment's central claim turns on.
+    """
+    from dataclasses import replace
+
+    base = cfg or fs.FSConfig()
+    variants = FUSION_VARIANTS if variants is None else variants
+    named = [(name, replace(base, **kw)) for name, kw in variants]
+    rows = []
+    for fn, ann_id in zip(file_names, seed_ann_ids):
+        rows.extend(_probe_variants(fn, annotations, int(ann_id), named,
+                                    images_dir, n_random, pad, rng))
+    return pd.DataFrame(rows)

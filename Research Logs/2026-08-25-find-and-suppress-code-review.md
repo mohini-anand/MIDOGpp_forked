@@ -1,3 +1,9 @@
+> **RESOLVED — 2026-08-27.** Every finding below has been fixed, the experiment re-run,
+> and the result recorded in `2026-08-27-find-and-suppress-corrected-rerun.md`. Fixes are
+> verified by `verify_fixes.py` (42 checks). Per-finding status is at the foot of this file.
+>
+> **One finding in this review is wrong, and it is §4a.** The correction is inline there.
+
 # Code review: `find_and_suppress_midog.ipynb` + `midog_utils/`
 
 Date: 2026-08-25
@@ -128,8 +134,20 @@ element — the wrong operation to apply before a nucleus detector.
 
 ## 4. Narrative that the saved results contradict
 
-**4a. "The single 51 px template wins outright"** (cell 7). `results/fs_fusion_variants.csv`
-holds a second image the cell never shows, and on it the rejected variant wins:
+**4a. "The single 51 px template wins outright"** (cell 7).
+
+> **This finding did not survive the fixes — the CSV I checked against was itself wrong.**
+> Its AUCs came from `score_probe`, which capped the nucleus population at 20 000, left the
+> annotated mitoses and look-alikes inside that population, and scored ties as losses
+> (§2, §5). Recomputed correctly, `scale_1.0_only` wins AUC *and* median rank on **both**
+> images — 0.953/0.879 and ranks 85/1103 — so the notebook's claim was better supported than
+> this review concluded. What survives is the narrower point: the cell showed one image and
+> never displayed the CSV, the margin on 246.tiff is 0.002 in AUC, and `discrimination`
+> still prefers `fused_z_normalised` on 002.tiff. The notebook now regenerates and displays
+> the whole table. Full numbers in the corrected-run log.
+
+The original (now-superseded) observation was that the CSV held a second image the cell
+never shows, and that on it the rejected variant won:
 
 | 246.tiff | AUC mitosis | median mitosis rank |
 |---|---:|---:|
@@ -287,3 +305,33 @@ Worth stating, because it is most of the code and it is what makes the rest cred
    docstring says.
 5. §4 — correct the four narrative claims; show `fs_fusion_variants.csv` in the notebook.
 6. §6b — advance the RNG across images before the multi-seed sweep.
+
+
+---
+
+## Resolution status (2026-08-27)
+
+| § | finding | fix | evidence |
+|---|---|---|---|
+| 1a | `recall_by_agreement` un-budgeted | `k` parameter, mirrors `lookalike_attraction_rate` | table now varies (0.104/0.074, 0.030/0.125) instead of all 1.0 |
+| 1 | coverage saturation invisible | `evaluate.coverage_fraction`, reported per method | 0.876–0.948, printed beside every full-list number |
+| 1b | NMS radius below match radius | derived per image from µm/px | verified: no surviving pair closer than the radius |
+| 1c | `all_*` framed as a "natural operating point" | docstrings and cells 20/22 rewritten | — |
+| 2 | blob cap at 20 000 | uncapped; `budget_delivered` recorded | 20 370 and 21 059 now delivered — the cap was binding |
+| 3 | `tissue_mask` splitting tissue, not glass | fixed cut at gray 220, opening dropped | 0.78–1.00 fraction; **0 of 690 mitotic GT excluded across all 14 ROIs** |
+| 4a | "wins outright" | **finding was wrong** — see the inline correction | table regenerated and displayed in the notebook |
+| 4b | criterion mismatch | `discrimination` column shown; disagreement stated | holds: criteria differ on 002.tiff |
+| 4c | "72 correlations, ~2 min" | corrected to 24 augmentations, 26–47 s | measured |
+| 4d | "27 px (245.tiff)" | corrected to 26.2 px (403.tiff); vacuity of the check stated | measured |
+| 4e | "top 0.1% ≈ K" | stated per image; **and the underlying p90/p99.9 claim reversed** on 002.tiff once the nucleus set was cleaned | see corrected-run log |
+| 5 | `// 2`, `max_score`, dead `threshold_metrics`, `pick_seed` border, mean-vs-median, `groupby().first()` | all fixed | unit-tested individually |
+| 6a | ROI selection optimistic | documented in `select_domain_images` | — |
+| 6b | seeds one fixed quantile | per-image RNG stream | quantiles now 0.21–0.89, previously 0.75–0.85 |
+| 7 | environment unrecorded | `requirements-midog-utils.txt` | — |
+| — | `viz.overlay` circle radius was the constant 4 | drawn at the match radius | not in the original plan; flagged when applied |
+
+**Two conclusions reversed under the corrected code** — §4a (the fusion comparison) and the
+`p99.9_nucleus > p90_mitotic` claim behind §4e. Both had the same root cause: a contaminated,
+truncated nucleus population feeding the response-map statistics. That is the strongest
+argument the exercise produced for regenerating stored comparison tables from fixed code
+rather than citing them.

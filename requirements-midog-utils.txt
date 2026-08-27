@@ -1,0 +1,24 @@
+# Environment for `midog_utils/` and `find_and_suppress_midog.ipynb`.
+#
+# This is NOT requirements.txt. That file pins the fastai/SlideRunner training stack for
+# the MIDOG++ reference pipeline; `midog_utils` deliberately imports none of it, so the
+# two environments are separate and this one is much smaller.
+#
+# The pin that actually matters is **numpy < 2**. The opencv wheel in use was built
+# against the numpy 1.x C API, so under numpy 2.x `import cv2` fails with
+# `AttributeError: _ARRAY_API not found`, and `tifffile`'s LZW path -- needed to read the
+# pyramidal 505.tiff / 506.tiff -- fails the same way through `imagecodecs`. Either hold
+# numpy below 2 or install an opencv wheel built for numpy 2; do not mix.
+#
+# Verified working on Python 3.11.5 (an Anaconda install), which is the interpreter the
+# notebook's recorded outputs were produced with. Check yours with:
+#     python -c "import numpy, cv2; print(numpy.__version__, cv2.__version__)"
+
+numpy==1.26.4
+opencv-python==4.8.1
+scikit-image==0.24.0
+scikit-learn==1.5.1
+scipy==1.13.1
+tifffile==2023.4.12
+pandas==2.2.2
+matplotlib==3.9.2

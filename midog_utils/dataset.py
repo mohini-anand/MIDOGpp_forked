@@ -65,6 +65,13 @@ def load_annotations(json_path="databases/MIDOG++.json", drop_unannotated=True):
     ``unanimous`` marks annotations every expert scored the same way -- useful for
     splitting recall into "missed an obvious mitosis" vs "missed one the pathologists
     themselves argued about".
+
+    Worth knowing before treating ``unanimous`` as independent information: category-1
+    annotations carry only two label multisets in the whole dataset, ``(1, 1)`` x8917 and
+    ``(1, 1, 2)`` x3020. So for mitotic figures ``unanimous`` is *exactly* equivalent to
+    ``n_votes == 2`` -- a clean proxy for "did this need a third reader", but not a signal
+    separate from the vote count. Category 2 is less tidy: ``(2, 2)`` x8810,
+    ``(2, 2, 2)`` x3044, ``(1, 2, 2)`` x2495.
     """
     raw = json.loads(Path(json_path).read_text())
 

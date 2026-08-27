@@ -12,8 +12,17 @@ from .evaluate import FP_LOOKALIKE, FP_UNANNOTATED, TP
 BUCKET_COLORS = {TP: "#00c853", FP_LOOKALIKE: "#ff9100", FP_UNANNOTATED: "#2979ff"}
 
 
-def overlay(rgb, gt, detections, seed_xy=None, ax=None, downsample=4, title="", top_n=None):
-    """Ground truth (red = mitotic, yellow = look-alike) with detections coloured by bucket."""
+def overlay(rgb, gt, detections, seed_xy=None, ax=None, downsample=4, title="", top_n=None,
+            radius=None):
+    """Ground truth (red = mitotic, yellow = look-alike) with detections coloured by bucket.
+
+    ``radius`` is the evaluation match radius in full-resolution pixels; each detection is
+    drawn as a circle of exactly that radius, so what the picture shows is what the scorer
+    counts as a hit. The previous fixed radius was written ``8 * s * downsample / 2``, which
+    algebraically collapses to the constant 4 in display units regardless of ``downsample``
+    -- roughly half the match radius, so detections looked further from the ground truth
+    than the scorer considered them.
+    """
     if ax is None:
         _, ax = plt.subplots(figsize=(14, 10))
 
@@ -33,9 +42,10 @@ def overlay(rgb, gt, detections, seed_xy=None, ax=None, downsample=4, title="", 
         )
 
     det = detections if top_n is None else detections.head(top_n)
+    r_disp = (BOX_SIZE / 2 if radius is None else float(radius)) * s
     for _, d in det.iterrows():
         color = BUCKET_COLORS.get(d.get("bucket", FP_UNANNOTATED), "#2979ff")
-        ax.add_patch(Circle((d["cx"] * s, d["cy"] * s), radius=8 * s * downsample / 2,
+        ax.add_patch(Circle((d["cx"] * s, d["cy"] * s), radius=r_disp,
                             fill=False, edgecolor=color, linewidth=0.7))
 
     if seed_xy is not None:

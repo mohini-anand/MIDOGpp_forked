@@ -8,10 +8,13 @@ Three deliberate departures from `bbox tuning code reference/bbox_tuning.py`:
    collapses them to one, and the rotation search silently does nothing. That is fatal
    here -- mitotic figures have no canonical orientation.
 
-2. **Pad, then rotate, then centre-crop.** A 73x73 patch is read from the ROI
-   (ceil(51*sqrt(2)) = 73 is every pixel an arbitrary rotation of the inner 51x51 can
-   draw on), rotated, then cropped back to 51x51. No padded corners enter the
-   correlation and no box content is thrown away.
+2. **Pad, then rotate, then centre-crop.** A 73x73 patch is read from the ROI, rotated,
+   then cropped back to 51x51. No replicated border pixels enter the correlation and no
+   box content is thrown away. The bound that makes that true: the far corner of the
+   inner 51x51 sits 25*sqrt(2) = 35.36 px from the centre, and the patch reaches 36 px,
+   so every source pixel an arbitrary rotation needs is real. (73 is chosen as
+   ceil(51*sqrt(2)), which is a looser argument for the same conclusion -- it bounds the
+   patch's own diagonal rather than the inner square's.)
 
 3. **One fused response map.** The per-augmentation maps are combined by element-wise
    maximum in a common *centre* coordinate frame and peaks are picked once, instead of

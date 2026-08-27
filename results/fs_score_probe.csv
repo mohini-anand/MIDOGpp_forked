@@ -1,3 +1,3 @@
-file_name,n_mitotic,n_nuclei,mitotic_base_rate_pct,seed_self_score,median_score_mitotic,median_score_lookalike,median_score_nucleus,median_score_random,p90_mitotic,p99.9_nucleus,auc_mitosis_vs_nucleus,auc_lookalike_vs_nucleus,median_mitosis_rank,K
-002.tiff,8,8604,0.093,1.0,0.7558,0.7101,0.4911,0.308,0.7882,0.789,0.94,0.904,518,8
-246.tiff,115,20000,0.575,1.0,0.5064,0.4475,0.3205,0.2755,0.6482,0.6667,0.853,0.792,2933,115
+file_name,n_mitotic,n_nuclei_all_blobs,n_nuclei,mitotic_base_rate_pct,seed_self_score,median_score_mitotic,median_score_lookalike,median_score_nucleus,median_score_random,p90_mitotic,p99.9_nucleus,auc_mitosis_vs_nucleus,auc_lookalike_vs_nucleus,discrimination,mean_mitosis_rank,median_mitosis_rank,K
+002.tiff,8,8814,8796,0.091,1.0,0.6036,0.5372,0.4143,0.3393,0.664,0.6514,0.953,0.863,0.089,418,85,8
+246.tiff,115,21059,20609,0.546,1.0,0.4511,0.4113,0.3121,0.2767,0.5168,0.556,0.879,0.799,0.08,2496,1103,115

@@ -1,3 +1,14 @@
+> **SUPERSEDED — 2026-08-27.** The numbers in this log come from a run whose evaluation
+> layer carried five bugs, all of them catalogued in the "known issues" section at the
+> foot of this file. Those are now fixed and the experiment re-run; see
+> `2026-08-27-find-and-suppress-corrected-rerun.md` for the current numbers and
+> `2026-08-25-find-and-suppress-code-review.md` for the full audit.
+>
+> Kept as-is because the reasoning, the port rationale, and the reference-code bug
+> catalogue are all still correct — only the measured values changed. **Do not quote
+> figures from this file.** One conclusion actually reverses under the corrected code
+> (the fusion comparison; see §4a of the review log).
+
 # `find_and_suppress` on MIDOG++: single-pass, one seed per domain
 
 Date: 2026-08-25
