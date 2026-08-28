@@ -134,3 +134,6 @@ dmypy.json
 # MIDOG++ ROI images: ~150 MB each, fetched via Setup.ipynb
 images/*.tiff
 .DS_Store
+
+# Microsoft Office lock files (created while a .pptx/.docx/.xlsx is open)
+~$*
