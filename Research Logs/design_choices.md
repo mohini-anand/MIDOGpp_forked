@@ -496,6 +496,65 @@ binary-Otsu tightening, same three channels. Notebook:
   is wanted at all, a per-image quantile of that ROI's own peak distribution would be a
   consistent operating point; a constant is not.
 
+## 10. Reference NMS ordering (keep the right-most box) — tested, NOT adopted
+
+`bbox tuning code reference/bbox_tuning.py:483` (`nms_with_area`) resolves an overlapping
+cluster by keeping whichever box sits **furthest right**: the frame is sorted by
+`['humanMade', 'nms applied', 'x top left', 'y top left']` (bbox_tuning.py:785), the loop
+takes `last` — the largest `x top left` — and suppresses the smaller-x members. The match
+score is never consulted, and the column is dropped entirely at bbox_tuning.py:798.
+`midog_utils/nms.py` instead walks in descending score order. Measured what that choice is
+worth. Script: `nms_ordering_probe.py`; results in `results/fs_nms_ordering_metrics.csv`
+and `results/fs_nms_ordering_tp_flips.csv`.
+
+- **Method.** Same fused correlation map, same extracted peaks, same suppression radius
+  (each image's evaluation match radius, 29.6–33.1 px), same self-hit removal; *only* the
+  order the greedy loop walks in changes. The suppression criterion stays the distance
+  test in both arms — changing the geometry too would confound ordering with criterion.
+  Survivors are ranked by score in both arms so every metric stays well defined; this
+  charges the reference rule only for picking the wrong cluster representative. RGB,
+  `score_threshold=0.5`, `seed=0`, all seven ROIs.
+- **Result: no measurable difference.** Mean `recall@K` 0.1114 (score-ordered) vs 0.1141
+  (x-ordered). Six of seven images are identical on every metric and show **zero** TP
+  flips in either direction. All movement is on 301.tiff, the densest ROI (218 mitotic in
+  2 mm²): 0.304 → 0.323, from 6 flips (1 TP lost, 5 gained) out of 13,415 detections.
+  Whether that is noise or a real geometric effect cannot be told from one dense image.
+  There *is* a candidate mechanism: the minimum spacing between two MIDOG++ annotations is
+  26.2 px (403.tiff; 245.tiff is 26.6), *below* the ~30 px NMS-and-match radius
+  (`find_and_suppress.py`'s module docstring), so where two GT sit that close one detection
+  can cover only one of them and which of the pair is covered depends on the tiling the
+  suppression produces. Score-NMS tiles greedily outward from the global maximum; x-NMS
+  tiles as a right-to-left sweep. Nothing says the former covers closely-spaced GT better.
+  That the only ROI to move is the densest one is consistent with this — and with noise.
+  Distinguishing them needs more seeds and more dense ROIs; **the decision below does not
+  rest on this null.**
+- **Why the effect is so small — NMS is nearly inert here.** Peaks before vs after
+  suppression: 16236→13353, 129→127, 6→5, 4669→4479, 4030→3621, 2159→2067, 2009→1940.
+  Only 3–18% of peaks are ever in a contested cluster, because `peak_min_distance=7`'s
+  grey dilation has already thinned the map and the surviving local maxima above the 0.5
+  floor are mostly further apart than the ~30 px NMS radius. An ordering rule can only
+  matter where clusters exist, and here they barely do. Under the x rule 0.8–12% of
+  survivors are not the highest-scoring peak within their own radius (vs 0–1.5% under the
+  score rule), displaced by a median 11–27 px — real, but too rare to move a metric.
+- **The cost is structural, not statistical, and is not what the above measures.** The
+  reference does not merely choose survivors by position; it emits them **in x order with
+  no score** (bbox_tuning.py:798). `recall@K`, FROC and `sens@Xfp` all consume a ranked
+  list, so applying them to an x-ordered one is not a worse number but a different
+  question — the entire evaluation of this pipeline would become undefined. Greedy NMS's
+  correctness argument also depends on descending-score order: it is exactly the property
+  that makes section 9's threshold result exact (a peak ≥ t can only be suppressed by a
+  higher-scoring peak). Order by x and a low-scoring peak can delete a cluster's best
+  peak purely for sitting further right.
+- **Why the reference gets away with it.** Its consumer is a particle tracker that wants
+  *a* box per object per frame, not a ranked candidate list; positional order is
+  harmless, arguably convenient, there. This pipeline's contract is different.
+- **Decision: keep score-ordered NMS.** Not because the positional rule was measured to
+  hurt — it was not — but because it buys nothing measurable while removing the ranking
+  every metric here is built on. Scope of the null: RGB only, one threshold, one seed per
+  image; it says the ordering does not matter *at this operating point*, where NMS itself
+  barely binds — not that it could never matter in a denser regime, and the 301.tiff row
+  is the reason to say so explicitly.
+
 ## Known limitation none of this addresses
 
 Mitotic figures are 0.09–1.1% of nuclei in a 2 mm² ROI; at an AUC of 0.94 (002.tiff,

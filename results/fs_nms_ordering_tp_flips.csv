@@ -1,0 +1,8 @@
+file_name,tumor_type,K,tp_score_nms,tp_x_nms,lost_by_x_nms,gained_by_x_nms
+301.tiff,canine cutaneous mast cell tumor,217,66,70,1,5
+201.tiff,canine lung cancer,17,2,2,0,0
+246.tiff,canine lymphosarcoma,115,2,2,0,0
+405.tiff,canine soft tissue sarcoma,13,0,0,0,0
+002.tiff,human breast cancer,8,2,2,0,0
+506.tiff,human melanoma,11,1,1,0,0
+350.tiff,human neuroendocrine tumor,3,0,0,0,0
