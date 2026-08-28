@@ -158,7 +158,7 @@ def fused_response(img: np.ndarray, templates, scale_normalize: bool = False):
     valid = np.zeros((h, w), dtype=bool)
 
     for i, tmpl in enumerate(templates):
-        th, tw = tmpl.shape
+        th, tw = tmpl.shape[:2]  # [:2]: also correct for a 3-channel (RGB) template
         res = cv2.matchTemplate(img, tmpl, cv2.TM_CCOEFF_NORMED)
         # Uniform windows (saturated white background) give zero variance and NaN here.
         np.nan_to_num(res, copy=False, nan=-2.0, posinf=-2.0, neginf=-2.0)
@@ -176,7 +176,7 @@ def fused_response(img: np.ndarray, templates, scale_normalize: bool = False):
     return fused, best, valid
 
 
-def extract_peaks(fused, valid, min_distance=7, score_threshold=0.25, max_peaks=20000):
+def extract_peaks(fused, valid, min_distance=7, score_threshold=0.5, max_peaks=20000):
     """Local maxima of the fused map, returned best-first.
 
     A grey dilation is used rather than `skimage.feature.peak_local_max` for speed on a

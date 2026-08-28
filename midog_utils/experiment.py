@@ -18,11 +18,14 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
+from dataclasses import replace
+
 from . import baselines as bl
 from . import channels as ch
 from . import dataset as ds
 from . import evaluate as ev
 from . import find_and_suppress as fs
+from . import seed_selection as ss
 from . import template_match as tm
 
 
@@ -88,8 +91,27 @@ def run_one_image(
     cfg: fs.FSConfig = None,
     rng=None,
     run_baselines=True,
+    bbox_method: str = "binary",
+    bbox_center_tolerance: int = 0,
+    tighten_bbox: bool = True,
 ) -> dict:
-    """Full pipeline + baselines for one ROI. Returns everything needed to plot or re-score."""
+    """Full pipeline + baselines for one ROI. Returns everything needed to plot or re-score.
+
+    ``bbox_method`` selects `seed_selection.tighten_box_otsu`'s foreground threshold --
+    ``"binary"`` (default, unchanged pipeline behaviour) or ``"multiotsu"`` (`Research
+    Logs/design_choices.md`, section 7). ``bbox_center_tolerance`` (default 0, unchanged)
+    widens the centre-pixel check to a small neighbourhood -- see `tighten_box_otsu`'s
+    ``center_tolerance``, section 7's tolerance follow-up. Both are passed identically to
+    `pick_seed` and `tightened_base_size` so the seed a given setting accepts is
+    retightened under that same setting, not a different one.
+
+    ``tighten_bbox`` (default True, unchanged) toggles Otsu/CC bbox tightening off
+    entirely -- when False, seed selection is pathologist agreement + the border filter
+    only (`bbox_method`/``bbox_center_tolerance`` are then unused, since there's no
+    Otsu/CC step left to configure), and the template keeps ``cfg.base_size``'s native
+    size (`FSConfig`'s own default, `template_match.BASE_SIZE` = 51px) instead of being
+    resized to a tightened box. See `Research Logs/design_choices.md`, section 8.
+    """
     cfg = cfg or fs.FSConfig()
     rng = np.random.default_rng(0) if rng is None else rng
     path = f"{images_dir}/{file_name}"
@@ -100,22 +122,50 @@ def run_one_image(
     radius = ev.radius_px(mpp)
 
     gt = ds.image_annotations(annotations, file_name)
-    seed = pick_seed(gt[gt["category_id"] == ds.MITOTIC], rng, cfg.patch_size // 2, rgb.shape)
+    # The structural channel for seed selection (pathologist agreement + Otsu/CC bbox
+    # tightening) is always gray_inverted, independent of `cfg.channel` -- it is a test
+    # of where the click sits, not a matching score. See seed_selection.py.
+    gray_inv = ch.to_gray_inverted(rgb)
+    seed, seed_info = ss.pick_seed(
+        gt[gt["category_id"] == ds.MITOTIC], gray_inv, rng, cfg.patch_size // 2, rgb.shape,
+        method=bbox_method, center_tolerance=bbox_center_tolerance, tighten_bbox=tighten_bbox,
+    )
     gt_eval = gt[gt["ann_id"] != seed["ann_id"]].reset_index(drop=True)
 
-    img = ch.to_channel(rgb, cfg.channel)
+    if tighten_bbox:
+        # The template's native size after bbox tightening, replacing cfg.base_size's
+        # fixed 51 px default. `pick_seed`'s foreground filter already guarantees this
+        # seed's component passes the size/shape sanity check, so this cannot return
+        # None here.
+        tightened_size = ss.tightened_base_size(gray_inv, seed["cx"], seed["cy"], method=bbox_method,
+                                                center_tolerance=bbox_center_tolerance)
+        run_cfg = replace(cfg, base_size=tightened_size)
+    else:
+        # No tightening requested: keep cfg.base_size as-is (51px by default) and skip
+        # the Otsu/CC step entirely -- `tightened_base_size` is never called.
+        tightened_size = cfg.base_size
+        run_cfg = cfg
+
+    img = ch.to_channel(rgb, run_cfg.channel)
     t0 = time.time()
     # Suppress at the same radius the scoring uses, so one true object cannot be counted
     # as a hit and a duplicate false positive at the same time.
-    det, info = fs.find_and_suppress(img, (seed["cx"], seed["cy"]), cfg, nms_radius=radius)
+    det, info = fs.find_and_suppress(img, (seed["cx"], seed["cy"]), run_cfg, nms_radius=radius)
     info["t_total_s"] = round(time.time() - t0, 1)
 
     det_out, gt_out, metrics, curve = ev.evaluate_run(
         det, gt_eval, radius, area_mm2, roi_shape=rgb.shape
     )
     metrics = {"file_name": file_name, "method": "find_and_suppress",
-               "seed_ann_id": int(seed["ann_id"]), "channel": cfg.channel,
-               "mpp": round(mpp, 4), **metrics, **info}
+               "seed_ann_id": int(seed["ann_id"]), "channel": run_cfg.channel,
+               "mpp": round(mpp, 4), "tightened_base_size": tightened_size,
+               "bbox_method": bbox_method, "bbox_center_tolerance": bbox_center_tolerance,
+               "tighten_bbox": tighten_bbox,
+               "seed_agreement_flagged": seed_info.agreement_flagged,
+               "seed_n_agreement_pool": seed_info.n_agreement_pool,
+               "seed_n_after_border": seed_info.n_after_border,
+               "seed_n_after_foreground": seed_info.n_after_foreground,
+               **metrics, **info}
 
     out = {
         "file_name": file_name,
@@ -189,6 +239,9 @@ def run_experiment(
     run_baselines=True,
     keep_images=False,
     verbose=True,
+    bbox_method: str = "binary",
+    bbox_center_tolerance: int = 0,
+    tighten_bbox: bool = True,
 ):
     """Loop `run_one_image` over the selected ROIs.
 
@@ -201,6 +254,9 @@ def run_experiment(
     every eligible list (it picked the ~80th percentile of all seven). That is one fixed
     quantile repeated, not seven independent draws, and a multi-seed sweep built on it
     would repeat the same quantile sequence for every seed.
+
+    ``bbox_method``, ``bbox_center_tolerance``, and ``tighten_bbox`` are passed straight
+    through to every `run_one_image` call -- see that function's docstring.
     """
     cfg = cfg or fs.FSConfig()
     results, metric_rows, detection_rows = {}, [], []
@@ -214,6 +270,8 @@ def run_experiment(
             fn, annotations, images_dir, cfg,
             rng=np.random.default_rng([seed, int(row["image_id"])]),
             run_baselines=run_baselines,
+            bbox_method=bbox_method, bbox_center_tolerance=bbox_center_tolerance,
+            tighten_bbox=tighten_bbox,
         )
         for m in res["metrics"]:
             m["tumor_type"] = row["tumor_type"]
@@ -472,10 +530,47 @@ def fusion_variants(file_names, annotations, seed_ann_ids, images_dir="images", 
     reported alongside, because it -- not the raw AUC the default was chosen on -- is the
     quantity the experiment's central claim turns on.
     """
-    from dataclasses import replace
-
     base = cfg or fs.FSConfig()
     variants = FUSION_VARIANTS if variants is None else variants
+    named = [(name, replace(base, **kw)) for name, kw in variants]
+    rows = []
+    for fn, ann_id in zip(file_names, seed_ann_ids):
+        rows.extend(_probe_variants(fn, annotations, int(ann_id), named,
+                                    images_dir, n_random, pad, rng))
+    return pd.DataFrame(rows)
+
+
+# The augmentation-footprint comparison from `Research Logs/design_choices.md`, section
+# 4 -- deliberately not the 72-template (12 angles x 2 flips x 3 scales) grid `plant_and
+# _recover`'s coordinate gate uses; that grid was already measured and rejected on the
+# scale axis alone (see FUSION_VARIANTS above). `n_angles=4` gives exactly the angles
+# {0, 90, 180, 270} (`build_augmentations` computes `angle = 360 * k / n_angles`), so no
+# change to `template_match.py` was needed for either variant below.
+#
+# `no_augmentation` is also `FSConfig`'s own default as of section 6 -- listed here
+# explicitly anyway (rather than left implicit in `base`) so this comparison keeps
+# working regardless of what the pipeline default happens to be later.
+AUGMENTATION_VARIANTS = [
+    ("no_augmentation", dict(n_angles=1, flips=(False,))),
+    ("angles12_flips2", dict(n_angles=12, flips=(False, True))),
+    ("rot90_4angles_2flips", dict(n_angles=4, flips=(False, True))),
+]
+
+
+def augmentation_variants(file_names, annotations, seed_ann_ids, images_dir="images", cfg=None,
+                          variants=None, n_random=3000, pad=5, rng=None) -> pd.DataFrame:
+    """Compare augmentation footprints on the same images and reference nuclei.
+
+    Same machinery as `fusion_variants` (same seed and sampled reference population per
+    image across every variant, so only augmentation count differs) applied to the
+    angle/flip axis instead of scale. Tests the doc's hypothesis: fusing more augmented
+    maps via element-wise max inflates spurious high scores under noise -- the same
+    mechanism the multi-scale fusion comparison rejected -- so `median_score_nucleus` /
+    `p99.9_nucleus` should fall as augmentation count drops, at some cost to
+    `auc_mitosis_vs_nucleus` on off-angle mitoses.
+    """
+    base = cfg or fs.FSConfig()
+    variants = AUGMENTATION_VARIANTS if variants is None else variants
     named = [(name, replace(base, **kw)) for name, kw in variants]
     rows = []
     for fn, ann_id in zip(file_names, seed_ann_ids):

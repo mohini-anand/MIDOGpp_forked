@@ -55,10 +55,22 @@ class FSConfig:
     # TM_CCOEFF_NORMED has a wider null for smaller templates and so the small one wins the
     # max by chance. See results/fs_fusion_variants.csv.
     scales: tuple = (1.0,)
-    n_angles: int = 12
-    flips: tuple = (False, True)
+    # No rotation/flip augmentation by default: the simplest configuration for the next
+    # run, deliberately -- not a claim that it scores better than the previous 12-angle
+    # x 2-flip default. `experiment.AUGMENTATION_VARIANTS` still compares this against
+    # 12 angles x 2 flips and a 4-angle/2-flip middle ground; on the one seed measured
+    # so far (002.tiff ann 17) rot90_4angles_2flips actually had the best discrimination
+    # of the three (0.068), the old 12x2 default second (0.037), and this no-augmentation
+    # default worst (-0.034). See `Research Logs/design_choices.md`, section 6.
+    n_angles: int = 1
+    flips: tuple = (False,)
     peak_min_distance: int = 7
-    score_threshold: float = 0.25
+    # Raised from 0.25: the lower floor let the detection list tile most of the ROI
+    # (coverage_frac 0.88-0.97 in the first single-pass run), at which point full-list
+    # recall stops being evidence about the detector -- see evaluate.py's module
+    # docstring. `evaluate.threshold_sweep`'s default range was trimmed to match.
+    # `Research Logs/design_choices.md`, section 6.
+    score_threshold: float = 0.5
     max_peaks: int = 250000     # above the ~173k theoretical max, so the cap never binds
     # None = "use this image's evaluation match radius", which the caller must supply --
     # see find_and_suppress(). A fixed radius is wrong here: the match radius is derived

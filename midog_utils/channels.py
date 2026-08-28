@@ -36,9 +36,21 @@ def to_hematoxylin(rgb: np.ndarray) -> np.ndarray:
     return (np.clip((h - lo) / (hi - lo), 0.0, 1.0) * 255.0).astype(np.float32)
 
 
+def to_rgb(rgb: np.ndarray) -> np.ndarray:
+    """Raw RGB, unchanged apart from dtype -- the third search-channel variant.
+
+    No stain separation and no inversion, so scanner-specific colour variation enters
+    the match directly (`Research Logs/design_choices.md`, section 3). Requires
+    `template_match.fused_response`'s multi-channel `cv2.matchTemplate` path, which
+    collapses to the single-channel case unchanged when a caller passes a 2-D image.
+    """
+    return rgb.astype(np.float32)
+
+
 CHANNELS = {
     "gray_inverted": to_gray_inverted,
     "hematoxylin": to_hematoxylin,
+    "rgb": to_rgb,
 }
 
 

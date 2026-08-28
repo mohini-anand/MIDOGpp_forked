@@ -13,5 +13,5 @@ training environment in `requirements.txt`.
 
 from . import (  # noqa: F401
     dataset, channels, template_match, nms, find_and_suppress,
-    baselines, evaluate, viz, experiment,
+    baselines, evaluate, viz, experiment, seed_selection,
 )

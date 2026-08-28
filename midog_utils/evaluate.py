@@ -15,12 +15,15 @@ threshold.
 
 The three detection buckets:
 
-``TP``               matched a category-1 GT -- a real mitotic figure found from one click
-``FP_lookalike``     matched a category-2 GT -- a structure a pathologist examined and rejected
-``FP_unannotated``   matched nothing
+``human_correct_label``   matched a category-1 GT -- a real mitotic figure found from one click
+``human_rejected_label``  matched a category-2 GT -- a structure a pathologist examined and rejected
+``non_human_findings``    matched nothing
 
-Both FP buckets are false positives for the mitosis-detection task. The split is a
-diagnostic of *what kind* of mistake the algorithm makes, not a separate metric family.
+Both of the latter two are false positives for the mitosis-detection task. The split is
+a diagnostic of *what kind* of mistake the algorithm makes, not a separate metric
+family. (Renamed from the original `TP`/`FP_lookalike`/`FP_unannotated` -- see
+`Research Logs/design_choices.md`, section 5; the underlying TP/FP counting logic below
+is unchanged, only these three label strings and their names.)
 
 **Read ``coverage_frac`` before reading any full-list number.** A detection list long
 enough to tile the ROI answers "is this annotation within the match radius of some
@@ -38,9 +41,9 @@ from sklearn.neighbors import KDTree
 
 from .dataset import LOOKALIKE, MITOTIC
 
-TP = "TP"
-FP_LOOKALIKE = "FP_lookalike"
-FP_UNANNOTATED = "FP_unannotated"
+HUMAN_CORRECT_LABEL = "human_correct_label"
+HUMAN_REJECTED_LABEL = "human_rejected_label"
+NON_HUMAN_FINDINGS = "non_human_findings"
 
 # MIDOG's own operating point: evaluation.py calls score_detection(radius=7.5E-3), in
 # millimetres. Converted per image via that ROI's microns-per-pixel.
@@ -119,11 +122,11 @@ def bucket_detections(detections: pd.DataFrame, gt: pd.DataFrame, radius: float)
     buckets, matched_ann, matched_cls = [], [], []
     for g in det_to_gt:
         if g < 0:
-            buckets.append(FP_UNANNOTATED)
+            buckets.append(NON_HUMAN_FINDINGS)
             matched_ann.append(-1)
             matched_cls.append(0)
         else:
-            buckets.append(TP if gt_cls[g] == MITOTIC else FP_LOOKALIKE)
+            buckets.append(HUMAN_CORRECT_LABEL if gt_cls[g] == MITOTIC else HUMAN_REJECTED_LABEL)
             matched_ann.append(int(gt_ann[g]))
             matched_cls.append(int(gt_cls[g]))
 
@@ -150,7 +153,7 @@ def recall_at_k(det_buckets, n_gt_mitotic: int, k: int = None) -> float:
         return float("nan")
     k = n_gt_mitotic if k is None else k
     top = np.asarray(det_buckets)[:k]
-    return float(np.sum(top == TP) / n_gt_mitotic)
+    return float(np.sum(top == HUMAN_CORRECT_LABEL) / n_gt_mitotic)
 
 
 def froc(det_buckets, n_gt_mitotic: int, area_mm2: float):
@@ -158,8 +161,8 @@ def froc(det_buckets, n_gt_mitotic: int, area_mm2: float):
     b = np.asarray(det_buckets)
     if n_gt_mitotic == 0 or len(b) == 0:
         return np.zeros(0), np.zeros(0)
-    tp = np.cumsum(b == TP)
-    fp = np.cumsum(b != TP)  # both FP buckets count against the mitosis task
+    tp = np.cumsum(b == HUMAN_CORRECT_LABEL)
+    fp = np.cumsum(b != HUMAN_CORRECT_LABEL)  # both FP buckets count against the mitosis task
     return fp / area_mm2, tp / n_gt_mitotic
 
 
@@ -206,9 +209,9 @@ def topk_composition(det_out: pd.DataFrame, k: int) -> dict:
     top = det_out.head(k)
     return {
         "k": k,
-        "topk_tp": int((top["bucket"] == TP).sum()),
-        "topk_fp_lookalike": int((top["bucket"] == FP_LOOKALIKE).sum()),
-        "topk_fp_unannotated": int((top["bucket"] == FP_UNANNOTATED).sum()),
+        "topk_tp": int((top["bucket"] == HUMAN_CORRECT_LABEL).sum()),
+        "topk_fp_lookalike": int((top["bucket"] == HUMAN_REJECTED_LABEL).sum()),
+        "topk_fp_unannotated": int((top["bucket"] == NON_HUMAN_FINDINGS).sum()),
     }
 
 
@@ -287,9 +290,9 @@ def full_list_breakdown(det_out: pd.DataFrame, gt_out: pd.DataFrame) -> dict:
     list length, which is the floor they have to beat.
     """
     n = len(det_out)
-    tp = int((det_out["bucket"] == TP).sum())
-    look = int((det_out["bucket"] == FP_LOOKALIKE).sum())
-    un = int((det_out["bucket"] == FP_UNANNOTATED).sum())
+    tp = int((det_out["bucket"] == HUMAN_CORRECT_LABEL).sum())
+    look = int((det_out["bucket"] == HUMAN_REJECTED_LABEL).sum())
+    un = int((det_out["bucket"] == NON_HUMAN_FINDINGS).sum())
     mit_gt = gt_out[gt_out["category_id"] == MITOTIC]
     look_gt = gt_out[gt_out["category_id"] == LOOKALIKE]
     eps = 1e-9
@@ -342,20 +345,25 @@ def evaluate_run(detections, gt_eval, radius, area_mm2, roi_shape=None):
 
 
 def threshold_sweep(det_out: pd.DataFrame, gt_eval: pd.DataFrame,
-                    thresholds=(0.25, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9)) -> pd.DataFrame:
+                    thresholds=(0.5, 0.6, 0.7, 0.8, 0.9)) -> pd.DataFrame:
     """Bucket counts and P/R/F1 as the score cutoff moves.
 
     Included because "all the results that were found" is only well defined relative to the
     score floor the search ran at. This makes that dependence explicit instead of hiding it
     in a config value.
+
+    ``thresholds`` starts at 0.5, matching `FSConfig.score_threshold`'s new floor -- values
+    below it are below the score the search itself now stops reporting at, so sweeping them
+    here would describe detections `find_and_suppress` no longer returns. See
+    `Research Logs/design_choices.md`, section 6.
     """
     n_mit = int((gt_eval["category_id"] == MITOTIC).sum())
     rows = []
     for t in thresholds:
         sel = det_out[det_out["score"] >= t]
-        tp = int((sel["bucket"] == TP).sum())
-        look = int((sel["bucket"] == FP_LOOKALIKE).sum())
-        un = int((sel["bucket"] == FP_UNANNOTATED).sum())
+        tp = int((sel["bucket"] == HUMAN_CORRECT_LABEL).sum())
+        look = int((sel["bucket"] == HUMAN_REJECTED_LABEL).sum())
+        un = int((sel["bucket"] == NON_HUMAN_FINDINGS).sum())
         eps = 1e-9
         rows.append({
             "score_threshold": t, "n_detections": len(sel), "tp": tp,
