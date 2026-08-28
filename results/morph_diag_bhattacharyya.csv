@@ -1,0 +1,8 @@
+tumor_type,n_mitotic,n_lookalike,n_ordinary_nucleus,area__vs_nucleus,area__vs_lookalike,solidity__vs_nucleus,solidity__vs_lookalike,eccentricity__vs_nucleus,eccentricity__vs_lookalike,elongation__vs_nucleus,elongation__vs_lookalike,extent__vs_nucleus,extent__vs_lookalike,mean_intensity__vs_nucleus,mean_intensity__vs_lookalike,tightened_size__vs_nucleus,tightened_size__vs_lookalike
+canine cutaneous mast cell tumor,305,153,482,0.232,0.052,0.191,0.057,0.03,0.058,0.014,0.048,0.097,0.036,1.376,0.192,0.27,0.108
+canine lung cancer,30,73,426,0.251,0.122,0.696,0.169,0.117,0.154,0.056,0.138,0.393,0.21,2.139,0.332,0.491,0.209
+canine lymphosarcoma,169,133,425,0.179,0.083,0.149,0.158,0.075,0.086,0.06,0.086,0.109,0.069,1.047,0.161,0.185,0.137
+canine soft tissue sarcoma,13,57,526,0.483,0.636,0.3,0.481,0.409,0.689,0.169,0.591,0.407,0.435,1.178,0.763,0.415,0.971
+human breast cancer,8,10,487,0.539,0.746,0.691,0.534,0.709,1.31,0.159,2.191,0.499,0.963,2.046,1.498,0.748,1.092
+human melanoma,14,14,491,0.207,0.603,0.477,1.054,0.403,1.001,0.111,0.718,0.284,1.758,0.925,0.693,0.556,0.509
+human neuroendocrine tumor,7,55,470,0.711,0.658,1.051,0.722,0.685,0.813,0.11,0.791,0.669,0.863,3.703,1.258,0.595,0.68

@@ -1,0 +1,43 @@
+file_name,tumor_type,klass,n_total,n_segmented
+001.tiff,human breast cancer,mitotic,0,0
+001.tiff,human breast cancer,lookalike,4,4
+001.tiff,human breast cancer,ordinary_nucleus,300,249
+002.tiff,human breast cancer,mitotic,9,8
+002.tiff,human breast cancer,lookalike,7,6
+002.tiff,human breast cancer,ordinary_nucleus,300,238
+201.tiff,canine lung cancer,mitotic,18,15
+201.tiff,canine lung cancer,lookalike,49,48
+201.tiff,canine lung cancer,ordinary_nucleus,300,220
+202.tiff,canine lung cancer,mitotic,16,15
+202.tiff,canine lung cancer,lookalike,28,25
+202.tiff,canine lung cancer,ordinary_nucleus,300,206
+245.tiff,canine lymphosarcoma,mitotic,90,75
+245.tiff,canine lymphosarcoma,lookalike,70,55
+245.tiff,canine lymphosarcoma,ordinary_nucleus,300,256
+246.tiff,canine lymphosarcoma,mitotic,116,94
+246.tiff,canine lymphosarcoma,lookalike,123,78
+246.tiff,canine lymphosarcoma,ordinary_nucleus,300,169
+300.tiff,canine cutaneous mast cell tumor,mitotic,181,143
+300.tiff,canine cutaneous mast cell tumor,lookalike,85,68
+300.tiff,canine cutaneous mast cell tumor,ordinary_nucleus,300,221
+301.tiff,canine cutaneous mast cell tumor,mitotic,218,162
+301.tiff,canine cutaneous mast cell tumor,lookalike,109,85
+301.tiff,canine cutaneous mast cell tumor,ordinary_nucleus,300,261
+350.tiff,human neuroendocrine tumor,mitotic,4,4
+350.tiff,human neuroendocrine tumor,lookalike,16,15
+350.tiff,human neuroendocrine tumor,ordinary_nucleus,300,255
+351.tiff,human neuroendocrine tumor,mitotic,4,3
+351.tiff,human neuroendocrine tumor,lookalike,57,40
+351.tiff,human neuroendocrine tumor,ordinary_nucleus,300,215
+405.tiff,canine soft tissue sarcoma,mitotic,14,10
+405.tiff,canine soft tissue sarcoma,lookalike,19,18
+405.tiff,canine soft tissue sarcoma,ordinary_nucleus,300,279
+406.tiff,canine soft tissue sarcoma,mitotic,6,3
+406.tiff,canine soft tissue sarcoma,lookalike,43,39
+406.tiff,canine soft tissue sarcoma,ordinary_nucleus,300,247
+505.tiff,human melanoma,mitotic,2,2
+505.tiff,human melanoma,lookalike,10,5
+505.tiff,human melanoma,ordinary_nucleus,300,239
+506.tiff,human melanoma,mitotic,12,12
+506.tiff,human melanoma,lookalike,12,9
+506.tiff,human melanoma,ordinary_nucleus,300,252
