@@ -8,7 +8,9 @@
    `template_match._robust_z`) makes one number mean the same thing everywhere.
 
 2. **False positives.** Rank by chromatin density (`chromatin.rerank`) instead of by the
-   correlation score, which is provably blind to it. See `midog_utils/chromatin.py`.
+   correlation score, which ranks it far more weakly (the score still reaches AUC
+   0.61-0.81 on TP-vs-unannotated). "Provably blind" was retracted on 2026-08-31; see
+   `midog_utils/chromatin.py`.
 
 With a single augmentation `_robust_z` is a strictly monotone rescaling of the fused map,
 so the peak set and their order are unchanged and only the *threshold* moves. This script

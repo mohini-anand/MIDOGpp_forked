@@ -1,4 +1,4 @@
-"""Chromatin density: the signal `TM_CCOEFF_NORMED` is mathematically blind to.
+"""Chromatin density: the signal `TM_CCOEFF_NORMED` ranks far more weakly than it could.
 
 `cv2.matchTemplate(..., TM_CCOEFF_NORMED)` mean-centres and L2-normalises *both* the
 template and the window, so it is invariant to ``I -> aI + b``. A pale, low-contrast
@@ -6,10 +6,17 @@ structure with the same spatial pattern as the seed scores identically to a dark
 one -- verified directly: a 30%-contrast copy of a patch scores 0.999999 against the
 original's 1.0.
 
+*Calibrated*: "blind" overstates this and was retracted on 2026-08-31. The invariance is
+exact only inside the 0-255 range -- clipping breaks it, zero-variance white windows score
+0 (a crude brightness gate), and empirically the correlation score still reaches AUC
+0.61-0.81 on TP-vs-unannotated. It is a much weaker ranker than chromatin density, not a
+blind one.
+
 That matters because `results/morph_diag_bhattacharyya.csv` measures ``mean_intensity``
 as the strongest mitotic-vs-ordinary-nucleus feature in **all seven** domains
-(0.93-3.70, against next-best ``solidity`` at 0.15-1.05). The search score therefore
-discards the best available discriminator by construction, which is why every
+(0.93-3.70). ``solidity`` is runner-up in only 2 of the 7 domains, so "next-best
+solidity at 0.15-1.05" -- an earlier version of this line -- was wrong and is retracted.
+The search score therefore under-weights the best available discriminator, which is why every
 operating-point experiment to date (score threshold, template size, channel,
 augmentation count, NMS ordering) came back neutral: none of them added information to
 a ranking function that cannot see the signal.
@@ -108,8 +115,17 @@ def rerank(detections: pd.DataFrame, structural: Optional[np.ndarray] = None,
     and is worse on 405.tiff (0.857 vs 0.864) and 002.tiff (0.921 vs 0.957), despite the
     two being largely independent (Spearman +0.18 to +0.37) -- the correlation score's
     independent contribution is noise with respect to the mitotic/non-mitotic
-    distinction. The search still earns its place as the *candidate generator*; it is
-    only demoted as a ranker.
+    distinction. This demotes the search as a *ranker*.
+
+    It does **not** establish that the search earns its place as the *candidate
+    generator*, which an earlier version of this line claimed. `premise_test.py`
+    measured that question directly and the answer went the other way: at matched budget
+    on 301.tiff and 246.tiff the seeded pipeline **wins on 0 of 5 seeds** against the best
+    seedless generator (`nucleus_blobs`, or a chromatin-ranked lattice) at every budget --
+    i.e. it loses on all five. That comparison picks the seedless arm post hoc per
+    (ROI, budget), so it is an upper bound on the seedless side; the sign is not in doubt
+    but the size is. See `Research Logs/2026-09-01-premise-test-audit.md` (M1) and
+    `results/premise_report.md` section 3.
     """
     if structural is not None:
         detections = score_detections(detections, structural, window, frac)

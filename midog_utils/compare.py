@@ -139,7 +139,13 @@ def evaluate_arms(
 
     One row per (context..., arm, z, budget). Arm-level quantities (``read_50``,
     ``coverage_frac``, ``n_detections``, ...) repeat across that arm's budget rows;
-    ``recall_at_budget`` is the only column that varies within them.
+    ``recall_at_budget``, ``coverage_at_budget``, ``budget_delivered``, ``tp_at_budget``
+    and ``lookalike_at_budget`` are the columns that vary within them.
+
+    ``coverage_frac`` is a **full-list** quantity and cannot arbitrate a budgeted
+    comparison: an arm whose whole list tiles the ROI may still be sparse in its top K.
+    ``coverage_at_budget`` is the same statistic over the top-K prefix, and is the one to
+    read beside ``recall_at_budget``.
 
     ``coverage_cache`` is a caller-owned dict keyed by ``Arm.coverage_key``. Use it only
     for arms whose candidate set is genuinely identical between calls -- i.e. the seedless
@@ -177,12 +183,13 @@ def evaluate_arms(
         tp_cum = np.cumsum(b == HUMAN_CORRECT_LABEL)
         lk_cum = np.cumsum(b == HUMAN_REJECTED_LABEL)
 
+        xy = ranked[["cx", "cy"]].to_numpy()
         if roi_shape is None:
             coverage = float("nan")
         elif arm.coverage_key is not None and arm.coverage_key in coverage_cache:
             coverage = coverage_cache[arm.coverage_key]
         else:
-            coverage = coverage_fraction(ranked[["cx", "cy"]].to_numpy(), roi_shape, radius)
+            coverage = coverage_fraction(xy, roi_shape, radius)
             if arm.coverage_key is not None:
                 coverage_cache[arm.coverage_key] = coverage
 
@@ -212,6 +219,16 @@ def evaluate_arms(
             delivered = min(int(k), len(tp_cum))
             tp_at = int(tp_cum[delivered - 1]) if delivered else 0
             lk_at = int(lk_cum[delivered - 1]) if delivered else 0
+            if roi_shape is None or not delivered:
+                cov_at = float("nan")
+            else:
+                ck = None if arm.coverage_key is None else f"{arm.coverage_key}@{k}"
+                if ck is not None and ck in coverage_cache:
+                    cov_at = coverage_cache[ck]
+                else:
+                    cov_at = coverage_fraction(xy[:delivered], roi_shape, radius)
+                    if ck is not None:
+                        coverage_cache[ck] = cov_at
             row = dict(base)
             row.update({
                 "budget": int(k),
@@ -219,6 +236,8 @@ def evaluate_arms(
                 "tp_at_budget": tp_at,
                 "lookalike_at_budget": lk_at,
                 "recall_at_budget": float(tp_at / n_mit) if n_mit else float("nan"),
+                "coverage_at_budget": (round(float(cov_at), 4)
+                                       if np.isfinite(cov_at) else cov_at),
             })
             rows.append(row)
 
@@ -228,10 +247,13 @@ def evaluate_arms(
 def assert_floor_not_limiting(df: pd.DataFrame) -> None:
     """`floor_limited` must be uniformly False when the floor is in per-image z units.
 
-    With an extraction floor at ``med + 0.5*mad`` and every reported z >= 1.0, no cell can
-    be limited by the floor. This is a verification, not a formality: a True here means
-    the floor and the threshold are no longer in the same units, which is the exact bug
-    class this experiment exists to characterise.
+    With the extraction floor and every reported z expressed in the *same* units -- both
+    as a multiple of that map's own MAD -- no cell whose z is at or above the floor can be
+    limited by it. This is a verification, not a formality: a True here means the floor
+    and the threshold have drifted into different units, which is the exact bug class this
+    experiment exists to characterise. (`od_experiment.py` still has them in different
+    units: its floor is 0.25 in raw ``TM_CCOEFF_NORMED``, which leaves its z = 1.0 arm
+    floor-limited on 6 of 7 ROIs.)
     """
     bad = df[df["floor_limited"].astype(bool)]
     if len(bad):

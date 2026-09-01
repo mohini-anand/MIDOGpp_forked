@@ -15,14 +15,23 @@ Two constraints make this cheap enough to run at 5 seeds x 5 z levels:
   every z level is derived by *filtering* that one NMS'd candidate pool. This is exact,
   not an approximation: `extract_peaks`'s local maxima are threshold-independent, and
   greedy score-ordered NMS means a peak above t can only be suppressed by a
-  higher-scoring peak, which is also above t. `verify_shortcut` asserts it directly
-  against a re-extraction on every ROI rather than taking the argument on faith.
+  higher-scoring peak, which is also above t. The argument has one soft spot: `argsort`
+  is not stable, so an exact-score tie pair inside the NMS radius can be ordered one way
+  in a larger pool and the other way in a smaller one, flipping which of the two survives.
+  **This is observed, not hypothetical**: over 32 checked cells, 31 are bit-identical and
+  one (301.tiff seed 3, z = 0.75) differs by 1 detection in 16,825, the two candidates
+  1.41 px apart -- the same object, well inside the 29.6 px match radius, so no reported
+  number moves. `verify_shortcut` therefore raises only on a disagreement with no
+  counterpart within a match radius, and reports benign tie-breaks separately. The main
+  run samples seed 0 and z in {1.0, 2.0}; `results/premise_shortcut_lowz.csv` covers
+  z in {0.25, 0.5, 0.75} at two seeds on the three decision-grade ROIs. That is a sample
+  of the (seed, z) grid, not a proof over it.
 * **One candidate set per seedless arm per ROI.** `blob_native`, `blob_od` and the four
   `grid_*` arms do not depend on z at all, and depend on the seed only through which
   annotation is excluded from the evaluation ground truth. They are built once and
   re-scored against each seed's own ``gt_eval``.
 
-The extraction floor is ``med + 0.5*mad`` of that seed's own response map -- per image and
+The extraction floor is ``med + FLOOR_Z*mad`` (currently 0.25) of that seed's own response map -- per image and
 per seed, never a global constant. A constant floor in TM_CCOEFF_NORMED units means a
 different search depth on every ROI (246.tiff returned 5 detections at 0.5 while 301.tiff
 returned 13,353), which is the defect this experiment exists to characterise. Because the
@@ -59,8 +68,14 @@ from midog_utils.nms import nms_by_distance
 
 # --- configuration ----------------------------------------------------------------
 CHANNEL = "rgb"                      # search channel, matching od_experiment/od_seed_sweep
-FLOOR_Z = 0.5                        # extraction floor, in units of the map's own MAD
-Z_LEVELS = (1.0, 1.5, 2.0, 2.5, 3.0)
+FLOOR_Z = 0.25                       # extraction floor, in units of the map's own MAD
+# z = FLOOR_Z is the floor itself -- that arm is the whole extracted pool, and is reported
+# as the deepest level measurable without re-extracting rather than as a swept point. The
+# range was previously capped at 1.0 on the strength of "the pool grows only about 3%
+# below it", which is 301.tiff's number and the smallest of the seven: measured between
+# z = 1.0 and z = 0.5, the other six ROIs grow 6.4-13.4%. Recall at budget below z = 1.0
+# was never measured at all. It is measured here.
+Z_LEVELS = (0.25, 0.5, 0.75, 1.0, 1.5, 2.0, 2.5, 3.0)
 GRID_STEPS = (10, 20, 30, 40)        # swept: a single step is a tuned hyperparameter
 N_SEEDS = 5
 BUDGETS = cp.BUDGETS                 # (500, 1000, 2000, 5000)
@@ -99,6 +114,19 @@ def match_pool(img, hem, seed_xy, base_size, radius, cfg, keep_map=False):
     centers, scores = tm.extract_peaks(fused, valid, cfg.peak_min_distance,
                                        floor, cfg.max_peaks)
     n_peaks = len(centers)
+    # `invariants.check_no_cap` is applied downstream to the z-filtered, post-NMS arm
+    # length, which can never equal the extraction cap -- so it passes by construction and
+    # cannot catch the truncation it exists to catch. (For the `grid_*` arms it is passed
+    # no caps at all, so it is vacuous there twice over.) This is the only place the cap
+    # could ever bind. It does not bind at present either -- 250000 is above the ~173k
+    # separation-limited maximum -- but that bound assumes the min-distance separation
+    # that `fused >= dilated` violates on plateaus, and a deeper floor makes plateaus
+    # more reachable. The assert costs nothing and fails loudly if that day comes.
+    if n_peaks == cfg.max_peaks:
+        raise inv.InvariantError(
+            f"extract_peaks returned exactly max_peaks={cfg.max_peaks} at floor "
+            f"{floor:.5f} -- the peak list was truncated, so every z level derived from "
+            "this pool is conditioned on that truncation")
     keep = nms_by_distance(centers, scores, radius)
     centers, scores = centers[keep], scores[keep]
     ok = np.hypot(centers[:, 0] - seed_xy[0], centers[:, 1] - seed_xy[1]) > cfg.self_hit_radius
@@ -112,10 +140,21 @@ def match_pool(img, hem, seed_xy, base_size, radius, cfg, keep_map=False):
 
 
 def verify_shortcut(fused, valid, radius, seed_xy, cfg, pool, cut):
-    """Assert that filtering the deep pool at ``cut`` equals extracting at ``cut``.
+    """Check that filtering the deep pool at ``cut`` equals extracting at ``cut``.
 
-    Strict: the two coordinate sets must be identical after sorting, not merely the same
-    size. This is the single assertion the whole one-match-many-z economy rests on.
+    This is the single check the whole one-match-many-z economy rests on, and it is **not**
+    always exact. `np.argsort` is unstable in both `extract_peaks` and `nms_by_distance`, so
+    an exact-score tie pair inside the NMS radius can be ordered one way in a large pool and
+    the other way in a small one, flipping which of the two survives. Measured directly
+    (`results/premise_shortcut_lowz.csv`): 31 of 32 checked cells are bit-identical, and the
+    single exception -- 301.tiff seed 3 at z = 0.75 -- differs by **1 detection out of
+    16,825**, with the two candidates 1.41 px apart, i.e. the same object well inside the
+    29.6 px match radius.
+
+    So strict identity is the wrong bar: it fails on a tie-break that cannot move any
+    reported number. The bar used here is *substantive* -- every disagreeing point must have
+    a counterpart within one match radius, so that greedy matching resolves both the same
+    way. A disagreement with no such counterpart is a real divergence and raises.
     """
     centers, scores = tm.extract_peaks(fused, valid, cfg.peak_min_distance, cut, cfg.max_peaks)
     keep = nms_by_distance(centers, scores, radius)
@@ -127,8 +166,22 @@ def verify_shortcut(fused, valid, radius, seed_xy, cfg, pool, cut):
     a = direct[np.lexsort((direct[:, 1], direct[:, 0]))] if len(direct) else direct
     b = filtered[np.lexsort((filtered[:, 1], filtered[:, 0]))] if len(filtered) else filtered
     identical = a.shape == b.shape and bool(np.array_equal(a, b))
+    n_diff, worst = 0, 0.0
+    if not identical:
+        A, B = {tuple(r) for r in a}, {tuple(r) for r in b}
+        d_only, f_only = np.array(sorted(A - B)), np.array(sorted(B - A))
+        n_diff = len(d_only) + len(f_only)
+        if len(d_only) and len(f_only):
+            dist = np.hypot(d_only[:, None, 0] - f_only[None, :, 0],
+                            d_only[:, None, 1] - f_only[None, :, 1])
+            # Worst orphan in either direction: a point whose nearest counterpart is far.
+            worst = float(max(dist.min(axis=1).max(), dist.min(axis=0).max()))
+        else:
+            worst = float("inf")   # one side has extra points with nothing to pair against
     return {"n_direct": int(len(direct)), "n_filtered": int(len(filtered)),
-            "identical": identical}
+            "identical": identical, "n_disagree": int(n_diff),
+            "worst_disagreement_px": (round(worst, 2) if np.isfinite(worst) else worst),
+            "benign": bool(identical or (n_diff and worst <= radius))}
 
 
 def grid_arm_candidates(roi_shape, step, hem, radius):
@@ -198,6 +251,27 @@ def main(smoke: bool = False):
         t0 = time.time()
         blobs = bl.nucleus_blobs(rgb, mask)
         blobs = cm.score_detections(blobs, hem)
+        # `nucleus_blobs` emits raw connected components with no suppression, and they are
+        # dense: measured on the images, 58.6% of 301.tiff's and 70.5% of 246.tiff's blobs
+        # lie within one match radius of another blob. Greedy matching is one-to-one, so a
+        # duplicate can never claim a second ground-truth object -- it only consumes
+        # budget. Every other arm in this comparison is suppressed at the match radius, so
+        # a raw blob arm is not a matched-budget comparator. The raw arms are kept so the
+        # size of the effect stays visible, and a suppressed variant is added beside them,
+        # ordered by that arm's *own* ranking key -- suppression ordered by anything else
+        # silently reranks the arm.
+        _bxy = blobs[["cx", "cy"]].to_numpy()
+        blobs_nms = {
+            "blob_native_nms": ("score", blobs.iloc[nms_by_distance(
+                _bxy, np.nan_to_num(blobs["score"].to_numpy(), nan=-np.inf),
+                radius)].reset_index(drop=True)),
+            "blob_od_nms": ("od", blobs.iloc[nms_by_distance(
+                _bxy, np.nan_to_num(blobs["od"].to_numpy(), nan=-np.inf),
+                radius)].reset_index(drop=True)),
+        }
+        for _nm, (_key, _df) in blobs_nms.items():
+            checks.append(inv.check_min_separation(_df[["cx", "cy"]].to_numpy(), radius,
+                                                   label=f"{fn}/{_nm}"))
         t_blob = time.time() - t0
 
         t0 = time.time()
@@ -216,13 +290,19 @@ def main(smoke: bool = False):
                    caps=(None,), coverage_key=f"{fn}:blob_od",
                    extra={"generator": "nucleus_blobs", "grid_step": np.nan}),
         ]
+        for _nm, (_key, _df) in blobs_nms.items():
+            seedless.append(cp.Arm(
+                _nm, (lambda d=_df: d), rank_key=_key, caps=(None,), nms_radius=radius,
+                coverage_key=f"{fn}:{_nm}",
+                extra={"generator": "nucleus_blobs_nms", "grid_step": np.nan}))
         for step in GRID_STEPS:
             seedless.append(cp.Arm(
                 f"grid_{step}", (lambda d=grids[step]: d), rank_key="od",
                 nms_radius=radius, coverage_key=f"{fn}:grid_{step}",
                 extra={"generator": f"lattice_{step}px", "grid_step": step}))
 
-        print(f"[{fn}] loaded, blobs={len(blobs)} ({t_blob:.0f}s), "
+        print(f"[{fn}] loaded, blobs={len(blobs)}"
+              f"->{[len(d) for _, d in blobs_nms.values()]} nms ({t_blob:.0f}s), "
               f"grids={[len(grids[s]) for s in GRID_STEPS]} ({t_grid:.0f}s) "
               f"[{time.time() - t_roi:.0f}s]", flush=True)
 
@@ -247,7 +327,7 @@ def main(smoke: bool = False):
                    "seed_ann_id": int(seed["ann_id"]), "base_size": int(base),
                    "map_median": round(diag["med"], 5), "mad_scale": round(diag["mad"], 5),
                    "extract_floor": round(diag["floor"], 5), "n_pool": diag["n_pool"],
-                   "sanity_only": False}
+                   "n_peaks": diag["n_peaks"], "sanity_only": False}
 
             arms = []
             for z in Z_LEVELS:
@@ -285,12 +365,16 @@ def main(smoke: bool = False):
             rows.append(got)
 
             if keep_map:
-                cut2 = diag["med"] + 2.0 * diag["mad"]
-                v = verify_shortcut(maps[0], maps[1], radius, (seed["cx"], seed["cy"]),
-                                    cfg, pool, cut2)
-                v.update({"file_name": fn, "seed_index": s, "z": 2.0,
-                          "cut": round(cut2, 5), "check": "one_match_many_z"})
-                verif.append(v)
+                # Checked at two levels, not one: z = 2.0 as before, and z = 1.0, which is
+                # both the level the frontier now recommends and the one nearest the
+                # extraction floor -- i.e. the level with the most peaks to disagree about.
+                for z_v in (1.0, 2.0):
+                    cut2 = diag["med"] + z_v * diag["mad"]
+                    v = verify_shortcut(maps[0], maps[1], radius, (seed["cx"], seed["cy"]),
+                                        cfg, pool, cut2)
+                    v.update({"file_name": fn, "seed_index": s, "z": z_v,
+                              "cut": round(cut2, 5), "check": "one_match_many_z"})
+                    verif.append(v)
                 del maps
 
             # --- seed-provenance control, at one z, on the decision-grade ROIs only ---
@@ -313,11 +397,36 @@ def main(smoke: bool = False):
 
         for s, seed, pool_a, diag_a, base_a, seed_b, seed_c in prov_cache:
             t_p = time.time()
-            gt_prov = gt[~gt["ann_id"].isin([int(seed["ann_id"]),
-                                             int(seed_b["ann_id"])])].reset_index(drop=True)
+            # All three arms must see an identical ground truth. Dropping seeds (a) and
+            # (b) by ann_id does not achieve that: `match_pool` strips every detection
+            # within `self_hit_radius` of the seed, and arm (c)'s seed is a blob centroid
+            # rather than an annotation, so no annotation was removed for it while the
+            # exclusion zone still applied. Measured: on 301.tiff seed 1 the drawn blob
+            # sits 2.8 px from a mitotic figure, which is inside the 5 px zone -- that
+            # figure is unreachable for (c) alone, biasing the contrast towards "the click
+            # carries information". Excluding the union of the three zones removes the
+            # asymmetry; (a) and (b) fall inside their own zones at distance 0, so this is
+            # a superset of the old rule.
+            _shr = float(fs.FSConfig(channel=CHANNEL).self_hit_radius)
+            _sxy = np.array([[float(sd["cx"]), float(sd["cy"])]
+                             for sd in (seed, seed_b, seed_c)])
+            _dist = np.hypot(gt["cx"].to_numpy()[:, None] - _sxy[None, :, 0],
+                             gt["cy"].to_numpy()[:, None] - _sxy[None, :, 1])
+            _excl = (_dist <= _shr).any(axis=1)
+            gt_prov = gt[~_excl].reset_index(drop=True)
             n_mit_prov = int((gt_prov["category_id"] == ds.MITOTIC).sum())
-            assert n_mit_prov == int((gt["category_id"] == ds.MITOTIC).sum()) - 1, (
-                "provenance ground truth must drop exactly the one mitotic seed")
+            n_mit_all = int((gt["category_id"] == ds.MITOTIC).sum())
+            # Seeds (a) and (b) are rows of `gt` at distance 0 from themselves, so
+            # "were they dropped" is true by construction and asserting it proves
+            # nothing. The bound that carries information is the *upper* one: a units
+            # error or a wrong coordinate column in `_dist` would exclude tens or
+            # hundreds of annotations, not one or two.
+            n_drop = n_mit_all - n_mit_prov
+            assert 1 <= n_drop <= 3, (
+                f"provenance ground truth dropped {n_drop} mitotic annotations from "
+                f"{n_mit_all}; expected 1 (seed a) plus at most 2 inside the other two "
+                f"{_shr:g} px exclusion discs -- a larger number means the exclusion "
+                "radius or the coordinate columns are wrong")
 
             entries = [("a_mitotic", seed, pool_a, diag_a, base_a, int(seed["ann_id"]))]
             for tag, sd in (("b_lookalike", seed_b), ("c_random_blob", seed_c)):
@@ -338,7 +447,8 @@ def main(smoke: bool = False):
                        "seed_cy": round(float(sd["cy"]), 1), "base_size": int(b),
                        "map_median": round(d["med"], 5), "mad_scale": round(d["mad"], 5),
                        "extract_floor": round(d["floor"], 5), "n_pool": d["n_pool"],
-                       "channel": CHANNEL}
+                       "n_peaks": d["n_peaks"], "n_gt_excluded": int(_excl.sum()),
+                       "self_hit_radius": _shr, "channel": CHANNEL}
                 prov_rows.append(cp.evaluate_arms(
                     [cp.Arm("pipeline", (lambda x=sub: x), rank_key="od", seeded=True,
                             z=PROVENANCE_Z, z_dependent=True,
@@ -353,7 +463,7 @@ def main(smoke: bool = False):
 
         print(f"[{fn}] done [{time.time() - t_roi:.0f}s total, "
               f"{time.time() - t_start:.0f}s elapsed]", flush=True)
-        del rgb, gray, hem, img, mask, blobs, grids
+        del rgb, gray, hem, img, mask, blobs, blobs_nms, grids
 
     main_df = pd.concat(rows, ignore_index=True)
     cp.assert_floor_not_limiting(main_df)
@@ -375,12 +485,28 @@ def main(smoke: bool = False):
                chk.assign(kind="invariant")], ignore_index=True).to_csv(
         f"results/premise_verification{out_tag}.csv", index=False)
 
-    bad = ver[~ver["identical"].astype(bool)]
+    bad = ver[~ver["benign"].astype(bool)]
+    soft = ver[ver["benign"].astype(bool) & ~ver["identical"].astype(bool)]
+    if len(soft):
+        print(f"shortcut: {len(soft)} cell(s) differ by a tie-break inside the match "
+              f"radius (max {soft['n_disagree'].max()} detections, worst separation "
+              f"{soft['worst_disagreement_px'].max()} px) -- benign, see verify_shortcut",
+              file=sys.stderr)
     print(f"\nrows: main {len(main_df)}, provenance {len(prov_df)}")
     print(f"invariant checks run: {len(checks)} (all passed -- they raise otherwise)")
-    print(f"shortcut exactness: {len(ver) - len(bad)}/{len(ver)} ROIs identical")
+    print(f"shortcut: {int(ver['identical'].sum())}/{len(ver)} (ROI, z) cells "
+          f"bit-identical, {int(ver['benign'].sum())}/{len(ver)} within a match radius")
     if len(bad):
+        # Every z level in this file is derived by filtering one pool. If that is not
+        # exact, every number downstream of it is conditioned on an unstated tie-break,
+        # so this must stop the run rather than print a warning nobody reads.
         print(bad.to_string(), file=sys.stderr)
+        raise inv.InvariantError(
+            f"one-match-many-z shortcut diverges in {len(bad)} of {len(ver)} checked "
+            "(ROI, z) cells by more than one match radius -- filtering the deep pool does "
+            "not reproduce a direct extraction, so the derived arms are not what they "
+            "claim to be. A tie-break inside the match radius is tolerated and reported "
+            "separately; this is not that.")
     print(f"total {time.time() - t_start:.0f}s")
     print("wrote results/premise_{test,seed_provenance,verification}.csv")
 
@@ -392,8 +518,9 @@ def main(smoke: bool = False):
 # =====================================================================================
 
 ARM_ORDER = (["pipeline", "pipeline_score"] + [f"grid_{s}" for s in GRID_STEPS]
-             + ["blob_native", "blob_od", "random"])
-SEEDLESS = [f"grid_{s}" for s in GRID_STEPS] + ["blob_native", "blob_od"]
+             + ["blob_native", "blob_od", "blob_native_nms", "blob_od_nms", "random"])
+SEEDLESS = ([f"grid_{s}" for s in GRID_STEPS]
+            + ["blob_native", "blob_od", "blob_native_nms", "blob_od_nms"])
 
 
 def _f(v, nd=3):
@@ -481,9 +608,13 @@ def write_report(suffix: str = ""):
       f"z in {{{', '.join(f'{z:g}' for z in sorted(main['z'].dropna().unique()))}}}.")
     A(f"* Search channel `{main['channel'].iloc[0]}`, `FSConfig` defaults otherwise "
       "(single scale, no rotation/flip augmentation, `peak_min_distance=7`).")
-    A("* One `fused_response` per (ROI, seed) at a per-image extraction floor "
-      "`med + 0.5*mad`; every z derived by filtering that one NMS'd pool. Verified exact "
-      "against a direct re-extraction (section 8).")
+    A(f"* One `fused_response` per (ROI, seed) at a per-image extraction floor "
+      f"`med + {FLOOR_Z:g}*mad`; every z derived by filtering that one NMS'd pool. "
+      "Checked against a direct re-extraction on a **sample** of the grid, not all of it "
+      "(section 8): seed 0 at z in {1.0, 2.0} here, plus z in {0.25, 0.5, 0.75} at two "
+      "seeds on the decision-grade ROIs in `results/premise_shortcut_lowz.csv`. 31 of "
+      "those 32 cells are bit-identical; the exception differs by 1 detection in 16,825, "
+      "1.41 px apart -- inside the match radius, so no number here moves.")
     A("* Seedless arms (`blob_native`, `blob_od`, `grid_*`) are built once per ROI and "
       "re-scored against each seed's own evaluation ground truth. They carry `z = NaN` "
       "and `z_dependent = False` in the CSV rather than being duplicated at every z. "
@@ -522,13 +653,22 @@ def write_report(suffix: str = ""):
     piv = gr.pivot_table(index=["file_name", "match_radius_px"], columns="arm",
                          values="n_detections", aggfunc="first").reset_index()
     gcols = [c for c in piv.columns if str(c).startswith("grid_")]
+    _rad = piv["match_radius_px"].astype(float)
+    _steps = sorted(int(str(c).split("_")[1]) for c in gcols)
+    _r30 = piv[_rad < 30.0]["file_name"].tolist()
     A("**The grid step is not a clean one-parameter sweep, and the candidate count is "
       "not monotone in it.** Distance NMS only removes lattice points when the step is "
       "below that image's match radius, and the match radius crosses 30 px between these "
-      "ROIs (29.6-33.1). So `grid_40` is always the raw unsuppressed lattice, and "
-      "`grid_30` is suppressed on six ROIs but *not* on 301.tiff, whose radius is "
-      "29.609 px -- which is why 301's step-30 arm carries 34,615 candidates against "
-      "step-20's 15,736. Post-NMS list lengths:\n")
+      f"ROIs ({_rad.min():.1f}-{_rad.max():.1f}), so a step above every radius leaves the "
+      "lattice unsuppressed and *larger* than a finer one.")
+    # The worked example needs both a step-30 arm and an ROI whose radius sits below it.
+    if _r30 and "grid_30" in piv.columns and "grid_20" in piv.columns:
+        _exr = piv[piv["file_name"] == _r30[0]]
+        A(f"`grid_30` is suppressed on {len(piv) - len(_r30)} of the {len(piv)} ROIs but "
+          f"*not* on {', '.join(_r30)}, whose radius is below 30 px -- which is why "
+          f"{_r30[0]}'s step-30 arm carries {int(_exr['grid_30'].iloc[0]):,} candidates "
+          f"against step-20's {int(_exr['grid_20'].iloc[0]):,}.")
+    A(f"Steps run: {', '.join(str(s) for s in _steps)}. Post-NMS list lengths:\n")
     A(_md([[r["file_name"], _f(r["match_radius_px"])]
            + [_f(r[c], 0) for c in gcols] for _, r in piv.iterrows()],
           ["ROI", "match radius px"] + [str(c) for c in gcols]))
@@ -584,7 +724,7 @@ def write_report(suffix: str = ""):
     A("**Both columns are optimistic, and not symmetrically so.** The pipeline's z and "
       "the seedless arm's grid step are each selected *post hoc* by their own best "
       "median at that budget, so neither is an out-of-sample number -- but z is the "
-      "parameter of the arm under test, and it is chosen from 5 levels after seeing the "
+      f"parameter of the arm under test, and it is chosen from {main['z'].nunique()} levels after seeing the "
       "outcome. Every `delta` above is therefore a lower bound on the pipeline's deficit "
       "at any fixed z: the bias runs in the pipeline's favour and the sign of the result "
       "on the decision-grade ROIs survives it.\n")
@@ -625,6 +765,40 @@ def write_report(suffix: str = ""):
                  "pipeline wins"]))
     A("")
 
+    # --- the same question with nothing selected on either side ---
+    _zs = set(main["z"].dropna())
+    _pin = 1.0 if 1.0 in _zs else float(min(_zs)) if _zs else float("nan")
+    A("**The same question with no arm selected.** The table above picks the seedless arm "
+      "by its own best median per (ROI, budget). An earlier write-up of this experiment "
+      f"picked it per *cell* instead -- a max over all {len(SEEDLESS)} arms at every "
+      "(ROI, seed, budget) -- and reported 2/15 wins at budget 500 from the "
+      "pre-correction CSV where this rule gives 0/15. Two undocumented selection rules, "
+      "two answers. So here is the matrix with nothing selected on the seedless side at all: "
+      f"the pipeline pinned at z = {_pin:g} against each arm in turn, paired by (ROI, "
+      f"seed) across the {len(dg)} decision-grade ROIs. `wins` counts cells where the "
+      "pipeline is strictly ahead; the bracketed figure is the median paired delta. "
+      f"z = {_pin:g} was itself chosen on this data -- that is disclosed, not corrected, "
+      "and it is why the only clean version of this comparison needs held-out ROIs.\n")
+    _pl = main[(main["arm"] == "pipeline") & (main["z"] == _pin)
+               & main["file_name"].isin(dg)]
+    _rows = []
+    for _arm in SEEDLESS:
+        _sa = main[(main["arm"] == _arm) & main["file_name"].isin(dg)]
+        _cells = []
+        for _b in BUDGETS:
+            _a = _pl[_pl["budget"] == _b].set_index(
+                ["file_name", "seed_index"])["recall_at_budget"]
+            _c = _sa[_sa["budget"] == _b].set_index(
+                ["file_name", "seed_index"])["recall_at_budget"]
+            _ix = _a.index.intersection(_c.index)
+            if not len(_ix):
+                _cells.append("--"); continue
+            _d = _a[_ix] - _c[_ix]
+            _cells.append(f"{int((_d > 0).sum())}/{len(_ix)} ({_d.median():+.3f})")
+        _rows.append([_arm] + _cells)
+    A(_md(_rows, ["seedless arm"] + [f"wins @{b}" for b in BUDGETS]))
+    A("")
+
     # ------------------------------------------------------------------- frontier
     A("## 4. Recall-vs-workload frontier over z\n")
     A("Pipeline arm only (chromatin ranking). `read_80` is the number of candidates a "
@@ -637,15 +811,27 @@ def write_report(suffix: str = ""):
         ["file_name", "budget", "z"])["recall_at_budget"].median().reset_index()
     bz = gz.loc[gz.groupby(["file_name", "budget"])["recall_at_budget"].idxmax()]
     zmin = float(main["z"].min())
-    A(f"**The optimum sits at the edge of the swept range.** z = {zmin:g} -- the lowest "
-      "level run -- is the best or joint-best z on recall@1000 for all "
-      f"{len(dg)} decision-grade ROIs, and on {int((bz['z'] == zmin).sum())} of the "
-      f"{len(bz)} (ROI, budget) rows in section 3. The sweep stops at "
-      f"{zmin:g} because of an existing measurement, not because the frontier resolved: "
-      "between z = 1.0 and z = 0.5 the candidate pool grows about 3% (16,558 to 17,073 "
-      "on 301.tiff) and recall at budget does not move. Over the range actually run the "
-      "frontier is monotone in z with no interior optimum, so where the pipeline's "
-      "recall stops improving is not established here.\n")
+    _pp = main[main["arm"] == "pipeline"].drop_duplicates(["file_name", "seed_index", "z"])
+    _n1 = _pp[_pp["z"] == 1.0].groupby("file_name")["n_detections"].median()
+    _nf = _pp[_pp["z"] == zmin].groupby("file_name")["n_detections"].median()
+    _grow = ((_nf / _n1 - 1.0) * 100).dropna().sort_values()
+    _r1k = main[(main["arm"] == "pipeline") & (main["budget"] == 1000)
+                & main["file_name"].isin(dg)]
+    _byz = _r1k.groupby(["file_name", "z"])["recall_at_budget"].median().unstack()
+    _below = [c for c in _byz.columns if c < 1.0]
+    _has1 = 1.0 in _byz.columns
+    _better = (int((_byz[_below].max(axis=1) > _byz[1.0] + 1e-9).sum())
+               if (_below and _has1) else 0)
+    A(f"**Where the frontier actually stops.** The sweep now runs to z = {zmin:g}, which "
+      "is the extraction floor itself -- that arm is the whole extracted pool, so it is "
+      "the deepest level reachable without re-extracting. An earlier version of this "
+      "report capped the sweep at z = 1.0 and justified it with \"the pool grows only "
+      "about 3% below it\". That was 301.tiff's number and the smallest of the seven: "
+      f"measured here the pool grows {_grow.min():.1f}-{_grow.max():.1f}% between "
+      f"z = 1.0 and the floor. Below z = 1.0, recall@1000 improves on {_better} of the "
+      f"{len(dg)} decision-grade ROIs. z = {zmin:g} is best or joint-best on "
+      f"{int((bz['z'] == zmin).sum())} of the {len(bz)} (ROI, budget) rows in section 3."
+      "\n")
     for roi in dg:
         A(f"**{roi}** (decision-grade)\n")
         rows = []
@@ -832,8 +1018,12 @@ def write_report(suffix: str = ""):
     else:
         A("*(none)*")
     A("")
-    A("All exclusions are category 2 (look-alike); 0 of the 391 category-1 mitotic "
-      "annotations across the seven ROIs is excluded, which is precisely what "
+    # +1 per ROI: `n_gt_mitotic` is the evaluation count, with that seed's own mitotic
+    # annotation already removed. Derived, not hardcoded -- it moves with the ROI set.
+    _n_mit_raw = int(sum(main[main["file_name"] == r]["n_gt_mitotic"].median() + 1
+                         for r in dg + up))
+    A(f"All exclusions are category 2 (look-alike); 0 of the {_n_mit_raw} category-1 "
+      f"mitotic annotations across the {n_roi} ROIs is excluded, which is precisely what "
       "`baselines.tissue_mask`'s own docstring claims. Every recall number in this "
       "report is computed over category-1 ground truth and is therefore unaffected. The "
       "affected diagnostic is `n_lookalike_in_list` on the mask-restricted arms "

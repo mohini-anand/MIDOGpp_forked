@@ -160,12 +160,20 @@ def grid_lattice(roi_shape, step: int) -> pd.DataFrame:
     a lattice point on glass carries a low chromatin value, so it sinks in any ranking
     rather than needing to be excluded.
 
-    ``step`` is a real hyperparameter and must be swept, not fixed: measured on 301.tiff a
-    *finer* lattice is worse (step 20: recall@budget 0.825, read-50 177; step 10: 0.765,
-    356), because a denser lattice finds a better-optimised maximum of the chromatin field
+    ``step`` is a real hyperparameter and must be swept, not fixed: on 301.tiff a *finer*
+    lattice is worse -- step 20 beats step 10 on recall at budget, and `grid_10` is the
+    weakest seedless arm there (`results/premise_test.csv`) -- because
+    a denser lattice finds a better-optimised maximum of the chromatin field
     inside each match-radius disc and that field's true maxima are dense stromal and
     nuclear clumps rather than mitoses. A single step reported as "the grid baseline" is a
     tuned hyperparameter wearing a baseline's clothes.
+
+    The specific figures once quoted here (step 20: 0.825/177; step 10: 0.765/356) were
+    measured by a scratch script using a *different* lattice -- inset by a half-patch on
+    every side (``arange(half, h-half, step)``), with a self-hit filter, at a budget equal
+    to the pipeline's own list length -- not by this function. They are not reproducible
+    from it and have been removed; `results/premise_test.csv` carries the numbers this
+    lattice actually produces.
 
     Returns ``cx, cy`` only. The caller attaches the ranking statistic and applies
     `nms.nms_by_distance` at that image's match radius, ordered by the same key the arm is
