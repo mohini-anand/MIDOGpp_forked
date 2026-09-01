@@ -123,7 +123,7 @@ as a win, not a seventh victory.
 
 ### It survives seed variance -- the main open risk, now closed
 
-35 runs, 5 seeds per ROI, 30 distinct seed annotations (`results/od_seed_sweep.csv`).
+35 runs, 5 seeds per ROI, 31 distinct seed annotations (`results/od_seed_sweep.csv`) -- 5 draws per ROI, not 5 distinct seeds: `pick_seed` drew a duplicate on 201, 350, 405 and 506.
 Seed variance is as large as the 2026-08-27 log warned: on 301.tiff the fixed-0.5 list ranges
 **1,985-15,484 detections** and the template 25-51 px, purely from which annotation is
 clicked; on 201.tiff, 127-4,219.
@@ -276,3 +276,27 @@ the seed RNG construction, and -- checked directly -- that re-sorting before gre
 introduces **no bias**: zero detections lie within the match radius of two ground-truth
 objects on any ROI, and an order-independent GT-centric metric reproduces the workload
 numbers exactly on all 14 image x ranker cells.
+
+## What the 2026-09-01 audit changed
+
+A second audit re-derived the numbers here and attacked the claims. Corrections applied:
+
+1. **"30 distinct seed annotations" was wrong — it is 31**, and the per-ROI counts show
+   `pick_seed` drew duplicates on four of the seven ROIs. Seed selection draws *with
+   replacement*, so 5 draws is not 5 distinct seeds; that is a property of the design, not a
+   bug, but the count was misreported.
+2. **The retractions this log recorded had not reached the code.** "Blind to darkness",
+   "next-best `solidity` 0.15-1.05", and "the search still earns its place as the candidate
+   generator" were still live in `midog_utils/chromatin.py` and `od_experiment.py` docstrings
+   after this log retracted them. All four now carry the corrected text.
+3. **The z = 2.5 operating point this work was measured at is a bad one** — see
+   `2026-08-31-premise-test-results.md`. The chromatin-vs-correlation comparison is unaffected,
+   because it held the candidate set fixed, but the operating point it was measured at was
+   chosen badly and z = 1.0 is now the measured optimum.
+4. **`od_experiment.py`'s z = 1.0 arms are floor-limited on 6 of 7 ROIs** — its
+   `EXTRACT_FLOOR = 0.25` is in raw `TM_CCOEFF_NORMED` units, not MAD units. Those rows
+   measure the correlation floor. They must not be pooled with `premise_test.py`'s.
+
+Claims that survived: the 19.4x read-depth improvement from chromatin ranking, which was a
+same-candidate-set comparison; the calibrated "much weaker ranker, not a blind one" framing;
+and this log's own earlier correction of the look-alike claims.

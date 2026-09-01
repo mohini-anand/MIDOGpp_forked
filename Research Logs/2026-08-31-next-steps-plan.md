@@ -277,3 +277,30 @@ Load + `rgb2hed` ~3 s; `matchTemplate` over 39 MP ~4 s; `extract_peaks` at a dee
 frontier is ~15 minutes.** Compute is not a constraint on this project and the plan should
 stop rationing it — the draft's too-shallow extraction floor was justified on compute grounds
 that do not exist.
+
+---
+
+## Correction (2026-09-01): the grid numbers in this plan are not the shipped lattice's
+
+The `grid @20px` figures above (0.700/0.816/0.899/0.972, read-50 177; and the step-20 vs
+step-10 comparison at line 84) came from a scratch script written while drafting this plan.
+That script built its lattice as `arange(half, h-half, step)` with `half = 25` — **inset by a
+half-patch on every side** — applied a self-hit filter, and scored at a budget equal to the
+pipeline's own list length (1258 on 301.tiff). `baselines.grid_lattice`, the function
+actually shipped, builds `arange(step // 2, w, step)` and runs to the ROI edge, with no
+self-hit filter, scored at the fixed budgets. The two do not reconcile and the plan's numbers
+are not reproducible from the repository: `results/premise_test.csv` carries what the shipped
+lattice produces. The scratch directory lived in `/private/tmp` and is gone.
+
+Those figures were also copied into `baselines.grid_lattice`'s own docstring as if they were
+a property of that function; they have been removed there.
+
+The **conclusion** survives — a seedless lattice is a serious comparator and a finer lattice
+is worse — but every number in the tables above should be read from
+`results/premise_report.md`, not from here.
+
+The coverage claim at line 39 ("0.09-0.11 on 301 at budget 1258") was measured, in the same
+scratch run, and is now reproducible: `coverage_at_budget` is a column of
+`results/premise_test.csv`. At budget 1000 on 301.tiff the arms span 0.080-0.085 while their
+full-list coverage spans 0.88-1.00, so the point the line was making is correct and now has a
+committed source.
