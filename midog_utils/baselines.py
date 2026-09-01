@@ -145,3 +145,35 @@ def random_in_tissue(mask: np.ndarray, n: int, rng=None) -> pd.DataFrame:
             "score": np.linspace(1.0, 0.0, n),  # arbitrary but stable ordering
         }
     )
+
+
+def grid_lattice(roi_shape, step: int) -> pd.DataFrame:
+    """A regular lattice of candidate points over the ROI -- no seed, no detector.
+
+    The point of this comparator is that it contains no image evidence whatsoever: it is
+    the geometry of the evaluation alone. Any generator that does not beat it at matched
+    budget is not contributing detection, and a lattice ranked by a per-point statistic
+    isolates how much of a pipeline's performance is the *ranker* rather than the search.
+
+    The lattice is offset by ``step // 2`` so it does not start on the ROI edge, and no
+    tissue restriction is applied -- these ROIs are 92-100% tissue under `tissue_mask` and
+    a lattice point on glass carries a low chromatin value, so it sinks in any ranking
+    rather than needing to be excluded.
+
+    ``step`` is a real hyperparameter and must be swept, not fixed: measured on 301.tiff a
+    *finer* lattice is worse (step 20: recall@budget 0.825, read-50 177; step 10: 0.765,
+    356), because a denser lattice finds a better-optimised maximum of the chromatin field
+    inside each match-radius disc and that field's true maxima are dense stromal and
+    nuclear clumps rather than mitoses. A single step reported as "the grid baseline" is a
+    tuned hyperparameter wearing a baseline's clothes.
+
+    Returns ``cx, cy`` only. The caller attaches the ranking statistic and applies
+    `nms.nms_by_distance` at that image's match radius, ordered by the same key the arm is
+    ranked by -- suppression ordered by anything else silently reranks the arm.
+    """
+    h, w = int(roi_shape[0]), int(roi_shape[1])
+    off = int(step) // 2
+    xs = np.arange(off, w, int(step), dtype=np.float64)
+    ys = np.arange(off, h, int(step), dtype=np.float64)
+    gx, gy = np.meshgrid(xs, ys)
+    return pd.DataFrame({"cx": gx.ravel(), "cy": gy.ravel()})

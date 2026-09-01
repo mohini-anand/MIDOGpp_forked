@@ -1,0 +1,149 @@
+n_direct,n_filtered,identical,file_name,seed_index,z,cut,check,kind,label,n_gt,n_excluded,n_excluded_strict,excluded_ann_ids,passed,n,min_distance,radius,n_items,caps,used_radius,expected_radius,mpp,n_seeds,n_distinct_ann,pool_size,n_distinct_streams,n_runs
+9647.0,9647.0,True,301.tiff,0.0,2.0,0.58551,one_match_many_z,shortcut_exactness,,,,,,,,,,,,,,,,,,,
+7251.0,7251.0,True,201.tiff,0.0,2.0,0.27931,one_match_many_z,shortcut_exactness,,,,,,,,,,,,,,,,,,,
+9728.0,9728.0,True,246.tiff,0.0,2.0,0.22051,one_match_many_z,shortcut_exactness,,,,,,,,,,,,,,,,,,,
+5552.0,5552.0,True,405.tiff,0.0,2.0,0.46288,one_match_many_z,shortcut_exactness,,,,,,,,,,,,,,,,,,,
+9297.0,9297.0,True,002.tiff,0.0,2.0,0.36404,one_match_many_z,shortcut_exactness,,,,,,,,,,,,,,,,,,,
+9720.0,9720.0,True,506.tiff,0.0,2.0,0.30898,one_match_many_z,shortcut_exactness,,,,,,,,,,,,,,,,,,,
+9949.0,9949.0,True,350.tiff,0.0,2.0,0.32437,one_match_many_z,shortcut_exactness,,,,,,,,,,,,,,,,,,,
+,,,,,,,tissue_mask_covers_gt,invariant,301.tiff,327.0,0.0,0.0,,True,,,,,,,,,,,,,7.0
+,,,,,,,min_separation,invariant,301.tiff/grid_10,,,,,True,26686.0,30.0,29.609055118110238,,,,,,,,,,28.0
+,,,,,,,min_separation,invariant,301.tiff/grid_20,,,,,True,15736.0,40.0,29.609055118110238,,,,,,,,,,28.0
+,,,,,,,min_separation,invariant,301.tiff/grid_30,,,,,True,34615.0,30.0,29.609055118110238,,,,,,,,,,28.0
+,,,,,,,min_separation,invariant,301.tiff/grid_40,,,,,True,19481.0,40.0,29.609055118110238,,,,,,,,,,28.0
+,,,,,,,no_cap,invariant,301.tiff/pipeline,,,,,True,,,,16558.0,"(250000, 1000000000)",,,,,,,,591.0
+,,,,,,,nms_radius,invariant,301.tiff/pipeline,,,,,True,,,,,,29.609055118110238,29.609055118110238,0.2533008895448562,,,,,520.0
+,,,,,,,no_cap,invariant,301.tiff/pipeline_score,,,,,True,,,,16558.0,"(250000, 1000000000)",,,,,,,,591.0
+,,,,,,,nms_radius,invariant,301.tiff/pipeline_score,,,,,True,,,,,,29.609055118110238,29.609055118110238,0.2533008895448562,,,,,520.0
+,,,,,,,no_cap,invariant,301.tiff/blob_native,,,,,True,,,,20370.0,(),,,,,,,,591.0
+,,,,,,,no_cap,invariant,301.tiff/blob_od,,,,,True,,,,20370.0,(),,,,,,,,591.0
+,,,,,,,no_cap,invariant,301.tiff/grid_10,,,,,True,,,,26686.0,(),,,,,,,,591.0
+,,,,,,,nms_radius,invariant,301.tiff/grid_10,,,,,True,,,,,,29.609055118110238,29.609055118110238,0.2533008895448562,,,,,520.0
+,,,,,,,no_cap,invariant,301.tiff/grid_20,,,,,True,,,,15736.0,(),,,,,,,,591.0
+,,,,,,,nms_radius,invariant,301.tiff/grid_20,,,,,True,,,,,,29.609055118110238,29.609055118110238,0.2533008895448562,,,,,520.0
+,,,,,,,no_cap,invariant,301.tiff/grid_30,,,,,True,,,,34615.0,(),,,,,,,,591.0
+,,,,,,,nms_radius,invariant,301.tiff/grid_30,,,,,True,,,,,,29.609055118110238,29.609055118110238,0.2533008895448562,,,,,520.0
+,,,,,,,no_cap,invariant,301.tiff/grid_40,,,,,True,,,,19481.0,(),,,,,,,,591.0
+,,,,,,,nms_radius,invariant,301.tiff/grid_40,,,,,True,,,,,,29.609055118110238,29.609055118110238,0.2533008895448562,,,,,520.0
+,,,,,,,no_cap,invariant,301.tiff/random,,,,,True,,,,15736.0,(),,,,,,,,591.0
+,,,,,,,distinct_seeds,invariant,301.tiff,,,,,True,,,,,,,,,5.0,5.0,136.0,5.0,7.0
+,,,,,,,tissue_mask_covers_gt,invariant,201.tiff,67.0,0.0,0.0,,True,,,,,,,,,,,,,7.0
+,,,,,,,min_separation,invariant,201.tiff/grid_10,,,,,True,23995.0,31.622776601683793,30.221751968503938,,,,,,,,,,28.0
+,,,,,,,min_separation,invariant,201.tiff/grid_20,,,,,True,16561.0,40.0,30.221751968503938,,,,,,,,,,28.0
+,,,,,,,min_separation,invariant,201.tiff/grid_30,,,,,True,13926.0,42.42640687119285,30.221751968503938,,,,,,,,,,28.0
+,,,,,,,min_separation,invariant,201.tiff/grid_40,,,,,True,20172.0,40.0,30.221751968503938,,,,,,,,,,28.0
+,,,,,,,no_cap,invariant,201.tiff/pipeline,,,,,True,,,,14468.0,"(250000, 1000000000)",,,,,,,,591.0
+,,,,,,,nms_radius,invariant,201.tiff/pipeline,,,,,True,,,,,,30.221751968503938,30.221751968503938,0.24816562612969095,,,,,520.0
+,,,,,,,no_cap,invariant,201.tiff/pipeline_score,,,,,True,,,,14468.0,"(250000, 1000000000)",,,,,,,,591.0
+,,,,,,,nms_radius,invariant,201.tiff/pipeline_score,,,,,True,,,,,,30.221751968503938,30.221751968503938,0.24816562612969095,,,,,520.0
+,,,,,,,no_cap,invariant,201.tiff/blob_native,,,,,True,,,,12446.0,(),,,,,,,,591.0
+,,,,,,,no_cap,invariant,201.tiff/blob_od,,,,,True,,,,12446.0,(),,,,,,,,591.0
+,,,,,,,no_cap,invariant,201.tiff/grid_10,,,,,True,,,,23995.0,(),,,,,,,,591.0
+,,,,,,,nms_radius,invariant,201.tiff/grid_10,,,,,True,,,,,,30.221751968503938,30.221751968503938,0.24816562612969095,,,,,520.0
+,,,,,,,no_cap,invariant,201.tiff/grid_20,,,,,True,,,,16561.0,(),,,,,,,,591.0
+,,,,,,,nms_radius,invariant,201.tiff/grid_20,,,,,True,,,,,,30.221751968503938,30.221751968503938,0.24816562612969095,,,,,520.0
+,,,,,,,no_cap,invariant,201.tiff/grid_30,,,,,True,,,,13926.0,(),,,,,,,,591.0
+,,,,,,,nms_radius,invariant,201.tiff/grid_30,,,,,True,,,,,,30.221751968503938,30.221751968503938,0.24816562612969095,,,,,520.0
+,,,,,,,no_cap,invariant,201.tiff/grid_40,,,,,True,,,,20172.0,(),,,,,,,,591.0
+,,,,,,,nms_radius,invariant,201.tiff/grid_40,,,,,True,,,,,,30.221751968503938,30.221751968503938,0.24816562612969095,,,,,520.0
+,,,,,,,distinct_seeds,invariant,201.tiff,,,,,True,,,,,,,,,5.0,4.0,6.0,5.0,7.0
+,,,,,,,tissue_mask_covers_gt,invariant,246.tiff,239.0,0.0,0.0,,True,,,,,,,,,,,,,7.0
+,,,,,,,min_separation,invariant,246.tiff/grid_10,,,,,True,23640.0,31.622776601683793,30.221751968503938,,,,,,,,,,28.0
+,,,,,,,min_separation,invariant,246.tiff/grid_20,,,,,True,16375.0,40.0,30.221751968503938,,,,,,,,,,28.0
+,,,,,,,min_separation,invariant,246.tiff/grid_30,,,,,True,13911.0,42.42640687119285,30.221751968503938,,,,,,,,,,28.0
+,,,,,,,min_separation,invariant,246.tiff/grid_40,,,,,True,20172.0,40.0,30.221751968503938,,,,,,,,,,28.0
+,,,,,,,no_cap,invariant,246.tiff/pipeline,,,,,True,,,,15666.0,"(250000, 1000000000)",,,,,,,,591.0
+,,,,,,,nms_radius,invariant,246.tiff/pipeline,,,,,True,,,,,,30.221751968503938,30.221751968503938,0.24816562612969095,,,,,520.0
+,,,,,,,no_cap,invariant,246.tiff/pipeline_score,,,,,True,,,,15666.0,"(250000, 1000000000)",,,,,,,,591.0
+,,,,,,,nms_radius,invariant,246.tiff/pipeline_score,,,,,True,,,,,,30.221751968503938,30.221751968503938,0.24816562612969095,,,,,520.0
+,,,,,,,no_cap,invariant,246.tiff/blob_native,,,,,True,,,,21059.0,(),,,,,,,,591.0
+,,,,,,,no_cap,invariant,246.tiff/blob_od,,,,,True,,,,21059.0,(),,,,,,,,591.0
+,,,,,,,no_cap,invariant,246.tiff/grid_10,,,,,True,,,,23640.0,(),,,,,,,,591.0
+,,,,,,,nms_radius,invariant,246.tiff/grid_10,,,,,True,,,,,,30.221751968503938,30.221751968503938,0.24816562612969095,,,,,520.0
+,,,,,,,no_cap,invariant,246.tiff/grid_20,,,,,True,,,,16375.0,(),,,,,,,,591.0
+,,,,,,,nms_radius,invariant,246.tiff/grid_20,,,,,True,,,,,,30.221751968503938,30.221751968503938,0.24816562612969095,,,,,520.0
+,,,,,,,no_cap,invariant,246.tiff/grid_30,,,,,True,,,,13911.0,(),,,,,,,,591.0
+,,,,,,,nms_radius,invariant,246.tiff/grid_30,,,,,True,,,,,,30.221751968503938,30.221751968503938,0.24816562612969095,,,,,520.0
+,,,,,,,no_cap,invariant,246.tiff/grid_40,,,,,True,,,,20172.0,(),,,,,,,,591.0
+,,,,,,,nms_radius,invariant,246.tiff/grid_40,,,,,True,,,,,,30.221751968503938,30.221751968503938,0.24816562612969095,,,,,520.0
+,,,,,,,distinct_seeds,invariant,246.tiff,,,,,True,,,,,,,,,5.0,5.0,87.0,5.0,7.0
+,,,,,,,tissue_mask_covers_gt,invariant,405.tiff,33.0,0.0,0.0,,True,,,,,,,,,,,,,7.0
+,,,,,,,min_separation,invariant,405.tiff/grid_10,,,,,True,24123.0,31.622776601683793,30.221751968503938,,,,,,,,,,28.0
+,,,,,,,min_separation,invariant,405.tiff/grid_20,,,,,True,16597.0,40.0,30.221751968503938,,,,,,,,,,28.0
+,,,,,,,min_separation,invariant,405.tiff/grid_30,,,,,True,14120.0,42.42640687119285,30.221751968503938,,,,,,,,,,28.0
+,,,,,,,min_separation,invariant,405.tiff/grid_40,,,,,True,20172.0,40.0,30.221751968503938,,,,,,,,,,28.0
+,,,,,,,no_cap,invariant,405.tiff/pipeline,,,,,True,,,,10894.0,"(250000, 1000000000)",,,,,,,,591.0
+,,,,,,,nms_radius,invariant,405.tiff/pipeline,,,,,True,,,,,,30.221751968503938,30.221751968503938,0.24816562612969095,,,,,520.0
+,,,,,,,no_cap,invariant,405.tiff/pipeline_score,,,,,True,,,,10894.0,"(250000, 1000000000)",,,,,,,,591.0
+,,,,,,,nms_radius,invariant,405.tiff/pipeline_score,,,,,True,,,,,,30.221751968503938,30.221751968503938,0.24816562612969095,,,,,520.0
+,,,,,,,no_cap,invariant,405.tiff/blob_native,,,,,True,,,,7577.0,(),,,,,,,,591.0
+,,,,,,,no_cap,invariant,405.tiff/blob_od,,,,,True,,,,7577.0,(),,,,,,,,591.0
+,,,,,,,no_cap,invariant,405.tiff/grid_10,,,,,True,,,,24123.0,(),,,,,,,,591.0
+,,,,,,,nms_radius,invariant,405.tiff/grid_10,,,,,True,,,,,,30.221751968503938,30.221751968503938,0.24816562612969095,,,,,520.0
+,,,,,,,no_cap,invariant,405.tiff/grid_20,,,,,True,,,,16597.0,(),,,,,,,,591.0
+,,,,,,,nms_radius,invariant,405.tiff/grid_20,,,,,True,,,,,,30.221751968503938,30.221751968503938,0.24816562612969095,,,,,520.0
+,,,,,,,no_cap,invariant,405.tiff/grid_30,,,,,True,,,,14120.0,(),,,,,,,,591.0
+,,,,,,,nms_radius,invariant,405.tiff/grid_30,,,,,True,,,,,,30.221751968503938,30.221751968503938,0.24816562612969095,,,,,520.0
+,,,,,,,no_cap,invariant,405.tiff/grid_40,,,,,True,,,,20172.0,(),,,,,,,,591.0
+,,,,,,,nms_radius,invariant,405.tiff/grid_40,,,,,True,,,,,,30.221751968503938,30.221751968503938,0.24816562612969095,,,,,520.0
+,,,,,,,distinct_seeds,invariant,405.tiff,,,,,True,,,,,,,,,5.0,4.0,8.0,5.0,7.0
+,,,,,,,tissue_mask_covers_gt,invariant,002.tiff,16.0,0.0,0.0,,True,,,,,,,,,,,,,7.0
+,,,,,,,min_separation,invariant,002.tiff/grid_10,,,,,True,24060.0,36.05551275463989,33.053149606299215,,,,,,,,,,28.0
+,,,,,,,min_separation,invariant,002.tiff/grid_20,,,,,True,20265.0,40.0,33.053149606299215,,,,,,,,,,28.0
+,,,,,,,min_separation,invariant,002.tiff/grid_30,,,,,True,17148.0,42.42640687119285,33.053149606299215,,,,,,,,,,28.0
+,,,,,,,min_separation,invariant,002.tiff/grid_40,,,,,True,24300.0,40.0,33.053149606299215,,,,,,,,,,28.0
+,,,,,,,no_cap,invariant,002.tiff/pipeline,,,,,True,,,,15972.0,"(250000, 1000000000)",,,,,,,,591.0
+,,,,,,,nms_radius,invariant,002.tiff/pipeline,,,,,True,,,,,,33.053149606299215,33.053149606299215,0.22690727175272468,,,,,520.0
+,,,,,,,no_cap,invariant,002.tiff/pipeline_score,,,,,True,,,,15972.0,"(250000, 1000000000)",,,,,,,,591.0
+,,,,,,,nms_radius,invariant,002.tiff/pipeline_score,,,,,True,,,,,,33.053149606299215,33.053149606299215,0.22690727175272468,,,,,520.0
+,,,,,,,no_cap,invariant,002.tiff/blob_native,,,,,True,,,,8814.0,(),,,,,,,,591.0
+,,,,,,,no_cap,invariant,002.tiff/blob_od,,,,,True,,,,8814.0,(),,,,,,,,591.0
+,,,,,,,no_cap,invariant,002.tiff/grid_10,,,,,True,,,,24060.0,(),,,,,,,,591.0
+,,,,,,,nms_radius,invariant,002.tiff/grid_10,,,,,True,,,,,,33.053149606299215,33.053149606299215,0.22690727175272468,,,,,520.0
+,,,,,,,no_cap,invariant,002.tiff/grid_20,,,,,True,,,,20265.0,(),,,,,,,,591.0
+,,,,,,,nms_radius,invariant,002.tiff/grid_20,,,,,True,,,,,,33.053149606299215,33.053149606299215,0.22690727175272468,,,,,520.0
+,,,,,,,no_cap,invariant,002.tiff/grid_30,,,,,True,,,,17148.0,(),,,,,,,,591.0
+,,,,,,,nms_radius,invariant,002.tiff/grid_30,,,,,True,,,,,,33.053149606299215,33.053149606299215,0.22690727175272468,,,,,520.0
+,,,,,,,no_cap,invariant,002.tiff/grid_40,,,,,True,,,,24300.0,(),,,,,,,,591.0
+,,,,,,,nms_radius,invariant,002.tiff/grid_40,,,,,True,,,,,,33.053149606299215,33.053149606299215,0.22690727175272468,,,,,520.0
+,,,,,,,distinct_seeds,invariant,002.tiff,,,,,True,,,,,,,,,5.0,5.0,7.0,5.0,7.0
+,,,,,,,tissue_mask_covers_gt,invariant,506.tiff,24.0,1.0,0.0,24249(cat2),True,,,,,,,,,,,,,7.0
+,,,,,,,min_separation,invariant,506.tiff/grid_10,,,,,True,23763.0,36.05551275463989,32.975303229224245,,,,,,,,,,28.0
+,,,,,,,min_separation,invariant,506.tiff/grid_20,,,,,True,20172.0,40.0,32.975303229224245,,,,,,,,,,28.0
+,,,,,,,min_separation,invariant,506.tiff/grid_30,,,,,True,17113.0,42.42640687119285,32.975303229224245,,,,,,,,,,28.0
+,,,,,,,min_separation,invariant,506.tiff/grid_40,,,,,True,24300.0,40.0,32.975303229224245,,,,,,,,,,28.0
+,,,,,,,no_cap,invariant,506.tiff/pipeline,,,,,True,,,,15899.0,"(250000, 1000000000)",,,,,,,,591.0
+,,,,,,,nms_radius,invariant,506.tiff/pipeline,,,,,True,,,,,,32.975303229224245,32.975303229224245,0.22744294261267478,,,,,520.0
+,,,,,,,no_cap,invariant,506.tiff/pipeline_score,,,,,True,,,,15899.0,"(250000, 1000000000)",,,,,,,,591.0
+,,,,,,,nms_radius,invariant,506.tiff/pipeline_score,,,,,True,,,,,,32.975303229224245,32.975303229224245,0.22744294261267478,,,,,520.0
+,,,,,,,no_cap,invariant,506.tiff/blob_native,,,,,True,,,,8754.0,(),,,,,,,,591.0
+,,,,,,,no_cap,invariant,506.tiff/blob_od,,,,,True,,,,8754.0,(),,,,,,,,591.0
+,,,,,,,no_cap,invariant,506.tiff/grid_10,,,,,True,,,,23763.0,(),,,,,,,,591.0
+,,,,,,,nms_radius,invariant,506.tiff/grid_10,,,,,True,,,,,,32.975303229224245,32.975303229224245,0.22744294261267478,,,,,520.0
+,,,,,,,no_cap,invariant,506.tiff/grid_20,,,,,True,,,,20172.0,(),,,,,,,,591.0
+,,,,,,,nms_radius,invariant,506.tiff/grid_20,,,,,True,,,,,,32.975303229224245,32.975303229224245,0.22744294261267478,,,,,520.0
+,,,,,,,no_cap,invariant,506.tiff/grid_30,,,,,True,,,,17113.0,(),,,,,,,,591.0
+,,,,,,,nms_radius,invariant,506.tiff/grid_30,,,,,True,,,,,,32.975303229224245,32.975303229224245,0.22744294261267478,,,,,520.0
+,,,,,,,no_cap,invariant,506.tiff/grid_40,,,,,True,,,,24300.0,(),,,,,,,,591.0
+,,,,,,,nms_radius,invariant,506.tiff/grid_40,,,,,True,,,,,,32.975303229224245,32.975303229224245,0.22744294261267478,,,,,520.0
+,,,,,,,distinct_seeds,invariant,506.tiff,,,,,True,,,,,,,,,5.0,4.0,8.0,5.0,7.0
+,,,,,,,tissue_mask_covers_gt,invariant,350.tiff,20.0,0.0,0.0,,True,,,,,,,,,,,,,7.0
+,,,,,,,min_separation,invariant,350.tiff/grid_10,,,,,True,23970.0,36.05551275463989,32.97608267716535,,,,,,,,,,28.0
+,,,,,,,min_separation,invariant,350.tiff/grid_20,,,,,True,20223.0,40.0,32.97608267716535,,,,,,,,,,28.0
+,,,,,,,min_separation,invariant,350.tiff/grid_30,,,,,True,17033.0,42.42640687119285,32.97608267716535,,,,,,,,,,28.0
+,,,,,,,min_separation,invariant,350.tiff/grid_40,,,,,True,24300.0,40.0,32.97608267716535,,,,,,,,,,28.0
+,,,,,,,no_cap,invariant,350.tiff/pipeline,,,,,True,,,,14952.0,"(250000, 1000000000)",,,,,,,,591.0
+,,,,,,,nms_radius,invariant,350.tiff/pipeline,,,,,True,,,,,,32.97608267716535,32.97608267716535,0.2274375665971221,,,,,520.0
+,,,,,,,no_cap,invariant,350.tiff/pipeline_score,,,,,True,,,,14952.0,"(250000, 1000000000)",,,,,,,,591.0
+,,,,,,,nms_radius,invariant,350.tiff/pipeline_score,,,,,True,,,,,,32.97608267716535,32.97608267716535,0.2274375665971221,,,,,520.0
+,,,,,,,no_cap,invariant,350.tiff/blob_native,,,,,True,,,,8173.0,(),,,,,,,,591.0
+,,,,,,,no_cap,invariant,350.tiff/blob_od,,,,,True,,,,8173.0,(),,,,,,,,591.0
+,,,,,,,no_cap,invariant,350.tiff/grid_10,,,,,True,,,,23970.0,(),,,,,,,,591.0
+,,,,,,,nms_radius,invariant,350.tiff/grid_10,,,,,True,,,,,,32.97608267716535,32.97608267716535,0.2274375665971221,,,,,520.0
+,,,,,,,no_cap,invariant,350.tiff/grid_20,,,,,True,,,,20223.0,(),,,,,,,,591.0
+,,,,,,,nms_radius,invariant,350.tiff/grid_20,,,,,True,,,,,,32.97608267716535,32.97608267716535,0.2274375665971221,,,,,520.0
+,,,,,,,no_cap,invariant,350.tiff/grid_30,,,,,True,,,,17033.0,(),,,,,,,,591.0
+,,,,,,,nms_radius,invariant,350.tiff/grid_30,,,,,True,,,,,,32.97608267716535,32.97608267716535,0.2274375665971221,,,,,520.0
+,,,,,,,no_cap,invariant,350.tiff/grid_40,,,,,True,,,,24300.0,(),,,,,,,,591.0
+,,,,,,,nms_radius,invariant,350.tiff/grid_40,,,,,True,,,,,,32.97608267716535,32.97608267716535,0.2274375665971221,,,,,520.0
+,,,,,,,distinct_seeds,invariant,350.tiff,,,,,True,,,,,,,,,5.0,4.0,4.0,5.0,7.0
