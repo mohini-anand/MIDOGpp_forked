@@ -1,0 +1,17 @@
+file_name,statistic,contrast,auc,ci_lo,ci_hi,n_pos,n_neg
+301.tiff,chromatin_density,tp_vs_lookalike,0.693,0.635,0.751,216,105
+301.tiff,chromatin_density,tp_vs_unannotated,0.935,0.912,0.958,216,19598
+301.tiff,chromatin_density,lookalike_vs_unannotated,0.907,0.869,0.946,105,19598
+301.tiff,blob_component_score,tp_vs_lookalike,0.687,0.628,0.745,218,107
+301.tiff,blob_component_score,tp_vs_unannotated,0.986,0.975,0.997,218,20045
+301.tiff,blob_component_score,lookalike_vs_unannotated,0.967,0.943,0.991,107,20045
+301.tiff,_capture,mitotic_captured,1.0,,,218,218
+301.tiff,_capture,lookalike_captured,0.982,,,107,109
+246.tiff,chromatin_density,tp_vs_lookalike,0.768,0.707,0.83,110,123
+246.tiff,chromatin_density,tp_vs_unannotated,0.962,0.937,0.987,110,20380
+246.tiff,chromatin_density,lookalike_vs_unannotated,0.876,0.836,0.916,123,20380
+246.tiff,blob_component_score,tp_vs_lookalike,0.742,0.679,0.806,112,123
+246.tiff,blob_component_score,tp_vs_unannotated,0.972,0.95,0.993,112,20824
+246.tiff,blob_component_score,lookalike_vs_unannotated,0.911,0.877,0.946,123,20824
+246.tiff,_capture,mitotic_captured,0.966,,,112,116
+246.tiff,_capture,lookalike_captured,1.0,,,123,123

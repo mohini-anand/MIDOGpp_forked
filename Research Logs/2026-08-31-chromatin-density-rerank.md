@@ -182,10 +182,34 @@ is wrong, and it is wrong specifically because this fix works.
 | 506.tiff | 11 | 0.925 | 0.527 |
 | 350.tiff | 3 | 0.799 | **0.269** |
 
-**It is largely a dense-object detector, not a mitosis detector.** That is enough to win the
-workload comparison by two orders of magnitude on the unannotated bulk, and it is not enough
-to separate mitosis from mimic. Median OD on 301.tiff: 0.137 (mitotic), 0.114 (look-alike),
-0.090 (unannotated) -- the ordering holds, the mitotic/look-alike gap is small.
+**It is much better at dense-object detection than at mitosis-vs-mimic.** But the table
+above is measured on the *pipeline's own* candidate set, which captures only 29-48% of the
+annotated look-alikes -- a selection correlated with the feature under test. Re-measured on
+the `nucleus_blobs` candidate set, which captures 98-100% of look-alikes and 96.6-100% of
+mitoses, the bias is worth 0.06-0.10 of AUC (`lookalike_auc_unbiased.py`,
+`results/lookalike_auc_unbiased.csv`):
+
+| ROI | AUC(TP vs look-alike), unbiased | 95% CI | n TP vs n look-alike | biased estimate above |
+|---|---:|---|---|---:|
+| 246.tiff | **0.768** | [0.707, 0.830] | 110 v 123 | 0.831 |
+| 301.tiff | **0.693** | [0.635, 0.751] | 216 v 105 | 0.797 |
+
+Both decisively exclude 0.5, so the honest reading is **0.69-0.77 against 0.94-0.99 for
+TP-vs-unannotated -- a real but much weaker signal**, not "unable to separate mitosis from
+mimic" (too harsh) and not "decent" (too generous). Four of the seven rows in the table above
+(405, 002, 506, 350) rest on 2-11 true positives with CIs spanning 0.5; the ordering among
+them is noise.
+
+Two things this rules out. The window statistic is **not** doing something cleverer than a
+component mean on the hard class -- chromatin density 0.693 vs the blob component-mean 0.687
+on 301.tiff, statistically indistinguishable -- so its advantage is confined to the easy
+class, where the component mean is markedly better (0.986 vs 0.935 on 301.tiff) -- which is
+exactly why `nucleus_blobs` ranked by its own native score outperforms the same detector
+re-ranked by chromatin density. And because both available statistics are stuck
+at 0.69-0.77 with 105-123 look-alikes available to measure against, the gap for a texture
+feature to close is genuine and well powered.
+
+Median OD on 301.tiff: 0.137 (mitotic), 0.114 (look-alike), 0.090 (unannotated).
 
 ## Still open
 
@@ -196,8 +220,12 @@ to separate mitosis from mimic. Median OD on 301.tiff: 0.137 (mitotic), 0.114 (l
 - **z = 2.5 is the only clean level in the swept set, and it is not tuned.** A deeper
   extraction floor than 0.25 would let z = 1.5-2.0 be measured properly; the z >= 2 row
   (recall 0.935, spread 1.8x) is promising and currently contaminated by one floor-limited arm.
-- **Look-alikes are now the majority problem at the operating point** (3.3:1, from 170:1).
-  Texture -- GLCM/LBP over the same window -- is the next lever, and it is no longer third.
+- **Look-alikes are enriched 40x at the operating point but are not the majority.**
+  Top-K is TP 187 / look-alike 46 / unannotated 151, so look-alikes are **23.4%** of false
+  positives, up from 0.58% on the full list. Perfect look-alike suppression moves FPs only
+  197 -> 151. An earlier draft of this log called them "the majority problem"; that was
+  wrong, and it matters because texture work aimed at this tier is worth less than choosing
+  the score floor properly (z = 2.5 -> 2.0 moves 301.tiff's recall@1000 by 0.185).
 - **Four of seven ROIs have n < 15 mitotic figures** (405 n=13, 506 n=11, 002 n=8, 350 n=3).
   The 002.tiff showpiece rests on n=8. Only 301.tiff (n=217) and 246.tiff (n=115) carry real
   statistical weight; both win (6.4x, 11.9x median over seeds), which is the reassuring part,
