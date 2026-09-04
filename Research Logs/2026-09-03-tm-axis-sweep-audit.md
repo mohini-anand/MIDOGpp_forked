@@ -65,7 +65,7 @@ a metric the volume increase saturates.
 `nan_rate` for `arm='chromatin_od'`, across all rows:
 
 * v1: **0.000000** (min = median = max)
-* v2: **0.0167 - 0.0301** (61-746 candidates per (domain, z) cell; 389-746 at the deep floor)
+* v2: **0.0167 - 0.0301** (61-746 candidates per (domain, z) cell; 566-746 per domain at the deep floor)
 * lcc: 0.000000
 
 The cause is v2's own Fix 1. Padding made the ROI border reachable for the *match*, but
