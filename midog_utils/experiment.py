@@ -93,24 +93,30 @@ def run_one_image(
     run_baselines=True,
     bbox_method: str = "binary",
     bbox_center_tolerance: int = 0,
+    bbox_headroom_frac: float = None,
     tighten_bbox: bool = True,
 ) -> dict:
     """Full pipeline + baselines for one ROI. Returns everything needed to plot or re-score.
 
     ``bbox_method`` selects `seed_selection.tighten_box_otsu`'s foreground threshold --
-    ``"binary"`` (default, unchanged pipeline behaviour) or ``"multiotsu"`` (`Research
-    Logs/design_choices.md`, section 7). ``bbox_center_tolerance`` (default 0, unchanged)
-    widens the centre-pixel check to a small neighbourhood -- see `tighten_box_otsu`'s
-    ``center_tolerance``, section 7's tolerance follow-up. Both are passed identically to
-    `pick_seed` and `tightened_base_size` so the seed a given setting accepts is
-    retightened under that same setting, not a different one.
+    ``"binary"`` (default, unchanged pipeline behaviour), ``"multiotsu"`` (`Research
+    Logs/design_choices.md`, section 7), or ``"headroom"`` (`Research
+    Logs/2026-09-03-bbox-threshold-sweep.md`). ``bbox_center_tolerance`` (default 0,
+    unchanged) widens the centre-pixel check to a small neighbourhood -- see
+    `tighten_box_otsu`'s ``center_tolerance``, section 7's tolerance follow-up.
+    ``bbox_headroom_frac`` (default ``None``, unchanged) is `"headroom"`'s required
+    ``(0, 1]`` fraction of the headroom between binary Otsu's split and the crop's max;
+    unused by the other two methods. All three are passed identically to `pick_seed` and
+    `tightened_base_size` so the seed a given setting accepts is retightened under that
+    same setting, not a different one.
 
     ``tighten_bbox`` (default True, unchanged) toggles Otsu/CC bbox tightening off
     entirely -- when False, seed selection is pathologist agreement + the border filter
-    only (`bbox_method`/``bbox_center_tolerance`` are then unused, since there's no
-    Otsu/CC step left to configure), and the template keeps ``cfg.base_size``'s native
-    size (`FSConfig`'s own default, `template_match.BASE_SIZE` = 51px) instead of being
-    resized to a tightened box. See `Research Logs/design_choices.md`, section 8.
+    only (`bbox_method`/``bbox_center_tolerance``/``bbox_headroom_frac`` are then unused,
+    since there's no Otsu/CC step left to configure), and the template keeps
+    ``cfg.base_size``'s native size (`FSConfig`'s own default, `template_match.BASE_SIZE`
+    = 51px) instead of being resized to a tightened box. See `Research
+    Logs/design_choices.md`, section 8.
     """
     cfg = cfg or fs.FSConfig()
     rng = np.random.default_rng(0) if rng is None else rng
@@ -128,7 +134,8 @@ def run_one_image(
     gray_inv = ch.to_gray_inverted(rgb)
     seed, seed_info = ss.pick_seed(
         gt[gt["category_id"] == ds.MITOTIC], gray_inv, rng, cfg.patch_size // 2, rgb.shape,
-        method=bbox_method, center_tolerance=bbox_center_tolerance, tighten_bbox=tighten_bbox,
+        method=bbox_method, center_tolerance=bbox_center_tolerance,
+        headroom_frac=bbox_headroom_frac, tighten_bbox=tighten_bbox,
     )
     gt_eval = gt[gt["ann_id"] != seed["ann_id"]].reset_index(drop=True)
 
@@ -138,7 +145,8 @@ def run_one_image(
         # seed's component passes the size/shape sanity check, so this cannot return
         # None here.
         tightened_size = ss.tightened_base_size(gray_inv, seed["cx"], seed["cy"], method=bbox_method,
-                                                center_tolerance=bbox_center_tolerance)
+                                                center_tolerance=bbox_center_tolerance,
+                                                headroom_frac=bbox_headroom_frac)
         run_cfg = replace(cfg, base_size=tightened_size)
     else:
         # No tightening requested: keep cfg.base_size as-is (51px by default) and skip
@@ -160,6 +168,7 @@ def run_one_image(
                "seed_ann_id": int(seed["ann_id"]), "channel": run_cfg.channel,
                "mpp": round(mpp, 4), "tightened_base_size": tightened_size,
                "bbox_method": bbox_method, "bbox_center_tolerance": bbox_center_tolerance,
+               "bbox_headroom_frac": bbox_headroom_frac,
                "tighten_bbox": tighten_bbox,
                "seed_agreement_flagged": seed_info.agreement_flagged,
                "seed_n_agreement_pool": seed_info.n_agreement_pool,
@@ -241,6 +250,7 @@ def run_experiment(
     verbose=True,
     bbox_method: str = "binary",
     bbox_center_tolerance: int = 0,
+    bbox_headroom_frac: float = None,
     tighten_bbox: bool = True,
 ):
     """Loop `run_one_image` over the selected ROIs.
@@ -255,8 +265,9 @@ def run_experiment(
     quantile repeated, not seven independent draws, and a multi-seed sweep built on it
     would repeat the same quantile sequence for every seed.
 
-    ``bbox_method``, ``bbox_center_tolerance``, and ``tighten_bbox`` are passed straight
-    through to every `run_one_image` call -- see that function's docstring.
+    ``bbox_method``, ``bbox_center_tolerance``, ``bbox_headroom_frac``, and
+    ``tighten_bbox`` are passed straight through to every `run_one_image` call -- see
+    that function's docstring.
     """
     cfg = cfg or fs.FSConfig()
     results, metric_rows, detection_rows = {}, [], []
@@ -271,6 +282,7 @@ def run_experiment(
             rng=np.random.default_rng([seed, int(row["image_id"])]),
             run_baselines=run_baselines,
             bbox_method=bbox_method, bbox_center_tolerance=bbox_center_tolerance,
+            bbox_headroom_frac=bbox_headroom_frac,
             tighten_bbox=tighten_bbox,
         )
         for m in res["metrics"]:

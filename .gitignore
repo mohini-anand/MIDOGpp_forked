@@ -137,3 +137,7 @@ images/*.tiff
 
 # Microsoft Office lock files (created while a .pptx/.docx/.xlsx is open)
 ~$*
+
+# Standalone demo bundles (contain full-resolution images, hundreds of MB)
+bbox_tuning_demo.zip
+bbox_tuning_demo/

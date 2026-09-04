@@ -108,6 +108,7 @@ def tighten_box_otsu(
     min_solidity: float = 0.5,
     method: str = "binary",
     center_tolerance: int = 0,
+    headroom_frac: float = None,
 ):
     """Threshold ``patch`` and return the connected component under (or near) its centre.
 
@@ -134,6 +135,35 @@ def tighten_box_otsu(
       window multi-Otsu can't threshold) -- refused rather than silently falling back to
       binary Otsu for that one patch, consistent with the rest of this function's
       "exclude, don't patch over" handling.
+    * ``"headroom"``: binary Otsu's own split, raised by a fraction of the headroom
+      between that split and the crop's max (always 255, since the crop is normalized
+      to [0, 255] before thresholding either way) -- ``threshold = otsu_thresh +
+      headroom_frac * (255 - otsu_thresh)``, foreground is ``u8 > threshold`` (strict,
+      matching ``cv2.THRESH_BINARY``'s own semantics). A dialable middle ground between
+      ``"binary"`` and ``"multiotsu"``: on the window-saturating merges ``"multiotsu"``
+      was built for (a component spanning several adjacent nuclei rather than one, e.g.
+      `245.tiff` ann 6245's entire 51x51 window at area_frac=0.58), raising the
+      threshold un-merges most of them without multiotsu's separate 3-class fit -- but
+      the same intervention also shrinks or drops components that were never merged in
+      the first place, and that collateral cost lands in the same dense domains as the
+      benefit. ``frac=0`` reproduces ``"binary"`` exactly (verified byte-for-byte).
+      ``frac=0.15`` resolves roughly half the window-saturating population at about a
+      third of multiotsu's collateral exclusion rate in the dense domains that matter;
+      ``frac=0.30`` lands within ~3 points of multiotsu on every metric measured. See
+      `Research Logs/2026-09-03-bbox-threshold-sweep.md` for the full sweep (frac in
+      {0.05, 0.10, 0.15, 0.20, 0.30} vs. multiotsu, 933 candidates across 18 ROIs) and
+      its visual audit -- including cases where the flagged-large component was not
+      actually a merge, just a legitimately large chromatin mass the size-based flag
+      can't tell apart from one. ``headroom_frac`` must be a float in ``[0, 1]``;
+      raises ``ValueError`` otherwise (mirroring the bad-``method`` check below), since
+      an unset or out-of-range fraction almost certainly means the caller forgot to
+      pass it, not that some sensible default was intended. ``0.0`` is accepted (not
+      just documented as equivalent to it): Otsu's threshold is always integer-valued
+      on a ``uint8`` image, so ``threshold = otsu_thresh`` under this branch's strict
+      ``>`` gives byte-identical output to ``method="binary"`` -- deliberately, so a
+      sweep over ``headroom_frac`` (e.g. `Research Logs/2026-09-03-bbox-threshold-sweep.md`'s
+      own {0.05, ..., 0.30} grid) can include 0 as its own left endpoint rather than
+      needing a workaround value to stand in for it.
 
     ``center_tolerance`` (default 0, exact-pixel-only, unchanged) widens the centre
     check to the nearest foreground pixel within an L-inf square of this half-width
@@ -192,8 +222,17 @@ def tighten_box_otsu(
         except ValueError:
             return None
         binary = np.where(u8 > thresholds[-1], np.uint8(255), np.uint8(0))
+    elif method == "headroom":
+        if headroom_frac is None or not (0 <= headroom_frac <= 1):
+            raise ValueError(
+                f"headroom_frac must be a float in [0, 1] for method='headroom', "
+                f"got {headroom_frac!r}"
+            )
+        otsu_thresh, _ = cv2.threshold(u8, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
+        threshold = otsu_thresh + headroom_frac * (255 - otsu_thresh)
+        binary = np.where(u8 > threshold, np.uint8(255), np.uint8(0))
     else:
-        raise ValueError(f"method must be 'binary' or 'multiotsu', got {method!r}")
+        raise ValueError(f"method must be 'binary', 'multiotsu', or 'headroom', got {method!r}")
     labels = label(binary, connectivity=2)
     cy, cx = patch.shape[0] // 2, patch.shape[1] // 2
     center_label = labels[cy, cx]
@@ -230,6 +269,7 @@ def foreground_filter(
     otsu_window: int = tm.BASE_SIZE,
     method: str = "binary",
     center_tolerance: int = 0,
+    headroom_frac: float = None,
 ) -> pd.DataFrame:
     """Keep only annotations whose click lands inside (or near) its own Otsu component.
 
@@ -237,9 +277,11 @@ def foreground_filter(
     independent of whatever channel `FSConfig.channel` later searches in, since this is a
     structural test of the click's location, not a matching score.
 
-    ``method`` and ``center_tolerance`` are passed straight through to
-    `tighten_box_otsu` -- ``method`` is ``"binary"`` (default) or ``"multiotsu"``;
-    ``center_tolerance`` (default 0) is the exact-pixel-vs-nearby-pixel centre check.
+    ``method``, ``center_tolerance``, and ``headroom_frac`` are passed straight through
+    to `tighten_box_otsu` -- ``method`` is ``"binary"`` (default), ``"multiotsu"``, or
+    ``"headroom"``; ``center_tolerance`` (default 0) is the exact-pixel-vs-nearby-pixel
+    centre check; ``headroom_frac`` (default ``None``) is `"headroom"`'s required
+    ``[0, 1]`` fraction, unused by the other two methods.
 
     ``otsu_window`` defaults to the 51 px annotation box itself, *not*
     `template_match.PATCH_SIZE` (73 px) -- despite the design doc's "Otsu-threshold the
@@ -256,7 +298,7 @@ def foreground_filter(
     for i, (_, row) in enumerate(df.iterrows()):
         patch = tm.read_padded_patch(structural_channel, row["cx"], row["cy"], otsu_window)
         keep[i] = patch is not None and tighten_box_otsu(
-            patch, method=method, center_tolerance=center_tolerance
+            patch, method=method, center_tolerance=center_tolerance, headroom_frac=headroom_frac
         ) is not None
     return df[keep]
 
@@ -278,6 +320,7 @@ def pick_seed(
     otsu_window: int = tm.BASE_SIZE,
     method: str = "binary",
     center_tolerance: int = 0,
+    headroom_frac: float = None,
     tighten_bbox: bool = True,
 ):
     """Pick a mitotic seed under the pathologist-agreement and bbox-tightening filters.
@@ -293,14 +336,16 @@ def pick_seed(
     rotation-safe half-patch (`FSConfig.patch_size // 2`), since `find_and_suppress` reads
     that much regardless of how large the tightened template turns out to be.
 
-    ``method`` and ``center_tolerance`` are passed straight through to
-    `tighten_box_otsu`/`foreground_filter` -- ``method`` is ``"binary"`` (default) or
-    ``"multiotsu"``; ``center_tolerance`` (default 0) is the exact-pixel-vs-nearby-pixel
-    centre check.
+    ``method``, ``center_tolerance``, and ``headroom_frac`` are passed straight through
+    to `tighten_box_otsu`/`foreground_filter` -- ``method`` is ``"binary"`` (default),
+    ``"multiotsu"``, or ``"headroom"``; ``center_tolerance`` (default 0) is the
+    exact-pixel-vs-nearby-pixel centre check; ``headroom_frac`` (default ``None``) is
+    `"headroom"`'s required ``[0, 1]`` fraction, unused by the other two methods.
 
     ``tighten_bbox`` (default True, unchanged) toggles the foreground filter entirely --
     when False, seed selection is pathologist agreement + the border filter only, no
-    Otsu/CC step at all (`method`/``center_tolerance`` are then unused). ``n_fg`` is left
+    Otsu/CC step at all (`method`/``center_tolerance``/``headroom_frac`` are then
+    unused). ``n_fg`` is left
     equal to ``n_border`` in that case rather than a separate, always-identical number, so
     `SeedInfo` still means "pool size after this stage" consistently whether or not the
     stage actually ran.
@@ -314,7 +359,7 @@ def pick_seed(
     n_border = len(pool)
     if tighten_bbox:
         pool = foreground_filter(pool, structural_channel, otsu_window, method=method,
-                                 center_tolerance=center_tolerance)
+                                 center_tolerance=center_tolerance, headroom_frac=headroom_frac)
     n_fg = len(pool)
 
     info = SeedInfo(flagged, n_pool, n_border, n_fg)
@@ -331,7 +376,8 @@ def pick_seed(
 
 def tightened_base_size(structural_channel: np.ndarray, cx: float, cy: float,
                          otsu_window: int = tm.BASE_SIZE, minimum: int = 5,
-                         method: str = "binary", center_tolerance: int = 0):
+                         method: str = "binary", center_tolerance: int = 0,
+                         headroom_frac: float = None):
     """The native template size for a seed after bbox tightening.
 
     Otsu-thresholds the ``otsu_window``-sized box around the click, takes the connected
@@ -345,18 +391,22 @@ def tightened_base_size(structural_channel: np.ndarray, cx: float, cy: float,
     not `template_match.PATCH_SIZE` (73 px) -- see `foreground_filter`'s docstring for
     why the wider window was rejected.
 
-    ``method`` and ``center_tolerance`` must match whatever `pick_seed` used to accept
-    this seed -- passing different ones here can retighten a box under settings that
-    never actually validated this click's foreground membership.
+    ``method``, ``center_tolerance``, and ``headroom_frac`` must match whatever
+    `pick_seed` used to accept this seed -- passing different ones here can retighten a
+    box under settings that never actually validated this click's foreground membership.
+    ``method`` is ``"binary"`` (default), ``"multiotsu"``, or ``"headroom"``;
+    ``headroom_frac`` (default ``None``) is `"headroom"`'s required ``[0, 1]`` fraction,
+    unused by the other two methods.
 
     Returns ``None`` when the patch can't be read or the click isn't foreground;
     `pick_seed`'s foreground filter means a seed it returned will not hit the second case
-    when the same ``method``/``center_tolerance`` are passed to both.
+    when the same ``method``/``center_tolerance``/``headroom_frac`` are passed to both.
     """
     patch = tm.read_padded_patch(structural_channel, cx, cy, otsu_window)
     if patch is None:
         return None
-    bbox = tighten_box_otsu(patch, method=method, center_tolerance=center_tolerance)
+    bbox = tighten_box_otsu(patch, method=method, center_tolerance=center_tolerance,
+                            headroom_frac=headroom_frac)
     if bbox is None:
         return None
     y0, y1, x0, x1 = bbox
