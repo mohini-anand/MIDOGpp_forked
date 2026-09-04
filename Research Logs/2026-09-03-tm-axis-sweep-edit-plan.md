@@ -2,7 +2,10 @@
 
 Companion to `Research Logs/2026-09-03-tm-axis-sweep-audit.md` (12 findings, 3 tiers).
 Reviewed by an independent subagent; 19 issues raised, all resolved (see "Review outcomes").
-**Nothing here has been executed.** Awaiting go-ahead.
+
+> **Executed 2026-09-04.** All 34 edits applied and all three notebooks re-run.
+> Baseline `a52b403`; v1 `86069de`; v2 + largest-CC `a723e3a`. Every verification step
+> passed -- see "Execution record" at the end.
 
 ## Principles
 
@@ -145,3 +148,45 @@ non-existent comment). 11 should-fixes accepted, incl. 3 edits the draft omitted
 acceptance: the 3,070 minimum, the K=5000 counterexample, the 56-group/0-violation vs
 33-violation arm split, the two comment locations, `chromatin.py`'s git state, `ctx` column
 leakage, and the deep-pool ratios behind C13.
+
+
+---
+
+# Execution record (2026-09-04)
+
+| step | result |
+|---|---|
+| **E0** baseline | `a52b403`, exactly 6 paths + scratchpad copy. Library committed separately (`eb34505`, `32c513e`) after the user's question exposed that the baseline could not rebuild its own artifacts. |
+| **V1** gate | **PASS** -- v1's CSV byte-identical to `a52b403`, so every v1 edit was display-only as designed. Ran before touching v2, as planned. |
+| **V2** | **PASS** -- all 504 `tm_score` rows byte-identical; all 29 order-independent `chromatin_od` columns unchanged. |
+| **V3** | **PASS** -- `nan_rate == 0` on every row (baseline max 0.0301). |
+| **V4** | **PASS** -- `201.tiff` `chromatin_od` `read_95` landed on **814** (z=0.5) and **801** (z=1.0), the exact predicted targets; all 12 shared columns match the largest-CC run on both arms. |
+| **V5** | **PASS** -- the 63-row `tm_score` slice both `tp_fp_*` notebooks read is byte-identical, so neither needed re-running. Proved rather than re-run. |
+| largest-CC CSV | byte-identical to `a52b403` -- only its reporting changed. |
+| notebooks | 27 / 31 / 41 cells, all executed, zero errors. |
+
+**Headline numbers the corrections produced.** Lung cancer `chromatin_od` `read_95`
+19,373 -> **814**, turning v2's +18,720 "cost of the smaller NMS radius" into +161 for both
+fixes combined. The largest-CC null control's `chromatin_od` `read_95_delta` went
+-15,342 -> **0**, so `201.tiff` is finally a true null on both axes. Coincidence probability
+0.8699 -> **0.4014 / 0.4165**. Duplicate-FP counts 111 (v1) -> 281 (v2), matching the audit's
+spot check exactly, as did the per-domain `od` NaN counts (566-746).
+
+**Deviations from the plan, and why.**
+
+* **B9 withdrawn, A11 added.** The ambiguous `# production median + 0.5*MAD floor` comment is
+  in v1's config cell, not v2's (v2 has no comment there). The edit moved notebooks.
+* **C1 widened.** The "stale `CURRENT_Z`" wording appears twice in the largest-CC notebook --
+  cell 0's prose *and* cell 3's inline comment. Both corrected.
+* **B12 and C13 added** -- two defects the first draft missed: v2 carried the same
+  asserted-not-measured axis-independence claim being fixed in the later notebook, and the
+  largest-CC summary's "broader, less-selective response" mechanism does not hold in 2 of the
+  6 tightened domains.
+* **Three numbers in the audit corrected**, all found by review or during execution: the
+  smallest pool is 3,070 (canine lung cancer), not 3,424; the top-K identity is
+  budget-scoped, not universal (it fails at K=5000, z=3.0 in 6 of 7 domains); and the per-domain
+  `od` NaN range at the deep floor is 566-746, not 389-746.
+
+**Still open** -- the three follow-ups above (F1 multi-seed re-run, F2 persist `sep_table`,
+F3 `chromatin.score_detections`' silent border NaN). F1 is the one that matters: it is what
+would make the largest-CC reading-depth comparison decidable at all.
