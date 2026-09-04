@@ -1,0 +1,8 @@
+held-out ROI,domain,q from the other 6,candidates before,after,cut,mitoses kept,recall
+301.tiff,canine cutaneous mast ,11.1%,22227,2465,89%,188/217,86.6%
+201.tiff,canine lung cancer,13.8%,16529,2289,86%,17/17,100.0%
+246.tiff,canine lymphosarcoma,13.3%,26677,3558,87%,111/115,96.5%
+459.tiff,canine soft tissue sar,11.1%,20892,2317,89%,114/130,87.7%
+094.tiff,human breast cancer,13.8%,26147,3621,86%,78/81,96.3%
+548.tiff,human melanoma,11.1%,20810,2308,89%,222/238,93.3%
+402.tiff,human neuroendocrine t,13.8%,27280,3778,86%,102/104,98.1%
