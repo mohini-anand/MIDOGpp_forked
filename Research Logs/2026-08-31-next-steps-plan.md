@@ -163,7 +163,8 @@ Merges the draft's Phases 1 and 2, which had a dependency error: Phase 1 ran the
 z=2.5 while Phase 2 existed to choose z, so the arm-A verdict was a function of an unchosen
 parameter.
 
-**One match per (ROI, seed)** at a per-image floor `med + 0.5*mad`; every z derived by
+**One match per (ROI, seed)** at a per-image floor `med + 0.5*mad` (0.25 since the
+2026-09-01 re-run); every z derived by
 filtering that one pool — the "one match, many arms" shortcut `od_experiment.py` already
 proves exact. A global constant floor is forbidden by Rule 7 and is also wrong on the
 numbers: 246.tiff needs <= 0.0968 for a clean z=1.0 on its worst seed, against the draft's
@@ -305,7 +306,9 @@ scratch run, and is now reproducible: `coverage_at_budget` is a column of
 (0.080-0.085 against a full-list 0.88-1.00) were themselves a five-arm subset chosen to
 exclude the arms that break it** — the same cherry-pick the premise-test log's ledger item 6
 retracts, reproduced in the commit that retracted it. Measured across all arms at budget 1000
-on 301.tiff, coverage at budget spans 0.0638-0.0852 (a 1.34x spread) against a full-list
+on 301.tiff, coverage at budget spans 0.0638-0.0848 across the eight seedless arms (a
+1.33x spread; a first draft of this correction wrote 0.0852, which is `pipeline_score`'s
+value — the same cherry-pick again, a fourth time) against a full-list
 spread of the same order, so the arms are **not** coverage-matched at budget either; what
 changes is the level, from 0.72-1.00 down to 0.06-0.09. The line's underlying point — that
 the budgeted columns are what matter — stands, and now has a

@@ -156,9 +156,13 @@ def verify_shortcut(fused, valid, radius, seed_xy, cfg, pool, cut):
     object against a 29.6 px match radius.
 
     So strict identity is the wrong bar: it fails on a tie-break that cannot move any
-    reported number. The bar used here is *substantive* -- every disagreeing point must have
-    a counterpart within one match radius, so that greedy matching resolves both the same
-    way. A disagreement with no such counterpart is a real divergence and raises.
+    reported number. The bar used here is *substantive*, and has two parts: the two lists
+    must be the same **length**, and every disagreeing point must have a counterpart within
+    ``peak_min_distance`` -- below which two candidates could not have been separate local
+    maxima at all, so they are the same object by construction. The match radius is far too
+    loose a bar: two points 25 px apart are inside a 29.6 px radius yet can sit on opposite
+    sides of a ground-truth object and match differently. Anything outside those two
+    conditions is a real divergence and raises.
     """
     centers, scores = tm.extract_peaks(fused, valid, cfg.peak_min_distance, cut, cfg.max_peaks)
     keep = nms_by_distance(centers, scores, radius)
@@ -1011,15 +1015,17 @@ def write_report(suffix: str = ""):
       "as sorted coordinate arrays. Two levels per ROI (z = 1.0 and z = 2.0), seed 0 "
       "only -- a sample of the (seed, z) grid, not a proof over it. Exact equality is "
       "**not** the bar: `argsort` is unstable, so a tie pair inside the NMS radius can "
-      "flip between a large pool and a small one. A wider probe over the low z levels "
-      "(`shortcut_probe.py`) found one such flip. See that artifact for the calibrated "
+      "flip between a large pool and a small one. A wider probe (`shortcut_probe.py`, 40 "
+      "cells) found two such flips, one of them at z = 1.0 -- a level this report uses, "
+      "which the table below checks only at seed 0. See that artifact for the calibrated "
       "statement:\n")
     A(_md(rows, ["ROI", "cut", "direct", "filtered", "result"]))
     A("")
     inv_rows = ver[ver["kind"] == "invariant"]
     for name, note in (
         ("no_cap", "no arm's candidate-list length equals a configured truncation cap"),
-        ("min_separation", "grid arms: no two kept lattice points within the match "
+        ("min_separation", "caller-suppressed arms (the four lattices and the two "
+                           "`blob_*_nms` arms): no two kept points within the match "
                            "radius, i.e. NMS was applied at the match radius"),
         ("nms_radius", "every arm's suppression radius equals `evaluate.radius_px(mpp)` "
                        "for its image"),
@@ -1081,11 +1087,15 @@ def write_report(suffix: str = ""):
       f"{int(unre['read_50'].isna().sum())}. Those cells are excluded from the "
       "corresponding medians and counted in the `unreached` columns, never imputed and "
       "never counted as wins.")
-    hi = main[(main["budget"] == BUDGETS[0]) & (main["coverage_frac"] > 0.5)]
+    # `unre` already drops the sanity-only `random` arm; `hi` must drop it too, or the
+    # count and the total are taken over different populations (this printed "688 of 840").
+    hi = unre[unre["coverage_frac"] > 0.5]
     A(f"* `coverage_frac > 0.5` in {len(hi)} of {len(unre)} cells, in arms "
       f"{', '.join(sorted(set(hi['arm'])))}. Full-list recall for those arms is a "
-      "statement about tiling geometry rather than about the detector; the budgeted "
-      "columns are unaffected by it.")
+      "statement about tiling geometry rather than about the detector. The budgeted "
+      "columns are not thereby unaffected: `coverage_at_budget` spreads across arms by "
+      "about as much as `coverage_frac` does, so these comparisons are matched on "
+      "candidates read, not on tissue seen.")
     rnd = main[main["sanity_only"].astype(bool)]
     if len(rnd):
         r = rnd[rnd["budget"] == 1000].iloc[0]

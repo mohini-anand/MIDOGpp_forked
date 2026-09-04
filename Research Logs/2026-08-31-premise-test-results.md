@@ -18,8 +18,12 @@ Decision-grade ROIs (n_mitotic >= 15): 301 (217), 246 (115), 201 (17).
 structural rather than statistical.** It varies how candidates are *generated* while holding
 the *ranker* fixed at chromatin density for every arm — and on identical candidate sets the
 ranker is worth far more than the generator. Swapping chromatin density for the correlation
-score costs +0.706, +0.461 and +0.488 recall@1000 on 201, 246 and 301; the entire spread
-across the eight generator arms is 0.353, 0.104 and 0.226. So "does the click earn its
+score costs +0.706, +0.461 and +0.488 recall@1000 on 201, 246 and 301, against a spread
+across the eight generator arms of 0.353, 0.104 and 0.226 — ratios of 2.0x, 4.4x and 2.2x.
+**Those are the decision-grade ROIs.** Over all seven the ranker still exceeds the generator
+spread everywhere, but the margin is much thinner on two: 405.tiff is 1.2x (0.462 against
+0.385) and 506.tiff is 1.4x (0.636 against 0.455), while 002.tiff is 5.0x and 350.tiff has
+no generator spread at all. So the direction is universal; "several times larger" is not. So "does the click earn its
 place?" is being adjudicated on the smaller term, inside a design where the arms cannot
 separate much, at a sample size that cannot resolve small differences: 3 usable images, 5
 clicks each drawn **with replacement** (4 of 7 ROIs reuse an annotation), where the best
@@ -29,11 +33,12 @@ attainable one-sided p-value from a 5-seed sign test is 0.031.
 
 * **Candidate generation barely matters once a good ranker is applied.** Eight structurally
   different generators — a click-seeded template match, a dark-nucleus detector, and lattices
-  at four spacings — sit within a 0.10–0.35 band per ROI, and their *median paired* deltas
-  against the pipeline stay inside ±0.08. Both are far below the ranker's 0.46–0.71. That
-  is the real finding. (Those two figures answer different questions — spread across arms
-  versus paired difference from the pipeline — and an earlier draft quoted the second while
-  describing the first.)
+  at four spacings — sit within a 0.10–0.35 band on the decision-grade ROIs (0.00–0.46
+  across all seven), and their *median paired* deltas against the pipeline stay inside
+  ±0.08 there. Both sit below the ranker's 0.46–0.71, by 2–4x on the decision-grade ROIs and
+  by as little as 1.2x on 405.tiff. That is the real finding, and it is weaker than a first
+  draft of this sentence made it: that draft quoted the paired-delta figure while describing
+  the spread across arms, and gave the decision-grade numbers without saying so.
 * **The pipeline does not beat the best seedless arm on the densest image.** On 301.tiff it
   wins 0 of 5 seeds at all four budgets. On 246.tiff it wins 1 of 5 at budget 5000 and
   otherwise loses; on 201.tiff it wins 3 of 5 at budget 1000 and ties 3 of 5 at the other
@@ -277,7 +282,7 @@ crosses 30 px between ROIs (29.6-33.1). So `grid_40` is always the raw lattice, 
 step-20's 15,736. The step sweep therefore confounds spacing with whether suppression bites
 at all. Per-ROI candidate counts are reported so this is visible.
 
-Also: `coverage_frac > 0.5` in 688 of 841 cells, so full-list recall is largely tiling
+Also: `coverage_frac > 0.5` in 687 of 840 cells, so full-list recall is largely tiling
 geometry across this run. The budgeted columns — which carry every conclusion above — are
 unaffected.
 
@@ -315,7 +320,8 @@ Stating the limits together, because individually each looks survivable and coll
 they are not:
 
 * **The wrong term is varied.** Every arm shares the chromatin ranker; only generation
-  differs. The ranker is worth 2.0–4.4× the entire spread across generators.
+  differs. The ranker outweighs the whole spread across generators on every ROI — by
+  2.0–4.4× on the decision-grade three, but by only 1.2–1.4× on 405 and 506.tiff.
 * **n = 3, not 15.** The five seeds per ROI are five clicks on the *same* image scored
   against the *same* ground truth. They share all image-level variance, and image is where
   the variance lives. Pooling them into "wins out of 15" is pseudoreplication; the effective
@@ -390,10 +396,12 @@ wrong or overstated and were retracted before any code changed; that ledger is i
    arm gains +0.051 at budget 500 and about +0.009 at every larger budget, and the native
    arm +0.009 at budget 500 and +0.005 at 1000. **Suppression never hurts**: across all 7
    ROIs, 4 budgets and 5 seeds, not one paired delta is negative for either arm. It helps
-   on 3 of the 7 — 246, 301 and 506.tiff, the last by +0.091. Two earlier descriptions of
+   on 3 of the 7 — 246, 301 and 506.tiff, the last by +0.091 at three separate budgets
+   (median and max coincide there: all five seeds move together). Two earlier descriptions of
    this were wrong: "decision-grade only" (506.tiff is not decision-grade), and the claim
    that the all-seven median is 0.0000 "because the four small ROIs sit at ceiling" — they
-   are not at ceiling (405.tiff runs 0.385–1.000, 506.tiff 0.364–0.818). The median is zero
+   are not at ceiling (405.tiff spans 0.385–1.000 and 506.tiff 0.364–0.818 across the four
+   budgets, as medians over seeds of the blob arms). The median is zero
    because a majority of cells are *exactly* tied, which is what a median does to a
    one-sided effect: it reports the mode, not the direction. Small, but consistently in one
    direction, and it moves the comparison **against** the pipeline. The raw arms are kept so
@@ -499,7 +507,8 @@ beyond the amendments already folded into the ledger above:
 5. **Precision was never measured**, and it is the product's actual constraint: 57.8 false
    positives per true positive on 201.tiff at budget 1000. New section added.
 6. **The experiment varies candidate generation while holding the ranker fixed**, and the
-   ranker is worth 2.0–4.4× the entire spread across generators. New section added.
+   ranker outweighs the whole spread across generators on all seven ROIs (2.0–4.4× on the
+   decision-grade three, 1.2–1.4× on 405 and 506). New section added.
 7. **The shortcut is inexact at z = 1.0, not only at z = 0.75.** A widened probe (40 cells
    against the main run's 14) found a second violation, at the operating point this log
    recommends. The benign criterion was also too permissive — it never compared list lengths
@@ -533,7 +542,7 @@ table and all 32 matrix cells. Eight further corrections were needed, and every 
 scope or staleness defect rather than a wrong computation:
 
 * `coverage_frac > 0.5 in 413 of 561 cells` was still the pre-change count here, while the
-  *same commit* had already corrected it to 688 of 841 in the audit log. Third occurrence of
+  *same commit* had already corrected it in the audit log. Third occurrence of
   fixed-in-one-place-not-the-other.
 * The coverage range `0.0638-0.0852` took its upper value from `pipeline_score` — a seeded
   arm — while excluding the pipeline. Third occurrence of the coverage cherry-pick, this

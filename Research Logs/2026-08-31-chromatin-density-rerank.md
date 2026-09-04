@@ -292,7 +292,9 @@ A second audit re-derived the numbers here and attacked the claims. Corrections 
 3. **The z = 2.5 operating point this work was measured at is a bad one** — see
    `2026-08-31-premise-test-results.md`. The chromatin-vs-correlation comparison is unaffected,
    because it held the candidate set fixed, but the operating point it was measured at was
-   chosen badly and z = 1.0 is now the measured optimum.
+   chosen badly. z = 1.0 is a defensible setting because the frontier is **flat** across
+   z in [0.25, 1.0], not because it is optimal — see the premise-test log, which
+   explicitly rejects calling it an interior optimum.
 4. **`od_experiment.py`'s z = 1.0 arms are floor-limited on 6 of 7 ROIs** — its
    `EXTRACT_FLOOR = 0.25` is in raw `TM_CCOEFF_NORMED` units, not MAD units. Those rows
    measure the correlation floor. They must not be pooled with `premise_test.py`'s.

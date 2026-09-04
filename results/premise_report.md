@@ -690,7 +690,7 @@ Per-seed paired differences against (a), recall at budget 1000:
 
 ## 8. Verification
 
-**One-match-many-z shortcut.** Filtering the deep pool at a given cut, against re-running `extract_peaks` + NMS + self-hit removal directly at that cut, compared as sorted coordinate arrays. Two levels per ROI (z = 1.0 and z = 2.0), seed 0 only -- a sample of the (seed, z) grid, not a proof over it. Exact equality is **not** the bar: `argsort` is unstable, so a tie pair inside the NMS radius can flip between a large pool and a small one. A wider probe over the low z levels (`shortcut_probe.py`) found one such flip. See that artifact for the calibrated statement:
+**One-match-many-z shortcut.** Filtering the deep pool at a given cut, against re-running `extract_peaks` + NMS + self-hit removal directly at that cut, compared as sorted coordinate arrays. Two levels per ROI (z = 1.0 and z = 2.0), seed 0 only -- a sample of the (seed, z) grid, not a proof over it. Exact equality is **not** the bar: `argsort` is unstable, so a tie pair inside the NMS radius can flip between a large pool and a small one. A wider probe (`shortcut_probe.py`, 40 cells) found two such flips, one of them at z = 1.0 -- a level this report uses, which the table below checks only at seed 0. See that artifact for the calibrated statement:
 
 | ROI | cut | direct | filtered | result |
 |---|---|---|---|---|
@@ -710,7 +710,7 @@ Per-seed paired differences against (a), recall at budget 1000:
 | 350.tiff | 0.3244 | 9949 | 9949 | identical |
 
 * **no_cap** -- no arm's candidate-list length equals a configured truncation cap: 871 checks over 71 distinct subjects, all passed.
-* **min_separation** -- grid arms: no two kept lattice points within the match radius, i.e. NMS was applied at the match radius: 42 checks over 42 distinct subjects, all passed.
+* **min_separation** -- caller-suppressed arms (the four lattices and the two `blob_*_nms` arms): no two kept points within the match radius, i.e. NMS was applied at the match radius: 42 checks over 42 distinct subjects, all passed.
 * **nms_radius** -- every arm's suppression radius equals `evaluate.radius_px(mpp)` for its image: 800 checks over 56 distinct subjects, all passed.
 * **tissue_mask_covers_gt** -- `baselines.tissue_mask` excludes 0 *mitotic* ground-truth annotations on every ROI: 7 checks over 7 distinct subjects, all passed.
 * **distinct_seeds** -- distinct `seed_index` values use distinct RNG streams: 7 checks over 7 distinct subjects, all passed.
@@ -727,6 +727,6 @@ All exclusions are category 2 (look-alike); 0 of the 391 category-1 mitotic anno
 
 * 4 of the 7 ROIs (002.tiff, 350.tiff, 405.tiff, 506.tiff) have 3-13 mitotic figures in their evaluation set, so a single figure moves recall by 0.08-0.33 there. Their rows are printed above and are labelled; no statement in this report rests on them.
 * `read_100` is unreachable in 384 of 840 (ROI, seed, arm, z) cells; `read_80` in 124; `read_50` in 70. Those cells are excluded from the corresponding medians and counted in the `unreached` columns, never imputed and never counted as wins.
-* `coverage_frac > 0.5` in 688 of 840 cells, in arms blob_native, blob_native_nms, blob_od, blob_od_nms, grid_10, grid_20, grid_30, grid_40, pipeline, pipeline_score, random. Full-list recall for those arms is a statement about tiling geometry rather than about the detector; the budgeted columns are unaffected by it.
+* `coverage_frac > 0.5` in 687 of 840 cells, in arms blob_native, blob_native_nms, blob_od, blob_od_nms, grid_10, grid_20, grid_30, grid_40, pipeline, pipeline_score. Full-list recall for those arms is a statement about tiling geometry rather than about the detector. The budgeted columns are not thereby unaffected: `coverage_at_budget` spreads across arms by about as much as `coverage_frac` does, so these comparisons are matched on candidates read, not on tissue seen.
 * The `random` arm is a single sanity row (301.tiff, seed 0, 15736 points in tissue), reported in section 3 as the floor. One ROI, one seed, no interval; excluded from every median and win count.
 * Seed selection draws uniformly *with replacement* from the accepted-annotation pool, so distinct `seed_index` values can legitimately draw the same annotation. The stated invariant "distinct `seed_index` yields distinct `seed_ann_id`" is therefore not a property of a correct run and is not asserted; see `invariants.check_distinct_seeds`. Distinct RNG streams are asserted instead. Observed distinct seeds per ROI: 301.tiff 5/5, 246.tiff 5/5, 201.tiff 4/5, 002.tiff 5/5, 350.tiff 4/5, 405.tiff 4/5, 506.tiff 4/5.

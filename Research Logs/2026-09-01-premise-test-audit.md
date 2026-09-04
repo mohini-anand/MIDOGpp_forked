@@ -87,7 +87,8 @@ Two other things came out of it:
 * **The committed threshold (z = 2.5) is a bad operating point.** On the largest image it
   fails to reach 50% sensitivity on 2 of 5 seeds, and where it does it swings between 247 and
   734 candidates. At z = 1.0 it reaches the target on 5 of 5 and lands within 172-203 every
-  time. The default should move to z = 1.0.
+  time. The default should move to z = 1.0. *(2026-09-02: see M13 below — there is no
+  committed z default to move, so this recommendation is not actionable as written.)*
 * **Which cell the pathologist happens to click changes the reading burden by ~2x.** The
   seedless comparators are deterministic to within 1%. That is a product-level problem the
   median hides.
@@ -117,14 +118,16 @@ Re-derived independently and correct to the last digit.
 * "z = 1.0 is best on all 12 decision-grade cells" — z=1.0 is the argmax in 12/12.
 * `coverage_frac > 0.5` in **413 of 561** arm-cells. Row counts 2244 / 120.
   *(2026-09-02: these Part 2 figures all describe the pre-change run. After the re-run the
-  same counts are 688 of 841, with row counts 3364 / 120.)*
+  same counts are 687 of 840, with row counts 3364 / 120 — excluding the sanity-only
+  `random` arm from numerator and denominator alike, which the report previously did not.)*
 * **1,153** invariant checks (no_cap 591 + nms_radius 520 + min_separation 28 +
   tissue_mask 7 + distinct_seeds 7).
 * `tissue_mask` excludes **1 of 726** annotations — 506.tiff ann 24249, category 2 — and
   **0 of 391** mitotic. Both totals check out.
 * Shortcut exactness: 7/7 ROIs, `n_direct == n_filtered` and coordinate-identical.
   *(2026-09-02: superseded. The re-run checks 14 cells, all identical, but a widened probe
-  over 40 cells finds two genuine violations — see M15 and `shortcut_probe.py`. "Exact"
+  over 40 cells finds two cells that break bit-identity — both benign under the criterion
+  the code enforces; see M15 and `shortcut_probe.py`. "Exact"
   was never true; the main run simply never sampled a cell where it fails.)*
 * The grid-suppression confound is real and was disclosed: `grid_30` on 301.tiff is the
   **raw** lattice (34,615 points, min separation 30.0 px against a 29.61 px radius) while it
@@ -406,10 +409,13 @@ commit that added a channel-comparison slide deck.
 **M6's remedy was oversold, by me.** Having added `coverage_at_budget`, I first wrote that
 it showed the arms coverage-matched at budget (0.080-0.085 on 301.tiff at budget 1000)
 against wildly different full-list coverage. That was a five-arm subset which excluded
-exactly the four arms that break it. The true range is 0.0638-0.0852 — a 1.34x spread — and
+exactly the four arms that break it. Across the eight seedless arms the range is
+0.0638-0.0848 — a 1.33x spread (a later draft quoted 0.0852, which is `pipeline_score`'s
+value, mixing a seeded arm in while leaving the pipeline out) — and
 full-list coverage across the same arms is 0.749-1.000, also 1.34x. Coverage at budget is
 **not** better matched than full-list coverage. What it genuinely establishes is the level:
-a reader at budget 1000 sees ~8% of the tissue, not the 75-100% the full-list column
+a reader at budget 1000 sees ~6-9% of the **ROI** — `coverage_fraction` is a fraction of
+the ROI, not of tissue — not the figure the full-list column
 implies. So the comparisons in the premise test are click-matched but not coverage-matched,
 and that is a live caveat rather than a resolved one. Caught by an independent verification
 pass, not by me.
@@ -428,11 +434,16 @@ disagree on 1 detection out of 16,825. The cause is that `np.argsort` is unstabl
 `extract_peaks` and `nms_by_distance`, so an exact-score tie pair inside the NMS radius can
 be ordered one way in a large pool and the other way in a small one. The two disputed
 candidates are 1.41 px apart — the same object, against a 29.6 px match radius — so no
-reported number moves, and 31 of the 32 checked cells are bit-identical.
+reported number moves. The widened probe now covers 40 cells: 38 are bit-identical and
+**two** break it — 301.tiff seed 3 at z = 0.75 *and at z = 1.0*, each by 2 detections.
+The z = 1.0 case is the one that matters, since the main run checks that level at seed 0
+only.
 
 The right fix was not the one I first made. Making the check strictly fatal would have failed
 the run on a tie-break that cannot affect any result. It now raises only when a disagreeing
-point has no counterpart within one match radius, and reports benign tie-breaks separately.
+point has no counterpart within `peak_min_distance` (7 px), or the two lists differ in
+length; it reports benign tie-breaks separately. An earlier version used the match radius
+as the bar and never compared lengths, which was too permissive on both counts.
 
 ### M11 — `grid_lattice`'s docstring cites numbers from a different lattice
 
@@ -447,7 +458,8 @@ as M7: a number that outlived the code that produced it. Removed.
 The report justifies stopping at z = 1.0 with "between z = 1.0 and z = 0.5 the candidate pool
 grows about 3% (16,558 to 17,073 on 301.tiff)". Across all seven ROIs the growth is 3.1%,
 6.4%, 7.0%, 8.8%, 10.3%, 11.1% and **13.4%** — 301.tiff is the minimum, quoted as if typical.
-Worse, the measurement was free: at an extraction floor of `med + 0.5*mad`, a z = 0.5 arm
+Worse, the measurement was free: at the then-current extraction floor of `med + 0.5*mad`
+(now `med + 0.25*mad`), a z = 0.5 arm
 *is* the whole extracted pool, already computed and already in the CSV as `n_pool`. It was
 never emitted as an arm, so "recall at budget does not move" is an assertion, not a result.
 
@@ -464,7 +476,8 @@ edit to four script constants. The recommendation has to say which.
 ### M14 — two scripts that get compared use floors in different units
 
 `od_experiment.py` sets `EXTRACT_FLOOR = 0.25` in raw correlation units;
-`premise_test.py` sets `FLOOR_Z = 0.5` in units of each map's own MAD. They are not the same
+`premise_test.py` sets `FLOOR_Z` in units of each map's own MAD (0.5 when this was
+written, 0.25 since). They are not the same
 kind of number, and the consequence is concrete: in `results/od_experiment_arms.csv` the
 z = 1.0 arms are `floor_limited` on **6 of 7 ROIs**, so those rows measure the 0.25
 correlation floor rather than z = 1.0. Any z = 1.0 recommendation must rest on
