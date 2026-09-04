@@ -29,7 +29,9 @@ multiotsu both reproduce production byte-for-byte on spot checks including ann 6
       thresholding in every arm.
 
 Population: full `agreement_pool` + `border_filter` (tm.PATCH_SIZE//2 = 36px) candidates across
-every currently-downloaded ROI (18 files, all 7 domains) -- not a demo per-domain sample, and not
+every currently-downloaded ROI (all 7 domains; 18 files when
+results/bbox_threshold_sweep.csv was produced, 23 since the 2026-09-04 downloads) -- not a demo
+per-domain sample, and not
 just the "10 ROI" set section 2b/7 used (which can no longer be exactly reconstructed), so
 numbers here are NOT directly comparable to design_choices.md's own percentages, only internally
 comparable across this script's own arms.

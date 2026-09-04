@@ -14,19 +14,25 @@ bbox_headroom_frac=0.15` (the sweep's recommended middle ground) and `bbox_metho
 Design, following `Research Logs/2026-09-02-next-steps-plan.md`'s established, already-audited
 practice (its "0. Terms" and "6. Statistical power" sections):
 
-- **Population**: the 10 "decision-grade" ROIs currently downloaded (`n_mitotic >= 15`,
-  `tm_variant_sweep.DECISION_MIN_MITOTIC`) -- 094, 201, 202, 245, 246, 300, 301, 402, 459,
-  548.tiff. Computed fresh each run from `dataset.load_annotations()` against `images/`, not
-  hardcoded, so a changed set of downloaded ROIs is reflected automatically.
+- **Population**: the "decision-grade" ROIs currently downloaded (`n_mitotic >= 15`,
+  `tm_variant_sweep.DECISION_MIN_MITOTIC`). Computed fresh each run from
+  `dataset.load_annotations()` against `images/`, not hardcoded, so a changed set of downloaded
+  ROIs is reflected automatically -- which means the population is whatever is on disk at run
+  time, not the list below. `results/bbox_headroom_end_to_end.csv` and
+  `Research Logs/2026-09-03-bbox-headroom-end-to-end.md` were produced when that set was
+  **10** ROIs: 094, 201, 202, 245, 246, 300, 301, 402, 459, 548.tiff. Five ROIs downloaded on
+  2026-09-04 (013, 233, 403, 460, 529) also clear the bar, so a re-run now selects **15** and
+  its rows are not comparable one-for-one with the committed CSV.
 - **5 seeds per ROI**: `rng = np.random.default_rng(seed_index)` for `seed_index in range(5)`,
   a *fresh* generator per (ROI, seed_index, arm) call -- not one generator advanced across
   arms -- so each arm draws against its own filtered candidate pool from the same nominal
   draw index, not a state-drifted one.
 - **`fs.FSConfig()` defaults, unmodified** (score_threshold=0.5, n_angles=1, flips=(False,),
   single-scale -- see the dataclass itself, `find_and_suppress.py`).
-- **`run_one_image(..., run_baselines=False)`** for each of the 10 x 5 x 3 = 150 (ROI,
-  seed_index, arm) triples. No baseline (nucleus-blob/random) comparison here -- only the
-  three `bbox_method` arms matter for this question.
+- **`run_one_image(..., run_baselines=False)`** for each (ROI, seed_index, arm) triple --
+  10 x 5 x 3 = 150 in the committed run, 15 x 5 x 3 = 225 at the current corpus size. No
+  baseline (nucleus-blob/random) comparison here -- only the three `bbox_method` arms matter
+  for this question.
 - **`recall_at_budget` at budgets (100, 250, 500)**, matching the Sep-2 plan's headline
   metric, derived via `evaluate.recall_at_k(det_out["bucket"], n_gt_mitotic_eval, k=budget)`
   on the already-bucketed `detections` frame `run_one_image` returns -- not a reimplementation;

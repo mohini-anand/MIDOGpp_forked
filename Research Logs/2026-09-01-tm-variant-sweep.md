@@ -66,6 +66,20 @@ local maxima -> NMS -> ranked pool.
 **Clamp gate** -- a check that no arm's ranking is mostly one block of tied scores, since tied
 candidates are in arbitrary order.
 
+> **Correction (2026-09-04) -- the two corpus-state definitions above, not this log's run.**
+> `images/` has grown twice since this log was written: four ROIs on 2026-09-02 (094, 402, 459,
+> 548) and five on 2026-09-04 (013, 233, 403, 460, 529), for **23 downloaded ROIs**. Two
+> definitions above no longer describe the corpus. **Domain** -- "each has 2 ROIs downloaded except
+> human breast cancer" is now false: canine cutaneous mast cell tumor and canine lymphosarcoma
+> still have 2, canine lung cancer has 3, and the other four domains have 4 each. **Decision
+> grade** -- "201, 202, 245, 246, 300, 301. All canine, three domains" is now 15 ROIs spanning all
+> 7 domains, 6 of them human (013, 094, 402, 403, 529, 548); the "roughly three effective domains
+> arbitrate" caveat in section 4 is stale for the same reason.
+>
+> Every *run-scoped* number in this log stands unchanged and none of it has been recomputed: this
+> sweep did run on 13 ROIs and 58 cells, of which 6 ROIs and 29 cells were decision grade, and
+> `results/tm_variant_sweep.csv` still contains exactly those 13.
+
 ## 1. Why
 
 Every operating-point experiment in this project so far -- score threshold, template size,

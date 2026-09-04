@@ -77,6 +77,25 @@ it describes the 13-ROI state, and `tm_ccoeff_headtohead.csv` and `tm_variant_st
 already contain all 17 ROIs. The log was not updated after the re-run. Nothing in it is wrong
 because of this; it is simply more conservative than the data now warrants.
 
+> **Correction (2026-09-04).** Five more ROIs were downloaded on 2026-09-04 — 013 (human breast /
+> Hamamatsu XR), 233 (canine lung / 3D Histech), 403 (human neuroendocrine / Hamamatsu XR), 460
+> (canine soft tissue sarcoma / 3D Histech) and 529 (human melanoma / Hamamatsu XR) — bringing
+> `images/` to **23 ROIs**. **Decision-grade is now 15, not 10**: the ten named above plus those
+> five. Six are human (013, 094, 402, 403, 529, 548) and all 7 domains are represented.
+>
+> A second bar governed that draw, which this section does not define. **Valid** = `n_mitotic >= 15`
+> **and** a seed pool — `agreement_pool` → `border_filter(36, roi_shape)`, the same pool
+> `tm_variant_sweep.draw_seeds` uses — of **>= 5**. On the 23 downloaded ROIs that gives **14, not
+> 15**: 202 is the sole ROI clearing the mitosis bar but not the seed bar (16 mitotic figures, of
+> which only 4 are unanimous and survive the border filter). So `tm_variant_report.py`'s
+> `decision_grade & (n_seeds >= 5)` is load-bearing rather than belt-and-braces — it drops exactly
+> one ROI. **Every domain now has exactly 2 valid ROIs**, which is what the 2026-09-04 draw was for.
+>
+> Everything computed below is unaffected: those numbers come from `tm_ccoeff_headtohead.csv` and
+> `tm_variant_stage_b.csv` as they stood on 2026-09-02, and have not been recomputed. Where this
+> document says "10 decision-grade ROIs" of a *result*, that remains the correct description of
+> what was measured.
+
 ---
 
 ## 1. What is established, what is suggestive, what is unsupported
@@ -585,6 +604,20 @@ tumour types** (canine mast cell 11, canine lung 10, canine lymphoma 12, canine 
 *[verified]* There is no held-out evaluation anywhere in this project and the split has been sitting
 in the repo the whole time. This is the cheapest large improvement available.
 
+> **Correction (2026-09-04).** `images/` now holds **23** ROIs, not 18 — and the claim survives the
+> change: **all 23 are still `train`**. The five added on 2026-09-04 were drawn uniformly at random
+> (`np.random.default_rng([20260904, i])`, `i` indexing the alphabetically sorted domains that
+> lacked a second valid ROI) over that domain's candidates — the ROIs meeting the valid bar and not
+> yet in `images/`, sorted by file name, taken at `rng.integers(len(candidates))` — with no
+> restriction on split; the candidate pools
+> are train-heavy, so all five landed in `train`. That satisfies rule (a) below but not P2 itself.
+> Rule (b)'s target — "2 per tumour type, 14 ROIs" — is now numerically met by the *valid* set
+> (2 per domain, 14 total), but by downloaded training ROIs, not the held-out draw this section
+> asks for. **P2 remains open.** Held-out candidates were available at the time of the draw: 5, 5,
+> 8, 4 and 1 `test`-split qualifying ROIs in canine lung, canine STS, human breast, human melanoma
+> and human neuroendocrine respectively — note human neuroendocrine has only **one**, so a
+> test-only draw is nearly forced there.
+
 **Two selection rules to pre-commit, because the current set violates both.** The four ROIs added on
 2026-09-02 were chosen as the *densest* qualifying image in each domain, which biases every depth
 metric optimistically. For the held-out draw: **(a)** sample uniformly at random among slides
@@ -620,6 +653,10 @@ current ROIs. Any recall number computed with them on 094–548 is contaminated 
 reported. **P3 is only measurable after P2**, and even then only on held-out *slides* — note the
 split is by slide, and a leave-slide-out split does not guarantee the encoder never saw a
 neighbouring ROI from the same case. Say so when reporting.
+
+> **Correction (2026-09-04).** "all 18 current ROIs" is now **23**. The argument is unaffected and
+> if anything stronger: MIDOG++ contains all 23, so the contamination warning covers the five ROIs
+> added on 2026-09-04 as well.
 
 **Pre-committed criterion:** on held-out ROIs, recall@250 of the FCOS candidate list vs recall@250
 of augmented `tm_ccoeff_od`. If FCOS at 250 candidates matches or beats TM at 250, the candidate-
@@ -676,6 +713,13 @@ part of it and truncates every other arm's `@matched` figures. **Do not re-run i
 grid".** Given E1 and U1 — the method choice does not matter under the ranker we would use — the
 six-method comparison has no live decision attached to it. Re-run it only if something downstream
 actually needs `TM_CCORR`.
+
+> **Correction (2026-09-04).** This heading's "the current 17 ROIs" is stale, and it matters here
+> because P6 is an instruction rather than a result: `images/` now holds **23** ROIs, of which
+> **22** are seedable (001.tiff has no mitotic annotations, so it has no seed pool). A re-run today
+> would therefore cover 22 ROIs, not 17, at proportionally more than the ~70 min quoted. The
+> paragraph below is unchanged and still correct: `tm_variant_sweep.csv` does hold 13 ROIs, and the
+> other two files 17.
 
 ### Explicitly not worth doing
 
