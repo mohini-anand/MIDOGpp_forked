@@ -116,11 +116,16 @@ Re-derived independently and correct to the last digit.
   determinism (blob_native 167-168, grid_20 181-184).
 * "z = 1.0 is best on all 12 decision-grade cells" — z=1.0 is the argmax in 12/12.
 * `coverage_frac > 0.5` in **413 of 561** arm-cells. Row counts 2244 / 120.
+  *(2026-09-02: these Part 2 figures all describe the pre-change run. After the re-run the
+  same counts are 688 of 841, with row counts 3364 / 120.)*
 * **1,153** invariant checks (no_cap 591 + nms_radius 520 + min_separation 28 +
   tissue_mask 7 + distinct_seeds 7).
 * `tissue_mask` excludes **1 of 726** annotations — 506.tiff ann 24249, category 2 — and
   **0 of 391** mitotic. Both totals check out.
 * Shortcut exactness: 7/7 ROIs, `n_direct == n_filtered` and coordinate-identical.
+  *(2026-09-02: superseded. The re-run checks 14 cells, all identical, but a widened probe
+  over 40 cells finds two genuine violations — see M15 and `shortcut_probe.py`. "Exact"
+  was never true; the main run simply never sampled a cell where it fails.)*
 * The grid-suppression confound is real and was disclosed: `grid_30` on 301.tiff is the
   **raw** lattice (34,615 points, min separation 30.0 px against a 29.61 px radius) while it
   is suppressed on the other six ROIs.
@@ -417,7 +422,7 @@ economy rests on". Neither was true. The function computed an `identical` flag, 
 stderr, and continued — nothing asserted. And it ran only at seed 0 and z in {1.0, 2.0}: 14
 of 280 (ROI, seed, z) cells, none of them the low-z levels that carry the extended frontier.
 
-Checking the missing levels directly (`results/premise_shortcut_lowz.csv`) found a **real
+Checking the missing levels directly (`results/premise_shortcut_probe.csv`) found a **real
 violation**: 301.tiff seed 3 at z = 0.75, where filtering the deep pool and re-extracting
 disagree on 1 detection out of 16,825. The cause is that `np.argsort` is unstable in both
 `extract_peaks` and `nms_by_distance`, so an exact-score tie pair inside the NMS radius can

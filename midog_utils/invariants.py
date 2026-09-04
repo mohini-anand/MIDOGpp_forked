@@ -191,8 +191,9 @@ def check_min_separation(centers: np.ndarray, radius: float, label: str = "") ->
     """Post-NMS geometry: no two kept points may lie within ``radius`` of each other.
 
     Not one of the four required invariants -- this is the direct check that an arm
-    declared "NMS'd at the match radius" actually was, used on the lattice arms where the
-    suppression is applied by the caller rather than inside `find_and_suppress`.
+    declared "NMS'd at the match radius" actually was, used on every arm whose
+    suppression is applied by the caller rather than inside `find_and_suppress` -- the
+    lattice arms and the suppressed `nucleus_blobs` arms.
     """
     centers = np.asarray(centers, dtype=np.float64).reshape(-1, 2)
     if len(centers) < 2:

@@ -161,8 +161,9 @@ def grid_lattice(roi_shape, step: int) -> pd.DataFrame:
     rather than needing to be excluded.
 
     ``step`` is a real hyperparameter and must be swept, not fixed: on 301.tiff a *finer*
-    lattice is worse -- step 20 beats step 10 on recall at budget, and `grid_10` is the
-    weakest seedless arm there (`results/premise_test.csv`) -- because
+    lattice is worse -- step 20 beats step 10 on recall at every budget measured
+    (`results/premise_test.csv`); `grid_10` is the weakest seedless arm at budget 500 but
+    not beyond, so read the table rather than this sentence -- because
     a denser lattice finds a better-optimised maximum of the chromatin field
     inside each match-radius disc and that field's true maxima are dense stromal and
     nuclear clumps rather than mitoses. A single step reported as "the grid baseline" is a

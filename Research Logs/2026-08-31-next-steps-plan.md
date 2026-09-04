@@ -301,6 +301,12 @@ is worse — but every number in the tables above should be read from
 
 The coverage claim at line 39 ("0.09-0.11 on 301 at budget 1258") was measured, in the same
 scratch run, and is now reproducible: `coverage_at_budget` is a column of
-`results/premise_test.csv`. At budget 1000 on 301.tiff the arms span 0.080-0.085 while their
-full-list coverage spans 0.88-1.00, so the point the line was making is correct and now has a
+`results/premise_test.csv`. **The figures a first draft of this correction quoted
+(0.080-0.085 against a full-list 0.88-1.00) were themselves a five-arm subset chosen to
+exclude the arms that break it** — the same cherry-pick the premise-test log's ledger item 6
+retracts, reproduced in the commit that retracted it. Measured across all arms at budget 1000
+on 301.tiff, coverage at budget spans 0.0638-0.0852 (a 1.34x spread) against a full-list
+spread of the same order, so the arms are **not** coverage-matched at budget either; what
+changes is the level, from 0.72-1.00 down to 0.06-0.09. The line's underlying point — that
+the budgeted columns are what matter — stands, and now has a
 committed source.

@@ -9,7 +9,7 @@
    mitotic figure, (b) a pathologist-rejected look-alike, (c) a random `nucleus_blobs`
    component centre. If (b) and (c) match (a), the click is not the thing doing the work.
 
-Two constraints make this cheap enough to run at 5 seeds x 5 z levels:
+Two constraints make this cheap enough to run at 5 seeds x 8 z levels:
 
 * **One match per (ROI, seed).** The response map is computed once at a deep floor and
   every z level is derived by *filtering* that one NMS'd candidate pool. This is exact,
@@ -23,7 +23,7 @@ Two constraints make this cheap enough to run at 5 seeds x 5 z levels:
   1.41 px apart -- the same object, well inside the 29.6 px match radius, so no reported
   number moves. `verify_shortcut` therefore raises only on a disagreement with no
   counterpart within a match radius, and reports benign tie-breaks separately. The main
-  run samples seed 0 and z in {1.0, 2.0}; `results/premise_shortcut_lowz.csv` covers
+  run samples seed 0 and z in {1.0, 2.0}; `results/premise_shortcut_probe.csv` covers
   z in {0.25, 0.5, 0.75} at two seeds on the three decision-grade ROIs. That is a sample
   of the (seed, z) grid, not a proof over it.
 * **One candidate set per seedless arm per ROI.** `blob_native`, `blob_od` and the four
@@ -36,8 +36,8 @@ per seed, never a global constant. A constant floor in TM_CCOEFF_NORMED units me
 different search depth on every ROI (246.tiff returned 5 detections at 0.5 while 301.tiff
 returned 13,353), which is the defect this experiment exists to characterise. Because the
 floor and the z threshold are then in the same units, ``floor_limited`` is False by
-construction for every z >= 0.5; it is still recorded and asserted, because a True would
-mean the two have drifted apart again.
+construction for every z >= FLOOR_Z (0.25); it is still recorded and asserted, because a
+True would mean the two have drifted apart again.
 
 Writes:
   results/premise_test.csv             -- the main grid, one row per (roi, seed, arm, z, budget)
@@ -146,7 +146,7 @@ def verify_shortcut(fused, valid, radius, seed_xy, cfg, pool, cut):
     always exact. `np.argsort` is unstable in both `extract_peaks` and `nms_by_distance`, so
     an exact-score tie pair inside the NMS radius can be ordered one way in a large pool and
     the other way in a small one, flipping which of the two survives. Measured directly
-    (`results/premise_shortcut_lowz.csv`): 31 of 32 checked cells are bit-identical, and the
+    (`results/premise_shortcut_probe.csv`): 31 of 32 checked cells are bit-identical, and the
     single exception -- 301.tiff seed 3 at z = 0.75 -- differs by **1 detection out of
     16,825**, with the two candidates 1.41 px apart, i.e. the same object well inside the
     29.6 px match radius.
@@ -167,6 +167,7 @@ def verify_shortcut(fused, valid, radius, seed_xy, cfg, pool, cut):
     b = filtered[np.lexsort((filtered[:, 1], filtered[:, 0]))] if len(filtered) else filtered
     identical = a.shape == b.shape and bool(np.array_equal(a, b))
     n_diff, worst = 0, 0.0
+    same_len = len(direct) == len(filtered)
     if not identical:
         A, B = {tuple(r) for r in a}, {tuple(r) for r in b}
         d_only, f_only = np.array(sorted(A - B)), np.array(sorted(B - A))
@@ -178,10 +179,19 @@ def verify_shortcut(fused, valid, radius, seed_xy, cfg, pool, cut):
             worst = float(max(dist.min(axis=1).max(), dist.min(axis=0).max()))
         else:
             worst = float("inf")   # one side has extra points with nothing to pair against
+    # Two conditions, and an earlier version of this check had neither right. (1) The lists
+    # must be the same LENGTH: a filtered list one detection longer shifts every rank and
+    # budget slot below it, and a nearest-counterpart test alone cannot see that. (2) The
+    # bar is `peak_min_distance`, not the match radius. Two points 25 px apart are inside a
+    # 29.6 px radius yet can sit on opposite sides of a ground-truth object and match
+    # differently; two points closer than `peak_min_distance` could not have been separate
+    # local maxima at all, so they are the same object by construction. The one observed
+    # flip (1.41 px) passes; a 25 px substitution now fails, as it should.
     return {"n_direct": int(len(direct)), "n_filtered": int(len(filtered)),
             "identical": identical, "n_disagree": int(n_diff),
             "worst_disagreement_px": (round(worst, 2) if np.isfinite(worst) else worst),
-            "benign": bool(identical or (n_diff and worst <= radius))}
+            "benign": bool(identical or (same_len and n_diff
+                                         and worst <= cfg.peak_min_distance))}
 
 
 def grid_arm_candidates(roi_shape, step, hem, radius):
@@ -612,7 +622,7 @@ def write_report(suffix: str = ""):
       f"`med + {FLOOR_Z:g}*mad`; every z derived by filtering that one NMS'd pool. "
       "Checked against a direct re-extraction on a **sample** of the grid, not all of it "
       "(section 8): seed 0 at z in {1.0, 2.0} here, plus z in {0.25, 0.5, 0.75} at two "
-      "seeds on the decision-grade ROIs in `results/premise_shortcut_lowz.csv`. 31 of "
+      "seeds on the decision-grade ROIs in `results/premise_shortcut_probe.csv`. 31 of "
       "those 32 cells are bit-identical; the exception differs by 1 detection in 16,825, "
       "1.41 px apart -- inside the match radius, so no number here moves.")
     A("* Seedless arms (`blob_native`, `blob_od`, `grid_*`) are built once per ROI and "
@@ -770,7 +780,8 @@ def write_report(suffix: str = ""):
     _pin = 1.0 if 1.0 in _zs else float(min(_zs)) if _zs else float("nan")
     A("**The same question with no arm selected.** The table above picks the seedless arm "
       "by its own best median per (ROI, budget). An earlier write-up of this experiment "
-      f"picked it per *cell* instead -- a max over all {len(SEEDLESS)} arms at every "
+      "picked it per *cell* instead -- a max over the six seedless arms that existed "
+      "then, at every "
       "(ROI, seed, budget) -- and reported 2/15 wins at budget 500 from the "
       "pre-correction CSV where this rule gives 0/15. Two undocumented selection rules, "
       "two answers. So here is the matrix with nothing selected on the seedless side at all: "
@@ -947,7 +958,12 @@ def write_report(suffix: str = ""):
     A("## 7. Mandatory diagnostics\n")
     A("`coverage_frac > 0.5` is flagged: past that point, full-list recall measures how "
       "finely the candidate list tiles the ROI rather than what the detector found "
-      "(`evaluate.py` module docstring). `tie` is the largest block of exactly equal "
+      "(`evaluate.py` module docstring). **Read the two coverage columns together.** "
+      "Full-list coverage is a property of a list nobody reads; the budgeted column is "
+      "what a reader at that budget actually sees, and it is roughly an order of "
+      "magnitude smaller. It is *not* matched across arms either -- the spread is "
+      "comparable to the full-list spread -- so these comparisons are matched on clicks "
+      "read, not on tissue seen. `tie` is the largest block of exactly equal "
       "ranking-key values; `nan` is the fraction of the list whose ranking key is NaN "
       "(a border window too close to the ROI edge to read). Both mark list positions "
       "whose order is arbitrary. Medians over seeds.\n")
@@ -962,27 +978,35 @@ def write_report(suffix: str = ""):
             cov = sub["coverage_frac"].median()
             rows.append([roi, _arm_label(k["arm"], k["z"]),
                          _f(sub["n_detections"].median(), 0), _f(cov),
+                         _f(sub["coverage_at_budget"].median(), 4),
                          "**>0.5**" if cov > 0.5 else "",
                          _f(sub["largest_tie_block"].median(), 0),
                          _f(sub["nan_rate"].median(), 4),
                          _f(sub["n_lookalike_in_list"].median(), 0),
                          _f(sub["lookalike_at_budget"].median(), 0)])
-    A(_md(rows, ["ROI", "arm", "n_cand", "coverage", "flag", "largest tie", "nan rate",
+    A(_md(rows, ["ROI", "arm", "n_cand", "coverage (full list)",
+                 f"coverage @{BUDGETS[0]}", "flag", "largest tie", "nan rate",
                  "look-alikes in list", "look-alikes in top 500"]))
     A("")
     A(f"`floor_limited` is False in all {len(main)} main-grid rows and all {len(prov)} "
-      "provenance rows, as it must be: the extraction floor sits at z = 0.5 and no "
-      "reported z is below 1.0. `premise_test.py` asserts this rather than merely "
-      "recording it.\n")
+      f"provenance rows, as it must be: the extraction floor sits at z = {FLOOR_Z:g} and "
+      f"no reported z is below it. The lowest level, z = {FLOOR_Z:g}, *is* the floor, so "
+      "that arm is the whole extracted pool and its `n_detections` equals `n_pool` by "
+      "construction. `premise_test.py` asserts this rather than merely recording it.\n")
 
     # ---------------------------------------------------------------- verification
     A("## 8. Verification\n")
     sc = ver[ver["kind"] == "shortcut_exactness"]
     rows = [[r["file_name"], _f(r["cut"], 4), int(r["n_direct"]), int(r["n_filtered"]),
              "identical" if r["identical"] else "**DIFFERS**"] for _, r in sc.iterrows()]
-    A("**One-match-many-z shortcut.** Filtering the deep pool at the z=2.0 cut, against "
-      "re-running `extract_peaks` + NMS + self-hit removal directly at that cut. "
-      "Compared as sorted coordinate arrays, exact equality, on every ROI:\n")
+    A("**One-match-many-z shortcut.** Filtering the deep pool at a given cut, against "
+      "re-running `extract_peaks` + NMS + self-hit removal directly at that cut, compared "
+      "as sorted coordinate arrays. Two levels per ROI (z = 1.0 and z = 2.0), seed 0 "
+      "only -- a sample of the (seed, z) grid, not a proof over it. Exact equality is "
+      "**not** the bar: `argsort` is unstable, so a tie pair inside the NMS radius can "
+      "flip between a large pool and a small one. A wider probe over the low z levels "
+      "(`shortcut_probe.py`) found one such flip. See that artifact for the calibrated "
+      "statement:\n")
     A(_md(rows, ["ROI", "cut", "direct", "filtered", "result"]))
     A("")
     inv_rows = ver[ver["kind"] == "invariant"]
@@ -1027,7 +1051,8 @@ def write_report(suffix: str = ""):
       "`baselines.tissue_mask`'s own docstring claims. Every recall number in this "
       "report is computed over category-1 ground truth and is therefore unaffected. The "
       "affected diagnostic is `n_lookalike_in_list` on the mask-restricted arms "
-      "(`blob_native`, `blob_od`, `random`) on 506.tiff, whose ceiling is one look-alike "
+      "(`blob_native`, `blob_od`, `blob_native_nms`, `blob_od_nms`, `random` -- every arm "
+      "derived from `nucleus_blobs`) on 506.tiff, whose ceiling is one look-alike "
       "lower than the ROI's annotation count. `invariants.check_tissue_mask_covers_gt` "
       "is fatal on category 1 and records the rest; it can be made fatal on every "
       "category with `strict_categories=None`.")

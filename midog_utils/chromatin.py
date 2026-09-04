@@ -119,13 +119,15 @@ def rerank(detections: pd.DataFrame, structural: Optional[np.ndarray] = None,
 
     It does **not** establish that the search earns its place as the *candidate
     generator*, which an earlier version of this line claimed. `premise_test.py`
-    measured that question directly and the answer went the other way: at matched budget
-    on 301.tiff and 246.tiff the seeded pipeline **wins on 0 of 5 seeds** against the best
-    seedless generator (`nucleus_blobs`, or a chromatin-ranked lattice) at every budget --
-    i.e. it loses on all five. That comparison picks the seedless arm post hoc per
-    (ROI, budget), so it is an upper bound on the seedless side; the sign is not in doubt
-    but the size is. See `Research Logs/2026-09-01-premise-test-audit.md` (M1) and
-    `results/premise_report.md` section 3.
+    measured that question directly and the answer did not come back in the search's
+    favour: at matched budget the seeded pipeline does not beat the best seedless
+    candidate generator (`nucleus_blobs`, or a chromatin-ranked lattice) on the ROI with
+    the most mitotic figures, at any budget. It is closer to parity elsewhere, and the
+    comparison selects the seedless arm post hoc, so the *size* of the gap is not
+    established. Do not quote a win count from here -- the numbers move with the
+    selection rule and with the ROI subset. Read
+    `Research Logs/2026-08-31-premise-test-results.md` and `results/premise_report.md`
+    section 3, which carry the full matrix and the caveats.
     """
     if structural is not None:
         detections = score_detections(detections, structural, window, frac)
