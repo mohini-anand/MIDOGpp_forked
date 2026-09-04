@@ -26,11 +26,22 @@ def load():
 
 
 def paired(df, z, k, axis, value='recall_at_budget'):
-    """One row per (domain, seed) with the paired delta. NaN is RIGHT-CENSORED, never dropped."""
+    """One row per (domain, seed) with the paired delta. NaN is RIGHT-CENSORED, never dropped.
+
+    Pivots on (file_name, seed_index) ONLY -- the unique cell key -- then joins the cell
+    metadata back. Putting `tightened_size`/`area_ratio`/`null_cell` in the pivot index makes
+    pandas build the cartesian product of all four levels and pad it with NaN, which inflates
+    the row count ~12x and silently corrupts any n or correlation computed from it.
+    """
     s = df[(df['z'] == z) & (df['budget'] == k) & (df['arm'] == axis)]
-    w = s.pivot_table(index=['tumor_type', 'file_name', 'seed_index', 'tightened_size',
-                            'area_ratio', 'null_cell'],
-                      columns='arm_name', values=value, dropna=False).reset_index()
+    w = s.pivot(index=['file_name', 'seed_index'], columns='arm_name',
+                values=value).reset_index()
+    assert len(w) == s['file_name'].nunique() * s['seed_index'].nunique(), \
+        f"paired(): {len(w)} rows for {s['file_name'].nunique()} files x " \
+        f"{s['seed_index'].nunique()} seeds -- index is not the unique cell key"
+    meta = (df[['file_name', 'seed_index', 'tumor_type', 'tightened_size', 'area_ratio',
+                'null_cell']].drop_duplicates(['file_name', 'seed_index']))
+    w = w.merge(meta, on=['file_name', 'seed_index'], validate='one_to_one')
     w['delta'] = w['largest_cc'] - w['base51']
     return w
 
@@ -95,6 +106,7 @@ def main():
     sd = (s.groupby(['tumor_type', 'arm_name'])['recall_at_budget']
           .agg(mean='mean', sd='std', min='min', max='max', n='size').reset_index())
     piv = sd.pivot(index='tumor_type', columns='arm_name', values=['mean', 'sd'])
+    piv.columns = [f'{a}_{b}' for a, b in piv.columns]        # flatten: join needs 1 level
     ad = w1.groupby('tumor_type')['delta'].agg(mean_delta='mean', sd_delta='std')
     print(piv.round(4).join(ad.round(4)).to_string())
     print(f"\n  pooled WITHIN-arm seed SD (unpaired): {sd['sd'].mean():.4f}")
