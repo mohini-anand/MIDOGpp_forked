@@ -18,14 +18,18 @@ Two constraints make this cheap enough to run at 5 seeds x 8 z levels:
   higher-scoring peak, which is also above t. The argument has one soft spot: `argsort`
   is not stable, so an exact-score tie pair inside the NMS radius can be ordered one way
   in a larger pool and the other way in a smaller one, flipping which of the two survives.
-  **This is observed, not hypothetical**: over 32 checked cells, 31 are bit-identical and
-  one (301.tiff seed 3, z = 0.75) differs by 1 detection in 16,825, the two candidates
-  1.41 px apart -- the same object, well inside the 29.6 px match radius, so no reported
-  number moves. `verify_shortcut` therefore raises only on a disagreement with no
-  counterpart within a match radius, and reports benign tie-breaks separately. The main
-  run samples seed 0 and z in {1.0, 2.0}; `results/premise_shortcut_probe.csv` covers
-  z in {0.25, 0.5, 0.75} at two seeds on the three decision-grade ROIs. That is a sample
-  of the (seed, z) grid, not a proof over it.
+  **This is observed, not hypothetical.** Over the 40 cells of
+  `results/premise_shortcut_probe.csv`, 38 are bit-identical and two -- 301.tiff seed 3 at
+  z = 0.75 *and* at z = 1.0 -- each differ by 2 detections out of ~16,800, the disputed
+  candidates 1.41 px apart. The z = 1.0 case matters: that is a level the main run reports,
+  and the main run checks it at seed 0 only, which is clean. `verify_shortcut` therefore
+  raises only when the two lists differ in **length** or a disputed point has no counterpart
+  within `peak_min_distance`; a tie-break below that distance could not have been two
+  separate local maxima in the first place. The main run samples seed 0 at z in {1.0, 2.0};
+  the probe covers z in {0.5, 0.75, 1.0, 2.0} at seed 0 on all seven ROIs and at a second
+  seed on the three decision-grade ones. z = FLOOR_Z is excluded: there the cut equals the
+  floor, so the filter is a no-op and the cell would test re-extraction determinism rather
+  than the shortcut. Both remain a sample of the (seed, z) grid, not a proof over it.
 * **One candidate set per seedless arm per ROI.** `blob_native`, `blob_od` and the four
   `grid_*` arms do not depend on z at all, and depend on the seed only through which
   annotation is excluded from the evaluation ground truth. They are built once and
@@ -146,10 +150,10 @@ def verify_shortcut(fused, valid, radius, seed_xy, cfg, pool, cut):
     always exact. `np.argsort` is unstable in both `extract_peaks` and `nms_by_distance`, so
     an exact-score tie pair inside the NMS radius can be ordered one way in a large pool and
     the other way in a small one, flipping which of the two survives. Measured directly
-    (`results/premise_shortcut_probe.csv`): 31 of 32 checked cells are bit-identical, and the
-    single exception -- 301.tiff seed 3 at z = 0.75 -- differs by **1 detection out of
-    16,825**, with the two candidates 1.41 px apart, i.e. the same object well inside the
-    29.6 px match radius.
+    (`results/premise_shortcut_probe.csv`): 38 of 40 checked cells are bit-identical, and
+    the two exceptions -- 301.tiff seed 3 at z = 0.75 and at z = 1.0 -- each differ by
+    **2 detections out of ~16,800**, the disputed candidates 1.41 px apart, i.e. the same
+    object against a 29.6 px match radius.
 
     So strict identity is the wrong bar: it fails on a tie-break that cannot move any
     reported number. The bar used here is *substantive* -- every disagreeing point must have
@@ -505,7 +509,8 @@ def main(smoke: bool = False):
     print(f"\nrows: main {len(main_df)}, provenance {len(prov_df)}")
     print(f"invariant checks run: {len(checks)} (all passed -- they raise otherwise)")
     print(f"shortcut: {int(ver['identical'].sum())}/{len(ver)} (ROI, z) cells "
-          f"bit-identical, {int(ver['benign'].sum())}/{len(ver)} within a match radius")
+          f"bit-identical, {int(ver['benign'].sum())}/{len(ver)} benign (same length, "
+          f"every disputed point within peak_min_distance)")
     if len(bad):
         # Every z level in this file is derived by filtering one pool. If that is not
         # exact, every number downstream of it is conditioned on an unstated tie-break,
@@ -621,10 +626,12 @@ def write_report(suffix: str = ""):
     A(f"* One `fused_response` per (ROI, seed) at a per-image extraction floor "
       f"`med + {FLOOR_Z:g}*mad`; every z derived by filtering that one NMS'd pool. "
       "Checked against a direct re-extraction on a **sample** of the grid, not all of it "
-      "(section 8): seed 0 at z in {1.0, 2.0} here, plus z in {0.25, 0.5, 0.75} at two "
-      "seeds on the decision-grade ROIs in `results/premise_shortcut_probe.csv`. 31 of "
-      "those 32 cells are bit-identical; the exception differs by 1 detection in 16,825, "
-      "1.41 px apart -- inside the match radius, so no number here moves.")
+      "(section 8): seed 0 at z in {1.0, 2.0} here, and z in {0.5, 0.75, 1.0, 2.0} over "
+      "seven ROIs plus a second seed on the decision-grade three in "
+      "`results/premise_shortcut_probe.csv`. 38 of those 40 cells are bit-identical; the "
+      "two exceptions each differ by 2 detections in ~16,800, 1.41 px apart against a "
+      "29.6 px match radius, so no number here moves. One of them is at z = 1.0, which "
+      "the main run checks only at seed 0.")
     A("* Seedless arms (`blob_native`, `blob_od`, `grid_*`) are built once per ROI and "
       "re-scored against each seed's own evaluation ground truth. They carry `z = NaN` "
       "and `z_dependent = False` in the CSV rather than being duplicated at every z. "

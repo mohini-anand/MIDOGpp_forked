@@ -29,7 +29,11 @@ attainable one-sided p-value from a 5-seed sign test is 0.031.
 
 * **Candidate generation barely matters once a good ranker is applied.** Eight structurally
   different generators — a click-seeded template match, a dark-nucleus detector, and lattices
-  at four spacings — land within roughly ±0.08 of each other. That is the real finding.
+  at four spacings — sit within a 0.10–0.35 band per ROI, and their *median paired* deltas
+  against the pipeline stay inside ±0.08. Both are far below the ranker's 0.46–0.71. That
+  is the real finding. (Those two figures answer different questions — spread across arms
+  versus paired difference from the pipeline — and an earlier draft quoted the second while
+  describing the first.)
 * **The pipeline does not beat the best seedless arm on the densest image.** On 301.tiff it
   wins 0 of 5 seeds at all four budgets. On 246.tiff it wins 1 of 5 at budget 5000 and
   otherwise loses; on 201.tiff it wins 3 of 5 at budget 1000 and ties 3 of 5 at the other
@@ -43,7 +47,9 @@ eight, chosen after the fact, it is behind. Neither number is out of sample.
 
 **And the number nobody measured.** At budget 1000 the pipeline reads **57.8 false positives
 per true positive** on 201.tiff, 9.2 on 246.tiff, 5.2 on 301.tiff. Reading 1,000 candidates
-to find 17 mitotic figures is worse than reading the slide. `recall_at_budget` cannot see
+to find 17 mitotic figures is hard to defend as a time saving — though note that no
+reading-the-slide baseline was measured anywhere in this run, so the comparison is a
+judgement, not a result. `recall_at_budget` cannot see
 this, and precision is the axis the product actually lives or dies on.
 
 ## Does the click carry information? Yes — a little
@@ -194,7 +200,7 @@ pipeline. At `read_100` the pipeline is unreached in the large majority of cells
 | grid_20 (no seed) | 184 | 181 | 184 | 181 | 184 | 0/5 |
 
 At z = 2.5 the pipeline **fails to reach 50% sensitivity on 2 of 5 seeds** and spans 247-734
-on the rest. The seedless arms are deterministic to within 1%. z = 1.0 is the best stable
+on the rest. The seedless arms vary by under 2% across seeds (`grid_20` spans 181-184). z = 1.0 is the best stable
 setting (172-203).
 
 **The frontier below z = 1.0 has now been measured, and it has resolved.** An earlier version
@@ -213,7 +219,7 @@ z ∈ {0.25, 0.5, 0.75, 1.0, …}. Median recall@1000:
 | 301.tiff | 0.742 | 0.742 | 0.742 | **0.747** | 0.742 | 0.710 | 0.525 |
 
 At budget 1000 recall does not improve below z = 1.0 on any decision-grade ROI, and
-`read_50` improves in 0 of 60 cells (301.tiff: 188 at z = 1.0, 190 at the floor). **But it
+`read_50` improves in 0 of 15 (ROI, seed) cells — it has no budget dimension, so an earlier draft's "0 of 60" inflated the denominator fourfold (301.tiff: 188 at z = 1.0, 190 at the floor). **But it
 is a plateau, not an interior optimum.** At larger budgets the argmax slides below 1.0:
 pooled decision-grade medians are 0.9043 at z ≤ 0.75 against 0.8957 at z = 1.0 for budget
 2000, and 0.9565 against 0.9478 at budget 5000; 12 of 60 (ROI, seed, budget) cells improve
@@ -271,7 +277,7 @@ crosses 30 px between ROIs (29.6-33.1). So `grid_40` is always the raw lattice, 
 step-20's 15,736. The step sweep therefore confounds spacing with whether suppression bites
 at all. Per-ROI candidate counts are reported so this is visible.
 
-Also: `coverage_frac > 0.5` in 413 of 561 cells, so full-list recall is largely tiling
+Also: `coverage_frac > 0.5` in 688 of 841 cells, so full-list recall is largely tiling
 geometry across this run. The budgeted columns — which carry every conclusion above — are
 unaffected.
 
@@ -288,7 +294,7 @@ experiences. At budget 1000 with the pipeline at z = 1.0:
 | 301.tiff | 217 | 162 | 5.2 |
 
 On 201.tiff the tool asks a pathologist to reject 983 non-mitoses to confirm 17 — plainly
-worse than reading the slide. Recall at budget is blind to this by construction, and every
+difficult to justify as a workflow. Recall at budget is blind to this by construction, and every
 arm in this experiment shares the blindness, so the comparison between arms is unaffected
 while the comparison between *the tool and doing nothing* never happens.
 
@@ -309,7 +315,7 @@ Stating the limits together, because individually each looks survivable and coll
 they are not:
 
 * **The wrong term is varied.** Every arm shares the chromatin ranker; only generation
-  differs. The ranker is worth 2–4× the entire spread across generators.
+  differs. The ranker is worth 2.0–4.4× the entire spread across generators.
 * **n = 3, not 15.** The five seeds per ROI are five clicks on the *same* image scored
   against the *same* ground truth. They share all image-level variance, and image is where
   the variance lives. Pooling them into "wins out of 15" is pseudoreplication; the effective
@@ -330,7 +336,11 @@ budgets — it is seconds of work and it recalibrates every number in this log.
 
 ## What follows
 
-* **Move the default to z = 1.0** and re-state the chromatin-vs-correlation result at it.
+* **Decide what "the operating point" even means.** There is no committed z default to
+  move (see above); z lives only as a constant in four experiment scripts. Either give
+  `FSConfig` a threshold in MAD units, or change those four constants and say so. The
+  frontier is flat across z ∈ [0.25, 1.0], so the value matters less than the fact that it
+  is currently unstated.
 * **The seedless baselines are now the thing to beat**, and one of them (`blob_native`) needs
   no seed, no template, no correlation, and 7-11 s. Any further work on the correlation
   search has to clear that bar first.
@@ -378,23 +388,34 @@ wrong or overstated and were retracted before any code changed; that ledger is i
    (`blob_native_nms`, `blob_od_nms`). On *paired* per-cell deltas — not the difference of
    two independently-computed medians, which overstates the native arm threefold — the od
    arm gains +0.051 at budget 500 and about +0.009 at every larger budget, and the native
-   arm +0.009 at budget 500, +0.005 at 1000, and nothing beyond — **on the three
-   decision-grade ROIs only**. Pooled over all seven the median paired delta is exactly
-   0.0000 at every budget for both arms, since the four small ROIs sit at ceiling. Small,
-   and restricted, but it moves the comparison **against** the pipeline. The raw arms are
-   kept so the size is visible. Their duplication is larger than first reported:
-   **16.4–70.5%** of blobs have another blob inside one match radius. The "8–36%" quoted
-   earlier is the *suppression* rate — a different quantity, and the two were conflated.
+   arm +0.009 at budget 500 and +0.005 at 1000. **Suppression never hurts**: across all 7
+   ROIs, 4 budgets and 5 seeds, not one paired delta is negative for either arm. It helps
+   on 3 of the 7 — 246, 301 and 506.tiff, the last by +0.091. Two earlier descriptions of
+   this were wrong: "decision-grade only" (506.tiff is not decision-grade), and the claim
+   that the all-seven median is 0.0000 "because the four small ROIs sit at ceiling" — they
+   are not at ceiling (405.tiff runs 0.385–1.000, 506.tiff 0.364–0.818). The median is zero
+   because a majority of cells are *exactly* tied, which is what a median does to a
+   one-sided effect: it reports the mode, not the direction. Small, but consistently in one
+   direction, and it moves the comparison **against** the pipeline. The raw arms are kept so
+   the size stays visible. Their duplication is also larger than first reported:
+   **16.4–70.5%** of blobs have another blob inside one match radius
+   (`results/blob_adjacency.csv`, `blob_adjacency_probe.py`). The "8–36%" quoted earlier is
+   the *suppression* rate — 8.0–36.3%, a different quantity, and the two were conflated.
 6. **`coverage_frac` is a full-list number and was being used to defend budgeted claims.**
    `coverage_at_budget` now exists, and it does **not** say what a first draft of this
    ledger claimed. That draft quoted a 0.080-0.085 spread at budget 1000 on 301.tiff — which
    was a five-arm subset that happened to exclude the four arms breaking it. The full range
-   is 0.0638-0.0852, a **1.34x** spread, against a full-list spread of the same order. So
+   across the eight seedless arms is 0.0638-0.0848 on 301.tiff at budget 1000, a **1.33x**
+   spread, against a full-list spread of the same order. (A second draft quoted
+   "0.0638-0.0852" — that upper value is `pipeline_score`'s, so the range silently mixed in
+   a seeded arm while excluding the pipeline. The same shape of subset, a third time.) So
    coverage at budget is *not* better matched across arms than full-list coverage is. What it
-   does show is the **level**: a reader at budget 1000 sees about 6-9% of the **ROI** — the
-   statistic is a fraction of the ROI, not of tissue, which a first draft also got wrong —
-   where full-list coverage runs 0.715-1.000 for the seedless arms and 0.816-0.951 for the
-   pipeline. The correct
+   does show is the **level**: a reader at budget 1000 sees roughly 6-9% of the **ROI** — the
+   statistic is a fraction of the ROI, not of tissue, which a first draft also got wrong.
+   Over all seven ROIs full-list coverage runs 0.499-1.000 for the seedless arms and
+   0.000-0.967 for the pipeline across its eight z levels; quoting the narrower
+   decision-grade-only ranges without saying so was itself an undisclosed restriction. The
+   correct
    conclusion is therefore weaker than "the budgeted comparison is fair": it is click-matched
    but **not** coverage-matched, and the ~34% coverage spread between arms is a live caveat
    on every comparison in this log. Recorded rather than buried because the cherry-pick was
@@ -404,8 +425,9 @@ wrong or overstated and were retracted before any code changed; that ledger is i
    plateau — differences within 0.01 at median level — so the choice inside z ∈ [0.25, 1.0]
    does not matter. It is **not** an interior optimum, which an earlier draft of this ledger
    and the section heading above both claimed while the section body said the opposite: at
-   budgets 2000 and 5000 the argmax slides to the floor under one pooling rule, though not
-   under the report's §3 rule. What the extension bought is that the sweep now terminates at
+   budgets 2000 and 5000 the argmax slides to the floor — under the report's §3 rule
+   z = 0.25 is chosen on all three decision-grade ROIs at budget 5000, and §4 finds it best
+   or joint-best on 22 of 28 rows. (An earlier draft asserted the opposite of this.) What the extension bought is that the sweep now terminates at
    the extraction floor rather than at a number someone chose.
 8. **"The committed default should move to z = 1.0" presumed a default that does not exist.**
    Rewritten to say what would actually have to change.
@@ -422,7 +444,8 @@ wrong or overstated and were retracted before any code changed; that ledger is i
     The module docstring claimed it "asserts it directly"; the code printed to stderr and
     continued. Making it raise exposed the real finding. A widened probe
     (`shortcut_probe.py`, 40 cells against the main run's 14) finds **38 of 40 bit-identical
-    and two genuine violations** — 301.tiff seed 3 at z = 0.75 *and at z = 1.0*, each
+    and two cells that violate bit-identity** (both still benign under the criterion the
+    code enforces) — 301.tiff seed 3 at z = 0.75 *and at z = 1.0*, each
     differing by 2 detections out of ~16,800, the disputed candidates 1.41 px apart.
     `np.argsort` is unstable, so a tie pair inside the NMS radius can flip between a large
     pool and a small one. The z = 1.0 case matters most: that is the operating point this
@@ -443,8 +466,9 @@ wrong or overstated and were retracted before any code changed; that ledger is i
 
 Claims that survived unchanged: the click carries information, in sign and size, on both
 powered ROIs (identical to four decimals before and after the ground-truth fix); the pipeline
-loses to the best seedless arm at matched budget on both, winning 0 of 5 seeds at every
-budget; the two metrics genuinely disagree; z = 2.5 is unstable and reaches 50% on only 3 of
+does not beat the best seedless arm at matched budget on either, though "0 of 5 at every
+budget" was too strong — 246.tiff wins 1 of 5 at budget 5000 and 201.tiff ties 3 of 5 at
+three budgets; the two metrics genuinely disagree; z = 2.5 is unstable and reaches 50% on only 3 of
 5 seeds on 301.tiff.
 
 **Not editable in place:** commit `3117402`'s message reproduces the pre-correction figures
@@ -475,7 +499,7 @@ beyond the amendments already folded into the ledger above:
 5. **Precision was never measured**, and it is the product's actual constraint: 57.8 false
    positives per true positive on 201.tiff at budget 1000. New section added.
 6. **The experiment varies candidate generation while holding the ranker fixed**, and the
-   ranker is worth 2–4× the entire spread across generators. New section added.
+   ranker is worth 2.0–4.4× the entire spread across generators. New section added.
 7. **The shortcut is inexact at z = 1.0, not only at z = 0.75.** A widened probe (40 cells
    against the main run's 14) found a second violation, at the operating point this log
    recommends. The benign criterion was also too permissive — it never compared list lengths
@@ -501,3 +525,40 @@ right and quantitatively overstated, and three of them reintroduced in a new pla
 defect they were fixing. The response has been to weaken the conclusions to what the evidence
 supports rather than to patch the numbers one at a time — hence the two new sections above on
 what this design cannot settle.
+
+**Addendum, same day.** A sixth agent re-derived every number in the rewrite above. The
+arithmetic verified in full — the ranker-vs-generator figures, the win/tie table, the random
+floor, both reading-depth tables, the precision table, the provenance contrasts, the pooled
+table and all 32 matrix cells. Eight further corrections were needed, and every one was a
+scope or staleness defect rather than a wrong computation:
+
+* `coverage_frac > 0.5 in 413 of 561 cells` was still the pre-change count here, while the
+  *same commit* had already corrected it to 688 of 841 in the audit log. Third occurrence of
+  fixed-in-one-place-not-the-other.
+* The coverage range `0.0638-0.0852` took its upper value from `pipeline_score` — a seeded
+  arm — while excluding the pipeline. Third occurrence of the coverage cherry-pick, this
+  time inside the sentence retracting it.
+* Full-list coverage ranges were decision-grade-only with the pipeline pinned at one z, not
+  stated. Over all seven ROIs they are 0.499-1.000 and 0.000-0.967.
+* "The argmax slides to the floor under one pooling rule, though **not** under the report's
+  §3 rule" was exactly inverted: under §3's rule z = 0.25 is chosen on all three
+  decision-grade ROIs at budget 5000.
+* "Move the default to z = 1.0" survived in *What follows* while the section above it
+  established there is no such default.
+* "Claims that survived unchanged: … winning 0 of 5 seeds at every budget" survived in the
+  first ledger while the body corrected it.
+* "Generators land within ±0.08 of each other" conflated the paired-delta range with the
+  spread across arms (0.10-0.35). Both are far below the ranker's 0.46-0.71; they answer
+  different questions.
+* The blob-suppression finding was wrong in both directions at once — see item 5 above.
+
+Two overstatements were also pulled: "worse than reading the slide" (no reading-the-slide
+baseline was ever measured, so that is a judgement, not a result), and "two genuine
+violations" of the shortcut (they violate bit-identity; both are benign under the criterion
+the code enforces).
+
+**Three rounds of correction have now each introduced a smaller version of the same defect.**
+The numbers have been right since the first re-run; what keeps failing is stating the scope
+a number was computed over, and propagating a fix to every place the old value appears. That
+is a process failure, not an analysis failure, and it is the reason this log now carries its
+ranges with their arm sets and ROI subsets attached.
