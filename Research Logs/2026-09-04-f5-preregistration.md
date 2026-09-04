@@ -1,7 +1,7 @@
 # Pre-registration F5: what does shrinking the NMS radius do, with border padding held fixed?
 
-Date: 2026-09-04. **Written before `f5_nms_radius_ablation.py` is run.** Status: PLAN — revision 3,
-after two rounds of adversarial review. Not yet executed.
+Date: 2026-09-04. **Written before `f5_nms_radius_ablation.py` is run.** Status: PLAN — revision 4,
+after three rounds of adversarial review. Not yet executed.
 
 F1–F4 are taken (`Research Logs/2026-09-03-tm-axis-sweep-edit-plan.md` §Follow-ups;
 `Research Logs/2026-09-04-f4-preregistration.md`). This is the next free number.
@@ -13,6 +13,18 @@ F1–F4 are taken (`Research Logs/2026-09-03-tm-axis-sweep-edit-plan.md` §Follo
 > set sit between the two radii, so they are identical with respect to GT un-merging. The ladder
 > is now registered as a one-mechanism **dose–response**, and the prediction that depended on the
 > decomposition is withdrawn rather than reinterpreted after the fact.
+>
+> **Revision 4 (same day).** **The primary ranking axis moves from `chromatin_od` to `tm_score`**
+> (§3d, §8), and the Holm family stays at 2 with the axis name swapped. §13 records it.
+> **This change is prompted by re-analysis of F1's *completed* data; no F5 arm comparison
+> exists.** A single-ROI, single-seed smoke test (`013.tiff`, control ledger only) wrote to
+> `results/f5_nms_radius_ablation.csv` at 17:20 on 2026-09-04 and informs nothing this amendment
+> touches — **it must be deleted before the real run**, since §7.9's reproduction gate reads that
+> path. That is the line separating this from the post-hoc axis switch a pre-registration exists
+> to prevent, and it is why the change is made now rather than after.
+> The substance is in `DECISIONS.md` D5 and `verify_chromatin_ranker.py`: `chromatin_od` was
+> never the shipped ranker — the claim §3d and §8 rested on is a documentation error tracing to
+> commit `7c3af93`'s message, and nothing in the pipeline calls `chromatin.rerank`.
 >
 > **Revision 3 (same day).** Four further changes, §12. One is a regression revision 2 introduced
 > while fixing a revision-1 defect: the primary estimand became `worst-of-5(shrink) −
@@ -198,8 +210,24 @@ variant 2 is the `r5.9`/`r5.0` pair.
   indices, so a peak at −1.4 can never suppress a peak at +0.6. Every peak below `min(Z_LEVELS)`
   is inert with respect to the kept set at every reported z. `min(Z_LEVELS) − 0.5` was a
   convenience, never a semantic coupling. `assert_floor_not_limiting` still holds trivially.
-* **Ranking axis ∈ {`tm_score`, `chromatin_od`}**, both reported; `chromatin_od` is primary
-  (it is the shipped ranker, commit `7c3af93`, and F4's primary axis).
+* **Ranking axis ∈ {`tm_score`, `chromatin_od`}**, both reported; **`tm_score` is primary**
+  (revision 4). It is the axis the product ships: `DECISIONS.md` D1 sets the matcher and D5
+  records that `chromatin.rerank` was never wired into the pipeline at all. Revision 3 had this
+  the other way round on the strength of commit `7c3af93`'s message, which called chromatin
+  density "the shipped ranker" — it was not, and a grep for its call sites settles it (three
+  superseded 2026-08-31 probes, nothing else).
+
+  **This is not "chromatin_od lost".** At F5's own headline configuration the two axes are
+  indistinguishable: paired Δ(recall@250) at z = 1.0 = **+0.032, 95 % CI [−0.047, +0.112],
+  p = 0.36**, positive on 3 of 7 ROIs (`verify_chromatin_ranker.py` §3, from
+  `results/f1_seed_sweep.csv`). Neither axis won, so the tie-break goes to the default rather
+  than to a non-default post-hoc statistic whose stated rationale names a matcher D1 retired.
+  `chromatin_od` remains reported in full, on every arm, uncorrected and labelled secondary.
+
+  **Scope, stated so it is not over-read.** This fixes *which axis arbitrates F5*. It does not
+  settle the chromatin family: `od31`, `od_falloff` and `mask_od_mean` all beat `od51` on
+  `read_95` in 5–6 of 7 ROIs and none has a seed sweep (D5, "what would change my mind").
+  Deciding that here, on 7 ROIs at one seed, would repeat the error being corrected.
 * **Arm naming: `{axis}@{radius_tag}`** (e.g. `chromatin_od@r5.0`), so `arm` is unique per
   (axis, radius) and the D4 dedup key still works. `coverage_key = (file, seed, radius, z)` —
   coverage depends on the candidate *set*, so on radius and z, but not on the sort order.
@@ -418,10 +446,10 @@ Every record lands in `results/f5_nms_radius_ablation_verification.csv`. Read it
 
 **Primary estimand, declared once and bound to the decision rule.**
 
-> **The arbiter is the mean-of-5 paired Δ(recall@250) per ROI**, at z = 1.0 on the `chromatin_od`
-> axis: for each of the 70 cells form the *paired* difference (shrink − control, same ROI, same
-> seed, same peak pool), average the 5 within an ROI, and treat the resulting **14 values as the
-> clustered units**. One test per (dose × axis).
+> **The arbiter is the mean-of-5 paired Δ(recall@250) per ROI**, at z = 1.0 on the `tm_score`
+> axis (revision 4; §3d): for each of the 70 cells form the *paired* difference (shrink −
+> control, same ROI, same seed, same peak pool), average the 5 within an ROI, and treat the
+> resulting **14 values as the clustered units**. One test per (dose × axis).
 
 **Why not the worst-of-5, which revision 2 declared.** `worst-of-5(shrink) − worst-of-5(control)`
 takes each arm's minimum *independently*, so the argmin seed need not be the same seed in both
@@ -462,11 +490,11 @@ read against the *weak* one. The mean-of-5 paired Δ has neither problem.
 * **Reported alongside, explicitly labelled as the anti-conservative bound:** the cell-level
   Wilcoxon signed-rank on all 70 paired Δ. It is what revision 1 proposed as primary; it is kept
   only so the gap between the two is visible.
-* **Multiplicity: Holm across the 2 arbiter tests** — `r5.9` and `r5.0`, both on `chromatin_od`.
-  The family is 2, not 4, because §3d declares `chromatin_od` primary (it is the shipped ranker,
-  commit `7c3af93`, and F4's primary axis) and the estimand box above scopes the arbiter to it.
-  `tm_score` is reported as a **secondary axis**, uncorrected and labelled as such; it does not
-  enter the arbiter's family. Writing this down closes a real forking path: any raw p in
+* **Multiplicity: Holm across the 2 arbiter tests** — `r5.9` and `r5.0`, both on `tm_score`
+  (revision 4; the argument is unchanged, only the axis name). The family is 2, not 4, because
+  §3d declares `tm_score` primary and the estimand box above scopes the arbiter to it.
+  `chromatin_od` is reported as a **secondary axis**, uncorrected and labelled as such; it does
+  not enter the arbiter's family. Writing this down closes a real forking path: any raw p in
   (0.0125, 0.025] is significant under a family of 2 and not under a family of 4, so "Holm across
   4" and "the arbiter is chromatin_od" cannot both stand.
 * **Both secondary statistics are reported unconditionally**, whatever they show, and neither
@@ -506,6 +534,14 @@ read against the *weak* one. The mean-of-5 paired Δ has neither problem.
 
 ## 10. Cost
 
+> **Corrected 2026-09-04, after the run.** This estimate was **wrong**: the run took **2,203 s
+> (37 min)**, not 9–12. The per-ROI probe it was extrapolated from measured the shared work
+> (`fused_response`, `extract_peaks`, NMS, `od`) but under-counted the per-arm evaluation —
+> three arms × six z × two axes of `bucket_detections`, plus `coverage_fraction` once per
+> (ROI, seed, radius, z). Budget **~2.5 min per ROI** for a re-run of this shape. The four
+> economies below are real and were applied; they were simply not the dominant term. Results in
+> [`2026-09-04-f5-results.md`](2026-09-04-f5-results.md).
+
 ~9–12 min single-threaded, after the four economies below (the ~15 min figure in revision 1 was
 for 3,780 arms with none of them). Measured, not guessed, on `246.tiff` (4933 × 6577):
 `load_roi` 0.4 s + `to_channel` 2.6 s **per ROI** (hoisted out of the seed loop);
@@ -541,3 +577,14 @@ them changes a reported number.
 | 3 | **P1's evidence corrected.** `results/tm_ccoeff_threshold_axis_sweep_v2.csv` records `nms_radius_px` ∈ [19.74, 22.09] — it **is** the r5.0 arm, so its `full_list_recall = 1.0` at z ≤ 1.0 is the shrunk arm's number. The control has never been run; v1 (r7.5, unpadded) was below 1.0 | A prediction registered as "near-vacuous" on the strength of a number belonging to a different arm — understating how live P1 actually is, in a document whose whole purpose is that this arm is unmeasured. Also surfaced the stronger reason to keep z = 2.5/3.0: coverage there is **0.26–0.63**, the only unsaturated region in the design and so the only place P1 can carry evidence. |
 | 4 | §3a's band-position column marked **predicted, to be confirmed by §6.5** | §6.5 could only ever confirm the dose placement that the band was used to justify — a circle, from a band measured on one ROI and one seed. |
 | 5 | Economies adopted with the above: `od` hoisted to once per (ROI, seed) with F4 gate 7's equivalence assert; §7.5's shortcut check cut to `si == 0`; §7.10's conditional re-analysis deleted (pre-measured 0/70); §6.5's gap computed once per radius rather than per axis; §7.9 arm-name mapping added | ~6 min of a 15-min run spent re-deriving identical numbers, plus one conditional analysis path that could not be taken and one gate that would have failed on a column-name mismatch. |
+
+---
+
+## 13. What the third review round changed
+
+| # | change | what revision 3 would have produced |
+|---|---|---|
+| 1 | **§3d and §8: the primary ranking axis is `tm_score`, not `chromatin_od`.** The premise revision 3 relied on — that `chromatin_od` is "the shipped ranker (commit `7c3af93`)" — is false: `chromatin.rerank`'s only callers are `od_experiment.py`, `od_workload_ab.py` and `od_seed_sweep.py`, all superseded 2026-08-31 probes, and `FSConfig` has no chromatin path at all. See `DECISIONS.md` D5. | An arbiter sitting on a **non-default** post-hoc statistic, chosen by a citation chain (F1 → F4 → F5, each citing the commit hash) rather than by a measurement — while the run's own configuration ranks by `score`. F5's headline would have described an axis the product does not use. |
+| 2 | **§8: Holm family stays at 2**, `r5.9` and `r5.0`, axis name swapped. The forking-path argument at revision 3's §8 is untouched and still binding: any raw p in (0.0125, 0.025] is significant under a family of 2 and not under a family of 4, so "Holm across 4" and a single declared primary axis cannot both stand. | Nothing, if the axis had not moved. Recorded because the family size and the axis choice are one decision, not two, and separating them is how a forking path reopens. |
+| 3 | **The justification is written as a tie-break, not as a defeat**, with the number in §3d. Paired Δ(recall@250) at z = 1.0, clustered at the ROI — F5 §8's own unit — is +0.032, 95 % CI [−0.047, +0.112], p = 0.36, positive on 3 of 7 ROIs. | "`chromatin_od` underperforms" — the same overclaim this revision corrects, with the sign reversed. The CI spans zero; neither axis won. |
+| 4 | **Scope fenced in §3d**: this settles F5's arbiter, not the chromatin family. `od31`, `od_falloff` and `mask_od_mean` beat `od51` on `read_95` in 5–6 of 7 ROIs, none has a seed sweep, and D5 requires the 14-ROI `images/extra_valid` set for any re-measurement — which F5 already uses (`IMAGES_DIR`, §3c). | A reader inferring from the axis switch that chromatin statistics had been tested and rejected. They have not; `od51` specifically has, at one seed on the optimistic 7-ROI draw. |
