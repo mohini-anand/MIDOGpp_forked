@@ -1,0 +1,8 @@
+file,domain,mitotic,base rate,LR AUC,GB AUC,GB AP lift,od51 alone AUC,od51 AP lift,z alone AUC
+301.tiff,canine cutaneous mast ,217,0.985%,0.975,0.972,57x,0.933,46x,0.93
+201.tiff,canine lung cancer,17,0.103%,0.992,0.994,264x,0.995,229x,0.994
+246.tiff,canine lymphosarcoma,115,0.435%,0.988,0.994,99x,0.973,104x,0.983
+459.tiff,canine soft tissue sar,130,0.625%,0.944,0.955,55x,0.928,79x,0.922
+094.tiff,human breast cancer,81,0.312%,0.983,0.989,151x,0.98,130x,0.983
+548.tiff,human melanoma,238,1.155%,0.985,0.991,53x,0.968,48x,0.984
+402.tiff,human neuroendocrine t,104,0.384%,0.994,0.995,124x,0.975,75x,0.99

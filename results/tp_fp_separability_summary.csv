@@ -1,0 +1,13 @@
+quantity,value
+negative class,"the TM_CCOEFF + NMS candidate pool at z >= 1.0, not a uniform nucleus sample"
+candidates / mitotic (pooled),"159,351 / 902"
+base rate per ROI,0.10% to 1.15%
+set aside: FPs sitting on a real mitosis,1211 (1.3 per mitotic figure)
+"best single feature (od_falloff), AUC vs FP",0.939 to 0.993
+"best single feature (od_falloff), AUC vs FP_human",0.441 to 0.760
+"od51 (the pipeline key), AUC vs all non-mitotic",0.928 to 0.995
+supervised LODO AUC (ceiling WITH labels),0.955 to 0.995
+supervised LODO AP lift over base rate,53x to 264x
+k=2 clustering: enrichment / null p95 / ARI,2.12x / 1.06x / 0.0017
+k=3 clustering: enrichment / null p95 / ARI,2.75x / 1.13x / -0.0004
+"read_95, supervised vs od51",0.13x to 1.11x (5 of 7 ROIs shorter)

@@ -1,0 +1,5 @@
+k,method,best cluster n,mitotic in it,purity,enrichment,null p95,beats null,% of mitoses captured,% of pool it is,ARI vs 2-class
+2,k-means,74544,893,1.198%,2.12,1.06,True,99.0%,46.8%,0.0017
+2,GMM,74654,890,1.192%,2.11,1.07,True,98.7%,46.8%,0.0016
+3,k-means,57080,887,1.554%,2.75,1.13,True,98.3%,35.8%,-0.0004
+3,GMM,22765,585,2.570%,4.54,1.16,True,64.9%,14.3%,0.0082

@@ -1,0 +1,22 @@
+file,n_cand,mitotic,ranker,read_50,read_90,read_95,read_100
+301.tiff,22029,217,z (search score),345,4651,9345,15787
+301.tiff,22029,217,od51 (chromatin),191,5014,9585,17019
+301.tiff,22029,217,"supervised, LODO",155,946,2751,18798
+201.tiff,16513,17,z (search score),42,274,664,664
+201.tiff,16513,17,od51 (chromatin),26,159,792,792
+201.tiff,16513,17,"supervised, LODO",32,260,877,877
+246.tiff,26411,115,z (search score),132,1451,1877,6183
+246.tiff,26411,115,od51 (chromatin),141,1943,3391,16432
+246.tiff,26411,115,"supervised, LODO",101,524,675,2379
+459.tiff,20801,130,z (search score),439,4970,8837,15422
+459.tiff,20801,130,od51 (chromatin),118,5418,10165,19455
+459.tiff,20801,130,"supervised, LODO",207,1997,7191,13687
+094.tiff,25925,81,z (search score),137,1302,1618,4022
+094.tiff,25925,81,od51 (chromatin),87,1036,1483,8331
+094.tiff,25925,81,"supervised, LODO",67,785,1515,4743
+548.tiff,20609,238,z (search score),214,956,2051,7881
+548.tiff,20609,238,od51 (chromatin),189,1590,4488,16977
+548.tiff,20609,238,"supervised, LODO",173,524,804,8939
+402.tiff,27063,104,z (search score),123,712,1086,5403
+402.tiff,27063,104,od51 (chromatin),181,1533,5204,6311
+402.tiff,27063,104,"supervised, LODO",107,427,671,1143
