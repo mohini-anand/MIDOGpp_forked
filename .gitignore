@@ -131,8 +131,11 @@ dmypy.json
 # PyCharm
 .idea
 
-# MIDOG++ ROI images: ~150 MB each, fetched via Setup.ipynb
+# MIDOG++ ROI images: ~150 MB each, fetched via Setup.ipynb.
+# Both the top level and any curated subset folder under it (e.g. images/extra_valid/) --
+# a single * does not cross a '/', so the second pattern is not redundant.
 images/*.tiff
+images/**/*.tiff
 .DS_Store
 
 # Microsoft Office lock files (created while a .pptx/.docx/.xlsx is open)
