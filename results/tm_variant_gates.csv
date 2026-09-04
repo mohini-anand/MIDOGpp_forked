@@ -1,0 +1,26 @@
+gate,bank,method,detail,passed
+plant_and_recover,single,sqdiff,max|offset|=0px over 1 augmentations,True
+plant_and_recover,single,sqdiff_normed,max|offset|=0px over 1 augmentations,True
+plant_and_recover,single,ccorr,max|offset|=0px over 1 augmentations,True
+plant_and_recover,single,ccorr_normed,max|offset|=0px over 1 augmentations,True
+plant_and_recover,single,ccoeff,max|offset|=0px over 1 augmentations,True
+plant_and_recover,single,ccoeff_normed,max|offset|=0px over 1 augmentations,True
+plant_and_recover,rot4x2,sqdiff,max|offset|=0px over 8 augmentations,True
+plant_and_recover,rot4x2,sqdiff_normed,max|offset|=0px over 8 augmentations,True
+plant_and_recover,rot4x2,ccorr,max|offset|=0px over 8 augmentations,True
+plant_and_recover,rot4x2,ccorr_normed,max|offset|=0px over 8 augmentations,True
+plant_and_recover,rot4x2,ccoeff,max|offset|=0px over 8 augmentations,True
+plant_and_recover,rot4x2,ccoeff_normed,max|offset|=0px over 8 augmentations,True
+matchtemplate_precision,-,sqdiff,"median rel err 5.82e-08, worst 4.18e-07",True
+z_is_monotone,-,sqdiff,"spearman(sign*raw, z) = 1.000000 over 28130 points",True
+matchtemplate_precision,-,sqdiff_normed,"median rel err 0.00e+00, worst 4.92e-07",True
+z_is_monotone,-,sqdiff_normed,"spearman(sign*raw, z) = 1.000000 over 28130 points",True
+matchtemplate_precision,-,ccorr,"median rel err 8.28e-08, worst 6.76e-07",True
+z_is_monotone,-,ccorr,"spearman(sign*raw, z) = 1.000000 over 28130 points",True
+matchtemplate_precision,-,ccorr_normed,"median rel err 1.14e-07, worst 6.67e-07",True
+z_is_monotone,-,ccorr_normed,"spearman(sign*raw, z) = 1.000000 over 28130 points",True
+matchtemplate_precision,-,ccoeff,"median rel err 1.20e-06, worst 7.28e-05",True
+z_is_monotone,-,ccoeff,"spearman(sign*raw, z) = 1.000000 over 28130 points",True
+matchtemplate_precision,-,ccoeff_normed,"median rel err 1.22e-06, worst 7.29e-05",True
+z_is_monotone,-,ccoeff_normed,"spearman(sign*raw, z) = 1.000000 over 28130 points",True
+regression_tie_ccoeff_normed,single,ccoeff_normed,"002.tiff: 2406 detections, scores and centres identical to the pre-refactor implementation",True

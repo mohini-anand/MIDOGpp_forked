@@ -1,0 +1,79 @@
+file_name,tumor_type,decision_grade,seed_index,read_100_delta,read_95_delta,read_50_delta,full_list_recall_delta,n_detections_delta,recall_at_250_delta,arm_a,arm_b
+300.tiff,canine cutaneous mast cell tumor,True,0,,-1084.0,-399.0,0.01666666666666672,5462,0.20555555555555555,tm_ccoeff,tm_ccorr
+300.tiff,canine cutaneous mast cell tumor,True,1,,-2806.0,-702.0,0.0444444444444444,5618,0.3444444444444444,tm_ccoeff,tm_ccorr
+300.tiff,canine cutaneous mast cell tumor,True,2,,-2437.0,-97.0,0.0,4465,0.1611111111111111,tm_ccoeff,tm_ccorr
+300.tiff,canine cutaneous mast cell tumor,True,3,,-1675.0,-169.0,0.011111111111111183,4866,0.17222222222222222,tm_ccoeff,tm_ccorr
+300.tiff,canine cutaneous mast cell tumor,True,4,,-2609.0,-78.0,0.022222222222222254,4658,0.09999999999999998,tm_ccoeff,tm_ccorr
+301.tiff,canine cutaneous mast cell tumor,True,0,,,-2894.0,0.11981566820276501,7458,0.43317972350230416,tm_ccoeff,tm_ccorr
+301.tiff,canine cutaneous mast cell tumor,True,1,,-6492.0,-1136.0,0.04147465437788023,6248,0.3778801843317972,tm_ccoeff,tm_ccorr
+301.tiff,canine cutaneous mast cell tumor,True,2,,-6435.0,-623.0,0.032258064516129004,5087,0.2995391705069125,tm_ccoeff,tm_ccorr
+301.tiff,canine cutaneous mast cell tumor,True,3,,-4791.0,-523.0,0.009216589861751112,4206,0.2304147465437788,tm_ccoeff,tm_ccorr
+301.tiff,canine cutaneous mast cell tumor,True,4,,-3743.0,-545.0,0.02304147465437789,4751,0.13364055299539168,tm_ccoeff,tm_ccorr
+201.tiff,canine lung cancer,True,0,,,-104.0,-0.05882352941176472,7308,0.23529411764705876,tm_ccoeff,tm_ccorr
+201.tiff,canine lung cancer,True,1,,,-160.0,-0.05882352941176472,8133,0.2941176470588235,tm_ccoeff,tm_ccorr
+201.tiff,canine lung cancer,True,2,3175.0,3175.0,-190.0,0.0,6678,0.17647058823529416,tm_ccoeff,tm_ccorr
+201.tiff,canine lung cancer,True,3,634.0,634.0,-89.0,0.0,5777,0.11764705882352933,tm_ccoeff,tm_ccorr
+201.tiff,canine lung cancer,True,4,-226.0,-226.0,-299.0,0.0,5973,0.23529411764705888,tm_ccoeff,tm_ccorr
+202.tiff,canine lung cancer,True,0,-5392.0,-5392.0,-475.0,0.0,8785,0.4,tm_ccoeff,tm_ccorr
+202.tiff,canine lung cancer,True,1,,,-98.0,0.06666666666666665,4866,0.33333333333333337,tm_ccoeff,tm_ccorr
+202.tiff,canine lung cancer,True,2,-1622.0,-1622.0,5.0,0.0,5131,0.0,tm_ccoeff,tm_ccorr
+202.tiff,canine lung cancer,True,3,-494.0,-494.0,-52.0,0.0,4919,0.20000000000000007,tm_ccoeff,tm_ccorr
+245.tiff,canine lymphosarcoma,True,0,,,-1748.0,0.0561797752808989,6953,0.033707865168539325,tm_ccoeff,tm_ccorr
+245.tiff,canine lymphosarcoma,True,1,,,-1236.0,0.0674157303370787,6108,0.011235955056179775,tm_ccoeff,tm_ccorr
+245.tiff,canine lymphosarcoma,True,2,,,-1002.0,0.0674157303370787,5376,0.0449438202247191,tm_ccoeff,tm_ccorr
+245.tiff,canine lymphosarcoma,True,3,,,-1760.0,0.0337078651685393,5535,0.0449438202247191,tm_ccoeff,tm_ccorr
+245.tiff,canine lymphosarcoma,True,4,,,-2272.0,0.0561797752808989,6175,0.16853932584269662,tm_ccoeff,tm_ccorr
+246.tiff,canine lymphosarcoma,True,0,,-2335.0,-85.0,0.008695652173912993,7445,0.16521739130434776,tm_ccoeff,tm_ccorr
+246.tiff,canine lymphosarcoma,True,1,,-3381.0,-90.0,0.017391304347826098,6925,0.13913043478260867,tm_ccoeff,tm_ccorr
+246.tiff,canine lymphosarcoma,True,2,,-3871.0,-140.0,0.034782608695652195,8389,0.22608695652173905,tm_ccoeff,tm_ccorr
+246.tiff,canine lymphosarcoma,True,3,,-3375.0,-193.0,0.034782608695652195,7917,0.13913043478260867,tm_ccoeff,tm_ccorr
+246.tiff,canine lymphosarcoma,True,4,,-3346.0,-45.0,0.008695652173912993,6961,0.19130434782608696,tm_ccoeff,tm_ccorr
+405.tiff,canine soft tissue sarcoma,False,0,407.0,407.0,85.0,0.0,3321,-0.23076923076923084,tm_ccoeff,tm_ccorr
+405.tiff,canine soft tissue sarcoma,False,1,836.0,836.0,-43.0,0.0,4106,0.23076923076923084,tm_ccoeff,tm_ccorr
+405.tiff,canine soft tissue sarcoma,False,2,322.0,322.0,-65.0,0.0,3419,0.07692307692307698,tm_ccoeff,tm_ccorr
+405.tiff,canine soft tissue sarcoma,False,3,381.0,381.0,-30.0,0.0,4433,0.15384615384615385,tm_ccoeff,tm_ccorr
+405.tiff,canine soft tissue sarcoma,False,4,2593.0,2593.0,155.0,0.0,3876,-0.15384615384615385,tm_ccoeff,tm_ccorr
+406.tiff,canine soft tissue sarcoma,False,0,,,-148.0,-0.19999999999999996,5682,0.2,tm_ccoeff,tm_ccorr
+406.tiff,canine soft tissue sarcoma,False,1,,,-2441.0,0.19999999999999996,5655,0.2,tm_ccoeff,tm_ccorr
+406.tiff,canine soft tissue sarcoma,False,2,457.0,457.0,-320.0,0.0,4858,0.6,tm_ccoeff,tm_ccorr
+406.tiff,canine soft tissue sarcoma,False,3,,,-97.0,-0.19999999999999996,4869,0.2,tm_ccoeff,tm_ccorr
+459.tiff,canine soft tissue sarcoma,True,0,,-609.0,-65.0,0.038461538461538436,5709,0.06153846153846154,tm_ccoeff,tm_ccorr
+459.tiff,canine soft tissue sarcoma,True,1,,496.0,-89.0,0.038461538461538436,5743,0.10769230769230764,tm_ccoeff,tm_ccorr
+459.tiff,canine soft tissue sarcoma,True,2,,-2602.0,-18.0,0.03076923076923077,5380,0.04615384615384621,tm_ccoeff,tm_ccorr
+459.tiff,canine soft tissue sarcoma,True,3,,2442.0,-91.0,0.0461538461538461,6099,0.07692307692307687,tm_ccoeff,tm_ccorr
+459.tiff,canine soft tissue sarcoma,True,4,,-110.0,-72.0,0.0461538461538461,5905,0.09999999999999998,tm_ccoeff,tm_ccorr
+002.tiff,human breast cancer,False,0,-119.0,-119.0,-66.0,0.0,6776,0.125,tm_ccoeff,tm_ccorr
+002.tiff,human breast cancer,False,1,-112.0,-112.0,-30.0,0.0,6663,0.0,tm_ccoeff,tm_ccorr
+002.tiff,human breast cancer,False,2,-193.0,-193.0,-41.0,0.0,6908,0.125,tm_ccoeff,tm_ccorr
+002.tiff,human breast cancer,False,3,-285.0,-285.0,-44.0,0.0,5995,0.125,tm_ccoeff,tm_ccorr
+002.tiff,human breast cancer,False,4,-294.0,-294.0,-46.0,0.0,5015,0.25,tm_ccoeff,tm_ccorr
+094.tiff,human breast cancer,True,0,,-564.0,-66.0,0.012345679012345734,7582,0.061728395061728336,tm_ccoeff,tm_ccorr
+094.tiff,human breast cancer,True,1,-3740.0,-1505.0,-73.0,0.0,8157,0.08641975308641969,tm_ccoeff,tm_ccorr
+094.tiff,human breast cancer,True,2,,-3327.0,-115.0,0.012345679012345623,6805,0.09876543209876543,tm_ccoeff,tm_ccorr
+094.tiff,human breast cancer,True,3,,-3392.0,-73.0,0.024691358024691357,6423,0.03703703703703698,tm_ccoeff,tm_ccorr
+094.tiff,human breast cancer,True,4,-3925.0,-2882.0,-75.0,0.0,7211,0.12345679012345678,tm_ccoeff,tm_ccorr
+505.tiff,human melanoma,False,0,-37.0,-37.0,-37.0,0.0,5175,0.0,tm_ccoeff,tm_ccorr
+505.tiff,human melanoma,False,1,-1294.0,-1294.0,-1294.0,0.0,5099,0.0,tm_ccoeff,tm_ccorr
+506.tiff,human melanoma,False,0,-256.0,-256.0,15.0,0.0,7158,-0.09090909090909094,tm_ccoeff,tm_ccorr
+506.tiff,human melanoma,False,1,246.0,246.0,30.0,0.0,6963,-0.09090909090909094,tm_ccoeff,tm_ccorr
+506.tiff,human melanoma,False,2,329.0,329.0,146.0,0.0,6371,-0.45454545454545453,tm_ccoeff,tm_ccorr
+506.tiff,human melanoma,False,3,-982.0,-982.0,8.0,0.0,5482,0.09090909090909094,tm_ccoeff,tm_ccorr
+506.tiff,human melanoma,False,4,-136.0,-136.0,23.0,0.0,5424,0.0,tm_ccoeff,tm_ccorr
+548.tiff,human melanoma,True,0,,-4103.0,-212.0,0.04201680672268904,7248,0.20168067226890762,tm_ccoeff,tm_ccorr
+548.tiff,human melanoma,True,1,,,-322.0,0.054621848739495826,6828,0.22268907563025214,tm_ccoeff,tm_ccorr
+548.tiff,human melanoma,True,2,,-3787.0,-236.0,0.04201680672268904,6631,0.2226890756302521,tm_ccoeff,tm_ccorr
+548.tiff,human melanoma,True,3,,-3323.0,-98.0,0.008403361344537896,6461,0.1848739495798319,tm_ccoeff,tm_ccorr
+548.tiff,human melanoma,True,4,,-2652.0,-347.0,0.04201680672268904,6373,0.2016806722689075,tm_ccoeff,tm_ccorr
+350.tiff,human neuroendocrine tumor,False,0,-1845.0,-1845.0,-1653.0,0.0,7371,1.0,tm_ccoeff,tm_ccorr
+350.tiff,human neuroendocrine tumor,False,1,-1121.0,-1121.0,-1138.0,0.0,7038,0.6666666666666667,tm_ccoeff,tm_ccorr
+350.tiff,human neuroendocrine tumor,False,2,-1387.0,-1387.0,-184.0,0.0,6343,0.33333333333333337,tm_ccoeff,tm_ccorr
+350.tiff,human neuroendocrine tumor,False,3,-797.0,-797.0,-55.0,0.0,6013,0.33333333333333337,tm_ccoeff,tm_ccorr
+351.tiff,human neuroendocrine tumor,False,0,22.0,22.0,-2.0,0.0,6085,0.0,tm_ccoeff,tm_ccorr
+351.tiff,human neuroendocrine tumor,False,1,-3.0,-3.0,0.0,0.0,4910,0.0,tm_ccoeff,tm_ccorr
+351.tiff,human neuroendocrine tumor,False,2,-93.0,-93.0,-64.0,0.0,5054,0.33333333333333337,tm_ccoeff,tm_ccorr
+351.tiff,human neuroendocrine tumor,False,3,-7.0,-7.0,-2.0,0.0,6123,0.0,tm_ccoeff,tm_ccorr
+402.tiff,human neuroendocrine tumor,True,0,,-4093.0,-741.0,0.028846153846153855,8711,0.5096153846153846,tm_ccoeff,tm_ccorr
+402.tiff,human neuroendocrine tumor,True,1,,,-1142.0,0.05769230769230771,9098,0.39423076923076916,tm_ccoeff,tm_ccorr
+402.tiff,human neuroendocrine tumor,True,2,,-4658.0,-1068.0,0.028846153846153855,9469,0.5384615384615385,tm_ccoeff,tm_ccorr
+402.tiff,human neuroendocrine tumor,True,3,-3416.0,-3898.0,-638.0,0.0,8173,0.36538461538461536,tm_ccoeff,tm_ccorr
+402.tiff,human neuroendocrine tumor,True,4,,-4027.0,-750.0,0.019230769230769273,8468,0.4807692307692307,tm_ccoeff,tm_ccorr

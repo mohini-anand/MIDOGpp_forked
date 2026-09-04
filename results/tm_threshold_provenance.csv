@@ -1,0 +1,561 @@
+roi,domain,prov,seed,z,rank_key,pool,ceiling,read_50,read_95,recall_at_250
+300.tiff,canine cutaneous mast cell tumor,mitotic,0,0.5,score,15363,0.9944,273.0,5701.0,0.48333333333333334
+300.tiff,canine cutaneous mast cell tumor,mitotic,0,0.5,od,15363,0.9944,135.0,3961.0,0.6222222222222222
+300.tiff,canine cutaneous mast cell tumor,mitotic,0,1.0,score,14219,0.9944,273.0,5701.0,0.48333333333333334
+300.tiff,canine cutaneous mast cell tumor,mitotic,0,1.0,od,14219,0.9944,135.0,3937.0,0.6222222222222222
+300.tiff,canine cutaneous mast cell tumor,mitotic,0,1.5,score,12862,0.9944,273.0,5701.0,0.48333333333333334
+300.tiff,canine cutaneous mast cell tumor,mitotic,0,1.5,od,12862,0.9944,135.0,3904.0,0.6222222222222222
+300.tiff,canine cutaneous mast cell tumor,mitotic,0,2.0,score,11139,0.9944,273.0,5701.0,0.48333333333333334
+300.tiff,canine cutaneous mast cell tumor,mitotic,0,2.0,od,11139,0.9944,135.0,3833.0,0.6222222222222222
+300.tiff,canine cutaneous mast cell tumor,mitotic,0,2.5,score,8892,0.9778,273.0,5701.0,0.48333333333333334
+300.tiff,canine cutaneous mast cell tumor,mitotic,0,2.5,od,8892,0.9778,135.0,3612.0,0.6277777777777778
+300.tiff,canine cutaneous mast cell tumor,mitotic,0,3.0,score,6156,0.9556,273.0,5701.0,0.48333333333333334
+300.tiff,canine cutaneous mast cell tumor,mitotic,0,3.0,od,6156,0.9556,134.0,5135.0,0.6166666666666667
+300.tiff,canine cutaneous mast cell tumor,mitotic,0,4.0,score,1701,0.8,273.0,,0.48333333333333334
+300.tiff,canine cutaneous mast cell tumor,mitotic,0,4.0,od,1701,0.8,131.0,,0.6222222222222222
+300.tiff,canine cutaneous mast cell tumor,mitotic,1,0.5,score,14186,0.9944,189.0,3746.0,0.6
+300.tiff,canine cutaneous mast cell tumor,mitotic,1,0.5,od,14186,0.9944,135.0,3831.0,0.6
+300.tiff,canine cutaneous mast cell tumor,mitotic,1,1.0,score,12935,0.9944,189.0,3746.0,0.6
+300.tiff,canine cutaneous mast cell tumor,mitotic,1,1.0,od,12935,0.9944,132.0,3775.0,0.6
+300.tiff,canine cutaneous mast cell tumor,mitotic,1,1.5,score,11557,0.9944,189.0,3746.0,0.6
+300.tiff,canine cutaneous mast cell tumor,mitotic,1,1.5,od,11557,0.9944,132.0,3907.0,0.6055555555555555
+300.tiff,canine cutaneous mast cell tumor,mitotic,1,2.0,score,9747,0.9944,189.0,3746.0,0.6
+300.tiff,canine cutaneous mast cell tumor,mitotic,1,2.0,od,9747,0.9944,132.0,3819.0,0.6055555555555555
+300.tiff,canine cutaneous mast cell tumor,mitotic,1,2.5,score,7482,0.9889,189.0,3746.0,0.6
+300.tiff,canine cutaneous mast cell tumor,mitotic,1,2.5,od,7482,0.9889,132.0,3643.0,0.6055555555555555
+300.tiff,canine cutaneous mast cell tumor,mitotic,1,3.0,score,4880,0.9611,189.0,3746.0,0.6
+300.tiff,canine cutaneous mast cell tumor,mitotic,1,3.0,od,4880,0.9611,131.0,3800.0,0.6055555555555555
+300.tiff,canine cutaneous mast cell tumor,mitotic,1,4.0,score,1332,0.8667,189.0,,0.6
+300.tiff,canine cutaneous mast cell tumor,mitotic,1,4.0,od,1332,0.8667,128.0,,0.6222222222222222
+300.tiff,canine cutaneous mast cell tumor,mitotic,2,0.5,score,14977,0.9833,118.0,3422.0,0.6888888888888889
+300.tiff,canine cutaneous mast cell tumor,mitotic,2,0.5,od,14977,0.9833,138.0,5165.0,0.6222222222222222
+300.tiff,canine cutaneous mast cell tumor,mitotic,2,1.0,score,13848,0.9833,118.0,3422.0,0.6888888888888889
+300.tiff,canine cutaneous mast cell tumor,mitotic,2,1.0,od,13848,0.9833,138.0,5136.0,0.6222222222222222
+300.tiff,canine cutaneous mast cell tumor,mitotic,2,1.5,score,12489,0.9833,118.0,3422.0,0.6888888888888889
+300.tiff,canine cutaneous mast cell tumor,mitotic,2,1.5,od,12489,0.9833,138.0,5075.0,0.6222222222222222
+300.tiff,canine cutaneous mast cell tumor,mitotic,2,2.0,score,10756,0.9833,118.0,3422.0,0.6888888888888889
+300.tiff,canine cutaneous mast cell tumor,mitotic,2,2.0,od,10756,0.9833,138.0,4955.0,0.6222222222222222
+300.tiff,canine cutaneous mast cell tumor,mitotic,2,2.5,score,8427,0.9833,118.0,3422.0,0.6888888888888889
+300.tiff,canine cutaneous mast cell tumor,mitotic,2,2.5,od,8427,0.9833,137.0,4601.0,0.6222222222222222
+300.tiff,canine cutaneous mast cell tumor,mitotic,2,3.0,score,5551,0.9667,118.0,3422.0,0.6888888888888889
+300.tiff,canine cutaneous mast cell tumor,mitotic,2,3.0,od,5551,0.9667,136.0,5011.0,0.6222222222222222
+300.tiff,canine cutaneous mast cell tumor,mitotic,2,4.0,score,1302,0.8944,118.0,,0.6888888888888889
+300.tiff,canine cutaneous mast cell tumor,mitotic,2,4.0,od,1302,0.8944,133.0,,0.6333333333333333
+300.tiff,canine cutaneous mast cell tumor,lookalike,0,0.5,score,15296,0.9944,135.0,3654.0,0.6333333333333333
+300.tiff,canine cutaneous mast cell tumor,lookalike,0,0.5,od,15296,0.9944,131.0,4690.0,0.6111111111111112
+300.tiff,canine cutaneous mast cell tumor,lookalike,0,1.0,score,13934,0.9944,135.0,3654.0,0.6333333333333333
+300.tiff,canine cutaneous mast cell tumor,lookalike,0,1.0,od,13934,0.9944,131.0,4646.0,0.6111111111111112
+300.tiff,canine cutaneous mast cell tumor,lookalike,0,1.5,score,12285,0.9944,135.0,3654.0,0.6333333333333333
+300.tiff,canine cutaneous mast cell tumor,lookalike,0,1.5,od,12285,0.9944,131.0,4576.0,0.6111111111111112
+300.tiff,canine cutaneous mast cell tumor,lookalike,0,2.0,score,10147,0.9944,135.0,3654.0,0.6333333333333333
+300.tiff,canine cutaneous mast cell tumor,lookalike,0,2.0,od,10147,0.9944,131.0,4449.0,0.6111111111111112
+300.tiff,canine cutaneous mast cell tumor,lookalike,0,2.5,score,7426,0.9833,135.0,3654.0,0.6333333333333333
+300.tiff,canine cutaneous mast cell tumor,lookalike,0,2.5,od,7426,0.9833,130.0,4214.0,0.6166666666666667
+300.tiff,canine cutaneous mast cell tumor,lookalike,0,3.0,score,4488,0.9611,135.0,3654.0,0.6333333333333333
+300.tiff,canine cutaneous mast cell tumor,lookalike,0,3.0,od,4488,0.9611,129.0,4258.0,0.6222222222222222
+300.tiff,canine cutaneous mast cell tumor,lookalike,0,4.0,score,1191,0.8833,135.0,,0.6333333333333333
+300.tiff,canine cutaneous mast cell tumor,lookalike,0,4.0,od,1191,0.8833,126.0,,0.6277777777777778
+301.tiff,canine cutaneous mast cell tumor,mitotic,0,0.5,score,16994,0.9954,313.0,9114.0,0.4838709677419355
+301.tiff,canine cutaneous mast cell tumor,mitotic,0,0.5,od,16994,0.9954,198.0,5750.0,0.5576036866359447
+301.tiff,canine cutaneous mast cell tumor,mitotic,0,1.0,score,16108,0.9954,313.0,9114.0,0.4838709677419355
+301.tiff,canine cutaneous mast cell tumor,mitotic,0,1.0,od,16108,0.9954,198.0,5719.0,0.5576036866359447
+301.tiff,canine cutaneous mast cell tumor,mitotic,0,1.5,score,14379,0.9908,313.0,9114.0,0.4838709677419355
+301.tiff,canine cutaneous mast cell tumor,mitotic,0,1.5,od,14379,0.9908,198.0,5609.0,0.5576036866359447
+301.tiff,canine cutaneous mast cell tumor,mitotic,0,2.0,score,11305,0.9816,313.0,9114.0,0.4838709677419355
+301.tiff,canine cutaneous mast cell tumor,mitotic,0,2.0,od,11305,0.9816,197.0,5454.0,0.5576036866359447
+301.tiff,canine cutaneous mast cell tumor,mitotic,0,2.5,score,7319,0.9263,313.0,,0.4838709677419355
+301.tiff,canine cutaneous mast cell tumor,mitotic,0,2.5,od,7319,0.9263,197.0,,0.5483870967741935
+301.tiff,canine cutaneous mast cell tumor,mitotic,0,3.0,score,3980,0.8387,313.0,,0.4838709677419355
+301.tiff,canine cutaneous mast cell tumor,mitotic,0,3.0,od,3980,0.8387,194.0,,0.5529953917050692
+301.tiff,canine cutaneous mast cell tumor,mitotic,0,4.0,score,827,0.5899,313.0,,0.4838709677419355
+301.tiff,canine cutaneous mast cell tumor,mitotic,0,4.0,od,827,0.5899,186.0,,0.5299539170506913
+301.tiff,canine cutaneous mast cell tumor,mitotic,1,0.5,score,16929,0.9954,262.0,4486.0,0.48847926267281105
+301.tiff,canine cutaneous mast cell tumor,mitotic,1,0.5,od,16929,0.9954,236.0,4568.0,0.5207373271889401
+301.tiff,canine cutaneous mast cell tumor,mitotic,1,1.0,score,15653,0.9954,262.0,4486.0,0.48847926267281105
+301.tiff,canine cutaneous mast cell tumor,mitotic,1,1.0,od,15653,0.9954,236.0,4556.0,0.5207373271889401
+301.tiff,canine cutaneous mast cell tumor,mitotic,1,1.5,score,13285,0.9908,262.0,4486.0,0.48847926267281105
+301.tiff,canine cutaneous mast cell tumor,mitotic,1,1.5,od,13285,0.9908,236.0,4499.0,0.5207373271889401
+301.tiff,canine cutaneous mast cell tumor,mitotic,1,2.0,score,10113,0.9816,262.0,4486.0,0.48847926267281105
+301.tiff,canine cutaneous mast cell tumor,mitotic,1,2.0,od,10113,0.9816,236.0,4877.0,0.5207373271889401
+301.tiff,canine cutaneous mast cell tumor,mitotic,1,2.5,score,6945,0.9631,262.0,4486.0,0.48847926267281105
+301.tiff,canine cutaneous mast cell tumor,mitotic,1,2.5,od,6945,0.9631,236.0,5140.0,0.5207373271889401
+301.tiff,canine cutaneous mast cell tumor,mitotic,1,3.0,score,4346,0.9493,262.0,,0.48847926267281105
+301.tiff,canine cutaneous mast cell tumor,mitotic,1,3.0,od,4346,0.9493,235.0,,0.5253456221198156
+301.tiff,canine cutaneous mast cell tumor,mitotic,1,4.0,score,1485,0.8802,262.0,,0.48847926267281105
+301.tiff,canine cutaneous mast cell tumor,mitotic,1,4.0,od,1485,0.8802,228.0,,0.5345622119815668
+301.tiff,canine cutaneous mast cell tumor,mitotic,2,0.5,score,15304,0.9908,186.0,3158.0,0.5576036866359447
+301.tiff,canine cutaneous mast cell tumor,mitotic,2,0.5,od,15304,0.9908,180.0,5894.0,0.5622119815668203
+301.tiff,canine cutaneous mast cell tumor,mitotic,2,1.0,score,13670,0.9908,186.0,3158.0,0.5576036866359447
+301.tiff,canine cutaneous mast cell tumor,mitotic,2,1.0,od,13670,0.9908,180.0,5797.0,0.5622119815668203
+301.tiff,canine cutaneous mast cell tumor,mitotic,2,1.5,score,11226,0.9862,186.0,3158.0,0.5576036866359447
+301.tiff,canine cutaneous mast cell tumor,mitotic,2,1.5,od,11226,0.9862,180.0,5510.0,0.5622119815668203
+301.tiff,canine cutaneous mast cell tumor,mitotic,2,2.0,score,8392,0.9862,186.0,3158.0,0.5576036866359447
+301.tiff,canine cutaneous mast cell tumor,mitotic,2,2.0,od,8392,0.9862,180.0,4913.0,0.5622119815668203
+301.tiff,canine cutaneous mast cell tumor,mitotic,2,2.5,score,5839,0.9724,186.0,3158.0,0.5576036866359447
+301.tiff,canine cutaneous mast cell tumor,mitotic,2,2.5,od,5839,0.9724,179.0,4522.0,0.5714285714285714
+301.tiff,canine cutaneous mast cell tumor,mitotic,2,3.0,score,3727,0.9539,186.0,3158.0,0.5576036866359447
+301.tiff,canine cutaneous mast cell tumor,mitotic,2,3.0,od,3727,0.9539,179.0,3402.0,0.5714285714285714
+301.tiff,canine cutaneous mast cell tumor,mitotic,2,4.0,score,1328,0.8894,186.0,,0.5576036866359447
+301.tiff,canine cutaneous mast cell tumor,mitotic,2,4.0,od,1328,0.8894,179.0,,0.5714285714285714
+301.tiff,canine cutaneous mast cell tumor,lookalike,0,0.5,score,16214,0.9954,178.0,7368.0,0.5345622119815668
+301.tiff,canine cutaneous mast cell tumor,lookalike,0,0.5,od,16214,0.9954,160.0,5728.0,0.5622119815668203
+301.tiff,canine cutaneous mast cell tumor,lookalike,0,1.0,score,14537,0.9954,178.0,7368.0,0.5345622119815668
+301.tiff,canine cutaneous mast cell tumor,lookalike,0,1.0,od,14537,0.9954,160.0,5623.0,0.5622119815668203
+301.tiff,canine cutaneous mast cell tumor,lookalike,0,1.5,score,11444,0.9862,178.0,7368.0,0.5345622119815668
+301.tiff,canine cutaneous mast cell tumor,lookalike,0,1.5,od,11444,0.9862,160.0,6183.0,0.5622119815668203
+301.tiff,canine cutaneous mast cell tumor,lookalike,0,2.0,score,7527,0.9585,178.0,7368.0,0.5345622119815668
+301.tiff,canine cutaneous mast cell tumor,lookalike,0,2.0,od,7527,0.9585,157.0,6485.0,0.5622119815668203
+301.tiff,canine cutaneous mast cell tumor,lookalike,0,2.5,score,4128,0.9263,178.0,,0.5345622119815668
+301.tiff,canine cutaneous mast cell tumor,lookalike,0,2.5,od,4128,0.9263,156.0,,0.5622119815668203
+301.tiff,canine cutaneous mast cell tumor,lookalike,0,3.0,score,2024,0.8571,178.0,,0.5345622119815668
+301.tiff,canine cutaneous mast cell tumor,lookalike,0,3.0,od,2024,0.8571,160.0,,0.5668202764976958
+301.tiff,canine cutaneous mast cell tumor,lookalike,0,4.0,score,440,0.5945,178.0,,0.5345622119815668
+301.tiff,canine cutaneous mast cell tumor,lookalike,0,4.0,od,440,0.5945,205.0,,0.5345622119815668
+201.tiff,canine lung cancer,mitotic,0,0.5,score,13967,0.9412,41.0,,0.7647058823529411
+201.tiff,canine lung cancer,mitotic,0,0.5,od,13967,0.9412,25.0,,0.9411764705882353
+201.tiff,canine lung cancer,mitotic,0,1.0,score,12513,0.9412,41.0,,0.7647058823529411
+201.tiff,canine lung cancer,mitotic,0,1.0,od,12513,0.9412,25.0,,0.9411764705882353
+201.tiff,canine lung cancer,mitotic,0,1.5,score,10560,0.9412,41.0,,0.7647058823529411
+201.tiff,canine lung cancer,mitotic,0,1.5,od,10560,0.9412,25.0,,0.9411764705882353
+201.tiff,canine lung cancer,mitotic,0,2.0,score,8291,0.9412,41.0,,0.7647058823529411
+201.tiff,canine lung cancer,mitotic,0,2.0,od,8291,0.9412,25.0,,0.9411764705882353
+201.tiff,canine lung cancer,mitotic,0,2.5,score,5915,0.9412,41.0,,0.7647058823529411
+201.tiff,canine lung cancer,mitotic,0,2.5,od,5915,0.9412,24.0,,0.9411764705882353
+201.tiff,canine lung cancer,mitotic,0,3.0,score,3786,0.8824,41.0,,0.7647058823529411
+201.tiff,canine lung cancer,mitotic,0,3.0,od,3786,0.8824,24.0,,0.8823529411764706
+201.tiff,canine lung cancer,mitotic,0,4.0,score,1139,0.8235,41.0,,0.7647058823529411
+201.tiff,canine lung cancer,mitotic,0,4.0,od,1139,0.8235,23.0,,0.8235294117647058
+201.tiff,canine lung cancer,mitotic,1,0.5,score,14815,0.8824,33.0,,0.7647058823529411
+201.tiff,canine lung cancer,mitotic,1,0.5,od,14815,0.8824,35.0,,0.8823529411764706
+201.tiff,canine lung cancer,mitotic,1,1.0,score,13260,0.8824,33.0,,0.7647058823529411
+201.tiff,canine lung cancer,mitotic,1,1.0,od,13260,0.8824,35.0,,0.8823529411764706
+201.tiff,canine lung cancer,mitotic,1,1.5,score,11171,0.8824,33.0,,0.7647058823529411
+201.tiff,canine lung cancer,mitotic,1,1.5,od,11171,0.8824,35.0,,0.8823529411764706
+201.tiff,canine lung cancer,mitotic,1,2.0,score,8704,0.8824,33.0,,0.7647058823529411
+201.tiff,canine lung cancer,mitotic,1,2.0,od,8704,0.8824,35.0,,0.8823529411764706
+201.tiff,canine lung cancer,mitotic,1,2.5,score,6203,0.8824,33.0,,0.7647058823529411
+201.tiff,canine lung cancer,mitotic,1,2.5,od,6203,0.8824,35.0,,0.8823529411764706
+201.tiff,canine lung cancer,mitotic,1,3.0,score,4059,0.8235,33.0,,0.7647058823529411
+201.tiff,canine lung cancer,mitotic,1,3.0,od,4059,0.8235,34.0,,0.8235294117647058
+201.tiff,canine lung cancer,mitotic,1,4.0,score,1470,0.8235,33.0,,0.7647058823529411
+201.tiff,canine lung cancer,mitotic,1,4.0,od,1470,0.8235,34.0,,0.8235294117647058
+201.tiff,canine lung cancer,mitotic,2,0.5,score,14374,0.9412,55.0,,0.7058823529411765
+201.tiff,canine lung cancer,mitotic,2,0.5,od,14374,0.9412,37.0,,0.8823529411764706
+201.tiff,canine lung cancer,mitotic,2,1.0,score,12910,0.9412,55.0,,0.7058823529411765
+201.tiff,canine lung cancer,mitotic,2,1.0,od,12910,0.9412,37.0,,0.8823529411764706
+201.tiff,canine lung cancer,mitotic,2,1.5,score,10952,0.9412,55.0,,0.7058823529411765
+201.tiff,canine lung cancer,mitotic,2,1.5,od,10952,0.9412,37.0,,0.8823529411764706
+201.tiff,canine lung cancer,mitotic,2,2.0,score,8745,0.9412,55.0,,0.7058823529411765
+201.tiff,canine lung cancer,mitotic,2,2.0,od,8745,0.9412,36.0,,0.8823529411764706
+201.tiff,canine lung cancer,mitotic,2,2.5,score,6449,0.9412,55.0,,0.7058823529411765
+201.tiff,canine lung cancer,mitotic,2,2.5,od,6449,0.9412,36.0,,0.8823529411764706
+201.tiff,canine lung cancer,mitotic,2,3.0,score,4375,0.8824,55.0,,0.7058823529411765
+201.tiff,canine lung cancer,mitotic,2,3.0,od,4375,0.8824,35.0,,0.8823529411764706
+201.tiff,canine lung cancer,mitotic,2,4.0,score,1654,0.7647,55.0,,0.7058823529411765
+201.tiff,canine lung cancer,mitotic,2,4.0,od,1654,0.7647,34.0,,0.7647058823529411
+201.tiff,canine lung cancer,lookalike,0,0.5,score,13622,1.0,45.0,3710.0,0.7647058823529411
+201.tiff,canine lung cancer,lookalike,0,0.5,od,13622,1.0,23.0,586.0,0.9411764705882353
+201.tiff,canine lung cancer,lookalike,0,1.0,score,11691,1.0,45.0,3710.0,0.7647058823529411
+201.tiff,canine lung cancer,lookalike,0,1.0,od,11691,1.0,23.0,585.0,0.9411764705882353
+201.tiff,canine lung cancer,lookalike,0,1.5,score,9382,1.0,45.0,3710.0,0.7647058823529411
+201.tiff,canine lung cancer,lookalike,0,1.5,od,9382,1.0,23.0,585.0,0.9411764705882353
+201.tiff,canine lung cancer,lookalike,0,2.0,score,6924,1.0,45.0,3710.0,0.7647058823529411
+201.tiff,canine lung cancer,lookalike,0,2.0,od,6924,1.0,23.0,578.0,0.9411764705882353
+201.tiff,canine lung cancer,lookalike,0,2.5,score,4671,1.0,45.0,3710.0,0.7647058823529411
+201.tiff,canine lung cancer,lookalike,0,2.5,od,4671,1.0,23.0,549.0,0.9411764705882353
+201.tiff,canine lung cancer,lookalike,0,3.0,score,3040,0.9412,45.0,,0.7647058823529411
+201.tiff,canine lung cancer,lookalike,0,3.0,od,3040,0.9412,23.0,,0.8823529411764706
+201.tiff,canine lung cancer,lookalike,0,4.0,score,1056,0.8235,45.0,,0.7647058823529411
+201.tiff,canine lung cancer,lookalike,0,4.0,od,1056,0.8235,23.0,,0.8235294117647058
+202.tiff,canine lung cancer,mitotic,0,0.5,score,17667,1.0,88.0,1910.0,0.8
+202.tiff,canine lung cancer,mitotic,0,0.5,od,17667,1.0,17.0,5900.0,0.8666666666666667
+202.tiff,canine lung cancer,mitotic,0,1.0,score,16937,1.0,88.0,1910.0,0.8
+202.tiff,canine lung cancer,mitotic,0,1.0,od,16937,1.0,17.0,5893.0,0.8666666666666667
+202.tiff,canine lung cancer,mitotic,0,1.5,score,15391,1.0,88.0,1910.0,0.8
+202.tiff,canine lung cancer,mitotic,0,1.5,od,15391,1.0,17.0,5854.0,0.8666666666666667
+202.tiff,canine lung cancer,mitotic,0,2.0,score,12926,1.0,88.0,1910.0,0.8
+202.tiff,canine lung cancer,mitotic,0,2.0,od,12926,1.0,17.0,5693.0,0.8666666666666667
+202.tiff,canine lung cancer,mitotic,0,2.5,score,10108,1.0,88.0,1910.0,0.8
+202.tiff,canine lung cancer,mitotic,0,2.5,od,10108,1.0,17.0,5350.0,0.8666666666666667
+202.tiff,canine lung cancer,mitotic,0,3.0,score,7263,1.0,88.0,1910.0,0.8
+202.tiff,canine lung cancer,mitotic,0,3.0,od,7263,1.0,17.0,4634.0,0.8666666666666667
+202.tiff,canine lung cancer,mitotic,0,4.0,score,3180,1.0,88.0,1910.0,0.8
+202.tiff,canine lung cancer,mitotic,0,4.0,od,3180,1.0,17.0,2688.0,0.8666666666666667
+202.tiff,canine lung cancer,mitotic,1,0.5,score,12853,0.9333,16.0,,0.8666666666666667
+202.tiff,canine lung cancer,mitotic,1,0.5,od,12853,0.9333,20.0,,0.8666666666666667
+202.tiff,canine lung cancer,mitotic,1,1.0,score,11694,0.9333,16.0,,0.8666666666666667
+202.tiff,canine lung cancer,mitotic,1,1.0,od,11694,0.9333,20.0,,0.8666666666666667
+202.tiff,canine lung cancer,mitotic,1,1.5,score,10723,0.9333,16.0,,0.8666666666666667
+202.tiff,canine lung cancer,mitotic,1,1.5,od,10723,0.9333,20.0,,0.8666666666666667
+202.tiff,canine lung cancer,mitotic,1,2.0,score,9436,0.9333,16.0,,0.8666666666666667
+202.tiff,canine lung cancer,mitotic,1,2.0,od,9436,0.9333,20.0,,0.8666666666666667
+202.tiff,canine lung cancer,mitotic,1,2.5,score,7820,0.9333,16.0,,0.8666666666666667
+202.tiff,canine lung cancer,mitotic,1,2.5,od,7820,0.9333,20.0,,0.8666666666666667
+202.tiff,canine lung cancer,mitotic,1,3.0,score,5847,0.9333,16.0,,0.8666666666666667
+202.tiff,canine lung cancer,mitotic,1,3.0,od,5847,0.9333,20.0,,0.8666666666666667
+202.tiff,canine lung cancer,mitotic,1,4.0,score,2488,0.9333,16.0,,0.8666666666666667
+202.tiff,canine lung cancer,mitotic,1,4.0,od,2488,0.9333,20.0,,0.8666666666666667
+202.tiff,canine lung cancer,mitotic,2,0.5,score,13352,0.9333,18.0,,0.8666666666666667
+202.tiff,canine lung cancer,mitotic,2,0.5,od,13352,0.9333,14.0,,0.8666666666666667
+202.tiff,canine lung cancer,mitotic,2,1.0,score,12053,0.9333,18.0,,0.8666666666666667
+202.tiff,canine lung cancer,mitotic,2,1.0,od,12053,0.9333,13.0,,0.8666666666666667
+202.tiff,canine lung cancer,mitotic,2,1.5,score,11015,0.9333,18.0,,0.8666666666666667
+202.tiff,canine lung cancer,mitotic,2,1.5,od,11015,0.9333,13.0,,0.8666666666666667
+202.tiff,canine lung cancer,mitotic,2,2.0,score,9714,0.9333,18.0,,0.8666666666666667
+202.tiff,canine lung cancer,mitotic,2,2.0,od,9714,0.9333,13.0,,0.8666666666666667
+202.tiff,canine lung cancer,mitotic,2,2.5,score,8004,0.9333,18.0,,0.8666666666666667
+202.tiff,canine lung cancer,mitotic,2,2.5,od,8004,0.9333,13.0,,0.8666666666666667
+202.tiff,canine lung cancer,mitotic,2,3.0,score,6045,0.9333,18.0,,0.8666666666666667
+202.tiff,canine lung cancer,mitotic,2,3.0,od,6045,0.9333,13.0,,0.8666666666666667
+202.tiff,canine lung cancer,mitotic,2,4.0,score,2945,0.9333,18.0,,0.8666666666666667
+202.tiff,canine lung cancer,mitotic,2,4.0,od,2945,0.9333,13.0,,0.8666666666666667
+202.tiff,canine lung cancer,lookalike,0,0.5,score,12342,1.0,22.0,2523.0,0.9333333333333333
+202.tiff,canine lung cancer,lookalike,0,0.5,od,12342,1.0,13.0,4336.0,0.8666666666666667
+202.tiff,canine lung cancer,lookalike,0,1.0,score,11060,1.0,22.0,2523.0,0.9333333333333333
+202.tiff,canine lung cancer,lookalike,0,1.0,od,11060,1.0,13.0,4309.0,0.8666666666666667
+202.tiff,canine lung cancer,lookalike,0,1.5,score,9741,1.0,22.0,2523.0,0.9333333333333333
+202.tiff,canine lung cancer,lookalike,0,1.5,od,9741,1.0,13.0,4242.0,0.8666666666666667
+202.tiff,canine lung cancer,lookalike,0,2.0,score,8142,1.0,22.0,2523.0,0.9333333333333333
+202.tiff,canine lung cancer,lookalike,0,2.0,od,8142,1.0,13.0,4125.0,0.8666666666666667
+202.tiff,canine lung cancer,lookalike,0,2.5,score,6151,1.0,22.0,2523.0,0.9333333333333333
+202.tiff,canine lung cancer,lookalike,0,2.5,od,6151,1.0,13.0,3786.0,0.8666666666666667
+202.tiff,canine lung cancer,lookalike,0,3.0,score,4037,1.0,22.0,2523.0,0.9333333333333333
+202.tiff,canine lung cancer,lookalike,0,3.0,od,4037,1.0,13.0,3112.0,0.8666666666666667
+202.tiff,canine lung cancer,lookalike,0,4.0,score,1483,0.9333,22.0,,0.9333333333333333
+202.tiff,canine lung cancer,lookalike,0,4.0,od,1483,0.9333,13.0,,0.9333333333333333
+245.tiff,canine lymphosarcoma,mitotic,0,0.5,score,18882,1.0,1833.0,11644.0,0.0898876404494382
+245.tiff,canine lymphosarcoma,mitotic,0,0.5,od,18882,1.0,494.0,9808.0,0.3146067415730337
+245.tiff,canine lymphosarcoma,mitotic,0,1.0,score,18305,1.0,1833.0,11644.0,0.0898876404494382
+245.tiff,canine lymphosarcoma,mitotic,0,1.0,od,18305,1.0,494.0,9719.0,0.3146067415730337
+245.tiff,canine lymphosarcoma,mitotic,0,1.5,score,16856,1.0,1833.0,11644.0,0.0898876404494382
+245.tiff,canine lymphosarcoma,mitotic,0,1.5,od,16856,1.0,508.0,9417.0,0.3146067415730337
+245.tiff,canine lymphosarcoma,mitotic,0,2.0,score,14109,0.9888,1833.0,11644.0,0.0898876404494382
+245.tiff,canine lymphosarcoma,mitotic,0,2.0,od,14109,0.9888,500.0,8808.0,0.3146067415730337
+245.tiff,canine lymphosarcoma,mitotic,0,2.5,score,10449,0.9326,1833.0,,0.0898876404494382
+245.tiff,canine lymphosarcoma,mitotic,0,2.5,od,10449,0.9326,508.0,,0.3146067415730337
+245.tiff,canine lymphosarcoma,mitotic,0,3.0,score,6760,0.8202,1833.0,,0.0898876404494382
+245.tiff,canine lymphosarcoma,mitotic,0,3.0,od,6760,0.8202,503.0,,0.3258426966292135
+245.tiff,canine lymphosarcoma,mitotic,0,4.0,score,1821,0.4831,,,0.0898876404494382
+245.tiff,canine lymphosarcoma,mitotic,0,4.0,od,1821,0.4831,,,0.30337078651685395
+245.tiff,canine lymphosarcoma,mitotic,1,0.5,score,17705,0.9888,2128.0,12331.0,0.0898876404494382
+245.tiff,canine lymphosarcoma,mitotic,1,0.5,od,17705,0.9888,635.0,6846.0,0.29213483146067415
+245.tiff,canine lymphosarcoma,mitotic,1,1.0,score,17266,0.9888,2128.0,12331.0,0.0898876404494382
+245.tiff,canine lymphosarcoma,mitotic,1,1.0,od,17266,0.9888,635.0,6802.0,0.29213483146067415
+245.tiff,canine lymphosarcoma,mitotic,1,1.5,score,15759,0.9888,2128.0,12331.0,0.0898876404494382
+245.tiff,canine lymphosarcoma,mitotic,1,1.5,od,15759,0.9888,633.0,6645.0,0.29213483146067415
+245.tiff,canine lymphosarcoma,mitotic,1,2.0,score,12799,0.9551,2128.0,12331.0,0.0898876404494382
+245.tiff,canine lymphosarcoma,mitotic,1,2.0,od,12799,0.9551,620.0,10486.0,0.29213483146067415
+245.tiff,canine lymphosarcoma,mitotic,1,2.5,score,8920,0.9326,2128.0,,0.0898876404494382
+245.tiff,canine lymphosarcoma,mitotic,1,2.5,od,8920,0.9326,573.0,,0.29213483146067415
+245.tiff,canine lymphosarcoma,mitotic,1,3.0,score,5247,0.8315,2128.0,,0.0898876404494382
+245.tiff,canine lymphosarcoma,mitotic,1,3.0,od,5247,0.8315,546.0,,0.30337078651685395
+245.tiff,canine lymphosarcoma,mitotic,1,4.0,score,1080,0.3371,,,0.0898876404494382
+245.tiff,canine lymphosarcoma,mitotic,1,4.0,od,1080,0.3371,,,0.23595505617977527
+245.tiff,canine lymphosarcoma,mitotic,2,0.5,score,17135,0.9888,2531.0,10089.0,0.14606741573033707
+245.tiff,canine lymphosarcoma,mitotic,2,0.5,od,17135,0.9888,515.0,9958.0,0.30337078651685395
+245.tiff,canine lymphosarcoma,mitotic,2,1.0,score,16807,0.9888,2531.0,10089.0,0.14606741573033707
+245.tiff,canine lymphosarcoma,mitotic,2,1.0,od,16807,0.9888,515.0,9884.0,0.30337078651685395
+245.tiff,canine lymphosarcoma,mitotic,2,1.5,score,15827,0.9888,2531.0,10089.0,0.14606741573033707
+245.tiff,canine lymphosarcoma,mitotic,2,1.5,od,15827,0.9888,512.0,9632.0,0.30337078651685395
+245.tiff,canine lymphosarcoma,mitotic,2,2.0,score,13901,0.9888,2531.0,10089.0,0.14606741573033707
+245.tiff,canine lymphosarcoma,mitotic,2,2.0,od,13901,0.9888,541.0,9062.0,0.30337078651685395
+245.tiff,canine lymphosarcoma,mitotic,2,2.5,score,10967,0.9663,2531.0,10089.0,0.14606741573033707
+245.tiff,canine lymphosarcoma,mitotic,2,2.5,od,10967,0.9663,539.0,8144.0,0.30337078651685395
+245.tiff,canine lymphosarcoma,mitotic,2,3.0,score,7515,0.8989,2531.0,,0.14606741573033707
+245.tiff,canine lymphosarcoma,mitotic,2,3.0,od,7515,0.8989,512.0,,0.30337078651685395
+245.tiff,canine lymphosarcoma,mitotic,2,4.0,score,1928,0.4157,,,0.14606741573033707
+245.tiff,canine lymphosarcoma,mitotic,2,4.0,od,1928,0.4157,,,0.29213483146067415
+245.tiff,canine lymphosarcoma,lookalike,0,0.5,score,17834,0.9775,1743.0,13546.0,0.14606741573033707
+245.tiff,canine lymphosarcoma,lookalike,0,0.5,od,17834,0.9775,531.0,11569.0,0.30337078651685395
+245.tiff,canine lymphosarcoma,lookalike,0,1.0,score,16594,0.9775,1743.0,13546.0,0.14606741573033707
+245.tiff,canine lymphosarcoma,lookalike,0,1.0,od,16594,0.9775,529.0,11055.0,0.30337078651685395
+245.tiff,canine lymphosarcoma,lookalike,0,1.5,score,14184,0.9663,1743.0,13546.0,0.14606741573033707
+245.tiff,canine lymphosarcoma,lookalike,0,1.5,od,14184,0.9663,518.0,10175.0,0.3146067415730337
+245.tiff,canine lymphosarcoma,lookalike,0,2.0,score,10898,0.8876,1743.0,,0.14606741573033707
+245.tiff,canine lymphosarcoma,lookalike,0,2.0,od,10898,0.8876,537.0,,0.3146067415730337
+245.tiff,canine lymphosarcoma,lookalike,0,2.5,score,7359,0.8539,1743.0,,0.14606741573033707
+245.tiff,canine lymphosarcoma,lookalike,0,2.5,od,7359,0.8539,557.0,,0.3258426966292135
+245.tiff,canine lymphosarcoma,lookalike,0,3.0,score,4297,0.7303,1743.0,,0.14606741573033707
+245.tiff,canine lymphosarcoma,lookalike,0,3.0,od,4297,0.7303,680.0,,0.3146067415730337
+245.tiff,canine lymphosarcoma,lookalike,0,4.0,score,1005,0.3258,,,0.14606741573033707
+245.tiff,canine lymphosarcoma,lookalike,0,4.0,od,1005,0.3258,,,0.25842696629213485
+246.tiff,canine lymphosarcoma,mitotic,0,0.5,score,16956,1.0,101.0,1495.0,0.7391304347826086
+246.tiff,canine lymphosarcoma,mitotic,0,0.5,od,16956,1.0,110.0,2106.0,0.6608695652173913
+246.tiff,canine lymphosarcoma,mitotic,0,1.0,score,15974,1.0,101.0,1495.0,0.7391304347826086
+246.tiff,canine lymphosarcoma,mitotic,0,1.0,od,15974,1.0,110.0,2099.0,0.6608695652173913
+246.tiff,canine lymphosarcoma,mitotic,0,1.5,score,13634,1.0,101.0,1495.0,0.7391304347826086
+246.tiff,canine lymphosarcoma,mitotic,0,1.5,od,13634,1.0,110.0,2059.0,0.6608695652173913
+246.tiff,canine lymphosarcoma,mitotic,0,2.0,score,10050,1.0,101.0,1495.0,0.7391304347826086
+246.tiff,canine lymphosarcoma,mitotic,0,2.0,od,10050,1.0,110.0,1945.0,0.6608695652173913
+246.tiff,canine lymphosarcoma,mitotic,0,2.5,score,6470,1.0,101.0,1495.0,0.7391304347826086
+246.tiff,canine lymphosarcoma,mitotic,0,2.5,od,6470,1.0,110.0,1713.0,0.6608695652173913
+246.tiff,canine lymphosarcoma,mitotic,0,3.0,score,3836,1.0,101.0,1495.0,0.7391304347826086
+246.tiff,canine lymphosarcoma,mitotic,0,3.0,od,3836,1.0,110.0,1403.0,0.6608695652173913
+246.tiff,canine lymphosarcoma,mitotic,0,4.0,score,1418,0.9478,101.0,,0.7391304347826086
+246.tiff,canine lymphosarcoma,mitotic,0,4.0,od,1418,0.9478,112.0,,0.6695652173913044
+246.tiff,canine lymphosarcoma,mitotic,1,0.5,score,16301,0.9913,118.0,1016.0,0.6608695652173913
+246.tiff,canine lymphosarcoma,mitotic,1,0.5,od,16301,0.9913,120.0,2761.0,0.6695652173913044
+246.tiff,canine lymphosarcoma,mitotic,1,1.0,score,15309,0.9913,118.0,1016.0,0.6608695652173913
+246.tiff,canine lymphosarcoma,mitotic,1,1.0,od,15309,0.9913,120.0,2743.0,0.6695652173913044
+246.tiff,canine lymphosarcoma,mitotic,1,1.5,score,13036,0.9913,118.0,1016.0,0.6608695652173913
+246.tiff,canine lymphosarcoma,mitotic,1,1.5,od,13036,0.9913,120.0,2679.0,0.6695652173913044
+246.tiff,canine lymphosarcoma,mitotic,1,2.0,score,9770,0.9913,118.0,1016.0,0.6608695652173913
+246.tiff,canine lymphosarcoma,mitotic,1,2.0,od,9770,0.9913,120.0,2533.0,0.6695652173913044
+246.tiff,canine lymphosarcoma,mitotic,1,2.5,score,6451,0.9826,118.0,1016.0,0.6608695652173913
+246.tiff,canine lymphosarcoma,mitotic,1,2.5,od,6451,0.9826,118.0,2278.0,0.6695652173913044
+246.tiff,canine lymphosarcoma,mitotic,1,3.0,score,3890,0.9826,118.0,1016.0,0.6608695652173913
+246.tiff,canine lymphosarcoma,mitotic,1,3.0,od,3890,0.9826,118.0,1829.0,0.6695652173913044
+246.tiff,canine lymphosarcoma,mitotic,1,4.0,score,1468,0.9565,118.0,1016.0,0.6608695652173913
+246.tiff,canine lymphosarcoma,mitotic,1,4.0,od,1468,0.9565,115.0,1049.0,0.6695652173913044
+246.tiff,canine lymphosarcoma,mitotic,2,0.5,score,17548,0.9913,83.0,1625.0,0.7478260869565218
+246.tiff,canine lymphosarcoma,mitotic,2,0.5,od,17548,0.9913,121.0,2982.0,0.6347826086956522
+246.tiff,canine lymphosarcoma,mitotic,2,1.0,score,16470,0.9913,83.0,1625.0,0.7478260869565218
+246.tiff,canine lymphosarcoma,mitotic,2,1.0,od,16470,0.9913,121.0,2967.0,0.6347826086956522
+246.tiff,canine lymphosarcoma,mitotic,2,1.5,score,13996,0.9913,83.0,1625.0,0.7478260869565218
+246.tiff,canine lymphosarcoma,mitotic,2,1.5,od,13996,0.9913,121.0,2883.0,0.6347826086956522
+246.tiff,canine lymphosarcoma,mitotic,2,2.0,score,10027,0.9913,83.0,1625.0,0.7478260869565218
+246.tiff,canine lymphosarcoma,mitotic,2,2.0,od,10027,0.9913,120.0,2650.0,0.6347826086956522
+246.tiff,canine lymphosarcoma,mitotic,2,2.5,score,6180,0.9913,83.0,1625.0,0.7478260869565218
+246.tiff,canine lymphosarcoma,mitotic,2,2.5,od,6180,0.9913,118.0,2225.0,0.6434782608695652
+246.tiff,canine lymphosarcoma,mitotic,2,3.0,score,3490,0.9826,83.0,1625.0,0.7478260869565218
+246.tiff,canine lymphosarcoma,mitotic,2,3.0,od,3490,0.9826,117.0,2233.0,0.6434782608695652
+246.tiff,canine lymphosarcoma,mitotic,2,4.0,score,1101,0.9043,83.0,,0.7478260869565218
+246.tiff,canine lymphosarcoma,mitotic,2,4.0,od,1101,0.9043,115.0,,0.6695652173913044
+246.tiff,canine lymphosarcoma,lookalike,0,0.5,score,16771,1.0,150.0,1909.0,0.6434782608695652
+246.tiff,canine lymphosarcoma,lookalike,0,0.5,od,16771,1.0,105.0,2159.0,0.6869565217391305
+246.tiff,canine lymphosarcoma,lookalike,0,1.0,score,15442,1.0,150.0,1909.0,0.6434782608695652
+246.tiff,canine lymphosarcoma,lookalike,0,1.0,od,15442,1.0,105.0,2135.0,0.6869565217391305
+246.tiff,canine lymphosarcoma,lookalike,0,1.5,score,12654,1.0,150.0,1909.0,0.6434782608695652
+246.tiff,canine lymphosarcoma,lookalike,0,1.5,od,12654,1.0,105.0,2066.0,0.6869565217391305
+246.tiff,canine lymphosarcoma,lookalike,0,2.0,score,8967,1.0,150.0,1909.0,0.6434782608695652
+246.tiff,canine lymphosarcoma,lookalike,0,2.0,od,8967,1.0,105.0,1896.0,0.6869565217391305
+246.tiff,canine lymphosarcoma,lookalike,0,2.5,score,5665,0.9826,150.0,1909.0,0.6434782608695652
+246.tiff,canine lymphosarcoma,lookalike,0,2.5,od,5665,0.9826,103.0,2017.0,0.6869565217391305
+246.tiff,canine lymphosarcoma,lookalike,0,3.0,score,3414,0.9826,150.0,1909.0,0.6434782608695652
+246.tiff,canine lymphosarcoma,lookalike,0,3.0,od,3414,0.9826,103.0,1642.0,0.6869565217391305
+246.tiff,canine lymphosarcoma,lookalike,0,4.0,score,1336,0.9217,150.0,,0.6434782608695652
+246.tiff,canine lymphosarcoma,lookalike,0,4.0,od,1336,0.9217,111.0,,0.6869565217391305
+459.tiff,canine soft tissue sarcoma,mitotic,0,0.5,score,13721,1.0,101.0,6907.0,0.6230769230769231
+459.tiff,canine soft tissue sarcoma,mitotic,0,0.5,od,13721,1.0,112.0,8003.0,0.6615384615384615
+459.tiff,canine soft tissue sarcoma,mitotic,0,1.0,score,12631,1.0,101.0,6907.0,0.6230769230769231
+459.tiff,canine soft tissue sarcoma,mitotic,0,1.0,od,12631,1.0,112.0,7891.0,0.6615384615384615
+459.tiff,canine soft tissue sarcoma,mitotic,0,1.5,score,10977,0.9923,101.0,6907.0,0.6230769230769231
+459.tiff,canine soft tissue sarcoma,mitotic,0,1.5,od,10977,0.9923,112.0,7540.0,0.6615384615384615
+459.tiff,canine soft tissue sarcoma,mitotic,0,2.0,score,8459,0.9692,101.0,6907.0,0.6230769230769231
+459.tiff,canine soft tissue sarcoma,mitotic,0,2.0,od,8459,0.9692,110.0,6548.0,0.6615384615384615
+459.tiff,canine soft tissue sarcoma,mitotic,0,2.5,score,5314,0.9231,101.0,,0.6230769230769231
+459.tiff,canine soft tissue sarcoma,mitotic,0,2.5,od,5314,0.9231,109.0,,0.6615384615384615
+459.tiff,canine soft tissue sarcoma,mitotic,0,3.0,score,2741,0.8462,101.0,,0.6230769230769231
+459.tiff,canine soft tissue sarcoma,mitotic,0,3.0,od,2741,0.8462,102.0,,0.6846153846153846
+459.tiff,canine soft tissue sarcoma,mitotic,0,4.0,score,462,0.7,101.0,,0.6230769230769231
+459.tiff,canine soft tissue sarcoma,mitotic,0,4.0,od,462,0.7,91.0,,0.6846153846153846
+459.tiff,canine soft tissue sarcoma,mitotic,1,0.5,score,13453,0.9923,141.0,7750.0,0.6
+459.tiff,canine soft tissue sarcoma,mitotic,1,0.5,od,13453,0.9923,113.0,9055.0,0.6538461538461539
+459.tiff,canine soft tissue sarcoma,mitotic,1,1.0,score,12393,0.9923,141.0,7750.0,0.6
+459.tiff,canine soft tissue sarcoma,mitotic,1,1.0,od,12393,0.9923,113.0,8908.0,0.6538461538461539
+459.tiff,canine soft tissue sarcoma,mitotic,1,1.5,score,10623,0.9846,141.0,7750.0,0.6
+459.tiff,canine soft tissue sarcoma,mitotic,1,1.5,od,10623,0.9846,113.0,8371.0,0.6538461538461539
+459.tiff,canine soft tissue sarcoma,mitotic,1,2.0,score,7950,0.9615,141.0,7750.0,0.6
+459.tiff,canine soft tissue sarcoma,mitotic,1,2.0,od,7950,0.9615,113.0,6927.0,0.6538461538461539
+459.tiff,canine soft tissue sarcoma,mitotic,1,2.5,score,4886,0.9,141.0,,0.6
+459.tiff,canine soft tissue sarcoma,mitotic,1,2.5,od,4886,0.9,109.0,,0.6615384615384615
+459.tiff,canine soft tissue sarcoma,mitotic,1,3.0,score,2399,0.8231,141.0,,0.6
+459.tiff,canine soft tissue sarcoma,mitotic,1,3.0,od,2399,0.8231,103.0,,0.6923076923076923
+459.tiff,canine soft tissue sarcoma,mitotic,1,4.0,score,353,0.6385,141.0,,0.6
+459.tiff,canine soft tissue sarcoma,mitotic,1,4.0,od,353,0.6385,88.0,,0.6307692307692307
+459.tiff,canine soft tissue sarcoma,mitotic,2,0.5,score,14136,0.9923,115.0,5213.0,0.6461538461538462
+459.tiff,canine soft tissue sarcoma,mitotic,2,0.5,od,14136,0.9923,114.0,9609.0,0.6461538461538462
+459.tiff,canine soft tissue sarcoma,mitotic,2,1.0,score,13016,0.9846,115.0,5213.0,0.6461538461538462
+459.tiff,canine soft tissue sarcoma,mitotic,2,1.0,od,13016,0.9846,113.0,9435.0,0.6538461538461539
+459.tiff,canine soft tissue sarcoma,mitotic,2,1.5,score,11160,0.9846,115.0,5213.0,0.6461538461538462
+459.tiff,canine soft tissue sarcoma,mitotic,2,1.5,od,11160,0.9846,113.0,8886.0,0.6538461538461539
+459.tiff,canine soft tissue sarcoma,mitotic,2,2.0,score,8142,0.9615,115.0,5213.0,0.6461538461538462
+459.tiff,canine soft tissue sarcoma,mitotic,2,2.0,od,8142,0.9615,113.0,7290.0,0.6538461538461539
+459.tiff,canine soft tissue sarcoma,mitotic,2,2.5,score,4654,0.9385,115.0,,0.6461538461538462
+459.tiff,canine soft tissue sarcoma,mitotic,2,2.5,od,4654,0.9385,111.0,,0.6538461538461539
+459.tiff,canine soft tissue sarcoma,mitotic,2,3.0,score,2088,0.8615,115.0,,0.6461538461538462
+459.tiff,canine soft tissue sarcoma,mitotic,2,3.0,od,2088,0.8615,109.0,,0.6538461538461539
+459.tiff,canine soft tissue sarcoma,mitotic,2,4.0,score,262,0.6615,115.0,,0.6461538461538462
+459.tiff,canine soft tissue sarcoma,mitotic,2,4.0,od,262,0.6615,96.0,,0.6615384615384615
+459.tiff,canine soft tissue sarcoma,lookalike,0,0.5,score,14580,1.0,172.0,8108.0,0.5461538461538461
+459.tiff,canine soft tissue sarcoma,lookalike,0,0.5,od,14580,1.0,113.0,8006.0,0.6384615384615384
+459.tiff,canine soft tissue sarcoma,lookalike,0,1.0,score,13342,1.0,172.0,8108.0,0.5461538461538461
+459.tiff,canine soft tissue sarcoma,lookalike,0,1.0,od,13342,1.0,113.0,7851.0,0.6384615384615384
+459.tiff,canine soft tissue sarcoma,lookalike,0,1.5,score,11810,0.9846,172.0,8108.0,0.5461538461538461
+459.tiff,canine soft tissue sarcoma,lookalike,0,1.5,od,11810,0.9846,113.0,7606.0,0.6384615384615384
+459.tiff,canine soft tissue sarcoma,lookalike,0,2.0,score,9770,0.9615,172.0,8108.0,0.5461538461538461
+459.tiff,canine soft tissue sarcoma,lookalike,0,2.0,od,9770,0.9615,113.0,7617.0,0.6384615384615384
+459.tiff,canine soft tissue sarcoma,lookalike,0,2.5,score,7070,0.9308,172.0,,0.5461538461538461
+459.tiff,canine soft tissue sarcoma,lookalike,0,2.5,od,7070,0.9308,112.0,,0.6461538461538462
+459.tiff,canine soft tissue sarcoma,lookalike,0,3.0,score,4362,0.9,172.0,,0.5461538461538461
+459.tiff,canine soft tissue sarcoma,lookalike,0,3.0,od,4362,0.9,110.0,,0.6538461538461539
+459.tiff,canine soft tissue sarcoma,lookalike,0,4.0,score,1075,0.7538,172.0,,0.5461538461538461
+459.tiff,canine soft tissue sarcoma,lookalike,0,4.0,od,1075,0.7538,101.0,,0.6615384615384615
+094.tiff,human breast cancer,mitotic,0,0.5,score,15067,1.0,90.0,1628.0,0.6666666666666666
+094.tiff,human breast cancer,mitotic,0,0.5,od,15067,1.0,69.0,887.0,0.7283950617283951
+094.tiff,human breast cancer,mitotic,0,1.0,score,13751,1.0,90.0,1628.0,0.6666666666666666
+094.tiff,human breast cancer,mitotic,0,1.0,od,13751,1.0,69.0,887.0,0.7283950617283951
+094.tiff,human breast cancer,mitotic,0,1.5,score,12327,1.0,90.0,1628.0,0.6666666666666666
+094.tiff,human breast cancer,mitotic,0,1.5,od,12327,1.0,69.0,887.0,0.7283950617283951
+094.tiff,human breast cancer,mitotic,0,2.0,score,10515,1.0,90.0,1628.0,0.6666666666666666
+094.tiff,human breast cancer,mitotic,0,2.0,od,10515,1.0,69.0,886.0,0.7283950617283951
+094.tiff,human breast cancer,mitotic,0,2.5,score,8426,1.0,90.0,1628.0,0.6666666666666666
+094.tiff,human breast cancer,mitotic,0,2.5,od,8426,1.0,69.0,884.0,0.7283950617283951
+094.tiff,human breast cancer,mitotic,0,3.0,score,6405,1.0,90.0,1628.0,0.6666666666666666
+094.tiff,human breast cancer,mitotic,0,3.0,od,6405,1.0,69.0,880.0,0.7407407407407407
+094.tiff,human breast cancer,mitotic,0,4.0,score,3646,1.0,90.0,1628.0,0.6666666666666666
+094.tiff,human breast cancer,mitotic,0,4.0,od,3646,1.0,69.0,863.0,0.7407407407407407
+094.tiff,human breast cancer,mitotic,1,0.5,score,15286,0.9877,67.0,1438.0,0.7407407407407407
+094.tiff,human breast cancer,mitotic,1,0.5,od,15286,0.9877,72.0,1969.0,0.7283950617283951
+094.tiff,human breast cancer,mitotic,1,1.0,score,13946,0.9877,67.0,1438.0,0.7407407407407407
+094.tiff,human breast cancer,mitotic,1,1.0,od,13946,0.9877,72.0,1952.0,0.7283950617283951
+094.tiff,human breast cancer,mitotic,1,1.5,score,12464,0.9877,67.0,1438.0,0.7407407407407407
+094.tiff,human breast cancer,mitotic,1,1.5,od,12464,0.9877,72.0,1933.0,0.7407407407407407
+094.tiff,human breast cancer,mitotic,1,2.0,score,10479,0.9877,67.0,1438.0,0.7407407407407407
+094.tiff,human breast cancer,mitotic,1,2.0,od,10479,0.9877,72.0,1917.0,0.7407407407407407
+094.tiff,human breast cancer,mitotic,1,2.5,score,8299,0.9877,67.0,1438.0,0.7407407407407407
+094.tiff,human breast cancer,mitotic,1,2.5,od,8299,0.9877,72.0,1888.0,0.7407407407407407
+094.tiff,human breast cancer,mitotic,1,3.0,score,6113,0.9877,67.0,1438.0,0.7407407407407407
+094.tiff,human breast cancer,mitotic,1,3.0,od,6113,0.9877,72.0,1844.0,0.7407407407407407
+094.tiff,human breast cancer,mitotic,1,4.0,score,3294,0.9877,67.0,1438.0,0.7407407407407407
+094.tiff,human breast cancer,mitotic,1,4.0,od,3294,0.9877,72.0,1713.0,0.7407407407407407
+094.tiff,human breast cancer,mitotic,2,0.5,score,13817,0.9753,69.0,1345.0,0.7407407407407407
+094.tiff,human breast cancer,mitotic,2,0.5,od,13817,0.9753,73.0,1513.0,0.7283950617283951
+094.tiff,human breast cancer,mitotic,2,1.0,score,12584,0.9753,69.0,1345.0,0.7407407407407407
+094.tiff,human breast cancer,mitotic,2,1.0,od,12584,0.9753,73.0,1511.0,0.7283950617283951
+094.tiff,human breast cancer,mitotic,2,1.5,score,11152,0.9753,69.0,1345.0,0.7407407407407407
+094.tiff,human breast cancer,mitotic,2,1.5,od,11152,0.9753,73.0,1510.0,0.7283950617283951
+094.tiff,human breast cancer,mitotic,2,2.0,score,9336,0.9753,69.0,1345.0,0.7407407407407407
+094.tiff,human breast cancer,mitotic,2,2.0,od,9336,0.9753,73.0,1505.0,0.7283950617283951
+094.tiff,human breast cancer,mitotic,2,2.5,score,7146,0.9753,69.0,1345.0,0.7407407407407407
+094.tiff,human breast cancer,mitotic,2,2.5,od,7146,0.9753,73.0,1495.0,0.7283950617283951
+094.tiff,human breast cancer,mitotic,2,3.0,score,5052,0.9753,69.0,1345.0,0.7407407407407407
+094.tiff,human breast cancer,mitotic,2,3.0,od,5052,0.9753,73.0,1482.0,0.7283950617283951
+094.tiff,human breast cancer,mitotic,2,4.0,score,2445,0.9506,69.0,1345.0,0.7407407407407407
+094.tiff,human breast cancer,mitotic,2,4.0,od,2445,0.9506,73.0,1551.0,0.7283950617283951
+094.tiff,human breast cancer,lookalike,0,0.5,score,13938,1.0,142.0,1242.0,0.6172839506172839
+094.tiff,human breast cancer,lookalike,0,0.5,od,13938,1.0,72.0,849.0,0.7407407407407407
+094.tiff,human breast cancer,lookalike,0,1.0,score,12525,1.0,142.0,1242.0,0.6172839506172839
+094.tiff,human breast cancer,lookalike,0,1.0,od,12525,1.0,72.0,849.0,0.7407407407407407
+094.tiff,human breast cancer,lookalike,0,1.5,score,10761,1.0,142.0,1242.0,0.6172839506172839
+094.tiff,human breast cancer,lookalike,0,1.5,od,10761,1.0,72.0,848.0,0.7407407407407407
+094.tiff,human breast cancer,lookalike,0,2.0,score,8601,1.0,142.0,1242.0,0.6172839506172839
+094.tiff,human breast cancer,lookalike,0,2.0,od,8601,1.0,72.0,847.0,0.7407407407407407
+094.tiff,human breast cancer,lookalike,0,2.5,score,6221,0.9877,142.0,1242.0,0.6172839506172839
+094.tiff,human breast cancer,lookalike,0,2.5,od,6221,0.9877,72.0,841.0,0.7407407407407407
+094.tiff,human breast cancer,lookalike,0,3.0,score,4300,0.9753,142.0,1242.0,0.6172839506172839
+094.tiff,human breast cancer,lookalike,0,3.0,od,4300,0.9753,72.0,841.0,0.7407407407407407
+094.tiff,human breast cancer,lookalike,0,4.0,score,2179,0.963,142.0,1242.0,0.6172839506172839
+094.tiff,human breast cancer,lookalike,0,4.0,od,2179,0.963,72.0,832.0,0.7407407407407407
+548.tiff,human melanoma,mitotic,0,0.5,score,14445,0.9958,172.0,3017.0,0.6134453781512605
+548.tiff,human melanoma,mitotic,0,0.5,od,14445,0.9958,175.0,3887.0,0.6134453781512605
+548.tiff,human melanoma,mitotic,0,1.0,score,13150,0.9958,172.0,3017.0,0.6134453781512605
+548.tiff,human melanoma,mitotic,0,1.0,od,13150,0.9958,175.0,3867.0,0.6134453781512605
+548.tiff,human melanoma,mitotic,0,1.5,score,11302,0.9958,172.0,3017.0,0.6134453781512605
+548.tiff,human melanoma,mitotic,0,1.5,od,11302,0.9958,175.0,3816.0,0.6134453781512605
+548.tiff,human melanoma,mitotic,0,2.0,score,8969,0.9916,172.0,3017.0,0.6134453781512605
+548.tiff,human melanoma,mitotic,0,2.0,od,8969,0.9916,175.0,3664.0,0.6134453781512605
+548.tiff,human melanoma,mitotic,0,2.5,score,6317,0.979,172.0,3017.0,0.6134453781512605
+548.tiff,human melanoma,mitotic,0,2.5,od,6317,0.979,175.0,3479.0,0.6134453781512605
+548.tiff,human melanoma,mitotic,0,3.0,score,4055,0.9664,172.0,3017.0,0.6134453781512605
+548.tiff,human melanoma,mitotic,0,3.0,od,4055,0.9664,175.0,3010.0,0.6134453781512605
+548.tiff,human melanoma,mitotic,0,4.0,score,1497,0.9076,172.0,,0.6134453781512605
+548.tiff,human melanoma,mitotic,0,4.0,od,1497,0.9076,175.0,,0.6176470588235294
+548.tiff,human melanoma,mitotic,1,0.5,score,13756,0.9958,165.0,4068.0,0.6092436974789915
+548.tiff,human melanoma,mitotic,1,0.5,od,13756,0.9958,175.0,3666.0,0.6218487394957983
+548.tiff,human melanoma,mitotic,1,1.0,score,12568,0.9916,165.0,4068.0,0.6092436974789915
+548.tiff,human melanoma,mitotic,1,1.0,od,12568,0.9916,175.0,3657.0,0.6218487394957983
+548.tiff,human melanoma,mitotic,1,1.5,score,11135,0.9874,165.0,4068.0,0.6092436974789915
+548.tiff,human melanoma,mitotic,1,1.5,od,11135,0.9874,175.0,3637.0,0.6218487394957983
+548.tiff,human melanoma,mitotic,1,2.0,score,9152,0.979,165.0,4068.0,0.6092436974789915
+548.tiff,human melanoma,mitotic,1,2.0,od,9152,0.979,175.0,3543.0,0.6218487394957983
+548.tiff,human melanoma,mitotic,1,2.5,score,6687,0.9664,165.0,4068.0,0.6092436974789915
+548.tiff,human melanoma,mitotic,1,2.5,od,6687,0.9664,175.0,4025.0,0.6218487394957983
+548.tiff,human melanoma,mitotic,1,3.0,score,4410,0.9538,165.0,4068.0,0.6092436974789915
+548.tiff,human melanoma,mitotic,1,3.0,od,4410,0.9538,175.0,4225.0,0.6218487394957983
+548.tiff,human melanoma,mitotic,1,4.0,score,1534,0.895,165.0,,0.6092436974789915
+548.tiff,human melanoma,mitotic,1,4.0,od,1534,0.895,173.0,,0.6218487394957983
+548.tiff,human melanoma,mitotic,2,0.5,score,13897,0.9958,169.0,3338.0,0.6260504201680672
+548.tiff,human melanoma,mitotic,2,0.5,od,13897,0.9958,173.0,3771.0,0.6176470588235294
+548.tiff,human melanoma,mitotic,2,1.0,score,12622,0.9958,169.0,3338.0,0.6260504201680672
+548.tiff,human melanoma,mitotic,2,1.0,od,12622,0.9958,173.0,3761.0,0.6176470588235294
+548.tiff,human melanoma,mitotic,2,1.5,score,11109,0.9958,169.0,3338.0,0.6260504201680672
+548.tiff,human melanoma,mitotic,2,1.5,od,11109,0.9958,173.0,3738.0,0.6176470588235294
+548.tiff,human melanoma,mitotic,2,2.0,score,9101,0.9916,169.0,3338.0,0.6260504201680672
+548.tiff,human melanoma,mitotic,2,2.0,od,9101,0.9916,173.0,3639.0,0.6176470588235294
+548.tiff,human melanoma,mitotic,2,2.5,score,6685,0.9874,169.0,3338.0,0.6260504201680672
+548.tiff,human melanoma,mitotic,2,2.5,od,6685,0.9874,173.0,3420.0,0.6176470588235294
+548.tiff,human melanoma,mitotic,2,3.0,score,4346,0.958,169.0,3338.0,0.6260504201680672
+548.tiff,human melanoma,mitotic,2,3.0,od,4346,0.958,173.0,3862.0,0.6176470588235294
+548.tiff,human melanoma,mitotic,2,4.0,score,1545,0.9076,169.0,,0.6260504201680672
+548.tiff,human melanoma,mitotic,2,4.0,od,1545,0.9076,172.0,,0.6218487394957983
+548.tiff,human melanoma,lookalike,0,0.5,score,14215,0.9874,160.0,1955.0,0.6764705882352942
+548.tiff,human melanoma,lookalike,0,0.5,od,14215,0.9874,177.0,4257.0,0.6092436974789915
+548.tiff,human melanoma,lookalike,0,1.0,score,12938,0.9874,160.0,1955.0,0.6764705882352942
+548.tiff,human melanoma,lookalike,0,1.0,od,12938,0.9874,177.0,4237.0,0.6092436974789915
+548.tiff,human melanoma,lookalike,0,1.5,score,11395,0.9874,160.0,1955.0,0.6764705882352942
+548.tiff,human melanoma,lookalike,0,1.5,od,11395,0.9874,177.0,4206.0,0.6092436974789915
+548.tiff,human melanoma,lookalike,0,2.0,score,9410,0.9832,160.0,1955.0,0.6764705882352942
+548.tiff,human melanoma,lookalike,0,2.0,od,9410,0.9832,177.0,4094.0,0.6092436974789915
+548.tiff,human melanoma,lookalike,0,2.5,score,6842,0.979,160.0,1955.0,0.6764705882352942
+548.tiff,human melanoma,lookalike,0,2.5,od,6842,0.979,176.0,3752.0,0.6092436974789915
+548.tiff,human melanoma,lookalike,0,3.0,score,4463,0.9622,160.0,1955.0,0.6764705882352942
+548.tiff,human melanoma,lookalike,0,3.0,od,4463,0.9622,176.0,3336.0,0.6092436974789915
+548.tiff,human melanoma,lookalike,0,4.0,score,1647,0.9328,160.0,,0.6764705882352942
+548.tiff,human melanoma,lookalike,0,4.0,od,1647,0.9328,176.0,,0.6134453781512605
+402.tiff,human neuroendocrine tumor,mitotic,0,0.5,score,15707,0.9904,97.0,1791.0,0.7884615384615384
+402.tiff,human neuroendocrine tumor,mitotic,0,0.5,od,15707,0.9904,137.0,2857.0,0.6730769230769231
+402.tiff,human neuroendocrine tumor,mitotic,0,1.0,score,14593,0.9904,97.0,1791.0,0.7884615384615384
+402.tiff,human neuroendocrine tumor,mitotic,0,1.0,od,14593,0.9904,137.0,2845.0,0.6730769230769231
+402.tiff,human neuroendocrine tumor,mitotic,0,1.5,score,12184,0.9904,97.0,1791.0,0.7884615384615384
+402.tiff,human neuroendocrine tumor,mitotic,0,1.5,od,12184,0.9904,137.0,2807.0,0.6730769230769231
+402.tiff,human neuroendocrine tumor,mitotic,0,2.0,score,8898,0.9904,97.0,1791.0,0.7884615384615384
+402.tiff,human neuroendocrine tumor,mitotic,0,2.0,od,8898,0.9904,137.0,2717.0,0.6730769230769231
+402.tiff,human neuroendocrine tumor,mitotic,0,2.5,score,5748,0.9904,97.0,1791.0,0.7884615384615384
+402.tiff,human neuroendocrine tumor,mitotic,0,2.5,od,5748,0.9904,137.0,2468.0,0.6730769230769231
+402.tiff,human neuroendocrine tumor,mitotic,0,3.0,score,3466,0.9808,97.0,1791.0,0.7884615384615384
+402.tiff,human neuroendocrine tumor,mitotic,0,3.0,od,3466,0.9808,137.0,2067.0,0.6826923076923077
+402.tiff,human neuroendocrine tumor,mitotic,0,4.0,score,1208,0.9327,97.0,,0.7884615384615384
+402.tiff,human neuroendocrine tumor,mitotic,0,4.0,od,1208,0.9327,135.0,,0.7019230769230769
+402.tiff,human neuroendocrine tumor,mitotic,1,0.5,score,15621,0.9904,122.0,3685.0,0.625
+402.tiff,human neuroendocrine tumor,mitotic,1,0.5,od,15621,0.9904,139.0,3122.0,0.6730769230769231
+402.tiff,human neuroendocrine tumor,mitotic,1,1.0,score,13881,0.9904,122.0,3685.0,0.625
+402.tiff,human neuroendocrine tumor,mitotic,1,1.0,od,13881,0.9904,139.0,3093.0,0.6826923076923077
+402.tiff,human neuroendocrine tumor,mitotic,1,1.5,score,10942,0.9904,122.0,3685.0,0.625
+402.tiff,human neuroendocrine tumor,mitotic,1,1.5,od,10942,0.9904,139.0,2997.0,0.6826923076923077
+402.tiff,human neuroendocrine tumor,mitotic,1,2.0,score,7433,0.9904,122.0,3685.0,0.625
+402.tiff,human neuroendocrine tumor,mitotic,1,2.0,od,7433,0.9904,139.0,2944.0,0.6923076923076923
+402.tiff,human neuroendocrine tumor,mitotic,1,2.5,score,4407,0.9615,122.0,3685.0,0.625
+402.tiff,human neuroendocrine tumor,mitotic,1,2.5,od,4407,0.9615,139.0,2507.0,0.6923076923076923
+402.tiff,human neuroendocrine tumor,mitotic,1,3.0,score,2451,0.9135,122.0,,0.625
+402.tiff,human neuroendocrine tumor,mitotic,1,3.0,od,2451,0.9135,139.0,,0.6923076923076923
+402.tiff,human neuroendocrine tumor,mitotic,1,4.0,score,737,0.8654,122.0,,0.625
+402.tiff,human neuroendocrine tumor,mitotic,1,4.0,od,737,0.8654,136.0,,0.7211538461538461
+402.tiff,human neuroendocrine tumor,mitotic,2,0.5,score,15916,0.9904,122.0,1224.0,0.7307692307692307
+402.tiff,human neuroendocrine tumor,mitotic,2,0.5,od,15916,0.9904,146.0,3303.0,0.6730769230769231
+402.tiff,human neuroendocrine tumor,mitotic,2,1.0,score,13663,0.9904,122.0,1224.0,0.7307692307692307
+402.tiff,human neuroendocrine tumor,mitotic,2,1.0,od,13663,0.9904,146.0,3254.0,0.6730769230769231
+402.tiff,human neuroendocrine tumor,mitotic,2,1.5,score,10448,0.9904,122.0,1224.0,0.7307692307692307
+402.tiff,human neuroendocrine tumor,mitotic,2,1.5,od,10448,0.9904,146.0,3113.0,0.6730769230769231
+402.tiff,human neuroendocrine tumor,mitotic,2,2.0,score,7223,0.9904,122.0,1224.0,0.7307692307692307
+402.tiff,human neuroendocrine tumor,mitotic,2,2.0,od,7223,0.9904,145.0,2894.0,0.6730769230769231
+402.tiff,human neuroendocrine tumor,mitotic,2,2.5,score,4663,0.9904,122.0,1224.0,0.7307692307692307
+402.tiff,human neuroendocrine tumor,mitotic,2,2.5,od,4663,0.9904,145.0,2496.0,0.6826923076923077
+402.tiff,human neuroendocrine tumor,mitotic,2,3.0,score,2901,0.9808,122.0,1224.0,0.7307692307692307
+402.tiff,human neuroendocrine tumor,mitotic,2,3.0,od,2901,0.9808,145.0,2088.0,0.6826923076923077
+402.tiff,human neuroendocrine tumor,mitotic,2,4.0,score,1136,0.9327,122.0,,0.7307692307692307
+402.tiff,human neuroendocrine tumor,mitotic,2,4.0,od,1136,0.9327,144.0,,0.6923076923076923
+402.tiff,human neuroendocrine tumor,lookalike,0,0.5,score,16774,1.0,226.0,1517.0,0.5673076923076923
+402.tiff,human neuroendocrine tumor,lookalike,0,0.5,od,16774,1.0,147.0,3257.0,0.6634615384615384
+402.tiff,human neuroendocrine tumor,lookalike,0,1.0,score,15551,1.0,226.0,1517.0,0.5673076923076923
+402.tiff,human neuroendocrine tumor,lookalike,0,1.0,od,15551,1.0,147.0,3247.0,0.6634615384615384
+402.tiff,human neuroendocrine tumor,lookalike,0,1.5,score,13236,1.0,226.0,1517.0,0.5673076923076923
+402.tiff,human neuroendocrine tumor,lookalike,0,1.5,od,13236,1.0,147.0,3202.0,0.6634615384615384
+402.tiff,human neuroendocrine tumor,lookalike,0,2.0,score,10078,1.0,226.0,1517.0,0.5673076923076923
+402.tiff,human neuroendocrine tumor,lookalike,0,2.0,od,10078,1.0,147.0,3070.0,0.6634615384615384
+402.tiff,human neuroendocrine tumor,lookalike,0,2.5,score,6995,1.0,226.0,1517.0,0.5673076923076923
+402.tiff,human neuroendocrine tumor,lookalike,0,2.5,od,6995,1.0,147.0,2849.0,0.6634615384615384
+402.tiff,human neuroendocrine tumor,lookalike,0,3.0,score,4651,0.9904,226.0,1517.0,0.5673076923076923
+402.tiff,human neuroendocrine tumor,lookalike,0,3.0,od,4651,0.9904,146.0,2513.0,0.6634615384615384
+402.tiff,human neuroendocrine tumor,lookalike,0,4.0,score,1849,0.9519,226.0,1517.0,0.5673076923076923
+402.tiff,human neuroendocrine tumor,lookalike,0,4.0,od,1849,0.9519,146.0,1636.0,0.6730769230769231
