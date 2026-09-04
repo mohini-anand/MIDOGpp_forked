@@ -49,8 +49,14 @@ from .evaluate import (
 )
 from .dataset import LOOKALIKE, MITOTIC
 
-BUDGETS = (500, 1000, 2000, 5000)
-READ_FRACTIONS = (0.5, 0.8, 1.0)
+# Extended downward for the TM-variant sweep: the product premise is a pathologist reading a
+# short list, so the interesting budgets are tens, not thousands. Purely additive -- the four
+# original values are unchanged, so rows from earlier runs stay comparable.
+BUDGETS = (25, 50, 100, 250, 500, 1000, 2000, 5000)
+# "Hit all the mitoses" is a tail statistic (`Research Logs/2026-09-01-tail-sensitivity.md`),
+# and the tail is where the cost lives: on 246.tiff, 98% of mitoses cost 1966 candidates and
+# 99% cost 17321. 0.5/0.8/1.0 alone cannot see that cliff. Also additive.
+READ_FRACTIONS = (0.5, 0.8, 0.9, 0.95, 0.99, 1.0)
 
 
 @dataclass
@@ -114,7 +120,7 @@ def _read_depths(tp_cumulative: np.ndarray, n_mitotic: int) -> dict:
     """Candidates a reader must work through to reach each target sensitivity."""
     out = {}
     for frac in READ_FRACTIONS:
-        label = f"read_{int(frac * 100)}"
+        label = f"read_{int(round(frac * 100))}"
         if n_mitotic == 0:
             out[label] = float("nan")
             continue

@@ -36,6 +36,7 @@ from __future__ import annotations
 import time
 from dataclasses import dataclass, field
 
+import cv2
 import numpy as np
 import pandas as pd
 
@@ -83,6 +84,13 @@ class FSConfig:
     self_hit_radius: float = 5.0
     max_detections: int = 10 ** 9  # no truncation: report every detection the search found
     scale_normalize: bool = False  # see template_match.fused_response; changes score semantics
+    # Which cv2.TM_* similarity the search uses. The default is the only one this repo had
+    # ever run before `Research Logs/2026-09-01-tm-variant-sweep.md`. Changing it changes the
+    # *units* of `score_threshold` -- TM_CCORR on hematoxylin OD spans [0.34, 10.7] where 0.5
+    # is a permissive floor, and negated TM_SQDIFF spans [-14.7, -1.9e-6] where 0.5 admits
+    # nothing at all. Any non-default method should set the floor in per-map z units via
+    # `template_match.robust_stats`, which is what `tm_variant_sweep.py` does.
+    tm_method: int = cv2.TM_CCOEFF_NORMED
 
     @property
     def n_augmentations(self) -> int:
@@ -124,7 +132,8 @@ def find_and_suppress(img_channel: np.ndarray, seed_xy, cfg: FSConfig = None, nm
     )
     info["n_augmentations"] = len(templates)
 
-    fused, best, valid = tm.fused_response(img_channel, templates, cfg.scale_normalize)
+    fused, best, valid = tm.fused_response(img_channel, templates, cfg.scale_normalize,
+                                           method=cfg.tm_method)
     info["t_match_s"] = round(time.time() - t0, 2)
 
     t0 = time.time()

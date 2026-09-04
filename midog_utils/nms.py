@@ -33,7 +33,12 @@ def nms_by_distance(centers: np.ndarray, scores: np.ndarray, radius: float = 25.
     tree = KDTree(centers)
     neighbours = tree.query_radius(centers, r=radius)
 
-    order = np.argsort(scores)[::-1]
+    # `kind="stable"`, so equal scores keep the caller's incoming order instead of
+    # quicksort's arbitrary one. `template_match.extract_peaks` hands over a globally
+    # ordered list, so suppression becomes reproducible and, more importantly, independent
+    # of the list's length -- which is what lets one deep pool stand in for a re-extraction
+    # at any higher threshold.
+    order = np.argsort(-scores, kind="stable")
     suppressed = np.zeros(len(centers), dtype=bool)
     keep = []
     for idx in order:

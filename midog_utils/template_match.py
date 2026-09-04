@@ -35,7 +35,52 @@ import numpy as np
 BASE_SIZE = 51   # the 50x50 annotation box, made odd so the click is the centre pixel
 PATCH_SIZE = 73  # ceil(BASE_SIZE * sqrt(2)), also odd
 
-_FLOOR = np.float32(-2.0)  # below TM_CCOEFF_NORMED's [-1, 1] range
+# Below every score any `cv2.TM_*` method can produce on any channel this repo uses, and far
+# enough above float32's -3.4e38 minimum that nothing overflows. It replaces an earlier -2.0,
+# which was only below range for TM_CCOEFF_NORMED: TM_CCORR on hematoxylin OD spans
+# [0.34, 10.7] and sign-flipped TM_SQDIFF [-14.7, -1.9e-6], where -2.0 is a *valid* score, and
+# on a 0-255 channel both reach ~1.7e8. Pixels that no template could reach are identified by
+# the `valid` mask, never by comparing against this value.
+_FLOOR = np.float32(-3.0e38)
+_SENTINEL_CUT = -1.5e38  # anything below this is the sentinel, not a score
+
+# `higher is better` for every method, so peak extraction, NMS and ranking are unchanged.
+# TM_SQDIFF and TM_SQDIFF_NORMED are distances; everything else is a similarity.
+_SIGN = {cv2.TM_SQDIFF: -1.0, cv2.TM_SQDIFF_NORMED: -1.0}
+
+METHODS = {
+    "sqdiff": cv2.TM_SQDIFF,
+    "sqdiff_normed": cv2.TM_SQDIFF_NORMED,
+    "ccorr": cv2.TM_CCORR,
+    "ccorr_normed": cv2.TM_CCORR_NORMED,
+    "ccoeff": cv2.TM_CCOEFF,
+    "ccoeff_normed": cv2.TM_CCOEFF_NORMED,
+}
+
+
+def method_sign(method: int) -> float:
+    """+1.0 for similarity methods, -1.0 for the two distance methods."""
+    return _SIGN.get(int(method), 1.0)
+
+
+def robust_stats(fused: np.ndarray, valid: np.ndarray, stride: int = 8):
+    """Median and MAD-scale of a response map, over reachable pixels only.
+
+    The `valid` mask replaces the older ``sample > -1.5`` test, which was a
+    TM_CCOEFF_NORMED-specific way of dropping the unreachable border and the NaN sentinel.
+    That test silently deletes real detections under any other method -- every score
+    sign-flipped TM_SQDIFF produces on hematoxylin OD is below -1.5.
+
+    Returns ``(median, 1.4826 * MAD)``. The pair defines the per-map z scale that makes one
+    extraction floor mean the same search depth for all six methods; no raw-score threshold
+    can, since the methods' ranges differ by eight orders of magnitude.
+    """
+    sample = fused[::stride, ::stride][valid[::stride, ::stride]]
+    sample = sample[np.isfinite(sample)]
+    if sample.size == 0:
+        return float("nan"), float("nan")
+    med = float(np.median(sample))
+    return med, float(1.4826 * np.median(np.abs(sample - med)))
 
 
 @dataclass(frozen=True)
@@ -121,7 +166,10 @@ def _robust_z(res: np.ndarray, stride: int = 8) -> np.ndarray:
     for a median and a MAD.
     """
     sample = res[::stride, ::stride]
-    sample = sample[sample > -1.5]  # drop the NaN sentinel from zero-variance windows
+    # Drop the sentinel written for zero-variance (NaN) windows. Compared against half the
+    # sentinel rather than a fixed -1.5 so this stays correct for methods whose genuine
+    # scores are large and negative, e.g. sign-flipped TM_SQDIFF.
+    sample = sample[sample > _SENTINEL_CUT]
     if sample.size < 1000:
         return res
     med = np.median(sample)
@@ -132,7 +180,8 @@ def _robust_z(res: np.ndarray, stride: int = 8) -> np.ndarray:
     return ((res - med) / scale).astype(np.float32)
 
 
-def fused_response(img: np.ndarray, templates, scale_normalize: bool = False):
+def fused_response(img: np.ndarray, templates, scale_normalize: bool = False,
+                   method: int = cv2.TM_CCOEFF_NORMED):
     """Element-wise max of every augmentation's response, in image-centre coordinates.
 
     ``cv2.matchTemplate`` returns a map indexed by template *top-left*; entry ``(r, c)``
@@ -147,6 +196,22 @@ def fused_response(img: np.ndarray, templates, scale_normalize: bool = False):
     the fused value stays an interpretable correlation coefficient; with it on, scores
     are z-scores and any threshold must be reinterpreted accordingly.
 
+    ``method`` is any ``cv2.TM_*``. The two distance methods (``TM_SQDIFF``,
+    ``TM_SQDIFF_NORMED``) are negated on the way in, so "higher is better" holds for every
+    method and peak extraction, NMS, ranking and evaluation are all unchanged. Two things
+    that matter when leaving the default:
+
+    * **Only rotations and flips may be fused across for the unnormalised methods.**
+      ``TM_CCORR``, ``TM_CCOEFF`` and ``TM_SQDIFF`` scale with the template's pixel count, so
+      an element-wise max over a bank of *different sizes* is decided by size rather than by
+      fit. Rotations and flips at one scale all share a size, so the max stays honest; a
+      multi-scale bank needs ``scale_normalize=True`` or it is meaningless. (The normalised
+      three have a milder version of the same problem -- see ``_robust_z``.)
+    * **Scores are not comparable between methods**, only within one map: ``TM_CCORR`` on
+      hematoxylin OD spans [0.34, 10.7] and negated ``TM_SQDIFF`` [-14.7, -1.9e-6]. Use
+      `robust_stats` to put a threshold in per-map z units, which is monotone and so changes
+      no ranking.
+
     Returns ``(fused, best_aug, valid)``: the fused score map, the index of the winning
     augmentation per pixel, and a mask of pixels any template could reach.
     """
@@ -157,11 +222,16 @@ def fused_response(img: np.ndarray, templates, scale_normalize: bool = False):
     best = np.full((h, w), -1, dtype=np.int16)
     valid = np.zeros((h, w), dtype=bool)
 
+    sign = np.float32(method_sign(method))
     for i, tmpl in enumerate(templates):
         th, tw = tmpl.shape[:2]  # [:2]: also correct for a 3-channel (RGB) template
-        res = cv2.matchTemplate(img, tmpl, cv2.TM_CCOEFF_NORMED)
-        # Uniform windows (saturated white background) give zero variance and NaN here.
-        np.nan_to_num(res, copy=False, nan=-2.0, posinf=-2.0, neginf=-2.0)
+        res = np.asarray(cv2.matchTemplate(img, tmpl, method), dtype=np.float32)
+        if sign < 0:
+            res *= sign  # a distance becomes a similarity; nothing downstream changes
+        # Uniform windows (saturated white background) give zero variance, which is NaN for
+        # the three _NORMED methods. The unnormalised three cannot produce it.
+        np.nan_to_num(res, copy=False, nan=float(_FLOOR),
+                      posinf=float(_FLOOR), neginf=float(_FLOOR))
         if scale_normalize:
             res = _robust_z(res)
 
@@ -192,13 +262,22 @@ def extract_peaks(fused, valid, min_distance=7, score_threshold=0.5, max_peaks=2
         return np.zeros((0, 2)), np.zeros(0, dtype=np.float32)
 
     scores = fused[ys, xs]
-    order = np.argsort(scores)[::-1][:max_peaks]
+    # Ordered by a *global* key -- score descending, then x, then y -- rather than by
+    # `np.argsort(scores)[::-1]`, whose default quicksort is unstable and therefore breaks
+    # exact ties differently depending on how many peaks were passed in. That is not
+    # cosmetic here: `premise_test`-style economy re-uses one deep pool for every z level,
+    # and the argument that filtering the pool at t equals re-extracting at t holds only if
+    # two peaks with byte-identical scores are always ordered the same way. Measured on
+    # 350.tiff it did not: two adjacent peaks tied at 0.5803979 swapped, so 2 of 8747
+    # coordinates disagreed between the two routes. A global key restricts to any subset
+    # unchanged, which makes the shortcut exact rather than exact-up-to-ties.
+    order = np.lexsort((ys, xs, -scores))[:max_peaks]
     centers = np.stack([xs[order], ys[order]], axis=1).astype(np.float64)
     return centers, scores[order]
 
 
-def plant_and_recover(templates, metas, canvas=257, noise=8.0, tolerance=1.0, rng=None,
-                      scale_normalize=False):
+def plant_and_recover(templates, metas, canvas=257, noise_frac=0.25, tolerance=1.0, rng=None,
+                      scale_normalize=False, method: int = cv2.TM_CCOEFF_NORMED):
     """Coordinate round-trip gate -- run this before anything touches a real image.
 
     Each augmentation is planted into a noise canvas at a known centre, the *whole*
@@ -210,6 +289,14 @@ def plant_and_recover(templates, metas, canvas=257, noise=8.0, tolerance=1.0, rn
     must be offset by half of its own size before they are combined. Per-augmentation
     recovery can pass while the fusion is silently misaligned.
 
+    Run it once per ``method``. Besides the offset bug it also catches a sign error: with
+    ``TM_SQDIFF`` un-negated the planted location is the map's *minimum*, so the argmax lands
+    on arbitrary noise and this raises immediately rather than 65 ROI-runs later.
+
+    ``noise_frac`` is the canvas noise as a fraction of the template's **own** standard
+    deviation (it replaces an absolute ``noise=8.0``, which silently assumed a 0-255 channel;
+    see the comment on the canvas below).
+
     Returns a list of ``(Augmentation, dx, dy, score)``; raises on the first failure.
     """
     rng = np.random.default_rng(0) if rng is None else rng
@@ -217,11 +304,22 @@ def plant_and_recover(templates, metas, canvas=257, noise=8.0, tolerance=1.0, rn
     cx = cy = canvas // 2
 
     for meta, tmpl in zip(metas, templates):
-        img = rng.normal(120.0, noise, size=(canvas, canvas)).astype(np.float32)
+        # The canvas is drawn from the template's own distribution, not a fixed
+        # N(120, 8). An absolute canvas only works for the methods that normalise it
+        # away: under TM_CCORR, `sum(T*I)` is maximised wherever the image is brightest,
+        # so planting a hematoxylin-OD template (values ~0.02) into a mean-120 canvas
+        # puts the argmax on arbitrary background and the gate fails for the right
+        # arithmetic reason. Matching the mean leaves the planted patch ahead by
+        # `n * Var(T)`, which `noise_frac` keeps well outside the noise floor.
+        loc = float(np.mean(tmpl))
+        sd = float(np.std(tmpl)) * float(noise_frac)
+        img = rng.normal(loc, sd if sd > 0 else 1e-6,
+                         size=(canvas, canvas)).astype(np.float32)
         half = tmpl.shape[0] // 2
         img[cy - half: cy + half + 1, cx - half: cx + half + 1] = tmpl
 
-        fused, _, valid = fused_response(img, templates, scale_normalize=scale_normalize)
+        fused, _, valid = fused_response(img, templates, scale_normalize=scale_normalize,
+                                         method=method)
         fused = np.where(valid, fused, _FLOOR)
         py, px = np.unravel_index(int(np.argmax(fused)), fused.shape)
         dx, dy = px - cx, py - cy

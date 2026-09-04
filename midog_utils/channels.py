@@ -15,6 +15,8 @@ import cv2
 import numpy as np
 from skimage.color import rgb2hed
 
+from . import chromatin as cm
+
 
 def to_gray_inverted(rgb: np.ndarray) -> np.ndarray:
     """255 - grayscale. Cheap, stain-agnostic, and the notebook's convention."""
@@ -36,6 +38,24 @@ def to_hematoxylin(rgb: np.ndarray) -> np.ndarray:
     return (np.clip((h - lo) / (hi - lo), 0.0, 1.0) * 255.0).astype(np.float32)
 
 
+def to_hematoxylin_od(rgb: np.ndarray) -> np.ndarray:
+    """Unclipped hematoxylin optical density -- `chromatin.hematoxylin_od`, as a channel.
+
+    Distinct from `to_hematoxylin` above, and the difference is the whole point when the
+    matcher is *not* `TM_CCOEFF_NORMED`. `to_hematoxylin` min-max rescales between the ROI's
+    0.5/99.5 percentiles and clips, which parks exactly 0.5% of pixels on the 255 ceiling
+    (measured on 002.tiff: 0.0050) -- and those are the dense-chromatin pixels. A method that
+    is invariant to `I -> aI + b` cannot tell, but `TM_CCORR`, `TM_CCOEFF` and `TM_SQDIFF` are
+    reading exactly that magnitude, so the clipped variant would delete the signal under test.
+
+    Values are small and non-negative (002.tiff: min 0.000, median 0.0144, p99 0.0909,
+    max 0.238), so `TM_CCORR` sees a clean non-negative matched filter. Optical density is not
+    calibrated across scanners, so scores are comparable within one ROI's ranking and not
+    between ROIs -- which is fine, since every metric here is a within-ROI rank.
+    """
+    return cm.hematoxylin_od(rgb)
+
+
 def to_rgb(rgb: np.ndarray) -> np.ndarray:
     """Raw RGB, unchanged apart from dtype -- the third search-channel variant.
 
@@ -50,6 +70,7 @@ def to_rgb(rgb: np.ndarray) -> np.ndarray:
 CHANNELS = {
     "gray_inverted": to_gray_inverted,
     "hematoxylin": to_hematoxylin,
+    "hematoxylin_od": to_hematoxylin_od,
     "rgb": to_rgb,
 }
 
