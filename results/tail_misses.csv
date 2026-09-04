@@ -1,0 +1,7 @@
+file_name,ann_id,cx,cy,nearest_comp_dist,nearest_comp_area,match_radius,in_tissue_mask,cause
+246.tiff,6438,5295.0,125.0,15.5,5,30.2,True,area_below_min
+246.tiff,6446,6028.0,307.0,12.2,1,30.2,True,area_below_min
+246.tiff,6573,1159.0,4452.0,11.7,8,30.2,True,area_below_min
+246.tiff,6603,5868.0,4483.0,10.9,17,30.2,True,area_below_min
+201.tiff,4466,5752.0,3560.0,1.9,4520,30.2,True,area_above_max
+201.tiff,4479,2870.0,3724.0,18.8,5,30.2,True,area_below_min

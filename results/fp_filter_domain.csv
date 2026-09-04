@@ -1,0 +1,253 @@
+file_name,domain,ranker,n_pool,quantile,depth,n_found,n_gt_mitotic,ceiling,frac_of_pool
+301.tiff,canine cutaneous mast cell tumor,blob_score,20370,0.5,167,218,218,1.0,0.0082
+301.tiff,canine cutaneous mast cell tumor,blob_score,20370,0.9,720,218,218,1.0,0.0353
+301.tiff,canine cutaneous mast cell tumor,blob_score,20370,0.95,1428,218,218,1.0,0.0701
+301.tiff,canine cutaneous mast cell tumor,blob_score,20370,0.98,4307,218,218,1.0,0.2114
+301.tiff,canine cutaneous mast cell tumor,blob_score,20370,0.99,6101,218,218,1.0,0.2995
+301.tiff,canine cutaneous mast cell tumor,blob_score,20370,1.0,7750,218,218,1.0,0.3805
+301.tiff,canine cutaneous mast cell tumor,chromatin_od51,20370,0.5,191,218,218,1.0,0.0094
+301.tiff,canine cutaneous mast cell tumor,chromatin_od51,20370,0.9,4218,218,218,1.0,0.2071
+301.tiff,canine cutaneous mast cell tumor,chromatin_od51,20370,0.95,8106,218,218,1.0,0.3979
+301.tiff,canine cutaneous mast cell tumor,chromatin_od51,20370,0.98,14695,218,218,1.0,0.7214
+301.tiff,canine cutaneous mast cell tumor,chromatin_od51,20370,0.99,15300,218,218,1.0,0.7511
+301.tiff,canine cutaneous mast cell tumor,chromatin_od51,20370,1.0,19934,218,218,1.0,0.9786
+301.tiff,canine cutaneous mast cell tumor,logreg_loro,20370,0.5,160,218,218,1.0,0.0079
+301.tiff,canine cutaneous mast cell tumor,logreg_loro,20370,0.9,780,218,218,1.0,0.0383
+301.tiff,canine cutaneous mast cell tumor,logreg_loro,20370,0.95,1393,218,218,1.0,0.0684
+301.tiff,canine cutaneous mast cell tumor,logreg_loro,20370,0.98,2836,218,218,1.0,0.1392
+301.tiff,canine cutaneous mast cell tumor,logreg_loro,20370,0.99,4354,218,218,1.0,0.2137
+301.tiff,canine cutaneous mast cell tumor,logreg_loro,20370,1.0,5313,218,218,1.0,0.2608
+301.tiff,canine cutaneous mast cell tumor,hgb_loro,20370,0.5,170,218,218,1.0,0.0083
+301.tiff,canine cutaneous mast cell tumor,hgb_loro,20370,0.9,689,218,218,1.0,0.0338
+301.tiff,canine cutaneous mast cell tumor,hgb_loro,20370,0.95,1112,218,218,1.0,0.0546
+301.tiff,canine cutaneous mast cell tumor,hgb_loro,20370,0.98,2016,218,218,1.0,0.099
+301.tiff,canine cutaneous mast cell tumor,hgb_loro,20370,0.99,8560,218,218,1.0,0.4202
+301.tiff,canine cutaneous mast cell tumor,hgb_loro,20370,1.0,15415,218,218,1.0,0.7568
+301.tiff,canine cutaneous mast cell tumor,logreg_lodo,20370,0.5,175,218,218,1.0,0.0086
+301.tiff,canine cutaneous mast cell tumor,logreg_lodo,20370,0.9,789,218,218,1.0,0.0387
+301.tiff,canine cutaneous mast cell tumor,logreg_lodo,20370,0.95,1738,218,218,1.0,0.0853
+301.tiff,canine cutaneous mast cell tumor,logreg_lodo,20370,0.98,2963,218,218,1.0,0.1455
+301.tiff,canine cutaneous mast cell tumor,logreg_lodo,20370,0.99,4528,218,218,1.0,0.2223
+301.tiff,canine cutaneous mast cell tumor,logreg_lodo,20370,1.0,5694,218,218,1.0,0.2795
+301.tiff,canine cutaneous mast cell tumor,hgb_lodo,20370,0.5,485,218,218,1.0,0.0238
+301.tiff,canine cutaneous mast cell tumor,hgb_lodo,20370,0.9,4533,218,218,1.0,0.2225
+301.tiff,canine cutaneous mast cell tumor,hgb_lodo,20370,0.95,4965,218,218,1.0,0.2437
+301.tiff,canine cutaneous mast cell tumor,hgb_lodo,20370,0.98,5040,218,218,1.0,0.2474
+301.tiff,canine cutaneous mast cell tumor,hgb_lodo,20370,0.99,8186,218,218,1.0,0.4019
+301.tiff,canine cutaneous mast cell tumor,hgb_lodo,20370,1.0,11715,218,218,1.0,0.5751
+300.tiff,canine cutaneous mast cell tumor,blob_score,17376,0.5,143,181,181,1.0,0.0082
+300.tiff,canine cutaneous mast cell tumor,blob_score,17376,0.9,699,181,181,1.0,0.0402
+300.tiff,canine cutaneous mast cell tumor,blob_score,17376,0.95,1157,181,181,1.0,0.0666
+300.tiff,canine cutaneous mast cell tumor,blob_score,17376,0.98,2510,181,181,1.0,0.1445
+300.tiff,canine cutaneous mast cell tumor,blob_score,17376,0.99,3241,181,181,1.0,0.1865
+300.tiff,canine cutaneous mast cell tumor,blob_score,17376,1.0,4246,181,181,1.0,0.2444
+300.tiff,canine cutaneous mast cell tumor,chromatin_od51,17376,0.5,149,181,181,1.0,0.0086
+300.tiff,canine cutaneous mast cell tumor,chromatin_od51,17376,0.9,3006,181,181,1.0,0.173
+300.tiff,canine cutaneous mast cell tumor,chromatin_od51,17376,0.95,5096,181,181,1.0,0.2933
+300.tiff,canine cutaneous mast cell tumor,chromatin_od51,17376,0.98,13706,181,181,1.0,0.7888
+300.tiff,canine cutaneous mast cell tumor,chromatin_od51,17376,0.99,17065,181,181,1.0,0.9821
+300.tiff,canine cutaneous mast cell tumor,chromatin_od51,17376,1.0,17093,181,181,1.0,0.9837
+300.tiff,canine cutaneous mast cell tumor,logreg_loro,17376,0.5,123,181,181,1.0,0.0071
+300.tiff,canine cutaneous mast cell tumor,logreg_loro,17376,0.9,494,181,181,1.0,0.0284
+300.tiff,canine cutaneous mast cell tumor,logreg_loro,17376,0.95,674,181,181,1.0,0.0388
+300.tiff,canine cutaneous mast cell tumor,logreg_loro,17376,0.98,1071,181,181,1.0,0.0616
+300.tiff,canine cutaneous mast cell tumor,logreg_loro,17376,0.99,1626,181,181,1.0,0.0936
+300.tiff,canine cutaneous mast cell tumor,logreg_loro,17376,1.0,2056,181,181,1.0,0.1183
+300.tiff,canine cutaneous mast cell tumor,hgb_loro,17376,0.5,133,181,181,1.0,0.0077
+300.tiff,canine cutaneous mast cell tumor,hgb_loro,17376,0.9,718,181,181,1.0,0.0413
+300.tiff,canine cutaneous mast cell tumor,hgb_loro,17376,0.95,808,181,181,1.0,0.0465
+300.tiff,canine cutaneous mast cell tumor,hgb_loro,17376,0.98,1191,181,181,1.0,0.0685
+300.tiff,canine cutaneous mast cell tumor,hgb_loro,17376,0.99,1235,181,181,1.0,0.0711
+300.tiff,canine cutaneous mast cell tumor,hgb_loro,17376,1.0,1696,181,181,1.0,0.0976
+300.tiff,canine cutaneous mast cell tumor,logreg_lodo,17376,0.5,139,181,181,1.0,0.008
+300.tiff,canine cutaneous mast cell tumor,logreg_lodo,17376,0.9,576,181,181,1.0,0.0331
+300.tiff,canine cutaneous mast cell tumor,logreg_lodo,17376,0.95,804,181,181,1.0,0.0463
+300.tiff,canine cutaneous mast cell tumor,logreg_lodo,17376,0.98,1306,181,181,1.0,0.0752
+300.tiff,canine cutaneous mast cell tumor,logreg_lodo,17376,0.99,1471,181,181,1.0,0.0847
+300.tiff,canine cutaneous mast cell tumor,logreg_lodo,17376,1.0,1758,181,181,1.0,0.1012
+300.tiff,canine cutaneous mast cell tumor,hgb_lodo,17376,0.5,463,181,181,1.0,0.0266
+300.tiff,canine cutaneous mast cell tumor,hgb_lodo,17376,0.9,3441,181,181,1.0,0.198
+300.tiff,canine cutaneous mast cell tumor,hgb_lodo,17376,0.95,5212,181,181,1.0,0.3
+300.tiff,canine cutaneous mast cell tumor,hgb_lodo,17376,0.98,8179,181,181,1.0,0.4707
+300.tiff,canine cutaneous mast cell tumor,hgb_lodo,17376,0.99,8324,181,181,1.0,0.4791
+300.tiff,canine cutaneous mast cell tumor,hgb_lodo,17376,1.0,8659,181,181,1.0,0.4983
+246.tiff,canine lymphosarcoma,blob_score,21059,0.5,187,112,116,0.9655,0.0089
+246.tiff,canine lymphosarcoma,blob_score,21059,0.9,1045,112,116,0.9655,0.0496
+246.tiff,canine lymphosarcoma,blob_score,21059,0.95,1757,112,116,0.9655,0.0834
+246.tiff,canine lymphosarcoma,blob_score,21059,0.98,1966,112,116,0.9655,0.0934
+246.tiff,canine lymphosarcoma,blob_score,21059,0.99,17321,112,116,0.9655,0.8225
+246.tiff,canine lymphosarcoma,blob_score,21059,1.0,20493,112,116,0.9655,0.9731
+246.tiff,canine lymphosarcoma,chromatin_od51,21059,0.5,153,112,116,0.9655,0.0073
+246.tiff,canine lymphosarcoma,chromatin_od51,21059,0.9,1829,112,116,0.9655,0.0869
+246.tiff,canine lymphosarcoma,chromatin_od51,21059,0.95,3629,112,116,0.9655,0.1723
+246.tiff,canine lymphosarcoma,chromatin_od51,21059,0.98,8799,112,116,0.9655,0.4178
+246.tiff,canine lymphosarcoma,chromatin_od51,21059,0.99,16491,112,116,0.9655,0.7831
+246.tiff,canine lymphosarcoma,chromatin_od51,21059,1.0,20615,112,116,0.9655,0.9789
+246.tiff,canine lymphosarcoma,logreg_loro,21059,0.5,188,112,116,0.9655,0.0089
+246.tiff,canine lymphosarcoma,logreg_loro,21059,0.9,1054,112,116,0.9655,0.05
+246.tiff,canine lymphosarcoma,logreg_loro,21059,0.95,1712,112,116,0.9655,0.0813
+246.tiff,canine lymphosarcoma,logreg_loro,21059,0.98,8414,112,116,0.9655,0.3995
+246.tiff,canine lymphosarcoma,logreg_loro,21059,0.99,13340,112,116,0.9655,0.6335
+246.tiff,canine lymphosarcoma,logreg_loro,21059,1.0,19372,112,116,0.9655,0.9199
+246.tiff,canine lymphosarcoma,hgb_loro,21059,0.5,127,112,116,0.9655,0.006
+246.tiff,canine lymphosarcoma,hgb_loro,21059,0.9,1270,112,116,0.9655,0.0603
+246.tiff,canine lymphosarcoma,hgb_loro,21059,0.95,3315,112,116,0.9655,0.1574
+246.tiff,canine lymphosarcoma,hgb_loro,21059,0.98,4918,112,116,0.9655,0.2335
+246.tiff,canine lymphosarcoma,hgb_loro,21059,0.99,18821,112,116,0.9655,0.8937
+246.tiff,canine lymphosarcoma,hgb_loro,21059,1.0,20959,112,116,0.9655,0.9953
+246.tiff,canine lymphosarcoma,logreg_lodo,21059,0.5,228,112,116,0.9655,0.0108
+246.tiff,canine lymphosarcoma,logreg_lodo,21059,0.9,1487,112,116,0.9655,0.0706
+246.tiff,canine lymphosarcoma,logreg_lodo,21059,0.95,2555,112,116,0.9655,0.1213
+246.tiff,canine lymphosarcoma,logreg_lodo,21059,0.98,12453,112,116,0.9655,0.5913
+246.tiff,canine lymphosarcoma,logreg_lodo,21059,0.99,13804,112,116,0.9655,0.6555
+246.tiff,canine lymphosarcoma,logreg_lodo,21059,1.0,16713,112,116,0.9655,0.7936
+246.tiff,canine lymphosarcoma,hgb_lodo,21059,0.5,156,112,116,0.9655,0.0074
+246.tiff,canine lymphosarcoma,hgb_lodo,21059,0.9,4062,112,116,0.9655,0.1929
+246.tiff,canine lymphosarcoma,hgb_lodo,21059,0.95,5471,112,116,0.9655,0.2598
+246.tiff,canine lymphosarcoma,hgb_lodo,21059,0.98,8331,112,116,0.9655,0.3956
+246.tiff,canine lymphosarcoma,hgb_lodo,21059,0.99,17294,112,116,0.9655,0.8212
+246.tiff,canine lymphosarcoma,hgb_lodo,21059,1.0,20446,112,116,0.9655,0.9709
+245.tiff,canine lymphosarcoma,blob_score,34910,0.5,884,90,90,1.0,0.0253
+245.tiff,canine lymphosarcoma,blob_score,34910,0.9,9766,90,90,1.0,0.2797
+245.tiff,canine lymphosarcoma,blob_score,34910,0.95,13481,90,90,1.0,0.3862
+245.tiff,canine lymphosarcoma,blob_score,34910,0.98,15959,90,90,1.0,0.4571
+245.tiff,canine lymphosarcoma,blob_score,34910,0.99,17473,90,90,1.0,0.5005
+245.tiff,canine lymphosarcoma,blob_score,34910,1.0,17473,90,90,1.0,0.5005
+245.tiff,canine lymphosarcoma,chromatin_od51,34910,0.5,742,90,90,1.0,0.0213
+245.tiff,canine lymphosarcoma,chromatin_od51,34910,0.9,12183,90,90,1.0,0.349
+245.tiff,canine lymphosarcoma,chromatin_od51,34910,0.95,15458,90,90,1.0,0.4428
+245.tiff,canine lymphosarcoma,chromatin_od51,34910,0.98,19914,90,90,1.0,0.5704
+245.tiff,canine lymphosarcoma,chromatin_od51,34910,0.99,22845,90,90,1.0,0.6544
+245.tiff,canine lymphosarcoma,chromatin_od51,34910,1.0,22845,90,90,1.0,0.6544
+245.tiff,canine lymphosarcoma,logreg_loro,34910,0.5,408,90,90,1.0,0.0117
+245.tiff,canine lymphosarcoma,logreg_loro,34910,0.9,4353,90,90,1.0,0.1247
+245.tiff,canine lymphosarcoma,logreg_loro,34910,0.95,5677,90,90,1.0,0.1626
+245.tiff,canine lymphosarcoma,logreg_loro,34910,0.98,7765,90,90,1.0,0.2224
+245.tiff,canine lymphosarcoma,logreg_loro,34910,0.99,8426,90,90,1.0,0.2414
+245.tiff,canine lymphosarcoma,logreg_loro,34910,1.0,8426,90,90,1.0,0.2414
+245.tiff,canine lymphosarcoma,hgb_loro,34910,0.5,219,90,90,1.0,0.0063
+245.tiff,canine lymphosarcoma,hgb_loro,34910,0.9,5854,90,90,1.0,0.1677
+245.tiff,canine lymphosarcoma,hgb_loro,34910,0.95,8359,90,90,1.0,0.2394
+245.tiff,canine lymphosarcoma,hgb_loro,34910,0.98,12377,90,90,1.0,0.3545
+245.tiff,canine lymphosarcoma,hgb_loro,34910,0.99,16153,90,90,1.0,0.4627
+245.tiff,canine lymphosarcoma,hgb_loro,34910,1.0,16153,90,90,1.0,0.4627
+245.tiff,canine lymphosarcoma,logreg_lodo,34910,0.5,407,90,90,1.0,0.0117
+245.tiff,canine lymphosarcoma,logreg_lodo,34910,0.9,5391,90,90,1.0,0.1544
+245.tiff,canine lymphosarcoma,logreg_lodo,34910,0.95,6785,90,90,1.0,0.1944
+245.tiff,canine lymphosarcoma,logreg_lodo,34910,0.98,10659,90,90,1.0,0.3053
+245.tiff,canine lymphosarcoma,logreg_lodo,34910,0.99,15654,90,90,1.0,0.4484
+245.tiff,canine lymphosarcoma,logreg_lodo,34910,1.0,15654,90,90,1.0,0.4484
+245.tiff,canine lymphosarcoma,hgb_lodo,34910,0.5,569,90,90,1.0,0.0163
+245.tiff,canine lymphosarcoma,hgb_lodo,34910,0.9,6203,90,90,1.0,0.1777
+245.tiff,canine lymphosarcoma,hgb_lodo,34910,0.95,9358,90,90,1.0,0.2681
+245.tiff,canine lymphosarcoma,hgb_lodo,34910,0.98,14234,90,90,1.0,0.4077
+245.tiff,canine lymphosarcoma,hgb_lodo,34910,0.99,16627,90,90,1.0,0.4763
+245.tiff,canine lymphosarcoma,hgb_lodo,34910,1.0,16627,90,90,1.0,0.4763
+201.tiff,canine lung cancer,blob_score,12446,0.5,49,16,18,0.8889,0.0039
+201.tiff,canine lung cancer,blob_score,12446,0.9,2712,16,18,0.8889,0.2179
+201.tiff,canine lung cancer,blob_score,12446,0.95,4794,16,18,0.8889,0.3852
+201.tiff,canine lung cancer,blob_score,12446,0.98,4794,16,18,0.8889,0.3852
+201.tiff,canine lung cancer,blob_score,12446,0.99,4794,16,18,0.8889,0.3852
+201.tiff,canine lung cancer,blob_score,12446,1.0,4794,16,18,0.8889,0.3852
+201.tiff,canine lung cancer,chromatin_od51,12446,0.5,17,16,18,0.8889,0.0014
+201.tiff,canine lung cancer,chromatin_od51,12446,0.9,351,16,18,0.8889,0.0282
+201.tiff,canine lung cancer,chromatin_od51,12446,0.95,823,16,18,0.8889,0.0661
+201.tiff,canine lung cancer,chromatin_od51,12446,0.98,823,16,18,0.8889,0.0661
+201.tiff,canine lung cancer,chromatin_od51,12446,0.99,823,16,18,0.8889,0.0661
+201.tiff,canine lung cancer,chromatin_od51,12446,1.0,823,16,18,0.8889,0.0661
+201.tiff,canine lung cancer,logreg_loro,12446,0.5,20,16,18,0.8889,0.0016
+201.tiff,canine lung cancer,logreg_loro,12446,0.9,2318,16,18,0.8889,0.1862
+201.tiff,canine lung cancer,logreg_loro,12446,0.95,4550,16,18,0.8889,0.3656
+201.tiff,canine lung cancer,logreg_loro,12446,0.98,4550,16,18,0.8889,0.3656
+201.tiff,canine lung cancer,logreg_loro,12446,0.99,4550,16,18,0.8889,0.3656
+201.tiff,canine lung cancer,logreg_loro,12446,1.0,4550,16,18,0.8889,0.3656
+201.tiff,canine lung cancer,hgb_loro,12446,0.5,32,16,18,0.8889,0.0026
+201.tiff,canine lung cancer,hgb_loro,12446,0.9,1837,16,18,0.8889,0.1476
+201.tiff,canine lung cancer,hgb_loro,12446,0.95,2194,16,18,0.8889,0.1763
+201.tiff,canine lung cancer,hgb_loro,12446,0.98,2194,16,18,0.8889,0.1763
+201.tiff,canine lung cancer,hgb_loro,12446,0.99,2194,16,18,0.8889,0.1763
+201.tiff,canine lung cancer,hgb_loro,12446,1.0,2194,16,18,0.8889,0.1763
+201.tiff,canine lung cancer,logreg_lodo,12446,0.5,17,16,18,0.8889,0.0014
+201.tiff,canine lung cancer,logreg_lodo,12446,0.9,1832,16,18,0.8889,0.1472
+201.tiff,canine lung cancer,logreg_lodo,12446,0.95,5016,16,18,0.8889,0.403
+201.tiff,canine lung cancer,logreg_lodo,12446,0.98,5016,16,18,0.8889,0.403
+201.tiff,canine lung cancer,logreg_lodo,12446,0.99,5016,16,18,0.8889,0.403
+201.tiff,canine lung cancer,logreg_lodo,12446,1.0,5016,16,18,0.8889,0.403
+201.tiff,canine lung cancer,hgb_lodo,12446,0.5,24,16,18,0.8889,0.0019
+201.tiff,canine lung cancer,hgb_lodo,12446,0.9,897,16,18,0.8889,0.0721
+201.tiff,canine lung cancer,hgb_lodo,12446,0.95,1260,16,18,0.8889,0.1012
+201.tiff,canine lung cancer,hgb_lodo,12446,0.98,1260,16,18,0.8889,0.1012
+201.tiff,canine lung cancer,hgb_lodo,12446,0.99,1260,16,18,0.8889,0.1012
+201.tiff,canine lung cancer,hgb_lodo,12446,1.0,1260,16,18,0.8889,0.1012
+202.tiff,canine lung cancer,blob_score,13440,0.5,27,16,16,1.0,0.002
+202.tiff,canine lung cancer,blob_score,13440,0.9,1020,16,16,1.0,0.0759
+202.tiff,canine lung cancer,blob_score,13440,0.95,2304,16,16,1.0,0.1714
+202.tiff,canine lung cancer,blob_score,13440,0.98,2304,16,16,1.0,0.1714
+202.tiff,canine lung cancer,blob_score,13440,0.99,2304,16,16,1.0,0.1714
+202.tiff,canine lung cancer,blob_score,13440,1.0,2304,16,16,1.0,0.1714
+202.tiff,canine lung cancer,chromatin_od51,13440,0.5,12,16,16,1.0,0.0009
+202.tiff,canine lung cancer,chromatin_od51,13440,0.9,4638,16,16,1.0,0.3451
+202.tiff,canine lung cancer,chromatin_od51,13440,0.95,5409,16,16,1.0,0.4025
+202.tiff,canine lung cancer,chromatin_od51,13440,0.98,5409,16,16,1.0,0.4025
+202.tiff,canine lung cancer,chromatin_od51,13440,0.99,5409,16,16,1.0,0.4025
+202.tiff,canine lung cancer,chromatin_od51,13440,1.0,5409,16,16,1.0,0.4025
+202.tiff,canine lung cancer,logreg_loro,13440,0.5,13,16,16,1.0,0.001
+202.tiff,canine lung cancer,logreg_loro,13440,0.9,658,16,16,1.0,0.049
+202.tiff,canine lung cancer,logreg_loro,13440,0.95,1144,16,16,1.0,0.0851
+202.tiff,canine lung cancer,logreg_loro,13440,0.98,1144,16,16,1.0,0.0851
+202.tiff,canine lung cancer,logreg_loro,13440,0.99,1144,16,16,1.0,0.0851
+202.tiff,canine lung cancer,logreg_loro,13440,1.0,1144,16,16,1.0,0.0851
+202.tiff,canine lung cancer,hgb_loro,13440,0.5,29,16,16,1.0,0.0022
+202.tiff,canine lung cancer,hgb_loro,13440,0.9,870,16,16,1.0,0.0647
+202.tiff,canine lung cancer,hgb_loro,13440,0.95,1592,16,16,1.0,0.1185
+202.tiff,canine lung cancer,hgb_loro,13440,0.98,1592,16,16,1.0,0.1185
+202.tiff,canine lung cancer,hgb_loro,13440,0.99,1592,16,16,1.0,0.1185
+202.tiff,canine lung cancer,hgb_loro,13440,1.0,1592,16,16,1.0,0.1185
+202.tiff,canine lung cancer,logreg_lodo,13440,0.5,13,16,16,1.0,0.001
+202.tiff,canine lung cancer,logreg_lodo,13440,0.9,729,16,16,1.0,0.0542
+202.tiff,canine lung cancer,logreg_lodo,13440,0.95,1198,16,16,1.0,0.0891
+202.tiff,canine lung cancer,logreg_lodo,13440,0.98,1198,16,16,1.0,0.0891
+202.tiff,canine lung cancer,logreg_lodo,13440,0.99,1198,16,16,1.0,0.0891
+202.tiff,canine lung cancer,logreg_lodo,13440,1.0,1198,16,16,1.0,0.0891
+202.tiff,canine lung cancer,hgb_lodo,13440,0.5,10,16,16,1.0,0.0007
+202.tiff,canine lung cancer,hgb_lodo,13440,0.9,2608,16,16,1.0,0.194
+202.tiff,canine lung cancer,hgb_lodo,13440,0.95,2952,16,16,1.0,0.2196
+202.tiff,canine lung cancer,hgb_lodo,13440,0.98,2952,16,16,1.0,0.2196
+202.tiff,canine lung cancer,hgb_lodo,13440,0.99,2952,16,16,1.0,0.2196
+202.tiff,canine lung cancer,hgb_lodo,13440,1.0,2952,16,16,1.0,0.2196
+405.tiff,canine soft tissue sarcoma,blob_score,7577,0.5,796,14,14,1.0,0.1051
+405.tiff,canine soft tissue sarcoma,blob_score,7577,0.9,2968,14,14,1.0,0.3917
+405.tiff,canine soft tissue sarcoma,blob_score,7577,0.95,3630,14,14,1.0,0.4791
+405.tiff,canine soft tissue sarcoma,blob_score,7577,0.98,3630,14,14,1.0,0.4791
+405.tiff,canine soft tissue sarcoma,blob_score,7577,0.99,3630,14,14,1.0,0.4791
+405.tiff,canine soft tissue sarcoma,blob_score,7577,1.0,3630,14,14,1.0,0.4791
+405.tiff,canine soft tissue sarcoma,chromatin_od51,7577,0.5,13,14,14,1.0,0.0017
+405.tiff,canine soft tissue sarcoma,chromatin_od51,7577,0.9,245,14,14,1.0,0.0323
+405.tiff,canine soft tissue sarcoma,chromatin_od51,7577,0.95,1102,14,14,1.0,0.1454
+405.tiff,canine soft tissue sarcoma,chromatin_od51,7577,0.98,1102,14,14,1.0,0.1454
+405.tiff,canine soft tissue sarcoma,chromatin_od51,7577,0.99,1102,14,14,1.0,0.1454
+405.tiff,canine soft tissue sarcoma,chromatin_od51,7577,1.0,1102,14,14,1.0,0.1454
+405.tiff,canine soft tissue sarcoma,logreg_loro,7577,0.5,493,14,14,1.0,0.0651
+405.tiff,canine soft tissue sarcoma,logreg_loro,7577,0.9,1334,14,14,1.0,0.1761
+405.tiff,canine soft tissue sarcoma,logreg_loro,7577,0.95,1454,14,14,1.0,0.1919
+405.tiff,canine soft tissue sarcoma,logreg_loro,7577,0.98,1454,14,14,1.0,0.1919
+405.tiff,canine soft tissue sarcoma,logreg_loro,7577,0.99,1454,14,14,1.0,0.1919
+405.tiff,canine soft tissue sarcoma,logreg_loro,7577,1.0,1454,14,14,1.0,0.1919
+405.tiff,canine soft tissue sarcoma,hgb_loro,7577,0.5,846,14,14,1.0,0.1117
+405.tiff,canine soft tissue sarcoma,hgb_loro,7577,0.9,1575,14,14,1.0,0.2079
+405.tiff,canine soft tissue sarcoma,hgb_loro,7577,0.95,2063,14,14,1.0,0.2723
+405.tiff,canine soft tissue sarcoma,hgb_loro,7577,0.98,2063,14,14,1.0,0.2723
+405.tiff,canine soft tissue sarcoma,hgb_loro,7577,0.99,2063,14,14,1.0,0.2723
+405.tiff,canine soft tissue sarcoma,hgb_loro,7577,1.0,2063,14,14,1.0,0.2723
+405.tiff,canine soft tissue sarcoma,logreg_lodo,7577,0.5,493,14,14,1.0,0.0651
+405.tiff,canine soft tissue sarcoma,logreg_lodo,7577,0.9,1334,14,14,1.0,0.1761
+405.tiff,canine soft tissue sarcoma,logreg_lodo,7577,0.95,1454,14,14,1.0,0.1919
+405.tiff,canine soft tissue sarcoma,logreg_lodo,7577,0.98,1454,14,14,1.0,0.1919
+405.tiff,canine soft tissue sarcoma,logreg_lodo,7577,0.99,1454,14,14,1.0,0.1919
+405.tiff,canine soft tissue sarcoma,logreg_lodo,7577,1.0,1454,14,14,1.0,0.1919
+405.tiff,canine soft tissue sarcoma,hgb_lodo,7577,0.5,846,14,14,1.0,0.1117
+405.tiff,canine soft tissue sarcoma,hgb_lodo,7577,0.9,1575,14,14,1.0,0.2079
+405.tiff,canine soft tissue sarcoma,hgb_lodo,7577,0.95,2063,14,14,1.0,0.2723
+405.tiff,canine soft tissue sarcoma,hgb_lodo,7577,0.98,2063,14,14,1.0,0.2723
+405.tiff,canine soft tissue sarcoma,hgb_lodo,7577,0.99,2063,14,14,1.0,0.2723
+405.tiff,canine soft tissue sarcoma,hgb_lodo,7577,1.0,2063,14,14,1.0,0.2723

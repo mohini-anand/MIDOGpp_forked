@@ -1,0 +1,12 @@
+file_name,ann_id,status,matched_rank,ann_to_det_px,match_radius,comp_area_at_click,comp_area_near,od51_pct,reason
+246.tiff,6419,edge_of_radius_match,1150,28.2,30.2,0,1397.0,0.9706,component_passes_gate
+246.tiff,6438,missed,-1,,30.2,1173,1173.0,0.9747,component_passes_gate
+246.tiff,6446,missed,-1,,30.2,2462,2462.0,0.9746,component_passes_gate
+246.tiff,6573,missed,-1,,30.2,1734,1734.0,0.9718,component_passes_gate
+246.tiff,6603,missed,-1,,30.2,8070,8070.0,0.9378,merged_component_over_max_area
+246.tiff,6609,edge_of_radius_match,591,26.7,30.2,2148,2148.0,0.9787,component_passes_gate
+246.tiff,6626,edge_of_radius_match,17320,26.8,30.2,1428,1428.0,0.8482,component_passes_gate
+246.tiff,6634,edge_of_radius_match,20492,27.7,30.2,1461,1461.0,0.7112,component_passes_gate
+201.tiff,4466,missed,-1,,30.2,4520,4520.0,0.9674,merged_component_over_max_area
+201.tiff,4479,missed,-1,,30.2,5156,5156.0,0.9716,merged_component_over_max_area
+201.tiff,4491,edge_of_radius_match,1268,28.4,30.2,3408,3408.0,0.9724,component_passes_gate

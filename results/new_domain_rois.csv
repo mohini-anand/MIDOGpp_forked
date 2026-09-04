@@ -1,0 +1,5 @@
+file_name,image_id,domain,json_tumor_type,scanner,lab,species,width_px,height_px,mpp,roi_area_mm2,n_mitotic,n_lookalike,n_unanimous_mitotic,seed_pool_size,agreement_flagged,tm_n_excluded_all,tm_n_excluded_mitotic,file_size_bytes,checks_passed,notes
+459.tiff,459,canine soft tissue sarcoma,canine soft tissue sarcoma,3D Histech,AMC New York,Canine,6577,4933,0.24817,1.9981,131,90,122,121,False,0,0,129777570,ALL,
+094.tiff,94,human breast cancer,human breast cancer,Hamamatsu S360,UMC Utrecht,Human,7103,5364,0.22985,2.0128,82,102,49,49,False,0,0,152402174,ALL,
+548.tiff,548,human melanoma,human melanoma,Hamamatsu XR,UMC Utrecht,Human,7215,5412,0.22744,2.0199,239,118,186,184,False,0,0,151813188,ALL,
+402.tiff,402,human neuroendocrine tumor,human neuroendocrine tumor,Hamamatsu XR,UMC Utrecht,Human,7215,5412,0.22632,2.0001,105,79,65,65,False,0,0,156190526,ALL,
