@@ -445,7 +445,7 @@ Machine: CPU-only Intel i7-8750H, 6 threads, no GPU path. Interpreter `~/anacond
 (numpy 1.26.4, cv2 4.8.1, pyarrow 16.1.0); the system `python3` carries numpy 2.4.6 and cannot
 `import cv2`, so `midog_utils` will not import there.
 
-Storage: ~12.7 M pool rows, ~200 MB as parquet (int32 `cx`/`cy`, float32 `score`/`od`) against
+Storage: ~12.7 M pool rows, ~254 MB as parquet (int32 `cx`/`cy`, float32 `score`, float64 `od` -- float32 would be lossy and break section 7.2) against
 ~635 MB as CSV. Parquet is a deviation — nothing in the active codebase writes it — taken for
 the 3× size and recorded here rather than in a commit message.
 
