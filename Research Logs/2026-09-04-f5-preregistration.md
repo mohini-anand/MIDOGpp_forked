@@ -35,6 +35,64 @@ F1–F4 are taken (`Research Logs/2026-09-03-tm-axis-sweep-edit-plan.md` §Follo
 > control's. The control has never been run at all, which is the point of F5 and makes P1 more
 > live than revision 2 conceded.
 
+
+> ## Amendment, 2026-09-08 — revision 4 is half-finished, its justification is disqualified,
+> ## and two artifacts it cites are absent from the repository
+>
+> Added as a dated append rather than by editing the body, which is the rule revision 4 itself
+> did not follow. Results and evidence: [`2026-09-04-f5-results.md`](2026-09-04-f5-results.md),
+> Correction 2.
+>
+> **1. Revision 4 was never completed.** It moved §3d and §8 to `tm_score` but left `chromatin_od`
+> in the two places that actually bind a decision:
+>
+> * **line 267**, §4's registered negative-result rule — *"the mean-of-5 paired Δ(recall@250) at
+>   z = 1.0 on `chromatin_od` has a cluster bootstrap CI containing 0 at both doses"*
+> * **line 305**, §6.1's reporting frame — *"per arm, on the `chromatin_od` axis"*
+>
+> So there is no coherent revision-4 protocol: the document's decision rule and its reporting
+> frame still name the axis its §3d demotes.
+>
+> **2. Revision 4's justification is disqualified by F5's own measurement.** It rests on a
+> tie-break of Δ = +0.032, CI [−0.047, +0.112], p = 0.36 taken from `results/f1_seed_sweep.csv`.
+> Run on F5's own data — which §3c independently commits to the 14 ROIs of `images/extra_valid`,
+> with no external decision required — the head-to-head reverses:
+>
+> ```
+> chromatin_od − tm_score, recall@250, z = 1.0, control arm, 14 ROI clusters:
+>   mean +0.0869   CI [+0.0419, +0.1332]   sign-flip p = 0.0020   12/14 ROIs positive
+> ```
+>
+> The two real disqualifiers of the F1 statistic — neither of which is "a different tissue draw",
+> since those 7 ROIs are a strict *subset* of the 14 — are that it **mixes tightened-template
+> arms** (only 5 of the 7 ROIs even have an untightened `null_cell`, so it was never F5's
+> configuration), and that **n = 7 cannot resolve this effect at all**: F5's own control arm
+> restricted to those same 7 ROIs gives +0.0518 with p = 0.1250, the same positive effect,
+> undetectable. The second half of that tie-break — a deep-budget deficit — **reverses sign** on
+> the mandated set: at K = 5,000, +0.0145, p = 0.041, positive on 9 of 14.
+>
+> **3. Two cited artifacts do not exist in this repository.** `DECISIONS.md` D5 and
+> `verify_chromatin_ranker.py` are referenced at lines 25, 214, 222, 229, 587 and 590 of this
+> file as the substance behind revision 4. `git show HEAD:DECISIONS.md` contains D1–D4 only, and
+> `git ls-files verify_chromatin_ranker.py` is empty. Read every such citation as pointing at
+> another session's working tree, not at anything a reader can check. The *factual* claim they
+> carry is nonetheless true, and is verified first-hand at `HEAD` in the results log §2.2:
+> `chromatin.rerank`'s only callers are three superseded 2026-08-31 probes, and
+> `find_and_suppress.py:174` emits `rank = np.arange(len(centers))` over `nms_by_distance`'s
+> score order, so there is no chromatin path in the pipeline.
+>
+> **4. What the run actually executed.** `PRIMARY_AXIS = "chromatin_od"` at `c2be222`, `49d10ca`
+> and `e610e6b`. The results were produced under revision 3's protocol. The outcome adopted in
+> Correction 2 is **both axes reported, neither secondary**, with Holm-2 on `chromatin_od` as the
+> executed arbiter and Holm-4 as a declared post-hoc widening — because §8's own forking-path
+> sentence forbids re-declaring an axis primary after seeing which one produced significance.
+>
+> **5. A deviation this document registered and the run did not honour.** §6.5 (line 349) and §11
+> row 9 registered that the win/loss ledger *"stays on both axes"*. The code gated it on
+> `PRIMARY_AXIS`, so those three columns are −1 on all 210 `tm_score` rows in the committed CSVs.
+> Disclosed in the results log §2.8(b); the code is fixed, the CSVs are not regenerated.
+
+
 ---
 
 ## 1. The question, in the terms it was asked

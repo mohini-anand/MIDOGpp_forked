@@ -127,7 +127,21 @@ MAX_PEAKS = 2_000_000
 
 AXES = ("tm_score", "chromatin_od")
 AXIS_RANK_KEY = {"tm_score": "score", "chromatin_od": "od"}
-PRIMARY_AXIS = "chromatin_od"         # section 3d: the shipped ranker (commit 7c3af93)
+# NOTE (2026-09-08). This module previously carried a `PRIMARY_AXIS` constant whose only use was
+# to gate the section 6.5 ledger to one axis. The pre-registration (section 6.5, line 349) had
+# registered that "the win/loss half stays on **both** axes", so that gate was an undisclosed
+# protocol deviation -- it left `gained_vs_control` / `lost_vs_control` at -1 on every `tm_score`
+# row of the committed CSVs. The gate is removed below, which leaves the constant unused, so it is
+# deleted rather than left as dead code. (Its value had also been edited from `chromatin_od` to
+# `tm_score` in a working tree by a concurrent session, citing a tie-break -- +0.032, p = 0.36 --
+# that F5's own head-to-head on these 14 ROIs disqualifies: +0.0869, CI [+0.0419, +0.1332],
+# p = 0.0020, 12/14 ROIs. See `Research Logs/2026-09-04-f5-results.md` Correction 2.)
+#
+# The committed `results/f5_nms_radius_ablation*.csv` were produced BEFORE this change, with the
+# ledger on `chromatin_od` only. Code and data deliberately diverge: re-running is 37 minutes, and
+# the columns that would change are either withdrawn (`gt_claim_change`, see below) or already
+# corroborated by an independent path ("0 lost" == 0 of 70 cells with a dose arm's
+# `full_list_recall` below the control's).
 
 # section 6.1: a strict superset of `compare.BUDGETS`, so rows stay comparable with every
 # earlier CSV. Dense because it costs nothing (pure indexing into tp_cum) and because the
@@ -336,9 +350,13 @@ def ledger_row(pool, gt_eval, match_radius, axis, ctrl_top=None):
     det, gt_out = ev.bucket_detections(ranked, gt_eval, match_radius)
 
     found = set(gt_out[(gt_out["category_id"] == ds.MITOTIC) & gt_out["found"]]["ann_id"])
-    gt_mit_out = gt_out[gt_out["category_id"] == ds.MITOTIC]
-    claim = {int(a): int(r) for a, r in zip(gt_mit_out["ann_id"].to_numpy(),
-                                            gt_mit_out["matched_rank"].to_numpy()) if r >= 0}
+    # `gt_claim_change` used to be computed here. It compared `matched_rank` equality, and
+    # `evaluate.py:81` sets that to the *positional index* of the claiming detection in the ranked
+    # list -- which shifts whenever the list is longer or re-sorted, as every shrunk arm's is. It
+    # therefore measured list length, not claim reassignment, and it was never the quantity the
+    # pre-registration (section 6.6) registered, which asked for a change of rank *bucket*.
+    # Removed rather than redefined: redefining it by claiming-detection identity would require a
+    # re-run of the sweep. See `Research Logs/2026-09-04-f5-results.md` Correction 2, section 2.5.
 
     # Duplicate FPs, reported WITH their denominator: a second detection inside an already
     # claimed object's match circle is bucketed as an unannotated false positive, and the raw
@@ -359,7 +377,7 @@ def ledger_row(pool, gt_eval, match_radius, axis, ctrl_top=None):
         union = len(top_set | ctrl_top)
         churn = float(1.0 - len(top_set & ctrl_top) / union) if union else float("nan")
 
-    return {"found": found, "claim": claim, "n_within_match_radius": n_within,
+    return {"found": found, "n_within_match_radius": n_within,
             "n_dup_fp": n_dup, "n_detections": int(len(ranked)),
             "topk_churn": churn, "top_set": top_set}
 
@@ -424,7 +442,7 @@ def run_roi(fn, images, annotations, images_dir, n_seeds, checks, ledger_rows,
                     "match_radius_px": round(match_radius, 3),
                     "n_gt_within_seed_hole": n_hole}
 
-        ctrl_tops, ctrl_found, ctrl_claim = {}, None, None
+        ctrl_tops, ctrl_found = {}, {}
         pool_sizes = []
         for um in RADII_UM:                       # control FIRST, so churn has its reference
             tag, radius = RADIUS_TAG[um], radii[RADIUS_TAG[um]]
@@ -444,22 +462,20 @@ def run_roi(fn, images, annotations, images_dir, n_seeds, checks, ledger_rows,
                                  ctrl_tops.get(axis) if um != CONTROL_UM else None)
                 if um == CONTROL_UM:
                     ctrl_tops[axis] = led["top_set"]
-                    if axis == PRIMARY_AXIS:
-                        ctrl_found, ctrl_claim = led["found"], led["claim"]
-                gained = lost = claim_change = -1
-                if (um != CONTROL_UM and axis == PRIMARY_AXIS
-                        and ctrl_found is not None and ctrl_claim is not None):
-                    gained = len(led["found"] - ctrl_found)
-                    lost = len(ctrl_found - led["found"])
-                    claim_change = sum(1 for a, r in led["claim"].items()
-                                       if ctrl_claim.get(a, -1) != r)
+                    ctrl_found[axis] = led["found"]
+                # Pre-registration section 6.5: "the win/loss half stays on BOTH axes", because
+                # greedy rank-order matching can hand a contested GT to a different detection.
+                gained = lost = -1
+                if um != CONTROL_UM and axis in ctrl_found:
+                    gained = len(led["found"] - ctrl_found[axis])
+                    lost = len(ctrl_found[axis] - led["found"])
                 ledger_rows.append({
                     **{k: ctx_base[k] for k in ("file_name", "tumor_type", "seed_index")},
                     "nms_radius_um": um, "nms_radius_px": round(radius, 3), "axis": axis,
                     "z": HEADLINE_Z, "n_detections": led["n_detections"],
                     "n_gt_mitotic": int(len(gt_mit_eval)),
                     "n_found": len(led["found"]), "gained_vs_control": gained,
-                    "lost_vs_control": lost, "gt_claim_change": claim_change,
+                    "lost_vs_control": lost,
                     "n_within_match_radius": led["n_within_match_radius"],
                     "n_dup_fp": led["n_dup_fp"],
                     "dup_fp_frac": round(led["n_dup_fp"] / max(led["n_detections"], 1), 5),
@@ -535,6 +551,11 @@ def reproduction_gate(results: pd.DataFrame) -> pd.DataFrame:
     catch a silent divergence in the whole pipeline rather than in one function.
 
     One mapping is needed: v2's ``arm`` column is the axis, F5's is ``{axis}@{radius}``.
+
+    Scope, so the pass is not read as wider than it is: ``full_list_recall`` is merged but never
+    compared -- only ``recall_at_budget`` (allclose) and ``n_detections`` (exact integer equality)
+    gate the result. That is still a whole-pipeline check on 336 rows and nothing published claims
+    otherwise; it is recorded here so a future reader does not assume the ceiling was gated too.
     """
     if not Path(V2_CSV).exists():
         return pd.DataFrame([{"check": "v2_reproduction", "label": V2_CSV,
