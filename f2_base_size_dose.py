@@ -201,10 +201,21 @@ def build_pool(hem, H, W, seed_xy, base_size, nms_radius, ctx, checks, check_sho
     assert int(pool['od'].isna().sum()) == 0, f"{ctx['label']}: NaN od survived OD_PAD"  # GATE 8
     del hem_od_p
 
-    meta = dict(map_median=round(med, 5), mad_scale=round(mad, 5),
-                deep_floor=round(deep_floor, 5), pad_px=PAD, n_pool=len(pool),
+    # FULL PRECISION, deliberately. `arms_for_dose` computes `med + z*mad` from these, and
+    # rounding first shifts every cut: at 094.tiff seed 0, med/mad rounded to 5 dp moves the
+    # z=2.0 cut from 0.226041718850 to 0.22605 and drops one candidate. F1 rounded only for
+    # its context dict and thresholded on the raw floats; GATE 1 caught the difference.
+    meta = dict(med=med, mad=mad, deep_floor=deep_floor, pad_px=PAD, n_pool=len(pool),
                 n_peaks_deep=int(len(keep)), shortcut_ok=shortcut_ok)
     return pool, meta
+
+
+def meta_columns(meta):
+    """The rounded, human-readable form of `meta` for the results CSV. Display only."""
+    return dict(map_median=round(meta['med'], 5), mad_scale=round(meta['mad'], 5),
+                deep_floor=round(meta['deep_floor'], 5), pad_px=meta['pad_px'],
+                n_pool=meta['n_pool'], n_peaks_deep=meta['n_peaks_deep'],
+                shortcut_ok=meta['shortcut_ok'])
 
 
 def arms_for_dose(pool, meta, dose_tag, base_size, n_ref):
@@ -214,7 +225,7 @@ def arms_for_dose(pool, meta, dose_tag, base_size, n_ref):
     ``z_dependent=False`` -- `compare.Arm`'s own convention for an arm that does not depend
     on z, which the harness then emits once instead of duplicating at every z.
     """
-    med, mad = meta['map_median'], meta['mad_scale']
+    med, mad = meta['med'], meta['mad']            # raw, never the rounded CSV values
     ranked_by_score = pool.sort_values('score', ascending=False, kind='mergesort')
     matched_n = ranked_by_score.head(n_ref)
     arms = []
@@ -339,8 +350,9 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--images-dir', default=IMAGES_DIR)
     ap.add_argument('--seeds', type=int, default=N_SEEDS)
-    ap.add_argument('--smoke', action='store_true',
-                    help='one shared ROI, one seed -- exercises GATES 1, 2, 7, 8, 9')
+    ap.add_argument('--smoke', nargs='?', const='201.tiff', default=None, metavar='ROI',
+                    help='one ROI, one seed -- exercises GATES 1, 2, 7, 8, 9. Defaults to '
+                         '201.tiff; name another to reproduce a gate failure on it.')
     args = ap.parse_args()
 
     t0 = time.time()
@@ -349,7 +361,7 @@ def main():
     files = roi_files(args.images_dir)
     n_seeds = args.seeds
     if args.smoke:
-        files, n_seeds = ['201.tiff'], 1     # a ROI F1 ran, so GATE 1 actually fires
+        files, n_seeds = [args.smoke], 1     # default is a ROI F1 ran, so GATE 1 fires
     Path('results').mkdir(exist_ok=True)
     pathlib.Path(POOL_DIR).mkdir(parents=True, exist_ok=True)
     pathlib.Path(POOL_DIR).parent.joinpath('.gitignore').write_text('*\n')
@@ -425,8 +437,8 @@ def main():
                                                 checks, check_shortcut=(si == 0))
                         by_size[bs] = (pool, meta)
                     if dose_tag == f'b{REFERENCE_DOSE}':
-                        n_ref = int((pool['score'] >= meta['map_median']
-                                     + Z_PRIMARY * meta['mad_scale']).sum())
+                        n_ref = int((pool['score'] >= meta['med']
+                                     + Z_PRIMARY * meta['mad']).sum())
                     assert n_ref is not None, "b51 must run first"
                     assert len(pool) >= n_ref, (                                     # GATE 4
                         f"{ctx['label']}: deep pool {len(pool)} < N={n_ref}, so matched_n "
@@ -438,9 +450,7 @@ def main():
                                 ).to_parquet(pool_path, index=False)
 
                     full = dict(ctx0, dose_tag=dose_tag, base_size=bs, n_target_ref=n_ref,
-                                search_reused=reused,
-                                **{k: v for k, v in meta.items() if k != 'shortcut_ok'},
-                                shortcut_ok=meta['shortcut_ok'])
+                                search_reused=reused, **meta_columns(meta))
                     out = cp.evaluate_arms(arms_for_dose(pool, meta, dose_tag, bs, n_ref),
                                            gt_eval, match_radius, roi_shape=roi_shape,
                                            mpp=mpp, budgets=cp.BUDGETS, context=full,
