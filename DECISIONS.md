@@ -103,6 +103,26 @@ A recall@K comparison, worst-ROI and worst-click, in which `TM_CCOEFF_NORMED` is
 better. Given U0's 10/10 result I do not expect this, but the metric change is real and the
 re-derivation has not been done.
 
+### Amendment, 2026-09-04 — where this decision actually lives in code, and one consequence
+
+**It is not in `FSConfig.tm_method`.** That field still defaults to `cv2.TM_CCOEFF_NORMED`
+(`midog_utils/find_and_suppress.py`). D1 is implemented at the *call sites*: `f1_seed_sweep.py`,
+`f5_nms_radius_ablation.py` and `tp_fp_feature_extract.py` each set `METHOD = cv2.TM_CCOEFF` and
+pass it to `template_match.fused_response` directly, bypassing the config. Every experiment since
+2026-09-04 therefore runs `TM_CCOEFF`; `find_and_suppress()` itself does not.
+
+**The default is deliberately left alone rather than flipped**, for the reason this entry's own
+"What it costs" section gives: `FSConfig.score_threshold` is a constant in normalised units, and
+the older callers that still use it (`od_experiment.py`, `nms_ordering_probe.py`,
+`click_rank_stage3.py`) would silently change behaviour — a fixed `0.5` floor means nothing under
+an unnormalised score. Flipping the default is safe only once those callers set their floor in
+robust-z units. Until then the discrepancy is documented, not fixed.
+
+**One consequence for D1's evidence, folded in from D5.** The "1." limit above — that the 4.3×
+becomes a dead heat once candidates are re-ranked by chromatin density — is now weaker than it
+reads, because the chromatin re-ranking it defers to is no longer the reference ranker (D5). The
+comparison D1 is owed at recall@K should be run on the match score alone.
+
 ---
 
 ## D2 — No `tissue_mask`
@@ -337,6 +357,102 @@ recall, and both are product decisions waiting on clinical input.
 
 ---
 
+## D5 — The production ranker is the `TM_CCOEFF` match score; chromatin density is a reported second axis, not the default
+
+**Date:** 2026-09-04
+
+### The decision
+
+Detections are ordered by the search score. **Chromatin density (`chromatin.chromatin_density`,
+`chromatin.rerank`) is not the production ranking key**, and no experiment may declare
+`chromatin_od` its *primary* axis without measuring, on that run's own data, that it beats
+`tm_score`. Both axes stay reported wherever both are cheap; the arbiter sits on the score.
+
+This is a *confirmation* as much as a change. `chromatin.rerank` was never wired into the
+pipeline — commit `7c3af93` said so itself ("neither altering existing pipeline defaults") and a
+grep confirms its only callers are the three superseded 2026-08-31 probes `od_experiment.py`,
+`od_workload_ab.py` and `od_seed_sweep.py`. What had drifted was the *documentation*: the module
+docstring, the commit message, and then F1 → F4 → F5 in turn, each calling it "the shipped
+ranker" on the authority of the commit hash rather than of a measurement.
+
+### Why, in plain words
+
+Four things, each re-derived from the raw data by `verify_chromatin_ranker.py` rather than read
+off a published CSV.
+
+**1. The reason the statistic was invented names a matcher we retired four days later.**
+`chromatin.py`'s docstring justifies it as *"the signal `TM_CCOEFF_NORMED` is mathematically
+blind to"*. D1 switched to `TM_CCOEFF`, which is **not** blind to it: scale a patch's contrast to
+0.7 / 0.3 / 0.1 and `TM_CCOEFF` returns 0.700 / 0.300 / 0.101 of the full-contrast score, where
+`TM_CCOEFF_NORMED` returns 0.999 / 0.992 / 0.930. D1's careful distinction still holds — the
+matcher recovers *contrast*, not *absolute darkness*, so the two statistics are correlated, not
+duplicates. But the stated justification is void, and no measurement replaced it.
+
+**2. The rationale was established on the easy contrast.** The commit cites
+`results/morph_diag_bhattacharyya.csv` making `mean_intensity` the strongest feature in all seven
+domains. That file has **two** columns and the commit quoted one. Against *ordinary nuclei*:
+0.93–3.70. Against *look-alikes* — the class that actually survives to the operating point —
+0.192 (mast cell, n = 305), 0.161 (lymphosarcoma, n = 169), 0.332 (lung, n = 30). The larger
+`vs_lookalike` values in that table sit on n = 7 and n = 8.
+
+**3. At the configuration F4 and F5 declare primary, the two axes are indistinguishable.**
+Recall@250 at z = 1.0 on `results/f1_seed_sweep.csv`: `chromatin_od` 0.6403 vs `tm_score` 0.6081,
+reproduced exactly. But those 70 cells are 7 ROIs × 5 seeds × 2 arms. Clustered at the ROI — the
+unit F5 §8 itself declares — the paired Δ is **+0.032, 95 % CI [−0.047, +0.112], p = 0.36,
+positive on 3 of 7 ROIs**, and the aggregate rides on `201.tiff` (+0.200, n = 17 mitoses). Across
+the full 48-cell (z × budget) grid the advantage is ≈0 at budgets 25–100 and **significantly
+negative at 5,000** (p = 0.017–0.046, positive on 1 of 7).
+
+**4. `od51` has the longest tail of any candidate ranker, which is the wrong shape for this
+product.** Median `read_95` over the 7 ROIs: `od51` **4,488**, against `od31` 1,336,
+`mask_od_mean` 1,748, `od_falloff` 1,759. It is beaten 6/7, 6/7 and 5/7. It wins at `read_50` and
+loses everywhere deeper — and D4 already moved the reporting metric off `read_50` for exactly
+this reason. A tool where a missed mitosis changes a grade cannot take that trade.
+
+### Two findings that should not be lost, both currently in no committed file
+
+* **51 px is reading the neighbours.** Between candidate pairs ≤ 25 px apart — whose 51 px
+  windows share about half their pixels — `od51` correlates **0.72–0.84**, against `od31` at
+  0.44–0.63 and the match score at 0.45–0.64. The window size comes from `tm.BASE_SIZE`, the
+  annotation box, and was never swept. `od31` was first measured on 2026-09-04.
+* **The rejected alternative wins, and the stated reason for rejecting it is void.**
+  `chromatin.py` rejects the Otsu-component mean because it *"returns `None` on 9–12 % of
+  detections"* and *"a gate can only discard"*. `tp_fp_feature_extract.shape_features` measures
+  the largest component **gate-free**, and `shape_fail_rate = 0.0 on all 7 ROIs`. Gate-free,
+  `mask_od_mean` beats `od51` on 2-class AUC (6 wins, 1 tie), on the look-alike contrast (5/7)
+  and on `read_95` (6/7). The docstring's argument was against the *gated* version only.
+
+### The standing constraint this decision carries
+
+**Any run that ranks by a chromatin statistic — as primary axis, as a compared axis, or as a
+re-measurement of this decision — must use the 14 ROIs in `images/extra_valid/`.** Every number
+in this entry comes from `experiment.select_domain_images(images_dir='images')`, the
+densest-per-domain draw of 7 that `select_domain_images` documents as optimistic for whatever is
+being measured, at a single seed for everything except point 3. That is the same thin base
+`chromatin_od` was promoted on, and it binds this entry as much as the one it corrects.
+`images/extra_valid/MANIFEST.md` defines the set: 2 ROIs per tumour type, `n_mitotic >= 15`,
+border-filtered unanimous seed pool >= 5.
+
+### What it costs
+
+**Nothing at runtime** — the pipeline never used it, so no result changes and no code path moves.
+`chromatin.py` stays as it is, exercised by every experiment that reports both axes.
+
+The real cost is that a genuine and possibly better signal is being held at "reported, not
+default" while the evidence for it is thin in both directions. `od31`, `od_falloff` and
+`mask_od_mean` all have prima facie evidence now and none of them has a seed sweep. Deciding on
+today's data would repeat the mistake this entry exists to correct.
+
+### What would change my mind
+
+`od31`, `od_falloff` and `mask_od_mean` added as axes in `f1_seed_sweep.py`'s `AXES` /
+`AXIS_RANK_KEY` (two dicts, existing harness), swept over 5 seeds on the 14 ROIs of
+`images/extra_valid`, and read at recall@K per D4 with the paired Δ clustered at the ROI. A
+chromatin-family axis that beats `tm_score` there — with a CI excluding 0 and a majority of ROIs
+positive — earns the default. Nothing less should move it, in either direction.
+
+---
+
 ## Cross-references
 
 | decision | primary evidence |
@@ -345,6 +461,7 @@ recall, and both are product decisions waiting on clinical input.
 | D2 no `tissue_mask` | `Research Logs/2026-09-02-next-steps-plan.md` M5(a); `Research Logs/2026-09-01-premise-test-audit.md`; `midog_utils/baselines.py:26-28` |
 | D3 no rescale after deconvolution | `midog_utils/channels.py` (`to_hematoxylin` vs `to_hematoxylin_od`); `Research Logs/2026-09-01-premise-test-audit.md` Part 1 |
 | D4 recall@K | `Research Logs/2026-09-02-next-steps-plan.md` M6; `Research Logs/2026-09-03-fp-reduction-framing.md` §3b, §7 |
+| D5 `TM_CCOEFF` score is the ranker | `verify_chromatin_ranker.py` (re-derives all four); `results/f1_seed_sweep.csv`; `results/tp_fp_reading_depth.csv`; `results/morph_diag_bhattacharyya.csv`; `Research Logs/2026-08-31-chromatin-density-rerank.md` (the entry it corrects) |
 
 ## Still open, deliberately
 

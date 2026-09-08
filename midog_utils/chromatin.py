@@ -1,5 +1,29 @@
-"""Chromatin density: the signal `TM_CCOEFF_NORMED` is mathematically blind to.
+"""Chromatin density: absolute darkness under a detection, as a second ranking axis.
 
+.. warning::
+
+   **This is NOT the production ranker. See `DECISIONS.md` D5 (2026-09-04).** Detections are
+   ordered by the `TM_CCOEFF` match score; chromatin density is reported beside it, never
+   instead of it, and no experiment may declare it a *primary* axis without measuring on its
+   own data that it beats `tm_score`. Nothing in the pipeline calls `rerank` -- its only
+   callers are the three superseded 2026-08-31 probes (`od_experiment.py`,
+   `od_workload_ab.py`, `od_seed_sweep.py`).
+
+   **The premise the rest of this docstring is written on has expired.** Everything below the
+   next paragraph argues against `TM_CCOEFF_NORMED`, which `DECISIONS.md` D1 retired on
+   2026-09-04, four days after this module was committed (`7c3af93`). `TM_CCOEFF` is *not*
+   invariant to contrast: at contrast 0.7 / 0.3 / 0.1 it returns 0.700 / 0.300 / 0.101 of the
+   full-contrast score where `TM_CCOEFF_NORMED` returns 0.999 / 0.992 / 0.930
+   (`verify_chromatin_ranker.py` section 1). D1's distinction still holds -- the matcher reads
+   *contrast*, this module reads *absolute darkness*, so they are correlated rather than
+   duplicates -- but the justification below names a matcher no longer in use, and the measured
+   marginal advantage over the current one is not distinguishable from zero: paired
+   Delta(recall@250) = +0.032, 95% CI [-0.047, +0.112], p = 0.36, positive on 3 of 7 ROIs.
+
+   The text below is kept verbatim as the record of why this was built. Read it as history.
+
+Historical rationale (2026-08-31, superseded by D1 and D5)
+----------------------------------------------------------
 `cv2.matchTemplate(..., TM_CCOEFF_NORMED)` mean-centres and L2-normalises *both* the
 template and the window, so it is invariant to ``I -> aI + b``. A pale, low-contrast
 structure with the same spatial pattern as the seed scores identically to a dark, dense
@@ -13,6 +37,11 @@ discards the best available discriminator by construction, which is why every
 operating-point experiment to date (score threshold, template size, channel,
 augmentation count, NMS ordering) came back neutral: none of them added information to
 a ranking function that cannot see the signal.
+
+    D5 correction: that file has **two** columns and this paragraph quotes one. Against
+    *look-alikes* -- the class that survives to the operating point -- ``mean_intensity``
+    reads 0.192 (mast cell, n=305), 0.161 (lymphosarcoma, n=169) and 0.332 (lung, n=30).
+    The rationale above was established on the easy contrast.
 
 This module supplies that signal as a cheap post-hoc statistic over the detections the
 search already produced.
@@ -36,6 +65,26 @@ foreground, or the component fails the size/shape sanity check), and those are n
 random subset -- scoring only the ones it accepts flatters it (0.943 on 301.tiff), while
 giving the rejects a fallback value costs it the same advantage again. The window
 statistic is defined for every detection, needs no gate, and so costs no recall.
+
+    D5 correction: this argument is against the *gated* component only, and the gate is not
+    load-bearing. `tp_fp_feature_extract.shape_features` measures the largest Otsu component
+    with every gate removed and fails on **0.0%** of candidates in all seven ROIs. Gate-free,
+    ``mask_od_mean`` beats ``od51`` on 2-class AUC (6 wins, 1 tie), on the look-alike contrast
+    (5/7) and on ``read_95`` (6/7). The window statistic's advantage was over a gate, not over
+    the component.
+
+A third thing the 2026-08-31 work never swept: the window size
+--------------------------------------------------------------
+``window`` defaults to `tm.BASE_SIZE` = 51 because that is the annotation box, not because 51
+was measured against anything. It is a poor choice on both counts available. A 31 px window
+beats it on 2-class AUC in 6 of 7 ROIs and cuts median ``read_95`` from 4,488 to 1,336; and
+between candidate pairs <= 25 px apart -- whose 51 px windows share about half their pixels --
+``od51`` correlates 0.72-0.84 against ``od31``'s 0.44-0.63 and the match score's 0.45-0.64, so
+at 51 px the statistic is substantially reading the neighbour rather than the object.
+
+Every number in these three corrections comes from the 7-ROI densest-per-domain draw at one
+seed. **D5 requires the 14 ROIs of `images/extra_valid/` for any re-measurement**, including
+any run that would restore a chromatin statistic to primary. See `verify_chromatin_ranker.py`.
 """
 
 from __future__ import annotations
@@ -100,11 +149,19 @@ def rerank(detections: pd.DataFrame, structural: Optional[np.ndarray] = None,
            window: int = tm.BASE_SIZE, frac: float = DEFAULT_FRAC) -> pd.DataFrame:
     """Re-sort a detection list by chromatin density, best-first, and renumber ``rank``.
 
+    **Not the production ranker** (`DECISIONS.md` D5). Nothing in the pipeline calls this; the
+    live experiments rank by `score` and report `od` as a second axis. It is kept because the
+    three 2026-08-31 probes call it and because the comparison is worth being able to re-run.
+
     Pass ``structural`` to compute the ``od`` column, or omit it if `score_detections`
     already added one. ``nan`` (border) sorts last.
 
     This *replaces* the correlation score as the ranking key rather than blending with
-    it. Measured on the saved detections, a rank-sum of the two never beats ``od`` alone
+    it. **D5 note: every number in the rest of this docstring was measured against
+    `TM_CCOEFF_NORMED`, which D1 retired.** Under `TM_CCOEFF` the two axes are
+    indistinguishable at recall@250 (p = 0.36 clustered by ROI), so "the correlation score's
+    independent contribution is noise" does not carry over and has not been re-measured.
+    Measured on the saved detections, a rank-sum of the two never beats ``od`` alone
     and is worse on 405.tiff (0.857 vs 0.864) and 002.tiff (0.921 vs 0.957), despite the
     two being largely independent (Spearman +0.18 to +0.37) -- the correlation score's
     independent contribution is noise with respect to the mitotic/non-mitotic

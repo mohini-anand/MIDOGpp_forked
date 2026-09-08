@@ -11,6 +11,14 @@ import pandas as pd
 from scipy.stats import spearmanr
 
 # --- pre-registered constants; changing any of these invalidates the pre-registration ---
+# `AXIS_PRIMARY` is DELIBERATELY LEFT AT 'chromatin_od' although `DECISIONS.md` D5 (2026-09-04)
+# makes `tm_score` the reference ranker and F4/F5 have been amended to arbitrate on it. F1 is
+# *complete and reported* (`Research Logs/2026-09-04-f1-results.md`); editing its axis now would
+# rewrite a published result to a key chosen after seeing the data, which is exactly what the
+# pre-registration exists to prevent. D5 binds unrun experiments, not this one. The relevant
+# fact for a reader of F1's numbers: at this z and K the two axes are indistinguishable
+# (paired delta +0.032, 95% CI [-0.047, +0.112], p = 0.36 clustered by ROI), and F1's own
+# conclusion is reported on both axes -- see `verify_chromatin_ranker.py` section 3.
 Z_PRIMARY, K_PRIMARY, AXIS_PRIMARY = 1.0, 250, 'chromatin_od'
 N_PERM, RNG_SEED = 10_000, 0
 ARMS = ('base51', 'largest_cc')
