@@ -1,0 +1,29 @@
+domain,n_roi,K,tp_sum,delivered_sum,precision_pooled,precision_worst_roi,worst_roi_file
+canine cutaneous mast cell tumor,2,10,2,20,0.1,0.0,301.tiff
+canine cutaneous mast cell tumor,2,20,3,40,0.075,0.0,301.tiff
+canine cutaneous mast cell tumor,2,30,3,60,0.05,0.0,301.tiff
+canine cutaneous mast cell tumor,2,50,4,100,0.04,0.02,301.tiff
+canine lung cancer,2,10,2,20,0.1,0.1,201.tiff
+canine lung cancer,2,20,3,40,0.075,0.05,201.tiff
+canine lung cancer,2,30,3,60,0.05,0.0333,201.tiff
+canine lung cancer,2,50,4,100,0.04,0.04,201.tiff
+canine lymphosarcoma,2,10,10,20,0.5,0.0,245.tiff
+canine lymphosarcoma,2,20,13,40,0.325,0.0,245.tiff
+canine lymphosarcoma,2,30,15,60,0.25,0.0,245.tiff
+canine lymphosarcoma,2,50,23,100,0.23,0.0,245.tiff
+canine soft tissue sarcoma,2,10,2,20,0.1,0.0,460.tiff
+canine soft tissue sarcoma,2,20,4,40,0.1,0.1,459.tiff
+canine soft tissue sarcoma,2,30,6,60,0.1,0.0667,459.tiff
+canine soft tissue sarcoma,2,50,8,100,0.08,0.08,459.tiff
+human breast cancer,2,10,0,20,0.0,0.0,013.tiff
+human breast cancer,2,20,1,40,0.025,0.0,013.tiff
+human breast cancer,2,30,1,60,0.0167,0.0,013.tiff
+human breast cancer,2,50,1,100,0.01,0.0,013.tiff
+human melanoma,2,10,1,20,0.05,0.0,529.tiff
+human melanoma,2,20,3,40,0.075,0.0,529.tiff
+human melanoma,2,30,6,60,0.1,0.0,529.tiff
+human melanoma,2,50,8,100,0.08,0.0,529.tiff
+human neuroendocrine tumor,2,10,3,20,0.15,0.0,403.tiff
+human neuroendocrine tumor,2,20,5,40,0.125,0.0,403.tiff
+human neuroendocrine tumor,2,30,7,60,0.1167,0.0,403.tiff
+human neuroendocrine tumor,2,50,14,100,0.14,0.02,403.tiff
