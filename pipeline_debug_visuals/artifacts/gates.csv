@@ -1,0 +1,23 @@
+gate,roi,passed,detail
+G0 gate inert (same box),245.tiff,True,"click-component box (4, 51, 6, 51) vs largest-component box (4, 51, 6, 51); click_label=3 largest_label=3"
+G0b 2x2 collapses to 2 runs,245.tiff,True,"click-centred pair 19191/19191, recentred pair 18790/18790 detections"
+G1 gate live (different seed),403.tiff,True,ungated -> ann 20334 base 33 after 0 retries; gated -> ann 20356 base 51 after 1 retries
+G1b ungated click is background,403.tiff,True,"labels[click] = 0 (0 = background); largest component label 1, its box (0, 18, 8, 41)"
+G2 reproduces committed run,245.tiff/ungated_c,True,"n_det 19191 vs 19191.0, tp@(10, 20, 30, 50) (0, 2, 2, 3) vs (0, 2, 2, 3)"
+G2 reproduces committed run,245.tiff/ungated_r,True,"n_det 18790 vs nan, tp@(10, 20, 30, 50) - vs -"
+G2 reproduces committed run,245.tiff/gated_cli,True,"n_det 19191 vs 19191.0, tp@(10, 20, 30, 50) (0, 2, 2, 3) vs (0, 2, 2, 3)"
+G2 reproduces committed run,245.tiff/gated_rec,True,"n_det 18790 vs 18790.0, tp@(10, 20, 30, 50) (1, 1, 1, 1) vs (1, 1, 1, 1)"
+G2 reproduces committed run,403.tiff/ungated_c,True,"n_det 17236 vs 17236.0, tp@(10, 20, 30, 50) (4, 6, 10, 17) vs (4, 6, 10, 17)"
+G2 reproduces committed run,403.tiff/ungated_r,True,"n_det 17153 vs nan, tp@(10, 20, 30, 50) - vs -"
+G2 reproduces committed run,403.tiff/gated_cli,True,"n_det 16689 vs 16689.0, tp@(10, 20, 30, 50) (4, 8, 11, 15) vs (4, 8, 11, 15)"
+G2 reproduces committed run,403.tiff/gated_rec,True,"n_det 16406 vs 16406.0, tp@(10, 20, 30, 50) (4, 8, 11, 14) vs (4, 8, 11, 14)"
+G3a self-hit gone at own radius,245.tiff/ungated_c,True,self-hit radius 10.0 px -> 0 detection(s) left inside one match radius of the template centre
+G3a self-hit gone at own radius,245.tiff/ungated_r,True,self-hit radius 10.0 px -> 0 detection(s) left inside one match radius of the template centre
+G3a self-hit gone at own radius,245.tiff/gated_cli,True,self-hit radius 10.0 px -> 0 detection(s) left inside one match radius of the template centre
+G3a self-hit gone at own radius,245.tiff/gated_rec,True,self-hit radius 5.0 px -> 0 detection(s) left inside one match radius of the template centre
+G3a self-hit gone at own radius,403.tiff/ungated_c,True,self-hit radius 10.0 px -> 0 detection(s) left inside one match radius of the template centre
+G3a self-hit gone at own radius,403.tiff/ungated_r,True,self-hit radius 10.0 px -> 0 detection(s) left inside one match radius of the template centre
+G3a self-hit gone at own radius,403.tiff/gated_cli,True,self-hit radius 10.0 px -> 0 detection(s) left inside one match radius of the template centre
+G3a self-hit gone at own radius,403.tiff/gated_rec,True,self-hit radius 5.0 px -> 0 detection(s) left inside one match radius of the template centre
+G3b radius inert where both valid,ALL,True,7 of 8 runs clear the annulus at both radii; pools identical in 7 of them
+G4 one scoring path,ALL,True,"bucket_detections on cp._rank(pool) agrees with evaluate_arms at every (run, radius, budget)"

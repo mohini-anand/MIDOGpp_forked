@@ -325,6 +325,10 @@ def pick_seed(
 ):
     """Pick a mitotic seed under the pathologist-agreement and bbox-tightening filters.
 
+    **`build_seed` is the entry point for new work** -- it returns the template's size and
+    centre as well as the annotation, and applies D8's recentred-border re-check. This
+    function is kept for callers that only need the drawn row.
+
     Order: agreement tiering first (on the image's full mitotic set), then the border
     filter, then the foreground filter. Any of the three can empty the pool; unlike
     `experiment.pick_seed`'s single border check, this raises naming the stage that
@@ -378,14 +382,21 @@ def tightened_base_size(structural_channel: np.ndarray, cx: float, cy: float,
                          otsu_window: int = tm.BASE_SIZE, minimum: int = 5,
                          method: str = "binary", center_tolerance: int = 0,
                          headroom_frac: float = None):
-    """The native template size for a seed after bbox tightening.
+    """The native template size for a seed after bbox tightening, click-centred.
 
     Otsu-thresholds the ``otsu_window``-sized box around the click, takes the connected
     component under it, and returns the odd size spanning its longer side -- for
     `FSConfig(base_size=...)`. Kept centred on the click rather than recentred to the
-    component's own centroid, since only the *scale* is being corrected
-    (`Research Logs/design_choices.md`: "scale is dropped -- matching uses each
-    tightened box's native size").
+    component's own centroid: only the *scale* is corrected here, not the position.
+
+    **Superseded for production seed/template construction by `tightened_template_box`
+    (`D8_TEMPLATE_ANCHOR.md`).** D8 found that among seeds this module's own
+    containment gate accepts, the accepted component's own bbox centre sits a median
+    3.1 px from the raw click (up to 13.9 px, 21.5% beyond 5 px) -- `tighten_box_otsu`
+    already measures that position and this function was discarding it. This function is
+    kept, unchanged, for any caller that explicitly wants size-only tightening (it is
+    also what every already-committed result in this repo used) -- new work should call
+    `tightened_template_box` instead.
 
     ``otsu_window`` defaults to `template_match.BASE_SIZE` (51 px, the annotation box),
     not `template_match.PATCH_SIZE` (73 px) -- see `foreground_filter`'s docstring for
@@ -412,3 +423,155 @@ def tightened_base_size(structural_channel: np.ndarray, cx: float, cy: float,
     y0, y1, x0, x1 = bbox
     size = max(y1 - y0, x1 - x0)
     return _odd(size, minimum=minimum)
+
+
+def tightened_template_box(structural_channel: np.ndarray, cx: float, cy: float,
+                            otsu_window: int = tm.BASE_SIZE, minimum: int = 5,
+                            method: str = "binary", center_tolerance: int = 0,
+                            headroom_frac: float = None):
+    """The template size and centre for a seed: both taken from the accepted component.
+
+    `D8_TEMPLATE_ANCHOR.md` -- the production seed/template constructor.
+
+    The click gates and only gates: `tighten_box_otsu` must accept a component the click's
+    own pixel lands inside, or this returns ``None`` and the caller redraws. The size is that
+    component's longer side made odd; the centre is its bounding box's pixel centre, in the
+    same full-image frame as ``(cx, cy)``.
+
+    The centre is ``(x0 + x1 - 1) / 2``, not ``(x0 + x1) / 2``. A half-open bbox covers pixels
+    ``x0 .. x1 - 1``, and `read_padded_patch` rounds this value to a pixel index, so the centre
+    of those pixels is the correct one -- and since ``base_size >= max(h, w)``, a square of that
+    side centred there contains the whole component, which the half-pixel-larger value does not.
+
+    Returns ``(base_size, center_x, center_y)``, or ``None`` when the patch cannot be read or
+    the gate refuses. ``otsu_window``, ``minimum``, ``method``, ``center_tolerance`` and
+    ``headroom_frac`` mean what they mean in `tighten_box_otsu`.
+
+    Three things the caller owns:
+
+    1. Self-hit and seed-annulus removal reference the returned centre, not ``(cx, cy)`` --
+       the self-correlation peak lands where the template is centred.
+    2. `border_filter`'s margin is sized for a click-centred read. Re-check that the full
+       rotation-safe patch is readable at the returned centre, and refuse the seed if not.
+    3. Ground truth does not move: ``(cx, cy)`` stays the reference for ``gt_eval`` exclusion
+       and every match-radius computation.
+    """
+    patch = tm.read_padded_patch(structural_channel, cx, cy, otsu_window)
+    if patch is None:
+        return None
+    bbox = tighten_box_otsu(patch, method=method, center_tolerance=center_tolerance,
+                            headroom_frac=headroom_frac)
+    if bbox is None:
+        return None
+    y0, y1, x0, x1 = bbox
+    base_size = _odd(max(y1 - y0, x1 - x0), minimum=minimum)
+    half = otsu_window // 2
+    ix, iy = int(round(cx)), int(round(cy))  # matches read_padded_patch's own rounding
+    center_x = ix - half + (x0 + x1 - 1) / 2.0
+    center_y = iy - half + (y0 + y1 - 1) / 2.0
+    return base_size, center_x, center_y
+
+
+@dataclass(frozen=True)
+class Seed:
+    """One drawn seed: where its template is cut, and where its ground truth stays.
+
+    ``click_xy`` is the pathologist's annotation and is the reference for excluding this
+    seed from the evaluation set and for every match-radius computation. ``template_xy`` is
+    where the search template is cut from and where self-hit removal must be referenced.
+    Under ``recentred=True`` they are different points; nothing else in the pipeline may
+    substitute one for the other.
+    """
+
+    ann_id: int
+    click_xy: tuple
+    template_xy: tuple
+    base_size: int
+    recentred: bool
+    offset_px: float
+    n_retries: int
+    agreement_flagged: bool
+    n_agreement_pool: int
+    n_after_border: int
+
+
+def _patch_readable(roi_shape, cx: float, cy: float, patch_size: int) -> bool:
+    """`template_match.read_padded_patch`'s own bounds predicate, on the rounded centre.
+
+    Duplicated rather than called so this needs no array -- the same reason `border_filter`
+    duplicates it, and tested on the same rounded pixel for the same reason.
+    """
+    half = patch_size // 2
+    ix, iy = int(round(cx)), int(round(cy))
+    h, w = roi_shape[:2]
+    return not (ix - half < 0 or iy - half < 0 or ix + half >= w or iy + half >= h)
+
+
+def build_seed(gt_mitotic: pd.DataFrame, structural_channel: np.ndarray, rng, roi_shape,
+               patch_size: int = tm.PATCH_SIZE, otsu_window: int = tm.BASE_SIZE,
+               recentre: bool = True, border: int = None, method: str = "binary",
+               center_tolerance: int = 0, headroom_frac: float = None) -> Seed:
+    """Draw a seed and everything needed to cut its template. `D8_TEMPLATE_ANCHOR.md`.
+
+    One call replaces the agreement/border/gate/draw/retry block every experiment in this
+    repo currently writes inline. The click gates the draw and fixes ground truth; the
+    accepted Otsu component fixes the template's size and centre.
+
+    ``rng`` is used with rejection sampling *without replacement*: an index is drawn from
+    the remaining pool and a refused candidate is dropped before the next draw. That is
+    uniform over the accepted candidates and matches the inline ``draw_seed_with_retry``
+    every committed notebook uses, so a given ``(seed_index, image_id)`` stream reproduces.
+
+    ``recentre`` (default True) is the production path: the template centre is the accepted
+    component's bounding-box pixel centre. False keeps the centre on the click and takes
+    only the size (`tightened_base_size`) -- kept for the click-vs-recentred comparison D8
+    is waiting on. The choice is recorded on the returned `Seed` so it reaches any artifact
+    written from it.
+
+    A recentred point can sit closer to the ROI edge than the click `border_filter` passed,
+    so it is re-checked against ``patch_size``; a candidate whose full rotation-safe patch
+    is not readable there is refused and redrawn like any other.
+
+    ``border`` defaults to ``patch_size // 2``. ``method``, ``center_tolerance`` and
+    ``headroom_frac`` pass through to `tighten_box_otsu`.
+
+    Raises ValueError naming the stage that emptied the pool.
+
+    **The caller still owns one thing: ground truth does not move.** Exclude
+    ``seed.ann_id`` from the evaluation set and compute every match radius against
+    ``seed.click_xy``, never ``seed.template_xy``.
+    """
+    border = patch_size // 2 if border is None else border
+    pool, flagged = agreement_pool(gt_mitotic)
+    n_pool = len(pool)
+    pool = border_filter(pool, border, roi_shape)
+    n_border = len(pool)
+
+    working, retries = pool.copy(), 0
+    while len(working) > 0:
+        idx = int(rng.integers(len(working)))
+        row = working.iloc[idx]
+        cx, cy = float(row["cx"]), float(row["cy"])
+        kw = dict(otsu_window=otsu_window, method=method,
+                  center_tolerance=center_tolerance, headroom_frac=headroom_frac)
+        if recentre:
+            got = tightened_template_box(structural_channel, cx, cy, **kw)
+            spec = None if got is None else (got[0], got[1], got[2])
+        else:
+            got = tightened_base_size(structural_channel, cx, cy, **kw)
+            spec = None if got is None else (got, cx, cy)
+        if spec is not None and _patch_readable(roi_shape, spec[1], spec[2], patch_size):
+            base_size, tx, ty = spec
+            return Seed(ann_id=int(row["ann_id"]), click_xy=(cx, cy), template_xy=(tx, ty),
+                        base_size=int(base_size), recentred=bool(recentre),
+                        offset_px=float(np.hypot(tx - cx, ty - cy)), n_retries=retries,
+                        agreement_flagged=bool(flagged), n_agreement_pool=n_pool,
+                        n_after_border=n_border)
+        working = working.drop(working.index[idx])
+        retries += 1
+
+    stage = "agreement" if n_pool == 0 else ("border" if n_border == 0 else "gate")
+    raise ValueError(
+        f"no seed candidates left (emptied at the {stage} stage); agreement_flagged={flagged}, "
+        f"pool sizes: agreement={n_pool}, border={n_border}, refused={retries}"
+    )

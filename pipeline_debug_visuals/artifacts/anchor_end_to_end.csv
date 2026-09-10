@@ -1,0 +1,7 @@
+roi,arm,base_size,tpl_x,tpl_y,n_detections,tp@10,prec@10,tp@20,prec@20,tp@30,prec@30,tp@50,prec@50
+245.tiff,A · click (production today),47,6356.0,535.0,19191,0,0.0,2,0.1,2,0.067,3,0.06
+245.tiff,"B · component, as implemented",47,6359.5,537.5,18790,1,0.1,1,0.05,1,0.033,1,0.02
+245.tiff,"C · component, corrected",47,6359.0,537.0,19114,1,0.1,1,0.05,1,0.033,2,0.04
+403.tiff,A · click (production today),51,2227.0,2970.0,16689,4,0.4,8,0.4,11,0.367,15,0.3
+403.tiff,"B · component, as implemented",51,2227.5,2968.5,16406,4,0.4,8,0.4,11,0.367,14,0.28
+403.tiff,"C · component, corrected",51,2227.0,2968.0,16508,4,0.4,8,0.4,12,0.4,14,0.28
