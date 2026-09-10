@@ -163,17 +163,18 @@ to a pixel index, independently of whether recentring is adopted at all.
 
 ## Implementation status
 
-**Not yet in code.** `seed_selection.tightened_template_box` still computes `(x0 + x1) / 2`. The
-corrected anchor exists only as `tightened_template_box_fixed` inside
-`pipeline_debug_visuals/template_anchor_halfpixel_fix.ipynb`. Adopting this decision requires:
+**Partly in code.** `seed_selection.tightened_template_box` now computes `(x0 + x1 - 1) / 2`, and
+both that function's and `tightened_base_size`'s docstrings describe the current decision. What
+remains:
 
-- correcting the two centre lines in `seed_selection.tightened_template_box`;
-- updating that function's and `tightened_base_size`'s docstrings, which currently assert the
-  reversed amendment;
 - routing `find_and_suppress` and the notebook-inline `suppress` helpers to the returned centre
-  (cost 1) and adding the recentred border re-check (cost 2).
+  (cost 1) -- `build_seed` hands back `Seed.template_xy` for exactly this, but nothing in the
+  repo calls `build_seed` yet, so no self-hit removal actually references it;
+- the recentred border re-check (cost 2) -- done inside `build_seed` itself
+  (`_patch_readable`), so it is live for any caller that adopts `build_seed`, but not for a
+  caller still drawing seeds inline.
 
-Recording this decision without the code change repeats the gap the superseded entry's own item 5
+Recording this decision without the wiring repeats the gap the superseded entry's own item 5
 flagged. It is named here so it cannot be forgotten, not so it can be deferred.
 
 ---

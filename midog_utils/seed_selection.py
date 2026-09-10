@@ -394,8 +394,11 @@ def tightened_base_size(structural_channel: np.ndarray, cx: float, cy: float,
     containment gate accepts, the accepted component's own bbox centre sits a median
     3.1 px from the raw click (up to 13.9 px, 21.5% beyond 5 px) -- `tighten_box_otsu`
     already measures that position and this function was discarding it. This function is
-    kept, unchanged, for any caller that explicitly wants size-only tightening (it is
-    also what every already-committed result in this repo used) -- new work should call
+    kept, unchanged, for any caller that explicitly wants size-only tightening. It is
+    what most already-committed click-centred results used, via this function or an
+    inline equivalent -- but not all: the four `production_seed_precision_at_k*`
+    notebooks called the old, recentred `tightened_template_box` instead
+    (`D8_TEMPLATE_ANCHOR.md`, "What it costs"). New work should call
     `tightened_template_box` instead.
 
     ``otsu_window`` defaults to `template_match.BASE_SIZE` (51 px, the annotation box),
@@ -520,7 +523,13 @@ def build_seed(gt_mitotic: pd.DataFrame, structural_channel: np.ndarray, rng, ro
     ``rng`` is used with rejection sampling *without replacement*: an index is drawn from
     the remaining pool and a refused candidate is dropped before the next draw. That is
     uniform over the accepted candidates and matches the inline ``draw_seed_with_retry``
-    every committed notebook uses, so a given ``(seed_index, image_id)`` stream reproduces.
+    every committed notebook uses -- but reproducing a given ``(seed_index, image_id)``
+    stream also requires the same accept/reject rule, and this function's is
+    `tighten_box_otsu`'s containment gate. Only notebooks whose inline ``check_fn`` used
+    that same gate (the `production_seed_precision_at_k*` family) reproduce; notebooks
+    built on the ungated ``largest_cc_box`` helper can accept a candidate this function
+    refuses -- `D8_TEMPLATE_ANCHOR.md`'s 403.tiff example -- which changes the retry count
+    and, downstream, which annotation the stream lands on.
 
     ``recentre`` (default True) is the production path: the template centre is the accepted
     component's bounding-box pixel centre. False keeps the centre on the click and takes
