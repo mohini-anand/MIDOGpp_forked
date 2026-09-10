@@ -1,0 +1,57 @@
+file_name,domain,precision_normed,precision_ccoeff,K,ccoeff_wins,ratio_ccoeff_over_normed
+300.tiff,canine cutaneous mast cell tumor,0.2,0.7,10,True,3.4999999999999996
+300.tiff,canine cutaneous mast cell tumor,0.15,0.7,20,True,4.666666666666667
+300.tiff,canine cutaneous mast cell tumor,0.1,0.6667,30,True,6.666999999999999
+300.tiff,canine cutaneous mast cell tumor,0.06,0.64,50,True,10.666666666666668
+301.tiff,canine cutaneous mast cell tumor,0.0,0.9,10,True,
+301.tiff,canine cutaneous mast cell tumor,0.0,0.8,20,True,
+301.tiff,canine cutaneous mast cell tumor,0.0,0.8,30,True,
+301.tiff,canine cutaneous mast cell tumor,0.02,0.76,50,True,38.0
+201.tiff,canine lung cancer,0.1,0.3,10,True,2.9999999999999996
+201.tiff,canine lung cancer,0.05,0.25,20,True,5.0
+201.tiff,canine lung cancer,0.0333,0.2,30,True,6.006006006006006
+201.tiff,canine lung cancer,0.04,0.22,50,True,5.5
+233.tiff,canine lung cancer,0.1,0.4,10,True,4.0
+233.tiff,canine lung cancer,0.1,0.35,20,True,3.4999999999999996
+233.tiff,canine lung cancer,0.0667,0.2333,30,True,3.4977511244377815
+233.tiff,canine lung cancer,0.04,0.2,50,True,5.0
+245.tiff,canine lymphosarcoma,0.0,0.1,10,True,
+245.tiff,canine lymphosarcoma,0.0,0.05,20,True,
+245.tiff,canine lymphosarcoma,0.0,0.0333,30,True,
+245.tiff,canine lymphosarcoma,0.0,0.08,50,True,
+246.tiff,canine lymphosarcoma,1.0,1.0,10,False,1.0
+246.tiff,canine lymphosarcoma,0.65,0.9,20,True,1.3846153846153846
+246.tiff,canine lymphosarcoma,0.5,0.8,30,True,1.6
+246.tiff,canine lymphosarcoma,0.46,0.64,50,True,1.391304347826087
+459.tiff,canine soft tissue sarcoma,0.2,0.5,10,True,2.5
+459.tiff,canine soft tissue sarcoma,0.1,0.5,20,True,5.0
+459.tiff,canine soft tissue sarcoma,0.0667,0.5,30,True,7.496251874062969
+459.tiff,canine soft tissue sarcoma,0.08,0.48,50,True,6.0
+460.tiff,canine soft tissue sarcoma,0.0,0.7,10,True,
+460.tiff,canine soft tissue sarcoma,0.1,0.55,20,True,5.5
+460.tiff,canine soft tissue sarcoma,0.1333,0.4333,30,True,3.2505626406601653
+460.tiff,canine soft tissue sarcoma,0.08,0.34,50,True,4.25
+013.tiff,human breast cancer,0.0,0.4,10,True,
+013.tiff,human breast cancer,0.0,0.25,20,True,
+013.tiff,human breast cancer,0.0,0.2,30,True,
+013.tiff,human breast cancer,0.0,0.18,50,True,
+094.tiff,human breast cancer,0.0,0.5,10,True,
+094.tiff,human breast cancer,0.05,0.5,20,True,10.0
+094.tiff,human breast cancer,0.0333,0.5333,30,True,16.015015015015013
+094.tiff,human breast cancer,0.02,0.5,50,True,25.0
+529.tiff,human melanoma,0.0,0.4,10,True,
+529.tiff,human melanoma,0.0,0.2,20,True,
+529.tiff,human melanoma,0.0,0.1667,30,True,
+529.tiff,human melanoma,0.0,0.12,50,True,
+548.tiff,human melanoma,0.1,0.5,10,True,5.0
+548.tiff,human melanoma,0.15,0.6,20,True,4.0
+548.tiff,human melanoma,0.2,0.5333,30,True,2.6664999999999996
+548.tiff,human melanoma,0.16,0.62,50,True,3.875
+402.tiff,human neuroendocrine tumor,0.3,0.3,10,False,1.0
+402.tiff,human neuroendocrine tumor,0.25,0.45,20,True,1.8
+402.tiff,human neuroendocrine tumor,0.2333,0.5,30,True,2.1431633090441493
+402.tiff,human neuroendocrine tumor,0.26,0.46,50,True,1.7692307692307692
+403.tiff,human neuroendocrine tumor,0.1,0.4,10,True,4.0
+403.tiff,human neuroendocrine tumor,0.05,0.35,20,True,6.999999999999999
+403.tiff,human neuroendocrine tumor,0.0667,0.3,30,True,4.497751124437781
+403.tiff,human neuroendocrine tumor,0.06,0.3,50,True,5.0

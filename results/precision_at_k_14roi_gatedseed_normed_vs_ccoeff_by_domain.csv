@@ -1,0 +1,29 @@
+domain,K,precision_pooled_ccoeff,precision_pooled_normed,ratio_ccoeff_over_normed,ccoeff_wins
+canine cutaneous mast cell tumor,10,0.8,0.1,8.0,True
+canine cutaneous mast cell tumor,20,0.75,0.075,10.0,True
+canine cutaneous mast cell tumor,30,0.7333,0.05,14.665999999999999,True
+canine cutaneous mast cell tumor,50,0.7,0.04,17.5,True
+canine lung cancer,10,0.35,0.1,3.4999999999999996,True
+canine lung cancer,20,0.3,0.075,4.0,True
+canine lung cancer,30,0.2167,0.05,4.334,True
+canine lung cancer,50,0.21,0.04,5.25,True
+canine lymphosarcoma,10,0.55,0.5,1.1,True
+canine lymphosarcoma,20,0.475,0.325,1.4615384615384615,True
+canine lymphosarcoma,30,0.4167,0.25,1.6668,True
+canine lymphosarcoma,50,0.36,0.23,1.5652173913043477,True
+canine soft tissue sarcoma,10,0.6,0.1,5.999999999999999,True
+canine soft tissue sarcoma,20,0.525,0.1,5.25,True
+canine soft tissue sarcoma,30,0.4667,0.1,4.667,True
+canine soft tissue sarcoma,50,0.41,0.08,5.125,True
+human breast cancer,10,0.45,0.0,,True
+human breast cancer,20,0.375,0.025,15.0,True
+human breast cancer,30,0.3667,0.0167,21.95808383233533,True
+human breast cancer,50,0.34,0.01,34.0,True
+human melanoma,10,0.45,0.05,9.0,True
+human melanoma,20,0.4,0.075,5.333333333333334,True
+human melanoma,30,0.35,0.1,3.4999999999999996,True
+human melanoma,50,0.37,0.08,4.625,True
+human neuroendocrine tumor,10,0.35,0.2,1.7499999999999998,True
+human neuroendocrine tumor,20,0.4,0.15,2.666666666666667,True
+human neuroendocrine tumor,30,0.4,0.15,2.666666666666667,True
+human neuroendocrine tumor,50,0.38,0.16,2.375,True

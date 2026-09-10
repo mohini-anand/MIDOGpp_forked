@@ -1,0 +1,15 @@
+file_name,domain,n_gt_mitotic,n_detections,z_at_rank_10,budget_delivered_10,tp_at_10,precision_at_10,z_at_rank_20,budget_delivered_20,tp_at_20,precision_at_20,z_at_rank_30,budget_delivered_30,tp_at_30,precision_at_30,z_at_rank_50,budget_delivered_50,tp_at_50,precision_at_50
+300.tiff,canine cutaneous mast cell tumor,180,18146,4.57,10,2,0.2,4.491,20,3,0.15,4.456,30,3,0.1,4.388,50,3,0.06
+301.tiff,canine cutaneous mast cell tumor,217,18221,3.74,10,0,0.0,3.694,20,0,0.0,3.651,30,0,0.0,3.605,50,1,0.02
+201.tiff,canine lung cancer,17,15937,3.765,10,1,0.1,3.663,20,1,0.05,3.629,30,1,0.0333,3.566,50,2,0.04
+233.tiff,canine lung cancer,17,17874,3.942,10,1,0.1,3.861,20,2,0.1,3.794,30,2,0.0667,3.742,50,2,0.04
+245.tiff,canine lymphosarcoma,89,17601,4.479,10,0,0.0,4.378,20,0,0.0,4.264,30,0,0.0,4.166,50,0,0.0
+246.tiff,canine lymphosarcoma,115,17992,5.065,10,10,1.0,4.828,20,13,0.65,4.722,30,15,0.5,4.52,50,23,0.46
+459.tiff,canine soft tissue sarcoma,130,18087,3.821,10,2,0.2,3.728,20,2,0.1,3.679,30,2,0.0667,3.632,50,4,0.08
+460.tiff,canine soft tissue sarcoma,35,15702,3.915,10,0,0.0,3.859,20,2,0.1,3.82,30,4,0.1333,3.785,50,4,0.08
+013.tiff,human breast cancer,17,17358,3.551,10,0,0.0,3.524,20,0,0.0,3.503,30,0,0.0,3.454,50,0,0.0
+094.tiff,human breast cancer,81,18594,3.611,10,0,0.0,3.582,20,1,0.05,3.565,30,1,0.0333,3.512,50,1,0.02
+529.tiff,human melanoma,19,16115,3.601,10,0,0.0,3.514,20,0,0.0,3.496,30,0,0.0,3.426,50,0,0.0
+548.tiff,human melanoma,238,17693,3.14,10,1,0.1,3.084,20,3,0.15,3.07,30,6,0.2,3.039,50,8,0.16
+402.tiff,human neuroendocrine tumor,104,17586,3.599,10,3,0.3,3.514,20,5,0.25,3.476,30,7,0.2333,3.403,50,13,0.26
+403.tiff,human neuroendocrine tumor,52,16563,4.73,10,1,0.1,4.639,20,1,0.05,4.558,30,2,0.0667,4.492,50,3,0.06

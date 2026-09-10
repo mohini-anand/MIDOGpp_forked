@@ -1,0 +1,85 @@
+file_name,domain,arm,n_gt_mitotic,n_detections,budget_delivered_10,tp_at_10,precision_at_10,budget_delivered_20,tp_at_20,precision_at_20,budget_delivered_30,tp_at_30,precision_at_30,budget_delivered_50,tp_at_50,precision_at_50
+300.tiff,canine cutaneous mast cell tumor,tm_score,180,17940,10,7,0.7,20,14,0.7,30,20,0.6667,50,32,0.64
+300.tiff,canine cutaneous mast cell tumor,chromatin_od,180,17940,10,9,0.9,20,18,0.9,30,27,0.9,50,43,0.86
+300.tiff,canine cutaneous mast cell tumor,od31,180,17940,10,10,1.0,20,19,0.95,30,28,0.9333,50,46,0.92
+300.tiff,canine cutaneous mast cell tumor,od_falloff,180,17940,10,10,1.0,20,19,0.95,30,27,0.9,50,44,0.88
+300.tiff,canine cutaneous mast cell tumor,mask_od_mean,180,17940,10,9,0.9,20,17,0.85,30,26,0.8667,50,42,0.84
+300.tiff,canine cutaneous mast cell tumor,od_contrast,180,17940,10,9,0.9,20,18,0.9,30,26,0.8667,50,44,0.88
+301.tiff,canine cutaneous mast cell tumor,tm_score,217,17963,10,9,0.9,20,16,0.8,30,24,0.8,50,38,0.76
+301.tiff,canine cutaneous mast cell tumor,chromatin_od,217,17963,10,6,0.6,20,15,0.75,30,25,0.8333,50,41,0.82
+301.tiff,canine cutaneous mast cell tumor,od31,217,17963,10,6,0.6,20,16,0.8,30,25,0.8333,50,43,0.86
+301.tiff,canine cutaneous mast cell tumor,od_falloff,217,17963,10,10,1.0,20,19,0.95,30,27,0.9,50,43,0.86
+301.tiff,canine cutaneous mast cell tumor,mask_od_mean,217,17963,10,4,0.4,20,13,0.65,30,21,0.7,50,34,0.68
+301.tiff,canine cutaneous mast cell tumor,od_contrast,217,17963,10,6,0.6,20,15,0.75,30,24,0.8,50,41,0.82
+201.tiff,canine lung cancer,tm_score,17,15848,10,3,0.3,20,5,0.25,30,6,0.2,50,11,0.22
+201.tiff,canine lung cancer,chromatin_od,17,15848,10,3,0.3,20,6,0.3,30,9,0.3,50,10,0.2
+201.tiff,canine lung cancer,od31,17,15848,10,4,0.4,20,7,0.35,30,7,0.2333,50,9,0.18
+201.tiff,canine lung cancer,od_falloff,17,15848,10,2,0.2,20,3,0.15,30,4,0.1333,50,6,0.12
+201.tiff,canine lung cancer,mask_od_mean,17,15848,10,4,0.4,20,4,0.2,30,5,0.1667,50,8,0.16
+201.tiff,canine lung cancer,od_contrast,17,15848,10,4,0.4,20,7,0.35,30,8,0.2667,50,9,0.18
+233.tiff,canine lung cancer,tm_score,17,17614,10,4,0.4,20,7,0.35,30,7,0.2333,50,10,0.2
+233.tiff,canine lung cancer,chromatin_od,17,17614,10,5,0.5,20,9,0.45,30,10,0.3333,50,10,0.2
+233.tiff,canine lung cancer,od31,17,17614,10,7,0.7,20,10,0.5,30,11,0.3667,50,12,0.24
+233.tiff,canine lung cancer,od_falloff,17,17614,10,3,0.3,20,4,0.2,30,6,0.2,50,10,0.2
+233.tiff,canine lung cancer,mask_od_mean,17,17614,10,6,0.6,20,10,0.5,30,11,0.3667,50,12,0.24
+233.tiff,canine lung cancer,od_contrast,17,17614,10,8,0.8,20,10,0.5,30,10,0.3333,50,12,0.24
+245.tiff,canine lymphosarcoma,tm_score,89,17552,10,1,0.1,20,1,0.05,30,1,0.0333,50,4,0.08
+245.tiff,canine lymphosarcoma,chromatin_od,89,17552,10,1,0.1,20,2,0.1,30,3,0.1,50,7,0.14
+245.tiff,canine lymphosarcoma,od31,89,17552,10,0,0.0,20,1,0.05,30,4,0.1333,50,10,0.2
+245.tiff,canine lymphosarcoma,od_falloff,89,17552,10,0,0.0,20,1,0.05,30,2,0.0667,50,6,0.12
+245.tiff,canine lymphosarcoma,mask_od_mean,89,17552,10,1,0.1,20,3,0.15,30,6,0.2,50,10,0.2
+245.tiff,canine lymphosarcoma,od_contrast,89,17552,10,1,0.1,20,2,0.1,30,2,0.0667,50,4,0.08
+246.tiff,canine lymphosarcoma,tm_score,115,17763,10,10,1.0,20,18,0.9,30,24,0.8,50,32,0.64
+246.tiff,canine lymphosarcoma,chromatin_od,115,17763,10,10,1.0,20,19,0.95,30,25,0.8333,50,32,0.64
+246.tiff,canine lymphosarcoma,od31,115,17763,10,9,0.9,20,17,0.85,30,24,0.8,50,34,0.68
+246.tiff,canine lymphosarcoma,od_falloff,115,17763,10,7,0.7,20,14,0.7,30,20,0.6667,50,30,0.6
+246.tiff,canine lymphosarcoma,mask_od_mean,115,17763,10,5,0.5,20,11,0.55,30,16,0.5333,50,26,0.52
+246.tiff,canine lymphosarcoma,od_contrast,115,17763,10,10,1.0,20,20,1.0,30,23,0.7667,50,35,0.7
+459.tiff,canine soft tissue sarcoma,tm_score,130,17994,10,5,0.5,20,10,0.5,30,15,0.5,50,24,0.48
+459.tiff,canine soft tissue sarcoma,chromatin_od,130,17994,10,9,0.9,20,17,0.85,30,25,0.8333,50,41,0.82
+459.tiff,canine soft tissue sarcoma,od31,130,17994,10,6,0.6,20,11,0.55,30,16,0.5333,50,25,0.5
+459.tiff,canine soft tissue sarcoma,od_falloff,130,17994,10,1,0.1,20,3,0.15,30,4,0.1333,50,4,0.08
+459.tiff,canine soft tissue sarcoma,mask_od_mean,130,17994,10,3,0.3,20,8,0.4,30,11,0.3667,50,19,0.38
+459.tiff,canine soft tissue sarcoma,od_contrast,130,17994,10,7,0.7,20,15,0.75,30,22,0.7333,50,33,0.66
+460.tiff,canine soft tissue sarcoma,tm_score,35,15339,10,7,0.7,20,11,0.55,30,13,0.4333,50,17,0.34
+460.tiff,canine soft tissue sarcoma,chromatin_od,35,15339,10,7,0.7,20,12,0.6,30,16,0.5333,50,20,0.4
+460.tiff,canine soft tissue sarcoma,od31,35,15339,10,7,0.7,20,9,0.45,30,13,0.4333,50,18,0.36
+460.tiff,canine soft tissue sarcoma,od_falloff,35,15339,10,1,0.1,20,1,0.05,30,3,0.1,50,6,0.12
+460.tiff,canine soft tissue sarcoma,mask_od_mean,35,15339,10,2,0.2,20,8,0.4,30,10,0.3333,50,14,0.28
+460.tiff,canine soft tissue sarcoma,od_contrast,35,15339,10,10,1.0,20,14,0.7,30,16,0.5333,50,18,0.36
+013.tiff,human breast cancer,tm_score,17,17200,10,4,0.4,20,5,0.25,30,6,0.2,50,9,0.18
+013.tiff,human breast cancer,chromatin_od,17,17200,10,5,0.5,20,8,0.4,30,12,0.4,50,13,0.26
+013.tiff,human breast cancer,od31,17,17200,10,5,0.5,20,7,0.35,30,10,0.3333,50,12,0.24
+013.tiff,human breast cancer,od_falloff,17,17200,10,1,0.1,20,3,0.15,30,4,0.1333,50,5,0.1
+013.tiff,human breast cancer,mask_od_mean,17,17200,10,3,0.3,20,6,0.3,30,6,0.2,50,10,0.2
+013.tiff,human breast cancer,od_contrast,17,17200,10,4,0.4,20,6,0.3,30,8,0.2667,50,12,0.24
+094.tiff,human breast cancer,tm_score,81,18410,10,5,0.5,20,10,0.5,30,16,0.5333,50,25,0.5
+094.tiff,human breast cancer,chromatin_od,81,18410,10,5,0.5,20,15,0.75,30,20,0.6667,50,32,0.64
+094.tiff,human breast cancer,od31,81,18410,10,5,0.5,20,13,0.65,30,20,0.6667,50,33,0.66
+094.tiff,human breast cancer,od_falloff,81,18410,10,4,0.4,20,10,0.5,30,13,0.4333,50,20,0.4
+094.tiff,human breast cancer,mask_od_mean,81,18410,10,3,0.3,20,8,0.4,30,13,0.4333,50,23,0.46
+094.tiff,human breast cancer,od_contrast,81,18410,10,5,0.5,20,15,0.75,30,22,0.7333,50,32,0.64
+529.tiff,human melanoma,tm_score,19,15862,10,4,0.4,20,4,0.2,30,5,0.1667,50,6,0.12
+529.tiff,human melanoma,chromatin_od,19,15862,10,6,0.6,20,9,0.45,30,11,0.3667,50,12,0.24
+529.tiff,human melanoma,od31,19,15862,10,5,0.5,20,10,0.5,30,12,0.4,50,12,0.24
+529.tiff,human melanoma,od_falloff,19,15862,10,3,0.3,20,4,0.2,30,5,0.1667,50,6,0.12
+529.tiff,human melanoma,mask_od_mean,19,15862,10,4,0.4,20,8,0.4,30,11,0.3667,50,12,0.24
+529.tiff,human melanoma,od_contrast,19,15862,10,6,0.6,20,11,0.55,30,12,0.4,50,12,0.24
+548.tiff,human melanoma,tm_score,238,17413,10,5,0.5,20,12,0.6,30,16,0.5333,50,31,0.62
+548.tiff,human melanoma,chromatin_od,238,17413,10,9,0.9,20,16,0.8,30,22,0.7333,50,38,0.76
+548.tiff,human melanoma,od31,238,17413,10,5,0.5,20,15,0.75,30,22,0.7333,50,31,0.62
+548.tiff,human melanoma,od_falloff,238,17413,10,2,0.2,20,8,0.4,30,13,0.4333,50,21,0.42
+548.tiff,human melanoma,mask_od_mean,238,17413,10,3,0.3,20,6,0.3,30,12,0.4,50,20,0.4
+548.tiff,human melanoma,od_contrast,238,17413,10,9,0.9,20,16,0.8,30,24,0.8,50,40,0.8
+402.tiff,human neuroendocrine tumor,tm_score,104,17337,10,3,0.3,20,9,0.45,30,15,0.5,50,23,0.46
+402.tiff,human neuroendocrine tumor,chromatin_od,104,17337,10,7,0.7,20,11,0.55,30,16,0.5333,50,24,0.48
+402.tiff,human neuroendocrine tumor,od31,104,17337,10,5,0.5,20,10,0.5,30,13,0.4333,50,22,0.44
+402.tiff,human neuroendocrine tumor,od_falloff,104,17337,10,2,0.2,20,5,0.25,30,6,0.2,50,12,0.24
+402.tiff,human neuroendocrine tumor,mask_od_mean,104,17337,10,6,0.6,20,9,0.45,30,14,0.4667,50,21,0.42
+402.tiff,human neuroendocrine tumor,od_contrast,104,17337,10,4,0.4,20,8,0.4,30,16,0.5333,50,27,0.54
+403.tiff,human neuroendocrine tumor,tm_score,52,16411,10,4,0.4,20,7,0.35,30,9,0.3,50,15,0.3
+403.tiff,human neuroendocrine tumor,chromatin_od,52,16411,10,5,0.5,20,13,0.65,30,14,0.4667,50,22,0.44
+403.tiff,human neuroendocrine tumor,od31,52,16411,10,5,0.5,20,10,0.5,30,17,0.5667,50,20,0.4
+403.tiff,human neuroendocrine tumor,od_falloff,52,16411,10,0,0.0,20,0,0.0,30,0,0.0,50,2,0.04
+403.tiff,human neuroendocrine tumor,mask_od_mean,52,16411,10,6,0.6,20,10,0.5,30,16,0.5333,50,24,0.48
+403.tiff,human neuroendocrine tumor,od_contrast,52,16411,10,6,0.6,20,12,0.6,30,16,0.5333,50,18,0.36
