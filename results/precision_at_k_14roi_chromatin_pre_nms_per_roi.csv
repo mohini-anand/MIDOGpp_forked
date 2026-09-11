@@ -1,0 +1,71 @@
+file_name,domain,n_gt_mitotic,arm,kind,n_detections,precision_at_10,precision_at_20,precision_at_30,precision_at_50
+300.tiff,canine cutaneous mast cell tumor,180,tm_score,pre-NMS ranking key,17940,0.7,0.7,0.6667,0.64
+300.tiff,canine cutaneous mast cell tumor,180,chromatin_od_pre_nms,pre-NMS ranking key,17198,1.0,0.9,0.8667,0.86
+300.tiff,canine cutaneous mast cell tumor,180,od_contrast_pre_nms,pre-NMS ranking key,17245,0.9,0.9,0.8667,0.86
+300.tiff,canine cutaneous mast cell tumor,180,chromatin_od,post-hoc rerank (Table A),17940,0.9,0.9,0.9,0.86
+300.tiff,canine cutaneous mast cell tumor,180,od_contrast,post-hoc rerank (Table A),17940,0.9,0.9,0.8667,0.88
+301.tiff,canine cutaneous mast cell tumor,217,tm_score,pre-NMS ranking key,17710,0.9,0.9,0.8,0.74
+301.tiff,canine cutaneous mast cell tumor,217,chromatin_od_pre_nms,pre-NMS ranking key,17359,0.6,0.75,0.8,0.78
+301.tiff,canine cutaneous mast cell tumor,217,od_contrast_pre_nms,pre-NMS ranking key,17338,0.6,0.7,0.8,0.8
+301.tiff,canine cutaneous mast cell tumor,217,chromatin_od,post-hoc rerank (Table A),17710,0.6,0.75,0.8333,0.82
+301.tiff,canine cutaneous mast cell tumor,217,od_contrast,post-hoc rerank (Table A),17710,0.6,0.7,0.8,0.84
+201.tiff,canine lung cancer,17,tm_score,pre-NMS ranking key,15848,0.3,0.25,0.2,0.22
+201.tiff,canine lung cancer,17,chromatin_od_pre_nms,pre-NMS ranking key,15654,0.3,0.3,0.3,0.2
+201.tiff,canine lung cancer,17,od_contrast_pre_nms,pre-NMS ranking key,15621,0.4,0.35,0.3,0.18
+201.tiff,canine lung cancer,17,chromatin_od,post-hoc rerank (Table A),15848,0.3,0.3,0.3,0.2
+201.tiff,canine lung cancer,17,od_contrast,post-hoc rerank (Table A),15848,0.4,0.35,0.2667,0.18
+233.tiff,canine lung cancer,17,tm_score,pre-NMS ranking key,17449,0.3,0.25,0.2667,0.16
+233.tiff,canine lung cancer,17,chromatin_od_pre_nms,pre-NMS ranking key,17659,0.6,0.45,0.3333,0.2
+233.tiff,canine lung cancer,17,od_contrast_pre_nms,pre-NMS ranking key,17533,0.7,0.45,0.3333,0.2
+233.tiff,canine lung cancer,17,chromatin_od,post-hoc rerank (Table A),17449,0.5,0.45,0.3333,0.2
+233.tiff,canine lung cancer,17,od_contrast,post-hoc rerank (Table A),17449,0.8,0.5,0.3333,0.24
+245.tiff,canine lymphosarcoma,89,tm_score,pre-NMS ranking key,17678,0.1,0.1,0.1,0.06
+245.tiff,canine lymphosarcoma,89,chromatin_od_pre_nms,pre-NMS ranking key,18087,0.1,0.1,0.1333,0.12
+245.tiff,canine lymphosarcoma,89,od_contrast_pre_nms,pre-NMS ranking key,17973,0.1,0.1,0.1,0.1
+245.tiff,canine lymphosarcoma,89,chromatin_od,post-hoc rerank (Table A),17678,0.2,0.15,0.2,0.14
+245.tiff,canine lymphosarcoma,89,od_contrast,post-hoc rerank (Table A),17678,0.1,0.15,0.1,0.14
+246.tiff,canine lymphosarcoma,115,tm_score,pre-NMS ranking key,18013,1.0,0.9,0.8,0.62
+246.tiff,canine lymphosarcoma,115,chromatin_od_pre_nms,pre-NMS ranking key,17554,0.9,0.95,0.7667,0.64
+246.tiff,canine lymphosarcoma,115,od_contrast_pre_nms,pre-NMS ranking key,17528,0.9,0.9,0.8,0.62
+246.tiff,canine lymphosarcoma,115,chromatin_od,post-hoc rerank (Table A),18013,1.0,0.95,0.7333,0.64
+246.tiff,canine lymphosarcoma,115,od_contrast,post-hoc rerank (Table A),18013,1.0,0.95,0.8,0.64
+459.tiff,canine soft tissue sarcoma,130,tm_score,pre-NMS ranking key,17806,0.6,0.55,0.6333,0.52
+459.tiff,canine soft tissue sarcoma,130,chromatin_od_pre_nms,pre-NMS ranking key,17611,0.8,0.85,0.8,0.78
+459.tiff,canine soft tissue sarcoma,130,od_contrast_pre_nms,pre-NMS ranking key,17589,0.7,0.7,0.6667,0.66
+459.tiff,canine soft tissue sarcoma,130,chromatin_od,post-hoc rerank (Table A),17806,0.9,0.85,0.8333,0.8
+459.tiff,canine soft tissue sarcoma,130,od_contrast,post-hoc rerank (Table A),17806,0.7,0.75,0.7333,0.66
+460.tiff,canine soft tissue sarcoma,35,tm_score,pre-NMS ranking key,15698,0.7,0.5,0.4,0.3
+460.tiff,canine soft tissue sarcoma,35,chromatin_od_pre_nms,pre-NMS ranking key,15671,0.7,0.6,0.5,0.4
+460.tiff,canine soft tissue sarcoma,35,od_contrast_pre_nms,pre-NMS ranking key,15656,1.0,0.65,0.5,0.34
+460.tiff,canine soft tissue sarcoma,35,chromatin_od,post-hoc rerank (Table A),15698,0.7,0.6,0.5333,0.4
+460.tiff,canine soft tissue sarcoma,35,od_contrast,post-hoc rerank (Table A),15698,1.0,0.7,0.5,0.34
+013.tiff,human breast cancer,17,tm_score,pre-NMS ranking key,17724,0.3,0.2,0.2,0.12
+013.tiff,human breast cancer,17,chromatin_od_pre_nms,pre-NMS ranking key,18138,0.5,0.45,0.4,0.26
+013.tiff,human breast cancer,17,od_contrast_pre_nms,pre-NMS ranking key,17861,0.4,0.4,0.3333,0.26
+013.tiff,human breast cancer,17,chromatin_od,post-hoc rerank (Table A),17724,0.5,0.45,0.4,0.26
+013.tiff,human breast cancer,17,od_contrast,post-hoc rerank (Table A),17724,0.4,0.4,0.3333,0.26
+094.tiff,human breast cancer,81,tm_score,pre-NMS ranking key,18628,0.4,0.5,0.5333,0.44
+094.tiff,human breast cancer,81,chromatin_od_pre_nms,pre-NMS ranking key,18926,0.5,0.75,0.6333,0.62
+094.tiff,human breast cancer,81,od_contrast_pre_nms,pre-NMS ranking key,18835,0.5,0.75,0.7333,0.62
+094.tiff,human breast cancer,81,chromatin_od,post-hoc rerank (Table A),18628,0.5,0.75,0.6667,0.64
+094.tiff,human breast cancer,81,od_contrast,post-hoc rerank (Table A),18628,0.5,0.75,0.7333,0.64
+529.tiff,human melanoma,19,tm_score,pre-NMS ranking key,16620,0.3,0.2,0.1333,0.12
+529.tiff,human melanoma,19,chromatin_od_pre_nms,pre-NMS ranking key,16665,0.7,0.45,0.3667,0.22
+529.tiff,human melanoma,19,od_contrast_pre_nms,pre-NMS ranking key,16594,0.6,0.6,0.4,0.24
+529.tiff,human melanoma,19,chromatin_od,post-hoc rerank (Table A),16620,0.6,0.45,0.3667,0.22
+529.tiff,human melanoma,19,od_contrast,post-hoc rerank (Table A),16620,0.6,0.6,0.4,0.24
+548.tiff,human melanoma,238,tm_score,pre-NMS ranking key,17839,0.5,0.5,0.5333,0.56
+548.tiff,human melanoma,238,chromatin_od_pre_nms,pre-NMS ranking key,17872,0.8,0.8,0.7333,0.76
+548.tiff,human melanoma,238,od_contrast_pre_nms,pre-NMS ranking key,17761,0.9,0.85,0.8,0.8
+548.tiff,human melanoma,238,chromatin_od,post-hoc rerank (Table A),17839,0.8,0.8,0.7333,0.76
+548.tiff,human melanoma,238,od_contrast,post-hoc rerank (Table A),17839,0.9,0.85,0.8,0.82
+402.tiff,human neuroendocrine tumor,104,tm_score,pre-NMS ranking key,17532,0.4,0.45,0.4667,0.44
+402.tiff,human neuroendocrine tumor,104,chromatin_od_pre_nms,pre-NMS ranking key,17549,0.7,0.55,0.4333,0.44
+402.tiff,human neuroendocrine tumor,104,od_contrast_pre_nms,pre-NMS ranking key,17474,0.4,0.45,0.5,0.52
+402.tiff,human neuroendocrine tumor,104,chromatin_od,post-hoc rerank (Table A),17532,0.7,0.55,0.5333,0.46
+402.tiff,human neuroendocrine tumor,104,od_contrast,post-hoc rerank (Table A),17532,0.4,0.45,0.5333,0.54
+403.tiff,human neuroendocrine tumor,52,tm_score,pre-NMS ranking key,16150,0.5,0.35,0.2667,0.3
+403.tiff,human neuroendocrine tumor,52,chromatin_od_pre_nms,pre-NMS ranking key,16167,0.5,0.55,0.4667,0.44
+403.tiff,human neuroendocrine tumor,52,od_contrast_pre_nms,pre-NMS ranking key,16022,0.6,0.6,0.5333,0.34
+403.tiff,human neuroendocrine tumor,52,chromatin_od,post-hoc rerank (Table A),16150,0.5,0.6,0.4667,0.44
+403.tiff,human neuroendocrine tumor,52,od_contrast,post-hoc rerank (Table A),16150,0.6,0.6,0.5,0.34
