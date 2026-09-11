@@ -1,0 +1,71 @@
+tumor_type,file_name,tolerance,n_gt_mitotic,z_worst_click,z_median_click,z_best_click,click_spread,n_distinct_clicks,unreachable_clicks
+human breast cancer,013.tiff,1.0,17,9.131,12.877,15.517,6.386,5,0
+human breast cancer,013.tiff,0.99,17,9.131,12.877,15.517,6.386,5,0
+human breast cancer,013.tiff,0.98,17,9.131,12.877,15.517,6.386,5,0
+human breast cancer,013.tiff,0.95,17,9.131,12.877,15.517,6.386,5,0
+human breast cancer,013.tiff,0.9,17,9.749,14.549,16.841,7.092,5,0
+human breast cancer,094.tiff,1.0,81,3.488,3.801,4.768,1.28,4,0
+human breast cancer,094.tiff,0.99,81,3.488,3.801,4.768,1.28,4,0
+human breast cancer,094.tiff,0.98,81,4.084,4.459,6.023,1.939,4,0
+human breast cancer,094.tiff,0.95,81,5.473,6.129,7.525,2.051,4,0
+human breast cancer,094.tiff,0.9,81,6.249,7.031,8.31,2.061,4,0
+canine lung cancer,201.tiff,1.0,17,2.993,3.246,4.076,1.083,4,0
+canine lung cancer,201.tiff,0.99,17,2.993,3.246,4.076,1.083,4,0
+canine lung cancer,201.tiff,0.98,17,2.993,3.246,4.076,1.083,4,0
+canine lung cancer,201.tiff,0.95,17,2.993,3.246,4.076,1.083,4,0
+canine lung cancer,201.tiff,0.9,17,3.355,3.481,4.619,1.264,4,0
+canine lung cancer,233.tiff,1.0,17,3.898,4.535,5.994,2.096,3,0
+canine lung cancer,233.tiff,0.99,17,3.898,4.535,5.994,2.096,3,0
+canine lung cancer,233.tiff,0.98,17,3.898,4.535,5.994,2.096,3,0
+canine lung cancer,233.tiff,0.95,17,3.898,4.535,5.994,2.096,3,0
+canine lung cancer,233.tiff,0.9,17,4.149,4.554,7.246,3.097,3,0
+canine lymphosarcoma,245.tiff,1.0,89,1.343,1.553,2.295,0.952,5,0
+canine lymphosarcoma,245.tiff,0.99,89,1.343,1.553,2.295,0.952,5,0
+canine lymphosarcoma,245.tiff,0.98,89,1.633,1.975,2.329,0.695,5,0
+canine lymphosarcoma,245.tiff,0.95,89,1.971,2.221,2.355,0.385,5,0
+canine lymphosarcoma,245.tiff,0.9,89,2.209,2.377,2.484,0.275,5,0
+canine lymphosarcoma,246.tiff,1.0,115,1.892,2.556,2.778,0.887,5,0
+canine lymphosarcoma,246.tiff,0.99,115,2.484,2.791,2.998,0.514,5,0
+canine lymphosarcoma,246.tiff,0.98,115,2.491,2.873,3.263,0.772,5,0
+canine lymphosarcoma,246.tiff,0.95,115,3.078,3.306,3.66,0.582,5,0
+canine lymphosarcoma,246.tiff,0.9,115,3.554,3.704,4.331,0.777,5,0
+canine cutaneous mast cell tumor,300.tiff,1.0,180,1.471,2.658,3.099,1.628,4,0
+canine cutaneous mast cell tumor,300.tiff,0.99,180,2.565,2.717,3.111,0.547,4,0
+canine cutaneous mast cell tumor,300.tiff,0.98,180,2.635,2.877,3.398,0.763,4,0
+canine cutaneous mast cell tumor,300.tiff,0.95,180,3.212,3.615,3.947,0.735,4,0
+canine cutaneous mast cell tumor,300.tiff,0.9,180,3.498,4.153,4.287,0.789,4,0
+canine cutaneous mast cell tumor,301.tiff,1.0,217,1.666,2.103,3.403,1.737,5,0
+canine cutaneous mast cell tumor,301.tiff,0.99,217,2.261,2.699,3.81,1.549,5,0
+canine cutaneous mast cell tumor,301.tiff,0.98,217,2.413,3.019,4.119,1.706,5,0
+canine cutaneous mast cell tumor,301.tiff,0.95,217,2.642,3.463,4.872,2.23,5,0
+canine cutaneous mast cell tumor,301.tiff,0.9,217,3.184,4.055,5.458,2.274,5,0
+human neuroendocrine tumor,402.tiff,1.0,104,1.825,2.488,3.187,1.361,5,0
+human neuroendocrine tumor,402.tiff,0.99,104,1.884,3.317,3.535,1.652,5,0
+human neuroendocrine tumor,402.tiff,0.98,104,2.383,3.58,4.222,1.84,5,0
+human neuroendocrine tumor,402.tiff,0.95,104,2.756,3.975,4.747,1.991,5,0
+human neuroendocrine tumor,402.tiff,0.9,104,3.247,4.298,5.25,2.002,5,0
+human neuroendocrine tumor,403.tiff,1.0,52,4.706,6.582,7.461,2.754,4,0
+human neuroendocrine tumor,403.tiff,0.99,52,4.706,6.582,7.461,2.754,4,0
+human neuroendocrine tumor,403.tiff,0.98,52,5.901,7.642,8.701,2.8,4,0
+human neuroendocrine tumor,403.tiff,0.95,52,6.175,7.945,8.708,2.532,4,0
+human neuroendocrine tumor,403.tiff,0.9,52,6.644,8.571,11.502,4.858,4,0
+canine soft tissue sarcoma,459.tiff,1.0,130,1.308,1.614,1.891,0.583,5,0
+canine soft tissue sarcoma,459.tiff,0.99,130,1.884,1.972,2.098,0.214,5,0
+canine soft tissue sarcoma,459.tiff,0.98,130,1.936,2.067,2.494,0.558,5,0
+canine soft tissue sarcoma,459.tiff,0.95,130,2.051,2.524,2.776,0.725,5,0
+canine soft tissue sarcoma,459.tiff,0.9,130,2.746,2.97,3.338,0.593,5,0
+canine soft tissue sarcoma,460.tiff,1.0,35,1.634,2.066,2.688,1.054,5,0
+canine soft tissue sarcoma,460.tiff,0.99,35,1.634,2.066,2.688,1.054,5,0
+canine soft tissue sarcoma,460.tiff,0.98,35,1.634,2.066,2.688,1.054,5,0
+canine soft tissue sarcoma,460.tiff,0.95,35,3.223,3.605,4.084,0.861,5,0
+canine soft tissue sarcoma,460.tiff,0.9,35,3.603,4.121,5.266,1.663,5,0
+human melanoma,529.tiff,1.0,19,3.089,4.542,5.401,2.312,4,0
+human melanoma,529.tiff,0.99,19,3.089,4.542,5.401,2.312,4,0
+human melanoma,529.tiff,0.98,19,3.089,4.542,5.401,2.312,4,0
+human melanoma,529.tiff,0.95,19,3.089,4.542,5.401,2.312,4,0
+human melanoma,529.tiff,0.9,19,3.832,4.782,5.718,1.885,4,0
+human melanoma,548.tiff,1.0,238,2.292,2.521,3.069,0.776,5,0
+human melanoma,548.tiff,0.99,238,2.689,3.185,3.415,0.726,5,0
+human melanoma,548.tiff,0.98,238,2.919,3.496,4.075,1.156,5,0
+human melanoma,548.tiff,0.95,238,3.851,4.247,4.411,0.56,5,0
+human melanoma,548.tiff,0.9,238,4.685,5.287,5.348,0.663,5,0
