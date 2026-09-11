@@ -1,0 +1,8 @@
+domain,n_tp_held,lo_um,hi_um,held_min,held_max,frac_held_deleted
+canine cutaneous mast cell tumor,1115,0.81,99.85,0.5,9.96,0.0036
+canine lung cancer,163,0.5,99.85,4.24,22.36,0.0
+canine lymphosarcoma,880,0.5,99.85,1.81,25.16,0.0
+canine soft tissue sarcoma,783,0.5,99.85,1.43,20.57,0.0
+human breast cancer,452,0.5,99.85,4.14,33.66,0.0
+human melanoma,1218,0.5,99.85,2.82,23.33,0.0
+human neuroendocrine tumor,564,0.5,33.66,0.81,99.85,0.0177
