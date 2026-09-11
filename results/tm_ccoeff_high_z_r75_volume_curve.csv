@@ -1,0 +1,4236 @@
+file_name,tumor_type,seed_index,z,n_at_z
+301.tiff,canine cutaneous mast cell tumor,0,0.0,17882
+301.tiff,canine cutaneous mast cell tumor,0,0.05,17864
+301.tiff,canine cutaneous mast cell tumor,0,0.1,17837
+301.tiff,canine cutaneous mast cell tumor,0,0.15,17803
+301.tiff,canine cutaneous mast cell tumor,0,0.2,17767
+301.tiff,canine cutaneous mast cell tumor,0,0.25,17725
+301.tiff,canine cutaneous mast cell tumor,0,0.3,17674
+301.tiff,canine cutaneous mast cell tumor,0,0.35,17635
+301.tiff,canine cutaneous mast cell tumor,0,0.4,17581
+301.tiff,canine cutaneous mast cell tumor,0,0.45,17509
+301.tiff,canine cutaneous mast cell tumor,0,0.5,17455
+301.tiff,canine cutaneous mast cell tumor,0,0.55,17407
+301.tiff,canine cutaneous mast cell tumor,0,0.6,17329
+301.tiff,canine cutaneous mast cell tumor,0,0.65,17263
+301.tiff,canine cutaneous mast cell tumor,0,0.7,17192
+301.tiff,canine cutaneous mast cell tumor,0,0.75,17124
+301.tiff,canine cutaneous mast cell tumor,0,0.8,17035
+301.tiff,canine cutaneous mast cell tumor,0,0.85,16955
+301.tiff,canine cutaneous mast cell tumor,0,0.9,16867
+301.tiff,canine cutaneous mast cell tumor,0,0.95,16787
+301.tiff,canine cutaneous mast cell tumor,0,1.0,16687
+301.tiff,canine cutaneous mast cell tumor,0,1.05,16587
+301.tiff,canine cutaneous mast cell tumor,0,1.1,16498
+301.tiff,canine cutaneous mast cell tumor,0,1.15,16410
+301.tiff,canine cutaneous mast cell tumor,0,1.2,16297
+301.tiff,canine cutaneous mast cell tumor,0,1.25,16174
+301.tiff,canine cutaneous mast cell tumor,0,1.3,16057
+301.tiff,canine cutaneous mast cell tumor,0,1.35,15938
+301.tiff,canine cutaneous mast cell tumor,0,1.4,15818
+301.tiff,canine cutaneous mast cell tumor,0,1.45,15681
+301.tiff,canine cutaneous mast cell tumor,0,1.5,15530
+301.tiff,canine cutaneous mast cell tumor,0,1.55,15350
+301.tiff,canine cutaneous mast cell tumor,0,1.6,15168
+301.tiff,canine cutaneous mast cell tumor,0,1.65,15000
+301.tiff,canine cutaneous mast cell tumor,0,1.7,14800
+301.tiff,canine cutaneous mast cell tumor,0,1.75,14565
+301.tiff,canine cutaneous mast cell tumor,0,1.8,14357
+301.tiff,canine cutaneous mast cell tumor,0,1.85,14116
+301.tiff,canine cutaneous mast cell tumor,0,1.9,13882
+301.tiff,canine cutaneous mast cell tumor,0,1.95,13604
+301.tiff,canine cutaneous mast cell tumor,0,2.0,13347
+301.tiff,canine cutaneous mast cell tumor,0,2.05,13062
+301.tiff,canine cutaneous mast cell tumor,0,2.1,12764
+301.tiff,canine cutaneous mast cell tumor,0,2.15,12446
+301.tiff,canine cutaneous mast cell tumor,0,2.2,12129
+301.tiff,canine cutaneous mast cell tumor,0,2.25,11771
+301.tiff,canine cutaneous mast cell tumor,0,2.3,11380
+301.tiff,canine cutaneous mast cell tumor,0,2.35,11007
+301.tiff,canine cutaneous mast cell tumor,0,2.4,10652
+301.tiff,canine cutaneous mast cell tumor,0,2.45,10273
+301.tiff,canine cutaneous mast cell tumor,0,2.5,9855
+301.tiff,canine cutaneous mast cell tumor,0,2.55,9448
+301.tiff,canine cutaneous mast cell tumor,0,2.6,9042
+301.tiff,canine cutaneous mast cell tumor,0,2.65,8658
+301.tiff,canine cutaneous mast cell tumor,0,2.7,8251
+301.tiff,canine cutaneous mast cell tumor,0,2.75,7835
+301.tiff,canine cutaneous mast cell tumor,0,2.8,7432
+301.tiff,canine cutaneous mast cell tumor,0,2.85,7031
+301.tiff,canine cutaneous mast cell tumor,0,2.9,6652
+301.tiff,canine cutaneous mast cell tumor,0,2.95,6272
+301.tiff,canine cutaneous mast cell tumor,0,3.0,5879
+301.tiff,canine cutaneous mast cell tumor,0,3.05,5488
+301.tiff,canine cutaneous mast cell tumor,0,3.1,5143
+301.tiff,canine cutaneous mast cell tumor,0,3.15,4765
+301.tiff,canine cutaneous mast cell tumor,0,3.2,4456
+301.tiff,canine cutaneous mast cell tumor,0,3.25,4151
+301.tiff,canine cutaneous mast cell tumor,0,3.3,3844
+301.tiff,canine cutaneous mast cell tumor,0,3.35,3569
+301.tiff,canine cutaneous mast cell tumor,0,3.4,3296
+301.tiff,canine cutaneous mast cell tumor,0,3.45,3073
+301.tiff,canine cutaneous mast cell tumor,0,3.5,2844
+301.tiff,canine cutaneous mast cell tumor,0,3.55,2619
+301.tiff,canine cutaneous mast cell tumor,0,3.6,2430
+301.tiff,canine cutaneous mast cell tumor,0,3.65,2262
+301.tiff,canine cutaneous mast cell tumor,0,3.7,2079
+301.tiff,canine cutaneous mast cell tumor,0,3.75,1950
+301.tiff,canine cutaneous mast cell tumor,0,3.8,1794
+301.tiff,canine cutaneous mast cell tumor,0,3.85,1639
+301.tiff,canine cutaneous mast cell tumor,0,3.9,1532
+301.tiff,canine cutaneous mast cell tumor,0,3.95,1426
+301.tiff,canine cutaneous mast cell tumor,0,4.0,1313
+301.tiff,canine cutaneous mast cell tumor,0,4.05,1208
+301.tiff,canine cutaneous mast cell tumor,0,4.1,1108
+301.tiff,canine cutaneous mast cell tumor,0,4.15,1020
+301.tiff,canine cutaneous mast cell tumor,0,4.2,934
+301.tiff,canine cutaneous mast cell tumor,0,4.25,861
+301.tiff,canine cutaneous mast cell tumor,0,4.3,794
+301.tiff,canine cutaneous mast cell tumor,0,4.35,747
+301.tiff,canine cutaneous mast cell tumor,0,4.4,695
+301.tiff,canine cutaneous mast cell tumor,0,4.45,646
+301.tiff,canine cutaneous mast cell tumor,0,4.5,594
+301.tiff,canine cutaneous mast cell tumor,0,4.55,551
+301.tiff,canine cutaneous mast cell tumor,0,4.6,511
+301.tiff,canine cutaneous mast cell tumor,0,4.65,464
+301.tiff,canine cutaneous mast cell tumor,0,4.7,424
+301.tiff,canine cutaneous mast cell tumor,0,4.75,397
+301.tiff,canine cutaneous mast cell tumor,0,4.8,366
+301.tiff,canine cutaneous mast cell tumor,0,4.85,329
+301.tiff,canine cutaneous mast cell tumor,0,4.9,303
+301.tiff,canine cutaneous mast cell tumor,0,4.95,281
+301.tiff,canine cutaneous mast cell tumor,0,5.0,263
+301.tiff,canine cutaneous mast cell tumor,0,5.05,245
+301.tiff,canine cutaneous mast cell tumor,0,5.1,235
+301.tiff,canine cutaneous mast cell tumor,0,5.15,219
+301.tiff,canine cutaneous mast cell tumor,0,5.2,203
+301.tiff,canine cutaneous mast cell tumor,0,5.25,195
+301.tiff,canine cutaneous mast cell tumor,0,5.3,187
+301.tiff,canine cutaneous mast cell tumor,0,5.35,179
+301.tiff,canine cutaneous mast cell tumor,0,5.4,166
+301.tiff,canine cutaneous mast cell tumor,0,5.45,157
+301.tiff,canine cutaneous mast cell tumor,0,5.5,146
+301.tiff,canine cutaneous mast cell tumor,0,5.55,137
+301.tiff,canine cutaneous mast cell tumor,0,5.6,131
+301.tiff,canine cutaneous mast cell tumor,0,5.65,125
+301.tiff,canine cutaneous mast cell tumor,0,5.7,122
+301.tiff,canine cutaneous mast cell tumor,0,5.75,114
+301.tiff,canine cutaneous mast cell tumor,0,5.8,106
+301.tiff,canine cutaneous mast cell tumor,0,5.85,98
+301.tiff,canine cutaneous mast cell tumor,0,5.9,90
+301.tiff,canine cutaneous mast cell tumor,0,5.95,85
+301.tiff,canine cutaneous mast cell tumor,0,6.0,83
+301.tiff,canine cutaneous mast cell tumor,1,0.0,18512
+301.tiff,canine cutaneous mast cell tumor,1,0.05,18505
+301.tiff,canine cutaneous mast cell tumor,1,0.1,18496
+301.tiff,canine cutaneous mast cell tumor,1,0.15,18484
+301.tiff,canine cutaneous mast cell tumor,1,0.2,18479
+301.tiff,canine cutaneous mast cell tumor,1,0.25,18464
+301.tiff,canine cutaneous mast cell tumor,1,0.3,18450
+301.tiff,canine cutaneous mast cell tumor,1,0.35,18432
+301.tiff,canine cutaneous mast cell tumor,1,0.4,18408
+301.tiff,canine cutaneous mast cell tumor,1,0.45,18380
+301.tiff,canine cutaneous mast cell tumor,1,0.5,18350
+301.tiff,canine cutaneous mast cell tumor,1,0.55,18305
+301.tiff,canine cutaneous mast cell tumor,1,0.6,18251
+301.tiff,canine cutaneous mast cell tumor,1,0.65,18190
+301.tiff,canine cutaneous mast cell tumor,1,0.7,18128
+301.tiff,canine cutaneous mast cell tumor,1,0.75,18055
+301.tiff,canine cutaneous mast cell tumor,1,0.8,17988
+301.tiff,canine cutaneous mast cell tumor,1,0.85,17908
+301.tiff,canine cutaneous mast cell tumor,1,0.9,17839
+301.tiff,canine cutaneous mast cell tumor,1,0.95,17750
+301.tiff,canine cutaneous mast cell tumor,1,1.0,17635
+301.tiff,canine cutaneous mast cell tumor,1,1.05,17512
+301.tiff,canine cutaneous mast cell tumor,1,1.1,17384
+301.tiff,canine cutaneous mast cell tumor,1,1.15,17254
+301.tiff,canine cutaneous mast cell tumor,1,1.2,17082
+301.tiff,canine cutaneous mast cell tumor,1,1.25,16932
+301.tiff,canine cutaneous mast cell tumor,1,1.3,16771
+301.tiff,canine cutaneous mast cell tumor,1,1.35,16577
+301.tiff,canine cutaneous mast cell tumor,1,1.4,16358
+301.tiff,canine cutaneous mast cell tumor,1,1.45,16150
+301.tiff,canine cutaneous mast cell tumor,1,1.5,15935
+301.tiff,canine cutaneous mast cell tumor,1,1.55,15686
+301.tiff,canine cutaneous mast cell tumor,1,1.6,15396
+301.tiff,canine cutaneous mast cell tumor,1,1.65,15107
+301.tiff,canine cutaneous mast cell tumor,1,1.7,14786
+301.tiff,canine cutaneous mast cell tumor,1,1.75,14468
+301.tiff,canine cutaneous mast cell tumor,1,1.8,14146
+301.tiff,canine cutaneous mast cell tumor,1,1.85,13784
+301.tiff,canine cutaneous mast cell tumor,1,1.9,13447
+301.tiff,canine cutaneous mast cell tumor,1,1.95,13081
+301.tiff,canine cutaneous mast cell tumor,1,2.0,12683
+301.tiff,canine cutaneous mast cell tumor,1,2.05,12270
+301.tiff,canine cutaneous mast cell tumor,1,2.1,11843
+301.tiff,canine cutaneous mast cell tumor,1,2.15,11452
+301.tiff,canine cutaneous mast cell tumor,1,2.2,11043
+301.tiff,canine cutaneous mast cell tumor,1,2.25,10623
+301.tiff,canine cutaneous mast cell tumor,1,2.3,10207
+301.tiff,canine cutaneous mast cell tumor,1,2.35,9771
+301.tiff,canine cutaneous mast cell tumor,1,2.4,9362
+301.tiff,canine cutaneous mast cell tumor,1,2.45,8946
+301.tiff,canine cutaneous mast cell tumor,1,2.5,8533
+301.tiff,canine cutaneous mast cell tumor,1,2.55,8151
+301.tiff,canine cutaneous mast cell tumor,1,2.6,7746
+301.tiff,canine cutaneous mast cell tumor,1,2.65,7339
+301.tiff,canine cutaneous mast cell tumor,1,2.7,6954
+301.tiff,canine cutaneous mast cell tumor,1,2.75,6574
+301.tiff,canine cutaneous mast cell tumor,1,2.8,6209
+301.tiff,canine cutaneous mast cell tumor,1,2.85,5860
+301.tiff,canine cutaneous mast cell tumor,1,2.9,5497
+301.tiff,canine cutaneous mast cell tumor,1,2.95,5132
+301.tiff,canine cutaneous mast cell tumor,1,3.0,4812
+301.tiff,canine cutaneous mast cell tumor,1,3.05,4512
+301.tiff,canine cutaneous mast cell tumor,1,3.1,4217
+301.tiff,canine cutaneous mast cell tumor,1,3.15,3948
+301.tiff,canine cutaneous mast cell tumor,1,3.2,3678
+301.tiff,canine cutaneous mast cell tumor,1,3.25,3449
+301.tiff,canine cutaneous mast cell tumor,1,3.3,3227
+301.tiff,canine cutaneous mast cell tumor,1,3.35,2998
+301.tiff,canine cutaneous mast cell tumor,1,3.4,2779
+301.tiff,canine cutaneous mast cell tumor,1,3.45,2606
+301.tiff,canine cutaneous mast cell tumor,1,3.5,2409
+301.tiff,canine cutaneous mast cell tumor,1,3.55,2235
+301.tiff,canine cutaneous mast cell tumor,1,3.6,2078
+301.tiff,canine cutaneous mast cell tumor,1,3.65,1945
+301.tiff,canine cutaneous mast cell tumor,1,3.7,1807
+301.tiff,canine cutaneous mast cell tumor,1,3.75,1692
+301.tiff,canine cutaneous mast cell tumor,1,3.8,1554
+301.tiff,canine cutaneous mast cell tumor,1,3.85,1451
+301.tiff,canine cutaneous mast cell tumor,1,3.9,1364
+301.tiff,canine cutaneous mast cell tumor,1,3.95,1259
+301.tiff,canine cutaneous mast cell tumor,1,4.0,1151
+301.tiff,canine cutaneous mast cell tumor,1,4.05,1064
+301.tiff,canine cutaneous mast cell tumor,1,4.1,992
+301.tiff,canine cutaneous mast cell tumor,1,4.15,928
+301.tiff,canine cutaneous mast cell tumor,1,4.2,870
+301.tiff,canine cutaneous mast cell tumor,1,4.25,796
+301.tiff,canine cutaneous mast cell tumor,1,4.3,746
+301.tiff,canine cutaneous mast cell tumor,1,4.35,687
+301.tiff,canine cutaneous mast cell tumor,1,4.4,635
+301.tiff,canine cutaneous mast cell tumor,1,4.45,591
+301.tiff,canine cutaneous mast cell tumor,1,4.5,551
+301.tiff,canine cutaneous mast cell tumor,1,4.55,509
+301.tiff,canine cutaneous mast cell tumor,1,4.6,481
+301.tiff,canine cutaneous mast cell tumor,1,4.65,441
+301.tiff,canine cutaneous mast cell tumor,1,4.7,412
+301.tiff,canine cutaneous mast cell tumor,1,4.75,383
+301.tiff,canine cutaneous mast cell tumor,1,4.8,364
+301.tiff,canine cutaneous mast cell tumor,1,4.85,339
+301.tiff,canine cutaneous mast cell tumor,1,4.9,325
+301.tiff,canine cutaneous mast cell tumor,1,4.95,295
+301.tiff,canine cutaneous mast cell tumor,1,5.0,276
+301.tiff,canine cutaneous mast cell tumor,1,5.05,262
+301.tiff,canine cutaneous mast cell tumor,1,5.1,246
+301.tiff,canine cutaneous mast cell tumor,1,5.15,230
+301.tiff,canine cutaneous mast cell tumor,1,5.2,216
+301.tiff,canine cutaneous mast cell tumor,1,5.25,202
+301.tiff,canine cutaneous mast cell tumor,1,5.3,184
+301.tiff,canine cutaneous mast cell tumor,1,5.35,173
+301.tiff,canine cutaneous mast cell tumor,1,5.4,168
+301.tiff,canine cutaneous mast cell tumor,1,5.45,154
+301.tiff,canine cutaneous mast cell tumor,1,5.5,140
+301.tiff,canine cutaneous mast cell tumor,1,5.55,125
+301.tiff,canine cutaneous mast cell tumor,1,5.6,120
+301.tiff,canine cutaneous mast cell tumor,1,5.65,114
+301.tiff,canine cutaneous mast cell tumor,1,5.7,107
+301.tiff,canine cutaneous mast cell tumor,1,5.75,101
+301.tiff,canine cutaneous mast cell tumor,1,5.8,92
+301.tiff,canine cutaneous mast cell tumor,1,5.85,88
+301.tiff,canine cutaneous mast cell tumor,1,5.9,80
+301.tiff,canine cutaneous mast cell tumor,1,5.95,72
+301.tiff,canine cutaneous mast cell tumor,1,6.0,68
+301.tiff,canine cutaneous mast cell tumor,2,0.0,18669
+301.tiff,canine cutaneous mast cell tumor,2,0.05,18659
+301.tiff,canine cutaneous mast cell tumor,2,0.1,18640
+301.tiff,canine cutaneous mast cell tumor,2,0.15,18622
+301.tiff,canine cutaneous mast cell tumor,2,0.2,18593
+301.tiff,canine cutaneous mast cell tumor,2,0.25,18553
+301.tiff,canine cutaneous mast cell tumor,2,0.3,18516
+301.tiff,canine cutaneous mast cell tumor,2,0.35,18474
+301.tiff,canine cutaneous mast cell tumor,2,0.4,18417
+301.tiff,canine cutaneous mast cell tumor,2,0.45,18364
+301.tiff,canine cutaneous mast cell tumor,2,0.5,18312
+301.tiff,canine cutaneous mast cell tumor,2,0.55,18244
+301.tiff,canine cutaneous mast cell tumor,2,0.6,18181
+301.tiff,canine cutaneous mast cell tumor,2,0.65,18108
+301.tiff,canine cutaneous mast cell tumor,2,0.7,18035
+301.tiff,canine cutaneous mast cell tumor,2,0.75,17956
+301.tiff,canine cutaneous mast cell tumor,2,0.8,17868
+301.tiff,canine cutaneous mast cell tumor,2,0.85,17788
+301.tiff,canine cutaneous mast cell tumor,2,0.9,17704
+301.tiff,canine cutaneous mast cell tumor,2,0.95,17620
+301.tiff,canine cutaneous mast cell tumor,2,1.0,17529
+301.tiff,canine cutaneous mast cell tumor,2,1.05,17450
+301.tiff,canine cutaneous mast cell tumor,2,1.1,17363
+301.tiff,canine cutaneous mast cell tumor,2,1.15,17285
+301.tiff,canine cutaneous mast cell tumor,2,1.2,17198
+301.tiff,canine cutaneous mast cell tumor,2,1.25,17108
+301.tiff,canine cutaneous mast cell tumor,2,1.3,17025
+301.tiff,canine cutaneous mast cell tumor,2,1.35,16928
+301.tiff,canine cutaneous mast cell tumor,2,1.4,16816
+301.tiff,canine cutaneous mast cell tumor,2,1.45,16710
+301.tiff,canine cutaneous mast cell tumor,2,1.5,16614
+301.tiff,canine cutaneous mast cell tumor,2,1.55,16518
+301.tiff,canine cutaneous mast cell tumor,2,1.6,16416
+301.tiff,canine cutaneous mast cell tumor,2,1.65,16293
+301.tiff,canine cutaneous mast cell tumor,2,1.7,16177
+301.tiff,canine cutaneous mast cell tumor,2,1.75,16064
+301.tiff,canine cutaneous mast cell tumor,2,1.8,15943
+301.tiff,canine cutaneous mast cell tumor,2,1.85,15827
+301.tiff,canine cutaneous mast cell tumor,2,1.9,15682
+301.tiff,canine cutaneous mast cell tumor,2,1.95,15566
+301.tiff,canine cutaneous mast cell tumor,2,2.0,15421
+301.tiff,canine cutaneous mast cell tumor,2,2.05,15271
+301.tiff,canine cutaneous mast cell tumor,2,2.1,15108
+301.tiff,canine cutaneous mast cell tumor,2,2.15,14937
+301.tiff,canine cutaneous mast cell tumor,2,2.2,14767
+301.tiff,canine cutaneous mast cell tumor,2,2.25,14599
+301.tiff,canine cutaneous mast cell tumor,2,2.3,14436
+301.tiff,canine cutaneous mast cell tumor,2,2.35,14244
+301.tiff,canine cutaneous mast cell tumor,2,2.4,14067
+301.tiff,canine cutaneous mast cell tumor,2,2.45,13865
+301.tiff,canine cutaneous mast cell tumor,2,2.5,13629
+301.tiff,canine cutaneous mast cell tumor,2,2.55,13393
+301.tiff,canine cutaneous mast cell tumor,2,2.6,13174
+301.tiff,canine cutaneous mast cell tumor,2,2.65,12964
+301.tiff,canine cutaneous mast cell tumor,2,2.7,12735
+301.tiff,canine cutaneous mast cell tumor,2,2.75,12506
+301.tiff,canine cutaneous mast cell tumor,2,2.8,12238
+301.tiff,canine cutaneous mast cell tumor,2,2.85,11976
+301.tiff,canine cutaneous mast cell tumor,2,2.9,11709
+301.tiff,canine cutaneous mast cell tumor,2,2.95,11402
+301.tiff,canine cutaneous mast cell tumor,2,3.0,11123
+301.tiff,canine cutaneous mast cell tumor,2,3.05,10840
+301.tiff,canine cutaneous mast cell tumor,2,3.1,10524
+301.tiff,canine cutaneous mast cell tumor,2,3.15,10220
+301.tiff,canine cutaneous mast cell tumor,2,3.2,9925
+301.tiff,canine cutaneous mast cell tumor,2,3.25,9669
+301.tiff,canine cutaneous mast cell tumor,2,3.3,9375
+301.tiff,canine cutaneous mast cell tumor,2,3.35,9089
+301.tiff,canine cutaneous mast cell tumor,2,3.4,8777
+301.tiff,canine cutaneous mast cell tumor,2,3.45,8474
+301.tiff,canine cutaneous mast cell tumor,2,3.5,8178
+301.tiff,canine cutaneous mast cell tumor,2,3.55,7869
+301.tiff,canine cutaneous mast cell tumor,2,3.6,7566
+301.tiff,canine cutaneous mast cell tumor,2,3.65,7268
+301.tiff,canine cutaneous mast cell tumor,2,3.7,6971
+301.tiff,canine cutaneous mast cell tumor,2,3.75,6710
+301.tiff,canine cutaneous mast cell tumor,2,3.8,6404
+301.tiff,canine cutaneous mast cell tumor,2,3.85,6118
+301.tiff,canine cutaneous mast cell tumor,2,3.9,5861
+301.tiff,canine cutaneous mast cell tumor,2,3.95,5577
+301.tiff,canine cutaneous mast cell tumor,2,4.0,5323
+301.tiff,canine cutaneous mast cell tumor,2,4.05,5079
+301.tiff,canine cutaneous mast cell tumor,2,4.1,4851
+301.tiff,canine cutaneous mast cell tumor,2,4.15,4622
+301.tiff,canine cutaneous mast cell tumor,2,4.2,4394
+301.tiff,canine cutaneous mast cell tumor,2,4.25,4188
+301.tiff,canine cutaneous mast cell tumor,2,4.3,3995
+301.tiff,canine cutaneous mast cell tumor,2,4.35,3823
+301.tiff,canine cutaneous mast cell tumor,2,4.4,3628
+301.tiff,canine cutaneous mast cell tumor,2,4.45,3444
+301.tiff,canine cutaneous mast cell tumor,2,4.5,3256
+301.tiff,canine cutaneous mast cell tumor,2,4.55,3060
+301.tiff,canine cutaneous mast cell tumor,2,4.6,2903
+301.tiff,canine cutaneous mast cell tumor,2,4.65,2739
+301.tiff,canine cutaneous mast cell tumor,2,4.7,2597
+301.tiff,canine cutaneous mast cell tumor,2,4.75,2484
+301.tiff,canine cutaneous mast cell tumor,2,4.8,2332
+301.tiff,canine cutaneous mast cell tumor,2,4.85,2229
+301.tiff,canine cutaneous mast cell tumor,2,4.9,2114
+301.tiff,canine cutaneous mast cell tumor,2,4.95,2007
+301.tiff,canine cutaneous mast cell tumor,2,5.0,1894
+301.tiff,canine cutaneous mast cell tumor,2,5.05,1784
+301.tiff,canine cutaneous mast cell tumor,2,5.1,1691
+301.tiff,canine cutaneous mast cell tumor,2,5.15,1598
+301.tiff,canine cutaneous mast cell tumor,2,5.2,1514
+301.tiff,canine cutaneous mast cell tumor,2,5.25,1453
+301.tiff,canine cutaneous mast cell tumor,2,5.3,1375
+301.tiff,canine cutaneous mast cell tumor,2,5.35,1302
+301.tiff,canine cutaneous mast cell tumor,2,5.4,1238
+301.tiff,canine cutaneous mast cell tumor,2,5.45,1180
+301.tiff,canine cutaneous mast cell tumor,2,5.5,1111
+301.tiff,canine cutaneous mast cell tumor,2,5.55,1051
+301.tiff,canine cutaneous mast cell tumor,2,5.6,999
+301.tiff,canine cutaneous mast cell tumor,2,5.65,952
+301.tiff,canine cutaneous mast cell tumor,2,5.7,913
+301.tiff,canine cutaneous mast cell tumor,2,5.75,876
+301.tiff,canine cutaneous mast cell tumor,2,5.8,838
+301.tiff,canine cutaneous mast cell tumor,2,5.85,795
+301.tiff,canine cutaneous mast cell tumor,2,5.9,766
+301.tiff,canine cutaneous mast cell tumor,2,5.95,730
+301.tiff,canine cutaneous mast cell tumor,2,6.0,702
+301.tiff,canine cutaneous mast cell tumor,3,0.0,18631
+301.tiff,canine cutaneous mast cell tumor,3,0.05,18620
+301.tiff,canine cutaneous mast cell tumor,3,0.1,18609
+301.tiff,canine cutaneous mast cell tumor,3,0.15,18580
+301.tiff,canine cutaneous mast cell tumor,3,0.2,18568
+301.tiff,canine cutaneous mast cell tumor,3,0.25,18541
+301.tiff,canine cutaneous mast cell tumor,3,0.3,18517
+301.tiff,canine cutaneous mast cell tumor,3,0.35,18492
+301.tiff,canine cutaneous mast cell tumor,3,0.4,18461
+301.tiff,canine cutaneous mast cell tumor,3,0.45,18434
+301.tiff,canine cutaneous mast cell tumor,3,0.5,18391
+301.tiff,canine cutaneous mast cell tumor,3,0.55,18346
+301.tiff,canine cutaneous mast cell tumor,3,0.6,18287
+301.tiff,canine cutaneous mast cell tumor,3,0.65,18228
+301.tiff,canine cutaneous mast cell tumor,3,0.7,18168
+301.tiff,canine cutaneous mast cell tumor,3,0.75,18088
+301.tiff,canine cutaneous mast cell tumor,3,0.8,18020
+301.tiff,canine cutaneous mast cell tumor,3,0.85,17932
+301.tiff,canine cutaneous mast cell tumor,3,0.9,17844
+301.tiff,canine cutaneous mast cell tumor,3,0.95,17762
+301.tiff,canine cutaneous mast cell tumor,3,1.0,17659
+301.tiff,canine cutaneous mast cell tumor,3,1.05,17564
+301.tiff,canine cutaneous mast cell tumor,3,1.1,17447
+301.tiff,canine cutaneous mast cell tumor,3,1.15,17330
+301.tiff,canine cutaneous mast cell tumor,3,1.2,17220
+301.tiff,canine cutaneous mast cell tumor,3,1.25,17094
+301.tiff,canine cutaneous mast cell tumor,3,1.3,16953
+301.tiff,canine cutaneous mast cell tumor,3,1.35,16816
+301.tiff,canine cutaneous mast cell tumor,3,1.4,16660
+301.tiff,canine cutaneous mast cell tumor,3,1.45,16510
+301.tiff,canine cutaneous mast cell tumor,3,1.5,16361
+301.tiff,canine cutaneous mast cell tumor,3,1.55,16180
+301.tiff,canine cutaneous mast cell tumor,3,1.6,15997
+301.tiff,canine cutaneous mast cell tumor,3,1.65,15817
+301.tiff,canine cutaneous mast cell tumor,3,1.7,15606
+301.tiff,canine cutaneous mast cell tumor,3,1.75,15412
+301.tiff,canine cutaneous mast cell tumor,3,1.8,15205
+301.tiff,canine cutaneous mast cell tumor,3,1.85,14984
+301.tiff,canine cutaneous mast cell tumor,3,1.9,14765
+301.tiff,canine cutaneous mast cell tumor,3,1.95,14537
+301.tiff,canine cutaneous mast cell tumor,3,2.0,14285
+301.tiff,canine cutaneous mast cell tumor,3,2.05,14029
+301.tiff,canine cutaneous mast cell tumor,3,2.1,13739
+301.tiff,canine cutaneous mast cell tumor,3,2.15,13452
+301.tiff,canine cutaneous mast cell tumor,3,2.2,13150
+301.tiff,canine cutaneous mast cell tumor,3,2.25,12858
+301.tiff,canine cutaneous mast cell tumor,3,2.3,12571
+301.tiff,canine cutaneous mast cell tumor,3,2.35,12251
+301.tiff,canine cutaneous mast cell tumor,3,2.4,11946
+301.tiff,canine cutaneous mast cell tumor,3,2.45,11629
+301.tiff,canine cutaneous mast cell tumor,3,2.5,11312
+301.tiff,canine cutaneous mast cell tumor,3,2.55,11004
+301.tiff,canine cutaneous mast cell tumor,3,2.6,10649
+301.tiff,canine cutaneous mast cell tumor,3,2.65,10276
+301.tiff,canine cutaneous mast cell tumor,3,2.7,9914
+301.tiff,canine cutaneous mast cell tumor,3,2.75,9592
+301.tiff,canine cutaneous mast cell tumor,3,2.8,9238
+301.tiff,canine cutaneous mast cell tumor,3,2.85,8881
+301.tiff,canine cutaneous mast cell tumor,3,2.9,8520
+301.tiff,canine cutaneous mast cell tumor,3,2.95,8152
+301.tiff,canine cutaneous mast cell tumor,3,3.0,7823
+301.tiff,canine cutaneous mast cell tumor,3,3.05,7510
+301.tiff,canine cutaneous mast cell tumor,3,3.1,7169
+301.tiff,canine cutaneous mast cell tumor,3,3.15,6853
+301.tiff,canine cutaneous mast cell tumor,3,3.2,6566
+301.tiff,canine cutaneous mast cell tumor,3,3.25,6262
+301.tiff,canine cutaneous mast cell tumor,3,3.3,5945
+301.tiff,canine cutaneous mast cell tumor,3,3.35,5671
+301.tiff,canine cutaneous mast cell tumor,3,3.4,5388
+301.tiff,canine cutaneous mast cell tumor,3,3.45,5082
+301.tiff,canine cutaneous mast cell tumor,3,3.5,4825
+301.tiff,canine cutaneous mast cell tumor,3,3.55,4560
+301.tiff,canine cutaneous mast cell tumor,3,3.6,4332
+301.tiff,canine cutaneous mast cell tumor,3,3.65,4107
+301.tiff,canine cutaneous mast cell tumor,3,3.7,3875
+301.tiff,canine cutaneous mast cell tumor,3,3.75,3676
+301.tiff,canine cutaneous mast cell tumor,3,3.8,3474
+301.tiff,canine cutaneous mast cell tumor,3,3.85,3279
+301.tiff,canine cutaneous mast cell tumor,3,3.9,3107
+301.tiff,canine cutaneous mast cell tumor,3,3.95,2979
+301.tiff,canine cutaneous mast cell tumor,3,4.0,2808
+301.tiff,canine cutaneous mast cell tumor,3,4.05,2632
+301.tiff,canine cutaneous mast cell tumor,3,4.1,2469
+301.tiff,canine cutaneous mast cell tumor,3,4.15,2338
+301.tiff,canine cutaneous mast cell tumor,3,4.2,2196
+301.tiff,canine cutaneous mast cell tumor,3,4.25,2088
+301.tiff,canine cutaneous mast cell tumor,3,4.3,1963
+301.tiff,canine cutaneous mast cell tumor,3,4.35,1822
+301.tiff,canine cutaneous mast cell tumor,3,4.4,1709
+301.tiff,canine cutaneous mast cell tumor,3,4.45,1605
+301.tiff,canine cutaneous mast cell tumor,3,4.5,1538
+301.tiff,canine cutaneous mast cell tumor,3,4.55,1446
+301.tiff,canine cutaneous mast cell tumor,3,4.6,1354
+301.tiff,canine cutaneous mast cell tumor,3,4.65,1268
+301.tiff,canine cutaneous mast cell tumor,3,4.7,1189
+301.tiff,canine cutaneous mast cell tumor,3,4.75,1126
+301.tiff,canine cutaneous mast cell tumor,3,4.8,1065
+301.tiff,canine cutaneous mast cell tumor,3,4.85,1002
+301.tiff,canine cutaneous mast cell tumor,3,4.9,945
+301.tiff,canine cutaneous mast cell tumor,3,4.95,901
+301.tiff,canine cutaneous mast cell tumor,3,5.0,847
+301.tiff,canine cutaneous mast cell tumor,3,5.05,793
+301.tiff,canine cutaneous mast cell tumor,3,5.1,747
+301.tiff,canine cutaneous mast cell tumor,3,5.15,697
+301.tiff,canine cutaneous mast cell tumor,3,5.2,662
+301.tiff,canine cutaneous mast cell tumor,3,5.25,617
+301.tiff,canine cutaneous mast cell tumor,3,5.3,583
+301.tiff,canine cutaneous mast cell tumor,3,5.35,551
+301.tiff,canine cutaneous mast cell tumor,3,5.4,521
+301.tiff,canine cutaneous mast cell tumor,3,5.45,500
+301.tiff,canine cutaneous mast cell tumor,3,5.5,472
+301.tiff,canine cutaneous mast cell tumor,3,5.55,452
+301.tiff,canine cutaneous mast cell tumor,3,5.6,431
+301.tiff,canine cutaneous mast cell tumor,3,5.65,401
+301.tiff,canine cutaneous mast cell tumor,3,5.7,383
+301.tiff,canine cutaneous mast cell tumor,3,5.75,360
+301.tiff,canine cutaneous mast cell tumor,3,5.8,341
+301.tiff,canine cutaneous mast cell tumor,3,5.85,320
+301.tiff,canine cutaneous mast cell tumor,3,5.9,294
+301.tiff,canine cutaneous mast cell tumor,3,5.95,274
+301.tiff,canine cutaneous mast cell tumor,3,6.0,255
+301.tiff,canine cutaneous mast cell tumor,4,0.0,18069
+301.tiff,canine cutaneous mast cell tumor,4,0.05,18057
+301.tiff,canine cutaneous mast cell tumor,4,0.1,18046
+301.tiff,canine cutaneous mast cell tumor,4,0.15,18016
+301.tiff,canine cutaneous mast cell tumor,4,0.2,17997
+301.tiff,canine cutaneous mast cell tumor,4,0.25,17960
+301.tiff,canine cutaneous mast cell tumor,4,0.3,17915
+301.tiff,canine cutaneous mast cell tumor,4,0.35,17883
+301.tiff,canine cutaneous mast cell tumor,4,0.4,17830
+301.tiff,canine cutaneous mast cell tumor,4,0.45,17775
+301.tiff,canine cutaneous mast cell tumor,4,0.5,17708
+301.tiff,canine cutaneous mast cell tumor,4,0.55,17637
+301.tiff,canine cutaneous mast cell tumor,4,0.6,17574
+301.tiff,canine cutaneous mast cell tumor,4,0.65,17499
+301.tiff,canine cutaneous mast cell tumor,4,0.7,17438
+301.tiff,canine cutaneous mast cell tumor,4,0.75,17361
+301.tiff,canine cutaneous mast cell tumor,4,0.8,17286
+301.tiff,canine cutaneous mast cell tumor,4,0.85,17203
+301.tiff,canine cutaneous mast cell tumor,4,0.9,17114
+301.tiff,canine cutaneous mast cell tumor,4,0.95,17026
+301.tiff,canine cutaneous mast cell tumor,4,1.0,16932
+301.tiff,canine cutaneous mast cell tumor,4,1.05,16839
+301.tiff,canine cutaneous mast cell tumor,4,1.1,16740
+301.tiff,canine cutaneous mast cell tumor,4,1.15,16647
+301.tiff,canine cutaneous mast cell tumor,4,1.2,16537
+301.tiff,canine cutaneous mast cell tumor,4,1.25,16436
+301.tiff,canine cutaneous mast cell tumor,4,1.3,16341
+301.tiff,canine cutaneous mast cell tumor,4,1.35,16244
+301.tiff,canine cutaneous mast cell tumor,4,1.4,16131
+301.tiff,canine cutaneous mast cell tumor,4,1.45,16002
+301.tiff,canine cutaneous mast cell tumor,4,1.5,15895
+301.tiff,canine cutaneous mast cell tumor,4,1.55,15767
+301.tiff,canine cutaneous mast cell tumor,4,1.6,15628
+301.tiff,canine cutaneous mast cell tumor,4,1.65,15479
+301.tiff,canine cutaneous mast cell tumor,4,1.7,15331
+301.tiff,canine cutaneous mast cell tumor,4,1.75,15173
+301.tiff,canine cutaneous mast cell tumor,4,1.8,15026
+301.tiff,canine cutaneous mast cell tumor,4,1.85,14851
+301.tiff,canine cutaneous mast cell tumor,4,1.9,14695
+301.tiff,canine cutaneous mast cell tumor,4,1.95,14495
+301.tiff,canine cutaneous mast cell tumor,4,2.0,14313
+301.tiff,canine cutaneous mast cell tumor,4,2.05,14096
+301.tiff,canine cutaneous mast cell tumor,4,2.1,13902
+301.tiff,canine cutaneous mast cell tumor,4,2.15,13709
+301.tiff,canine cutaneous mast cell tumor,4,2.2,13474
+301.tiff,canine cutaneous mast cell tumor,4,2.25,13235
+301.tiff,canine cutaneous mast cell tumor,4,2.3,12999
+301.tiff,canine cutaneous mast cell tumor,4,2.35,12743
+301.tiff,canine cutaneous mast cell tumor,4,2.4,12473
+301.tiff,canine cutaneous mast cell tumor,4,2.45,12209
+301.tiff,canine cutaneous mast cell tumor,4,2.5,11941
+301.tiff,canine cutaneous mast cell tumor,4,2.55,11649
+301.tiff,canine cutaneous mast cell tumor,4,2.6,11357
+301.tiff,canine cutaneous mast cell tumor,4,2.65,11091
+301.tiff,canine cutaneous mast cell tumor,4,2.7,10788
+301.tiff,canine cutaneous mast cell tumor,4,2.75,10458
+301.tiff,canine cutaneous mast cell tumor,4,2.8,10128
+301.tiff,canine cutaneous mast cell tumor,4,2.85,9801
+301.tiff,canine cutaneous mast cell tumor,4,2.9,9470
+301.tiff,canine cutaneous mast cell tumor,4,2.95,9198
+301.tiff,canine cutaneous mast cell tumor,4,3.0,8874
+301.tiff,canine cutaneous mast cell tumor,4,3.05,8552
+301.tiff,canine cutaneous mast cell tumor,4,3.1,8211
+301.tiff,canine cutaneous mast cell tumor,4,3.15,7883
+301.tiff,canine cutaneous mast cell tumor,4,3.2,7570
+301.tiff,canine cutaneous mast cell tumor,4,3.25,7290
+301.tiff,canine cutaneous mast cell tumor,4,3.3,6987
+301.tiff,canine cutaneous mast cell tumor,4,3.35,6663
+301.tiff,canine cutaneous mast cell tumor,4,3.4,6372
+301.tiff,canine cutaneous mast cell tumor,4,3.45,6076
+301.tiff,canine cutaneous mast cell tumor,4,3.5,5806
+301.tiff,canine cutaneous mast cell tumor,4,3.55,5542
+301.tiff,canine cutaneous mast cell tumor,4,3.6,5274
+301.tiff,canine cutaneous mast cell tumor,4,3.65,5017
+301.tiff,canine cutaneous mast cell tumor,4,3.7,4745
+301.tiff,canine cutaneous mast cell tumor,4,3.75,4494
+301.tiff,canine cutaneous mast cell tumor,4,3.8,4246
+301.tiff,canine cutaneous mast cell tumor,4,3.85,4045
+301.tiff,canine cutaneous mast cell tumor,4,3.9,3810
+301.tiff,canine cutaneous mast cell tumor,4,3.95,3578
+301.tiff,canine cutaneous mast cell tumor,4,4.0,3365
+301.tiff,canine cutaneous mast cell tumor,4,4.05,3181
+301.tiff,canine cutaneous mast cell tumor,4,4.1,2981
+301.tiff,canine cutaneous mast cell tumor,4,4.15,2799
+301.tiff,canine cutaneous mast cell tumor,4,4.2,2639
+301.tiff,canine cutaneous mast cell tumor,4,4.25,2465
+301.tiff,canine cutaneous mast cell tumor,4,4.3,2317
+301.tiff,canine cutaneous mast cell tumor,4,4.35,2197
+301.tiff,canine cutaneous mast cell tumor,4,4.4,2052
+301.tiff,canine cutaneous mast cell tumor,4,4.45,1912
+301.tiff,canine cutaneous mast cell tumor,4,4.5,1797
+301.tiff,canine cutaneous mast cell tumor,4,4.55,1663
+301.tiff,canine cutaneous mast cell tumor,4,4.6,1553
+301.tiff,canine cutaneous mast cell tumor,4,4.65,1443
+301.tiff,canine cutaneous mast cell tumor,4,4.7,1343
+301.tiff,canine cutaneous mast cell tumor,4,4.75,1266
+301.tiff,canine cutaneous mast cell tumor,4,4.8,1182
+301.tiff,canine cutaneous mast cell tumor,4,4.85,1099
+301.tiff,canine cutaneous mast cell tumor,4,4.9,1022
+301.tiff,canine cutaneous mast cell tumor,4,4.95,957
+301.tiff,canine cutaneous mast cell tumor,4,5.0,882
+301.tiff,canine cutaneous mast cell tumor,4,5.05,813
+301.tiff,canine cutaneous mast cell tumor,4,5.1,760
+301.tiff,canine cutaneous mast cell tumor,4,5.15,704
+301.tiff,canine cutaneous mast cell tumor,4,5.2,650
+301.tiff,canine cutaneous mast cell tumor,4,5.25,606
+301.tiff,canine cutaneous mast cell tumor,4,5.3,575
+301.tiff,canine cutaneous mast cell tumor,4,5.35,533
+301.tiff,canine cutaneous mast cell tumor,4,5.4,486
+301.tiff,canine cutaneous mast cell tumor,4,5.45,445
+301.tiff,canine cutaneous mast cell tumor,4,5.5,420
+301.tiff,canine cutaneous mast cell tumor,4,5.55,394
+301.tiff,canine cutaneous mast cell tumor,4,5.6,367
+301.tiff,canine cutaneous mast cell tumor,4,5.65,336
+301.tiff,canine cutaneous mast cell tumor,4,5.7,318
+301.tiff,canine cutaneous mast cell tumor,4,5.75,303
+301.tiff,canine cutaneous mast cell tumor,4,5.8,288
+301.tiff,canine cutaneous mast cell tumor,4,5.85,274
+301.tiff,canine cutaneous mast cell tumor,4,5.9,260
+301.tiff,canine cutaneous mast cell tumor,4,5.95,244
+301.tiff,canine cutaneous mast cell tumor,4,6.0,231
+201.tiff,canine lung cancer,0,0.0,15542
+201.tiff,canine lung cancer,0,0.05,15497
+201.tiff,canine lung cancer,0,0.1,15435
+201.tiff,canine lung cancer,0,0.15,15363
+201.tiff,canine lung cancer,0,0.2,15290
+201.tiff,canine lung cancer,0,0.25,15209
+201.tiff,canine lung cancer,0,0.3,15115
+201.tiff,canine lung cancer,0,0.35,15001
+201.tiff,canine lung cancer,0,0.4,14867
+201.tiff,canine lung cancer,0,0.45,14744
+201.tiff,canine lung cancer,0,0.5,14619
+201.tiff,canine lung cancer,0,0.55,14493
+201.tiff,canine lung cancer,0,0.6,14346
+201.tiff,canine lung cancer,0,0.65,14197
+201.tiff,canine lung cancer,0,0.7,14033
+201.tiff,canine lung cancer,0,0.75,13864
+201.tiff,canine lung cancer,0,0.8,13705
+201.tiff,canine lung cancer,0,0.85,13543
+201.tiff,canine lung cancer,0,0.9,13368
+201.tiff,canine lung cancer,0,0.95,13197
+201.tiff,canine lung cancer,0,1.0,12973
+201.tiff,canine lung cancer,0,1.05,12761
+201.tiff,canine lung cancer,0,1.1,12576
+201.tiff,canine lung cancer,0,1.15,12357
+201.tiff,canine lung cancer,0,1.2,12124
+201.tiff,canine lung cancer,0,1.25,11883
+201.tiff,canine lung cancer,0,1.3,11645
+201.tiff,canine lung cancer,0,1.35,11426
+201.tiff,canine lung cancer,0,1.4,11168
+201.tiff,canine lung cancer,0,1.45,10938
+201.tiff,canine lung cancer,0,1.5,10689
+201.tiff,canine lung cancer,0,1.55,10426
+201.tiff,canine lung cancer,0,1.6,10205
+201.tiff,canine lung cancer,0,1.65,9910
+201.tiff,canine lung cancer,0,1.7,9635
+201.tiff,canine lung cancer,0,1.75,9347
+201.tiff,canine lung cancer,0,1.8,9062
+201.tiff,canine lung cancer,0,1.85,8805
+201.tiff,canine lung cancer,0,1.9,8513
+201.tiff,canine lung cancer,0,1.95,8234
+201.tiff,canine lung cancer,0,2.0,7952
+201.tiff,canine lung cancer,0,2.05,7665
+201.tiff,canine lung cancer,0,2.1,7412
+201.tiff,canine lung cancer,0,2.15,7150
+201.tiff,canine lung cancer,0,2.2,6882
+201.tiff,canine lung cancer,0,2.25,6627
+201.tiff,canine lung cancer,0,2.3,6376
+201.tiff,canine lung cancer,0,2.35,6112
+201.tiff,canine lung cancer,0,2.4,5862
+201.tiff,canine lung cancer,0,2.45,5583
+201.tiff,canine lung cancer,0,2.5,5321
+201.tiff,canine lung cancer,0,2.55,5102
+201.tiff,canine lung cancer,0,2.6,4847
+201.tiff,canine lung cancer,0,2.65,4613
+201.tiff,canine lung cancer,0,2.7,4381
+201.tiff,canine lung cancer,0,2.75,4182
+201.tiff,canine lung cancer,0,2.8,3953
+201.tiff,canine lung cancer,0,2.85,3745
+201.tiff,canine lung cancer,0,2.9,3533
+201.tiff,canine lung cancer,0,2.95,3318
+201.tiff,canine lung cancer,0,3.0,3129
+201.tiff,canine lung cancer,0,3.05,2945
+201.tiff,canine lung cancer,0,3.1,2788
+201.tiff,canine lung cancer,0,3.15,2600
+201.tiff,canine lung cancer,0,3.2,2438
+201.tiff,canine lung cancer,0,3.25,2281
+201.tiff,canine lung cancer,0,3.3,2136
+201.tiff,canine lung cancer,0,3.35,1984
+201.tiff,canine lung cancer,0,3.4,1856
+201.tiff,canine lung cancer,0,3.45,1725
+201.tiff,canine lung cancer,0,3.5,1593
+201.tiff,canine lung cancer,0,3.55,1470
+201.tiff,canine lung cancer,0,3.6,1365
+201.tiff,canine lung cancer,0,3.65,1268
+201.tiff,canine lung cancer,0,3.7,1181
+201.tiff,canine lung cancer,0,3.75,1085
+201.tiff,canine lung cancer,0,3.8,1000
+201.tiff,canine lung cancer,0,3.85,929
+201.tiff,canine lung cancer,0,3.9,856
+201.tiff,canine lung cancer,0,3.95,803
+201.tiff,canine lung cancer,0,4.0,752
+201.tiff,canine lung cancer,0,4.05,687
+201.tiff,canine lung cancer,0,4.1,636
+201.tiff,canine lung cancer,0,4.15,588
+201.tiff,canine lung cancer,0,4.2,550
+201.tiff,canine lung cancer,0,4.25,512
+201.tiff,canine lung cancer,0,4.3,470
+201.tiff,canine lung cancer,0,4.35,432
+201.tiff,canine lung cancer,0,4.4,391
+201.tiff,canine lung cancer,0,4.45,365
+201.tiff,canine lung cancer,0,4.5,336
+201.tiff,canine lung cancer,0,4.55,304
+201.tiff,canine lung cancer,0,4.6,284
+201.tiff,canine lung cancer,0,4.65,255
+201.tiff,canine lung cancer,0,4.7,241
+201.tiff,canine lung cancer,0,4.75,220
+201.tiff,canine lung cancer,0,4.8,207
+201.tiff,canine lung cancer,0,4.85,189
+201.tiff,canine lung cancer,0,4.9,165
+201.tiff,canine lung cancer,0,4.95,156
+201.tiff,canine lung cancer,0,5.0,141
+201.tiff,canine lung cancer,0,5.05,131
+201.tiff,canine lung cancer,0,5.1,123
+201.tiff,canine lung cancer,0,5.15,113
+201.tiff,canine lung cancer,0,5.2,103
+201.tiff,canine lung cancer,0,5.25,94
+201.tiff,canine lung cancer,0,5.3,85
+201.tiff,canine lung cancer,0,5.35,81
+201.tiff,canine lung cancer,0,5.4,73
+201.tiff,canine lung cancer,0,5.45,71
+201.tiff,canine lung cancer,0,5.5,68
+201.tiff,canine lung cancer,0,5.55,59
+201.tiff,canine lung cancer,0,5.6,52
+201.tiff,canine lung cancer,0,5.65,47
+201.tiff,canine lung cancer,0,5.7,44
+201.tiff,canine lung cancer,0,5.75,41
+201.tiff,canine lung cancer,0,5.8,37
+201.tiff,canine lung cancer,0,5.85,33
+201.tiff,canine lung cancer,0,5.9,30
+201.tiff,canine lung cancer,0,5.95,28
+201.tiff,canine lung cancer,0,6.0,23
+201.tiff,canine lung cancer,1,0.0,15542
+201.tiff,canine lung cancer,1,0.05,15497
+201.tiff,canine lung cancer,1,0.1,15435
+201.tiff,canine lung cancer,1,0.15,15363
+201.tiff,canine lung cancer,1,0.2,15290
+201.tiff,canine lung cancer,1,0.25,15209
+201.tiff,canine lung cancer,1,0.3,15115
+201.tiff,canine lung cancer,1,0.35,15001
+201.tiff,canine lung cancer,1,0.4,14867
+201.tiff,canine lung cancer,1,0.45,14744
+201.tiff,canine lung cancer,1,0.5,14619
+201.tiff,canine lung cancer,1,0.55,14493
+201.tiff,canine lung cancer,1,0.6,14346
+201.tiff,canine lung cancer,1,0.65,14197
+201.tiff,canine lung cancer,1,0.7,14033
+201.tiff,canine lung cancer,1,0.75,13864
+201.tiff,canine lung cancer,1,0.8,13705
+201.tiff,canine lung cancer,1,0.85,13543
+201.tiff,canine lung cancer,1,0.9,13368
+201.tiff,canine lung cancer,1,0.95,13197
+201.tiff,canine lung cancer,1,1.0,12973
+201.tiff,canine lung cancer,1,1.05,12761
+201.tiff,canine lung cancer,1,1.1,12576
+201.tiff,canine lung cancer,1,1.15,12357
+201.tiff,canine lung cancer,1,1.2,12124
+201.tiff,canine lung cancer,1,1.25,11883
+201.tiff,canine lung cancer,1,1.3,11645
+201.tiff,canine lung cancer,1,1.35,11426
+201.tiff,canine lung cancer,1,1.4,11168
+201.tiff,canine lung cancer,1,1.45,10938
+201.tiff,canine lung cancer,1,1.5,10689
+201.tiff,canine lung cancer,1,1.55,10426
+201.tiff,canine lung cancer,1,1.6,10205
+201.tiff,canine lung cancer,1,1.65,9910
+201.tiff,canine lung cancer,1,1.7,9635
+201.tiff,canine lung cancer,1,1.75,9347
+201.tiff,canine lung cancer,1,1.8,9062
+201.tiff,canine lung cancer,1,1.85,8805
+201.tiff,canine lung cancer,1,1.9,8513
+201.tiff,canine lung cancer,1,1.95,8234
+201.tiff,canine lung cancer,1,2.0,7952
+201.tiff,canine lung cancer,1,2.05,7665
+201.tiff,canine lung cancer,1,2.1,7412
+201.tiff,canine lung cancer,1,2.15,7150
+201.tiff,canine lung cancer,1,2.2,6882
+201.tiff,canine lung cancer,1,2.25,6627
+201.tiff,canine lung cancer,1,2.3,6376
+201.tiff,canine lung cancer,1,2.35,6112
+201.tiff,canine lung cancer,1,2.4,5862
+201.tiff,canine lung cancer,1,2.45,5583
+201.tiff,canine lung cancer,1,2.5,5321
+201.tiff,canine lung cancer,1,2.55,5102
+201.tiff,canine lung cancer,1,2.6,4847
+201.tiff,canine lung cancer,1,2.65,4613
+201.tiff,canine lung cancer,1,2.7,4381
+201.tiff,canine lung cancer,1,2.75,4182
+201.tiff,canine lung cancer,1,2.8,3953
+201.tiff,canine lung cancer,1,2.85,3745
+201.tiff,canine lung cancer,1,2.9,3533
+201.tiff,canine lung cancer,1,2.95,3318
+201.tiff,canine lung cancer,1,3.0,3129
+201.tiff,canine lung cancer,1,3.05,2945
+201.tiff,canine lung cancer,1,3.1,2788
+201.tiff,canine lung cancer,1,3.15,2600
+201.tiff,canine lung cancer,1,3.2,2438
+201.tiff,canine lung cancer,1,3.25,2281
+201.tiff,canine lung cancer,1,3.3,2136
+201.tiff,canine lung cancer,1,3.35,1984
+201.tiff,canine lung cancer,1,3.4,1856
+201.tiff,canine lung cancer,1,3.45,1725
+201.tiff,canine lung cancer,1,3.5,1593
+201.tiff,canine lung cancer,1,3.55,1470
+201.tiff,canine lung cancer,1,3.6,1365
+201.tiff,canine lung cancer,1,3.65,1268
+201.tiff,canine lung cancer,1,3.7,1181
+201.tiff,canine lung cancer,1,3.75,1085
+201.tiff,canine lung cancer,1,3.8,1000
+201.tiff,canine lung cancer,1,3.85,929
+201.tiff,canine lung cancer,1,3.9,856
+201.tiff,canine lung cancer,1,3.95,803
+201.tiff,canine lung cancer,1,4.0,752
+201.tiff,canine lung cancer,1,4.05,687
+201.tiff,canine lung cancer,1,4.1,636
+201.tiff,canine lung cancer,1,4.15,588
+201.tiff,canine lung cancer,1,4.2,550
+201.tiff,canine lung cancer,1,4.25,512
+201.tiff,canine lung cancer,1,4.3,470
+201.tiff,canine lung cancer,1,4.35,432
+201.tiff,canine lung cancer,1,4.4,391
+201.tiff,canine lung cancer,1,4.45,365
+201.tiff,canine lung cancer,1,4.5,336
+201.tiff,canine lung cancer,1,4.55,304
+201.tiff,canine lung cancer,1,4.6,284
+201.tiff,canine lung cancer,1,4.65,255
+201.tiff,canine lung cancer,1,4.7,241
+201.tiff,canine lung cancer,1,4.75,220
+201.tiff,canine lung cancer,1,4.8,207
+201.tiff,canine lung cancer,1,4.85,189
+201.tiff,canine lung cancer,1,4.9,165
+201.tiff,canine lung cancer,1,4.95,156
+201.tiff,canine lung cancer,1,5.0,141
+201.tiff,canine lung cancer,1,5.05,131
+201.tiff,canine lung cancer,1,5.1,123
+201.tiff,canine lung cancer,1,5.15,113
+201.tiff,canine lung cancer,1,5.2,103
+201.tiff,canine lung cancer,1,5.25,94
+201.tiff,canine lung cancer,1,5.3,85
+201.tiff,canine lung cancer,1,5.35,81
+201.tiff,canine lung cancer,1,5.4,73
+201.tiff,canine lung cancer,1,5.45,71
+201.tiff,canine lung cancer,1,5.5,68
+201.tiff,canine lung cancer,1,5.55,59
+201.tiff,canine lung cancer,1,5.6,52
+201.tiff,canine lung cancer,1,5.65,47
+201.tiff,canine lung cancer,1,5.7,44
+201.tiff,canine lung cancer,1,5.75,41
+201.tiff,canine lung cancer,1,5.8,37
+201.tiff,canine lung cancer,1,5.85,33
+201.tiff,canine lung cancer,1,5.9,30
+201.tiff,canine lung cancer,1,5.95,28
+201.tiff,canine lung cancer,1,6.0,23
+201.tiff,canine lung cancer,2,0.0,14447
+201.tiff,canine lung cancer,2,0.05,14400
+201.tiff,canine lung cancer,2,0.1,14336
+201.tiff,canine lung cancer,2,0.15,14263
+201.tiff,canine lung cancer,2,0.2,14178
+201.tiff,canine lung cancer,2,0.25,14059
+201.tiff,canine lung cancer,2,0.3,13950
+201.tiff,canine lung cancer,2,0.35,13845
+201.tiff,canine lung cancer,2,0.4,13741
+201.tiff,canine lung cancer,2,0.45,13600
+201.tiff,canine lung cancer,2,0.5,13465
+201.tiff,canine lung cancer,2,0.55,13347
+201.tiff,canine lung cancer,2,0.6,13209
+201.tiff,canine lung cancer,2,0.65,13068
+201.tiff,canine lung cancer,2,0.7,12923
+201.tiff,canine lung cancer,2,0.75,12754
+201.tiff,canine lung cancer,2,0.8,12577
+201.tiff,canine lung cancer,2,0.85,12411
+201.tiff,canine lung cancer,2,0.9,12224
+201.tiff,canine lung cancer,2,0.95,12048
+201.tiff,canine lung cancer,2,1.0,11855
+201.tiff,canine lung cancer,2,1.05,11659
+201.tiff,canine lung cancer,2,1.1,11440
+201.tiff,canine lung cancer,2,1.15,11220
+201.tiff,canine lung cancer,2,1.2,11040
+201.tiff,canine lung cancer,2,1.25,10815
+201.tiff,canine lung cancer,2,1.3,10603
+201.tiff,canine lung cancer,2,1.35,10372
+201.tiff,canine lung cancer,2,1.4,10138
+201.tiff,canine lung cancer,2,1.45,9878
+201.tiff,canine lung cancer,2,1.5,9650
+201.tiff,canine lung cancer,2,1.55,9415
+201.tiff,canine lung cancer,2,1.6,9167
+201.tiff,canine lung cancer,2,1.65,8914
+201.tiff,canine lung cancer,2,1.7,8672
+201.tiff,canine lung cancer,2,1.75,8430
+201.tiff,canine lung cancer,2,1.8,8158
+201.tiff,canine lung cancer,2,1.85,7909
+201.tiff,canine lung cancer,2,1.9,7635
+201.tiff,canine lung cancer,2,1.95,7385
+201.tiff,canine lung cancer,2,2.0,7118
+201.tiff,canine lung cancer,2,2.05,6862
+201.tiff,canine lung cancer,2,2.1,6635
+201.tiff,canine lung cancer,2,2.15,6402
+201.tiff,canine lung cancer,2,2.2,6137
+201.tiff,canine lung cancer,2,2.25,5892
+201.tiff,canine lung cancer,2,2.3,5658
+201.tiff,canine lung cancer,2,2.35,5430
+201.tiff,canine lung cancer,2,2.4,5199
+201.tiff,canine lung cancer,2,2.45,4967
+201.tiff,canine lung cancer,2,2.5,4740
+201.tiff,canine lung cancer,2,2.55,4513
+201.tiff,canine lung cancer,2,2.6,4277
+201.tiff,canine lung cancer,2,2.65,4080
+201.tiff,canine lung cancer,2,2.7,3896
+201.tiff,canine lung cancer,2,2.75,3690
+201.tiff,canine lung cancer,2,2.8,3516
+201.tiff,canine lung cancer,2,2.85,3315
+201.tiff,canine lung cancer,2,2.9,3140
+201.tiff,canine lung cancer,2,2.95,2971
+201.tiff,canine lung cancer,2,3.0,2799
+201.tiff,canine lung cancer,2,3.05,2640
+201.tiff,canine lung cancer,2,3.1,2484
+201.tiff,canine lung cancer,2,3.15,2330
+201.tiff,canine lung cancer,2,3.2,2191
+201.tiff,canine lung cancer,2,3.25,2062
+201.tiff,canine lung cancer,2,3.3,1954
+201.tiff,canine lung cancer,2,3.35,1853
+201.tiff,canine lung cancer,2,3.4,1737
+201.tiff,canine lung cancer,2,3.45,1620
+201.tiff,canine lung cancer,2,3.5,1515
+201.tiff,canine lung cancer,2,3.55,1404
+201.tiff,canine lung cancer,2,3.6,1324
+201.tiff,canine lung cancer,2,3.65,1238
+201.tiff,canine lung cancer,2,3.7,1163
+201.tiff,canine lung cancer,2,3.75,1075
+201.tiff,canine lung cancer,2,3.8,995
+201.tiff,canine lung cancer,2,3.85,918
+201.tiff,canine lung cancer,2,3.9,852
+201.tiff,canine lung cancer,2,3.95,792
+201.tiff,canine lung cancer,2,4.0,731
+201.tiff,canine lung cancer,2,4.05,672
+201.tiff,canine lung cancer,2,4.1,627
+201.tiff,canine lung cancer,2,4.15,577
+201.tiff,canine lung cancer,2,4.2,533
+201.tiff,canine lung cancer,2,4.25,493
+201.tiff,canine lung cancer,2,4.3,445
+201.tiff,canine lung cancer,2,4.35,414
+201.tiff,canine lung cancer,2,4.4,381
+201.tiff,canine lung cancer,2,4.45,358
+201.tiff,canine lung cancer,2,4.5,330
+201.tiff,canine lung cancer,2,4.55,304
+201.tiff,canine lung cancer,2,4.6,279
+201.tiff,canine lung cancer,2,4.65,252
+201.tiff,canine lung cancer,2,4.7,234
+201.tiff,canine lung cancer,2,4.75,213
+201.tiff,canine lung cancer,2,4.8,193
+201.tiff,canine lung cancer,2,4.85,182
+201.tiff,canine lung cancer,2,4.9,173
+201.tiff,canine lung cancer,2,4.95,158
+201.tiff,canine lung cancer,2,5.0,142
+201.tiff,canine lung cancer,2,5.05,132
+201.tiff,canine lung cancer,2,5.1,116
+201.tiff,canine lung cancer,2,5.15,103
+201.tiff,canine lung cancer,2,5.2,92
+201.tiff,canine lung cancer,2,5.25,86
+201.tiff,canine lung cancer,2,5.3,76
+201.tiff,canine lung cancer,2,5.35,66
+201.tiff,canine lung cancer,2,5.4,62
+201.tiff,canine lung cancer,2,5.45,55
+201.tiff,canine lung cancer,2,5.5,50
+201.tiff,canine lung cancer,2,5.55,44
+201.tiff,canine lung cancer,2,5.6,39
+201.tiff,canine lung cancer,2,5.65,35
+201.tiff,canine lung cancer,2,5.7,29
+201.tiff,canine lung cancer,2,5.75,27
+201.tiff,canine lung cancer,2,5.8,24
+201.tiff,canine lung cancer,2,5.85,24
+201.tiff,canine lung cancer,2,5.9,22
+201.tiff,canine lung cancer,2,5.95,18
+201.tiff,canine lung cancer,2,6.0,18
+201.tiff,canine lung cancer,3,0.0,15866
+201.tiff,canine lung cancer,3,0.05,15822
+201.tiff,canine lung cancer,3,0.1,15764
+201.tiff,canine lung cancer,3,0.15,15691
+201.tiff,canine lung cancer,3,0.2,15605
+201.tiff,canine lung cancer,3,0.25,15512
+201.tiff,canine lung cancer,3,0.3,15384
+201.tiff,canine lung cancer,3,0.35,15285
+201.tiff,canine lung cancer,3,0.4,15145
+201.tiff,canine lung cancer,3,0.45,15003
+201.tiff,canine lung cancer,3,0.5,14877
+201.tiff,canine lung cancer,3,0.55,14751
+201.tiff,canine lung cancer,3,0.6,14602
+201.tiff,canine lung cancer,3,0.65,14442
+201.tiff,canine lung cancer,3,0.7,14298
+201.tiff,canine lung cancer,3,0.75,14125
+201.tiff,canine lung cancer,3,0.8,13945
+201.tiff,canine lung cancer,3,0.85,13767
+201.tiff,canine lung cancer,3,0.9,13590
+201.tiff,canine lung cancer,3,0.95,13400
+201.tiff,canine lung cancer,3,1.0,13182
+201.tiff,canine lung cancer,3,1.05,12989
+201.tiff,canine lung cancer,3,1.1,12753
+201.tiff,canine lung cancer,3,1.15,12549
+201.tiff,canine lung cancer,3,1.2,12308
+201.tiff,canine lung cancer,3,1.25,12070
+201.tiff,canine lung cancer,3,1.3,11845
+201.tiff,canine lung cancer,3,1.35,11615
+201.tiff,canine lung cancer,3,1.4,11385
+201.tiff,canine lung cancer,3,1.45,11162
+201.tiff,canine lung cancer,3,1.5,10932
+201.tiff,canine lung cancer,3,1.55,10678
+201.tiff,canine lung cancer,3,1.6,10440
+201.tiff,canine lung cancer,3,1.65,10199
+201.tiff,canine lung cancer,3,1.7,9932
+201.tiff,canine lung cancer,3,1.75,9663
+201.tiff,canine lung cancer,3,1.8,9434
+201.tiff,canine lung cancer,3,1.85,9188
+201.tiff,canine lung cancer,3,1.9,8936
+201.tiff,canine lung cancer,3,1.95,8676
+201.tiff,canine lung cancer,3,2.0,8411
+201.tiff,canine lung cancer,3,2.05,8109
+201.tiff,canine lung cancer,3,2.1,7863
+201.tiff,canine lung cancer,3,2.15,7613
+201.tiff,canine lung cancer,3,2.2,7362
+201.tiff,canine lung cancer,3,2.25,7107
+201.tiff,canine lung cancer,3,2.3,6867
+201.tiff,canine lung cancer,3,2.35,6618
+201.tiff,canine lung cancer,3,2.4,6356
+201.tiff,canine lung cancer,3,2.45,6114
+201.tiff,canine lung cancer,3,2.5,5863
+201.tiff,canine lung cancer,3,2.55,5650
+201.tiff,canine lung cancer,3,2.6,5395
+201.tiff,canine lung cancer,3,2.65,5172
+201.tiff,canine lung cancer,3,2.7,4925
+201.tiff,canine lung cancer,3,2.75,4705
+201.tiff,canine lung cancer,3,2.8,4499
+201.tiff,canine lung cancer,3,2.85,4284
+201.tiff,canine lung cancer,3,2.9,4043
+201.tiff,canine lung cancer,3,2.95,3849
+201.tiff,canine lung cancer,3,3.0,3654
+201.tiff,canine lung cancer,3,3.05,3478
+201.tiff,canine lung cancer,3,3.1,3299
+201.tiff,canine lung cancer,3,3.15,3143
+201.tiff,canine lung cancer,3,3.2,2950
+201.tiff,canine lung cancer,3,3.25,2775
+201.tiff,canine lung cancer,3,3.3,2626
+201.tiff,canine lung cancer,3,3.35,2502
+201.tiff,canine lung cancer,3,3.4,2353
+201.tiff,canine lung cancer,3,3.45,2215
+201.tiff,canine lung cancer,3,3.5,2084
+201.tiff,canine lung cancer,3,3.55,1954
+201.tiff,canine lung cancer,3,3.6,1846
+201.tiff,canine lung cancer,3,3.65,1745
+201.tiff,canine lung cancer,3,3.7,1640
+201.tiff,canine lung cancer,3,3.75,1554
+201.tiff,canine lung cancer,3,3.8,1449
+201.tiff,canine lung cancer,3,3.85,1351
+201.tiff,canine lung cancer,3,3.9,1257
+201.tiff,canine lung cancer,3,3.95,1188
+201.tiff,canine lung cancer,3,4.0,1100
+201.tiff,canine lung cancer,3,4.05,1028
+201.tiff,canine lung cancer,3,4.1,951
+201.tiff,canine lung cancer,3,4.15,885
+201.tiff,canine lung cancer,3,4.2,844
+201.tiff,canine lung cancer,3,4.25,784
+201.tiff,canine lung cancer,3,4.3,722
+201.tiff,canine lung cancer,3,4.35,675
+201.tiff,canine lung cancer,3,4.4,628
+201.tiff,canine lung cancer,3,4.45,590
+201.tiff,canine lung cancer,3,4.5,553
+201.tiff,canine lung cancer,3,4.55,511
+201.tiff,canine lung cancer,3,4.6,474
+201.tiff,canine lung cancer,3,4.65,444
+201.tiff,canine lung cancer,3,4.7,415
+201.tiff,canine lung cancer,3,4.75,377
+201.tiff,canine lung cancer,3,4.8,349
+201.tiff,canine lung cancer,3,4.85,321
+201.tiff,canine lung cancer,3,4.9,296
+201.tiff,canine lung cancer,3,4.95,276
+201.tiff,canine lung cancer,3,5.0,248
+201.tiff,canine lung cancer,3,5.05,223
+201.tiff,canine lung cancer,3,5.1,207
+201.tiff,canine lung cancer,3,5.15,190
+201.tiff,canine lung cancer,3,5.2,175
+201.tiff,canine lung cancer,3,5.25,163
+201.tiff,canine lung cancer,3,5.3,154
+201.tiff,canine lung cancer,3,5.35,143
+201.tiff,canine lung cancer,3,5.4,136
+201.tiff,canine lung cancer,3,5.45,126
+201.tiff,canine lung cancer,3,5.5,118
+201.tiff,canine lung cancer,3,5.55,103
+201.tiff,canine lung cancer,3,5.6,97
+201.tiff,canine lung cancer,3,5.65,90
+201.tiff,canine lung cancer,3,5.7,83
+201.tiff,canine lung cancer,3,5.75,80
+201.tiff,canine lung cancer,3,5.8,70
+201.tiff,canine lung cancer,3,5.85,67
+201.tiff,canine lung cancer,3,5.9,61
+201.tiff,canine lung cancer,3,5.95,58
+201.tiff,canine lung cancer,3,6.0,55
+201.tiff,canine lung cancer,4,0.0,14005
+201.tiff,canine lung cancer,4,0.05,13965
+201.tiff,canine lung cancer,4,0.1,13913
+201.tiff,canine lung cancer,4,0.15,13841
+201.tiff,canine lung cancer,4,0.2,13749
+201.tiff,canine lung cancer,4,0.25,13676
+201.tiff,canine lung cancer,4,0.3,13594
+201.tiff,canine lung cancer,4,0.35,13494
+201.tiff,canine lung cancer,4,0.4,13387
+201.tiff,canine lung cancer,4,0.45,13284
+201.tiff,canine lung cancer,4,0.5,13172
+201.tiff,canine lung cancer,4,0.55,13061
+201.tiff,canine lung cancer,4,0.6,12904
+201.tiff,canine lung cancer,4,0.65,12741
+201.tiff,canine lung cancer,4,0.7,12583
+201.tiff,canine lung cancer,4,0.75,12409
+201.tiff,canine lung cancer,4,0.8,12260
+201.tiff,canine lung cancer,4,0.85,12089
+201.tiff,canine lung cancer,4,0.9,11887
+201.tiff,canine lung cancer,4,0.95,11689
+201.tiff,canine lung cancer,4,1.0,11508
+201.tiff,canine lung cancer,4,1.05,11305
+201.tiff,canine lung cancer,4,1.1,11069
+201.tiff,canine lung cancer,4,1.15,10847
+201.tiff,canine lung cancer,4,1.2,10616
+201.tiff,canine lung cancer,4,1.25,10372
+201.tiff,canine lung cancer,4,1.3,10106
+201.tiff,canine lung cancer,4,1.35,9861
+201.tiff,canine lung cancer,4,1.4,9604
+201.tiff,canine lung cancer,4,1.45,9351
+201.tiff,canine lung cancer,4,1.5,9092
+201.tiff,canine lung cancer,4,1.55,8813
+201.tiff,canine lung cancer,4,1.6,8528
+201.tiff,canine lung cancer,4,1.65,8254
+201.tiff,canine lung cancer,4,1.7,8002
+201.tiff,canine lung cancer,4,1.75,7753
+201.tiff,canine lung cancer,4,1.8,7529
+201.tiff,canine lung cancer,4,1.85,7250
+201.tiff,canine lung cancer,4,1.9,6979
+201.tiff,canine lung cancer,4,1.95,6705
+201.tiff,canine lung cancer,4,2.0,6435
+201.tiff,canine lung cancer,4,2.05,6195
+201.tiff,canine lung cancer,4,2.1,5933
+201.tiff,canine lung cancer,4,2.15,5689
+201.tiff,canine lung cancer,4,2.2,5456
+201.tiff,canine lung cancer,4,2.25,5219
+201.tiff,canine lung cancer,4,2.3,4976
+201.tiff,canine lung cancer,4,2.35,4730
+201.tiff,canine lung cancer,4,2.4,4506
+201.tiff,canine lung cancer,4,2.45,4265
+201.tiff,canine lung cancer,4,2.5,4063
+201.tiff,canine lung cancer,4,2.55,3852
+201.tiff,canine lung cancer,4,2.6,3670
+201.tiff,canine lung cancer,4,2.65,3469
+201.tiff,canine lung cancer,4,2.7,3279
+201.tiff,canine lung cancer,4,2.75,3106
+201.tiff,canine lung cancer,4,2.8,2909
+201.tiff,canine lung cancer,4,2.85,2748
+201.tiff,canine lung cancer,4,2.9,2596
+201.tiff,canine lung cancer,4,2.95,2441
+201.tiff,canine lung cancer,4,3.0,2301
+201.tiff,canine lung cancer,4,3.05,2153
+201.tiff,canine lung cancer,4,3.1,2019
+201.tiff,canine lung cancer,4,3.15,1904
+201.tiff,canine lung cancer,4,3.2,1783
+201.tiff,canine lung cancer,4,3.25,1679
+201.tiff,canine lung cancer,4,3.3,1564
+201.tiff,canine lung cancer,4,3.35,1448
+201.tiff,canine lung cancer,4,3.4,1353
+201.tiff,canine lung cancer,4,3.45,1260
+201.tiff,canine lung cancer,4,3.5,1166
+201.tiff,canine lung cancer,4,3.55,1080
+201.tiff,canine lung cancer,4,3.6,999
+201.tiff,canine lung cancer,4,3.65,931
+201.tiff,canine lung cancer,4,3.7,868
+201.tiff,canine lung cancer,4,3.75,801
+201.tiff,canine lung cancer,4,3.8,733
+201.tiff,canine lung cancer,4,3.85,682
+201.tiff,canine lung cancer,4,3.9,628
+201.tiff,canine lung cancer,4,3.95,570
+201.tiff,canine lung cancer,4,4.0,522
+201.tiff,canine lung cancer,4,4.05,478
+201.tiff,canine lung cancer,4,4.1,455
+201.tiff,canine lung cancer,4,4.15,413
+201.tiff,canine lung cancer,4,4.2,379
+201.tiff,canine lung cancer,4,4.25,342
+201.tiff,canine lung cancer,4,4.3,315
+201.tiff,canine lung cancer,4,4.35,280
+201.tiff,canine lung cancer,4,4.4,256
+201.tiff,canine lung cancer,4,4.45,227
+201.tiff,canine lung cancer,4,4.5,213
+201.tiff,canine lung cancer,4,4.55,186
+201.tiff,canine lung cancer,4,4.6,162
+201.tiff,canine lung cancer,4,4.65,148
+201.tiff,canine lung cancer,4,4.7,134
+201.tiff,canine lung cancer,4,4.75,123
+201.tiff,canine lung cancer,4,4.8,112
+201.tiff,canine lung cancer,4,4.85,98
+201.tiff,canine lung cancer,4,4.9,89
+201.tiff,canine lung cancer,4,4.95,82
+201.tiff,canine lung cancer,4,5.0,72
+201.tiff,canine lung cancer,4,5.05,63
+201.tiff,canine lung cancer,4,5.1,52
+201.tiff,canine lung cancer,4,5.15,47
+201.tiff,canine lung cancer,4,5.2,47
+201.tiff,canine lung cancer,4,5.25,43
+201.tiff,canine lung cancer,4,5.3,36
+201.tiff,canine lung cancer,4,5.35,34
+201.tiff,canine lung cancer,4,5.4,30
+201.tiff,canine lung cancer,4,5.45,26
+201.tiff,canine lung cancer,4,5.5,22
+201.tiff,canine lung cancer,4,5.55,22
+201.tiff,canine lung cancer,4,5.6,20
+201.tiff,canine lung cancer,4,5.65,18
+201.tiff,canine lung cancer,4,5.7,14
+201.tiff,canine lung cancer,4,5.75,11
+201.tiff,canine lung cancer,4,5.8,11
+201.tiff,canine lung cancer,4,5.85,10
+201.tiff,canine lung cancer,4,5.9,9
+201.tiff,canine lung cancer,4,5.95,8
+201.tiff,canine lung cancer,4,6.0,7
+246.tiff,canine lymphosarcoma,0,0.0,17729
+246.tiff,canine lymphosarcoma,0,0.05,17723
+246.tiff,canine lymphosarcoma,0,0.1,17709
+246.tiff,canine lymphosarcoma,0,0.15,17697
+246.tiff,canine lymphosarcoma,0,0.2,17682
+246.tiff,canine lymphosarcoma,0,0.25,17666
+246.tiff,canine lymphosarcoma,0,0.3,17646
+246.tiff,canine lymphosarcoma,0,0.35,17627
+246.tiff,canine lymphosarcoma,0,0.4,17609
+246.tiff,canine lymphosarcoma,0,0.45,17569
+246.tiff,canine lymphosarcoma,0,0.5,17537
+246.tiff,canine lymphosarcoma,0,0.55,17503
+246.tiff,canine lymphosarcoma,0,0.6,17469
+246.tiff,canine lymphosarcoma,0,0.65,17409
+246.tiff,canine lymphosarcoma,0,0.7,17339
+246.tiff,canine lymphosarcoma,0,0.75,17264
+246.tiff,canine lymphosarcoma,0,0.8,17196
+246.tiff,canine lymphosarcoma,0,0.85,17116
+246.tiff,canine lymphosarcoma,0,0.9,17023
+246.tiff,canine lymphosarcoma,0,0.95,16927
+246.tiff,canine lymphosarcoma,0,1.0,16836
+246.tiff,canine lymphosarcoma,0,1.05,16715
+246.tiff,canine lymphosarcoma,0,1.1,16568
+246.tiff,canine lymphosarcoma,0,1.15,16436
+246.tiff,canine lymphosarcoma,0,1.2,16283
+246.tiff,canine lymphosarcoma,0,1.25,16118
+246.tiff,canine lymphosarcoma,0,1.3,15938
+246.tiff,canine lymphosarcoma,0,1.35,15711
+246.tiff,canine lymphosarcoma,0,1.4,15467
+246.tiff,canine lymphosarcoma,0,1.45,15238
+246.tiff,canine lymphosarcoma,0,1.5,14963
+246.tiff,canine lymphosarcoma,0,1.55,14674
+246.tiff,canine lymphosarcoma,0,1.6,14381
+246.tiff,canine lymphosarcoma,0,1.65,14014
+246.tiff,canine lymphosarcoma,0,1.7,13654
+246.tiff,canine lymphosarcoma,0,1.75,13294
+246.tiff,canine lymphosarcoma,0,1.8,12908
+246.tiff,canine lymphosarcoma,0,1.85,12507
+246.tiff,canine lymphosarcoma,0,1.9,12098
+246.tiff,canine lymphosarcoma,0,1.95,11683
+246.tiff,canine lymphosarcoma,0,2.0,11248
+246.tiff,canine lymphosarcoma,0,2.05,10835
+246.tiff,canine lymphosarcoma,0,2.1,10403
+246.tiff,canine lymphosarcoma,0,2.15,9943
+246.tiff,canine lymphosarcoma,0,2.2,9507
+246.tiff,canine lymphosarcoma,0,2.25,9056
+246.tiff,canine lymphosarcoma,0,2.3,8631
+246.tiff,canine lymphosarcoma,0,2.35,8233
+246.tiff,canine lymphosarcoma,0,2.4,7806
+246.tiff,canine lymphosarcoma,0,2.45,7419
+246.tiff,canine lymphosarcoma,0,2.5,7046
+246.tiff,canine lymphosarcoma,0,2.55,6663
+246.tiff,canine lymphosarcoma,0,2.6,6286
+246.tiff,canine lymphosarcoma,0,2.65,5935
+246.tiff,canine lymphosarcoma,0,2.7,5575
+246.tiff,canine lymphosarcoma,0,2.75,5230
+246.tiff,canine lymphosarcoma,0,2.8,4943
+246.tiff,canine lymphosarcoma,0,2.85,4669
+246.tiff,canine lymphosarcoma,0,2.9,4399
+246.tiff,canine lymphosarcoma,0,2.95,4114
+246.tiff,canine lymphosarcoma,0,3.0,3853
+246.tiff,canine lymphosarcoma,0,3.05,3613
+246.tiff,canine lymphosarcoma,0,3.1,3394
+246.tiff,canine lymphosarcoma,0,3.15,3191
+246.tiff,canine lymphosarcoma,0,3.2,3020
+246.tiff,canine lymphosarcoma,0,3.25,2835
+246.tiff,canine lymphosarcoma,0,3.3,2652
+246.tiff,canine lymphosarcoma,0,3.35,2509
+246.tiff,canine lymphosarcoma,0,3.4,2371
+246.tiff,canine lymphosarcoma,0,3.45,2231
+246.tiff,canine lymphosarcoma,0,3.5,2106
+246.tiff,canine lymphosarcoma,0,3.55,1997
+246.tiff,canine lymphosarcoma,0,3.6,1882
+246.tiff,canine lymphosarcoma,0,3.65,1787
+246.tiff,canine lymphosarcoma,0,3.7,1700
+246.tiff,canine lymphosarcoma,0,3.75,1589
+246.tiff,canine lymphosarcoma,0,3.8,1498
+246.tiff,canine lymphosarcoma,0,3.85,1420
+246.tiff,canine lymphosarcoma,0,3.9,1352
+246.tiff,canine lymphosarcoma,0,3.95,1285
+246.tiff,canine lymphosarcoma,0,4.0,1215
+246.tiff,canine lymphosarcoma,0,4.05,1157
+246.tiff,canine lymphosarcoma,0,4.1,1111
+246.tiff,canine lymphosarcoma,0,4.15,1067
+246.tiff,canine lymphosarcoma,0,4.2,1008
+246.tiff,canine lymphosarcoma,0,4.25,965
+246.tiff,canine lymphosarcoma,0,4.3,920
+246.tiff,canine lymphosarcoma,0,4.35,873
+246.tiff,canine lymphosarcoma,0,4.4,833
+246.tiff,canine lymphosarcoma,0,4.45,794
+246.tiff,canine lymphosarcoma,0,4.5,757
+246.tiff,canine lymphosarcoma,0,4.55,720
+246.tiff,canine lymphosarcoma,0,4.6,683
+246.tiff,canine lymphosarcoma,0,4.65,664
+246.tiff,canine lymphosarcoma,0,4.7,644
+246.tiff,canine lymphosarcoma,0,4.75,624
+246.tiff,canine lymphosarcoma,0,4.8,594
+246.tiff,canine lymphosarcoma,0,4.85,562
+246.tiff,canine lymphosarcoma,0,4.9,531
+246.tiff,canine lymphosarcoma,0,4.95,508
+246.tiff,canine lymphosarcoma,0,5.0,489
+246.tiff,canine lymphosarcoma,0,5.05,459
+246.tiff,canine lymphosarcoma,0,5.1,442
+246.tiff,canine lymphosarcoma,0,5.15,432
+246.tiff,canine lymphosarcoma,0,5.2,415
+246.tiff,canine lymphosarcoma,0,5.25,400
+246.tiff,canine lymphosarcoma,0,5.3,390
+246.tiff,canine lymphosarcoma,0,5.35,365
+246.tiff,canine lymphosarcoma,0,5.4,349
+246.tiff,canine lymphosarcoma,0,5.45,332
+246.tiff,canine lymphosarcoma,0,5.5,323
+246.tiff,canine lymphosarcoma,0,5.55,308
+246.tiff,canine lymphosarcoma,0,5.6,294
+246.tiff,canine lymphosarcoma,0,5.65,282
+246.tiff,canine lymphosarcoma,0,5.7,273
+246.tiff,canine lymphosarcoma,0,5.75,265
+246.tiff,canine lymphosarcoma,0,5.8,258
+246.tiff,canine lymphosarcoma,0,5.85,249
+246.tiff,canine lymphosarcoma,0,5.9,236
+246.tiff,canine lymphosarcoma,0,5.95,228
+246.tiff,canine lymphosarcoma,0,6.0,220
+246.tiff,canine lymphosarcoma,1,0.0,17743
+246.tiff,canine lymphosarcoma,1,0.05,17730
+246.tiff,canine lymphosarcoma,1,0.1,17720
+246.tiff,canine lymphosarcoma,1,0.15,17702
+246.tiff,canine lymphosarcoma,1,0.2,17682
+246.tiff,canine lymphosarcoma,1,0.25,17665
+246.tiff,canine lymphosarcoma,1,0.3,17633
+246.tiff,canine lymphosarcoma,1,0.35,17597
+246.tiff,canine lymphosarcoma,1,0.4,17556
+246.tiff,canine lymphosarcoma,1,0.45,17507
+246.tiff,canine lymphosarcoma,1,0.5,17472
+246.tiff,canine lymphosarcoma,1,0.55,17424
+246.tiff,canine lymphosarcoma,1,0.6,17381
+246.tiff,canine lymphosarcoma,1,0.65,17315
+246.tiff,canine lymphosarcoma,1,0.7,17249
+246.tiff,canine lymphosarcoma,1,0.75,17169
+246.tiff,canine lymphosarcoma,1,0.8,17080
+246.tiff,canine lymphosarcoma,1,0.85,16991
+246.tiff,canine lymphosarcoma,1,0.9,16895
+246.tiff,canine lymphosarcoma,1,0.95,16773
+246.tiff,canine lymphosarcoma,1,1.0,16653
+246.tiff,canine lymphosarcoma,1,1.05,16510
+246.tiff,canine lymphosarcoma,1,1.1,16377
+246.tiff,canine lymphosarcoma,1,1.15,16209
+246.tiff,canine lymphosarcoma,1,1.2,16026
+246.tiff,canine lymphosarcoma,1,1.25,15861
+246.tiff,canine lymphosarcoma,1,1.3,15671
+246.tiff,canine lymphosarcoma,1,1.35,15466
+246.tiff,canine lymphosarcoma,1,1.4,15246
+246.tiff,canine lymphosarcoma,1,1.45,14986
+246.tiff,canine lymphosarcoma,1,1.5,14709
+246.tiff,canine lymphosarcoma,1,1.55,14457
+246.tiff,canine lymphosarcoma,1,1.6,14177
+246.tiff,canine lymphosarcoma,1,1.65,13871
+246.tiff,canine lymphosarcoma,1,1.7,13553
+246.tiff,canine lymphosarcoma,1,1.75,13219
+246.tiff,canine lymphosarcoma,1,1.8,12873
+246.tiff,canine lymphosarcoma,1,1.85,12483
+246.tiff,canine lymphosarcoma,1,1.9,12071
+246.tiff,canine lymphosarcoma,1,1.95,11647
+246.tiff,canine lymphosarcoma,1,2.0,11212
+246.tiff,canine lymphosarcoma,1,2.05,10810
+246.tiff,canine lymphosarcoma,1,2.1,10369
+246.tiff,canine lymphosarcoma,1,2.15,9923
+246.tiff,canine lymphosarcoma,1,2.2,9504
+246.tiff,canine lymphosarcoma,1,2.25,9069
+246.tiff,canine lymphosarcoma,1,2.3,8662
+246.tiff,canine lymphosarcoma,1,2.35,8207
+246.tiff,canine lymphosarcoma,1,2.4,7761
+246.tiff,canine lymphosarcoma,1,2.45,7339
+246.tiff,canine lymphosarcoma,1,2.5,6943
+246.tiff,canine lymphosarcoma,1,2.55,6559
+246.tiff,canine lymphosarcoma,1,2.6,6174
+246.tiff,canine lymphosarcoma,1,2.65,5812
+246.tiff,canine lymphosarcoma,1,2.7,5481
+246.tiff,canine lymphosarcoma,1,2.75,5175
+246.tiff,canine lymphosarcoma,1,2.8,4867
+246.tiff,canine lymphosarcoma,1,2.85,4557
+246.tiff,canine lymphosarcoma,1,2.9,4272
+246.tiff,canine lymphosarcoma,1,2.95,4006
+246.tiff,canine lymphosarcoma,1,3.0,3764
+246.tiff,canine lymphosarcoma,1,3.05,3532
+246.tiff,canine lymphosarcoma,1,3.1,3302
+246.tiff,canine lymphosarcoma,1,3.15,3069
+246.tiff,canine lymphosarcoma,1,3.2,2867
+246.tiff,canine lymphosarcoma,1,3.25,2680
+246.tiff,canine lymphosarcoma,1,3.3,2529
+246.tiff,canine lymphosarcoma,1,3.35,2373
+246.tiff,canine lymphosarcoma,1,3.4,2218
+246.tiff,canine lymphosarcoma,1,3.45,2101
+246.tiff,canine lymphosarcoma,1,3.5,1966
+246.tiff,canine lymphosarcoma,1,3.55,1854
+246.tiff,canine lymphosarcoma,1,3.6,1738
+246.tiff,canine lymphosarcoma,1,3.65,1631
+246.tiff,canine lymphosarcoma,1,3.7,1529
+246.tiff,canine lymphosarcoma,1,3.75,1439
+246.tiff,canine lymphosarcoma,1,3.8,1359
+246.tiff,canine lymphosarcoma,1,3.85,1279
+246.tiff,canine lymphosarcoma,1,3.9,1213
+246.tiff,canine lymphosarcoma,1,3.95,1152
+246.tiff,canine lymphosarcoma,1,4.0,1099
+246.tiff,canine lymphosarcoma,1,4.05,1040
+246.tiff,canine lymphosarcoma,1,4.1,980
+246.tiff,canine lymphosarcoma,1,4.15,926
+246.tiff,canine lymphosarcoma,1,4.2,864
+246.tiff,canine lymphosarcoma,1,4.25,827
+246.tiff,canine lymphosarcoma,1,4.3,785
+246.tiff,canine lymphosarcoma,1,4.35,745
+246.tiff,canine lymphosarcoma,1,4.4,716
+246.tiff,canine lymphosarcoma,1,4.45,675
+246.tiff,canine lymphosarcoma,1,4.5,648
+246.tiff,canine lymphosarcoma,1,4.55,619
+246.tiff,canine lymphosarcoma,1,4.6,587
+246.tiff,canine lymphosarcoma,1,4.65,565
+246.tiff,canine lymphosarcoma,1,4.7,543
+246.tiff,canine lymphosarcoma,1,4.75,515
+246.tiff,canine lymphosarcoma,1,4.8,479
+246.tiff,canine lymphosarcoma,1,4.85,458
+246.tiff,canine lymphosarcoma,1,4.9,435
+246.tiff,canine lymphosarcoma,1,4.95,417
+246.tiff,canine lymphosarcoma,1,5.0,395
+246.tiff,canine lymphosarcoma,1,5.05,384
+246.tiff,canine lymphosarcoma,1,5.1,361
+246.tiff,canine lymphosarcoma,1,5.15,345
+246.tiff,canine lymphosarcoma,1,5.2,321
+246.tiff,canine lymphosarcoma,1,5.25,311
+246.tiff,canine lymphosarcoma,1,5.3,299
+246.tiff,canine lymphosarcoma,1,5.35,283
+246.tiff,canine lymphosarcoma,1,5.4,266
+246.tiff,canine lymphosarcoma,1,5.45,254
+246.tiff,canine lymphosarcoma,1,5.5,246
+246.tiff,canine lymphosarcoma,1,5.55,234
+246.tiff,canine lymphosarcoma,1,5.6,226
+246.tiff,canine lymphosarcoma,1,5.65,215
+246.tiff,canine lymphosarcoma,1,5.7,206
+246.tiff,canine lymphosarcoma,1,5.75,199
+246.tiff,canine lymphosarcoma,1,5.8,184
+246.tiff,canine lymphosarcoma,1,5.85,182
+246.tiff,canine lymphosarcoma,1,5.9,176
+246.tiff,canine lymphosarcoma,1,5.95,168
+246.tiff,canine lymphosarcoma,1,6.0,158
+246.tiff,canine lymphosarcoma,2,0.0,17536
+246.tiff,canine lymphosarcoma,2,0.05,17526
+246.tiff,canine lymphosarcoma,2,0.1,17501
+246.tiff,canine lymphosarcoma,2,0.15,17484
+246.tiff,canine lymphosarcoma,2,0.2,17458
+246.tiff,canine lymphosarcoma,2,0.25,17437
+246.tiff,canine lymphosarcoma,2,0.3,17403
+246.tiff,canine lymphosarcoma,2,0.35,17377
+246.tiff,canine lymphosarcoma,2,0.4,17336
+246.tiff,canine lymphosarcoma,2,0.45,17301
+246.tiff,canine lymphosarcoma,2,0.5,17249
+246.tiff,canine lymphosarcoma,2,0.55,17184
+246.tiff,canine lymphosarcoma,2,0.6,17111
+246.tiff,canine lymphosarcoma,2,0.65,17049
+246.tiff,canine lymphosarcoma,2,0.7,16965
+246.tiff,canine lymphosarcoma,2,0.75,16889
+246.tiff,canine lymphosarcoma,2,0.8,16787
+246.tiff,canine lymphosarcoma,2,0.85,16693
+246.tiff,canine lymphosarcoma,2,0.9,16593
+246.tiff,canine lymphosarcoma,2,0.95,16486
+246.tiff,canine lymphosarcoma,2,1.0,16354
+246.tiff,canine lymphosarcoma,2,1.05,16212
+246.tiff,canine lymphosarcoma,2,1.1,16037
+246.tiff,canine lymphosarcoma,2,1.15,15867
+246.tiff,canine lymphosarcoma,2,1.2,15656
+246.tiff,canine lymphosarcoma,2,1.25,15466
+246.tiff,canine lymphosarcoma,2,1.3,15212
+246.tiff,canine lymphosarcoma,2,1.35,14955
+246.tiff,canine lymphosarcoma,2,1.4,14689
+246.tiff,canine lymphosarcoma,2,1.45,14388
+246.tiff,canine lymphosarcoma,2,1.5,14059
+246.tiff,canine lymphosarcoma,2,1.55,13744
+246.tiff,canine lymphosarcoma,2,1.6,13415
+246.tiff,canine lymphosarcoma,2,1.65,13082
+246.tiff,canine lymphosarcoma,2,1.7,12703
+246.tiff,canine lymphosarcoma,2,1.75,12347
+246.tiff,canine lymphosarcoma,2,1.8,11952
+246.tiff,canine lymphosarcoma,2,1.85,11573
+246.tiff,canine lymphosarcoma,2,1.9,11165
+246.tiff,canine lymphosarcoma,2,1.95,10738
+246.tiff,canine lymphosarcoma,2,2.0,10305
+246.tiff,canine lymphosarcoma,2,2.05,9877
+246.tiff,canine lymphosarcoma,2,2.1,9445
+246.tiff,canine lymphosarcoma,2,2.15,9005
+246.tiff,canine lymphosarcoma,2,2.2,8567
+246.tiff,canine lymphosarcoma,2,2.25,8114
+246.tiff,canine lymphosarcoma,2,2.3,7715
+246.tiff,canine lymphosarcoma,2,2.35,7299
+246.tiff,canine lymphosarcoma,2,2.4,6905
+246.tiff,canine lymphosarcoma,2,2.45,6506
+246.tiff,canine lymphosarcoma,2,2.5,6130
+246.tiff,canine lymphosarcoma,2,2.55,5775
+246.tiff,canine lymphosarcoma,2,2.6,5421
+246.tiff,canine lymphosarcoma,2,2.65,5097
+246.tiff,canine lymphosarcoma,2,2.7,4783
+246.tiff,canine lymphosarcoma,2,2.75,4482
+246.tiff,canine lymphosarcoma,2,2.8,4177
+246.tiff,canine lymphosarcoma,2,2.85,3924
+246.tiff,canine lymphosarcoma,2,2.9,3672
+246.tiff,canine lymphosarcoma,2,2.95,3427
+246.tiff,canine lymphosarcoma,2,3.0,3214
+246.tiff,canine lymphosarcoma,2,3.05,2999
+246.tiff,canine lymphosarcoma,2,3.1,2791
+246.tiff,canine lymphosarcoma,2,3.15,2621
+246.tiff,canine lymphosarcoma,2,3.2,2454
+246.tiff,canine lymphosarcoma,2,3.25,2274
+246.tiff,canine lymphosarcoma,2,3.3,2118
+246.tiff,canine lymphosarcoma,2,3.35,1982
+246.tiff,canine lymphosarcoma,2,3.4,1857
+246.tiff,canine lymphosarcoma,2,3.45,1754
+246.tiff,canine lymphosarcoma,2,3.5,1636
+246.tiff,canine lymphosarcoma,2,3.55,1536
+246.tiff,canine lymphosarcoma,2,3.6,1436
+246.tiff,canine lymphosarcoma,2,3.65,1347
+246.tiff,canine lymphosarcoma,2,3.7,1278
+246.tiff,canine lymphosarcoma,2,3.75,1206
+246.tiff,canine lymphosarcoma,2,3.8,1123
+246.tiff,canine lymphosarcoma,2,3.85,1055
+246.tiff,canine lymphosarcoma,2,3.9,992
+246.tiff,canine lymphosarcoma,2,3.95,939
+246.tiff,canine lymphosarcoma,2,4.0,877
+246.tiff,canine lymphosarcoma,2,4.05,826
+246.tiff,canine lymphosarcoma,2,4.1,771
+246.tiff,canine lymphosarcoma,2,4.15,727
+246.tiff,canine lymphosarcoma,2,4.2,684
+246.tiff,canine lymphosarcoma,2,4.25,650
+246.tiff,canine lymphosarcoma,2,4.3,608
+246.tiff,canine lymphosarcoma,2,4.35,580
+246.tiff,canine lymphosarcoma,2,4.4,548
+246.tiff,canine lymphosarcoma,2,4.45,510
+246.tiff,canine lymphosarcoma,2,4.5,493
+246.tiff,canine lymphosarcoma,2,4.55,470
+246.tiff,canine lymphosarcoma,2,4.6,446
+246.tiff,canine lymphosarcoma,2,4.65,426
+246.tiff,canine lymphosarcoma,2,4.7,415
+246.tiff,canine lymphosarcoma,2,4.75,400
+246.tiff,canine lymphosarcoma,2,4.8,378
+246.tiff,canine lymphosarcoma,2,4.85,366
+246.tiff,canine lymphosarcoma,2,4.9,352
+246.tiff,canine lymphosarcoma,2,4.95,328
+246.tiff,canine lymphosarcoma,2,5.0,311
+246.tiff,canine lymphosarcoma,2,5.05,301
+246.tiff,canine lymphosarcoma,2,5.1,286
+246.tiff,canine lymphosarcoma,2,5.15,272
+246.tiff,canine lymphosarcoma,2,5.2,263
+246.tiff,canine lymphosarcoma,2,5.25,255
+246.tiff,canine lymphosarcoma,2,5.3,247
+246.tiff,canine lymphosarcoma,2,5.35,230
+246.tiff,canine lymphosarcoma,2,5.4,215
+246.tiff,canine lymphosarcoma,2,5.45,206
+246.tiff,canine lymphosarcoma,2,5.5,197
+246.tiff,canine lymphosarcoma,2,5.55,184
+246.tiff,canine lymphosarcoma,2,5.6,173
+246.tiff,canine lymphosarcoma,2,5.65,162
+246.tiff,canine lymphosarcoma,2,5.7,151
+246.tiff,canine lymphosarcoma,2,5.75,142
+246.tiff,canine lymphosarcoma,2,5.8,139
+246.tiff,canine lymphosarcoma,2,5.85,135
+246.tiff,canine lymphosarcoma,2,5.9,127
+246.tiff,canine lymphosarcoma,2,5.95,120
+246.tiff,canine lymphosarcoma,2,6.0,114
+246.tiff,canine lymphosarcoma,3,0.0,18528
+246.tiff,canine lymphosarcoma,3,0.05,18519
+246.tiff,canine lymphosarcoma,3,0.1,18508
+246.tiff,canine lymphosarcoma,3,0.15,18501
+246.tiff,canine lymphosarcoma,3,0.2,18484
+246.tiff,canine lymphosarcoma,3,0.25,18469
+246.tiff,canine lymphosarcoma,3,0.3,18449
+246.tiff,canine lymphosarcoma,3,0.35,18418
+246.tiff,canine lymphosarcoma,3,0.4,18375
+246.tiff,canine lymphosarcoma,3,0.45,18338
+246.tiff,canine lymphosarcoma,3,0.5,18301
+246.tiff,canine lymphosarcoma,3,0.55,18263
+246.tiff,canine lymphosarcoma,3,0.6,18213
+246.tiff,canine lymphosarcoma,3,0.65,18160
+246.tiff,canine lymphosarcoma,3,0.7,18093
+246.tiff,canine lymphosarcoma,3,0.75,18027
+246.tiff,canine lymphosarcoma,3,0.8,17960
+246.tiff,canine lymphosarcoma,3,0.85,17885
+246.tiff,canine lymphosarcoma,3,0.9,17813
+246.tiff,canine lymphosarcoma,3,0.95,17734
+246.tiff,canine lymphosarcoma,3,1.0,17637
+246.tiff,canine lymphosarcoma,3,1.05,17531
+246.tiff,canine lymphosarcoma,3,1.1,17421
+246.tiff,canine lymphosarcoma,3,1.15,17293
+246.tiff,canine lymphosarcoma,3,1.2,17177
+246.tiff,canine lymphosarcoma,3,1.25,17044
+246.tiff,canine lymphosarcoma,3,1.3,16890
+246.tiff,canine lymphosarcoma,3,1.35,16712
+246.tiff,canine lymphosarcoma,3,1.4,16511
+246.tiff,canine lymphosarcoma,3,1.45,16319
+246.tiff,canine lymphosarcoma,3,1.5,16123
+246.tiff,canine lymphosarcoma,3,1.55,15862
+246.tiff,canine lymphosarcoma,3,1.6,15578
+246.tiff,canine lymphosarcoma,3,1.65,15286
+246.tiff,canine lymphosarcoma,3,1.7,14982
+246.tiff,canine lymphosarcoma,3,1.75,14684
+246.tiff,canine lymphosarcoma,3,1.8,14363
+246.tiff,canine lymphosarcoma,3,1.85,14017
+246.tiff,canine lymphosarcoma,3,1.9,13639
+246.tiff,canine lymphosarcoma,3,1.95,13256
+246.tiff,canine lymphosarcoma,3,2.0,12885
+246.tiff,canine lymphosarcoma,3,2.05,12512
+246.tiff,canine lymphosarcoma,3,2.1,12117
+246.tiff,canine lymphosarcoma,3,2.15,11658
+246.tiff,canine lymphosarcoma,3,2.2,11209
+246.tiff,canine lymphosarcoma,3,2.25,10761
+246.tiff,canine lymphosarcoma,3,2.3,10316
+246.tiff,canine lymphosarcoma,3,2.35,9844
+246.tiff,canine lymphosarcoma,3,2.4,9437
+246.tiff,canine lymphosarcoma,3,2.45,9020
+246.tiff,canine lymphosarcoma,3,2.5,8619
+246.tiff,canine lymphosarcoma,3,2.55,8219
+246.tiff,canine lymphosarcoma,3,2.6,7825
+246.tiff,canine lymphosarcoma,3,2.65,7416
+246.tiff,canine lymphosarcoma,3,2.7,7011
+246.tiff,canine lymphosarcoma,3,2.75,6617
+246.tiff,canine lymphosarcoma,3,2.8,6240
+246.tiff,canine lymphosarcoma,3,2.85,5882
+246.tiff,canine lymphosarcoma,3,2.9,5571
+246.tiff,canine lymphosarcoma,3,2.95,5275
+246.tiff,canine lymphosarcoma,3,3.0,4950
+246.tiff,canine lymphosarcoma,3,3.05,4660
+246.tiff,canine lymphosarcoma,3,3.1,4368
+246.tiff,canine lymphosarcoma,3,3.15,4116
+246.tiff,canine lymphosarcoma,3,3.2,3861
+246.tiff,canine lymphosarcoma,3,3.25,3646
+246.tiff,canine lymphosarcoma,3,3.3,3413
+246.tiff,canine lymphosarcoma,3,3.35,3194
+246.tiff,canine lymphosarcoma,3,3.4,2988
+246.tiff,canine lymphosarcoma,3,3.45,2808
+246.tiff,canine lymphosarcoma,3,3.5,2629
+246.tiff,canine lymphosarcoma,3,3.55,2465
+246.tiff,canine lymphosarcoma,3,3.6,2323
+246.tiff,canine lymphosarcoma,3,3.65,2195
+246.tiff,canine lymphosarcoma,3,3.7,2059
+246.tiff,canine lymphosarcoma,3,3.75,1927
+246.tiff,canine lymphosarcoma,3,3.8,1814
+246.tiff,canine lymphosarcoma,3,3.85,1711
+246.tiff,canine lymphosarcoma,3,3.9,1616
+246.tiff,canine lymphosarcoma,3,3.95,1494
+246.tiff,canine lymphosarcoma,3,4.0,1405
+246.tiff,canine lymphosarcoma,3,4.05,1304
+246.tiff,canine lymphosarcoma,3,4.1,1227
+246.tiff,canine lymphosarcoma,3,4.15,1138
+246.tiff,canine lymphosarcoma,3,4.2,1066
+246.tiff,canine lymphosarcoma,3,4.25,1007
+246.tiff,canine lymphosarcoma,3,4.3,932
+246.tiff,canine lymphosarcoma,3,4.35,882
+246.tiff,canine lymphosarcoma,3,4.4,835
+246.tiff,canine lymphosarcoma,3,4.45,786
+246.tiff,canine lymphosarcoma,3,4.5,744
+246.tiff,canine lymphosarcoma,3,4.55,703
+246.tiff,canine lymphosarcoma,3,4.6,660
+246.tiff,canine lymphosarcoma,3,4.65,625
+246.tiff,canine lymphosarcoma,3,4.7,590
+246.tiff,canine lymphosarcoma,3,4.75,562
+246.tiff,canine lymphosarcoma,3,4.8,544
+246.tiff,canine lymphosarcoma,3,4.85,516
+246.tiff,canine lymphosarcoma,3,4.9,486
+246.tiff,canine lymphosarcoma,3,4.95,461
+246.tiff,canine lymphosarcoma,3,5.0,434
+246.tiff,canine lymphosarcoma,3,5.05,406
+246.tiff,canine lymphosarcoma,3,5.1,389
+246.tiff,canine lymphosarcoma,3,5.15,364
+246.tiff,canine lymphosarcoma,3,5.2,346
+246.tiff,canine lymphosarcoma,3,5.25,330
+246.tiff,canine lymphosarcoma,3,5.3,315
+246.tiff,canine lymphosarcoma,3,5.35,303
+246.tiff,canine lymphosarcoma,3,5.4,287
+246.tiff,canine lymphosarcoma,3,5.45,278
+246.tiff,canine lymphosarcoma,3,5.5,263
+246.tiff,canine lymphosarcoma,3,5.55,254
+246.tiff,canine lymphosarcoma,3,5.6,239
+246.tiff,canine lymphosarcoma,3,5.65,225
+246.tiff,canine lymphosarcoma,3,5.7,214
+246.tiff,canine lymphosarcoma,3,5.75,200
+246.tiff,canine lymphosarcoma,3,5.8,198
+246.tiff,canine lymphosarcoma,3,5.85,187
+246.tiff,canine lymphosarcoma,3,5.9,180
+246.tiff,canine lymphosarcoma,3,5.95,173
+246.tiff,canine lymphosarcoma,3,6.0,164
+246.tiff,canine lymphosarcoma,4,0.0,17756
+246.tiff,canine lymphosarcoma,4,0.05,17749
+246.tiff,canine lymphosarcoma,4,0.1,17741
+246.tiff,canine lymphosarcoma,4,0.15,17735
+246.tiff,canine lymphosarcoma,4,0.2,17718
+246.tiff,canine lymphosarcoma,4,0.25,17704
+246.tiff,canine lymphosarcoma,4,0.3,17683
+246.tiff,canine lymphosarcoma,4,0.35,17660
+246.tiff,canine lymphosarcoma,4,0.4,17646
+246.tiff,canine lymphosarcoma,4,0.45,17621
+246.tiff,canine lymphosarcoma,4,0.5,17592
+246.tiff,canine lymphosarcoma,4,0.55,17549
+246.tiff,canine lymphosarcoma,4,0.6,17510
+246.tiff,canine lymphosarcoma,4,0.65,17450
+246.tiff,canine lymphosarcoma,4,0.7,17406
+246.tiff,canine lymphosarcoma,4,0.75,17346
+246.tiff,canine lymphosarcoma,4,0.8,17285
+246.tiff,canine lymphosarcoma,4,0.85,17217
+246.tiff,canine lymphosarcoma,4,0.9,17135
+246.tiff,canine lymphosarcoma,4,0.95,17044
+246.tiff,canine lymphosarcoma,4,1.0,16929
+246.tiff,canine lymphosarcoma,4,1.05,16811
+246.tiff,canine lymphosarcoma,4,1.1,16664
+246.tiff,canine lymphosarcoma,4,1.15,16522
+246.tiff,canine lymphosarcoma,4,1.2,16367
+246.tiff,canine lymphosarcoma,4,1.25,16186
+246.tiff,canine lymphosarcoma,4,1.3,16046
+246.tiff,canine lymphosarcoma,4,1.35,15852
+246.tiff,canine lymphosarcoma,4,1.4,15638
+246.tiff,canine lymphosarcoma,4,1.45,15397
+246.tiff,canine lymphosarcoma,4,1.5,15149
+246.tiff,canine lymphosarcoma,4,1.55,14903
+246.tiff,canine lymphosarcoma,4,1.6,14621
+246.tiff,canine lymphosarcoma,4,1.65,14302
+246.tiff,canine lymphosarcoma,4,1.7,13968
+246.tiff,canine lymphosarcoma,4,1.75,13612
+246.tiff,canine lymphosarcoma,4,1.8,13235
+246.tiff,canine lymphosarcoma,4,1.85,12870
+246.tiff,canine lymphosarcoma,4,1.9,12466
+246.tiff,canine lymphosarcoma,4,1.95,12091
+246.tiff,canine lymphosarcoma,4,2.0,11682
+246.tiff,canine lymphosarcoma,4,2.05,11254
+246.tiff,canine lymphosarcoma,4,2.1,10785
+246.tiff,canine lymphosarcoma,4,2.15,10323
+246.tiff,canine lymphosarcoma,4,2.2,9928
+246.tiff,canine lymphosarcoma,4,2.25,9507
+246.tiff,canine lymphosarcoma,4,2.3,9104
+246.tiff,canine lymphosarcoma,4,2.35,8663
+246.tiff,canine lymphosarcoma,4,2.4,8271
+246.tiff,canine lymphosarcoma,4,2.45,7855
+246.tiff,canine lymphosarcoma,4,2.5,7447
+246.tiff,canine lymphosarcoma,4,2.55,7051
+246.tiff,canine lymphosarcoma,4,2.6,6683
+246.tiff,canine lymphosarcoma,4,2.65,6334
+246.tiff,canine lymphosarcoma,4,2.7,5982
+246.tiff,canine lymphosarcoma,4,2.75,5658
+246.tiff,canine lymphosarcoma,4,2.8,5377
+246.tiff,canine lymphosarcoma,4,2.85,5088
+246.tiff,canine lymphosarcoma,4,2.9,4774
+246.tiff,canine lymphosarcoma,4,2.95,4507
+246.tiff,canine lymphosarcoma,4,3.0,4249
+246.tiff,canine lymphosarcoma,4,3.05,3991
+246.tiff,canine lymphosarcoma,4,3.1,3718
+246.tiff,canine lymphosarcoma,4,3.15,3504
+246.tiff,canine lymphosarcoma,4,3.2,3275
+246.tiff,canine lymphosarcoma,4,3.25,3075
+246.tiff,canine lymphosarcoma,4,3.3,2895
+246.tiff,canine lymphosarcoma,4,3.35,2734
+246.tiff,canine lymphosarcoma,4,3.4,2586
+246.tiff,canine lymphosarcoma,4,3.45,2429
+246.tiff,canine lymphosarcoma,4,3.5,2292
+246.tiff,canine lymphosarcoma,4,3.55,2169
+246.tiff,canine lymphosarcoma,4,3.6,2052
+246.tiff,canine lymphosarcoma,4,3.65,1942
+246.tiff,canine lymphosarcoma,4,3.7,1833
+246.tiff,canine lymphosarcoma,4,3.75,1749
+246.tiff,canine lymphosarcoma,4,3.8,1650
+246.tiff,canine lymphosarcoma,4,3.85,1557
+246.tiff,canine lymphosarcoma,4,3.9,1469
+246.tiff,canine lymphosarcoma,4,3.95,1389
+246.tiff,canine lymphosarcoma,4,4.0,1328
+246.tiff,canine lymphosarcoma,4,4.05,1270
+246.tiff,canine lymphosarcoma,4,4.1,1211
+246.tiff,canine lymphosarcoma,4,4.15,1163
+246.tiff,canine lymphosarcoma,4,4.2,1113
+246.tiff,canine lymphosarcoma,4,4.25,1066
+246.tiff,canine lymphosarcoma,4,4.3,1023
+246.tiff,canine lymphosarcoma,4,4.35,980
+246.tiff,canine lymphosarcoma,4,4.4,939
+246.tiff,canine lymphosarcoma,4,4.45,900
+246.tiff,canine lymphosarcoma,4,4.5,860
+246.tiff,canine lymphosarcoma,4,4.55,830
+246.tiff,canine lymphosarcoma,4,4.6,785
+246.tiff,canine lymphosarcoma,4,4.65,752
+246.tiff,canine lymphosarcoma,4,4.7,726
+246.tiff,canine lymphosarcoma,4,4.75,699
+246.tiff,canine lymphosarcoma,4,4.8,672
+246.tiff,canine lymphosarcoma,4,4.85,637
+246.tiff,canine lymphosarcoma,4,4.9,620
+246.tiff,canine lymphosarcoma,4,4.95,598
+246.tiff,canine lymphosarcoma,4,5.0,575
+246.tiff,canine lymphosarcoma,4,5.05,549
+246.tiff,canine lymphosarcoma,4,5.1,534
+246.tiff,canine lymphosarcoma,4,5.15,508
+246.tiff,canine lymphosarcoma,4,5.2,488
+246.tiff,canine lymphosarcoma,4,5.25,476
+246.tiff,canine lymphosarcoma,4,5.3,461
+246.tiff,canine lymphosarcoma,4,5.35,446
+246.tiff,canine lymphosarcoma,4,5.4,425
+246.tiff,canine lymphosarcoma,4,5.45,411
+246.tiff,canine lymphosarcoma,4,5.5,383
+246.tiff,canine lymphosarcoma,4,5.55,370
+246.tiff,canine lymphosarcoma,4,5.6,357
+246.tiff,canine lymphosarcoma,4,5.65,342
+246.tiff,canine lymphosarcoma,4,5.7,336
+246.tiff,canine lymphosarcoma,4,5.75,327
+246.tiff,canine lymphosarcoma,4,5.8,312
+246.tiff,canine lymphosarcoma,4,5.85,291
+246.tiff,canine lymphosarcoma,4,5.9,279
+246.tiff,canine lymphosarcoma,4,5.95,273
+246.tiff,canine lymphosarcoma,4,6.0,264
+459.tiff,canine soft tissue sarcoma,0,0.0,17907
+459.tiff,canine soft tissue sarcoma,0,0.05,17878
+459.tiff,canine soft tissue sarcoma,0,0.1,17837
+459.tiff,canine soft tissue sarcoma,0,0.15,17792
+459.tiff,canine soft tissue sarcoma,0,0.2,17743
+459.tiff,canine soft tissue sarcoma,0,0.25,17693
+459.tiff,canine soft tissue sarcoma,0,0.3,17617
+459.tiff,canine soft tissue sarcoma,0,0.35,17527
+459.tiff,canine soft tissue sarcoma,0,0.4,17443
+459.tiff,canine soft tissue sarcoma,0,0.45,17333
+459.tiff,canine soft tissue sarcoma,0,0.5,17234
+459.tiff,canine soft tissue sarcoma,0,0.55,17138
+459.tiff,canine soft tissue sarcoma,0,0.6,17019
+459.tiff,canine soft tissue sarcoma,0,0.65,16893
+459.tiff,canine soft tissue sarcoma,0,0.7,16765
+459.tiff,canine soft tissue sarcoma,0,0.75,16620
+459.tiff,canine soft tissue sarcoma,0,0.8,16476
+459.tiff,canine soft tissue sarcoma,0,0.85,16337
+459.tiff,canine soft tissue sarcoma,0,0.9,16170
+459.tiff,canine soft tissue sarcoma,0,0.95,15999
+459.tiff,canine soft tissue sarcoma,0,1.0,15834
+459.tiff,canine soft tissue sarcoma,0,1.05,15677
+459.tiff,canine soft tissue sarcoma,0,1.1,15532
+459.tiff,canine soft tissue sarcoma,0,1.15,15373
+459.tiff,canine soft tissue sarcoma,0,1.2,15217
+459.tiff,canine soft tissue sarcoma,0,1.25,15047
+459.tiff,canine soft tissue sarcoma,0,1.3,14886
+459.tiff,canine soft tissue sarcoma,0,1.35,14730
+459.tiff,canine soft tissue sarcoma,0,1.4,14585
+459.tiff,canine soft tissue sarcoma,0,1.45,14423
+459.tiff,canine soft tissue sarcoma,0,1.5,14284
+459.tiff,canine soft tissue sarcoma,0,1.55,14099
+459.tiff,canine soft tissue sarcoma,0,1.6,13926
+459.tiff,canine soft tissue sarcoma,0,1.65,13750
+459.tiff,canine soft tissue sarcoma,0,1.7,13570
+459.tiff,canine soft tissue sarcoma,0,1.75,13379
+459.tiff,canine soft tissue sarcoma,0,1.8,13205
+459.tiff,canine soft tissue sarcoma,0,1.85,13003
+459.tiff,canine soft tissue sarcoma,0,1.9,12804
+459.tiff,canine soft tissue sarcoma,0,1.95,12603
+459.tiff,canine soft tissue sarcoma,0,2.0,12399
+459.tiff,canine soft tissue sarcoma,0,2.05,12192
+459.tiff,canine soft tissue sarcoma,0,2.1,11956
+459.tiff,canine soft tissue sarcoma,0,2.15,11712
+459.tiff,canine soft tissue sarcoma,0,2.2,11482
+459.tiff,canine soft tissue sarcoma,0,2.25,11215
+459.tiff,canine soft tissue sarcoma,0,2.3,10939
+459.tiff,canine soft tissue sarcoma,0,2.35,10677
+459.tiff,canine soft tissue sarcoma,0,2.4,10389
+459.tiff,canine soft tissue sarcoma,0,2.45,10118
+459.tiff,canine soft tissue sarcoma,0,2.5,9806
+459.tiff,canine soft tissue sarcoma,0,2.55,9523
+459.tiff,canine soft tissue sarcoma,0,2.6,9178
+459.tiff,canine soft tissue sarcoma,0,2.65,8895
+459.tiff,canine soft tissue sarcoma,0,2.7,8581
+459.tiff,canine soft tissue sarcoma,0,2.75,8243
+459.tiff,canine soft tissue sarcoma,0,2.8,7908
+459.tiff,canine soft tissue sarcoma,0,2.85,7581
+459.tiff,canine soft tissue sarcoma,0,2.9,7260
+459.tiff,canine soft tissue sarcoma,0,2.95,6944
+459.tiff,canine soft tissue sarcoma,0,3.0,6666
+459.tiff,canine soft tissue sarcoma,0,3.05,6356
+459.tiff,canine soft tissue sarcoma,0,3.1,6054
+459.tiff,canine soft tissue sarcoma,0,3.15,5780
+459.tiff,canine soft tissue sarcoma,0,3.2,5497
+459.tiff,canine soft tissue sarcoma,0,3.25,5229
+459.tiff,canine soft tissue sarcoma,0,3.3,4940
+459.tiff,canine soft tissue sarcoma,0,3.35,4692
+459.tiff,canine soft tissue sarcoma,0,3.4,4447
+459.tiff,canine soft tissue sarcoma,0,3.45,4221
+459.tiff,canine soft tissue sarcoma,0,3.5,3973
+459.tiff,canine soft tissue sarcoma,0,3.55,3749
+459.tiff,canine soft tissue sarcoma,0,3.6,3503
+459.tiff,canine soft tissue sarcoma,0,3.65,3294
+459.tiff,canine soft tissue sarcoma,0,3.7,3097
+459.tiff,canine soft tissue sarcoma,0,3.75,2908
+459.tiff,canine soft tissue sarcoma,0,3.8,2742
+459.tiff,canine soft tissue sarcoma,0,3.85,2586
+459.tiff,canine soft tissue sarcoma,0,3.9,2424
+459.tiff,canine soft tissue sarcoma,0,3.95,2260
+459.tiff,canine soft tissue sarcoma,0,4.0,2113
+459.tiff,canine soft tissue sarcoma,0,4.05,1981
+459.tiff,canine soft tissue sarcoma,0,4.1,1828
+459.tiff,canine soft tissue sarcoma,0,4.15,1702
+459.tiff,canine soft tissue sarcoma,0,4.2,1593
+459.tiff,canine soft tissue sarcoma,0,4.25,1495
+459.tiff,canine soft tissue sarcoma,0,4.3,1395
+459.tiff,canine soft tissue sarcoma,0,4.35,1305
+459.tiff,canine soft tissue sarcoma,0,4.4,1213
+459.tiff,canine soft tissue sarcoma,0,4.45,1128
+459.tiff,canine soft tissue sarcoma,0,4.5,1037
+459.tiff,canine soft tissue sarcoma,0,4.55,954
+459.tiff,canine soft tissue sarcoma,0,4.6,886
+459.tiff,canine soft tissue sarcoma,0,4.65,819
+459.tiff,canine soft tissue sarcoma,0,4.7,756
+459.tiff,canine soft tissue sarcoma,0,4.75,688
+459.tiff,canine soft tissue sarcoma,0,4.8,633
+459.tiff,canine soft tissue sarcoma,0,4.85,576
+459.tiff,canine soft tissue sarcoma,0,4.9,529
+459.tiff,canine soft tissue sarcoma,0,4.95,482
+459.tiff,canine soft tissue sarcoma,0,5.0,446
+459.tiff,canine soft tissue sarcoma,0,5.05,420
+459.tiff,canine soft tissue sarcoma,0,5.1,393
+459.tiff,canine soft tissue sarcoma,0,5.15,366
+459.tiff,canine soft tissue sarcoma,0,5.2,334
+459.tiff,canine soft tissue sarcoma,0,5.25,312
+459.tiff,canine soft tissue sarcoma,0,5.3,288
+459.tiff,canine soft tissue sarcoma,0,5.35,269
+459.tiff,canine soft tissue sarcoma,0,5.4,250
+459.tiff,canine soft tissue sarcoma,0,5.45,235
+459.tiff,canine soft tissue sarcoma,0,5.5,216
+459.tiff,canine soft tissue sarcoma,0,5.55,206
+459.tiff,canine soft tissue sarcoma,0,5.6,184
+459.tiff,canine soft tissue sarcoma,0,5.65,169
+459.tiff,canine soft tissue sarcoma,0,5.7,162
+459.tiff,canine soft tissue sarcoma,0,5.75,153
+459.tiff,canine soft tissue sarcoma,0,5.8,141
+459.tiff,canine soft tissue sarcoma,0,5.85,132
+459.tiff,canine soft tissue sarcoma,0,5.9,122
+459.tiff,canine soft tissue sarcoma,0,5.95,112
+459.tiff,canine soft tissue sarcoma,0,6.0,106
+459.tiff,canine soft tissue sarcoma,1,0.0,16324
+459.tiff,canine soft tissue sarcoma,1,0.05,16278
+459.tiff,canine soft tissue sarcoma,1,0.1,16221
+459.tiff,canine soft tissue sarcoma,1,0.15,16164
+459.tiff,canine soft tissue sarcoma,1,0.2,16090
+459.tiff,canine soft tissue sarcoma,1,0.25,16005
+459.tiff,canine soft tissue sarcoma,1,0.3,15928
+459.tiff,canine soft tissue sarcoma,1,0.35,15821
+459.tiff,canine soft tissue sarcoma,1,0.4,15703
+459.tiff,canine soft tissue sarcoma,1,0.45,15584
+459.tiff,canine soft tissue sarcoma,1,0.5,15465
+459.tiff,canine soft tissue sarcoma,1,0.55,15338
+459.tiff,canine soft tissue sarcoma,1,0.6,15231
+459.tiff,canine soft tissue sarcoma,1,0.65,15117
+459.tiff,canine soft tissue sarcoma,1,0.7,14965
+459.tiff,canine soft tissue sarcoma,1,0.75,14813
+459.tiff,canine soft tissue sarcoma,1,0.8,14687
+459.tiff,canine soft tissue sarcoma,1,0.85,14557
+459.tiff,canine soft tissue sarcoma,1,0.9,14418
+459.tiff,canine soft tissue sarcoma,1,0.95,14291
+459.tiff,canine soft tissue sarcoma,1,1.0,14166
+459.tiff,canine soft tissue sarcoma,1,1.05,14027
+459.tiff,canine soft tissue sarcoma,1,1.1,13909
+459.tiff,canine soft tissue sarcoma,1,1.15,13760
+459.tiff,canine soft tissue sarcoma,1,1.2,13635
+459.tiff,canine soft tissue sarcoma,1,1.25,13494
+459.tiff,canine soft tissue sarcoma,1,1.3,13347
+459.tiff,canine soft tissue sarcoma,1,1.35,13173
+459.tiff,canine soft tissue sarcoma,1,1.4,13007
+459.tiff,canine soft tissue sarcoma,1,1.45,12823
+459.tiff,canine soft tissue sarcoma,1,1.5,12628
+459.tiff,canine soft tissue sarcoma,1,1.55,12435
+459.tiff,canine soft tissue sarcoma,1,1.6,12237
+459.tiff,canine soft tissue sarcoma,1,1.65,12037
+459.tiff,canine soft tissue sarcoma,1,1.7,11817
+459.tiff,canine soft tissue sarcoma,1,1.75,11585
+459.tiff,canine soft tissue sarcoma,1,1.8,11331
+459.tiff,canine soft tissue sarcoma,1,1.85,11055
+459.tiff,canine soft tissue sarcoma,1,1.9,10777
+459.tiff,canine soft tissue sarcoma,1,1.95,10508
+459.tiff,canine soft tissue sarcoma,1,2.0,10210
+459.tiff,canine soft tissue sarcoma,1,2.05,9876
+459.tiff,canine soft tissue sarcoma,1,2.1,9595
+459.tiff,canine soft tissue sarcoma,1,2.15,9281
+459.tiff,canine soft tissue sarcoma,1,2.2,8922
+459.tiff,canine soft tissue sarcoma,1,2.25,8617
+459.tiff,canine soft tissue sarcoma,1,2.3,8227
+459.tiff,canine soft tissue sarcoma,1,2.35,7861
+459.tiff,canine soft tissue sarcoma,1,2.4,7486
+459.tiff,canine soft tissue sarcoma,1,2.45,7145
+459.tiff,canine soft tissue sarcoma,1,2.5,6786
+459.tiff,canine soft tissue sarcoma,1,2.55,6435
+459.tiff,canine soft tissue sarcoma,1,2.6,6074
+459.tiff,canine soft tissue sarcoma,1,2.65,5731
+459.tiff,canine soft tissue sarcoma,1,2.7,5409
+459.tiff,canine soft tissue sarcoma,1,2.75,5024
+459.tiff,canine soft tissue sarcoma,1,2.8,4727
+459.tiff,canine soft tissue sarcoma,1,2.85,4454
+459.tiff,canine soft tissue sarcoma,1,2.9,4151
+459.tiff,canine soft tissue sarcoma,1,2.95,3881
+459.tiff,canine soft tissue sarcoma,1,3.0,3582
+459.tiff,canine soft tissue sarcoma,1,3.05,3319
+459.tiff,canine soft tissue sarcoma,1,3.1,3049
+459.tiff,canine soft tissue sarcoma,1,3.15,2802
+459.tiff,canine soft tissue sarcoma,1,3.2,2578
+459.tiff,canine soft tissue sarcoma,1,3.25,2382
+459.tiff,canine soft tissue sarcoma,1,3.3,2173
+459.tiff,canine soft tissue sarcoma,1,3.35,1978
+459.tiff,canine soft tissue sarcoma,1,3.4,1804
+459.tiff,canine soft tissue sarcoma,1,3.45,1643
+459.tiff,canine soft tissue sarcoma,1,3.5,1486
+459.tiff,canine soft tissue sarcoma,1,3.55,1352
+459.tiff,canine soft tissue sarcoma,1,3.6,1230
+459.tiff,canine soft tissue sarcoma,1,3.65,1104
+459.tiff,canine soft tissue sarcoma,1,3.7,1005
+459.tiff,canine soft tissue sarcoma,1,3.75,894
+459.tiff,canine soft tissue sarcoma,1,3.8,804
+459.tiff,canine soft tissue sarcoma,1,3.85,741
+459.tiff,canine soft tissue sarcoma,1,3.9,681
+459.tiff,canine soft tissue sarcoma,1,3.95,608
+459.tiff,canine soft tissue sarcoma,1,4.0,548
+459.tiff,canine soft tissue sarcoma,1,4.05,489
+459.tiff,canine soft tissue sarcoma,1,4.1,437
+459.tiff,canine soft tissue sarcoma,1,4.15,396
+459.tiff,canine soft tissue sarcoma,1,4.2,364
+459.tiff,canine soft tissue sarcoma,1,4.25,321
+459.tiff,canine soft tissue sarcoma,1,4.3,293
+459.tiff,canine soft tissue sarcoma,1,4.35,263
+459.tiff,canine soft tissue sarcoma,1,4.4,240
+459.tiff,canine soft tissue sarcoma,1,4.45,221
+459.tiff,canine soft tissue sarcoma,1,4.5,197
+459.tiff,canine soft tissue sarcoma,1,4.55,174
+459.tiff,canine soft tissue sarcoma,1,4.6,157
+459.tiff,canine soft tissue sarcoma,1,4.65,150
+459.tiff,canine soft tissue sarcoma,1,4.7,133
+459.tiff,canine soft tissue sarcoma,1,4.75,125
+459.tiff,canine soft tissue sarcoma,1,4.8,116
+459.tiff,canine soft tissue sarcoma,1,4.85,109
+459.tiff,canine soft tissue sarcoma,1,4.9,98
+459.tiff,canine soft tissue sarcoma,1,4.95,89
+459.tiff,canine soft tissue sarcoma,1,5.0,84
+459.tiff,canine soft tissue sarcoma,1,5.05,77
+459.tiff,canine soft tissue sarcoma,1,5.1,70
+459.tiff,canine soft tissue sarcoma,1,5.15,64
+459.tiff,canine soft tissue sarcoma,1,5.2,60
+459.tiff,canine soft tissue sarcoma,1,5.25,54
+459.tiff,canine soft tissue sarcoma,1,5.3,50
+459.tiff,canine soft tissue sarcoma,1,5.35,48
+459.tiff,canine soft tissue sarcoma,1,5.4,45
+459.tiff,canine soft tissue sarcoma,1,5.45,40
+459.tiff,canine soft tissue sarcoma,1,5.5,37
+459.tiff,canine soft tissue sarcoma,1,5.55,34
+459.tiff,canine soft tissue sarcoma,1,5.6,34
+459.tiff,canine soft tissue sarcoma,1,5.65,29
+459.tiff,canine soft tissue sarcoma,1,5.7,25
+459.tiff,canine soft tissue sarcoma,1,5.75,23
+459.tiff,canine soft tissue sarcoma,1,5.8,22
+459.tiff,canine soft tissue sarcoma,1,5.85,20
+459.tiff,canine soft tissue sarcoma,1,5.9,15
+459.tiff,canine soft tissue sarcoma,1,5.95,14
+459.tiff,canine soft tissue sarcoma,1,6.0,12
+459.tiff,canine soft tissue sarcoma,2,0.0,16974
+459.tiff,canine soft tissue sarcoma,2,0.05,16935
+459.tiff,canine soft tissue sarcoma,2,0.1,16896
+459.tiff,canine soft tissue sarcoma,2,0.15,16851
+459.tiff,canine soft tissue sarcoma,2,0.2,16785
+459.tiff,canine soft tissue sarcoma,2,0.25,16717
+459.tiff,canine soft tissue sarcoma,2,0.3,16642
+459.tiff,canine soft tissue sarcoma,2,0.35,16563
+459.tiff,canine soft tissue sarcoma,2,0.4,16458
+459.tiff,canine soft tissue sarcoma,2,0.45,16352
+459.tiff,canine soft tissue sarcoma,2,0.5,16235
+459.tiff,canine soft tissue sarcoma,2,0.55,16124
+459.tiff,canine soft tissue sarcoma,2,0.6,16012
+459.tiff,canine soft tissue sarcoma,2,0.65,15890
+459.tiff,canine soft tissue sarcoma,2,0.7,15795
+459.tiff,canine soft tissue sarcoma,2,0.75,15664
+459.tiff,canine soft tissue sarcoma,2,0.8,15546
+459.tiff,canine soft tissue sarcoma,2,0.85,15416
+459.tiff,canine soft tissue sarcoma,2,0.9,15281
+459.tiff,canine soft tissue sarcoma,2,0.95,15169
+459.tiff,canine soft tissue sarcoma,2,1.0,15015
+459.tiff,canine soft tissue sarcoma,2,1.05,14859
+459.tiff,canine soft tissue sarcoma,2,1.1,14711
+459.tiff,canine soft tissue sarcoma,2,1.15,14573
+459.tiff,canine soft tissue sarcoma,2,1.2,14413
+459.tiff,canine soft tissue sarcoma,2,1.25,14266
+459.tiff,canine soft tissue sarcoma,2,1.3,14118
+459.tiff,canine soft tissue sarcoma,2,1.35,13965
+459.tiff,canine soft tissue sarcoma,2,1.4,13806
+459.tiff,canine soft tissue sarcoma,2,1.45,13635
+459.tiff,canine soft tissue sarcoma,2,1.5,13445
+459.tiff,canine soft tissue sarcoma,2,1.55,13215
+459.tiff,canine soft tissue sarcoma,2,1.6,13017
+459.tiff,canine soft tissue sarcoma,2,1.65,12804
+459.tiff,canine soft tissue sarcoma,2,1.7,12595
+459.tiff,canine soft tissue sarcoma,2,1.75,12356
+459.tiff,canine soft tissue sarcoma,2,1.8,12149
+459.tiff,canine soft tissue sarcoma,2,1.85,11873
+459.tiff,canine soft tissue sarcoma,2,1.9,11622
+459.tiff,canine soft tissue sarcoma,2,1.95,11353
+459.tiff,canine soft tissue sarcoma,2,2.0,11050
+459.tiff,canine soft tissue sarcoma,2,2.05,10758
+459.tiff,canine soft tissue sarcoma,2,2.1,10458
+459.tiff,canine soft tissue sarcoma,2,2.15,10145
+459.tiff,canine soft tissue sarcoma,2,2.2,9823
+459.tiff,canine soft tissue sarcoma,2,2.25,9478
+459.tiff,canine soft tissue sarcoma,2,2.3,9137
+459.tiff,canine soft tissue sarcoma,2,2.35,8781
+459.tiff,canine soft tissue sarcoma,2,2.4,8444
+459.tiff,canine soft tissue sarcoma,2,2.45,8087
+459.tiff,canine soft tissue sarcoma,2,2.5,7701
+459.tiff,canine soft tissue sarcoma,2,2.55,7389
+459.tiff,canine soft tissue sarcoma,2,2.6,7063
+459.tiff,canine soft tissue sarcoma,2,2.65,6722
+459.tiff,canine soft tissue sarcoma,2,2.7,6398
+459.tiff,canine soft tissue sarcoma,2,2.75,6091
+459.tiff,canine soft tissue sarcoma,2,2.8,5783
+459.tiff,canine soft tissue sarcoma,2,2.85,5478
+459.tiff,canine soft tissue sarcoma,2,2.9,5162
+459.tiff,canine soft tissue sarcoma,2,2.95,4863
+459.tiff,canine soft tissue sarcoma,2,3.0,4556
+459.tiff,canine soft tissue sarcoma,2,3.05,4271
+459.tiff,canine soft tissue sarcoma,2,3.1,3986
+459.tiff,canine soft tissue sarcoma,2,3.15,3734
+459.tiff,canine soft tissue sarcoma,2,3.2,3480
+459.tiff,canine soft tissue sarcoma,2,3.25,3240
+459.tiff,canine soft tissue sarcoma,2,3.3,3014
+459.tiff,canine soft tissue sarcoma,2,3.35,2782
+459.tiff,canine soft tissue sarcoma,2,3.4,2569
+459.tiff,canine soft tissue sarcoma,2,3.45,2374
+459.tiff,canine soft tissue sarcoma,2,3.5,2197
+459.tiff,canine soft tissue sarcoma,2,3.55,2018
+459.tiff,canine soft tissue sarcoma,2,3.6,1870
+459.tiff,canine soft tissue sarcoma,2,3.65,1713
+459.tiff,canine soft tissue sarcoma,2,3.7,1585
+459.tiff,canine soft tissue sarcoma,2,3.75,1451
+459.tiff,canine soft tissue sarcoma,2,3.8,1347
+459.tiff,canine soft tissue sarcoma,2,3.85,1236
+459.tiff,canine soft tissue sarcoma,2,3.9,1118
+459.tiff,canine soft tissue sarcoma,2,3.95,1015
+459.tiff,canine soft tissue sarcoma,2,4.0,927
+459.tiff,canine soft tissue sarcoma,2,4.05,835
+459.tiff,canine soft tissue sarcoma,2,4.1,768
+459.tiff,canine soft tissue sarcoma,2,4.15,684
+459.tiff,canine soft tissue sarcoma,2,4.2,629
+459.tiff,canine soft tissue sarcoma,2,4.25,590
+459.tiff,canine soft tissue sarcoma,2,4.3,533
+459.tiff,canine soft tissue sarcoma,2,4.35,485
+459.tiff,canine soft tissue sarcoma,2,4.4,445
+459.tiff,canine soft tissue sarcoma,2,4.45,405
+459.tiff,canine soft tissue sarcoma,2,4.5,365
+459.tiff,canine soft tissue sarcoma,2,4.55,316
+459.tiff,canine soft tissue sarcoma,2,4.6,301
+459.tiff,canine soft tissue sarcoma,2,4.65,270
+459.tiff,canine soft tissue sarcoma,2,4.7,239
+459.tiff,canine soft tissue sarcoma,2,4.75,222
+459.tiff,canine soft tissue sarcoma,2,4.8,196
+459.tiff,canine soft tissue sarcoma,2,4.85,179
+459.tiff,canine soft tissue sarcoma,2,4.9,164
+459.tiff,canine soft tissue sarcoma,2,4.95,148
+459.tiff,canine soft tissue sarcoma,2,5.0,137
+459.tiff,canine soft tissue sarcoma,2,5.05,125
+459.tiff,canine soft tissue sarcoma,2,5.1,114
+459.tiff,canine soft tissue sarcoma,2,5.15,108
+459.tiff,canine soft tissue sarcoma,2,5.2,92
+459.tiff,canine soft tissue sarcoma,2,5.25,85
+459.tiff,canine soft tissue sarcoma,2,5.3,82
+459.tiff,canine soft tissue sarcoma,2,5.35,74
+459.tiff,canine soft tissue sarcoma,2,5.4,67
+459.tiff,canine soft tissue sarcoma,2,5.45,60
+459.tiff,canine soft tissue sarcoma,2,5.5,56
+459.tiff,canine soft tissue sarcoma,2,5.55,48
+459.tiff,canine soft tissue sarcoma,2,5.6,44
+459.tiff,canine soft tissue sarcoma,2,5.65,39
+459.tiff,canine soft tissue sarcoma,2,5.7,36
+459.tiff,canine soft tissue sarcoma,2,5.75,31
+459.tiff,canine soft tissue sarcoma,2,5.8,25
+459.tiff,canine soft tissue sarcoma,2,5.85,23
+459.tiff,canine soft tissue sarcoma,2,5.9,21
+459.tiff,canine soft tissue sarcoma,2,5.95,18
+459.tiff,canine soft tissue sarcoma,2,6.0,16
+459.tiff,canine soft tissue sarcoma,3,0.0,15579
+459.tiff,canine soft tissue sarcoma,3,0.05,15521
+459.tiff,canine soft tissue sarcoma,3,0.1,15447
+459.tiff,canine soft tissue sarcoma,3,0.15,15365
+459.tiff,canine soft tissue sarcoma,3,0.2,15300
+459.tiff,canine soft tissue sarcoma,3,0.25,15206
+459.tiff,canine soft tissue sarcoma,3,0.3,15112
+459.tiff,canine soft tissue sarcoma,3,0.35,15008
+459.tiff,canine soft tissue sarcoma,3,0.4,14903
+459.tiff,canine soft tissue sarcoma,3,0.45,14797
+459.tiff,canine soft tissue sarcoma,3,0.5,14696
+459.tiff,canine soft tissue sarcoma,3,0.55,14573
+459.tiff,canine soft tissue sarcoma,3,0.6,14458
+459.tiff,canine soft tissue sarcoma,3,0.65,14347
+459.tiff,canine soft tissue sarcoma,3,0.7,14225
+459.tiff,canine soft tissue sarcoma,3,0.75,14106
+459.tiff,canine soft tissue sarcoma,3,0.8,13976
+459.tiff,canine soft tissue sarcoma,3,0.85,13839
+459.tiff,canine soft tissue sarcoma,3,0.9,13721
+459.tiff,canine soft tissue sarcoma,3,0.95,13598
+459.tiff,canine soft tissue sarcoma,3,1.0,13446
+459.tiff,canine soft tissue sarcoma,3,1.05,13313
+459.tiff,canine soft tissue sarcoma,3,1.1,13177
+459.tiff,canine soft tissue sarcoma,3,1.15,13026
+459.tiff,canine soft tissue sarcoma,3,1.2,12881
+459.tiff,canine soft tissue sarcoma,3,1.25,12736
+459.tiff,canine soft tissue sarcoma,3,1.3,12565
+459.tiff,canine soft tissue sarcoma,3,1.35,12385
+459.tiff,canine soft tissue sarcoma,3,1.4,12196
+459.tiff,canine soft tissue sarcoma,3,1.45,12017
+459.tiff,canine soft tissue sarcoma,3,1.5,11838
+459.tiff,canine soft tissue sarcoma,3,1.55,11649
+459.tiff,canine soft tissue sarcoma,3,1.6,11442
+459.tiff,canine soft tissue sarcoma,3,1.65,11219
+459.tiff,canine soft tissue sarcoma,3,1.7,10994
+459.tiff,canine soft tissue sarcoma,3,1.75,10772
+459.tiff,canine soft tissue sarcoma,3,1.8,10538
+459.tiff,canine soft tissue sarcoma,3,1.85,10290
+459.tiff,canine soft tissue sarcoma,3,1.9,10030
+459.tiff,canine soft tissue sarcoma,3,1.95,9745
+459.tiff,canine soft tissue sarcoma,3,2.0,9474
+459.tiff,canine soft tissue sarcoma,3,2.05,9182
+459.tiff,canine soft tissue sarcoma,3,2.1,8889
+459.tiff,canine soft tissue sarcoma,3,2.15,8588
+459.tiff,canine soft tissue sarcoma,3,2.2,8312
+459.tiff,canine soft tissue sarcoma,3,2.25,7965
+459.tiff,canine soft tissue sarcoma,3,2.3,7674
+459.tiff,canine soft tissue sarcoma,3,2.35,7342
+459.tiff,canine soft tissue sarcoma,3,2.4,7025
+459.tiff,canine soft tissue sarcoma,3,2.45,6679
+459.tiff,canine soft tissue sarcoma,3,2.5,6393
+459.tiff,canine soft tissue sarcoma,3,2.55,6055
+459.tiff,canine soft tissue sarcoma,3,2.6,5762
+459.tiff,canine soft tissue sarcoma,3,2.65,5474
+459.tiff,canine soft tissue sarcoma,3,2.7,5136
+459.tiff,canine soft tissue sarcoma,3,2.75,4851
+459.tiff,canine soft tissue sarcoma,3,2.8,4569
+459.tiff,canine soft tissue sarcoma,3,2.85,4307
+459.tiff,canine soft tissue sarcoma,3,2.9,4053
+459.tiff,canine soft tissue sarcoma,3,2.95,3822
+459.tiff,canine soft tissue sarcoma,3,3.0,3560
+459.tiff,canine soft tissue sarcoma,3,3.05,3308
+459.tiff,canine soft tissue sarcoma,3,3.1,3105
+459.tiff,canine soft tissue sarcoma,3,3.15,2888
+459.tiff,canine soft tissue sarcoma,3,3.2,2658
+459.tiff,canine soft tissue sarcoma,3,3.25,2459
+459.tiff,canine soft tissue sarcoma,3,3.3,2271
+459.tiff,canine soft tissue sarcoma,3,3.35,2092
+459.tiff,canine soft tissue sarcoma,3,3.4,1941
+459.tiff,canine soft tissue sarcoma,3,3.45,1784
+459.tiff,canine soft tissue sarcoma,3,3.5,1639
+459.tiff,canine soft tissue sarcoma,3,3.55,1502
+459.tiff,canine soft tissue sarcoma,3,3.6,1367
+459.tiff,canine soft tissue sarcoma,3,3.65,1243
+459.tiff,canine soft tissue sarcoma,3,3.7,1137
+459.tiff,canine soft tissue sarcoma,3,3.75,1023
+459.tiff,canine soft tissue sarcoma,3,3.8,939
+459.tiff,canine soft tissue sarcoma,3,3.85,864
+459.tiff,canine soft tissue sarcoma,3,3.9,781
+459.tiff,canine soft tissue sarcoma,3,3.95,719
+459.tiff,canine soft tissue sarcoma,3,4.0,669
+459.tiff,canine soft tissue sarcoma,3,4.05,607
+459.tiff,canine soft tissue sarcoma,3,4.1,549
+459.tiff,canine soft tissue sarcoma,3,4.15,493
+459.tiff,canine soft tissue sarcoma,3,4.2,452
+459.tiff,canine soft tissue sarcoma,3,4.25,405
+459.tiff,canine soft tissue sarcoma,3,4.3,361
+459.tiff,canine soft tissue sarcoma,3,4.35,315
+459.tiff,canine soft tissue sarcoma,3,4.4,279
+459.tiff,canine soft tissue sarcoma,3,4.45,255
+459.tiff,canine soft tissue sarcoma,3,4.5,227
+459.tiff,canine soft tissue sarcoma,3,4.55,217
+459.tiff,canine soft tissue sarcoma,3,4.6,197
+459.tiff,canine soft tissue sarcoma,3,4.65,183
+459.tiff,canine soft tissue sarcoma,3,4.7,169
+459.tiff,canine soft tissue sarcoma,3,4.75,155
+459.tiff,canine soft tissue sarcoma,3,4.8,144
+459.tiff,canine soft tissue sarcoma,3,4.85,129
+459.tiff,canine soft tissue sarcoma,3,4.9,121
+459.tiff,canine soft tissue sarcoma,3,4.95,112
+459.tiff,canine soft tissue sarcoma,3,5.0,104
+459.tiff,canine soft tissue sarcoma,3,5.05,99
+459.tiff,canine soft tissue sarcoma,3,5.1,87
+459.tiff,canine soft tissue sarcoma,3,5.15,81
+459.tiff,canine soft tissue sarcoma,3,5.2,76
+459.tiff,canine soft tissue sarcoma,3,5.25,75
+459.tiff,canine soft tissue sarcoma,3,5.3,69
+459.tiff,canine soft tissue sarcoma,3,5.35,63
+459.tiff,canine soft tissue sarcoma,3,5.4,60
+459.tiff,canine soft tissue sarcoma,3,5.45,57
+459.tiff,canine soft tissue sarcoma,3,5.5,54
+459.tiff,canine soft tissue sarcoma,3,5.55,50
+459.tiff,canine soft tissue sarcoma,3,5.6,46
+459.tiff,canine soft tissue sarcoma,3,5.65,40
+459.tiff,canine soft tissue sarcoma,3,5.7,38
+459.tiff,canine soft tissue sarcoma,3,5.75,31
+459.tiff,canine soft tissue sarcoma,3,5.8,28
+459.tiff,canine soft tissue sarcoma,3,5.85,25
+459.tiff,canine soft tissue sarcoma,3,5.9,25
+459.tiff,canine soft tissue sarcoma,3,5.95,24
+459.tiff,canine soft tissue sarcoma,3,6.0,23
+459.tiff,canine soft tissue sarcoma,4,0.0,16321
+459.tiff,canine soft tissue sarcoma,4,0.05,16248
+459.tiff,canine soft tissue sarcoma,4,0.1,16173
+459.tiff,canine soft tissue sarcoma,4,0.15,16092
+459.tiff,canine soft tissue sarcoma,4,0.2,16008
+459.tiff,canine soft tissue sarcoma,4,0.25,15909
+459.tiff,canine soft tissue sarcoma,4,0.3,15804
+459.tiff,canine soft tissue sarcoma,4,0.35,15695
+459.tiff,canine soft tissue sarcoma,4,0.4,15601
+459.tiff,canine soft tissue sarcoma,4,0.45,15492
+459.tiff,canine soft tissue sarcoma,4,0.5,15388
+459.tiff,canine soft tissue sarcoma,4,0.55,15285
+459.tiff,canine soft tissue sarcoma,4,0.6,15155
+459.tiff,canine soft tissue sarcoma,4,0.65,15024
+459.tiff,canine soft tissue sarcoma,4,0.7,14899
+459.tiff,canine soft tissue sarcoma,4,0.75,14763
+459.tiff,canine soft tissue sarcoma,4,0.8,14642
+459.tiff,canine soft tissue sarcoma,4,0.85,14512
+459.tiff,canine soft tissue sarcoma,4,0.9,14394
+459.tiff,canine soft tissue sarcoma,4,0.95,14269
+459.tiff,canine soft tissue sarcoma,4,1.0,14128
+459.tiff,canine soft tissue sarcoma,4,1.05,13983
+459.tiff,canine soft tissue sarcoma,4,1.1,13850
+459.tiff,canine soft tissue sarcoma,4,1.15,13710
+459.tiff,canine soft tissue sarcoma,4,1.2,13561
+459.tiff,canine soft tissue sarcoma,4,1.25,13421
+459.tiff,canine soft tissue sarcoma,4,1.3,13287
+459.tiff,canine soft tissue sarcoma,4,1.35,13132
+459.tiff,canine soft tissue sarcoma,4,1.4,12964
+459.tiff,canine soft tissue sarcoma,4,1.45,12775
+459.tiff,canine soft tissue sarcoma,4,1.5,12626
+459.tiff,canine soft tissue sarcoma,4,1.55,12456
+459.tiff,canine soft tissue sarcoma,4,1.6,12254
+459.tiff,canine soft tissue sarcoma,4,1.65,12032
+459.tiff,canine soft tissue sarcoma,4,1.7,11831
+459.tiff,canine soft tissue sarcoma,4,1.75,11610
+459.tiff,canine soft tissue sarcoma,4,1.8,11396
+459.tiff,canine soft tissue sarcoma,4,1.85,11167
+459.tiff,canine soft tissue sarcoma,4,1.9,10922
+459.tiff,canine soft tissue sarcoma,4,1.95,10672
+459.tiff,canine soft tissue sarcoma,4,2.0,10409
+459.tiff,canine soft tissue sarcoma,4,2.05,10159
+459.tiff,canine soft tissue sarcoma,4,2.1,9870
+459.tiff,canine soft tissue sarcoma,4,2.15,9583
+459.tiff,canine soft tissue sarcoma,4,2.2,9244
+459.tiff,canine soft tissue sarcoma,4,2.25,8936
+459.tiff,canine soft tissue sarcoma,4,2.3,8629
+459.tiff,canine soft tissue sarcoma,4,2.35,8300
+459.tiff,canine soft tissue sarcoma,4,2.4,7969
+459.tiff,canine soft tissue sarcoma,4,2.45,7636
+459.tiff,canine soft tissue sarcoma,4,2.5,7318
+459.tiff,canine soft tissue sarcoma,4,2.55,7013
+459.tiff,canine soft tissue sarcoma,4,2.6,6685
+459.tiff,canine soft tissue sarcoma,4,2.65,6341
+459.tiff,canine soft tissue sarcoma,4,2.7,6030
+459.tiff,canine soft tissue sarcoma,4,2.75,5705
+459.tiff,canine soft tissue sarcoma,4,2.8,5405
+459.tiff,canine soft tissue sarcoma,4,2.85,5088
+459.tiff,canine soft tissue sarcoma,4,2.9,4776
+459.tiff,canine soft tissue sarcoma,4,2.95,4522
+459.tiff,canine soft tissue sarcoma,4,3.0,4254
+459.tiff,canine soft tissue sarcoma,4,3.05,3975
+459.tiff,canine soft tissue sarcoma,4,3.1,3680
+459.tiff,canine soft tissue sarcoma,4,3.15,3443
+459.tiff,canine soft tissue sarcoma,4,3.2,3204
+459.tiff,canine soft tissue sarcoma,4,3.25,2985
+459.tiff,canine soft tissue sarcoma,4,3.3,2772
+459.tiff,canine soft tissue sarcoma,4,3.35,2579
+459.tiff,canine soft tissue sarcoma,4,3.4,2396
+459.tiff,canine soft tissue sarcoma,4,3.45,2194
+459.tiff,canine soft tissue sarcoma,4,3.5,2006
+459.tiff,canine soft tissue sarcoma,4,3.55,1850
+459.tiff,canine soft tissue sarcoma,4,3.6,1700
+459.tiff,canine soft tissue sarcoma,4,3.65,1556
+459.tiff,canine soft tissue sarcoma,4,3.7,1430
+459.tiff,canine soft tissue sarcoma,4,3.75,1314
+459.tiff,canine soft tissue sarcoma,4,3.8,1205
+459.tiff,canine soft tissue sarcoma,4,3.85,1114
+459.tiff,canine soft tissue sarcoma,4,3.9,1014
+459.tiff,canine soft tissue sarcoma,4,3.95,938
+459.tiff,canine soft tissue sarcoma,4,4.0,845
+459.tiff,canine soft tissue sarcoma,4,4.05,782
+459.tiff,canine soft tissue sarcoma,4,4.1,718
+459.tiff,canine soft tissue sarcoma,4,4.15,649
+459.tiff,canine soft tissue sarcoma,4,4.2,600
+459.tiff,canine soft tissue sarcoma,4,4.25,536
+459.tiff,canine soft tissue sarcoma,4,4.3,479
+459.tiff,canine soft tissue sarcoma,4,4.35,433
+459.tiff,canine soft tissue sarcoma,4,4.4,385
+459.tiff,canine soft tissue sarcoma,4,4.45,348
+459.tiff,canine soft tissue sarcoma,4,4.5,310
+459.tiff,canine soft tissue sarcoma,4,4.55,286
+459.tiff,canine soft tissue sarcoma,4,4.6,263
+459.tiff,canine soft tissue sarcoma,4,4.65,238
+459.tiff,canine soft tissue sarcoma,4,4.7,222
+459.tiff,canine soft tissue sarcoma,4,4.75,198
+459.tiff,canine soft tissue sarcoma,4,4.8,184
+459.tiff,canine soft tissue sarcoma,4,4.85,165
+459.tiff,canine soft tissue sarcoma,4,4.9,154
+459.tiff,canine soft tissue sarcoma,4,4.95,140
+459.tiff,canine soft tissue sarcoma,4,5.0,127
+459.tiff,canine soft tissue sarcoma,4,5.05,120
+459.tiff,canine soft tissue sarcoma,4,5.1,111
+459.tiff,canine soft tissue sarcoma,4,5.15,104
+459.tiff,canine soft tissue sarcoma,4,5.2,97
+459.tiff,canine soft tissue sarcoma,4,5.25,95
+459.tiff,canine soft tissue sarcoma,4,5.3,87
+459.tiff,canine soft tissue sarcoma,4,5.35,81
+459.tiff,canine soft tissue sarcoma,4,5.4,75
+459.tiff,canine soft tissue sarcoma,4,5.45,73
+459.tiff,canine soft tissue sarcoma,4,5.5,69
+459.tiff,canine soft tissue sarcoma,4,5.55,62
+459.tiff,canine soft tissue sarcoma,4,5.6,58
+459.tiff,canine soft tissue sarcoma,4,5.65,52
+459.tiff,canine soft tissue sarcoma,4,5.7,49
+459.tiff,canine soft tissue sarcoma,4,5.75,47
+459.tiff,canine soft tissue sarcoma,4,5.8,41
+459.tiff,canine soft tissue sarcoma,4,5.85,37
+459.tiff,canine soft tissue sarcoma,4,5.9,37
+459.tiff,canine soft tissue sarcoma,4,5.95,33
+459.tiff,canine soft tissue sarcoma,4,6.0,30
+094.tiff,human breast cancer,0,0.0,18354
+094.tiff,human breast cancer,0,0.05,18343
+094.tiff,human breast cancer,0,0.1,18280
+094.tiff,human breast cancer,0,0.15,18197
+094.tiff,human breast cancer,0,0.2,18011
+094.tiff,human breast cancer,0,0.25,17768
+094.tiff,human breast cancer,0,0.3,17544
+094.tiff,human breast cancer,0,0.35,17382
+094.tiff,human breast cancer,0,0.4,17234
+094.tiff,human breast cancer,0,0.45,17064
+094.tiff,human breast cancer,0,0.5,16901
+094.tiff,human breast cancer,0,0.55,16762
+094.tiff,human breast cancer,0,0.6,16596
+094.tiff,human breast cancer,0,0.65,16455
+094.tiff,human breast cancer,0,0.7,16292
+094.tiff,human breast cancer,0,0.75,16127
+094.tiff,human breast cancer,0,0.8,15959
+094.tiff,human breast cancer,0,0.85,15813
+094.tiff,human breast cancer,0,0.9,15658
+094.tiff,human breast cancer,0,0.95,15520
+094.tiff,human breast cancer,0,1.0,15369
+094.tiff,human breast cancer,0,1.05,15243
+094.tiff,human breast cancer,0,1.1,15099
+094.tiff,human breast cancer,0,1.15,14958
+094.tiff,human breast cancer,0,1.2,14804
+094.tiff,human breast cancer,0,1.25,14661
+094.tiff,human breast cancer,0,1.3,14500
+094.tiff,human breast cancer,0,1.35,14338
+094.tiff,human breast cancer,0,1.4,14183
+094.tiff,human breast cancer,0,1.45,14041
+094.tiff,human breast cancer,0,1.5,13897
+094.tiff,human breast cancer,0,1.55,13748
+094.tiff,human breast cancer,0,1.6,13596
+094.tiff,human breast cancer,0,1.65,13443
+094.tiff,human breast cancer,0,1.7,13267
+094.tiff,human breast cancer,0,1.75,13087
+094.tiff,human breast cancer,0,1.8,12916
+094.tiff,human breast cancer,0,1.85,12748
+094.tiff,human breast cancer,0,1.9,12600
+094.tiff,human breast cancer,0,1.95,12465
+094.tiff,human breast cancer,0,2.0,12294
+094.tiff,human breast cancer,0,2.05,12147
+094.tiff,human breast cancer,0,2.1,11963
+094.tiff,human breast cancer,0,2.15,11777
+094.tiff,human breast cancer,0,2.2,11605
+094.tiff,human breast cancer,0,2.25,11433
+094.tiff,human breast cancer,0,2.3,11263
+094.tiff,human breast cancer,0,2.35,11088
+094.tiff,human breast cancer,0,2.4,10907
+094.tiff,human breast cancer,0,2.45,10695
+094.tiff,human breast cancer,0,2.5,10531
+094.tiff,human breast cancer,0,2.55,10365
+094.tiff,human breast cancer,0,2.6,10183
+094.tiff,human breast cancer,0,2.65,10018
+094.tiff,human breast cancer,0,2.7,9835
+094.tiff,human breast cancer,0,2.75,9636
+094.tiff,human breast cancer,0,2.8,9437
+094.tiff,human breast cancer,0,2.85,9252
+094.tiff,human breast cancer,0,2.9,9041
+094.tiff,human breast cancer,0,2.95,8854
+094.tiff,human breast cancer,0,3.0,8678
+094.tiff,human breast cancer,0,3.05,8467
+094.tiff,human breast cancer,0,3.1,8248
+094.tiff,human breast cancer,0,3.15,8050
+094.tiff,human breast cancer,0,3.2,7874
+094.tiff,human breast cancer,0,3.25,7691
+094.tiff,human breast cancer,0,3.3,7500
+094.tiff,human breast cancer,0,3.35,7310
+094.tiff,human breast cancer,0,3.4,7107
+094.tiff,human breast cancer,0,3.45,6911
+094.tiff,human breast cancer,0,3.5,6737
+094.tiff,human breast cancer,0,3.55,6551
+094.tiff,human breast cancer,0,3.6,6350
+094.tiff,human breast cancer,0,3.65,6190
+094.tiff,human breast cancer,0,3.7,6018
+094.tiff,human breast cancer,0,3.75,5829
+094.tiff,human breast cancer,0,3.8,5645
+094.tiff,human breast cancer,0,3.85,5494
+094.tiff,human breast cancer,0,3.9,5333
+094.tiff,human breast cancer,0,3.95,5199
+094.tiff,human breast cancer,0,4.0,5067
+094.tiff,human breast cancer,0,4.05,4928
+094.tiff,human breast cancer,0,4.1,4770
+094.tiff,human breast cancer,0,4.15,4638
+094.tiff,human breast cancer,0,4.2,4518
+094.tiff,human breast cancer,0,4.25,4392
+094.tiff,human breast cancer,0,4.3,4276
+094.tiff,human breast cancer,0,4.35,4154
+094.tiff,human breast cancer,0,4.4,4035
+094.tiff,human breast cancer,0,4.45,3930
+094.tiff,human breast cancer,0,4.5,3802
+094.tiff,human breast cancer,0,4.55,3704
+094.tiff,human breast cancer,0,4.6,3610
+094.tiff,human breast cancer,0,4.65,3517
+094.tiff,human breast cancer,0,4.7,3436
+094.tiff,human breast cancer,0,4.75,3339
+094.tiff,human breast cancer,0,4.8,3252
+094.tiff,human breast cancer,0,4.85,3184
+094.tiff,human breast cancer,0,4.9,3119
+094.tiff,human breast cancer,0,4.95,3054
+094.tiff,human breast cancer,0,5.0,2991
+094.tiff,human breast cancer,0,5.05,2925
+094.tiff,human breast cancer,0,5.1,2854
+094.tiff,human breast cancer,0,5.15,2782
+094.tiff,human breast cancer,0,5.2,2720
+094.tiff,human breast cancer,0,5.25,2664
+094.tiff,human breast cancer,0,5.3,2610
+094.tiff,human breast cancer,0,5.35,2555
+094.tiff,human breast cancer,0,5.4,2491
+094.tiff,human breast cancer,0,5.45,2441
+094.tiff,human breast cancer,0,5.5,2403
+094.tiff,human breast cancer,0,5.55,2357
+094.tiff,human breast cancer,0,5.6,2314
+094.tiff,human breast cancer,0,5.65,2278
+094.tiff,human breast cancer,0,5.7,2251
+094.tiff,human breast cancer,0,5.75,2228
+094.tiff,human breast cancer,0,5.8,2197
+094.tiff,human breast cancer,0,5.85,2159
+094.tiff,human breast cancer,0,5.9,2127
+094.tiff,human breast cancer,0,5.95,2098
+094.tiff,human breast cancer,0,6.0,2066
+094.tiff,human breast cancer,1,0.0,18262
+094.tiff,human breast cancer,1,0.05,18207
+094.tiff,human breast cancer,1,0.1,18141
+094.tiff,human breast cancer,1,0.15,18021
+094.tiff,human breast cancer,1,0.2,17809
+094.tiff,human breast cancer,1,0.25,17571
+094.tiff,human breast cancer,1,0.3,17377
+094.tiff,human breast cancer,1,0.35,17122
+094.tiff,human breast cancer,1,0.4,16867
+094.tiff,human breast cancer,1,0.45,16608
+094.tiff,human breast cancer,1,0.5,16377
+094.tiff,human breast cancer,1,0.55,16179
+094.tiff,human breast cancer,1,0.6,15960
+094.tiff,human breast cancer,1,0.65,15784
+094.tiff,human breast cancer,1,0.7,15598
+094.tiff,human breast cancer,1,0.75,15439
+094.tiff,human breast cancer,1,0.8,15266
+094.tiff,human breast cancer,1,0.85,15101
+094.tiff,human breast cancer,1,0.9,14959
+094.tiff,human breast cancer,1,0.95,14788
+094.tiff,human breast cancer,1,1.0,14621
+094.tiff,human breast cancer,1,1.05,14473
+094.tiff,human breast cancer,1,1.1,14336
+094.tiff,human breast cancer,1,1.15,14197
+094.tiff,human breast cancer,1,1.2,14030
+094.tiff,human breast cancer,1,1.25,13878
+094.tiff,human breast cancer,1,1.3,13716
+094.tiff,human breast cancer,1,1.35,13549
+094.tiff,human breast cancer,1,1.4,13407
+094.tiff,human breast cancer,1,1.45,13255
+094.tiff,human breast cancer,1,1.5,13088
+094.tiff,human breast cancer,1,1.55,12914
+094.tiff,human breast cancer,1,1.6,12727
+094.tiff,human breast cancer,1,1.65,12546
+094.tiff,human breast cancer,1,1.7,12389
+094.tiff,human breast cancer,1,1.75,12223
+094.tiff,human breast cancer,1,1.8,12055
+094.tiff,human breast cancer,1,1.85,11889
+094.tiff,human breast cancer,1,1.9,11691
+094.tiff,human breast cancer,1,1.95,11505
+094.tiff,human breast cancer,1,2.0,11306
+094.tiff,human breast cancer,1,2.05,11102
+094.tiff,human breast cancer,1,2.1,10880
+094.tiff,human breast cancer,1,2.15,10657
+094.tiff,human breast cancer,1,2.2,10454
+094.tiff,human breast cancer,1,2.25,10219
+094.tiff,human breast cancer,1,2.3,9964
+094.tiff,human breast cancer,1,2.35,9751
+094.tiff,human breast cancer,1,2.4,9535
+094.tiff,human breast cancer,1,2.45,9298
+094.tiff,human breast cancer,1,2.5,9062
+094.tiff,human breast cancer,1,2.55,8806
+094.tiff,human breast cancer,1,2.6,8559
+094.tiff,human breast cancer,1,2.65,8323
+094.tiff,human breast cancer,1,2.7,8082
+094.tiff,human breast cancer,1,2.75,7861
+094.tiff,human breast cancer,1,2.8,7636
+094.tiff,human breast cancer,1,2.85,7412
+094.tiff,human breast cancer,1,2.9,7186
+094.tiff,human breast cancer,1,2.95,6975
+094.tiff,human breast cancer,1,3.0,6754
+094.tiff,human breast cancer,1,3.05,6520
+094.tiff,human breast cancer,1,3.1,6318
+094.tiff,human breast cancer,1,3.15,6092
+094.tiff,human breast cancer,1,3.2,5888
+094.tiff,human breast cancer,1,3.25,5688
+094.tiff,human breast cancer,1,3.3,5480
+094.tiff,human breast cancer,1,3.35,5322
+094.tiff,human breast cancer,1,3.4,5110
+094.tiff,human breast cancer,1,3.45,4939
+094.tiff,human breast cancer,1,3.5,4760
+094.tiff,human breast cancer,1,3.55,4616
+094.tiff,human breast cancer,1,3.6,4458
+094.tiff,human breast cancer,1,3.65,4311
+094.tiff,human breast cancer,1,3.7,4144
+094.tiff,human breast cancer,1,3.75,4007
+094.tiff,human breast cancer,1,3.8,3896
+094.tiff,human breast cancer,1,3.85,3772
+094.tiff,human breast cancer,1,3.9,3646
+094.tiff,human breast cancer,1,3.95,3548
+094.tiff,human breast cancer,1,4.0,3431
+094.tiff,human breast cancer,1,4.05,3331
+094.tiff,human breast cancer,1,4.1,3236
+094.tiff,human breast cancer,1,4.15,3132
+094.tiff,human breast cancer,1,4.2,3034
+094.tiff,human breast cancer,1,4.25,2925
+094.tiff,human breast cancer,1,4.3,2848
+094.tiff,human breast cancer,1,4.35,2758
+094.tiff,human breast cancer,1,4.4,2686
+094.tiff,human breast cancer,1,4.45,2616
+094.tiff,human breast cancer,1,4.5,2561
+094.tiff,human breast cancer,1,4.55,2488
+094.tiff,human breast cancer,1,4.6,2432
+094.tiff,human breast cancer,1,4.65,2369
+094.tiff,human breast cancer,1,4.7,2324
+094.tiff,human breast cancer,1,4.75,2279
+094.tiff,human breast cancer,1,4.8,2228
+094.tiff,human breast cancer,1,4.85,2176
+094.tiff,human breast cancer,1,4.9,2120
+094.tiff,human breast cancer,1,4.95,2060
+094.tiff,human breast cancer,1,5.0,2002
+094.tiff,human breast cancer,1,5.05,1944
+094.tiff,human breast cancer,1,5.1,1906
+094.tiff,human breast cancer,1,5.15,1864
+094.tiff,human breast cancer,1,5.2,1823
+094.tiff,human breast cancer,1,5.25,1772
+094.tiff,human breast cancer,1,5.3,1734
+094.tiff,human breast cancer,1,5.35,1693
+094.tiff,human breast cancer,1,5.4,1655
+094.tiff,human breast cancer,1,5.45,1627
+094.tiff,human breast cancer,1,5.5,1597
+094.tiff,human breast cancer,1,5.55,1563
+094.tiff,human breast cancer,1,5.6,1527
+094.tiff,human breast cancer,1,5.65,1507
+094.tiff,human breast cancer,1,5.7,1477
+094.tiff,human breast cancer,1,5.75,1450
+094.tiff,human breast cancer,1,5.8,1426
+094.tiff,human breast cancer,1,5.85,1395
+094.tiff,human breast cancer,1,5.9,1368
+094.tiff,human breast cancer,1,5.95,1345
+094.tiff,human breast cancer,1,6.0,1314
+094.tiff,human breast cancer,2,0.0,18703
+094.tiff,human breast cancer,2,0.05,18665
+094.tiff,human breast cancer,2,0.1,18601
+094.tiff,human breast cancer,2,0.15,18440
+094.tiff,human breast cancer,2,0.2,18235
+094.tiff,human breast cancer,2,0.25,18067
+094.tiff,human breast cancer,2,0.3,17895
+094.tiff,human breast cancer,2,0.35,17724
+094.tiff,human breast cancer,2,0.4,17525
+094.tiff,human breast cancer,2,0.45,17348
+094.tiff,human breast cancer,2,0.5,17155
+094.tiff,human breast cancer,2,0.55,16977
+094.tiff,human breast cancer,2,0.6,16820
+094.tiff,human breast cancer,2,0.65,16655
+094.tiff,human breast cancer,2,0.7,16480
+094.tiff,human breast cancer,2,0.75,16308
+094.tiff,human breast cancer,2,0.8,16123
+094.tiff,human breast cancer,2,0.85,15941
+094.tiff,human breast cancer,2,0.9,15766
+094.tiff,human breast cancer,2,0.95,15577
+094.tiff,human breast cancer,2,1.0,15399
+094.tiff,human breast cancer,2,1.05,15220
+094.tiff,human breast cancer,2,1.1,15044
+094.tiff,human breast cancer,2,1.15,14840
+094.tiff,human breast cancer,2,1.2,14657
+094.tiff,human breast cancer,2,1.25,14461
+094.tiff,human breast cancer,2,1.3,14288
+094.tiff,human breast cancer,2,1.35,14114
+094.tiff,human breast cancer,2,1.4,13934
+094.tiff,human breast cancer,2,1.45,13749
+094.tiff,human breast cancer,2,1.5,13528
+094.tiff,human breast cancer,2,1.55,13318
+094.tiff,human breast cancer,2,1.6,13118
+094.tiff,human breast cancer,2,1.65,12919
+094.tiff,human breast cancer,2,1.7,12713
+094.tiff,human breast cancer,2,1.75,12524
+094.tiff,human breast cancer,2,1.8,12333
+094.tiff,human breast cancer,2,1.85,12126
+094.tiff,human breast cancer,2,1.9,11945
+094.tiff,human breast cancer,2,1.95,11732
+094.tiff,human breast cancer,2,2.0,11498
+094.tiff,human breast cancer,2,2.05,11290
+094.tiff,human breast cancer,2,2.1,11101
+094.tiff,human breast cancer,2,2.15,10878
+094.tiff,human breast cancer,2,2.2,10669
+094.tiff,human breast cancer,2,2.25,10427
+094.tiff,human breast cancer,2,2.3,10223
+094.tiff,human breast cancer,2,2.35,9984
+094.tiff,human breast cancer,2,2.4,9758
+094.tiff,human breast cancer,2,2.45,9542
+094.tiff,human breast cancer,2,2.5,9287
+094.tiff,human breast cancer,2,2.55,9050
+094.tiff,human breast cancer,2,2.6,8809
+094.tiff,human breast cancer,2,2.65,8586
+094.tiff,human breast cancer,2,2.7,8336
+094.tiff,human breast cancer,2,2.75,8101
+094.tiff,human breast cancer,2,2.8,7863
+094.tiff,human breast cancer,2,2.85,7606
+094.tiff,human breast cancer,2,2.9,7365
+094.tiff,human breast cancer,2,2.95,7131
+094.tiff,human breast cancer,2,3.0,6933
+094.tiff,human breast cancer,2,3.05,6723
+094.tiff,human breast cancer,2,3.1,6497
+094.tiff,human breast cancer,2,3.15,6276
+094.tiff,human breast cancer,2,3.2,6086
+094.tiff,human breast cancer,2,3.25,5875
+094.tiff,human breast cancer,2,3.3,5665
+094.tiff,human breast cancer,2,3.35,5446
+094.tiff,human breast cancer,2,3.4,5263
+094.tiff,human breast cancer,2,3.45,5071
+094.tiff,human breast cancer,2,3.5,4886
+094.tiff,human breast cancer,2,3.55,4716
+094.tiff,human breast cancer,2,3.6,4560
+094.tiff,human breast cancer,2,3.65,4387
+094.tiff,human breast cancer,2,3.7,4220
+094.tiff,human breast cancer,2,3.75,4093
+094.tiff,human breast cancer,2,3.8,3938
+094.tiff,human breast cancer,2,3.85,3823
+094.tiff,human breast cancer,2,3.9,3687
+094.tiff,human breast cancer,2,3.95,3564
+094.tiff,human breast cancer,2,4.0,3450
+094.tiff,human breast cancer,2,4.05,3330
+094.tiff,human breast cancer,2,4.1,3223
+094.tiff,human breast cancer,2,4.15,3110
+094.tiff,human breast cancer,2,4.2,3020
+094.tiff,human breast cancer,2,4.25,2928
+094.tiff,human breast cancer,2,4.3,2833
+094.tiff,human breast cancer,2,4.35,2741
+094.tiff,human breast cancer,2,4.4,2653
+094.tiff,human breast cancer,2,4.45,2579
+094.tiff,human breast cancer,2,4.5,2503
+094.tiff,human breast cancer,2,4.55,2432
+094.tiff,human breast cancer,2,4.6,2353
+094.tiff,human breast cancer,2,4.65,2291
+094.tiff,human breast cancer,2,4.7,2224
+094.tiff,human breast cancer,2,4.75,2165
+094.tiff,human breast cancer,2,4.8,2105
+094.tiff,human breast cancer,2,4.85,2051
+094.tiff,human breast cancer,2,4.9,1999
+094.tiff,human breast cancer,2,4.95,1950
+094.tiff,human breast cancer,2,5.0,1904
+094.tiff,human breast cancer,2,5.05,1858
+094.tiff,human breast cancer,2,5.1,1812
+094.tiff,human breast cancer,2,5.15,1768
+094.tiff,human breast cancer,2,5.2,1725
+094.tiff,human breast cancer,2,5.25,1685
+094.tiff,human breast cancer,2,5.3,1643
+094.tiff,human breast cancer,2,5.35,1604
+094.tiff,human breast cancer,2,5.4,1568
+094.tiff,human breast cancer,2,5.45,1541
+094.tiff,human breast cancer,2,5.5,1509
+094.tiff,human breast cancer,2,5.55,1479
+094.tiff,human breast cancer,2,5.6,1447
+094.tiff,human breast cancer,2,5.65,1419
+094.tiff,human breast cancer,2,5.7,1398
+094.tiff,human breast cancer,2,5.75,1371
+094.tiff,human breast cancer,2,5.8,1340
+094.tiff,human breast cancer,2,5.85,1323
+094.tiff,human breast cancer,2,5.9,1302
+094.tiff,human breast cancer,2,5.95,1269
+094.tiff,human breast cancer,2,6.0,1242
+094.tiff,human breast cancer,3,0.0,18190
+094.tiff,human breast cancer,3,0.05,18123
+094.tiff,human breast cancer,3,0.1,18031
+094.tiff,human breast cancer,3,0.15,17858
+094.tiff,human breast cancer,3,0.2,17588
+094.tiff,human breast cancer,3,0.25,17371
+094.tiff,human breast cancer,3,0.3,17140
+094.tiff,human breast cancer,3,0.35,16919
+094.tiff,human breast cancer,3,0.4,16708
+094.tiff,human breast cancer,3,0.45,16453
+094.tiff,human breast cancer,3,0.5,16196
+094.tiff,human breast cancer,3,0.55,15989
+094.tiff,human breast cancer,3,0.6,15743
+094.tiff,human breast cancer,3,0.65,15527
+094.tiff,human breast cancer,3,0.7,15331
+094.tiff,human breast cancer,3,0.75,15159
+094.tiff,human breast cancer,3,0.8,14978
+094.tiff,human breast cancer,3,0.85,14833
+094.tiff,human breast cancer,3,0.9,14669
+094.tiff,human breast cancer,3,0.95,14516
+094.tiff,human breast cancer,3,1.0,14362
+094.tiff,human breast cancer,3,1.05,14202
+094.tiff,human breast cancer,3,1.1,14055
+094.tiff,human breast cancer,3,1.15,13885
+094.tiff,human breast cancer,3,1.2,13729
+094.tiff,human breast cancer,3,1.25,13561
+094.tiff,human breast cancer,3,1.3,13397
+094.tiff,human breast cancer,3,1.35,13235
+094.tiff,human breast cancer,3,1.4,13106
+094.tiff,human breast cancer,3,1.45,12922
+094.tiff,human breast cancer,3,1.5,12766
+094.tiff,human breast cancer,3,1.55,12583
+094.tiff,human breast cancer,3,1.6,12422
+094.tiff,human breast cancer,3,1.65,12243
+094.tiff,human breast cancer,3,1.7,12058
+094.tiff,human breast cancer,3,1.75,11888
+094.tiff,human breast cancer,3,1.8,11687
+094.tiff,human breast cancer,3,1.85,11483
+094.tiff,human breast cancer,3,1.9,11285
+094.tiff,human breast cancer,3,1.95,11091
+094.tiff,human breast cancer,3,2.0,10868
+094.tiff,human breast cancer,3,2.05,10666
+094.tiff,human breast cancer,3,2.1,10437
+094.tiff,human breast cancer,3,2.15,10194
+094.tiff,human breast cancer,3,2.2,9969
+094.tiff,human breast cancer,3,2.25,9735
+094.tiff,human breast cancer,3,2.3,9498
+094.tiff,human breast cancer,3,2.35,9260
+094.tiff,human breast cancer,3,2.4,9037
+094.tiff,human breast cancer,3,2.45,8786
+094.tiff,human breast cancer,3,2.5,8557
+094.tiff,human breast cancer,3,2.55,8322
+094.tiff,human breast cancer,3,2.6,8106
+094.tiff,human breast cancer,3,2.65,7853
+094.tiff,human breast cancer,3,2.7,7603
+094.tiff,human breast cancer,3,2.75,7362
+094.tiff,human breast cancer,3,2.8,7156
+094.tiff,human breast cancer,3,2.85,6908
+094.tiff,human breast cancer,3,2.9,6694
+094.tiff,human breast cancer,3,2.95,6465
+094.tiff,human breast cancer,3,3.0,6253
+094.tiff,human breast cancer,3,3.05,6054
+094.tiff,human breast cancer,3,3.1,5863
+094.tiff,human breast cancer,3,3.15,5670
+094.tiff,human breast cancer,3,3.2,5482
+094.tiff,human breast cancer,3,3.25,5282
+094.tiff,human breast cancer,3,3.3,5091
+094.tiff,human breast cancer,3,3.35,4930
+094.tiff,human breast cancer,3,3.4,4733
+094.tiff,human breast cancer,3,3.45,4563
+094.tiff,human breast cancer,3,3.5,4376
+094.tiff,human breast cancer,3,3.55,4223
+094.tiff,human breast cancer,3,3.6,4070
+094.tiff,human breast cancer,3,3.65,3933
+094.tiff,human breast cancer,3,3.7,3779
+094.tiff,human breast cancer,3,3.75,3656
+094.tiff,human breast cancer,3,3.8,3524
+094.tiff,human breast cancer,3,3.85,3410
+094.tiff,human breast cancer,3,3.9,3278
+094.tiff,human breast cancer,3,3.95,3174
+094.tiff,human breast cancer,3,4.0,3062
+094.tiff,human breast cancer,3,4.05,2953
+094.tiff,human breast cancer,3,4.1,2854
+094.tiff,human breast cancer,3,4.15,2746
+094.tiff,human breast cancer,3,4.2,2653
+094.tiff,human breast cancer,3,4.25,2549
+094.tiff,human breast cancer,3,4.3,2460
+094.tiff,human breast cancer,3,4.35,2391
+094.tiff,human breast cancer,3,4.4,2304
+094.tiff,human breast cancer,3,4.45,2244
+094.tiff,human breast cancer,3,4.5,2168
+094.tiff,human breast cancer,3,4.55,2109
+094.tiff,human breast cancer,3,4.6,2056
+094.tiff,human breast cancer,3,4.65,1990
+094.tiff,human breast cancer,3,4.7,1938
+094.tiff,human breast cancer,3,4.75,1899
+094.tiff,human breast cancer,3,4.8,1840
+094.tiff,human breast cancer,3,4.85,1788
+094.tiff,human breast cancer,3,4.9,1733
+094.tiff,human breast cancer,3,4.95,1697
+094.tiff,human breast cancer,3,5.0,1635
+094.tiff,human breast cancer,3,5.05,1595
+094.tiff,human breast cancer,3,5.1,1551
+094.tiff,human breast cancer,3,5.15,1512
+094.tiff,human breast cancer,3,5.2,1481
+094.tiff,human breast cancer,3,5.25,1443
+094.tiff,human breast cancer,3,5.3,1398
+094.tiff,human breast cancer,3,5.35,1349
+094.tiff,human breast cancer,3,5.4,1314
+094.tiff,human breast cancer,3,5.45,1270
+094.tiff,human breast cancer,3,5.5,1240
+094.tiff,human breast cancer,3,5.55,1221
+094.tiff,human breast cancer,3,5.6,1190
+094.tiff,human breast cancer,3,5.65,1167
+094.tiff,human breast cancer,3,5.7,1140
+094.tiff,human breast cancer,3,5.75,1105
+094.tiff,human breast cancer,3,5.8,1079
+094.tiff,human breast cancer,3,5.85,1046
+094.tiff,human breast cancer,3,5.9,1018
+094.tiff,human breast cancer,3,5.95,988
+094.tiff,human breast cancer,3,6.0,962
+094.tiff,human breast cancer,4,0.0,18703
+094.tiff,human breast cancer,4,0.05,18665
+094.tiff,human breast cancer,4,0.1,18601
+094.tiff,human breast cancer,4,0.15,18440
+094.tiff,human breast cancer,4,0.2,18235
+094.tiff,human breast cancer,4,0.25,18067
+094.tiff,human breast cancer,4,0.3,17895
+094.tiff,human breast cancer,4,0.35,17724
+094.tiff,human breast cancer,4,0.4,17525
+094.tiff,human breast cancer,4,0.45,17348
+094.tiff,human breast cancer,4,0.5,17155
+094.tiff,human breast cancer,4,0.55,16977
+094.tiff,human breast cancer,4,0.6,16820
+094.tiff,human breast cancer,4,0.65,16655
+094.tiff,human breast cancer,4,0.7,16480
+094.tiff,human breast cancer,4,0.75,16308
+094.tiff,human breast cancer,4,0.8,16123
+094.tiff,human breast cancer,4,0.85,15941
+094.tiff,human breast cancer,4,0.9,15766
+094.tiff,human breast cancer,4,0.95,15577
+094.tiff,human breast cancer,4,1.0,15399
+094.tiff,human breast cancer,4,1.05,15220
+094.tiff,human breast cancer,4,1.1,15044
+094.tiff,human breast cancer,4,1.15,14840
+094.tiff,human breast cancer,4,1.2,14657
+094.tiff,human breast cancer,4,1.25,14461
+094.tiff,human breast cancer,4,1.3,14288
+094.tiff,human breast cancer,4,1.35,14114
+094.tiff,human breast cancer,4,1.4,13934
+094.tiff,human breast cancer,4,1.45,13749
+094.tiff,human breast cancer,4,1.5,13528
+094.tiff,human breast cancer,4,1.55,13318
+094.tiff,human breast cancer,4,1.6,13118
+094.tiff,human breast cancer,4,1.65,12919
+094.tiff,human breast cancer,4,1.7,12713
+094.tiff,human breast cancer,4,1.75,12524
+094.tiff,human breast cancer,4,1.8,12333
+094.tiff,human breast cancer,4,1.85,12126
+094.tiff,human breast cancer,4,1.9,11945
+094.tiff,human breast cancer,4,1.95,11732
+094.tiff,human breast cancer,4,2.0,11498
+094.tiff,human breast cancer,4,2.05,11290
+094.tiff,human breast cancer,4,2.1,11101
+094.tiff,human breast cancer,4,2.15,10878
+094.tiff,human breast cancer,4,2.2,10669
+094.tiff,human breast cancer,4,2.25,10427
+094.tiff,human breast cancer,4,2.3,10223
+094.tiff,human breast cancer,4,2.35,9984
+094.tiff,human breast cancer,4,2.4,9758
+094.tiff,human breast cancer,4,2.45,9542
+094.tiff,human breast cancer,4,2.5,9287
+094.tiff,human breast cancer,4,2.55,9050
+094.tiff,human breast cancer,4,2.6,8809
+094.tiff,human breast cancer,4,2.65,8586
+094.tiff,human breast cancer,4,2.7,8336
+094.tiff,human breast cancer,4,2.75,8101
+094.tiff,human breast cancer,4,2.8,7863
+094.tiff,human breast cancer,4,2.85,7606
+094.tiff,human breast cancer,4,2.9,7365
+094.tiff,human breast cancer,4,2.95,7131
+094.tiff,human breast cancer,4,3.0,6933
+094.tiff,human breast cancer,4,3.05,6723
+094.tiff,human breast cancer,4,3.1,6497
+094.tiff,human breast cancer,4,3.15,6276
+094.tiff,human breast cancer,4,3.2,6086
+094.tiff,human breast cancer,4,3.25,5875
+094.tiff,human breast cancer,4,3.3,5665
+094.tiff,human breast cancer,4,3.35,5446
+094.tiff,human breast cancer,4,3.4,5263
+094.tiff,human breast cancer,4,3.45,5071
+094.tiff,human breast cancer,4,3.5,4886
+094.tiff,human breast cancer,4,3.55,4716
+094.tiff,human breast cancer,4,3.6,4560
+094.tiff,human breast cancer,4,3.65,4387
+094.tiff,human breast cancer,4,3.7,4220
+094.tiff,human breast cancer,4,3.75,4093
+094.tiff,human breast cancer,4,3.8,3938
+094.tiff,human breast cancer,4,3.85,3823
+094.tiff,human breast cancer,4,3.9,3687
+094.tiff,human breast cancer,4,3.95,3564
+094.tiff,human breast cancer,4,4.0,3450
+094.tiff,human breast cancer,4,4.05,3330
+094.tiff,human breast cancer,4,4.1,3223
+094.tiff,human breast cancer,4,4.15,3110
+094.tiff,human breast cancer,4,4.2,3020
+094.tiff,human breast cancer,4,4.25,2928
+094.tiff,human breast cancer,4,4.3,2833
+094.tiff,human breast cancer,4,4.35,2741
+094.tiff,human breast cancer,4,4.4,2653
+094.tiff,human breast cancer,4,4.45,2579
+094.tiff,human breast cancer,4,4.5,2503
+094.tiff,human breast cancer,4,4.55,2432
+094.tiff,human breast cancer,4,4.6,2353
+094.tiff,human breast cancer,4,4.65,2291
+094.tiff,human breast cancer,4,4.7,2224
+094.tiff,human breast cancer,4,4.75,2165
+094.tiff,human breast cancer,4,4.8,2105
+094.tiff,human breast cancer,4,4.85,2051
+094.tiff,human breast cancer,4,4.9,1999
+094.tiff,human breast cancer,4,4.95,1950
+094.tiff,human breast cancer,4,5.0,1904
+094.tiff,human breast cancer,4,5.05,1858
+094.tiff,human breast cancer,4,5.1,1812
+094.tiff,human breast cancer,4,5.15,1768
+094.tiff,human breast cancer,4,5.2,1725
+094.tiff,human breast cancer,4,5.25,1685
+094.tiff,human breast cancer,4,5.3,1643
+094.tiff,human breast cancer,4,5.35,1604
+094.tiff,human breast cancer,4,5.4,1568
+094.tiff,human breast cancer,4,5.45,1541
+094.tiff,human breast cancer,4,5.5,1509
+094.tiff,human breast cancer,4,5.55,1479
+094.tiff,human breast cancer,4,5.6,1447
+094.tiff,human breast cancer,4,5.65,1419
+094.tiff,human breast cancer,4,5.7,1398
+094.tiff,human breast cancer,4,5.75,1371
+094.tiff,human breast cancer,4,5.8,1340
+094.tiff,human breast cancer,4,5.85,1323
+094.tiff,human breast cancer,4,5.9,1302
+094.tiff,human breast cancer,4,5.95,1269
+094.tiff,human breast cancer,4,6.0,1242
+548.tiff,human melanoma,0,0.0,17284
+548.tiff,human melanoma,0,0.05,17252
+548.tiff,human melanoma,0,0.1,17201
+548.tiff,human melanoma,0,0.15,17142
+548.tiff,human melanoma,0,0.2,17063
+548.tiff,human melanoma,0,0.25,16975
+548.tiff,human melanoma,0,0.3,16884
+548.tiff,human melanoma,0,0.35,16775
+548.tiff,human melanoma,0,0.4,16638
+548.tiff,human melanoma,0,0.45,16490
+548.tiff,human melanoma,0,0.5,16339
+548.tiff,human melanoma,0,0.55,16152
+548.tiff,human melanoma,0,0.6,15980
+548.tiff,human melanoma,0,0.65,15796
+548.tiff,human melanoma,0,0.7,15608
+548.tiff,human melanoma,0,0.75,15408
+548.tiff,human melanoma,0,0.8,15234
+548.tiff,human melanoma,0,0.85,15045
+548.tiff,human melanoma,0,0.9,14865
+548.tiff,human melanoma,0,0.95,14671
+548.tiff,human melanoma,0,1.0,14484
+548.tiff,human melanoma,0,1.05,14316
+548.tiff,human melanoma,0,1.1,14148
+548.tiff,human melanoma,0,1.15,13954
+548.tiff,human melanoma,0,1.2,13792
+548.tiff,human melanoma,0,1.25,13628
+548.tiff,human melanoma,0,1.3,13458
+548.tiff,human melanoma,0,1.35,13299
+548.tiff,human melanoma,0,1.4,13149
+548.tiff,human melanoma,0,1.45,13001
+548.tiff,human melanoma,0,1.5,12855
+548.tiff,human melanoma,0,1.55,12675
+548.tiff,human melanoma,0,1.6,12525
+548.tiff,human melanoma,0,1.65,12344
+548.tiff,human melanoma,0,1.7,12164
+548.tiff,human melanoma,0,1.75,12010
+548.tiff,human melanoma,0,1.8,11820
+548.tiff,human melanoma,0,1.85,11651
+548.tiff,human melanoma,0,1.9,11477
+548.tiff,human melanoma,0,1.95,11299
+548.tiff,human melanoma,0,2.0,11103
+548.tiff,human melanoma,0,2.05,10901
+548.tiff,human melanoma,0,2.1,10710
+548.tiff,human melanoma,0,2.15,10500
+548.tiff,human melanoma,0,2.2,10290
+548.tiff,human melanoma,0,2.25,10080
+548.tiff,human melanoma,0,2.3,9859
+548.tiff,human melanoma,0,2.35,9659
+548.tiff,human melanoma,0,2.4,9434
+548.tiff,human melanoma,0,2.45,9198
+548.tiff,human melanoma,0,2.5,8987
+548.tiff,human melanoma,0,2.55,8763
+548.tiff,human melanoma,0,2.6,8519
+548.tiff,human melanoma,0,2.65,8264
+548.tiff,human melanoma,0,2.7,8056
+548.tiff,human melanoma,0,2.75,7822
+548.tiff,human melanoma,0,2.8,7576
+548.tiff,human melanoma,0,2.85,7342
+548.tiff,human melanoma,0,2.9,7102
+548.tiff,human melanoma,0,2.95,6859
+548.tiff,human melanoma,0,3.0,6639
+548.tiff,human melanoma,0,3.05,6392
+548.tiff,human melanoma,0,3.1,6160
+548.tiff,human melanoma,0,3.15,5933
+548.tiff,human melanoma,0,3.2,5741
+548.tiff,human melanoma,0,3.25,5512
+548.tiff,human melanoma,0,3.3,5315
+548.tiff,human melanoma,0,3.35,5081
+548.tiff,human melanoma,0,3.4,4875
+548.tiff,human melanoma,0,3.45,4680
+548.tiff,human melanoma,0,3.5,4483
+548.tiff,human melanoma,0,3.55,4292
+548.tiff,human melanoma,0,3.6,4132
+548.tiff,human melanoma,0,3.65,3958
+548.tiff,human melanoma,0,3.7,3792
+548.tiff,human melanoma,0,3.75,3620
+548.tiff,human melanoma,0,3.8,3454
+548.tiff,human melanoma,0,3.85,3283
+548.tiff,human melanoma,0,3.9,3156
+548.tiff,human melanoma,0,3.95,3012
+548.tiff,human melanoma,0,4.0,2865
+548.tiff,human melanoma,0,4.05,2736
+548.tiff,human melanoma,0,4.1,2611
+548.tiff,human melanoma,0,4.15,2512
+548.tiff,human melanoma,0,4.2,2418
+548.tiff,human melanoma,0,4.25,2310
+548.tiff,human melanoma,0,4.3,2191
+548.tiff,human melanoma,0,4.35,2106
+548.tiff,human melanoma,0,4.4,2006
+548.tiff,human melanoma,0,4.45,1923
+548.tiff,human melanoma,0,4.5,1844
+548.tiff,human melanoma,0,4.55,1758
+548.tiff,human melanoma,0,4.6,1670
+548.tiff,human melanoma,0,4.65,1595
+548.tiff,human melanoma,0,4.7,1509
+548.tiff,human melanoma,0,4.75,1446
+548.tiff,human melanoma,0,4.8,1381
+548.tiff,human melanoma,0,4.85,1323
+548.tiff,human melanoma,0,4.9,1263
+548.tiff,human melanoma,0,4.95,1201
+548.tiff,human melanoma,0,5.0,1169
+548.tiff,human melanoma,0,5.05,1126
+548.tiff,human melanoma,0,5.1,1094
+548.tiff,human melanoma,0,5.15,1056
+548.tiff,human melanoma,0,5.2,1028
+548.tiff,human melanoma,0,5.25,989
+548.tiff,human melanoma,0,5.3,967
+548.tiff,human melanoma,0,5.35,934
+548.tiff,human melanoma,0,5.4,899
+548.tiff,human melanoma,0,5.45,871
+548.tiff,human melanoma,0,5.5,836
+548.tiff,human melanoma,0,5.55,812
+548.tiff,human melanoma,0,5.6,781
+548.tiff,human melanoma,0,5.65,754
+548.tiff,human melanoma,0,5.7,731
+548.tiff,human melanoma,0,5.75,712
+548.tiff,human melanoma,0,5.8,695
+548.tiff,human melanoma,0,5.85,673
+548.tiff,human melanoma,0,5.9,652
+548.tiff,human melanoma,0,5.95,637
+548.tiff,human melanoma,0,6.0,626
+548.tiff,human melanoma,1,0.0,17465
+548.tiff,human melanoma,1,0.05,17418
+548.tiff,human melanoma,1,0.1,17356
+548.tiff,human melanoma,1,0.15,17262
+548.tiff,human melanoma,1,0.2,17162
+548.tiff,human melanoma,1,0.25,17026
+548.tiff,human melanoma,1,0.3,16909
+548.tiff,human melanoma,1,0.35,16779
+548.tiff,human melanoma,1,0.4,16611
+548.tiff,human melanoma,1,0.45,16432
+548.tiff,human melanoma,1,0.5,16259
+548.tiff,human melanoma,1,0.55,16069
+548.tiff,human melanoma,1,0.6,15864
+548.tiff,human melanoma,1,0.65,15668
+548.tiff,human melanoma,1,0.7,15483
+548.tiff,human melanoma,1,0.75,15296
+548.tiff,human melanoma,1,0.8,15095
+548.tiff,human melanoma,1,0.85,14899
+548.tiff,human melanoma,1,0.9,14721
+548.tiff,human melanoma,1,0.95,14532
+548.tiff,human melanoma,1,1.0,14348
+548.tiff,human melanoma,1,1.05,14191
+548.tiff,human melanoma,1,1.1,14005
+548.tiff,human melanoma,1,1.15,13817
+548.tiff,human melanoma,1,1.2,13653
+548.tiff,human melanoma,1,1.25,13480
+548.tiff,human melanoma,1,1.3,13329
+548.tiff,human melanoma,1,1.35,13180
+548.tiff,human melanoma,1,1.4,12991
+548.tiff,human melanoma,1,1.45,12824
+548.tiff,human melanoma,1,1.5,12629
+548.tiff,human melanoma,1,1.55,12452
+548.tiff,human melanoma,1,1.6,12279
+548.tiff,human melanoma,1,1.65,12085
+548.tiff,human melanoma,1,1.7,11888
+548.tiff,human melanoma,1,1.75,11688
+548.tiff,human melanoma,1,1.8,11458
+548.tiff,human melanoma,1,1.85,11234
+548.tiff,human melanoma,1,1.9,11020
+548.tiff,human melanoma,1,1.95,10800
+548.tiff,human melanoma,1,2.0,10606
+548.tiff,human melanoma,1,2.05,10366
+548.tiff,human melanoma,1,2.1,10144
+548.tiff,human melanoma,1,2.15,9905
+548.tiff,human melanoma,1,2.2,9685
+548.tiff,human melanoma,1,2.25,9438
+548.tiff,human melanoma,1,2.3,9193
+548.tiff,human melanoma,1,2.35,8944
+548.tiff,human melanoma,1,2.4,8696
+548.tiff,human melanoma,1,2.45,8436
+548.tiff,human melanoma,1,2.5,8176
+548.tiff,human melanoma,1,2.55,7939
+548.tiff,human melanoma,1,2.6,7691
+548.tiff,human melanoma,1,2.65,7441
+548.tiff,human melanoma,1,2.7,7208
+548.tiff,human melanoma,1,2.75,6948
+548.tiff,human melanoma,1,2.8,6698
+548.tiff,human melanoma,1,2.85,6441
+548.tiff,human melanoma,1,2.9,6187
+548.tiff,human melanoma,1,2.95,5944
+548.tiff,human melanoma,1,3.0,5710
+548.tiff,human melanoma,1,3.05,5501
+548.tiff,human melanoma,1,3.1,5274
+548.tiff,human melanoma,1,3.15,5036
+548.tiff,human melanoma,1,3.2,4809
+548.tiff,human melanoma,1,3.25,4602
+548.tiff,human melanoma,1,3.3,4393
+548.tiff,human melanoma,1,3.35,4196
+548.tiff,human melanoma,1,3.4,3988
+548.tiff,human melanoma,1,3.45,3770
+548.tiff,human melanoma,1,3.5,3605
+548.tiff,human melanoma,1,3.55,3426
+548.tiff,human melanoma,1,3.6,3268
+548.tiff,human melanoma,1,3.65,3103
+548.tiff,human melanoma,1,3.7,2935
+548.tiff,human melanoma,1,3.75,2792
+548.tiff,human melanoma,1,3.8,2674
+548.tiff,human melanoma,1,3.85,2555
+548.tiff,human melanoma,1,3.9,2446
+548.tiff,human melanoma,1,3.95,2312
+548.tiff,human melanoma,1,4.0,2204
+548.tiff,human melanoma,1,4.05,2092
+548.tiff,human melanoma,1,4.1,2003
+548.tiff,human melanoma,1,4.15,1928
+548.tiff,human melanoma,1,4.2,1836
+548.tiff,human melanoma,1,4.25,1757
+548.tiff,human melanoma,1,4.3,1676
+548.tiff,human melanoma,1,4.35,1609
+548.tiff,human melanoma,1,4.4,1544
+548.tiff,human melanoma,1,4.45,1481
+548.tiff,human melanoma,1,4.5,1409
+548.tiff,human melanoma,1,4.55,1344
+548.tiff,human melanoma,1,4.6,1290
+548.tiff,human melanoma,1,4.65,1244
+548.tiff,human melanoma,1,4.7,1199
+548.tiff,human melanoma,1,4.75,1140
+548.tiff,human melanoma,1,4.8,1096
+548.tiff,human melanoma,1,4.85,1050
+548.tiff,human melanoma,1,4.9,1013
+548.tiff,human melanoma,1,4.95,974
+548.tiff,human melanoma,1,5.0,933
+548.tiff,human melanoma,1,5.05,904
+548.tiff,human melanoma,1,5.1,857
+548.tiff,human melanoma,1,5.15,825
+548.tiff,human melanoma,1,5.2,796
+548.tiff,human melanoma,1,5.25,765
+548.tiff,human melanoma,1,5.3,744
+548.tiff,human melanoma,1,5.35,724
+548.tiff,human melanoma,1,5.4,700
+548.tiff,human melanoma,1,5.45,672
+548.tiff,human melanoma,1,5.5,650
+548.tiff,human melanoma,1,5.55,626
+548.tiff,human melanoma,1,5.6,608
+548.tiff,human melanoma,1,5.65,585
+548.tiff,human melanoma,1,5.7,571
+548.tiff,human melanoma,1,5.75,558
+548.tiff,human melanoma,1,5.8,543
+548.tiff,human melanoma,1,5.85,525
+548.tiff,human melanoma,1,5.9,512
+548.tiff,human melanoma,1,5.95,492
+548.tiff,human melanoma,1,6.0,473
+548.tiff,human melanoma,2,0.0,17489
+548.tiff,human melanoma,2,0.05,17446
+548.tiff,human melanoma,2,0.1,17378
+548.tiff,human melanoma,2,0.15,17320
+548.tiff,human melanoma,2,0.2,17235
+548.tiff,human melanoma,2,0.25,17158
+548.tiff,human melanoma,2,0.3,17044
+548.tiff,human melanoma,2,0.35,16925
+548.tiff,human melanoma,2,0.4,16796
+548.tiff,human melanoma,2,0.45,16647
+548.tiff,human melanoma,2,0.5,16479
+548.tiff,human melanoma,2,0.55,16325
+548.tiff,human melanoma,2,0.6,16135
+548.tiff,human melanoma,2,0.65,15929
+548.tiff,human melanoma,2,0.7,15753
+548.tiff,human melanoma,2,0.75,15538
+548.tiff,human melanoma,2,0.8,15336
+548.tiff,human melanoma,2,0.85,15154
+548.tiff,human melanoma,2,0.9,14974
+548.tiff,human melanoma,2,0.95,14793
+548.tiff,human melanoma,2,1.0,14594
+548.tiff,human melanoma,2,1.05,14421
+548.tiff,human melanoma,2,1.1,14247
+548.tiff,human melanoma,2,1.15,14120
+548.tiff,human melanoma,2,1.2,13938
+548.tiff,human melanoma,2,1.25,13788
+548.tiff,human melanoma,2,1.3,13649
+548.tiff,human melanoma,2,1.35,13510
+548.tiff,human melanoma,2,1.4,13386
+548.tiff,human melanoma,2,1.45,13230
+548.tiff,human melanoma,2,1.5,13087
+548.tiff,human melanoma,2,1.55,12911
+548.tiff,human melanoma,2,1.6,12761
+548.tiff,human melanoma,2,1.65,12598
+548.tiff,human melanoma,2,1.7,12431
+548.tiff,human melanoma,2,1.75,12296
+548.tiff,human melanoma,2,1.8,12131
+548.tiff,human melanoma,2,1.85,11957
+548.tiff,human melanoma,2,1.9,11768
+548.tiff,human melanoma,2,1.95,11568
+548.tiff,human melanoma,2,2.0,11393
+548.tiff,human melanoma,2,2.05,11212
+548.tiff,human melanoma,2,2.1,11025
+548.tiff,human melanoma,2,2.15,10836
+548.tiff,human melanoma,2,2.2,10637
+548.tiff,human melanoma,2,2.25,10414
+548.tiff,human melanoma,2,2.3,10193
+548.tiff,human melanoma,2,2.35,10001
+548.tiff,human melanoma,2,2.4,9802
+548.tiff,human melanoma,2,2.45,9586
+548.tiff,human melanoma,2,2.5,9375
+548.tiff,human melanoma,2,2.55,9152
+548.tiff,human melanoma,2,2.6,8954
+548.tiff,human melanoma,2,2.65,8738
+548.tiff,human melanoma,2,2.7,8520
+548.tiff,human melanoma,2,2.75,8279
+548.tiff,human melanoma,2,2.8,8044
+548.tiff,human melanoma,2,2.85,7768
+548.tiff,human melanoma,2,2.9,7534
+548.tiff,human melanoma,2,2.95,7289
+548.tiff,human melanoma,2,3.0,7039
+548.tiff,human melanoma,2,3.05,6808
+548.tiff,human melanoma,2,3.1,6554
+548.tiff,human melanoma,2,3.15,6315
+548.tiff,human melanoma,2,3.2,6097
+548.tiff,human melanoma,2,3.25,5856
+548.tiff,human melanoma,2,3.3,5611
+548.tiff,human melanoma,2,3.35,5385
+548.tiff,human melanoma,2,3.4,5157
+548.tiff,human melanoma,2,3.45,4942
+548.tiff,human melanoma,2,3.5,4733
+548.tiff,human melanoma,2,3.55,4550
+548.tiff,human melanoma,2,3.6,4341
+548.tiff,human melanoma,2,3.65,4128
+548.tiff,human melanoma,2,3.7,3954
+548.tiff,human melanoma,2,3.75,3773
+548.tiff,human melanoma,2,3.8,3617
+548.tiff,human melanoma,2,3.85,3455
+548.tiff,human melanoma,2,3.9,3300
+548.tiff,human melanoma,2,3.95,3161
+548.tiff,human melanoma,2,4.0,3018
+548.tiff,human melanoma,2,4.05,2892
+548.tiff,human melanoma,2,4.1,2764
+548.tiff,human melanoma,2,4.15,2648
+548.tiff,human melanoma,2,4.2,2538
+548.tiff,human melanoma,2,4.25,2418
+548.tiff,human melanoma,2,4.3,2313
+548.tiff,human melanoma,2,4.35,2209
+548.tiff,human melanoma,2,4.4,2110
+548.tiff,human melanoma,2,4.45,2011
+548.tiff,human melanoma,2,4.5,1913
+548.tiff,human melanoma,2,4.55,1835
+548.tiff,human melanoma,2,4.6,1755
+548.tiff,human melanoma,2,4.65,1672
+548.tiff,human melanoma,2,4.7,1579
+548.tiff,human melanoma,2,4.75,1504
+548.tiff,human melanoma,2,4.8,1460
+548.tiff,human melanoma,2,4.85,1396
+548.tiff,human melanoma,2,4.9,1343
+548.tiff,human melanoma,2,4.95,1293
+548.tiff,human melanoma,2,5.0,1233
+548.tiff,human melanoma,2,5.05,1191
+548.tiff,human melanoma,2,5.1,1149
+548.tiff,human melanoma,2,5.15,1100
+548.tiff,human melanoma,2,5.2,1063
+548.tiff,human melanoma,2,5.25,1027
+548.tiff,human melanoma,2,5.3,987
+548.tiff,human melanoma,2,5.35,948
+548.tiff,human melanoma,2,5.4,921
+548.tiff,human melanoma,2,5.45,881
+548.tiff,human melanoma,2,5.5,853
+548.tiff,human melanoma,2,5.55,823
+548.tiff,human melanoma,2,5.6,796
+548.tiff,human melanoma,2,5.65,771
+548.tiff,human melanoma,2,5.7,749
+548.tiff,human melanoma,2,5.75,724
+548.tiff,human melanoma,2,5.8,698
+548.tiff,human melanoma,2,5.85,686
+548.tiff,human melanoma,2,5.9,668
+548.tiff,human melanoma,2,5.95,645
+548.tiff,human melanoma,2,6.0,624
+548.tiff,human melanoma,3,0.0,17263
+548.tiff,human melanoma,3,0.05,17217
+548.tiff,human melanoma,3,0.1,17165
+548.tiff,human melanoma,3,0.15,17088
+548.tiff,human melanoma,3,0.2,17029
+548.tiff,human melanoma,3,0.25,16950
+548.tiff,human melanoma,3,0.3,16844
+548.tiff,human melanoma,3,0.35,16733
+548.tiff,human melanoma,3,0.4,16605
+548.tiff,human melanoma,3,0.45,16447
+548.tiff,human melanoma,3,0.5,16295
+548.tiff,human melanoma,3,0.55,16123
+548.tiff,human melanoma,3,0.6,15937
+548.tiff,human melanoma,3,0.65,15766
+548.tiff,human melanoma,3,0.7,15584
+548.tiff,human melanoma,3,0.75,15384
+548.tiff,human melanoma,3,0.8,15194
+548.tiff,human melanoma,3,0.85,14993
+548.tiff,human melanoma,3,0.9,14808
+548.tiff,human melanoma,3,0.95,14639
+548.tiff,human melanoma,3,1.0,14472
+548.tiff,human melanoma,3,1.05,14305
+548.tiff,human melanoma,3,1.1,14142
+548.tiff,human melanoma,3,1.15,13983
+548.tiff,human melanoma,3,1.2,13798
+548.tiff,human melanoma,3,1.25,13612
+548.tiff,human melanoma,3,1.3,13445
+548.tiff,human melanoma,3,1.35,13279
+548.tiff,human melanoma,3,1.4,13098
+548.tiff,human melanoma,3,1.45,12928
+548.tiff,human melanoma,3,1.5,12756
+548.tiff,human melanoma,3,1.55,12570
+548.tiff,human melanoma,3,1.6,12407
+548.tiff,human melanoma,3,1.65,12232
+548.tiff,human melanoma,3,1.7,12072
+548.tiff,human melanoma,3,1.75,11867
+548.tiff,human melanoma,3,1.8,11660
+548.tiff,human melanoma,3,1.85,11467
+548.tiff,human melanoma,3,1.9,11272
+548.tiff,human melanoma,3,1.95,11089
+548.tiff,human melanoma,3,2.0,10869
+548.tiff,human melanoma,3,2.05,10658
+548.tiff,human melanoma,3,2.1,10449
+548.tiff,human melanoma,3,2.15,10223
+548.tiff,human melanoma,3,2.2,10003
+548.tiff,human melanoma,3,2.25,9773
+548.tiff,human melanoma,3,2.3,9552
+548.tiff,human melanoma,3,2.35,9328
+548.tiff,human melanoma,3,2.4,9115
+548.tiff,human melanoma,3,2.45,8887
+548.tiff,human melanoma,3,2.5,8606
+548.tiff,human melanoma,3,2.55,8369
+548.tiff,human melanoma,3,2.6,8123
+548.tiff,human melanoma,3,2.65,7897
+548.tiff,human melanoma,3,2.7,7616
+548.tiff,human melanoma,3,2.75,7350
+548.tiff,human melanoma,3,2.8,7110
+548.tiff,human melanoma,3,2.85,6847
+548.tiff,human melanoma,3,2.9,6588
+548.tiff,human melanoma,3,2.95,6349
+548.tiff,human melanoma,3,3.0,6093
+548.tiff,human melanoma,3,3.05,5844
+548.tiff,human melanoma,3,3.1,5588
+548.tiff,human melanoma,3,3.15,5361
+548.tiff,human melanoma,3,3.2,5146
+548.tiff,human melanoma,3,3.25,4911
+548.tiff,human melanoma,3,3.3,4682
+548.tiff,human melanoma,3,3.35,4459
+548.tiff,human melanoma,3,3.4,4275
+548.tiff,human melanoma,3,3.45,4082
+548.tiff,human melanoma,3,3.5,3888
+548.tiff,human melanoma,3,3.55,3698
+548.tiff,human melanoma,3,3.6,3511
+548.tiff,human melanoma,3,3.65,3348
+548.tiff,human melanoma,3,3.7,3207
+548.tiff,human melanoma,3,3.75,3047
+548.tiff,human melanoma,3,3.8,2909
+548.tiff,human melanoma,3,3.85,2732
+548.tiff,human melanoma,3,3.9,2597
+548.tiff,human melanoma,3,3.95,2439
+548.tiff,human melanoma,3,4.0,2328
+548.tiff,human melanoma,3,4.05,2221
+548.tiff,human melanoma,3,4.1,2111
+548.tiff,human melanoma,3,4.15,2014
+548.tiff,human melanoma,3,4.2,1923
+548.tiff,human melanoma,3,4.25,1828
+548.tiff,human melanoma,3,4.3,1746
+548.tiff,human melanoma,3,4.35,1669
+548.tiff,human melanoma,3,4.4,1596
+548.tiff,human melanoma,3,4.45,1515
+548.tiff,human melanoma,3,4.5,1456
+548.tiff,human melanoma,3,4.55,1404
+548.tiff,human melanoma,3,4.6,1336
+548.tiff,human melanoma,3,4.65,1275
+548.tiff,human melanoma,3,4.7,1218
+548.tiff,human melanoma,3,4.75,1172
+548.tiff,human melanoma,3,4.8,1121
+548.tiff,human melanoma,3,4.85,1072
+548.tiff,human melanoma,3,4.9,1035
+548.tiff,human melanoma,3,4.95,999
+548.tiff,human melanoma,3,5.0,966
+548.tiff,human melanoma,3,5.05,931
+548.tiff,human melanoma,3,5.1,898
+548.tiff,human melanoma,3,5.15,856
+548.tiff,human melanoma,3,5.2,824
+548.tiff,human melanoma,3,5.25,796
+548.tiff,human melanoma,3,5.3,774
+548.tiff,human melanoma,3,5.35,756
+548.tiff,human melanoma,3,5.4,728
+548.tiff,human melanoma,3,5.45,709
+548.tiff,human melanoma,3,5.5,692
+548.tiff,human melanoma,3,5.55,672
+548.tiff,human melanoma,3,5.6,652
+548.tiff,human melanoma,3,5.65,629
+548.tiff,human melanoma,3,5.7,616
+548.tiff,human melanoma,3,5.75,606
+548.tiff,human melanoma,3,5.8,599
+548.tiff,human melanoma,3,5.85,588
+548.tiff,human melanoma,3,5.9,575
+548.tiff,human melanoma,3,5.95,558
+548.tiff,human melanoma,3,6.0,544
+548.tiff,human melanoma,4,0.0,17870
+548.tiff,human melanoma,4,0.05,17825
+548.tiff,human melanoma,4,0.1,17780
+548.tiff,human melanoma,4,0.15,17725
+548.tiff,human melanoma,4,0.2,17665
+548.tiff,human melanoma,4,0.25,17581
+548.tiff,human melanoma,4,0.3,17503
+548.tiff,human melanoma,4,0.35,17410
+548.tiff,human melanoma,4,0.4,17296
+548.tiff,human melanoma,4,0.45,17170
+548.tiff,human melanoma,4,0.5,17021
+548.tiff,human melanoma,4,0.55,16846
+548.tiff,human melanoma,4,0.6,16666
+548.tiff,human melanoma,4,0.65,16493
+548.tiff,human melanoma,4,0.7,16332
+548.tiff,human melanoma,4,0.75,16141
+548.tiff,human melanoma,4,0.8,15948
+548.tiff,human melanoma,4,0.85,15776
+548.tiff,human melanoma,4,0.9,15578
+548.tiff,human melanoma,4,0.95,15395
+548.tiff,human melanoma,4,1.0,15212
+548.tiff,human melanoma,4,1.05,15033
+548.tiff,human melanoma,4,1.1,14852
+548.tiff,human melanoma,4,1.15,14656
+548.tiff,human melanoma,4,1.2,14469
+548.tiff,human melanoma,4,1.25,14261
+548.tiff,human melanoma,4,1.3,14077
+548.tiff,human melanoma,4,1.35,13908
+548.tiff,human melanoma,4,1.4,13717
+548.tiff,human melanoma,4,1.45,13546
+548.tiff,human melanoma,4,1.5,13387
+548.tiff,human melanoma,4,1.55,13201
+548.tiff,human melanoma,4,1.6,13027
+548.tiff,human melanoma,4,1.65,12845
+548.tiff,human melanoma,4,1.7,12652
+548.tiff,human melanoma,4,1.75,12442
+548.tiff,human melanoma,4,1.8,12255
+548.tiff,human melanoma,4,1.85,12057
+548.tiff,human melanoma,4,1.9,11850
+548.tiff,human melanoma,4,1.95,11660
+548.tiff,human melanoma,4,2.0,11452
+548.tiff,human melanoma,4,2.05,11261
+548.tiff,human melanoma,4,2.1,11045
+548.tiff,human melanoma,4,2.15,10847
+548.tiff,human melanoma,4,2.2,10638
+548.tiff,human melanoma,4,2.25,10416
+548.tiff,human melanoma,4,2.3,10221
+548.tiff,human melanoma,4,2.35,9988
+548.tiff,human melanoma,4,2.4,9758
+548.tiff,human melanoma,4,2.45,9521
+548.tiff,human melanoma,4,2.5,9256
+548.tiff,human melanoma,4,2.55,9020
+548.tiff,human melanoma,4,2.6,8785
+548.tiff,human melanoma,4,2.65,8513
+548.tiff,human melanoma,4,2.7,8243
+548.tiff,human melanoma,4,2.75,7982
+548.tiff,human melanoma,4,2.8,7706
+548.tiff,human melanoma,4,2.85,7444
+548.tiff,human melanoma,4,2.9,7172
+548.tiff,human melanoma,4,2.95,6929
+548.tiff,human melanoma,4,3.0,6677
+548.tiff,human melanoma,4,3.05,6409
+548.tiff,human melanoma,4,3.1,6160
+548.tiff,human melanoma,4,3.15,5893
+548.tiff,human melanoma,4,3.2,5655
+548.tiff,human melanoma,4,3.25,5428
+548.tiff,human melanoma,4,3.3,5202
+548.tiff,human melanoma,4,3.35,4971
+548.tiff,human melanoma,4,3.4,4784
+548.tiff,human melanoma,4,3.45,4590
+548.tiff,human melanoma,4,3.5,4385
+548.tiff,human melanoma,4,3.55,4175
+548.tiff,human melanoma,4,3.6,3979
+548.tiff,human melanoma,4,3.65,3796
+548.tiff,human melanoma,4,3.7,3659
+548.tiff,human melanoma,4,3.75,3490
+548.tiff,human melanoma,4,3.8,3325
+548.tiff,human melanoma,4,3.85,3185
+548.tiff,human melanoma,4,3.9,3018
+548.tiff,human melanoma,4,3.95,2875
+548.tiff,human melanoma,4,4.0,2738
+548.tiff,human melanoma,4,4.05,2614
+548.tiff,human melanoma,4,4.1,2491
+548.tiff,human melanoma,4,4.15,2384
+548.tiff,human melanoma,4,4.2,2278
+548.tiff,human melanoma,4,4.25,2166
+548.tiff,human melanoma,4,4.3,2074
+548.tiff,human melanoma,4,4.35,1991
+548.tiff,human melanoma,4,4.4,1914
+548.tiff,human melanoma,4,4.45,1829
+548.tiff,human melanoma,4,4.5,1748
+548.tiff,human melanoma,4,4.55,1676
+548.tiff,human melanoma,4,4.6,1605
+548.tiff,human melanoma,4,4.65,1549
+548.tiff,human melanoma,4,4.7,1473
+548.tiff,human melanoma,4,4.75,1424
+548.tiff,human melanoma,4,4.8,1379
+548.tiff,human melanoma,4,4.85,1328
+548.tiff,human melanoma,4,4.9,1279
+548.tiff,human melanoma,4,4.95,1228
+548.tiff,human melanoma,4,5.0,1186
+548.tiff,human melanoma,4,5.05,1137
+548.tiff,human melanoma,4,5.1,1095
+548.tiff,human melanoma,4,5.15,1055
+548.tiff,human melanoma,4,5.2,1013
+548.tiff,human melanoma,4,5.25,977
+548.tiff,human melanoma,4,5.3,949
+548.tiff,human melanoma,4,5.35,915
+548.tiff,human melanoma,4,5.4,884
+548.tiff,human melanoma,4,5.45,866
+548.tiff,human melanoma,4,5.5,846
+548.tiff,human melanoma,4,5.55,818
+548.tiff,human melanoma,4,5.6,797
+548.tiff,human melanoma,4,5.65,771
+548.tiff,human melanoma,4,5.7,750
+548.tiff,human melanoma,4,5.75,728
+548.tiff,human melanoma,4,5.8,712
+548.tiff,human melanoma,4,5.85,694
+548.tiff,human melanoma,4,5.9,682
+548.tiff,human melanoma,4,5.95,661
+548.tiff,human melanoma,4,6.0,648
+402.tiff,human neuroendocrine tumor,0,0.0,17248
+402.tiff,human neuroendocrine tumor,0,0.05,17227
+402.tiff,human neuroendocrine tumor,0,0.1,17189
+402.tiff,human neuroendocrine tumor,0,0.15,17164
+402.tiff,human neuroendocrine tumor,0,0.2,17124
+402.tiff,human neuroendocrine tumor,0,0.25,17062
+402.tiff,human neuroendocrine tumor,0,0.3,16996
+402.tiff,human neuroendocrine tumor,0,0.35,16939
+402.tiff,human neuroendocrine tumor,0,0.4,16871
+402.tiff,human neuroendocrine tumor,0,0.45,16796
+402.tiff,human neuroendocrine tumor,0,0.5,16729
+402.tiff,human neuroendocrine tumor,0,0.55,16663
+402.tiff,human neuroendocrine tumor,0,0.6,16581
+402.tiff,human neuroendocrine tumor,0,0.65,16506
+402.tiff,human neuroendocrine tumor,0,0.7,16435
+402.tiff,human neuroendocrine tumor,0,0.75,16356
+402.tiff,human neuroendocrine tumor,0,0.8,16278
+402.tiff,human neuroendocrine tumor,0,0.85,16199
+402.tiff,human neuroendocrine tumor,0,0.9,16102
+402.tiff,human neuroendocrine tumor,0,0.95,16000
+402.tiff,human neuroendocrine tumor,0,1.0,15912
+402.tiff,human neuroendocrine tumor,0,1.05,15808
+402.tiff,human neuroendocrine tumor,0,1.1,15698
+402.tiff,human neuroendocrine tumor,0,1.15,15575
+402.tiff,human neuroendocrine tumor,0,1.2,15427
+402.tiff,human neuroendocrine tumor,0,1.25,15319
+402.tiff,human neuroendocrine tumor,0,1.3,15181
+402.tiff,human neuroendocrine tumor,0,1.35,15024
+402.tiff,human neuroendocrine tumor,0,1.4,14862
+402.tiff,human neuroendocrine tumor,0,1.45,14674
+402.tiff,human neuroendocrine tumor,0,1.5,14461
+402.tiff,human neuroendocrine tumor,0,1.55,14246
+402.tiff,human neuroendocrine tumor,0,1.6,14035
+402.tiff,human neuroendocrine tumor,0,1.65,13804
+402.tiff,human neuroendocrine tumor,0,1.7,13600
+402.tiff,human neuroendocrine tumor,0,1.75,13325
+402.tiff,human neuroendocrine tumor,0,1.8,13030
+402.tiff,human neuroendocrine tumor,0,1.85,12737
+402.tiff,human neuroendocrine tumor,0,1.9,12435
+402.tiff,human neuroendocrine tumor,0,1.95,12152
+402.tiff,human neuroendocrine tumor,0,2.0,11850
+402.tiff,human neuroendocrine tumor,0,2.05,11519
+402.tiff,human neuroendocrine tumor,0,2.1,11197
+402.tiff,human neuroendocrine tumor,0,2.15,10883
+402.tiff,human neuroendocrine tumor,0,2.2,10518
+402.tiff,human neuroendocrine tumor,0,2.25,10189
+402.tiff,human neuroendocrine tumor,0,2.3,9846
+402.tiff,human neuroendocrine tumor,0,2.35,9507
+402.tiff,human neuroendocrine tumor,0,2.4,9173
+402.tiff,human neuroendocrine tumor,0,2.45,8818
+402.tiff,human neuroendocrine tumor,0,2.5,8478
+402.tiff,human neuroendocrine tumor,0,2.55,8145
+402.tiff,human neuroendocrine tumor,0,2.6,7830
+402.tiff,human neuroendocrine tumor,0,2.65,7537
+402.tiff,human neuroendocrine tumor,0,2.7,7230
+402.tiff,human neuroendocrine tumor,0,2.75,6934
+402.tiff,human neuroendocrine tumor,0,2.8,6657
+402.tiff,human neuroendocrine tumor,0,2.85,6380
+402.tiff,human neuroendocrine tumor,0,2.9,6095
+402.tiff,human neuroendocrine tumor,0,2.95,5824
+402.tiff,human neuroendocrine tumor,0,3.0,5543
+402.tiff,human neuroendocrine tumor,0,3.05,5257
+402.tiff,human neuroendocrine tumor,0,3.1,5013
+402.tiff,human neuroendocrine tumor,0,3.15,4756
+402.tiff,human neuroendocrine tumor,0,3.2,4525
+402.tiff,human neuroendocrine tumor,0,3.25,4308
+402.tiff,human neuroendocrine tumor,0,3.3,4080
+402.tiff,human neuroendocrine tumor,0,3.35,3875
+402.tiff,human neuroendocrine tumor,0,3.4,3669
+402.tiff,human neuroendocrine tumor,0,3.45,3488
+402.tiff,human neuroendocrine tumor,0,3.5,3327
+402.tiff,human neuroendocrine tumor,0,3.55,3159
+402.tiff,human neuroendocrine tumor,0,3.6,3002
+402.tiff,human neuroendocrine tumor,0,3.65,2841
+402.tiff,human neuroendocrine tumor,0,3.7,2681
+402.tiff,human neuroendocrine tumor,0,3.75,2539
+402.tiff,human neuroendocrine tumor,0,3.8,2439
+402.tiff,human neuroendocrine tumor,0,3.85,2342
+402.tiff,human neuroendocrine tumor,0,3.9,2224
+402.tiff,human neuroendocrine tumor,0,3.95,2116
+402.tiff,human neuroendocrine tumor,0,4.0,2017
+402.tiff,human neuroendocrine tumor,0,4.05,1921
+402.tiff,human neuroendocrine tumor,0,4.1,1826
+402.tiff,human neuroendocrine tumor,0,4.15,1744
+402.tiff,human neuroendocrine tumor,0,4.2,1668
+402.tiff,human neuroendocrine tumor,0,4.25,1573
+402.tiff,human neuroendocrine tumor,0,4.3,1509
+402.tiff,human neuroendocrine tumor,0,4.35,1448
+402.tiff,human neuroendocrine tumor,0,4.4,1387
+402.tiff,human neuroendocrine tumor,0,4.45,1319
+402.tiff,human neuroendocrine tumor,0,4.5,1262
+402.tiff,human neuroendocrine tumor,0,4.55,1212
+402.tiff,human neuroendocrine tumor,0,4.6,1159
+402.tiff,human neuroendocrine tumor,0,4.65,1109
+402.tiff,human neuroendocrine tumor,0,4.7,1073
+402.tiff,human neuroendocrine tumor,0,4.75,1020
+402.tiff,human neuroendocrine tumor,0,4.8,974
+402.tiff,human neuroendocrine tumor,0,4.85,939
+402.tiff,human neuroendocrine tumor,0,4.9,916
+402.tiff,human neuroendocrine tumor,0,4.95,883
+402.tiff,human neuroendocrine tumor,0,5.0,847
+402.tiff,human neuroendocrine tumor,0,5.05,803
+402.tiff,human neuroendocrine tumor,0,5.1,772
+402.tiff,human neuroendocrine tumor,0,5.15,740
+402.tiff,human neuroendocrine tumor,0,5.2,716
+402.tiff,human neuroendocrine tumor,0,5.25,684
+402.tiff,human neuroendocrine tumor,0,5.3,662
+402.tiff,human neuroendocrine tumor,0,5.35,633
+402.tiff,human neuroendocrine tumor,0,5.4,613
+402.tiff,human neuroendocrine tumor,0,5.45,590
+402.tiff,human neuroendocrine tumor,0,5.5,576
+402.tiff,human neuroendocrine tumor,0,5.55,558
+402.tiff,human neuroendocrine tumor,0,5.6,535
+402.tiff,human neuroendocrine tumor,0,5.65,518
+402.tiff,human neuroendocrine tumor,0,5.7,498
+402.tiff,human neuroendocrine tumor,0,5.75,478
+402.tiff,human neuroendocrine tumor,0,5.8,465
+402.tiff,human neuroendocrine tumor,0,5.85,447
+402.tiff,human neuroendocrine tumor,0,5.9,430
+402.tiff,human neuroendocrine tumor,0,5.95,417
+402.tiff,human neuroendocrine tumor,0,6.0,408
+402.tiff,human neuroendocrine tumor,1,0.0,15681
+402.tiff,human neuroendocrine tumor,1,0.05,15645
+402.tiff,human neuroendocrine tumor,1,0.1,15602
+402.tiff,human neuroendocrine tumor,1,0.15,15543
+402.tiff,human neuroendocrine tumor,1,0.2,15487
+402.tiff,human neuroendocrine tumor,1,0.25,15438
+402.tiff,human neuroendocrine tumor,1,0.3,15366
+402.tiff,human neuroendocrine tumor,1,0.35,15284
+402.tiff,human neuroendocrine tumor,1,0.4,15212
+402.tiff,human neuroendocrine tumor,1,0.45,15125
+402.tiff,human neuroendocrine tumor,1,0.5,15040
+402.tiff,human neuroendocrine tumor,1,0.55,14938
+402.tiff,human neuroendocrine tumor,1,0.6,14856
+402.tiff,human neuroendocrine tumor,1,0.65,14764
+402.tiff,human neuroendocrine tumor,1,0.7,14653
+402.tiff,human neuroendocrine tumor,1,0.75,14539
+402.tiff,human neuroendocrine tumor,1,0.8,14424
+402.tiff,human neuroendocrine tumor,1,0.85,14273
+402.tiff,human neuroendocrine tumor,1,0.9,14116
+402.tiff,human neuroendocrine tumor,1,0.95,13950
+402.tiff,human neuroendocrine tumor,1,1.0,13768
+402.tiff,human neuroendocrine tumor,1,1.05,13584
+402.tiff,human neuroendocrine tumor,1,1.1,13391
+402.tiff,human neuroendocrine tumor,1,1.15,13181
+402.tiff,human neuroendocrine tumor,1,1.2,12955
+402.tiff,human neuroendocrine tumor,1,1.25,12739
+402.tiff,human neuroendocrine tumor,1,1.3,12476
+402.tiff,human neuroendocrine tumor,1,1.35,12177
+402.tiff,human neuroendocrine tumor,1,1.4,11901
+402.tiff,human neuroendocrine tumor,1,1.45,11611
+402.tiff,human neuroendocrine tumor,1,1.5,11329
+402.tiff,human neuroendocrine tumor,1,1.55,10996
+402.tiff,human neuroendocrine tumor,1,1.6,10648
+402.tiff,human neuroendocrine tumor,1,1.65,10306
+402.tiff,human neuroendocrine tumor,1,1.7,9969
+402.tiff,human neuroendocrine tumor,1,1.75,9592
+402.tiff,human neuroendocrine tumor,1,1.8,9237
+402.tiff,human neuroendocrine tumor,1,1.85,8888
+402.tiff,human neuroendocrine tumor,1,1.9,8534
+402.tiff,human neuroendocrine tumor,1,1.95,8188
+402.tiff,human neuroendocrine tumor,1,2.0,7800
+402.tiff,human neuroendocrine tumor,1,2.05,7483
+402.tiff,human neuroendocrine tumor,1,2.1,7114
+402.tiff,human neuroendocrine tumor,1,2.15,6751
+402.tiff,human neuroendocrine tumor,1,2.2,6424
+402.tiff,human neuroendocrine tumor,1,2.25,6109
+402.tiff,human neuroendocrine tumor,1,2.3,5799
+402.tiff,human neuroendocrine tumor,1,2.35,5482
+402.tiff,human neuroendocrine tumor,1,2.4,5162
+402.tiff,human neuroendocrine tumor,1,2.45,4851
+402.tiff,human neuroendocrine tumor,1,2.5,4604
+402.tiff,human neuroendocrine tumor,1,2.55,4338
+402.tiff,human neuroendocrine tumor,1,2.6,4105
+402.tiff,human neuroendocrine tumor,1,2.65,3872
+402.tiff,human neuroendocrine tumor,1,2.7,3612
+402.tiff,human neuroendocrine tumor,1,2.75,3352
+402.tiff,human neuroendocrine tumor,1,2.8,3147
+402.tiff,human neuroendocrine tumor,1,2.85,2936
+402.tiff,human neuroendocrine tumor,1,2.9,2759
+402.tiff,human neuroendocrine tumor,1,2.95,2573
+402.tiff,human neuroendocrine tumor,1,3.0,2403
+402.tiff,human neuroendocrine tumor,1,3.05,2245
+402.tiff,human neuroendocrine tumor,1,3.1,2101
+402.tiff,human neuroendocrine tumor,1,3.15,1963
+402.tiff,human neuroendocrine tumor,1,3.2,1836
+402.tiff,human neuroendocrine tumor,1,3.25,1711
+402.tiff,human neuroendocrine tumor,1,3.3,1604
+402.tiff,human neuroendocrine tumor,1,3.35,1497
+402.tiff,human neuroendocrine tumor,1,3.4,1393
+402.tiff,human neuroendocrine tumor,1,3.45,1301
+402.tiff,human neuroendocrine tumor,1,3.5,1208
+402.tiff,human neuroendocrine tumor,1,3.55,1129
+402.tiff,human neuroendocrine tumor,1,3.6,1060
+402.tiff,human neuroendocrine tumor,1,3.65,990
+402.tiff,human neuroendocrine tumor,1,3.7,930
+402.tiff,human neuroendocrine tumor,1,3.75,869
+402.tiff,human neuroendocrine tumor,1,3.8,837
+402.tiff,human neuroendocrine tumor,1,3.85,775
+402.tiff,human neuroendocrine tumor,1,3.9,723
+402.tiff,human neuroendocrine tumor,1,3.95,685
+402.tiff,human neuroendocrine tumor,1,4.0,643
+402.tiff,human neuroendocrine tumor,1,4.05,607
+402.tiff,human neuroendocrine tumor,1,4.1,568
+402.tiff,human neuroendocrine tumor,1,4.15,542
+402.tiff,human neuroendocrine tumor,1,4.2,521
+402.tiff,human neuroendocrine tumor,1,4.25,492
+402.tiff,human neuroendocrine tumor,1,4.3,472
+402.tiff,human neuroendocrine tumor,1,4.35,451
+402.tiff,human neuroendocrine tumor,1,4.4,417
+402.tiff,human neuroendocrine tumor,1,4.45,392
+402.tiff,human neuroendocrine tumor,1,4.5,371
+402.tiff,human neuroendocrine tumor,1,4.55,353
+402.tiff,human neuroendocrine tumor,1,4.6,338
+402.tiff,human neuroendocrine tumor,1,4.65,320
+402.tiff,human neuroendocrine tumor,1,4.7,305
+402.tiff,human neuroendocrine tumor,1,4.75,290
+402.tiff,human neuroendocrine tumor,1,4.8,277
+402.tiff,human neuroendocrine tumor,1,4.85,267
+402.tiff,human neuroendocrine tumor,1,4.9,247
+402.tiff,human neuroendocrine tumor,1,4.95,235
+402.tiff,human neuroendocrine tumor,1,5.0,223
+402.tiff,human neuroendocrine tumor,1,5.05,210
+402.tiff,human neuroendocrine tumor,1,5.1,202
+402.tiff,human neuroendocrine tumor,1,5.15,194
+402.tiff,human neuroendocrine tumor,1,5.2,182
+402.tiff,human neuroendocrine tumor,1,5.25,172
+402.tiff,human neuroendocrine tumor,1,5.3,161
+402.tiff,human neuroendocrine tumor,1,5.35,154
+402.tiff,human neuroendocrine tumor,1,5.4,144
+402.tiff,human neuroendocrine tumor,1,5.45,140
+402.tiff,human neuroendocrine tumor,1,5.5,132
+402.tiff,human neuroendocrine tumor,1,5.55,123
+402.tiff,human neuroendocrine tumor,1,5.6,119
+402.tiff,human neuroendocrine tumor,1,5.65,114
+402.tiff,human neuroendocrine tumor,1,5.7,109
+402.tiff,human neuroendocrine tumor,1,5.75,101
+402.tiff,human neuroendocrine tumor,1,5.8,97
+402.tiff,human neuroendocrine tumor,1,5.85,93
+402.tiff,human neuroendocrine tumor,1,5.9,87
+402.tiff,human neuroendocrine tumor,1,5.95,82
+402.tiff,human neuroendocrine tumor,1,6.0,77
+402.tiff,human neuroendocrine tumor,2,0.0,16089
+402.tiff,human neuroendocrine tumor,2,0.05,16055
+402.tiff,human neuroendocrine tumor,2,0.1,16001
+402.tiff,human neuroendocrine tumor,2,0.15,15953
+402.tiff,human neuroendocrine tumor,2,0.2,15902
+402.tiff,human neuroendocrine tumor,2,0.25,15823
+402.tiff,human neuroendocrine tumor,2,0.3,15749
+402.tiff,human neuroendocrine tumor,2,0.35,15667
+402.tiff,human neuroendocrine tumor,2,0.4,15578
+402.tiff,human neuroendocrine tumor,2,0.45,15475
+402.tiff,human neuroendocrine tumor,2,0.5,15363
+402.tiff,human neuroendocrine tumor,2,0.55,15233
+402.tiff,human neuroendocrine tumor,2,0.6,15105
+402.tiff,human neuroendocrine tumor,2,0.65,14959
+402.tiff,human neuroendocrine tumor,2,0.7,14829
+402.tiff,human neuroendocrine tumor,2,0.75,14690
+402.tiff,human neuroendocrine tumor,2,0.8,14494
+402.tiff,human neuroendocrine tumor,2,0.85,14294
+402.tiff,human neuroendocrine tumor,2,0.9,14093
+402.tiff,human neuroendocrine tumor,2,0.95,13880
+402.tiff,human neuroendocrine tumor,2,1.0,13652
+402.tiff,human neuroendocrine tumor,2,1.05,13381
+402.tiff,human neuroendocrine tumor,2,1.1,13123
+402.tiff,human neuroendocrine tumor,2,1.15,12855
+402.tiff,human neuroendocrine tumor,2,1.2,12560
+402.tiff,human neuroendocrine tumor,2,1.25,12264
+402.tiff,human neuroendocrine tumor,2,1.3,11985
+402.tiff,human neuroendocrine tumor,2,1.35,11699
+402.tiff,human neuroendocrine tumor,2,1.4,11353
+402.tiff,human neuroendocrine tumor,2,1.45,11004
+402.tiff,human neuroendocrine tumor,2,1.5,10655
+402.tiff,human neuroendocrine tumor,2,1.55,10302
+402.tiff,human neuroendocrine tumor,2,1.6,9912
+402.tiff,human neuroendocrine tumor,2,1.65,9545
+402.tiff,human neuroendocrine tumor,2,1.7,9162
+402.tiff,human neuroendocrine tumor,2,1.75,8796
+402.tiff,human neuroendocrine tumor,2,1.8,8447
+402.tiff,human neuroendocrine tumor,2,1.85,8071
+402.tiff,human neuroendocrine tumor,2,1.9,7720
+402.tiff,human neuroendocrine tumor,2,1.95,7329
+402.tiff,human neuroendocrine tumor,2,2.0,6970
+402.tiff,human neuroendocrine tumor,2,2.05,6594
+402.tiff,human neuroendocrine tumor,2,2.1,6260
+402.tiff,human neuroendocrine tumor,2,2.15,5941
+402.tiff,human neuroendocrine tumor,2,2.2,5639
+402.tiff,human neuroendocrine tumor,2,2.25,5290
+402.tiff,human neuroendocrine tumor,2,2.3,4986
+402.tiff,human neuroendocrine tumor,2,2.35,4713
+402.tiff,human neuroendocrine tumor,2,2.4,4401
+402.tiff,human neuroendocrine tumor,2,2.45,4130
+402.tiff,human neuroendocrine tumor,2,2.5,3899
+402.tiff,human neuroendocrine tumor,2,2.55,3639
+402.tiff,human neuroendocrine tumor,2,2.6,3409
+402.tiff,human neuroendocrine tumor,2,2.65,3190
+402.tiff,human neuroendocrine tumor,2,2.7,2980
+402.tiff,human neuroendocrine tumor,2,2.75,2803
+402.tiff,human neuroendocrine tumor,2,2.8,2613
+402.tiff,human neuroendocrine tumor,2,2.85,2457
+402.tiff,human neuroendocrine tumor,2,2.9,2302
+402.tiff,human neuroendocrine tumor,2,2.95,2185
+402.tiff,human neuroendocrine tumor,2,3.0,2051
+402.tiff,human neuroendocrine tumor,2,3.05,1930
+402.tiff,human neuroendocrine tumor,2,3.1,1801
+402.tiff,human neuroendocrine tumor,2,3.15,1704
+402.tiff,human neuroendocrine tumor,2,3.2,1611
+402.tiff,human neuroendocrine tumor,2,3.25,1502
+402.tiff,human neuroendocrine tumor,2,3.3,1402
+402.tiff,human neuroendocrine tumor,2,3.35,1330
+402.tiff,human neuroendocrine tumor,2,3.4,1236
+402.tiff,human neuroendocrine tumor,2,3.45,1159
+402.tiff,human neuroendocrine tumor,2,3.5,1093
+402.tiff,human neuroendocrine tumor,2,3.55,1021
+402.tiff,human neuroendocrine tumor,2,3.6,972
+402.tiff,human neuroendocrine tumor,2,3.65,915
+402.tiff,human neuroendocrine tumor,2,3.7,864
+402.tiff,human neuroendocrine tumor,2,3.75,814
+402.tiff,human neuroendocrine tumor,2,3.8,762
+402.tiff,human neuroendocrine tumor,2,3.85,724
+402.tiff,human neuroendocrine tumor,2,3.9,682
+402.tiff,human neuroendocrine tumor,2,3.95,644
+402.tiff,human neuroendocrine tumor,2,4.0,599
+402.tiff,human neuroendocrine tumor,2,4.05,565
+402.tiff,human neuroendocrine tumor,2,4.1,540
+402.tiff,human neuroendocrine tumor,2,4.15,512
+402.tiff,human neuroendocrine tumor,2,4.2,491
+402.tiff,human neuroendocrine tumor,2,4.25,467
+402.tiff,human neuroendocrine tumor,2,4.3,438
+402.tiff,human neuroendocrine tumor,2,4.35,409
+402.tiff,human neuroendocrine tumor,2,4.4,392
+402.tiff,human neuroendocrine tumor,2,4.45,367
+402.tiff,human neuroendocrine tumor,2,4.5,346
+402.tiff,human neuroendocrine tumor,2,4.55,329
+402.tiff,human neuroendocrine tumor,2,4.6,315
+402.tiff,human neuroendocrine tumor,2,4.65,292
+402.tiff,human neuroendocrine tumor,2,4.7,277
+402.tiff,human neuroendocrine tumor,2,4.75,250
+402.tiff,human neuroendocrine tumor,2,4.8,235
+402.tiff,human neuroendocrine tumor,2,4.85,225
+402.tiff,human neuroendocrine tumor,2,4.9,215
+402.tiff,human neuroendocrine tumor,2,4.95,207
+402.tiff,human neuroendocrine tumor,2,5.0,195
+402.tiff,human neuroendocrine tumor,2,5.05,186
+402.tiff,human neuroendocrine tumor,2,5.1,175
+402.tiff,human neuroendocrine tumor,2,5.15,167
+402.tiff,human neuroendocrine tumor,2,5.2,155
+402.tiff,human neuroendocrine tumor,2,5.25,147
+402.tiff,human neuroendocrine tumor,2,5.3,142
+402.tiff,human neuroendocrine tumor,2,5.35,136
+402.tiff,human neuroendocrine tumor,2,5.4,126
+402.tiff,human neuroendocrine tumor,2,5.45,116
+402.tiff,human neuroendocrine tumor,2,5.5,106
+402.tiff,human neuroendocrine tumor,2,5.55,95
+402.tiff,human neuroendocrine tumor,2,5.6,88
+402.tiff,human neuroendocrine tumor,2,5.65,81
+402.tiff,human neuroendocrine tumor,2,5.7,75
+402.tiff,human neuroendocrine tumor,2,5.75,72
+402.tiff,human neuroendocrine tumor,2,5.8,66
+402.tiff,human neuroendocrine tumor,2,5.85,63
+402.tiff,human neuroendocrine tumor,2,5.9,62
+402.tiff,human neuroendocrine tumor,2,5.95,58
+402.tiff,human neuroendocrine tumor,2,6.0,55
+402.tiff,human neuroendocrine tumor,3,0.0,16936
+402.tiff,human neuroendocrine tumor,3,0.05,16913
+402.tiff,human neuroendocrine tumor,3,0.1,16884
+402.tiff,human neuroendocrine tumor,3,0.15,16843
+402.tiff,human neuroendocrine tumor,3,0.2,16802
+402.tiff,human neuroendocrine tumor,3,0.25,16745
+402.tiff,human neuroendocrine tumor,3,0.3,16687
+402.tiff,human neuroendocrine tumor,3,0.35,16616
+402.tiff,human neuroendocrine tumor,3,0.4,16553
+402.tiff,human neuroendocrine tumor,3,0.45,16484
+402.tiff,human neuroendocrine tumor,3,0.5,16412
+402.tiff,human neuroendocrine tumor,3,0.55,16341
+402.tiff,human neuroendocrine tumor,3,0.6,16259
+402.tiff,human neuroendocrine tumor,3,0.65,16194
+402.tiff,human neuroendocrine tumor,3,0.7,16102
+402.tiff,human neuroendocrine tumor,3,0.75,16009
+402.tiff,human neuroendocrine tumor,3,0.8,15911
+402.tiff,human neuroendocrine tumor,3,0.85,15799
+402.tiff,human neuroendocrine tumor,3,0.9,15687
+402.tiff,human neuroendocrine tumor,3,0.95,15567
+402.tiff,human neuroendocrine tumor,3,1.0,15445
+402.tiff,human neuroendocrine tumor,3,1.05,15297
+402.tiff,human neuroendocrine tumor,3,1.1,15163
+402.tiff,human neuroendocrine tumor,3,1.15,15001
+402.tiff,human neuroendocrine tumor,3,1.2,14836
+402.tiff,human neuroendocrine tumor,3,1.25,14644
+402.tiff,human neuroendocrine tumor,3,1.3,14448
+402.tiff,human neuroendocrine tumor,3,1.35,14217
+402.tiff,human neuroendocrine tumor,3,1.4,13998
+402.tiff,human neuroendocrine tumor,3,1.45,13763
+402.tiff,human neuroendocrine tumor,3,1.5,13506
+402.tiff,human neuroendocrine tumor,3,1.55,13266
+402.tiff,human neuroendocrine tumor,3,1.6,12987
+402.tiff,human neuroendocrine tumor,3,1.65,12693
+402.tiff,human neuroendocrine tumor,3,1.7,12407
+402.tiff,human neuroendocrine tumor,3,1.75,12105
+402.tiff,human neuroendocrine tumor,3,1.8,11780
+402.tiff,human neuroendocrine tumor,3,1.85,11462
+402.tiff,human neuroendocrine tumor,3,1.9,11144
+402.tiff,human neuroendocrine tumor,3,1.95,10769
+402.tiff,human neuroendocrine tumor,3,2.0,10437
+402.tiff,human neuroendocrine tumor,3,2.05,10116
+402.tiff,human neuroendocrine tumor,3,2.1,9801
+402.tiff,human neuroendocrine tumor,3,2.15,9451
+402.tiff,human neuroendocrine tumor,3,2.2,9092
+402.tiff,human neuroendocrine tumor,3,2.25,8743
+402.tiff,human neuroendocrine tumor,3,2.3,8393
+402.tiff,human neuroendocrine tumor,3,2.35,8053
+402.tiff,human neuroendocrine tumor,3,2.4,7726
+402.tiff,human neuroendocrine tumor,3,2.45,7427
+402.tiff,human neuroendocrine tumor,3,2.5,7122
+402.tiff,human neuroendocrine tumor,3,2.55,6828
+402.tiff,human neuroendocrine tumor,3,2.6,6500
+402.tiff,human neuroendocrine tumor,3,2.65,6211
+402.tiff,human neuroendocrine tumor,3,2.7,5932
+402.tiff,human neuroendocrine tumor,3,2.75,5649
+402.tiff,human neuroendocrine tumor,3,2.8,5385
+402.tiff,human neuroendocrine tumor,3,2.85,5135
+402.tiff,human neuroendocrine tumor,3,2.9,4875
+402.tiff,human neuroendocrine tumor,3,2.95,4649
+402.tiff,human neuroendocrine tumor,3,3.0,4447
+402.tiff,human neuroendocrine tumor,3,3.05,4235
+402.tiff,human neuroendocrine tumor,3,3.1,4030
+402.tiff,human neuroendocrine tumor,3,3.15,3826
+402.tiff,human neuroendocrine tumor,3,3.2,3634
+402.tiff,human neuroendocrine tumor,3,3.25,3443
+402.tiff,human neuroendocrine tumor,3,3.3,3275
+402.tiff,human neuroendocrine tumor,3,3.35,3126
+402.tiff,human neuroendocrine tumor,3,3.4,2955
+402.tiff,human neuroendocrine tumor,3,3.45,2812
+402.tiff,human neuroendocrine tumor,3,3.5,2679
+402.tiff,human neuroendocrine tumor,3,3.55,2556
+402.tiff,human neuroendocrine tumor,3,3.6,2445
+402.tiff,human neuroendocrine tumor,3,3.65,2323
+402.tiff,human neuroendocrine tumor,3,3.7,2211
+402.tiff,human neuroendocrine tumor,3,3.75,2094
+402.tiff,human neuroendocrine tumor,3,3.8,2000
+402.tiff,human neuroendocrine tumor,3,3.85,1871
+402.tiff,human neuroendocrine tumor,3,3.9,1781
+402.tiff,human neuroendocrine tumor,3,3.95,1684
+402.tiff,human neuroendocrine tumor,3,4.0,1591
+402.tiff,human neuroendocrine tumor,3,4.05,1517
+402.tiff,human neuroendocrine tumor,3,4.1,1447
+402.tiff,human neuroendocrine tumor,3,4.15,1383
+402.tiff,human neuroendocrine tumor,3,4.2,1324
+402.tiff,human neuroendocrine tumor,3,4.25,1259
+402.tiff,human neuroendocrine tumor,3,4.3,1198
+402.tiff,human neuroendocrine tumor,3,4.35,1149
+402.tiff,human neuroendocrine tumor,3,4.4,1099
+402.tiff,human neuroendocrine tumor,3,4.45,1049
+402.tiff,human neuroendocrine tumor,3,4.5,1004
+402.tiff,human neuroendocrine tumor,3,4.55,966
+402.tiff,human neuroendocrine tumor,3,4.6,920
+402.tiff,human neuroendocrine tumor,3,4.65,883
+402.tiff,human neuroendocrine tumor,3,4.7,859
+402.tiff,human neuroendocrine tumor,3,4.75,820
+402.tiff,human neuroendocrine tumor,3,4.8,784
+402.tiff,human neuroendocrine tumor,3,4.85,752
+402.tiff,human neuroendocrine tumor,3,4.9,721
+402.tiff,human neuroendocrine tumor,3,4.95,698
+402.tiff,human neuroendocrine tumor,3,5.0,668
+402.tiff,human neuroendocrine tumor,3,5.05,639
+402.tiff,human neuroendocrine tumor,3,5.1,619
+402.tiff,human neuroendocrine tumor,3,5.15,598
+402.tiff,human neuroendocrine tumor,3,5.2,575
+402.tiff,human neuroendocrine tumor,3,5.25,557
+402.tiff,human neuroendocrine tumor,3,5.3,536
+402.tiff,human neuroendocrine tumor,3,5.35,517
+402.tiff,human neuroendocrine tumor,3,5.4,502
+402.tiff,human neuroendocrine tumor,3,5.45,477
+402.tiff,human neuroendocrine tumor,3,5.5,460
+402.tiff,human neuroendocrine tumor,3,5.55,442
+402.tiff,human neuroendocrine tumor,3,5.6,428
+402.tiff,human neuroendocrine tumor,3,5.65,413
+402.tiff,human neuroendocrine tumor,3,5.7,401
+402.tiff,human neuroendocrine tumor,3,5.75,386
+402.tiff,human neuroendocrine tumor,3,5.8,376
+402.tiff,human neuroendocrine tumor,3,5.85,363
+402.tiff,human neuroendocrine tumor,3,5.9,346
+402.tiff,human neuroendocrine tumor,3,5.95,334
+402.tiff,human neuroendocrine tumor,3,6.0,319
+402.tiff,human neuroendocrine tumor,4,0.0,18007
+402.tiff,human neuroendocrine tumor,4,0.05,17992
+402.tiff,human neuroendocrine tumor,4,0.1,17976
+402.tiff,human neuroendocrine tumor,4,0.15,17954
+402.tiff,human neuroendocrine tumor,4,0.2,17927
+402.tiff,human neuroendocrine tumor,4,0.25,17890
+402.tiff,human neuroendocrine tumor,4,0.3,17858
+402.tiff,human neuroendocrine tumor,4,0.35,17819
+402.tiff,human neuroendocrine tumor,4,0.4,17771
+402.tiff,human neuroendocrine tumor,4,0.45,17715
+402.tiff,human neuroendocrine tumor,4,0.5,17663
+402.tiff,human neuroendocrine tumor,4,0.55,17600
+402.tiff,human neuroendocrine tumor,4,0.6,17535
+402.tiff,human neuroendocrine tumor,4,0.65,17472
+402.tiff,human neuroendocrine tumor,4,0.7,17387
+402.tiff,human neuroendocrine tumor,4,0.75,17289
+402.tiff,human neuroendocrine tumor,4,0.8,17198
+402.tiff,human neuroendocrine tumor,4,0.85,17085
+402.tiff,human neuroendocrine tumor,4,0.9,16954
+402.tiff,human neuroendocrine tumor,4,0.95,16832
+402.tiff,human neuroendocrine tumor,4,1.0,16699
+402.tiff,human neuroendocrine tumor,4,1.05,16553
+402.tiff,human neuroendocrine tumor,4,1.1,16410
+402.tiff,human neuroendocrine tumor,4,1.15,16265
+402.tiff,human neuroendocrine tumor,4,1.2,16093
+402.tiff,human neuroendocrine tumor,4,1.25,15906
+402.tiff,human neuroendocrine tumor,4,1.3,15709
+402.tiff,human neuroendocrine tumor,4,1.35,15501
+402.tiff,human neuroendocrine tumor,4,1.4,15286
+402.tiff,human neuroendocrine tumor,4,1.45,15059
+402.tiff,human neuroendocrine tumor,4,1.5,14818
+402.tiff,human neuroendocrine tumor,4,1.55,14573
+402.tiff,human neuroendocrine tumor,4,1.6,14309
+402.tiff,human neuroendocrine tumor,4,1.65,14027
+402.tiff,human neuroendocrine tumor,4,1.7,13743
+402.tiff,human neuroendocrine tumor,4,1.75,13460
+402.tiff,human neuroendocrine tumor,4,1.8,13171
+402.tiff,human neuroendocrine tumor,4,1.85,12857
+402.tiff,human neuroendocrine tumor,4,1.9,12527
+402.tiff,human neuroendocrine tumor,4,1.95,12195
+402.tiff,human neuroendocrine tumor,4,2.0,11873
+402.tiff,human neuroendocrine tumor,4,2.05,11523
+402.tiff,human neuroendocrine tumor,4,2.1,11156
+402.tiff,human neuroendocrine tumor,4,2.15,10796
+402.tiff,human neuroendocrine tumor,4,2.2,10463
+402.tiff,human neuroendocrine tumor,4,2.25,10100
+402.tiff,human neuroendocrine tumor,4,2.3,9755
+402.tiff,human neuroendocrine tumor,4,2.35,9388
+402.tiff,human neuroendocrine tumor,4,2.4,9024
+402.tiff,human neuroendocrine tumor,4,2.45,8668
+402.tiff,human neuroendocrine tumor,4,2.5,8295
+402.tiff,human neuroendocrine tumor,4,2.55,7963
+402.tiff,human neuroendocrine tumor,4,2.6,7600
+402.tiff,human neuroendocrine tumor,4,2.65,7240
+402.tiff,human neuroendocrine tumor,4,2.7,6903
+402.tiff,human neuroendocrine tumor,4,2.75,6569
+402.tiff,human neuroendocrine tumor,4,2.8,6252
+402.tiff,human neuroendocrine tumor,4,2.85,5968
+402.tiff,human neuroendocrine tumor,4,2.9,5698
+402.tiff,human neuroendocrine tumor,4,2.95,5420
+402.tiff,human neuroendocrine tumor,4,3.0,5153
+402.tiff,human neuroendocrine tumor,4,3.05,4900
+402.tiff,human neuroendocrine tumor,4,3.1,4635
+402.tiff,human neuroendocrine tumor,4,3.15,4376
+402.tiff,human neuroendocrine tumor,4,3.2,4151
+402.tiff,human neuroendocrine tumor,4,3.25,3914
+402.tiff,human neuroendocrine tumor,4,3.3,3697
+402.tiff,human neuroendocrine tumor,4,3.35,3513
+402.tiff,human neuroendocrine tumor,4,3.4,3317
+402.tiff,human neuroendocrine tumor,4,3.45,3133
+402.tiff,human neuroendocrine tumor,4,3.5,2961
+402.tiff,human neuroendocrine tumor,4,3.55,2798
+402.tiff,human neuroendocrine tumor,4,3.6,2649
+402.tiff,human neuroendocrine tumor,4,3.65,2496
+402.tiff,human neuroendocrine tumor,4,3.7,2352
+402.tiff,human neuroendocrine tumor,4,3.75,2194
+402.tiff,human neuroendocrine tumor,4,3.8,2056
+402.tiff,human neuroendocrine tumor,4,3.85,1940
+402.tiff,human neuroendocrine tumor,4,3.9,1845
+402.tiff,human neuroendocrine tumor,4,3.95,1728
+402.tiff,human neuroendocrine tumor,4,4.0,1620
+402.tiff,human neuroendocrine tumor,4,4.05,1531
+402.tiff,human neuroendocrine tumor,4,4.1,1451
+402.tiff,human neuroendocrine tumor,4,4.15,1369
+402.tiff,human neuroendocrine tumor,4,4.2,1302
+402.tiff,human neuroendocrine tumor,4,4.25,1212
+402.tiff,human neuroendocrine tumor,4,4.3,1142
+402.tiff,human neuroendocrine tumor,4,4.35,1084
+402.tiff,human neuroendocrine tumor,4,4.4,1023
+402.tiff,human neuroendocrine tumor,4,4.45,967
+402.tiff,human neuroendocrine tumor,4,4.5,917
+402.tiff,human neuroendocrine tumor,4,4.55,871
+402.tiff,human neuroendocrine tumor,4,4.6,825
+402.tiff,human neuroendocrine tumor,4,4.65,784
+402.tiff,human neuroendocrine tumor,4,4.7,738
+402.tiff,human neuroendocrine tumor,4,4.75,699
+402.tiff,human neuroendocrine tumor,4,4.8,666
+402.tiff,human neuroendocrine tumor,4,4.85,631
+402.tiff,human neuroendocrine tumor,4,4.9,595
+402.tiff,human neuroendocrine tumor,4,4.95,561
+402.tiff,human neuroendocrine tumor,4,5.0,537
+402.tiff,human neuroendocrine tumor,4,5.05,504
+402.tiff,human neuroendocrine tumor,4,5.1,471
+402.tiff,human neuroendocrine tumor,4,5.15,445
+402.tiff,human neuroendocrine tumor,4,5.2,413
+402.tiff,human neuroendocrine tumor,4,5.25,383
+402.tiff,human neuroendocrine tumor,4,5.3,367
+402.tiff,human neuroendocrine tumor,4,5.35,345
+402.tiff,human neuroendocrine tumor,4,5.4,326
+402.tiff,human neuroendocrine tumor,4,5.45,312
+402.tiff,human neuroendocrine tumor,4,5.5,295
+402.tiff,human neuroendocrine tumor,4,5.55,280
+402.tiff,human neuroendocrine tumor,4,5.6,263
+402.tiff,human neuroendocrine tumor,4,5.65,249
+402.tiff,human neuroendocrine tumor,4,5.7,237
+402.tiff,human neuroendocrine tumor,4,5.75,226
+402.tiff,human neuroendocrine tumor,4,5.8,214
+402.tiff,human neuroendocrine tumor,4,5.85,205
+402.tiff,human neuroendocrine tumor,4,5.9,191
+402.tiff,human neuroendocrine tumor,4,5.95,181
+402.tiff,human neuroendocrine tumor,4,6.0,168
