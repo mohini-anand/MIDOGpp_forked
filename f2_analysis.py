@@ -152,11 +152,28 @@ def main():
           f"doses {sorted(df.dose_tag.unique())}")
 
     # ---- PRIMARY (section 8) ------------------------------------------------------------
+    # 2026-09-08 amendment: pool saturation is reported BEFORE any dose curve, because a
+    # near-zero delta on a saturated ROI means the intervention did not happen, not that
+    # template size does not matter.
+    print(f"\n{'=' * 104}\nSATURATION (amendment, registered before any outcome was seen): "
+          f"per-ROI pool spread (max-min)/max across the six doses\n{'=' * 104}")
+    sp = cells.groupby(['file_name', 'tumor_type'])['pool_spread'].agg(['mean', 'min', 'max'])
+    sp['INERT'] = np.where(sp['mean'] < 0.10, '<-- flagged', '')
+    print(sp.round(4).to_string())
+    inert = sp.index.get_level_values('file_name')[sp['mean'] < 0.10].tolist()
+    print(f"\n  ROIs below the 0.10 flag: {inert or 'none'}")
+    print(f"  cells where N was capped: {int(cells['n_ref_capped'].sum())} of {len(cells)}"
+          f"  (median cap {100*(1 - cells.n_ref / cells.n_ref_uncapped).median():.2f}% of N)")
+
     d = cell_deltas(df)
     t = dose_table(d, f"PRIMARY (pre-registered): mean-of-{df.seed_index.nunique()} paired "
                       f"D(recall@{K_PRIMARY}) per ROI, z={Z_PRIMARY}, axis={PRIMARY_AXIS}, "
                       f"rule={PRIMARY_RULE}, Holm across {len(DOSES)}")
     threshold_interval(t)
+    if inert:
+        dose_table(d[~d.file_name.isin(inert)],
+                   f"PRIMARY with the {len(inert)} saturated ROI(s) excluded -- reported "
+                   "because a flat pool means the dose was not delivered there")
 
     # ---- section 9: the two decontaminated readings, pre-committed -----------------------
     new7 = [f for f in df.file_name.unique() if f not in F1_ROIS]

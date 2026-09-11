@@ -469,3 +469,59 @@ way the primary falls.
 **A null is a real result and closes this question honestly. I am not entitled to go looking for
 a different (axis, z, K, rule) afterwards.** Any post-hoc reading is labelled exploratory in the
 results log, as §8 requires for the secondaries.
+
+---
+
+> ## Amendment, 2026-09-08 (appended, not edited in place) — `matched_n`'s N is capped, and pool saturation becomes a registered diagnostic
+>
+> Added as a dated append rather than by editing section 3e, which is the rule F5's revision 4
+> broke and had to disclose in its results section 2.8(a).
+>
+> **What happened.** The run aborted at `245.tiff/s1/b19` on GATE 4: `N = 38,876` against a deep
+> pool of `38,174`. The gate is correct and the *design* was wrong. Section 3e defined
+> `matched_n` as "top-N by score, N = this cell's `b51` count at z = 1.0" on the unstated
+> assumption that a smaller template always yields a longer list, so every arm could deliver N.
+>
+> **Why the assumption fails.** On four of the five ROIs completed before the abort it holds
+> comfortably — the pool grows monotonically as the dose falls, by 27–39% from `b51` to `b19`,
+> leaving GATE 4 4,000–12,000 candidates of slack. On `245.tiff` (canine lymphosarcoma) it
+> collapses: pool sizes across the six doses are 38,637 / 38,033 / 37,512 / 38,249 / 38,723 /
+> 38,364 — a spread of **3.1%**, and not even monotone. `peak_min_distance = 7` plus a 20.1 px
+> NMS radius impose a **geometric ceiling** on how many candidates a 2 mm² ROI can hold, and on
+> a dense ROI the search is against that ceiling at every template size. The template stops
+> being what decides the list length.
+>
+> **The amended rule.** For each cell,
+>
+> > `N = min( b51's count at z = 1.0 , the smallest deep pool among that cell's seven arms )`
+>
+> recorded per cell as `n_ref`, with `n_ref_uncapped` and `n_ref_capped` beside it, and the
+> number of capped cells reported in the results log. This preserves the rule's whole intent —
+> every arm in a cell ranked at one common list length — and makes it feasible by construction.
+> Where it binds it binds gently: at `245.tiff/s1` it moves N from 38,876 to at most 38,174,
+> **1.8%**. It changes the reference arm's `matched_n` slice too, which is correct: a matched
+> comparison must match the reference as well.
+>
+> Implementation consequence: the seven pools of a cell are now all built *before* any arm is
+> evaluated, because N cannot be known until the smallest pool is. No extra computation — the
+> same searches, reordered — and the pools were already held for the whole cell by the
+> `base_size` memoisation.
+>
+> **A new registered diagnostic, and the reason it is not optional.** `245.tiff` shows the dose
+> can be nearly **inert**: if the candidate set barely moves, a delta near zero is not evidence
+> that template size does not matter, it is evidence the intervention did not happen. So the
+> **per-ROI pool spread `(max − min)/max` across the six doses is reported beside every dose
+> curve**, and any ROI below 0.10 is flagged in the results log and reported separately from the
+> rest. This is F5 section 6.6's argument ("without these, a null at K = 250 is uninterpretable")
+> applied to a saturation this design did not anticipate. It is registered now, before any
+> outcome is seen, rather than offered afterwards as an explanation for a null.
+>
+> **Provenance, stated so it can be checked.** This amendment was written after the abort and
+> after inspecting `results/f2_base_size_dose_cells.csv.partial` for the 21 completed cells —
+> specifically the `n_pool_*` and `n_ref` columns. **That file contains no outcome column at
+> all**: no recall, no read depth, no delta. Nothing about the amended rule was informed by a
+> result.
+>
+> **What this does not change.** The primary estimand, the primary axis, K, z, the Holm family of
+> 5, and the section 12 decision rule are all untouched. `matched_n` is secondary S2; the primary
+> runs on `matched_z`, which no part of this touches.

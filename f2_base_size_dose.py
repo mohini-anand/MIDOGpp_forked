@@ -349,7 +349,7 @@ def gate_pool_roundtrip(fn, si, dose_tag, pool_path, meta, base_size, n_ref, gt_
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--images-dir', default=IMAGES_DIR)
-    ap.add_argument('--seeds', type=int, default=N_SEEDS)
+    ap.add_argument('--seeds', type=int, default=None)
     ap.add_argument('--smoke', nargs='?', const='201.tiff', default=None, metavar='ROI',
                     help='one ROI, one seed -- exercises GATES 1, 2, 7, 8, 9. Defaults to '
                          '201.tiff; name another to reproduce a gate failure on it.')
@@ -359,9 +359,9 @@ def main():
     images, anns = ds.load_annotations()
     ds.check_invariants(anns)
     files = roi_files(args.images_dir)
-    n_seeds = args.seeds
+    n_seeds = args.seeds if args.seeds is not None else (1 if args.smoke else N_SEEDS)
     if args.smoke:
-        files, n_seeds = [args.smoke], 1     # default is a ROI F1 ran, so GATE 1 fires
+        files = [args.smoke]                 # default is a ROI F1 ran, so GATE 1 fires
     Path('results').mkdir(exist_ok=True)
     pathlib.Path(POOL_DIR).mkdir(parents=True, exist_ok=True)
     pathlib.Path(POOL_DIR).parent.joinpath('.gitignore').write_text('*\n')
@@ -417,7 +417,7 @@ def main():
                             seed_index=si, seed_ann_id=seed_ann, lcc_size=lcc_size,
                             nms_radius_px=round(nms_radius, 3),
                             match_radius_px=round(match_radius, 3))
-                n_ref, timings, metas = None, {}, {}
+                timings, metas = {}, {}
                 # `lcc` frequently lands on an assigned dose -- 20% of candidates tighten to
                 # exactly 51 (pre-registration section 2b), and the grid covers six of the 17
                 # odd sizes in range. Re-running an identical search would produce identical
@@ -426,23 +426,34 @@ def main():
                 # computation, which is why F1's null cells were byte-identical between arms.
                 by_size = {}
 
-                for dose_tag, bs in [(f'b{d}', d) for d in DOSES] + [('lcc', lcc_size)]:
+                plan = [(f'b{d}', d) for d in DOSES] + [('lcc', lcc_size)]
+                for dose_tag, bs in plan:                       # PASS 1 -- build every pool
+                    td = time.time()
+                    if bs not in by_size:
+                        by_size[bs] = build_pool(
+                            hem, H, W, seed_xy, bs, nms_radius,
+                            dict(ctx0, label=f'{fn}/s{si}/{dose_tag}'), checks,
+                            check_shortcut=(si == 0))
+                    timings[f't_{dose_tag}_s'] = round(time.time() - td, 1)
+
+                # N cannot be known until the smallest pool is (2026-09-08 amendment): on a
+                # dense ROI the NMS geometry caps the list length and a smaller template does
+                # NOT lengthen it -- 245.tiff's six doses span 3.1%, not monotonically.
+                ref_pool, ref_meta = by_size[REFERENCE_DOSE]
+                n_ref_uncapped = int((ref_pool['score'] >= ref_meta['med']
+                                      + Z_PRIMARY * ref_meta['mad']).sum())
+                n_ref = min(n_ref_uncapped, min(len(p) for p, _ in by_size.values()))
+                n_pools = [by_size[d][0].shape[0] for d in DOSES]
+                pool_spread = round((max(n_pools) - min(n_pools)) / max(n_pools), 4)
+
+                for dose_tag, bs in plan:                       # PASS 2 -- evaluate every arm
                     td = time.time()
                     ctx = dict(ctx0, label=f'{fn}/s{si}/{dose_tag}')
-                    reused = bs in by_size
-                    if reused:
-                        pool, meta = by_size[bs]
-                    else:
-                        pool, meta = build_pool(hem, H, W, seed_xy, bs, nms_radius, ctx,
-                                                checks, check_shortcut=(si == 0))
-                        by_size[bs] = (pool, meta)
-                    if dose_tag == f'b{REFERENCE_DOSE}':
-                        n_ref = int((pool['score'] >= meta['med']
-                                     + Z_PRIMARY * meta['mad']).sum())
-                    assert n_ref is not None, "b51 must run first"
+                    reused = plan.index((dose_tag, bs)) != [b for _, b in plan].index(bs)
+                    pool, meta = by_size[bs]
                     assert len(pool) >= n_ref, (                                     # GATE 4
-                        f"{ctx['label']}: deep pool {len(pool)} < N={n_ref}, so matched_n "
-                        "would silently return a shorter list than the reference arm")
+                        f"{ctx['label']}: deep pool {len(pool)} < N={n_ref} even after the "
+                        "cap -- the amended matched_n rule is not being applied")
 
                     pool_path = f'{POOL_DIR}/{fn[:-5]}_s{si}_{dose_tag}.parquet'
                     pool.astype({'cx': 'int32', 'cy': 'int32',
@@ -450,7 +461,10 @@ def main():
                                 ).to_parquet(pool_path, index=False)
 
                     full = dict(ctx0, dose_tag=dose_tag, base_size=bs, n_target_ref=n_ref,
-                                search_reused=reused, **meta_columns(meta))
+                                n_ref_uncapped=n_ref_uncapped,
+                                n_ref_capped=bool(n_ref < n_ref_uncapped),
+                                pool_spread=pool_spread, search_reused=reused,
+                                **meta_columns(meta))
                     out = cp.evaluate_arms(arms_for_dose(pool, meta, dose_tag, bs, n_ref),
                                            gt_eval, match_radius, roi_shape=roi_shape,
                                            mpp=mpp, budgets=cp.BUDGETS, context=full,
@@ -466,17 +480,21 @@ def main():
                                             gt_eval, match_radius, roi_shape, mpp, full,
                                             out, checks)                              # GATE 2
                     all_rows.append(out)
-                    metas[dose_tag], timings[f't_{dose_tag}_s'] = meta, round(time.time() - td, 1)
+                    metas[dose_tag] = meta
+                    timings[f't_{dose_tag}_s'] += round(time.time() - td, 1)
 
-                cells.append(dict(ctx0, n_ref=n_ref, n_gt_mitotic=int(
+                cells.append(dict(ctx0, n_ref=n_ref, n_ref_uncapped=n_ref_uncapped,
+                    n_ref_capped=bool(n_ref < n_ref_uncapped), pool_spread=pool_spread,
+                    n_gt_mitotic=int(
                     (gt_eval['category_id'] == ds.MITOTIC).sum()), seed_pool=sinfo.n_after_border,
                     **{f'n_pool_{k}': v['n_pool'] for k, v in metas.items()},
                     lcc_search_reused=bool(lcc_size in {d for d in DOSES}),
                     **timings, t_s=round(time.time() - ts, 1)))
                 del by_size
                 gc.collect()
-                print(f"[{fn} s{si}] {domain:32s} lcc={lcc_size:2d} N={n_ref:6d} "
-                      f"pools {[metas[f'b{d}']['n_pool'] for d in DOSES]} "
+                print(f"[{fn} s{si}] {domain:32s} lcc={lcc_size:2d} N={n_ref:6d}"
+                      f"{'(capped)' if n_ref < n_ref_uncapped else '        '} "
+                      f"spread={pool_spread:.3f} pools {n_pools} "
                       f"[{time.time() - ts:.0f}s]", flush=True)
 
             _dump(final=False)                                                       # GATE 12
