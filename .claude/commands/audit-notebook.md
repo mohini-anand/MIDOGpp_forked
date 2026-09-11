@@ -15,11 +15,11 @@ Rules for dispatching:
   and separately the untracked ones from `git status --porcelain`, then ask which to audit.
 - If the argument is a bare notebook name rather than a path, resolve it by **exact match
   first**: `find . -name '<name>.ipynb' -not -path './.git/*'`. Only if that returns nothing, retry
-  with `-name '<name>*.ipynb'`. This ordering matters here — the repo has prefix families like
-  `production_seed_precision_at_k{,_8aug,_chromatin,_normed}.ipynb` where the shortest name is a
-  strict prefix of three others. Show the matches and ask which only when a lookup still returns
-  more than one file (`bbox_tuning_walkthrough.ipynb` exists at the root and in `bbox_tuning_demo/`).
-  Pass the full repo-relative path.
+  with `-name '<name>*.ipynb'`. This ordering matters because notebooks here are written by
+  copying the previous one and named by suffixing it, so a short name is routinely a strict prefix
+  of several longer ones and a glob-first lookup would silently resolve to a variant. Show the
+  matches and ask which only when a lookup still returns more than one file — the same base name
+  can also exist in more than one directory. Pass the full repo-relative path.
 - Pass the resolved path to the agent verbatim, along with anything else in `$ARGUMENTS` as
   additional scope (for example a request to reach Tier C re-execution, or to concentrate on one
   section). Do not add scope the invoker did not ask for.
