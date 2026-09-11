@@ -1,0 +1,5 @@
+k,method,best cluster n,mitotic in it,purity,enrichment,null p95,beats null,recall,volume,ARI,od_falloff @same vol,od_contrast @same vol,z @same vol
+2,k-means,148784,1295,0.870%,2.0,1.06,True,98.8%,49.5%,0.0003,98.3%,98.6%,98.6%
+2,GMM,225467,1304,0.578%,1.33,1.08,True,99.5%,75.0%,-0.0056,99.5%,99.4%,99.9%
+3,k-means,116643,1285,1.102%,2.53,1.11,True,98.0%,38.8%,-0.001,97.6%,97.4%,97.3%
+3,GMM,43396,1205,2.777%,6.37,1.14,True,91.9%,14.4%,0.0096,94.1%,92.1%,89.5%

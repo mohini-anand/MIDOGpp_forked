@@ -1,0 +1,15 @@
+file,domain,n_pos,n_neg,z,od51,od_contrast,od_falloff,solidity,extent,tightened_size,area_frac_of_window
+300.tiff,canine cutaneous mast ce,180,18228,0.93,0.955,0.956,0.976,0.777,0.648,0.21,0.22
+301.tiff,canine cutaneous mast ce,217,21895,0.93,0.932,0.948,0.971,0.747,0.69,0.094,0.105
+201.tiff,canine lung cancer,17,16506,0.994,0.995,0.996,0.976,0.889,0.743,0.087,0.124
+233.tiff,canine lung cancer,17,25250,0.993,0.981,0.991,0.995,0.897,0.773,0.11,0.214
+245.tiff,canine lymphosarcoma,89,36010,0.876,0.869,0.905,0.854,0.603,0.53,0.31,0.263
+246.tiff,canine lymphosarcoma,115,26446,0.983,0.972,0.978,0.991,0.931,0.856,0.12,0.204
+459.tiff,canine soft tissue sarco,130,20732,0.922,0.928,0.937,0.937,0.708,0.657,0.307,0.422
+460.tiff,canine soft tissue sarco,35,13169,0.928,0.938,0.95,0.921,0.743,0.75,0.297,0.444
+013.tiff,human breast cancer,17,15534,0.984,0.998,0.997,0.986,0.721,0.659,0.312,0.486
+094.tiff,human breast cancer,81,25987,0.983,0.979,0.979,0.988,0.855,0.782,0.152,0.274
+529.tiff,human melanoma,19,14794,0.974,0.97,0.985,0.956,0.782,0.616,0.256,0.385
+548.tiff,human melanoma,238,20453,0.984,0.968,0.975,0.986,0.846,0.698,0.163,0.234
+402.tiff,human neuroendocrine tum,104,27059,0.99,0.975,0.985,0.989,0.896,0.8,0.076,0.14
+403.tiff,human neuroendocrine tum,52,17449,0.968,0.979,0.956,0.882,0.649,0.587,0.402,0.462

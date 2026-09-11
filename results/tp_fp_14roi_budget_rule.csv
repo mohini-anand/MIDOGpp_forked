@@ -1,0 +1,7 @@
+ranker,read_95 median,read_95 max,K for mean recall >= 95%,K for EVERY ROI >= 90%,K meeting both,mean recall @K,worst ROI @K,ROIs below 95% @K
+"z (shipped, D5)",1993.5,14988,5357,12739,12739,99.1%,91.0%,1
+od51,3709.5,17946,4637,9895,9895,98.2%,91.0%,2
+od_contrast,3074.0,9778,3232,5655,5655,97.1%,91.0%,4
+od_falloff,1954.5,9487,2603,7280,7280,98.4%,90.4%,2
+z+od_falloff,1781.0,9580,2556,7022,7022,98.5%,91.0%,1
+supervised LODO,1283.0,11130,1628,6078,6078,98.5%,91.0%,1

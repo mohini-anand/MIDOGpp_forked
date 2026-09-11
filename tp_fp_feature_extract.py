@@ -25,8 +25,20 @@ Two deliberate departures, both about *measurement* rather than search:
   Here the largest component under the click is measured whatever its shape, and
   `shape_ok` records only the cases where Otsu found no component at all.
 
-Writes .cache_tail/tp_fp_candidate_features.csv (a pure cache -- delete to regenerate)
-and results/tp_fp_extract_summary.csv (the per-ROI provenance the notebook prints).
+Selection and outputs
+---------------------
+``--images-dir`` / ``--select`` choose the ROI set. ``--select per-domain`` (the default, over
+``images/``) is the original rule -- the densest ROI per tumour domain, 7 of them -- and
+regenerates the committed artefacts. ``--select all`` takes every ``.tiff`` in the directory,
+which over ``images/extra_valid`` is the balanced 2-per-domain draw of 14 (that folder's
+MANIFEST.md).
+
+**Output paths are derived from the selection, not fixed.** The default run writes
+``.cache_tail/tp_fp_candidate_features.csv`` (a pure cache -- delete to regenerate) and
+``results/tp_fp_extract_summary.csv``; any other selection gets a ``_<n>roi`` suffix, so a
+14-ROI run cannot silently overwrite the 7-ROI inputs that `tp_fp_separability.ipynb`,
+`chromatin_threshold_selection.ipynb` and `verify_chromatin_ranker.py` all read from the fixed
+paths without asserting a row count. ``TPFP_CACHE`` / ``TPFP_SUMMARY`` override both.
 """
 from __future__ import annotations
 
@@ -64,8 +76,35 @@ SHAPE_COLS = ('area', 'solidity', 'extent', 'eccentricity', 'perimeter',
               'major_axis_length', 'minor_axis_length', 'circularity',
               'tightened_size', 'mask_od_mean', 'mask_od_max', 'area_frac_of_window')
 
-CACHE = os.environ.get('TPFP_CACHE', '.cache_tail/tp_fp_candidate_features.csv')
-SUMMARY = 'results/tp_fp_extract_summary.csv'
+DEFAULT_CACHE = '.cache_tail/tp_fp_candidate_features.csv'
+DEFAULT_SUMMARY = 'results/tp_fp_extract_summary.csv'
+
+
+def output_paths(n_rois: int, is_default_selection: bool):
+    """Fixed paths for the committed 7-ROI run, suffixed paths for anything else.
+
+    Four consumers read `DEFAULT_CACHE` / `DEFAULT_SUMMARY` by hard-coded string and none of
+    them asserts an ROI count, so a differently-scoped run writing there would change their
+    numbers without raising anything. The suffix is the cheapest thing that makes that
+    impossible. `TPFP_CACHE` / `TPFP_SUMMARY` still win, for a caller that means it.
+    """
+    if is_default_selection:
+        cache, summary = DEFAULT_CACHE, DEFAULT_SUMMARY
+    else:
+        cache = DEFAULT_CACHE.replace('.csv', f'_{n_rois}roi.csv')
+        summary = DEFAULT_SUMMARY.replace('.csv', f'_{n_rois}roi.csv')
+    return os.environ.get('TPFP_CACHE', cache), os.environ.get('TPFP_SUMMARY', summary)
+
+
+def roi_files(images_dir: str):
+    """Every ROI in the directory, sorted -- `f5_nms_radius_ablation.roi_files`'s convention.
+
+    Used with `--select all` for `images/extra_valid`, which is already the balanced
+    2-per-domain draw (see that folder's MANIFEST.md). `--select per-domain` over `images/`
+    -- and only that pair -- is the original one-densest-ROI-per-domain rule, so it is the
+    combination that regenerates the committed 7-ROI artefacts.
+    """
+    return sorted(f for f in os.listdir(images_dir) if f.endswith('.tiff'))
 
 
 def shape_features(chan: np.ndarray, cx: float, cy: float, window: int = SHAPE_WINDOW):
@@ -106,9 +145,9 @@ def shape_features(chan: np.ndarray, cx: float, cy: float, window: int = SHAPE_W
     }
 
 
-def run_roi(fn: str, image_id: int, domain: str, anns: pd.DataFrame):
+def run_roi(fn: str, image_id: int, domain: str, anns: pd.DataFrame, images_dir: str):
     t0 = time.time()
-    path = f'images/{fn}'
+    path = f'{images_dir}/{fn}'
     rgb = ds.load_roi(path)
     roi_shape, mpp = rgb.shape, ds.roi_mpp(path)
     match_radius = ev.radius_px(mpp)
@@ -229,29 +268,63 @@ def run_roi(fn: str, image_id: int, domain: str, anns: pd.DataFrame):
     return det, summary
 
 
-def main():
+def main(images_dir: str = 'images', select: str = 'per-domain'):
     images, anns = ds.load_annotations()
     ds.check_invariants(anns)
-    dom = ex.select_domain_images(images, anns, images_dir='images').sort_values('tumor_type')
+    if select == 'per-domain':
+        dom = ex.select_domain_images(images, anns, images_dir=images_dir)
+    else:
+        on_disk = roi_files(images_dir)
+        dom = images[images['file_name'].isin(on_disk)]
+        missing = sorted(set(on_disk) - set(dom['file_name']))
+        if missing:      # an intersection drops these silently otherwise
+            print(f'WARNING: {len(missing)} .tiff on disk absent from the annotation DB, '
+                  f'skipped: {missing}', flush=True)
+        # `select_domain_images` filters n_mitotic > 0; the `all` branch has to do it too, or
+        # a zero-mitosis ROI (001.tiff) dies in `draw_seed_with_retry` partway through the run.
+        n_mit = (anns[anns['category_id'] == ds.MITOTIC].groupby('file_name').size())
+        seedable = dom['file_name'].map(n_mit).fillna(0) > 0
+        if not seedable.all():
+            print(f'WARNING: dropping {int((~seedable).sum())} ROI(s) with no mitotic '
+                  f'annotation: {sorted(dom.loc[~seedable, "file_name"])}', flush=True)
+        dom = dom[seedable]
+    dom = dom.sort_values(['tumor_type', 'file_name']).reset_index(drop=True)
+    if len(dom) == 0:
+        raise SystemExit(f'no seedable ROI found in {images_dir}/ with --select {select}')
+    cache, summary_path = output_paths(len(dom), images_dir == 'images' and select == 'per-domain')
     frames, summaries = [], []
     t0 = time.time()
+    print(f'{len(dom)} ROIs from {images_dir}/ ({select})\n  cache   -> {cache}\n'
+          f'  summary -> {summary_path}', flush=True)
     for _, r in dom.iterrows():
-        det, s = run_roi(r['file_name'], int(r['image_id']), r['tumor_type'], anns)
+        det, s = run_roi(r['file_name'], int(r['image_id']), r['tumor_type'], anns,
+                         images_dir=images_dir)
         frames.append(det)
         summaries.append(s)
         gc.collect()
     out = pd.concat(frames, ignore_index=True)
-    d = os.path.dirname(CACHE)
+    d = os.path.dirname(cache)
     if d:
         os.makedirs(d, exist_ok=True)
         pathlib.Path(d, '.gitignore').write_text('*\n')
-    out.to_csv(CACHE, index=False)
-    pathlib.Path('results').mkdir(exist_ok=True)
-    pd.DataFrame(summaries).to_csv(SUMMARY, index=False)
+    out.to_csv(cache, index=False)
+    ds_ = os.path.dirname(summary_path)
+    if ds_:                                  # symmetric with the cache: TPFP_SUMMARY may point
+        os.makedirs(ds_, exist_ok=True)      # anywhere, and failing here loses the whole run
+    summary_df = pd.DataFrame(summaries)
+    summary_df.insert(0, 'images_dir', images_dir)   # provenance: which set produced this file
+    summary_df.insert(1, 'select', select)
+    summary_df.to_csv(summary_path, index=False)
     print(f'\n{len(out)} candidates across {len(summaries)} ROIs in {time.time() - t0:.0f}s')
-    print(f'  cache   -> {CACHE}')
-    print(f'  summary -> {SUMMARY}')
+    print(f'  cache   -> {cache}')
+    print(f'  summary -> {summary_path}')
 
 
 if __name__ == '__main__':
-    main()
+    import argparse
+    ap = argparse.ArgumentParser(description=__doc__,
+                                 formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument('--images-dir', default='images')
+    ap.add_argument('--select', default='per-domain', choices=('per-domain', 'all'))
+    a = ap.parse_args()
+    main(images_dir=a.images_dir, select=a.select)

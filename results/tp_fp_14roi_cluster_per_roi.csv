@@ -1,0 +1,15 @@
+file,domain,mitotic,base rate,k=2 enrich,k=2 null p95,k=2 beats null,k=2 vol,k=2 recall,k=2 od_falloff @vol,k=3 enrich,k=3 null p95,k=3 beats null,k=3 vol,k=3 recall,k=3 od_falloff @vol
+300.tiff,canine cutaneous mast ,180,0.98%,1.91,1.14,True,52%,99.4%,100.0%,2.21,1.25,True,45%,98.3%,99.4%
+301.tiff,canine cutaneous mast ,217,0.98%,2.0,1.13,True,49%,97.7%,98.6%,3.01,1.19,True,32%,96.3%,97.7%
+201.tiff,canine lung cancer,17,0.10%,1.88,1.51,True,53%,100.0%,100.0%,2.92,1.72,True,34%,100.0%,100.0%
+233.tiff,canine lung cancer,17,0.07%,1.94,1.46,True,52%,100.0%,100.0%,2.17,1.94,True,46%,100.0%,100.0%
+245.tiff,canine lymphosarcoma,89,0.25%,1.78,1.2,True,47%,83.1%,89.9%,1.7,1.33,True,28%,48.3%,80.9%
+246.tiff,canine lymphosarcoma,115,0.43%,2.2,1.19,True,45%,100.0%,100.0%,3.39,1.29,True,29%,98.3%,100.0%
+459.tiff,canine soft tissue sar,130,0.62%,1.95,1.15,True,49%,96.2%,97.7%,2.63,1.28,True,36%,95.4%,96.2%
+460.tiff,canine soft tissue sar,35,0.27%,1.76,1.29,True,55%,97.1%,97.1%,2.03,1.55,True,46%,94.3%,97.1%
+013.tiff,human breast cancer,17,0.11%,1.97,1.43,True,51%,100.0%,100.0%,2.3,1.8,True,43%,100.0%,100.0%
+094.tiff,human breast cancer,81,0.31%,2.39,1.24,True,42%,100.0%,100.0%,3.87,1.37,True,25%,97.5%,100.0%
+529.tiff,human melanoma,19,0.13%,1.92,1.42,True,52%,100.0%,100.0%,2.13,1.77,True,47%,100.0%,100.0%
+548.tiff,human melanoma,238,1.15%,1.99,1.14,True,50%,99.6%,99.6%,2.38,1.2,True,42%,99.6%,99.6%
+402.tiff,human neuroendocrine t,104,0.38%,2.22,1.21,True,45%,100.0%,100.0%,2.9,1.32,True,34%,100.0%,100.0%
+403.tiff,human neuroendocrine t,52,0.30%,1.58,1.28,True,63%,100.0%,96.2%,1.89,1.46,True,39%,73.1%,88.5%

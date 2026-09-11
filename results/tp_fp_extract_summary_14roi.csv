@@ -1,0 +1,15 @@
+images_dir,select,file_name,tumor_type,image_id,roi_h,roi_w,mpp,match_radius_px,nms_radius_px,seed_ann_id,n_retries,template_size,pad_px,map_median,mad_scale,n_candidates,n_gt_mitotic,n_tp,n_lookalike,n_unannotated,full_list_recall,shape_fail_rate,t_search_s,t_od_s,t_shape_s
+images/extra_valid,all,300.tiff,canine cutaneous mast cell tumor,300,4835,6447,0.2533,29.61,19.74,14581,0,45,22,-0.057186,0.371482,23413,180,180,85,23148,1.0,0.0,17.3,113.8,308.0
+images/extra_valid,all,301.tiff,canine cutaneous mast cell tumor,301,4835,6447,0.2533,29.61,19.74,14969,0,41,20,-0.022474,0.203591,25447,217,217,109,25121,1.0,0.0,18.8,114.9,607.2
+images/extra_valid,all,201.tiff,canine lung cancer,201,4933,6577,0.2482,30.22,20.15,4457,0,51,25,-0.028426,0.6123,22631,17,17,49,22565,1.0,0.0,100.1,39.1,530.9
+images/extra_valid,all,233.tiff,canine lung cancer,233,4933,6577,0.2482,30.22,20.15,5761,0,25,12,-0.015832,0.143612,33221,17,17,23,33181,1.0,0.0,18.3,119.8,189.7
+images/extra_valid,all,245.tiff,canine lymphosarcoma,245,4933,6577,0.2482,30.22,20.15,6274,0,47,23,-0.006506,0.214097,38389,89,89,70,38230,1.0,0.0,9.6,31.5,177.8
+images/extra_valid,all,246.tiff,canine lymphosarcoma,246,4933,6577,0.2482,30.22,20.15,6548,0,41,20,-0.006128,0.171306,30343,115,115,123,30105,1.0,0.0,8.1,14.0,96.2
+images/extra_valid,all,459.tiff,canine soft tissue sarcoma,459,4933,6577,0.2482,30.22,20.15,22441,0,33,16,-0.050765,0.50321,26152,130,130,90,25932,1.0,0.0,6.9,13.6,62.9
+images/extra_valid,all,460.tiff,canine soft tissue sarcoma,460,4933,6577,0.2482,30.22,20.15,22577,0,47,23,-0.181014,1.063735,20009,35,35,40,19934,1.0,0.0,4.2,5.6,33.7
+images/extra_valid,all,013.tiff,human breast cancer,13,5412,7215,0.2263,33.14,22.09,254,0,31,15,-0.004795,0.128183,27785,17,17,15,27753,1.0,0.0,5.9,8.1,54.5
+images/extra_valid,all,094.tiff,human breast cancer,94,5364,7103,0.2298,32.63,21.75,2512,0,25,12,-0.003239,0.050532,34573,81,81,102,34390,1.0,0.0,6.9,9.4,61.6
+images/extra_valid,all,529.tiff,human melanoma,529,5412,7215,0.2268,33.06,22.04,24918,0,37,18,-0.044372,0.333295,23167,19,19,25,23123,1.0,0.0,6.1,8.0,51.4
+images/extra_valid,all,548.tiff,human melanoma,548,5412,7215,0.2274,32.98,21.98,25804,0,29,14,-0.055091,0.61393,29162,238,238,118,28806,1.0,0.0,5.8,8.1,54.0
+images/extra_valid,all,402.tiff,human neuroendocrine tumor,402,5412,7215,0.2263,33.14,22.09,20254,0,29,14,-0.055744,0.92052,32553,104,104,79,32370,1.0,0.0,5.1,9.4,99.7
+images/extra_valid,all,403.tiff,human neuroendocrine tumor,403,5412,7215,0.2269,33.06,22.04,20334,0,33,16,-0.001113,0.183407,30303,52,52,47,30204,1.0,0.0,7.0,13.2,57.4

@@ -1,0 +1,17 @@
+quantity,value
+ROIs / domains,"14 ROIs, 7 domains, 2 per domain (images/extra_valid)"
+negative class,"the TM_CCOEFF + NMS candidate pool at z >= 1.0, not a uniform nucleus sample"
+candidates / mitotic (analysis set),"300,823 / 1311"
+base rate per ROI,0.07% to 1.15%
+[F1] set aside: FPs on a MITOSIS,913 (0.70 per mitotic figure)
+[F1] kept in negatives: FPs on a LOOK-ALIKE,900 (50% of what the old rule removed)
+[F6] coverage_frac at the operating point,0.743 to 0.998
+od_falloff AUC vs FP,0.855 to 0.996
+od_falloff AUC vs FP_human,0.441 to 0.774
+od51 AUC vs all non-mitotic,0.869 to 0.998
+supervised LODO AUC,0.912 to 0.998
+k=2 enrichment / null p95 / ARI,2.00x / 1.06x / 0.0003
+[F5] k=2 recall vs od_falloff at same volume,98.8% vs 98.3%
+"[F3] read_95 median, best cheap axis","z+od_falloff at 1,781.0"
+"[F4] read_95 median, supervised vs z (shipped)","1,283.0 vs 1,993.5"
+cheapest K meeting 95% mean + 90% floor,"od_contrast at K = 5,655 (oracle)"

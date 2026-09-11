@@ -1,0 +1,8 @@
+file_name,mitotic,on_annotation,on_mitosis,on_lookalike_only,pct_lookalike,dup_per_mitosis_claimed,dup_per_mitosis_true
+094.tiff,81,222,79,143,64.4,2.74,0.98
+201.tiff,17,16,6,10,62.5,0.94,0.35
+246.tiff,115,266,116,150,56.4,2.31,1.01
+301.tiff,217,198,115,83,41.9,0.91,0.53
+402.tiff,104,217,117,100,46.1,2.09,1.12
+459.tiff,130,91,30,61,67.0,0.7,0.23
+548.tiff,238,201,119,82,40.8,0.84,0.5
