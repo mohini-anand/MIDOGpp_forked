@@ -1,0 +1,281 @@
+rank,cx,cy,score,bucket,matched_ann_id,matched_category,z_score,file_name,tumor_type
+1,462.0,4110.0,3.4281008,human_rejected_label,255,2,26.781221,013.tiff,human breast cancer
+2,5023.0,4564.0,3.2420797,human_correct_label,259,1,25.330006,013.tiff,human breast cancer
+3,7032.0,4610.0,2.9046612,non_human_findings,-1,0,22.697687,013.tiff,human breast cancer
+4,6668.0,4971.0,2.8616269,non_human_findings,-1,0,22.361961,013.tiff,human breast cancer
+5,2546.0,160.0,2.8166466,human_correct_label,240,1,22.011055,013.tiff,human breast cancer
+6,3738.0,5363.0,2.7831388,human_correct_label,263,1,21.749647,013.tiff,human breast cancer
+7,6700.0,5392.0,2.7038383,non_human_findings,-1,0,21.130999,013.tiff,human breast cancer
+8,5263.0,3977.0,2.6782,human_correct_label,260,1,20.930984,013.tiff,human breast cancer
+9,5585.0,5240.0,2.6047425,human_rejected_label,266,2,20.357916,013.tiff,human breast cancer
+10,2049.0,3809.0,2.592235,non_human_findings,-1,0,20.260342,013.tiff,human breast cancer
+11,2546.0,4959.0,2.526777,non_human_findings,-1,0,19.749681,013.tiff,human breast cancer
+12,4910.0,1084.0,2.5180082,non_human_findings,-1,0,19.681273,013.tiff,human breast cancer
+13,172.0,668.0,2.4846323,human_rejected_label,269,2,19.420895,013.tiff,human breast cancer
+14,1844.0,187.0,2.4364738,non_human_findings,-1,0,19.045195,013.tiff,human breast cancer
+15,6021.0,4873.0,2.434435,non_human_findings,-1,0,19.029287,013.tiff,human breast cancer
+16,4050.0,3811.0,2.4162998,non_human_findings,-1,0,18.88781,013.tiff,human breast cancer
+17,5259.0,1970.0,2.413961,human_correct_label,246,1,18.869562,013.tiff,human breast cancer
+18,6597.0,4851.0,2.3960152,non_human_findings,-1,0,18.72956,013.tiff,human breast cancer
+19,454.0,5388.0,2.370944,non_human_findings,-1,0,18.533974,013.tiff,human breast cancer
+20,6743.0,4262.0,2.3460743,non_human_findings,-1,0,18.339956,013.tiff,human breast cancer
+1,4103.0,956.0,1.194488,human_rejected_label,2508,2,23.702349,094.tiff,human breast cancer
+2,3999.0,1726.0,1.0931032,human_correct_label,2532,1,21.696,094.tiff,human breast cancer
+3,5019.0,5024.0,1.0579967,human_correct_label,2643,1,21.001263,094.tiff,human breast cancer
+4,4381.0,3117.0,1.0405443,human_rejected_label,2571,2,20.655888,094.tiff,human breast cancer
+5,507.0,737.0,1.0305508,human_correct_label,2487,1,20.458124,094.tiff,human breast cancer
+6,6140.0,4591.0,1.0091717,non_human_findings,-1,0,20.035044,094.tiff,human breast cancer
+7,6297.0,1822.0,0.9794652,human_rejected_label,2545,2,19.447168,094.tiff,human breast cancer
+8,3867.0,4397.0,0.97256947,human_correct_label,2619,1,19.310707,094.tiff,human breast cancer
+9,4766.0,4389.0,0.9523247,human_correct_label,2622,1,18.910074,094.tiff,human breast cancer
+10,4263.0,1740.0,0.9412919,human_rejected_label,2533,2,18.691742,094.tiff,human breast cancer
+11,5298.0,2753.0,0.9408694,human_rejected_label,2567,2,18.68338,094.tiff,human breast cancer
+12,4825.0,4065.0,0.9193861,human_rejected_label,2623,2,18.258238,094.tiff,human breast cancer
+13,3753.0,1315.0,0.91131634,human_rejected_label,2509,2,18.098541,094.tiff,human breast cancer
+14,6281.0,1266.0,0.90951926,human_correct_label,2518,1,18.062979,094.tiff,human breast cancer
+15,1057.0,410.0,0.9038492,human_rejected_label,2658,2,17.950771,094.tiff,human breast cancer
+16,5187.0,5052.0,0.9037286,human_correct_label,2644,1,17.948385,094.tiff,human breast cancer
+17,2625.0,126.0,0.90171033,non_human_findings,-1,0,17.908443,094.tiff,human breast cancer
+18,5805.0,4211.0,0.8988067,human_correct_label,2626,1,17.850983,094.tiff,human breast cancer
+19,1668.0,3723.0,0.8978206,human_correct_label,2588,1,17.831469,094.tiff,human breast cancer
+20,5791.0,3475.0,0.8891663,human_correct_label,2601,1,17.660204,094.tiff,human breast cancer
+1,3496.0,2610.0,4.9203467,non_human_findings,-1,0,8.082273,201.tiff,canine lung cancer
+2,2657.0,2520.0,4.4734273,human_correct_label,4453,1,7.3523693,201.tiff,canine lung cancer
+3,1451.0,3601.0,4.25708,non_human_findings,-1,0,6.999034,201.tiff,canine lung cancer
+4,5046.0,459.0,4.2434077,human_correct_label,4441,1,6.976704,201.tiff,canine lung cancer
+5,6509.0,842.0,4.187572,non_human_findings,-1,0,6.8855143,201.tiff,canine lung cancer
+6,5826.0,603.0,4.109974,human_correct_label,4444,1,6.758782,201.tiff,canine lung cancer
+7,1964.0,459.0,3.9343493,non_human_findings,-1,0,6.4719543,201.tiff,canine lung cancer
+8,4085.0,1290.0,3.9072838,non_human_findings,-1,0,6.4277515,201.tiff,canine lung cancer
+9,3323.0,2617.0,3.870178,human_rejected_label,4455,2,6.367151,201.tiff,canine lung cancer
+10,1822.0,982.0,3.8531945,non_human_findings,-1,0,6.339413,201.tiff,canine lung cancer
+11,6535.0,405.0,3.8068645,non_human_findings,-1,0,6.2637477,201.tiff,canine lung cancer
+12,6576.0,396.0,3.747172,non_human_findings,-1,0,6.166259,201.tiff,canine lung cancer
+13,2855.0,4235.0,3.7430835,human_correct_label,4476,1,6.1595817,201.tiff,canine lung cancer
+14,3355.0,79.0,3.7392344,non_human_findings,-1,0,6.1532955,201.tiff,canine lung cancer
+15,4151.0,2271.0,3.7374778,non_human_findings,-1,0,6.1504264,201.tiff,canine lung cancer
+16,5969.0,901.0,3.7291806,non_human_findings,-1,0,6.1368756,201.tiff,canine lung cancer
+17,5790.0,1685.0,3.7113113,non_human_findings,-1,0,6.107692,201.tiff,canine lung cancer
+18,4041.0,2723.0,3.6905303,non_human_findings,-1,0,6.0737524,201.tiff,canine lung cancer
+19,2870.0,3727.0,3.6799533,human_correct_label,4479,1,6.056478,201.tiff,canine lung cancer
+20,5216.0,1052.0,3.677887,non_human_findings,-1,0,6.0531034,201.tiff,canine lung cancer
+1,627.0,2725.0,1.8108662,human_correct_label,5763,1,12.719721,233.tiff,canine lung cancer
+2,5308.0,3332.0,1.7240072,non_human_findings,-1,0,12.114902,233.tiff,canine lung cancer
+3,4306.0,2668.0,1.6877575,human_correct_label,5766,1,11.862487,233.tiff,canine lung cancer
+4,1528.0,2658.0,1.6042951,human_correct_label,5764,1,11.281319,233.tiff,canine lung cancer
+5,6490.0,440.0,1.5696094,human_rejected_label,5782,2,11.039794,233.tiff,canine lung cancer
+6,5596.0,1407.0,1.567454,non_human_findings,-1,0,11.024786,233.tiff,canine lung cancer
+7,4098.0,3776.0,1.5418833,human_rejected_label,5773,2,10.846731,233.tiff,canine lung cancer
+8,1459.0,946.0,1.540197,non_human_findings,-1,0,10.83499,233.tiff,canine lung cancer
+9,4716.0,420.0,1.536695,non_human_findings,-1,0,10.810604,233.tiff,canine lung cancer
+10,6289.0,2526.0,1.53589,human_correct_label,5767,1,10.804998,233.tiff,canine lung cancer
+11,188.0,2767.0,1.5276394,non_human_findings,-1,0,10.747547,233.tiff,canine lung cancer
+12,660.0,2787.0,1.5272903,non_human_findings,-1,0,10.745117,233.tiff,canine lung cancer
+13,5968.0,4572.0,1.4903764,non_human_findings,-1,0,10.488076,233.tiff,canine lung cancer
+14,5658.0,1577.0,1.4899341,human_correct_label,5759,1,10.484997,233.tiff,canine lung cancer
+15,5424.0,1142.0,1.4875231,human_rejected_label,5758,2,10.468208,233.tiff,canine lung cancer
+16,5075.0,3688.0,1.4826925,non_human_findings,-1,0,10.434572,233.tiff,canine lung cancer
+17,3904.0,1402.0,1.4810086,human_correct_label,5757,1,10.422847,233.tiff,canine lung cancer
+18,5996.0,2856.0,1.4733459,non_human_findings,-1,0,10.36949,233.tiff,canine lung cancer
+19,863.0,4050.0,1.4636134,human_correct_label,5768,1,10.30172,233.tiff,canine lung cancer
+20,2973.0,4322.0,1.4567132,non_human_findings,-1,0,10.253673,233.tiff,canine lung cancer
+1,1269.0,1083.0,1.3760506,non_human_findings,-1,0,6.457617,245.tiff,canine lymphosarcoma
+2,4427.0,3330.0,1.3140761,non_human_findings,-1,0,6.1681476,245.tiff,canine lymphosarcoma
+3,3566.0,4041.0,1.277551,non_human_findings,-1,0,5.997547,245.tiff,canine lymphosarcoma
+4,1949.0,3078.0,1.2743491,human_correct_label,6334,1,5.9825916,245.tiff,canine lymphosarcoma
+5,3992.0,1081.0,1.2421441,non_human_findings,-1,0,5.832169,245.tiff,canine lymphosarcoma
+6,4865.0,2442.0,1.1942366,non_human_findings,-1,0,5.608404,245.tiff,canine lymphosarcoma
+7,6403.0,4601.0,1.1821456,non_human_findings,-1,0,5.5519295,245.tiff,canine lymphosarcoma
+8,3121.0,4092.0,1.1594945,non_human_findings,-1,0,5.446131,245.tiff,canine lymphosarcoma
+9,1646.0,3975.0,1.153555,non_human_findings,-1,0,5.4183893,245.tiff,canine lymphosarcoma
+10,1396.0,3384.0,1.124084,non_human_findings,-1,0,5.2807364,245.tiff,canine lymphosarcoma
+11,1707.0,1883.0,1.1220654,human_rejected_label,6305,2,5.2713084,245.tiff,canine lymphosarcoma
+12,2894.0,4052.0,1.1181649,non_human_findings,-1,0,5.25309,245.tiff,canine lymphosarcoma
+13,5985.0,1563.0,1.1181079,non_human_findings,-1,0,5.2528234,245.tiff,canine lymphosarcoma
+14,4272.0,4209.0,1.1094085,non_human_findings,-1,0,5.2121906,245.tiff,canine lymphosarcoma
+15,5083.0,2770.0,1.1085129,non_human_findings,-1,0,5.2080073,245.tiff,canine lymphosarcoma
+16,5780.0,3756.0,1.102875,non_human_findings,-1,0,5.181674,245.tiff,canine lymphosarcoma
+17,3242.0,4598.0,1.1014402,non_human_findings,-1,0,5.1749725,245.tiff,canine lymphosarcoma
+18,5588.0,2872.0,1.0995181,non_human_findings,-1,0,5.1659946,245.tiff,canine lymphosarcoma
+19,4010.0,3535.0,1.0954573,non_human_findings,-1,0,5.1470275,245.tiff,canine lymphosarcoma
+20,2130.0,178.0,1.0907742,non_human_findings,-1,0,5.1251535,245.tiff,canine lymphosarcoma
+1,567.0,139.0,1.9977913,human_correct_label,6407,1,11.697922,246.tiff,canine lymphosarcoma
+2,6240.0,4284.0,1.9021171,human_correct_label,6604,1,11.1394205,246.tiff,canine lymphosarcoma
+3,1584.0,2201.0,1.8616667,human_correct_label,6498,1,10.90329,246.tiff,canine lymphosarcoma
+4,1422.0,1852.0,1.8114214,human_correct_label,6456,1,10.6099825,246.tiff,canine lymphosarcoma
+5,1422.0,1448.0,1.7562116,human_correct_label,6455,1,10.287694,246.tiff,canine lymphosarcoma
+6,5440.0,3867.0,1.7231203,human_correct_label,6597,1,10.094522,246.tiff,canine lymphosarcoma
+7,6362.0,3564.0,1.6857177,human_correct_label,6559,1,9.876184,246.tiff,canine lymphosarcoma
+8,4362.0,1975.0,1.669786,human_correct_label,6513,1,9.783182,246.tiff,canine lymphosarcoma
+9,3796.0,2629.0,1.6663471,human_correct_label,6512,1,9.763108,246.tiff,canine lymphosarcoma
+10,301.0,4048.0,1.6589895,human_correct_label,6561,1,9.720158,246.tiff,canine lymphosarcoma
+11,4052.0,4926.0,1.6372875,human_correct_label,6618,1,9.593472,246.tiff,canine lymphosarcoma
+12,1849.0,4261.0,1.6344712,human_correct_label,6581,1,9.577031,246.tiff,canine lymphosarcoma
+13,4598.0,2419.0,1.6301274,human_correct_label,6515,1,9.551675,246.tiff,canine lymphosarcoma
+14,310.0,173.0,1.6147599,human_correct_label,6409,1,9.4619665,246.tiff,canine lymphosarcoma
+15,6013.0,2131.0,1.6130809,human_correct_label,6526,1,9.452165,246.tiff,canine lymphosarcoma
+16,3874.0,4874.0,1.5831248,non_human_findings,-1,0,9.277295,246.tiff,canine lymphosarcoma
+17,6262.0,3110.0,1.5658886,human_rejected_label,6560,2,9.17668,246.tiff,canine lymphosarcoma
+18,4047.0,4706.0,1.541741,human_correct_label,6617,1,9.035717,246.tiff,canine lymphosarcoma
+19,2730.0,1121.0,1.501316,human_correct_label,6473,1,8.799735,246.tiff,canine lymphosarcoma
+20,5710.0,862.0,1.4997503,human_correct_label,6435,1,8.790595,246.tiff,canine lymphosarcoma
+1,5205.0,3080.0,4.0400815,human_correct_label,14609,1,11.02951,300.tiff,canine cutaneous mast cell tumor
+2,4211.0,1387.0,3.7187235,human_correct_label,14561,1,10.16444,300.tiff,canine cutaneous mast cell tumor
+3,3362.0,852.0,3.4752645,human_correct_label,14557,1,9.5090685,300.tiff,canine cutaneous mast cell tumor
+4,5658.0,4210.0,3.4579241,human_correct_label,14600,1,9.46239,300.tiff,canine cutaneous mast cell tumor
+5,5896.0,918.0,3.4133923,human_correct_label,14637,1,9.342514,300.tiff,canine cutaneous mast cell tumor
+6,5345.0,3617.0,3.234097,non_human_findings,-1,0,8.859865,300.tiff,canine cutaneous mast cell tumor
+7,4912.0,1576.0,3.2265828,human_rejected_label,14680,2,8.839638,300.tiff,canine cutaneous mast cell tumor
+8,3481.0,1422.0,3.1912653,human_correct_label,14560,1,8.744566,300.tiff,canine cutaneous mast cell tumor
+9,5121.0,948.0,3.1418765,non_human_findings,-1,0,8.611615,300.tiff,canine cutaneous mast cell tumor
+10,6093.0,1033.0,3.10913,human_correct_label,14639,1,8.523464,300.tiff,canine cutaneous mast cell tumor
+11,1820.0,2784.0,3.0815384,human_correct_label,14535,1,8.44919,300.tiff,canine cutaneous mast cell tumor
+12,4122.0,1213.0,3.058647,human_rejected_label,14678,2,8.387568,300.tiff,canine cutaneous mast cell tumor
+13,216.0,486.0,3.0331557,human_correct_label,14459,1,8.318948,300.tiff,canine cutaneous mast cell tumor
+14,3303.0,2637.0,3.000581,human_correct_label,14583,1,8.231259,300.tiff,canine cutaneous mast cell tumor
+15,4805.0,3411.0,2.9386673,human_correct_label,14608,1,8.064593,300.tiff,canine cutaneous mast cell tumor
+16,766.0,2700.0,2.8567727,human_rejected_label,14695,2,7.8441396,300.tiff,canine cutaneous mast cell tumor
+17,5866.0,3550.0,2.8531265,human_correct_label,14607,1,7.8343244,300.tiff,canine cutaneous mast cell tumor
+18,2097.0,2283.0,2.8521292,human_correct_label,14531,1,7.83164,300.tiff,canine cutaneous mast cell tumor
+19,6430.0,4236.0,2.8477144,non_human_findings,-1,0,7.819755,300.tiff,canine cutaneous mast cell tumor
+20,5941.0,2770.0,2.8381608,human_correct_label,14612,1,7.794038,300.tiff,canine cutaneous mast cell tumor
+1,4897.0,4834.0,1.727701,non_human_findings,-1,0,8.596525,301.tiff,canine cutaneous mast cell tumor
+2,6190.0,1382.0,1.6261096,human_correct_label,14824,1,8.0975275,301.tiff,canine cutaneous mast cell tumor
+3,4170.0,4478.0,1.5494552,human_correct_label,14997,1,7.7210155,301.tiff,canine cutaneous mast cell tumor
+4,4728.0,1205.0,1.5109478,human_correct_label,14814,1,7.531875,301.tiff,canine cutaneous mast cell tumor
+5,498.0,2598.0,1.4959071,human_correct_label,14878,1,7.457998,301.tiff,canine cutaneous mast cell tumor
+6,4579.0,1587.0,1.4679606,human_correct_label,14813,1,7.32073,301.tiff,canine cutaneous mast cell tumor
+7,4908.0,205.0,1.4439793,human_correct_label,14762,1,7.202938,301.tiff,canine cutaneous mast cell tumor
+8,5162.0,2015.0,1.4253889,human_correct_label,14867,1,7.111626,301.tiff,canine cutaneous mast cell tumor
+9,202.0,1580.0,1.4204763,human_correct_label,14784,1,7.0874963,301.tiff,canine cutaneous mast cell tumor
+10,6405.0,4181.0,1.418506,human_correct_label,15017,1,7.0778184,301.tiff,canine cutaneous mast cell tumor
+11,4491.0,3920.0,1.4152933,human_correct_label,14955,1,7.0620384,301.tiff,canine cutaneous mast cell tumor
+12,2663.0,2452.0,1.4068962,human_correct_label,14849,1,7.0207934,301.tiff,canine cutaneous mast cell tumor
+13,5364.0,2319.0,1.4014541,human_rejected_label,14872,2,6.994063,301.tiff,canine cutaneous mast cell tumor
+14,2520.0,746.0,1.4000651,human_correct_label,14737,1,6.9872403,301.tiff,canine cutaneous mast cell tumor
+15,2392.0,106.0,1.3939048,human_rejected_label,14745,2,6.956982,301.tiff,canine cutaneous mast cell tumor
+16,5123.0,1540.0,1.386511,human_correct_label,14817,1,6.920665,301.tiff,canine cutaneous mast cell tumor
+17,1480.0,2342.0,1.38643,human_correct_label,14833,1,6.9202676,301.tiff,canine cutaneous mast cell tumor
+18,419.0,3532.0,1.3726388,human_correct_label,14923,1,6.8525276,301.tiff,canine cutaneous mast cell tumor
+19,2776.0,4518.0,1.3723214,human_correct_label,14988,1,6.8509684,301.tiff,canine cutaneous mast cell tumor
+20,6269.0,4834.0,1.367951,human_rejected_label,15021,2,6.829502,301.tiff,canine cutaneous mast cell tumor
+1,2781.0,1267.0,12.7602825,non_human_findings,-1,0,13.922598,402.tiff,human neuroendocrine tumor
+2,2690.0,1788.0,11.599063,human_rejected_label,20297,2,12.661116,402.tiff,human neuroendocrine tumor
+3,2233.0,1333.0,10.913679,human_rejected_label,20175,2,11.9165535,402.tiff,human neuroendocrine tumor
+4,3505.0,1624.0,10.823747,human_correct_label,20178,1,11.818856,402.tiff,human neuroendocrine tumor
+5,3557.0,960.0,10.807288,human_correct_label,20159,1,11.800977,402.tiff,human neuroendocrine tumor
+6,2709.0,2100.0,10.655911,human_rejected_label,20286,2,11.636529,402.tiff,human neuroendocrine tumor
+7,6133.0,1553.0,10.446672,non_human_findings,-1,0,11.4092245,402.tiff,human neuroendocrine tumor
+8,61.0,4614.0,10.222588,non_human_findings,-1,0,11.1657915,402.tiff,human neuroendocrine tumor
+9,297.0,2113.0,10.220704,human_correct_label,20197,1,11.163745,402.tiff,human neuroendocrine tumor
+10,4082.0,4947.0,10.2157,non_human_findings,-1,0,11.158309,402.tiff,human neuroendocrine tumor
+11,5370.0,38.0,10.090672,human_correct_label,20165,1,11.022485,402.tiff,human neuroendocrine tumor
+12,1509.0,2567.0,10.035775,human_correct_label,20194,1,10.962849,402.tiff,human neuroendocrine tumor
+13,300.0,2271.0,9.998991,human_correct_label,20192,1,10.922889,402.tiff,human neuroendocrine tumor
+14,2264.0,1209.0,9.804756,human_rejected_label,20177,2,10.711883,402.tiff,human neuroendocrine tumor
+15,6859.0,5045.0,9.782946,non_human_findings,-1,0,10.6881895,402.tiff,human neuroendocrine tumor
+16,1670.0,2016.0,9.78178,non_human_findings,-1,0,10.686923,402.tiff,human neuroendocrine tumor
+17,6660.0,3349.0,9.7403345,human_correct_label,20235,1,10.641899,402.tiff,human neuroendocrine tumor
+18,4699.0,759.0,9.612847,human_correct_label,20162,1,10.503405,402.tiff,human neuroendocrine tumor
+19,5898.0,3040.0,9.567308,human_correct_label,20233,1,10.453934,402.tiff,human neuroendocrine tumor
+20,3961.0,2795.0,9.510546,non_human_findings,-1,0,10.392269,402.tiff,human neuroendocrine tumor
+1,3319.0,3543.0,5.28546,human_correct_label,20363,1,28.824335,403.tiff,human neuroendocrine tumor
+2,2094.0,3423.0,5.0032954,non_human_findings,-1,0,27.28587,403.tiff,human neuroendocrine tumor
+3,4331.0,3528.0,4.8861184,human_rejected_label,20362,2,26.646978,403.tiff,human neuroendocrine tumor
+4,4996.0,169.0,4.7609076,human_correct_label,20336,1,25.964283,403.tiff,human neuroendocrine tumor
+5,4148.0,2596.0,4.724797,human_rejected_label,20392,2,25.767393,403.tiff,human neuroendocrine tumor
+6,2655.0,2430.0,4.5887494,human_correct_label,20348,1,25.025612,403.tiff,human neuroendocrine tumor
+7,4926.0,3316.0,4.561037,non_human_findings,-1,0,24.874516,403.tiff,human neuroendocrine tumor
+8,3445.0,3433.0,4.5245953,human_correct_label,20361,1,24.675821,403.tiff,human neuroendocrine tumor
+9,4988.0,2854.0,4.4762683,human_rejected_label,20366,2,24.412325,403.tiff,human neuroendocrine tumor
+10,2081.0,3473.0,4.4264364,non_human_findings,-1,0,24.140623,403.tiff,human neuroendocrine tumor
+11,3190.0,3734.0,4.3862767,non_human_findings,-1,0,23.921658,403.tiff,human neuroendocrine tumor
+12,4454.0,3648.0,4.364551,non_human_findings,-1,0,23.803202,403.tiff,human neuroendocrine tumor
+13,2188.0,2696.0,4.3270917,non_human_findings,-1,0,23.598959,403.tiff,human neuroendocrine tumor
+14,3180.0,3199.0,4.2849894,non_human_findings,-1,0,23.369402,403.tiff,human neuroendocrine tumor
+15,4939.0,752.0,4.2596164,non_human_findings,-1,0,23.231058,403.tiff,human neuroendocrine tumor
+16,2865.0,1956.0,4.245055,non_human_findings,-1,0,23.151667,403.tiff,human neuroendocrine tumor
+17,5309.0,976.0,4.1328073,human_rejected_label,20418,2,22.539648,403.tiff,human neuroendocrine tumor
+18,1965.0,4259.0,4.129883,non_human_findings,-1,0,22.523705,403.tiff,human neuroendocrine tumor
+19,3711.0,3932.0,4.1120687,non_human_findings,-1,0,22.426575,403.tiff,human neuroendocrine tumor
+20,4589.0,3534.0,4.0795803,human_correct_label,20365,1,22.249435,403.tiff,human neuroendocrine tumor
+1,5132.0,1908.0,4.761713,human_correct_label,22375,1,9.56356,459.tiff,canine soft tissue sarcoma
+2,1257.0,331.0,4.1447353,human_rejected_label,22312,2,8.337475,459.tiff,canine soft tissue sarcoma
+3,1777.0,131.0,4.1236925,human_rejected_label,22492,2,8.295658,459.tiff,canine soft tissue sarcoma
+4,3082.0,4435.0,3.977834,non_human_findings,-1,0,8.005801,459.tiff,canine soft tissue sarcoma
+5,3654.0,1134.0,3.9086852,human_correct_label,22366,1,7.8683863,459.tiff,canine soft tissue sarcoma
+6,1836.0,3782.0,3.8802795,human_correct_label,22442,1,7.8119373,459.tiff,canine soft tissue sarcoma
+7,5833.0,2114.0,3.8128362,human_rejected_label,22398,2,7.677911,459.tiff,canine soft tissue sarcoma
+8,966.0,431.0,3.7920158,human_correct_label,22311,1,7.6365356,459.tiff,canine soft tissue sarcoma
+9,144.0,1499.0,3.7769625,non_human_findings,-1,0,7.6066213,459.tiff,canine soft tissue sarcoma
+10,261.0,2856.0,3.7755568,human_correct_label,22400,1,7.603828,459.tiff,canine soft tissue sarcoma
+11,122.0,2504.0,3.7726662,human_correct_label,22380,1,7.5980835,459.tiff,canine soft tissue sarcoma
+12,2408.0,1630.0,3.6942737,human_correct_label,22357,1,7.442299,459.tiff,canine soft tissue sarcoma
+13,540.0,1379.0,3.649087,non_human_findings,-1,0,7.352502,459.tiff,canine soft tissue sarcoma
+14,2386.0,4281.0,3.6473193,non_human_findings,-1,0,7.348989,459.tiff,canine soft tissue sarcoma
+15,1151.0,3781.0,3.6093323,human_correct_label,22436,1,7.2734995,459.tiff,canine soft tissue sarcoma
+16,1287.0,272.0,3.5745776,non_human_findings,-1,0,7.2044334,459.tiff,canine soft tissue sarcoma
+17,5662.0,4483.0,3.5581784,human_correct_label,22465,1,7.1718445,459.tiff,canine soft tissue sarcoma
+18,302.0,911.0,3.5125651,human_correct_label,22310,1,7.0811996,459.tiff,canine soft tissue sarcoma
+19,3705.0,3819.0,3.5053444,human_rejected_label,22451,2,7.06685,459.tiff,canine soft tissue sarcoma
+20,5857.0,4339.0,3.4755778,human_rejected_label,22478,2,7.007697,459.tiff,canine soft tissue sarcoma
+1,695.0,2187.0,8.833489,human_correct_label,22544,1,8.474385,460.tiff,canine soft tissue sarcoma
+2,1943.0,2594.0,8.784732,human_correct_label,22548,1,8.428549,460.tiff,canine soft tissue sarcoma
+3,5116.0,3129.0,8.578424,human_correct_label,22558,1,8.234603,460.tiff,canine soft tissue sarcoma
+4,4631.0,809.0,8.211024,human_correct_label,22530,1,7.8892164,460.tiff,canine soft tissue sarcoma
+5,720.0,2445.0,8.171792,human_correct_label,22545,1,7.8523345,460.tiff,canine soft tissue sarcoma
+6,6396.0,4342.0,8.129531,non_human_findings,-1,0,7.812606,460.tiff,canine soft tissue sarcoma
+7,6463.0,814.0,8.116208,human_rejected_label,22533,2,7.8000813,460.tiff,canine soft tissue sarcoma
+8,6197.0,1059.0,7.917548,human_correct_label,22543,1,7.613324,460.tiff,canine soft tissue sarcoma
+9,4866.0,2590.0,7.887712,human_correct_label,22552,1,7.585276,460.tiff,canine soft tissue sarcoma
+10,5021.0,4575.0,7.8578377,non_human_findings,-1,0,7.5571914,460.tiff,canine soft tissue sarcoma
+11,5694.0,4342.0,7.580736,non_human_findings,-1,0,7.2966933,460.tiff,canine soft tissue sarcoma
+12,438.0,3824.0,7.49854,human_correct_label,22565,1,7.219422,460.tiff,canine soft tissue sarcoma
+13,5290.0,2872.0,7.3420277,human_rejected_label,22559,2,7.0722876,460.tiff,canine soft tissue sarcoma
+14,4662.0,4076.0,7.3345604,human_rejected_label,22575,2,7.0652676,460.tiff,canine soft tissue sarcoma
+15,5649.0,4770.0,7.332489,non_human_findings,-1,0,7.06332,460.tiff,canine soft tissue sarcoma
+16,6490.0,3845.0,7.2688794,human_correct_label,22578,1,7.003522,460.tiff,canine soft tissue sarcoma
+17,2069.0,4565.0,7.251201,human_rejected_label,22581,2,6.9869027,460.tiff,canine soft tissue sarcoma
+18,6287.0,4276.0,7.2310085,human_correct_label,22580,1,6.9679203,460.tiff,canine soft tissue sarcoma
+19,1565.0,85.0,7.2013574,non_human_findings,-1,0,6.9400454,460.tiff,canine soft tissue sarcoma
+20,1959.0,2747.0,7.1980214,human_correct_label,22549,1,6.9369097,460.tiff,canine soft tissue sarcoma
+1,1489.0,5306.0,4.30574,non_human_findings,-1,0,13.051821,529.tiff,human melanoma
+2,5246.0,1492.0,4.147695,human_correct_label,24908,1,12.577633,529.tiff,human melanoma
+3,537.0,3249.0,4.1247873,human_correct_label,24925,1,12.508902,529.tiff,human melanoma
+4,1880.0,4245.0,4.109077,human_rejected_label,24933,2,12.461765,529.tiff,human melanoma
+5,4083.0,752.0,3.9980931,non_human_findings,-1,0,12.128776,529.tiff,human melanoma
+6,3090.0,3019.0,3.9882975,human_rejected_label,24942,2,12.099385,529.tiff,human melanoma
+7,1368.0,3211.0,3.8899417,non_human_findings,-1,0,11.804285,529.tiff,human melanoma
+8,6981.0,3030.0,3.855897,human_correct_label,24930,1,11.702139,529.tiff,human melanoma
+9,4070.0,1034.0,3.8556066,human_correct_label,24907,1,11.701268,529.tiff,human melanoma
+10,6583.0,3231.0,3.7302306,non_human_findings,-1,0,11.325097,529.tiff,human melanoma
+11,5106.0,4064.0,3.7084394,non_human_findings,-1,0,11.259716,529.tiff,human melanoma
+12,1435.0,5328.0,3.7044256,non_human_findings,-1,0,11.247673,529.tiff,human melanoma
+13,869.0,4548.0,3.6810536,non_human_findings,-1,0,11.177549,529.tiff,human melanoma
+14,2322.0,2778.0,3.6514335,human_rejected_label,24915,2,11.088679,529.tiff,human melanoma
+15,1612.0,5272.0,3.6477487,non_human_findings,-1,0,11.077623,529.tiff,human melanoma
+16,5904.0,266.0,3.6357472,non_human_findings,-1,0,11.041615,529.tiff,human melanoma
+17,5286.0,3825.0,3.6260045,non_human_findings,-1,0,11.012383,529.tiff,human melanoma
+18,6265.0,407.0,3.6013212,human_rejected_label,24902,2,10.938325,529.tiff,human melanoma
+19,5951.0,3201.0,3.5679111,non_human_findings,-1,0,10.838083,529.tiff,human melanoma
+20,1499.0,5339.0,3.5619774,non_human_findings,-1,0,10.82028,529.tiff,human melanoma
+1,4295.0,3356.0,8.930952,human_correct_label,25794,1,14.6369095,548.tiff,human melanoma
+2,29.0,2670.0,8.852644,human_correct_label,25717,1,14.509357,548.tiff,human melanoma
+3,2520.0,3449.0,8.80635,human_rejected_label,25784,2,14.433951,548.tiff,human melanoma
+4,5637.0,3093.0,8.782901,human_correct_label,25757,1,14.395757,548.tiff,human melanoma
+5,1616.0,3033.0,8.668263,human_correct_label,25738,1,14.209029,548.tiff,human melanoma
+6,6137.0,3605.0,8.618574,human_correct_label,25916,1,14.128093,548.tiff,human melanoma
+7,5201.0,373.0,8.549378,non_human_findings,-1,0,14.015384,548.tiff,human melanoma
+8,6802.0,3384.0,8.530203,human_rejected_label,25814,2,13.98415,548.tiff,human melanoma
+9,877.0,2590.0,8.44188,human_rejected_label,25917,2,13.840285,548.tiff,human melanoma
+10,521.0,2837.0,8.43399,non_human_findings,-1,0,13.827433,548.tiff,human melanoma
+11,2632.0,3693.0,8.298436,human_correct_label,25781,1,13.606637,548.tiff,human melanoma
+12,6415.0,2637.0,8.216196,human_rejected_label,25892,2,13.47268,548.tiff,human melanoma
+13,4810.0,3376.0,8.173814,human_correct_label,25802,1,13.4036455,548.tiff,human melanoma
+14,377.0,3053.0,8.131392,non_human_findings,-1,0,13.334546,548.tiff,human melanoma
+15,6606.0,2404.0,8.038773,human_correct_label,25921,1,13.183683,548.tiff,human melanoma
+16,4370.0,2329.0,7.946021,human_correct_label,25705,1,13.032605,548.tiff,human melanoma
+17,2792.0,3723.0,7.91557,human_correct_label,25782,1,12.983006,548.tiff,human melanoma
+18,984.0,2904.0,7.8501673,human_correct_label,25726,1,12.876475,548.tiff,human melanoma
+19,6261.0,2392.0,7.665407,non_human_findings,-1,0,12.575528,548.tiff,human melanoma
+20,3680.0,2237.0,7.621373,human_correct_label,25698,1,12.503804,548.tiff,human melanoma
