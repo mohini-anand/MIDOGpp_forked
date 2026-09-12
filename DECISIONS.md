@@ -697,6 +697,42 @@ this file's own history policy — the superseded 2026-09-09 decision and its am
 
 ---
 
+## D9 — `max_peaks = 100` before NMS
+
+**Date:** 2026-09-12
+
+### The decision
+
+Cap `extract_peaks`'s `max_peaks` argument to **100** (pre-NMS, by raw score) in the production
+call. Not `FSConfig.max_peaks` (still 250000, unused — `find_and_suppress()` is not the caller
+in the current precision pipeline); it is the `MAX_PEAKS` constant in
+`production_seed_precision_at_k_chromatin_half_pix_fix.ipynb` cell 1, currently `2_000_000`
+(never binds). `DEEP_FLOOR_Z` is unchanged at −1.5.
+
+### Why
+
+Measured on the 14 ROIs of `images/extra_valid`, one seed each, `tm_score` arm: precision@10/20/30
+is unchanged on 14/14 ROIs at every budget (pooled 0.5000 / 0.4536 / 0.4286, identical to the
+uncapped pool), recall never lower. NMS runtime drops ~99.7 % (~100 candidates into NMS instead of
+~17,300), for a 12.6–15.7 % reduction in full click-to-list latency across three independent
+timing runs. Extraction cost is unaffected — it is set by the response-map size, not by
+`max_peaks`. A per-ROI dynamically-solved z targeting the same 100-candidate count reproduces the
+capped pool bit-for-bit, so 100 is not an arbitrary count — it is the tightest fixed-count cap the
+data supports at zero measured cost through K=30.
+
+### What it costs
+
+The capped pool under-delivers a K=100 budget: post-NMS, every ROI lands at 89–99 candidates,
+never the full 100. Not tested past K=30. Single seed per ROI — D4/D5's multi-seed bar for a
+production default is not met.
+
+### What would change my mind
+
+Any product requirement for K > 30 — the cap would need headroom above 100 to avoid
+under-delivery. A multi-seed re-run showing precision or recall moves at K≤30.
+
+---
+
 ## Cross-references
 
 | decision | primary evidence |
@@ -709,6 +745,7 @@ this file's own history policy — the superseded 2026-09-09 decision and its am
 | D5 `TM_CCOEFF` score is the ranker | `verify_chromatin_ranker.py` (re-derives all four); `results/f1_seed_sweep.csv`; `results/tp_fp_reading_depth.csv`; `tp_fp_separability_14roi.ipynb` and `results/tp_fp_14roi_budget_rule.csv` (the 2026-09-08 `od_contrast` amendment); `Research Logs/2026-09-08-tp-fp-separability-audit.md`; `results/morph_diag_bhattacharyya.csv`; `Research Logs/2026-08-31-chromatin-density-rerank.md` (the entry it corrects) |
 | D7 NMS radius = 7.5 µm | `invariants.check_nms_radius`; `Research Logs/2026-09-04-f5-results.md` §7 and Correction 2; `tm_threshold_axis_sweep_largest_cc_high_z_r75.ipynb` and `results/tm_ccoeff_high_z_r75_vs_r50_seed_paired.csv` (the recall cost); `results/f5_nms_radius_ablation_spacing.csv` (annotation geometry); `find_and_suppress_high_threshold_precision.ipynb` Gate 4 (top-K invariance) |
 | D8 seed template anchor | **[`D8_TEMPLATE_ANCHOR.md`](D8_TEMPLATE_ANCHOR.md)** — the entry itself, with the superseded 2026-09-09 decision and amendment kept verbatim; `pipeline_debug_visuals/template_anchor_halfpixel_fix.ipynb` (the half-pixel derivation and the anchor comparison, verified against the live `seed_selection` functions); `midog_utils/seed_selection.py` (`tighten_box_otsu` the gate, `tightened_base_size` and `tightened_template_box` the two superseded anchors) |
+| D9 `max_peaks = 100` | `threshold_maxpeaks_ablation/max_peaks_100_variant.ipynb` (the measurement); `threshold_maxpeaks_ablation/z_floor_tightening_variant.ipynb` (`dynamic_z` branch — bit-exact equivalence proof) |
 
 ## Still open, deliberately
 
