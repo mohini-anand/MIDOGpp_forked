@@ -1,0 +1,492 @@
+<title>Chromatin-OD Radius Delta</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    color-scheme: light;
+    --surface:      #f5f5f3;
+    --panel:        #fcfcfb;
+    --ink:          #0b0b0b;
+    --ink-2:        #52514e;
+    --muted:        #898781;
+    --hairline:     #e1e0d9;
+    --border:       rgba(11,11,11,0.10);
+    --before:       #86b6ef;
+    --after:        #1c5cab;
+    --good:         #0ca30c;
+    --critical:     #d03b3b;
+    --focus:        #1c5cab;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --surface:    #141414;
+      --panel:      #1a1a19;
+      --ink:        #ffffff;
+      --ink-2:      #c3c2b7;
+      --muted:      #898781;
+      --hairline:   #2c2c2a;
+      --border:     rgba(255,255,255,0.10);
+      --before:     #184f95;
+      --after:      #3987e5;
+      --good:       #0ca30c;
+      --critical:   #e66767;
+      --focus:      #3987e5;
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --surface:    #141414;
+    --panel:      #1a1a19;
+    --ink:        #ffffff;
+    --ink-2:      #c3c2b7;
+    --muted:      #898781;
+    --hairline:   #2c2c2a;
+    --border:     rgba(255,255,255,0.10);
+    --before:     #184f95;
+    --after:      #3987e5;
+    --good:       #0ca30c;
+    --critical:   #e66767;
+    --focus:      #3987e5;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--surface);
+    color: var(--ink);
+    font-family: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    padding: clamp(20px, 4vw, 56px) 20px 64px;
+  }
+  .page { max-width: 1080px; margin: 0 auto; }
+  .mono { font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace; }
+
+  /* ---------- header ---------- */
+  header { margin-bottom: 30px; }
+  .eyebrow {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11.5px;
+    font-weight: 500;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--after);
+    margin: 0 0 10px;
+  }
+  h1 {
+    font-size: clamp(24px, 3.2vw, 32px);
+    line-height: 1.18;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin: 0 0 12px;
+    max-width: 30ch;
+    text-wrap: balance;
+  }
+  .dek {
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--ink-2);
+    max-width: 62ch;
+    margin: 0 0 16px;
+  }
+  .meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 18px;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .meta-row b { color: var(--ink-2); font-weight: 600; }
+
+  /* ---------- legend ---------- */
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 22px;
+    padding: 14px 18px;
+    margin: 26px 0 18px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    font-size: 13px;
+    color: var(--ink-2);
+  }
+  .legend-item { display: flex; align-items: center; gap: 8px; white-space: nowrap; }
+  .swatch { width: 10px; height: 10px; border-radius: 50%; box-shadow: 0 0 0 2px var(--panel); flex: none; }
+  .legend-line { display:flex; align-items:center; gap:8px; }
+  .legend-line .stick { width: 22px; height: 2px; background: var(--muted); border-radius: 1px; }
+  .legend-note { color: var(--muted); font-size: 12.5px; }
+
+  /* ---------- chart ---------- */
+  .chart-scroll { overflow-x: auto; margin: 0 -2px; padding: 0 2px; }
+  .grid {
+    min-width: 660px;
+    display: grid;
+    grid-template-columns: minmax(96px, 132px) repeat(3, minmax(150px, 1fr));
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .col-head {
+    padding: 14px 14px 10px;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--ink);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .col-head.k-head { text-align: left; }
+  .col-head .k-sub { display:block; font-weight:400; color: var(--muted); font-size: 10.5px; letter-spacing:.02em; margin-top:2px; text-transform:uppercase; }
+
+  .domain-head {
+    grid-column: 1 / -1;
+    padding: 9px 14px 6px;
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--muted);
+    background: color-mix(in srgb, var(--hairline) 45%, transparent);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .domain-head:not(:first-of-type) { border-top: 1px solid var(--hairline); }
+
+  .row-label {
+    padding: 0 14px;
+    display: flex;
+    align-items: center;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 12.5px;
+    color: var(--ink-2);
+    border-bottom: 1px solid var(--hairline);
+    border-right: 1px solid var(--hairline);
+  }
+  .lane-cell {
+    position: relative;
+    border-bottom: 1px solid var(--hairline);
+    border-right: 1px solid var(--hairline);
+  }
+
+  .lane {
+    position: relative;
+    height: 34px;
+    background-image: linear-gradient(to right, var(--hairline) 1px, transparent 1px);
+    background-size: 25% 100%;
+    cursor: pointer;
+  }
+  .lane:focus-visible { outline: 2px solid var(--focus); outline-offset: -2px; }
+  .lane::after {
+    content: "";
+    position: absolute; inset: 0;
+    border-right: 1px solid var(--hairline);
+  }
+
+  .connector {
+    position: absolute; top: 50%; height: 2px;
+    transform: translateY(-50%);
+    background: var(--muted);
+    border-radius: 1px;
+  }
+  .dot {
+    position: absolute; top: 50%; width: 9px; height: 9px;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 0 2px var(--panel);
+  }
+  .dot.before { background: var(--before); z-index: 1; }
+  .dot.after  { background: var(--after);  z-index: 2; }
+  .delta-tag {
+    position: absolute; top: 3px;
+    transform: translateX(-50%);
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 10px;
+    font-weight: 600;
+    white-space: nowrap;
+    pointer-events: none;
+  }
+  .delta-tag.up   { color: var(--good); }
+  .delta-tag.down { color: var(--critical); }
+
+  .axis-row-label { border-bottom: none; }
+  .lane-cell.axis-row { border-bottom: none; padding: 6px 0 10px; }
+  .axis-ticks { position: relative; height: 14px; }
+  .axis-ticks span {
+    position: absolute; transform: translateX(-50%);
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 10px; color: var(--muted);
+  }
+  .axis-ticks span:first-child { transform: translateX(0); }
+  .axis-ticks span:last-child { transform: translateX(-100%); }
+
+  /* ---------- tooltip ---------- */
+  #tooltip {
+    position: fixed;
+    z-index: 50;
+    background: var(--ink);
+    color: var(--surface);
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 12px;
+    line-height: 1.5;
+    padding: 9px 11px;
+    border-radius: 8px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity .08s ease;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+    max-width: 240px;
+  }
+  #tooltip.show { opacity: 1; }
+  #tooltip .tt-title { font-family: "IBM Plex Sans", sans-serif; font-weight: 600; margin-bottom: 5px; color: var(--surface); }
+  #tooltip .tt-row { display:flex; justify-content:space-between; gap: 14px; }
+  #tooltip .tt-key { display:flex; align-items:center; gap:6px; opacity:.85; }
+  #tooltip .tt-key .k-line { width:10px; height:2px; border-radius:1px; }
+  #tooltip .tt-val { font-weight: 600; }
+  #tooltip .tt-delta { margin-top: 5px; padding-top: 5px; border-top: 1px solid rgba(255,255,255,0.18); opacity: .9; }
+
+  /* ---------- summary strip ---------- */
+  .summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    margin-top: 22px;
+  }
+  .stat {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 16px;
+  }
+  .stat-label { font-size: 11px; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+  .stat-value { font-family: "IBM Plex Mono", monospace; font-size: 20px; font-weight: 600; color: var(--ink); font-variant-numeric: tabular-nums; }
+  .stat-delta { display:flex; align-items:center; gap: 5px; margin-top: 6px; font-size: 12.5px; font-weight: 600; font-family: "IBM Plex Mono", monospace; }
+  .stat-delta.up { color: var(--good); }
+  .stat-delta.down { color: var(--critical); }
+  .stat-sub { margin-top: 6px; font-size: 11.5px; color: var(--muted); }
+
+  footer {
+    margin-top: 26px;
+    font-size: 12.5px;
+    line-height: 1.6;
+    color: var(--muted);
+    max-width: 74ch;
+  }
+  footer strong { color: var(--ink-2); }
+
+  @media (max-width: 460px) {
+    .legend { gap: 14px 18px; }
+  }
+</style>
+
+<div class="page">
+  <header>
+    <p class="eyebrow">Mitotic-figure detection &middot; chromatin_od (od51) ranker</p>
+    <h1>Does a tighter NMS radius buy sharper top-K precision?</h1>
+    <p class="dek">Precision at fixed budgets K&nbsp;=&nbsp;10, 20, 30 for the <span class="mono">chromatin_od</span> ranker, paired within each ROI &mdash; 7.5&nbsp;&micro;m (the repo default, D7) against a 5.0&nbsp;&micro;m ablation.</p>
+    <div class="meta-row">
+      <span><b>14</b> ROIs</span>
+      <span><b>7</b> tumor domains</span>
+      <span>seed index <b>0</b></span>
+      <span><b>max_peaks</b> = 100</span>
+      <span>match radius fixed at <b>7.5&nbsp;&micro;m</b></span>
+    </div>
+  </header>
+
+  <div class="legend">
+    <span class="legend-item"><span class="swatch" style="background:var(--before)"></span>7.5&nbsp;&micro;m &mdash; default</span>
+    <span class="legend-item"><span class="swatch" style="background:var(--after)"></span>5.0&nbsp;&micro;m &mdash; ablation</span>
+    <span class="legend-line"><span class="stick"></span>precision moved between radii</span>
+    <span class="legend-note">hover any lane for exact values</span>
+  </div>
+
+  <div class="chart-scroll">
+    <div class="grid" id="grid"></div>
+  </div>
+
+  <div class="summary" id="summary"></div>
+
+  <footer>
+    <strong>Reading this chart.</strong> Each lane spans precision 0&ndash;1. The light dot is precision at the 7.5&nbsp;&micro;m default; the dark dot is the same ROI re-run with NMS suppressing at 5.0&nbsp;&micro;m. A visible connector means the radius change reordered the top-K list enough to change who's in it &mdash; most lanes show none. Pooled across all 14 ROIs, the ablation moves precision by at most 3.2%, and not consistently up or down. <span class="mono">245.tiff</span> &mdash; this dataset's one documented merged-mitotic-pair case &mdash; is the exception: shrinking the radius keeps both peaks separate and recovers a true positive at K&nbsp;=&nbsp;20 and K&nbsp;=&nbsp;30.
+  </footer>
+</div>
+
+<div id="tooltip"></div>
+
+<script>
+(function () {
+  var DATA = [
+    {file:"300.tiff", domain:"Canine cutaneous mast cell tumor", b:{10:{p75:0.9,p50:0.9,tp75:9,tp50:9,d:10},20:{p75:0.9,p50:0.9,tp75:18,tp50:18,d:20},30:{p75:0.8667,p50:0.8667,tp75:26,tp50:26,d:30}}},
+    {file:"301.tiff", domain:"Canine cutaneous mast cell tumor", b:{10:{p75:0.8,p50:0.8,tp75:8,tp50:8,d:10},20:{p75:0.9,p50:0.9,tp75:18,tp50:18,d:20},30:{p75:0.9,p50:0.9,tp75:27,tp50:27,d:30}}},
+    {file:"201.tiff", domain:"Canine lung cancer", b:{10:{p75:0.4,p50:0.4,tp75:4,tp50:4,d:10},20:{p75:0.4,p50:0.4,tp75:8,tp50:8,d:20},30:{p75:0.3,p50:0.3,tp75:9,tp50:9,d:30}}},
+    {file:"233.tiff", domain:"Canine lung cancer", b:{10:{p75:0.7,p50:0.7,tp75:7,tp50:7,d:10},20:{p75:0.4,p50:0.4,tp75:8,tp50:8,d:20},30:{p75:0.3333,p50:0.3,tp75:10,tp50:9,d:30}}},
+    {file:"245.tiff", domain:"Canine lymphosarcoma", b:{10:{p75:0.2,p50:0.2,tp75:2,tp50:2,d:10},20:{p75:0.1,p50:0.15,tp75:2,tp50:3,d:20},30:{p75:0.0667,p50:0.1,tp75:2,tp50:3,d:30}}},
+    {file:"246.tiff", domain:"Canine lymphosarcoma", b:{10:{p75:1.0,p50:1.0,tp75:10,tp50:10,d:10},20:{p75:0.7,p50:0.8,tp75:14,tp50:16,d:20},30:{p75:0.7,p50:0.6667,tp75:21,tp50:20,d:30}}},
+    {file:"459.tiff", domain:"Canine soft tissue sarcoma", b:{10:{p75:0.9,p50:0.9,tp75:9,tp50:9,d:10},20:{p75:0.85,p50:0.85,tp75:17,tp50:17,d:20},30:{p75:0.8333,p50:0.8333,tp75:25,tp50:25,d:30}}},
+    {file:"460.tiff", domain:"Canine soft tissue sarcoma", b:{10:{p75:0.7,p50:0.7,tp75:7,tp50:7,d:10},20:{p75:0.8,p50:0.8,tp75:16,tp50:16,d:20},30:{p75:0.5667,p50:0.5667,tp75:17,tp50:17,d:30}}},
+    {file:"013.tiff", domain:"Human breast cancer", b:{10:{p75:0.6,p50:0.5,tp75:6,tp50:5,d:10},20:{p75:0.45,p50:0.45,tp75:9,tp50:9,d:20},30:{p75:0.3,p50:0.3,tp75:9,tp50:9,d:30}}},
+    {file:"094.tiff", domain:"Human breast cancer", b:{10:{p75:0.5,p50:0.5,tp75:5,tp50:5,d:10},20:{p75:0.75,p50:0.75,tp75:15,tp50:15,d:20},30:{p75:0.7333,p50:0.7333,tp75:22,tp50:22,d:30}}},
+    {file:"529.tiff", domain:"Human melanoma", b:{10:{p75:0.6,p50:0.6,tp75:6,tp50:6,d:10},20:{p75:0.35,p50:0.35,tp75:7,tp50:7,d:20},30:{p75:0.2333,p50:0.2333,tp75:7,tp50:7,d:30}}},
+    {file:"548.tiff", domain:"Human melanoma", b:{10:{p75:0.8,p50:0.7,tp75:8,tp50:7,d:10},20:{p75:0.65,p50:0.6,tp75:13,tp50:12,d:20},30:{p75:0.7,p50:0.6667,tp75:21,tp50:20,d:30}}},
+    {file:"402.tiff", domain:"Human neuroendocrine tumor", b:{10:{p75:0.7,p50:0.6,tp75:7,tp50:6,d:10},20:{p75:0.6,p50:0.55,tp75:12,tp50:11,d:20},30:{p75:0.5,p50:0.5,tp75:15,tp50:15,d:30}}},
+    {file:"403.tiff", domain:"Human neuroendocrine tumor", b:{10:{p75:0.5,p50:0.5,tp75:5,tp50:5,d:10},20:{p75:0.5,p50:0.5,tp75:10,tp50:10,d:20},30:{p75:0.4667,p50:0.4667,tp75:14,tp50:14,d:30}}}
+  ];
+  var BUDGETS = [10, 20, 30];
+
+  function fmtPct(x) { return (x * 100).toFixed(1) + "%"; }
+  function fmtDelta(x) {
+    var s = x >= 0 ? "+" : "−";
+    return s + Math.abs(x).toFixed(4);
+  }
+
+  // ---- group by domain, preserving encounter order ----
+  var domains = [];
+  DATA.forEach(function (r) { if (domains.indexOf(r.domain) === -1) domains.push(r.domain); });
+
+  var grid = document.getElementById("grid");
+  var frag = document.createDocumentFragment();
+
+  function el(tag, cls, text) {
+    var e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text != null) e.textContent = text;
+    return e;
+  }
+
+  // header row
+  frag.appendChild(el("div", "col-head", ""));
+  BUDGETS.forEach(function (k) {
+    var h = el("div", "col-head k-head");
+    h.appendChild(document.createTextNode("K = " + k));
+    var sub = el("span", "k-sub", "precision @ top " + k);
+    h.appendChild(sub);
+    frag.appendChild(h);
+  });
+
+  domains.forEach(function (domain) {
+    frag.appendChild(el("div", "domain-head", domain));
+    DATA.filter(function (r) { return r.domain === domain; }).forEach(function (roi) {
+      frag.appendChild(el("div", "row-label", roi.file));
+      BUDGETS.forEach(function (k) {
+        var cell = el("div", "lane-cell");
+        var lane = el("div", "lane");
+        lane.tabIndex = 0;
+        lane.setAttribute("role", "img");
+
+        var v = roi.b[k];
+        var x75 = v.p75 * 100, x50 = v.p50 * 100;
+        var lo = Math.min(x75, x50), hi = Math.max(x75, x50);
+
+        var conn = el("div", "connector");
+        conn.style.left = lo + "%";
+        conn.style.width = (hi - lo) + "%";
+        lane.appendChild(conn);
+
+        var dotBefore = el("div", "dot before");
+        dotBefore.style.left = x75 + "%";
+        lane.appendChild(dotBefore);
+
+        var dotAfter = el("div", "dot after");
+        dotAfter.style.left = x50 + "%";
+        lane.appendChild(dotAfter);
+
+        var delta = v.p50 - v.p75;
+        if (Math.abs(delta) >= 0.001) {
+          var tag = el("div", "delta-tag " + (delta > 0 ? "up" : "down"),
+            (delta > 0 ? "▲ +" : "▼ −") + Math.abs(delta).toFixed(2));
+          tag.style.left = x50 + "%";
+          lane.appendChild(tag);
+        }
+
+        lane.setAttribute("aria-label", roi.file + ", " + domain + ", K=" + k +
+          ": 7.5 micrometers " + fmtPct(v.p75) + ", 5.0 micrometers " + fmtPct(v.p50));
+
+        (function (roi, k, v) {
+          function show(evt) {
+            var tt = document.getElementById("tooltip");
+            tt.innerHTML = "";
+            var title = el("div", "tt-title", roi.file + " · K=" + k);
+            tt.appendChild(title);
+
+            var row1 = el("div", "tt-row");
+            var key1 = el("span", "tt-key");
+            var line1 = el("span", "k-line"); line1.style.background = "var(--before)";
+            key1.appendChild(line1); key1.appendChild(document.createTextNode("7.5 µm"));
+            row1.appendChild(key1);
+            row1.appendChild(el("span", "tt-val", fmtPct(v.p75) + " (" + v.tp75 + "/" + v.d + ")"));
+            tt.appendChild(row1);
+
+            var row2 = el("div", "tt-row");
+            var key2 = el("span", "tt-key");
+            var line2 = el("span", "k-line"); line2.style.background = "var(--after)";
+            key2.appendChild(line2); key2.appendChild(document.createTextNode("5.0 µm"));
+            row2.appendChild(key2);
+            row2.appendChild(el("span", "tt-val", fmtPct(v.p50) + " (" + v.tp50 + "/" + v.d + ")"));
+            tt.appendChild(row2);
+
+            var d = v.p50 - v.p75;
+            var dRow = el("div", "tt-delta", "Δ " + fmtDelta(d) + (Math.abs(d) < 0.0001 ? "  (unchanged)" : ""));
+            tt.appendChild(dRow);
+
+            tt.classList.add("show");
+            var x = evt.clientX, y = evt.clientY;
+            var pad = 14;
+            requestAnimationFrame(function () {
+              var r = tt.getBoundingClientRect();
+              var left = Math.min(x + pad, window.innerWidth - r.width - 8);
+              var top = Math.min(y + pad, window.innerHeight - r.height - 8);
+              tt.style.left = left + "px";
+              tt.style.top = top + "px";
+            });
+          }
+          function hide() { document.getElementById("tooltip").classList.remove("show"); }
+          lane.addEventListener("pointermove", show);
+          lane.addEventListener("pointerenter", show);
+          lane.addEventListener("pointerleave", hide);
+          lane.addEventListener("focus", function (e) { show({clientX: e.target.getBoundingClientRect().left + 40, clientY: e.target.getBoundingClientRect().top}); });
+          lane.addEventListener("blur", hide);
+        })(roi, k, v);
+
+        cell.appendChild(lane);
+        frag.appendChild(cell);
+      });
+    });
+  });
+
+  // axis row
+  frag.appendChild(el("div", "row-label axis-row-label", ""));
+  var TICKS = [[0, "0"], [25, "0.25"], [50, "0.50"], [75, "0.75"], [100, "1.00"]];
+  BUDGETS.forEach(function () {
+    var cell = el("div", "lane-cell axis-row");
+    var ticks = el("div", "axis-ticks");
+    TICKS.forEach(function (t) {
+      var s = el("span", null, t[1]);
+      s.style.left = t[0] + "%";
+      ticks.appendChild(s);
+    });
+    cell.appendChild(ticks);
+    frag.appendChild(cell);
+  });
+
+  grid.appendChild(frag);
+
+  // ---- pooled summary, derived from the same data ----
+  var summary = document.getElementById("summary");
+  BUDGETS.forEach(function (k) {
+    var tp75 = 0, tp50 = 0, del = 0;
+    DATA.forEach(function (r) { tp75 += r.b[k].tp75; tp50 += r.b[k].tp50; del += r.b[k].d; });
+    var p75 = tp75 / del, p50 = tp50 / del;
+    var delta = p50 - p75;
+    var card = el("div", "stat");
+    card.appendChild(el("div", "stat-label", "Pooled precision · K = " + k));
+    card.appendChild(el("div", "stat-value", fmtPct(p75) + " → " + fmtPct(p50)));
+    var dCls = delta > 0 ? "up" : (delta < 0 ? "down" : "");
+    var dRow = el("div", "stat-delta " + dCls,
+      (delta > 0 ? "▲ " : delta < 0 ? "▼ " : "— ") + fmtDelta(delta) + " (" + (delta / p75 * 100).toFixed(1) + "%)");
+    card.appendChild(dRow);
+    card.appendChild(el("div", "stat-sub", tp75 + "→" + tp50 + " tp / " + del + " delivered, pooled over 14 ROIs"));
+    summary.appendChild(card);
+  });
+})();
+</script>
