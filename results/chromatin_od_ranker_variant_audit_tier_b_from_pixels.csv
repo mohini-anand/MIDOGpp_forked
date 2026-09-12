@@ -1,0 +1,4 @@
+file_name,n_detections,n_detections_csv,med_this,med_csv,mad_this,mad_csv,od51_nan,od51_largest_tie,tp10_tm_audit,tp10_tm_csv,tp20_tm_audit,tp20_tm_csv,tp30_tm_audit,tp30_tm_csv,tp10_od51_audit,tp10_od51_csv,tp20_od51_audit,tp20_od51_csv,tp30_od51_audit,tp30_od51_csv
+245.tiff,89,89,-0.00741,-0.00741,0.21427,0.21427,0,1,1,1,2,2,3,3,2,2,2,2,2,2
+246.tiff,96,96,-0.00539,-0.00539,0.16638,0.16638,0,1,10,10,18,18,24,24,10,10,14,14,21,21
+301.tiff,98,98,-0.01365,-0.01365,0.20158,0.20158,0,1,9,9,18,18,24,24,8,8,18,18,27,27

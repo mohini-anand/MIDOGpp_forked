@@ -1,0 +1,4 @@
+budget,pooled_baseline,pooled_variant,pooled_delta,pooled_pct_change,mean_per_roi_delta,t_ci95_lo,t_ci95_hi,up,down,tied,G_effective,p_exact_sign,p_signflip_exact,signflip_floor
+10,0.5,0.6643,0.1643,32.9,0.1643,0.0748,0.2538,10,1,3,11,0.01172,0.00488,0.000122
+20,0.4536,0.5964,0.1429,31.5,0.1429,0.0653,0.2204,11,1,2,12,0.00635,0.00439,0.000122
+30,0.4286,0.5357,0.1071,25.0,0.1071,0.0537,0.1606,12,2,0,14,0.01294,0.00281,0.000122

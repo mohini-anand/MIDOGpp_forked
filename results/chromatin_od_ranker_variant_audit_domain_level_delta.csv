@@ -1,0 +1,22 @@
+budget,tumor_type,domain_mean_delta
+10,canine cutaneous mast cell tumor,0.05
+10,canine lung cancer,0.25
+10,canine lymphosarcoma,0.05
+10,canine soft tissue sarcoma,0.15
+10,human breast cancer,0.2
+10,human melanoma,0.3
+10,human neuroendocrine tumor,0.15
+20,canine cutaneous mast cell tumor,0.1
+20,canine lung cancer,0.15
+20,canine lymphosarcoma,-0.1
+20,canine soft tissue sarcoma,0.3
+20,human breast cancer,0.25
+20,human melanoma,0.15
+20,human neuroendocrine tumor,0.15
+30,canine cutaneous mast cell tumor,0.15
+30,canine lung cancer,0.0833
+30,canine lymphosarcoma,-0.0667
+30,canine soft tissue sarcoma,0.1833
+30,human breast cancer,0.15
+30,human melanoma,0.1333
+30,human neuroendocrine tumor,0.1167

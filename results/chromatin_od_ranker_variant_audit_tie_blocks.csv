@@ -1,0 +1,15 @@
+file_name,capped_largest_tie_block,capped_n_detections,unbounded_largest_tie_block,unbounded_n_detections,unbounded_coverage_frac
+013.tiff,1,97,2,17724,0.9636
+094.tiff,1,96,2,18628,0.9748
+201.tiff,1,98,2,15848,0.9379
+233.tiff,1,97,2,17449,0.9608
+245.tiff,1,89,2,17678,0.9683
+246.tiff,1,96,2,18013,0.9646
+300.tiff,1,98,2,17940,0.9672
+301.tiff,1,98,2,17710,0.958
+402.tiff,1,98,2,17532,0.9627
+403.tiff,1,98,2,16150,0.9304
+459.tiff,1,99,2,17806,0.9601
+460.tiff,1,99,2,15698,0.9331
+529.tiff,1,97,2,16620,0.9441
+548.tiff,1,98,3,17839,0.9634

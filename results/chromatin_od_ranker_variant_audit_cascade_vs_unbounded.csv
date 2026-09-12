@@ -1,0 +1,4 @@
+budget,unbounded_tm,capped_tm,unbounded_od51,capped_od51,od51_gain_unbounded,od51_gain_capped,gain_attributable_to_cap,share_of_capped_gain_present_uncapped_pct
+10,0.5,0.5,0.6214,0.6643,0.1214,0.1643,0.0429,73.9
+20,0.4536,0.4536,0.6107,0.5964,0.1571,0.1428,-0.0143,110.0
+30,0.4286,0.4286,0.5595,0.5357,0.1309,0.1071,-0.0238,122.2

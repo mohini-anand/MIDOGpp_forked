@@ -1,0 +1,7 @@
+quantity,mean,median,sd,min,max
+t6a_od_pad_ms (pad only),40.394,29.435,28.445,26.03,107.68
+t6b_od51_loop_ms (loop only),4.68,4.555,0.45,4.07,5.6
+t6c_variant_rank_ms (resort only),0.398,0.35,0.125,0.31,0.77
+t6b+t6c_ms (THE CRITERION),5.078,4.92,0.484,4.38,5.94
+t6a+t6b+t6c_ms (stage-6 overhead),45.474,34.53,28.435,30.95,113.14
+t6_baseline_ms (sort by tm_score),0.227,0.21,0.037,0.2,0.33

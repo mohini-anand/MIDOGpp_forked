@@ -1,0 +1,15 @@
+file_name,domain_json,domain_csv,n_mitotic_json,n_mitotic_minus_seed,n_gt_mitotic_csv,match,seed_is_unanimous_mitotic,domain_match
+013.tiff,human breast cancer,human breast cancer,18,17,17,True,True,True
+094.tiff,human breast cancer,human breast cancer,82,81,81,True,True,True
+201.tiff,canine lung cancer,canine lung cancer,18,17,17,True,True,True
+233.tiff,canine lung cancer,canine lung cancer,18,17,17,True,True,True
+245.tiff,canine lymphosarcoma,canine lymphosarcoma,90,89,89,True,True,True
+246.tiff,canine lymphosarcoma,canine lymphosarcoma,116,115,115,True,True,True
+300.tiff,canine cutaneous mast cell tumor,canine cutaneous mast cell tumor,181,180,180,True,True,True
+301.tiff,canine cutaneous mast cell tumor,canine cutaneous mast cell tumor,218,217,217,True,True,True
+402.tiff,human neuroendocrine tumor,human neuroendocrine tumor,105,104,104,True,True,True
+403.tiff,human neuroendocrine tumor,human neuroendocrine tumor,53,52,52,True,True,True
+459.tiff,canine soft tissue sarcoma,canine soft tissue sarcoma,131,130,130,True,True,True
+460.tiff,canine soft tissue sarcoma,canine soft tissue sarcoma,36,35,35,True,True,True
+529.tiff,human melanoma,human melanoma,20,19,19,True,True,True
+548.tiff,human melanoma,human melanoma,239,238,238,True,True,True
