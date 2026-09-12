@@ -354,10 +354,13 @@ many of those units you have.** Count them first, call that G, and choose:
   the resampled ROIs.
 - **G small, which is the normal case here (7, 8, 14)** — the cluster bootstrap is *below its
   asymptotic validity* at that G; it returns intervals that are erratic and too narrow, so using it
-  "to be conservative" achieves the opposite. Use an **exact or near-exact permutation / sign-flip
-  over the G units** (2^G sign patterns is enumerable at G ≤ 20), or a t interval on the G cluster
-  means with **G−1** degrees of freedom. This repo has already done the right thing once: the F1
-  independent audit used ROI-level sign-flip, not a bootstrap, at G = 7.
+  "to be conservative" achieves the opposite. Use an **exact permutation / sign-flip over the G
+  units**, or a t interval on the G cluster means with **G−1** degrees of freedom. Exact enumeration
+  is cheap across this whole range and you should prefer it: 2^7 = 128 sign patterns, 2^14 = 16,384,
+  and anything up to G ≈ 20 enumerates in under a second — so "G is small" is never a reason to
+  reach for a coarser tool. At the 14-ROI sets that are this project's current standard, exact
+  sign-flip and a t on 13 df are both defensible; report which you used. This repo has already done
+  the right thing once: the F1 independent audit used ROI-level sign-flip, not a bootstrap, at G = 7.
 - Either way, report the notebook's interval beside yours, state G and the estimator you used, and
   state the resolution floor — at G = 7 a two-sided sign-flip cannot go below 1/2⁶.
 

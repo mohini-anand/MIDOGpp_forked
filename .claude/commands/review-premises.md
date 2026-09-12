@@ -12,8 +12,11 @@ Premise, decision, or topic: $ARGUMENTS
 
 Rules for dispatching:
 
-- If `$ARGUMENTS` is empty, pass nothing and let it work the standing register in its own order.
-  Do not invent a premise to hand it.
+- If `$ARGUMENTS` is empty, do not dispatch the whole register — nine premises, each with a
+  derivation and a literature search, is an unbounded run. Ask it for the **first three** in the
+  register's own order (the matcher's mechanism, the exchangeable unit, the precision null), which
+  are the cheapest to settle and the most widely depended on, and to report which it did not reach.
+  Do not invent a premise of your own to hand it, and do not reorder the register.
 - If the argument names a `DECISIONS.md` entry (`D5`, `D1`), pass that identifier through verbatim;
   the agent extracts the claim itself, including any amendments.
 - Do not pass the project's reasoning along with the premise. Hand over the claim, not the case for

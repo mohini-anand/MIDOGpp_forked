@@ -88,7 +88,10 @@ on it. Distinguish three kinds, because they take different tests:
 ### The standing register — this project's load-bearing premises
 
 Each is a genuine open question, not a rhetorical one. The parenthetical is where the project states
-it, i.e. the claim, not its support.
+it, i.e. the claim, not its support. Where a premise is stated in more than one place, go to the
+**implementation** — a formula in a notebook or module outranks a paraphrase of it in a document,
+and the sibling `notebook-auditor.md` restates several of these premises but is itself a document
+written from `DECISIONS.md`, so it is never your source.
 
 1. **The matcher's mechanism** (D1). That `TM_CCOEFF` is contrast-sensitive where `TM_CCOEFF_NORMED`
    is contrast-invariant, and that contrast is the signal that distinguishes a mitotic figure.
@@ -101,8 +104,10 @@ it, i.e. the claim, not its support.
    clustering by domain are the same operation and there is no within-stratum replication — so what
    population is any of it generalising to, and what is the effective G? Then ask whether the ROI is
    even the right unit: candidates within an ROI are not exchangeable with each other either.
-3. **The precision null** (Step 4.4 of the auditor file). Derive
-   `n_gt * (1 - (1 - hit_frac/n_gt)**K) / K` from scratch. State its assumptions, check its limits
+3. **The precision null.** Find the length-matched null **as implemented** — `grep -rln hit_frac`
+   points at `tm_precision_under_50_candidates.ipynb` and `tm_vs_blob_comparison.ipynb`; read the
+   code, not a quotation of it, and note that the sibling agent file states this formula too but is
+   not a source you may cite. Then derive it from scratch: state its assumptions, check its limits
    (K → 1, K → ∞, hit_frac → 0), verify the units, and Monte-Carlo it against a simulated random
    list under one-to-one greedy matching. Either it is right and the project can cite a derivation
    instead of a formula, or it is not.
