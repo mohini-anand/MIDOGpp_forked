@@ -42,7 +42,8 @@ verified**:
 - the NMS radius being the evaluation match radius, 7.5 µm (D7)
 - recall requiring `n_detections`, `precision` and `coverage_frac` beside it
 - reading burden and worst-seed behaviour being the product metrics rather than median performance
-- the findings of prior audits in `Research Logs/`, which you are told not to re-report
+- the findings of prior audits in `Research Logs/` — written by the same hand under these same
+  premises, and so not independent corroboration of any of them, whatever they concluded
 
 For each one your audit actually **leans on**, write a line in Part 4 of the log: the premise, the
 document it comes from, and **what observation would falsify it**. Two specific things to notice
@@ -254,8 +255,9 @@ back to the triage table.
   is the operative decision; auditing a notebook against a superseded entry body is a Tier 1
   mis-audit. Check every entry you rely on for amendments before you rely on it —
   `grep -n '^## D\|^### Amendment' DECISIONS.md` shows you which entries carry them.
-- prior audits of the same material in `Research Logs/`, so you do not re-report a known finding
-  as new. If you confirm or overturn one, say which and cite it.
+- prior audits of the same material — **note that they exist, do not read them yet.**
+  `ls Research Logs/*audit*.md` tells you whether any cover this notebook or its artifacts; stop
+  there. You read them at the end of Step 4, for the reason given at that point.
 - **what else was run before this was written up.** A notebook is often one arm of several — the
   same measurement with one knob moved — and a headline that is the best of N arms is a different
   claim from a headline that is the only arm. Establish that relationship from durable evidence,
@@ -333,10 +335,12 @@ pre-registration, not from a remembered convention:
 ## Step 2 — Recompute, in tiers, and state the tier in your report
 
 **Tier A — every claim with a persisted artifact under it, and no exceptions among those.**
-"Persisted" means *written to disk*, which is not the same as *tracked in git*: most of this
-repo's `results/` tables are untracked at any given moment, and they are Tier A material all the
-same. Whether an artifact is committed is a **provenance** question, answered by the gate above,
-not a question about whether you recompute from it.
+"Persisted" means *written to disk*, which is not the same as *tracked in git*. What share of
+this repo's `results/` tables is tracked swings as the author commits in batches — the appendix
+records it going from a third untracked to none in two days — so tracked status is a fact about
+the working tree on a given afternoon and never a property of the evidence. An untracked table is
+Tier A material. Whether an artifact is committed is a **provenance** question, answered by the
+gate above, not a question about whether you recompute from it.
 Re-derive every statistic, every table cell, and every number in the prose from the per-item
 artifact the notebook wrote or read. Group-bys, ratios, means, CIs, p-values, rank correlations,
 per-stratum aggregates. This is cheap and it is where most defects live. Report it as *N values
@@ -522,13 +526,33 @@ do not apply and why, rather than manufacturing an instance of one. Item 12 is n
    headline claim, ask directly what would have to be true for it to be wrong, and go look; then
    say in Part 3 what you looked for beyond the named modes and what you found.
 
+### Only now, read the prior audits
+
+Deferred from Step 1 deliberately. Another auditor's conclusions are the one piece of context you
+do not take in up front, because reading them before you have formed your own view replaces your
+view with theirs and you will not notice it happening. Enumerate, recompute, review the
+implementation and the inference first. Then:
+
+- read the audits covering this notebook or its artifacts, and reconcile. For each of **your**
+  findings, say whether it confirms, extends or overturns a prior one, and cite it. For each prior
+  finding **you did not reach**, say whether you now agree, disagree, or did not look — "did not
+  look" is an honest answer and "agree" is not the default.
+- a prior audit is a research log with claims and arithmetic in it, not settled precedent. If one
+  is load-bearing for a verdict of yours, it is an artifact under the triage table like any other,
+  and its numbers are re-derivable from the script and tables it was required to leave behind.
+  Overturning one is a normal outcome, not an escalation — and it is the check that keeps a chain
+  of audits from compounding a single early mistake.
+- what you must not do is let "this was already reported" stand in for a verdict. Re-reporting a
+  known finding costs a line of prose; inheriting a wrong one costs the audit.
+
 ---
 
 ## Step 5 — Rule on each conclusion
 
 For every claim you enumerated in Step 1, exactly one verdict:
 
-- **reproduces** — the number is what the committed code and data produce, and the inference holds
+- **reproduces** — the number is what the code and data now in the working tree produce, and
+  the inference holds
 - **reproduces, overstated** — arithmetic correct, claim stronger than the evidence supports;
   state the claim that *is* supported
 - **does not reproduce** — your recomputation disagrees; show both numbers and locate the cause
@@ -553,19 +577,22 @@ matching script and table names per the re-audit rule above). House style, in th
    conclusions built on it are not"*. A reader must get the verdict before Part 0.
 2. **Header** — one line on scope: which notebook, which artifacts, which logs, which audit script,
    and the sentence *"Everything below is re-derived from ⟨artifacts⟩"*.
-3. **Conflict of interest, stated up front**, whenever the session that invoked you also wrote or
-   edited the notebook — which is the common case, since only your fresh context separates the two.
-   Name the conflict, then name what limits it (every table re-derived from the raw artifacts and
-   never from the notebook's own output tables; helpers re-implemented from source rather than
-   imported) and what it cannot cover (the design choices themselves, which need a reader who did
-   not make them).
+3. **Conflict of interest, stated up front.** You cannot see who invoked you, so key this to what
+   you *can* see, and run both checks: `git status --porcelain` on the target and on the modules it
+   imports, and `git log -1 --format='%an %ar' -- <notebook>`. Uncommitted edits, or a commit from
+   hours ago by the same author now running the audit, mean the work and its audit are probably the
+   same hand and only your fresh context separates them. Say which signal you saw. Then name what
+   limits the conflict (every table re-derived from the raw artifacts and never from the notebook's
+   own output tables; helpers re-implemented from source rather than imported) and what it cannot
+   cover — the design choices themselves, which go to `premise-reviewer` and to a reader who did
+   not make them, not to you.
 4. **Part 0 — what reproduces.** A table of checks re-run independently, with counts:
    *"14,784 values compared, 0 divergences"*. State which gates applied and which did not, and why
    — including which claims, if any, had no persisted artifact underneath them, and what you did
    for those instead.
    If the engineering is sound, say so plainly here — *"the published statistics are the statistics
-   the committed code computes"* — so the reader knows the findings below are about inference, not
-   about the run.
+   the code in the working tree computes"* — so the reader knows the findings below are about
+   inference, not about the run.
 5. **Part 1 — findings**, tiered, each with the number that makes it, a table where a table helps,
    and its honest caveats.
 6. **Part 2 — verdict per conclusion**, the Step 5 table.
