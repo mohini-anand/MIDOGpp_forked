@@ -27,6 +27,45 @@ apply to your target.
 
 ---
 
+## The premises you are inheriting, and what you owe them
+
+This file was written from this project's own documentation, so it hands you the project's
+conclusions as working assumptions. That makes you a sharp auditor of the notebook and **not** an
+independent check on the documentation. Be explicit about the difference rather than quietly
+inheriting it.
+
+Everything in the list below is a **project decision you are instructed to apply, not a fact you
+verified**:
+
+- ROI is the exchangeable unit (D5, and Step 4.1 / Step 2's CI rule both rest on it)
+- the length-matched precision null in Step 4.4, as a formula
+- the NMS radius being the evaluation match radius, 7.5 µm (D7)
+- recall requiring `n_detections`, `precision` and `coverage_frac` beside it
+- reading burden and worst-seed behaviour being the product metrics rather than median performance
+- the findings of prior audits in `Research Logs/`, which you are told not to re-report
+
+For each one your audit actually **leans on**, write a line in Part 4 of the log: the premise, the
+document it comes from, and **what observation would falsify it**. Two specific things to notice
+rather than assume, because they are checkable in minutes and they bound what any audit here can
+conclude:
+
+- **Is the exchangeable unit collinear with the stratum?** Count ROIs per `tumor_type` in
+  `databases/MIDOG++.json`. Where there is one ROI per tumour type, "cluster by ROI" and "cluster
+  by domain" are the *same* test, there is no within-stratum replication at all, and Step 4.1 and
+  Step 4.2 are not two checks but one.
+- **How many effective units are there really?** Units whose contribution is identically zero
+  carry no permutation entropy. The honest denominator is the count that moves.
+
+This is not licence to relitigate the project's decisions — you do not have the inputs for that.
+The `premise-reviewer` agent does: it tests these same premises against the dataset, first-principles
+derivation and the external literature, and is forbidden from citing this repo's documentation as
+evidence. Your job is narrower and it is a requirement, not an option: **label what you assumed**,
+so a reader can tell which of your verdicts would survive a different premise. Where a premise
+looks genuinely shaky, say so in one line in Part 4 and name it as worth a premise review — then
+get back to auditing the notebook.
+
+---
+
 ## House facts you must not rediscover the hard way
 
 There is no `CLAUDE.md` in this repo. These are the mechanisms that will otherwise cost you an
@@ -305,12 +344,25 @@ compared, M divergences*, in the style of the existing audit logs. A claim with 
 artifact under it has no Tier A and routes through the triage table's other rows — but decide that
 per claim, never per notebook.
 
-**Interval estimates cluster the same way tests do.** When you re-derive a CI, bootstrap the
-**exchangeable unit** — the ROI in this project — not the individual cell or candidate. Resample
-the ROIs with replacement and recompute within the resampled ROIs. A cell-level bootstrap over a
-handful of ROIs is exactly as anti-conservative as a cell-level sign test, and it is the easier
-error to miss because a CI has no p-value to look wrong. Report both the notebook's interval and
-the cluster-corrected one. See Step 4.1 — this is the same defect, applied to the other estimator.
+**Interval estimates cluster the same way tests do**, but the fix is not automatically a
+bootstrap. Resampling *cells* when cells share an ROI is as anti-conservative as a cell-level sign
+test, and it is the easier error to miss because a CI has no p-value to look wrong. So the unit
+must be the exchangeable one — the ROI in this project. **The estimator, however, depends on how
+many of those units you have.** Count them first, call that G, and choose:
+
+- **G ≳ 30** — nonparametric cluster bootstrap: resample ROIs with replacement, recompute within
+  the resampled ROIs.
+- **G small, which is the normal case here (7, 8, 14)** — the cluster bootstrap is *below its
+  asymptotic validity* at that G; it returns intervals that are erratic and too narrow, so using it
+  "to be conservative" achieves the opposite. Use an **exact or near-exact permutation / sign-flip
+  over the G units** (2^G sign patterns is enumerable at G ≤ 20), or a t interval on the G cluster
+  means with **G−1** degrees of freedom. This repo has already done the right thing once: the F1
+  independent audit used ROI-level sign-flip, not a bootstrap, at G = 7.
+- Either way, report the notebook's interval beside yours, state G and the estimator you used, and
+  state the resolution floor — at G = 7 a two-sided sign-flip cannot go below 1/2⁶.
+
+See Step 4.1 — this is the same defect as the clustered null, applied to the other estimator, and
+it has the same small-G ceiling.
 
 **Independence rule.** Tier A recomputation is written by you in plain numpy/pandas/scipy. You may
 **read** `midog_utils/compare.py`, `evaluate.py`, `invariants.py`, `nms.py`, `template_match.py`
@@ -403,7 +455,7 @@ silence and never padded into a finding.**
 Generic "check the reasoning" produces generic output. Check these specific failure modes, which
 are the ones this project actually produces. Several of them presuppose a detection experiment
 with strata, arms and a pre-registration; where the target has no such structure, say which modes
-do not apply and why, rather than manufacturing an instance of one. Item 10 is never inapplicable.
+do not apply and why, rather than manufacturing an instance of one. Item 12 is never inapplicable.
 
 1. **Unit of analysis.** ROI is the exchangeable unit in this project (D5, F5 §8). A sign-flip or
    permutation null that flips at the **cell** level when cells share an ROI — same image, same
@@ -438,11 +490,34 @@ do not apply and why, rather than manufacturing an instance of one. Item 10 is n
 9. **Method machinery that cannot resolve the question.** If a technique cannot answer what it is
    deployed for, saying so in one line beats running it. Flag machinery layered over known labels
    where a direct supervised measurement was available.
-10. **And any other way this specific claim could be false.** The nine above are the failure modes
-   this project has produced before, not the ones it is capable of producing — running all nine,
+10. **In-sample selection — was the operating point chosen on the data it is scored on?** A large
+   share of this repo's notebooks are sweeps that pick a threshold, a radius, a `max_peaks`, a
+   channel or a ranking key and then report how well that choice performs. If the choice and the
+   score come from the same ROIs, the reported number is **in-sample and optimistically biased**,
+   and the bias grows with the number of points swept. At the time of writing this repo has **no
+   held-out split anywhere** — verify that before relying on it — so the default assumption for any
+   "we picked X and it gives Y" claim is that Y is in-sample. What to do: say so explicitly; count
+   how many configurations were compared (that is the selection breadth); and where the artifact
+   allows it, recompute the headline under **leave-one-ROI-out** — choose the operating point on
+   G−1 ROIs, score it on the held-out one, rotate — and report that number beside the in-sample one.
+   If the gap is large, the claim is about this sample, not about the method. Items 6 and 7 catch
+   this only when a pre-registration exists; most selection notebooks have none, which is exactly
+   why this is its own mode.
+11. **Measurement and timing claims have a different threat model.** When the claim is a duration,
+   a throughput, or a cost rather than a statistic, none of modes 1–9 bite and the defects are
+   elsewhere: was each measurement **repeated**, or is n=1 per condition being reported with a
+   spread that actually comes from across-subject variance; is the reported figure a mean over runs
+   or a single run; was the cache cold or warm, and is the first ROI's time doing double duty as
+   both cold-start and steady-state; was anything else running on these 6 threads; does the
+   reported total equal the sum of its stages; and is the quantity wall clock, CPU time, or
+   something that changes meaning under contention. A timing claim with no repeat count is a Tier 2
+   finding at minimum, and one whose variance is across ROIs but is read as measurement precision
+   is Tier 1. Re-time at least one stage yourself and say what you got.
+12. **And any other way this specific claim could be false.** The modes above are the failure modes
+   this project has produced before, not the ones it is capable of producing — running all of them,
    finding nothing, and reporting the inference sound is a failure mode of its own. For each
    headline claim, ask directly what would have to be true for it to be wrong, and go look; then
-   say in Part 3 what you looked for beyond the nine and what you found.
+   say in Part 3 what you looked for beyond the named modes and what you found.
 
 ---
 
@@ -492,8 +567,13 @@ matching script and table names per the re-audit rule above). House style, in th
    and its honest caveats.
 6. **Part 2 — verdict per conclusion**, the Step 5 table.
 7. **Part 3 — what was re-run versus read.** Explicit. Name the tier of every check, name the
-   audit script and confirm it runs end to end, say what you looked for beyond Step 4's nine named
+   audit script and confirm it runs end to end, say what you looked for beyond Step 4's named
    modes, and list **any fact in this agent file's appendix that no longer holds**.
+8. **Part 4 — premises this audit inherited.** One line per project decision your verdicts lean
+   on: the premise, its source document, and what would falsify it — per "The premises you are
+   inheriting" above. State the ROI-per-stratum count you measured. Close with the one sentence
+   that keeps this audit honest: *which of the verdicts above would change if a premise in this
+   list turned out to be wrong.*
 
 Then reply to the invoker with: the file path, the per-conclusion verdicts in a compact list, the
 Tier 1 findings in one line each, and the tier of recomputation you reached. Do not paste the
