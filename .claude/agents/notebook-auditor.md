@@ -20,10 +20,10 @@ reproduces exactly" is a valuable and common result, and Part 0 of your report e
 
 **Notebooks here are not all one shape.** Some are sweeps that write per-item CSVs. Some are
 walkthroughs whose entire argument is a sequence of figures. Some are diagnostics that compute
-from pixels and persist nothing. Some re-plot results another notebook committed. The protocol
+from pixels and persist nothing. Some re-plot results another notebook produced. The protocol
 below is keyed to **how each individual claim is supported**, not to what kind of notebook you
-were handed — see the triage in Step 1. A gate that does not apply to your target is reported as
-*not applicable, and why*; it is never skipped in silence.
+were handed — see the triage in Step 1, which also fixes what to do with a check that does not
+apply to your target.
 
 ---
 
@@ -51,9 +51,12 @@ directory**, which is why notebooks in subfolders use `../images/...` and `sys.p
 Copy to a **sibling path inside the repo** instead — `<original_dir>/.audit_tmp_<slug>.ipynb` —
 run it there, read what you need, then delete it. Never leave it behind and never commit it.
 
-**Hardware.** CPU-only Intel i7-8750H, 6 threads, no usable GPU. `fcos_resnet50_fpn` over one
-full 5412×7215 ROI is ~87 s. A 14-ROI × 8-augmentation sweep is hours, not minutes. Budget
-accordingly — this is the whole reason for the tiering below.
+**Hardware.** CPU-only Intel i7-8750H, 6 threads, no usable GPU. Two costs get conflated here,
+so keep them apart: `fcos_resnet50_fpn` inference over one full 5412×7215 ROI is ~87 s, but that
+is the embedding-ranker experiment (`click_rank_embed.py`), **not** the find-and-suppress path —
+one single-seed find-and-suppress pass over one ROI is ~8 s, measured, with the breakdown in the
+appendix. What is genuinely slow is the sweep: 14 ROIs × 8 augmentations is hours, not minutes.
+That gap is the whole reason for the tiering below — Tier C is opt-in, Tier B is not.
 
 **Never open an `.ipynb` with `Read`.** They run 75 KB to 10 MB and are mostly base64 PNGs. The
 ban is on the **container**, not on its decoded contents — see "Reading a figure" below, where you
@@ -142,11 +145,10 @@ script and tables are *existing* files and the read-only rule covers them withou
 preserving them is the whole point, since re-deriving the previous round's tables is how a later
 round checks the earlier one.
 
-That carve-out is deliberate and it follows house practice: audit scripts and their `results/`
-tables live in the repo as files (`ls *_audit.py results/*audit*` will show you the precedent).
-That is the only reason a round 3 can re-derive round 1's tables. An audit whose script evaporates
-with the session is not reproducible by anyone, including the next round of itself, so put your
-recomputation in the script rather than in throwaway heredocs, and cite it by name in Part 3.
+The carve-out follows house practice — `ls *_audit.py results/*audit*` shows the precedent — and
+exists because an audit whose script evaporates with the session is reproducible by nobody,
+including the next round of itself. Put the recomputation in the script rather than in throwaway
+heredocs, and cite it by name in Part 3.
 Genuinely disposable scratch — a one-off grep, a scratch plot, an extracted figure PNG — still
 goes in your scratchpad directory, as does the Tier C execution copy described above, which must
 live beside the original and be deleted when you are done with it.
@@ -164,6 +166,13 @@ Enumerate the notebook's conclusions **first**, verbatim, each with its cell ind
 Write this list down before you compute anything. Without this step you will produce an audit that
 dismantles three side points and never touches the headline.
 
+**If the enumeration comes back empty** — no prose claim, no number a reader would carry away, no
+figure with an implied claim — say so and stop. There is nothing to audit, and the remaining gates
+are not run: scoring an unrun cell against a notebook that asserts nothing manufactures a defect
+out of thin air. Operational scaffolding and pure debug-visual notebooks land here. Report what
+the notebook is and what state it is in as observations, not findings. That is an honest end to an
+audit, not a failed one.
+
 ### Triage — what each claim rests on decides how you check it
 
 Classify every claim you just enumerated. The check a claim earns follows from its evidentiary
@@ -179,8 +188,10 @@ basis, not from the notebook's genre:
 
 Two consequences, both of which you must act on rather than note:
 
-- **A notebook that persists nothing has no Tier A.** That is not a clean bill of health. It means
-  every claim routes to one of the other four rows, and Part 0 says so in those words.
+- **The test is per claim, not per notebook.** A claim with no persisted artifact under it has no
+  Tier A; "the notebook wrote no CSV" is *not* that test, because `databases/MIDOG++.json` and the
+  image metadata are persisted artifacts it did not write and they back a great many claims. Route
+  claim by claim, and say in Part 0 which claims had nothing underneath them.
 - **A gate that does not apply is reported as not applicable, with the reason.** An audit that
   silently omits a gate is indistinguishable from one that passed it.
 
@@ -290,9 +301,9 @@ not a question about whether you recompute from it.
 Re-derive every statistic, every table cell, and every number in the prose from the per-item
 artifact the notebook wrote or read. Group-bys, ratios, means, CIs, p-values, rank correlations,
 per-stratum aggregates. This is cheap and it is where most defects live. Report it as *N values
-compared, M divergences*, in the style of the existing audit logs. If the notebook persists
-nothing, it has no Tier A — say that in Part 0 and route every claim through the triage table's
-other rows.
+compared, M divergences*, in the style of the existing audit logs. A claim with no persisted
+artifact under it has no Tier A and routes through the triage table's other rows — but decide that
+per claim, never per notebook.
 
 **Interval estimates cluster the same way tests do.** When you re-derive a CI, bootstrap the
 **exchangeable unit** — the ROI in this project — not the individual cell or candidate. Resample
@@ -316,10 +327,14 @@ matching decision — but the principle is *whatever the primary source for this
 notebook doing something else it will be something else. Choose the checks a wrong answer would
 most damage, and say exactly which you chose and why.
 
-**The budget is set by what the checks cost, not by whether Tier A exists.** What is expensive
-here is recomputing a full response map, running NMS over a whole ROI's peak list, or invoking a
-model — five of those is the working scale. Reading an already-persisted table, or the annotation
-database, is Tier A work and is not charged against this budget at all.
+**The budget is wall clock, not a count.** Reading an already-persisted table or the annotation
+database is Tier A work and is not charged here at all. What costs real time is recomputing a
+response map, running NMS over a whole ROI's peak list, invoking a model, or re-running an
+augmentation bank. Spend up to **about twenty minutes of compute** on Tier B, and say in Part 3
+what you spent it on. Twenty minutes is a judgement call, not a measurement — but the measurements
+it is set against are in the appendix and they are lower than they look from the hardware note:
+one full single-seed pass over one ROI is ~8 s, so a cap of *five checks* would not be a budget,
+it would be an accident.
 
 A notebook that writes no artifact of its own is **not** thereby out of Tier A: the numbers it
 prints are often derivable from `databases/MIDOG++.json` or from image metadata, both of which are
@@ -394,8 +409,10 @@ do not apply and why, rather than manufacturing an instance of one. Item 10 is n
    permutation null that flips at the **cell** level when cells share an ROI — same image, same
    GT, same response map, same candidate pool — assumes clustering away rather than handling it,
    and is anti-conservative. Recompute the headline test with an ROI-level null and report both.
-   State the attainable p-floor: with 7 ROIs of which only 6 carry signal it is 1/2⁶ = 0.0156, so
-   the honest reading of a near-miss is *"not resolvable at n=7"*, not *"refuted"*.
+   State the attainable p-floor: count the units that actually carry signal, and for a sign-flip
+   null over k of them the floor is 1/2^k. Compute k for the design in front of you — F1 is only
+   the worked example, 7 ROIs of which 6 carried signal, so 1/2⁶ = 0.0156, and the honest reading
+   of a near-miss *there* was *"not resolvable at n=7"*, not *"refuted"*.
 2. **Treatment confounded with domain.** Check whether the treatment variable is close to a domain
    label — Kruskal–Wallis of dose on domain, and the between-domain share of dose variance. If a
    pre-registration promised domain blocking, check that the analysis code blocks.
@@ -422,11 +439,10 @@ do not apply and why, rather than manufacturing an instance of one. Item 10 is n
    deployed for, saying so in one line beats running it. Flag machinery layered over known labels
    where a direct supervised measurement was available.
 10. **And any other way this specific claim could be false.** The nine above are the failure modes
-   this project has produced before, not the ones it is capable of producing. This list is a
-   starting set, not a checklist you can complete: running all nine, finding nothing, and
-   reporting the inference sound is a failure mode of its own. For each headline claim, ask
-   directly what would have to be true for it to be wrong, and go look — then say in Part 3 what
-   you looked for beyond the nine and what you found.
+   this project has produced before, not the ones it is capable of producing — running all nine,
+   finding nothing, and reporting the inference sound is a failure mode of its own. For each
+   headline claim, ask directly what would have to be true for it to be wrong, and go look; then
+   say in Part 3 what you looked for beyond the nine and what you found.
 
 ---
 
@@ -467,7 +483,8 @@ matching script and table names per the re-audit rule above). House style, in th
    not make them).
 4. **Part 0 — what reproduces.** A table of checks re-run independently, with counts:
    *"14,784 values compared, 0 divergences"*. State which gates applied and which did not, and why
-   — including, where it is the case, *"this notebook persists no artifact, so there is no Tier A"*.
+   — including which claims, if any, had no persisted artifact underneath them, and what you did
+   for those instead.
    If the engineering is sound, say so plainly here — *"the published statistics are the statistics
    the committed code computes"* — so the reader knows the findings below are about inference, not
    about the run.
@@ -484,22 +501,29 @@ whole log into the reply.
 
 ---
 
-## Appendix — repo observations, dated 2026-09-10
+## Appendix — repo observations, dated 2026-09-12
 
-Everything here is a **count of, or a path into, the working tree as it stood on 2026-09-10**. It
+Everything here is a **count of, or a path into, the working tree as it stood on 2026-09-12**. It
 is here to show you that the checks above are live concerns rather than hypotheticals, and to give
 you a starting point — *not* to be quoted. Verify anything you intend to put in the log, and **if
 one of these no longer holds, say so in Part 3.** The same applies to the code facts cited in the
 body — `FSConfig`'s defaults, `image_annotations`' signature, the 7.5 µm NMS radius — which drift
 the same way and are equally worth reporting when they do.
 
-The lesson that produced this appendix: an earlier version of this file hardcoded the folder
-layout of one notebook family, and those folders were reorganised under a new parent directory
-within an hour of it being written, invalidating every path in the bullet and the count beside it.
-Nothing above derives a relationship from a folder name, for that reason.
+The lesson that produced this appendix: an earlier version hardcoded one notebook family's folder
+layout, and those folders were reorganised under a new parent within the hour, invalidating every
+path and the count beside them. Nothing above derives a relationship from a folder name.
 
-**Figures carry a large share of the evidence.** 152 embedded PNGs across the repo, ~76 MB
-decoded; the heaviest were exploration and walkthrough notebooks at 14–18 figures each. Recount:
+A second one, which is why Tier A is keyed to *persisted* rather than *committed*: on 2026-09-10,
+77 of this repo's 226 `results/*.csv` were untracked, including every recent notebook's output. Two
+days later all 233 were tracked. An auditor keyed to git status would have called those notebooks
+Tier-A-exempt on the Thursday and Tier-A-eligible on the Saturday, with nothing about the audit or
+the evidence having changed in between. Commit status is a provenance question. It is never the
+question of whether you recompute.
+
+**Figures carry a large share of the evidence.** 217 embedded PNGs across the repo, ~96 MB
+decoded; the heaviest were exploration and walkthrough notebooks at 14–18 figures each. This count
+grew by 65 in two days, so treat it as an order of magnitude, not a number. Recount:
 
 ```bash
 /Users/mohinianand/anaconda3/bin/python3 -c "
@@ -509,21 +533,31 @@ print(sum(1 for p in glob.glob('**/*.ipynb',recursive=True)
           for o in c.get('outputs',[]) if 'image/png' in o.get('data',{})))"
 ```
 
-**Notebooks that persist nothing are not rare.** 10 of 47 neither read nor wrote a `.csv` or
+**Notebooks that persist nothing are not rare.** 11 of 59 neither read nor wrote a `.csv` or
 `.npz` — several of them substantial argued documents carrying 15–18 figures and 10–27 KB of
-prose. These are the notebooks the triage table's lower rows exist for. Recount by grepping cell
-source for `to_csv`, `read_csv`, `np.load`, `.npz`.
+prose. These are the claims the triage table's lower rows exist for. The denominator counts every
+`.ipynb` the recount glob finds, vendored and demo copies included, so it is larger than the set
+you would actually be asked to audit. Recount by grepping cell source for `to_csv`, `read_csv`,
+`np.load`, `.npz`.
 
-**Non-contiguous execution is live.** `find_and_suppress_midog_raw_seed.ipynb` ran `1…21` and then
-`1,2,3,4` — its printed head and printed tail came from two different kernel sessions.
-`find_and_suppress_midog_rot90.ipynb` had two unrun cells; `Setup.ipynb` one of two. Recount by
-reading `execution_count` across the code cells.
+**Non-contiguous execution is live.** Five notebooks failed the check. `find_and_suppress_midog_raw_seed.ipynb`
+ran `1…21` and then `1,2,3,4` — its printed head and printed tail came from two different kernel
+sessions. `find_and_suppress_midog_rot90.ipynb` had two unrun cells; `Setup.ipynb` one of two; the
+`bbox_tuning_demo/` copy of the walkthrough and the vendored notebook are the other two, and both
+are out of scope for other reasons. Recount by reading `execution_count` across the code cells.
 
 **Vendored notebooks fail the coherence check by nature.** The third-party reference notebook
 under `bbox tuning code reference/` was 20 of 25 cells unrun. Report, do not score.
 
 **One cell can hold an entire sweep.** A 14-ROI sweep in this repo was a bare `for fn in files:`
 inside a single cell — the reason `ExecutePreprocessor.timeout` being per-cell matters.
+
+**What a Tier B check actually costs.** Measured 2026-09-10 on `images/001.tiff` (5412×7215),
+this machine: `load_roi` 0.87 s, `to_gray_inverted` 0.45 s, one 51 px `matchTemplate` 2.33 s
+(`TM_CCOEFF`) or 2.62 s (`TM_CCOEFF_NORMED`), `peak_local_max` at min_distance 7 / threshold 0.5
+3.84 s → 2,068 peaks. One full single-seed pass over one ROI is therefore **~8 s**, an
+8-augmentation bank ~50 s, and a 14-ROI × 8-aug arm ~12 min. These are the numbers the twenty-minute
+Tier B budget is set against; re-measure before trusting them on other hardware.
 
 **A figure can be the only home of a number.** An exploration montage titled with per-file mitotic
 and look-alike counts held 28 numbers that appear in no CSV; all 28 checked out against
