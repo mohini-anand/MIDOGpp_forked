@@ -1,0 +1,3 @@
+file_name,seed_index,base_size,tpl_xy,match_radius_px,peak_rank100_score_cut,top_peak_score,top_peak_dist_from_click_px,fused_value_at_click,click_makes_top100,n_peaks_within_selfhit_5px,n_peaks_within_match_radius,nms_kept,n_removed_by_selfhit,n_detections
+301.tiff,1,23,"(2978.5, 190.5)",29.61,0.9585,1.4238,3110.15,0.905,False,0,1,100,0,100
+013.tiff,0,31,"(6816.5, 3777.0)",33.14,1.7408,3.0023,0.5,3.0023,True,1,1,98,1,97

@@ -1,0 +1,4 @@
+budget,worst_seed_delta,worst_seed,n_seeds_negative,worst_cell_delta,worst_cell,n_cells_negative,n_cells,n_cells_tied
+10,-0.014285714285714235,3,1,-0.3,"('245.tiff', 4)",14,70,16
+20,0.03928571428571426,3,0,-0.20000000000000007,"('246.tiff', 0)",14,70,7
+30,0.030952380952380953,4,0,-0.16666666666666674,"('246.tiff', 3)",10,70,10

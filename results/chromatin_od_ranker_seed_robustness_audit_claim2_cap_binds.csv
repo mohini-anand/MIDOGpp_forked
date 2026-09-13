@@ -1,0 +1,2 @@
+check,n_rows,n_passing,n_detections_min,n_detections_max
+n_peaks == MAX_PEAKS on every draw,70,70,87,100

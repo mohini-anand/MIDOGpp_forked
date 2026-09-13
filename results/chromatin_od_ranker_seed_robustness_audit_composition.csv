@@ -1,0 +1,21 @@
+check,observed,expected,passed,note
+timing rows,70,70,True,5 seeds x 14 ROIs
+precision rows,420,420,True,5 seeds x 14 ROIs x 2 arms x 3 budgets
+per_seed_pooled rows,30,30,True,5 seeds x 3 budgets x 2 arms
+stability rows,3,3,True,3 budgets
+distinct ROIs in timing,14,14,True,
+distinct ROIs in precision,14,14,True,
+distinct seeds,5,5,True,
+distinct arms,2,2,True,
+distinct budgets,3,3,True,
+tumor_types in extra_valid,7,7,True,
+ROIs per tumor_type (min),2,2,True,
+ROIs per tumor_type (max),2,2,True,
+"duplicate (seed,file) keys in timing",0,0,True,
+"duplicate (seed,file,arm,budget) keys in precision",0,0,True,
+NaN cells in precision,0,0,True,
+NaN cells in timing,0,0,True,
+rows where budget_delivered != budget,0,0,True,
+rows where n_peaks != 100,0,0,True,
+rows where chromatin_od_nan_rate != 0,0,0,True,
+"complete (roi,seed,arm,budget) grid",420,420,True,

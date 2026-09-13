@@ -1,0 +1,8 @@
+tumor_type,n_rois_in_extra_valid,n_rois_in_full_dataset
+canine cutaneous mast cell tumor,2,50
+canine lung cancer,2,44
+canine lymphosarcoma,2,55
+canine soft tissue sarcoma,2,100
+human breast cancer,2,200
+human melanoma,2,49
+human neuroendocrine tumor,2,55

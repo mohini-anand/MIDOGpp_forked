@@ -1,0 +1,4 @@
+quantity,oracle,this_run,abs_diff,pct_diff
+mean t_chromatin_od_overhead_ms,45.094,41.988,3.1060000000000016,6.89
+mean t6a_od_pad_ms,40.095,37.272,2.8230000000000004,7.04
+mean t_baseline_pipeline_ms,1371.295,1239.392,131.90300000000002,9.62

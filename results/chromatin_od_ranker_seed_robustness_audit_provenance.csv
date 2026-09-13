@@ -1,0 +1,19 @@
+path,kind,mtime,tracked,last_commit,status
+midog_utils/channels.py,module,2026-09-01 19:10:46,True,eb34505 2026-09-04 mohini-anand,(clean)
+midog_utils/chromatin.py,module,2026-09-04 17:43:10,True,18dc53b 2026-09-08 mohini-anand,(clean)
+midog_utils/compare.py,module,2026-09-01 19:11:16,True,eb34505 2026-09-04 mohini-anand,(clean)
+midog_utils/dataset.py,module,2026-08-27 11:49:54,True,6bb9f0c 2026-08-27 mohini-anand,(clean)
+midog_utils/evaluate.py,module,2026-08-27 13:46:32,True,d3374df 2026-08-28 mohini-anand,(clean)
+midog_utils/find_and_suppress.py,module,2026-09-01 19:11:07,True,eb34505 2026-09-04 mohini-anand,(clean)
+midog_utils/invariants.py,module,2026-08-31 22:39:32,True,3117402 2026-09-01 mohini-anand,(clean)
+midog_utils/nms.py,module,2026-09-01 19:47:11,True,eb34505 2026-09-04 mohini-anand,(clean)
+midog_utils/seed_selection.py,module,2026-09-10 13:27:46,True,6d5cc01 2026-09-10 mohini-anand,(clean)
+midog_utils/template_match.py,module,2026-09-01 19:47:11,True,eb34505 2026-09-04 mohini-anand,(clean)
+threshold_maxpeaks_ablation/chromatin_od_ranker_seed_robustness.ipynb,artifact,2026-09-12 18:01:07,False,(none),?? threshold_maxpeaks_ablation/chromatin_od_ranker_seed_robustness.ipynb
+threshold_maxpeaks_ablation/chromatin_od_ranker_seed_robustness_timing.csv,artifact,2026-09-12 18:01:04,False,(none),?? threshold_maxpeaks_ablation/chromatin_od_ranker_seed_robustness_timing.csv
+threshold_maxpeaks_ablation/chromatin_od_ranker_seed_robustness_precision.csv,artifact,2026-09-12 18:01:04,False,(none),?? threshold_maxpeaks_ablation/chromatin_od_ranker_seed_robustness_precision.csv
+threshold_maxpeaks_ablation/chromatin_od_ranker_seed_robustness_per_seed_pooled.csv,artifact,2026-09-12 18:01:04,False,(none),?? threshold_maxpeaks_ablation/chromatin_od_ranker_seed_robustness_per_seed_pooled.csv
+threshold_maxpeaks_ablation/chromatin_od_ranker_seed_robustness_stability.csv,artifact,2026-09-12 18:01:04,False,(none),?? threshold_maxpeaks_ablation/chromatin_od_ranker_seed_robustness_stability.csv
+threshold_maxpeaks_ablation/chromatin_od_ranker_timing.csv,artifact,2026-09-12 15:58:48,True,00f0518 2026-09-12 mohini-anand,(clean)
+threshold_maxpeaks_ablation/chromatin_od_ranker_precision.csv,artifact,2026-09-12 15:58:49,True,00f0518 2026-09-12 mohini-anand,(clean)
+databases/MIDOG++.json,artifact,2026-08-20 12:01:31,True,bd26c81 2023-06-13 Marc Aubreville,(clean)

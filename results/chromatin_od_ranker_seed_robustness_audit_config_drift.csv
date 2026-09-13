@@ -1,0 +1,13 @@
+param,notebook,fsconfig_default,decision,agrees
+channel,hematoxylin_od,gray_inverted (INERT: ch.to_channel is called directly),D3 (no rescale after deconvolution),True
+tm_method,cv2.TM_CCOEFF=4,5 (=TM_CCOEFF_NORMED; INERT: method= is passed to fused_response),D1 (moved to DECISIONS_UNVERIFIED.md 2026-09-12) selects TM_CCOEFF,True
+peak_min_distance,7,7,-,True
+self_hit_radius,5.0,5.0,-,True
+base_size,tm.BASE_SIZE,51,-,True
+max_peaks,100,250000,D9 (max_peaks=100),True
+NMS_RADIUS_UM,ev.MIDOG_RADIUS_UM,n/a,D7 (7.5 um) -- module constant is 7.5,True
+MATCH_RADIUS_UM,ev.MIDOG_RADIUS_UM,n/a,D7,True
+od51 window,51,tm.BASE_SIZE=51,"D5 (51px ""is reading the neighbours"")",True
+od51 frac,cm.DEFAULT_FRAC,0.1,-,True
+DEEP_FLOOR_Z,-1.5,n/a,"D9 (""DEEP_FLOOR_Z is unchanged at -1.5"")",True
+images dir,images/extra_valid (14 ROIs),n/a,D5 standing constraint: must use the 14 ROIs of images/extra_valid,True
