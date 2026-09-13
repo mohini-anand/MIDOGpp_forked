@@ -5,7 +5,7 @@ whole edge/threshold core is written for that polarity. H&E is the opposite: dar
 chromatin on light tissue. Both channels here return "more object -> higher value",
 which is the convention `explore_dataset.ipynb` adopted for the same reason.
 
-Everything returns float32 because `cv2.matchTemplate` with `TM_CCOEFF_NORMED`
+Everything returns float32 because `cv2.matchTemplate` with `TM_CCOEFF`
 requires it.
 """
 

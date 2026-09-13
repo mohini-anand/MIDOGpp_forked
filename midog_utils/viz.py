@@ -16,8 +16,8 @@ BUCKET_COLORS = {
 }
 
 
-def overlay(rgb, gt, detections, seed_xy=None, ax=None, downsample=4, title="", top_n=None,
-            radius=None):
+def overlay(rgb, gt, detections, seed_xy=None, tpl_xy=None, ax=None, downsample=4, title="",
+            top_n=None, radius=None):
     """Ground truth (red = mitotic, yellow = look-alike) with detections coloured by bucket.
 
     ``radius`` is the evaluation match radius in full-resolution pixels; each detection is
@@ -56,9 +56,28 @@ def overlay(rgb, gt, detections, seed_xy=None, ax=None, downsample=4, title="", 
         ax.plot(seed_xy[0] * s, seed_xy[1] * s, marker="*", markersize=18,
                 color="white", markeredgecolor="black", markeredgewidth=0.8)
 
+    if tpl_xy is not None:  # D8: the recentred template centre, drawn distinct from the click
+        ax.plot(tpl_xy[0] * s, tpl_xy[1] * s, marker="P", markersize=11,
+                color="#00e5ff", markeredgecolor="black", markeredgewidth=0.7)
+
     ax.set_title(title, fontsize=10)
     ax.axis("off")
     return ax
+
+
+def draw_box(ax, box, color, lw=1.6, label=None, scale=1.0):
+    """Draw a half-open ``(y0, y1, x0, x1)`` bbox, e.g. from `seed_selection.tighten_box_otsu`.
+
+    ``scale`` maps the box's own pixel frame to display coordinates: ``1.0`` (default)
+    for a box already in the axes' own pixel frame, or ``1 / downsample`` to draw a
+    full-resolution-pixel box on top of an `overlay()`-style thumbnail.
+    """
+    if box is None:
+        return
+    y0, y1, x0, x1 = box
+    ax.add_patch(Rectangle(((x0 - 0.5) * scale, (y0 - 0.5) * scale),
+                           (x1 - x0) * scale, (y1 - y0) * scale,
+                           fill=False, edgecolor=color, linewidth=lw, label=label))
 
 
 def legend_handles():

@@ -100,11 +100,12 @@ def _odd(n: int, minimum: int = 5) -> int:
 
 
 def read_padded_patch(img: np.ndarray, cx: float, cy: float, patch_size: int = PATCH_SIZE):
-    """Square patch centred on a point, large enough to survive arbitrary rotation.
+    """
+        Square patch centred on a point, large enough to survive arbitrary rotation. No an actual padding operation, the padded dimension is the patch size.
 
-    Returns ``None`` when the point sits too close to the ROI border for a full patch.
-    Callers should log and skip those rather than pad, since padding would feed
-    fabricated pixels into the template.
+        Returns ``None`` when the point sits too close to the ROI border for a full patch.
+        Callers should log and skip those rather than pad, since padding would feed
+        fabricated pixels into the template.
     """
     half = patch_size // 2
     ix, iy = int(round(cx)), int(round(cy))
@@ -225,7 +226,7 @@ def fused_response(img: np.ndarray, templates, scale_normalize: bool = False,
     sign = np.float32(method_sign(method))
     for i, tmpl in enumerate(templates):
         th, tw = tmpl.shape[:2]  # [:2]: also correct for a 3-channel (RGB) template
-        res = np.asarray(cv2.matchTemplate(img, tmpl, method), dtype=np.float32)
+        res = np.asarray(cv2.matchTemplate(img, tmpl, method), dtype=np.float32) # raw response map from template matching
         if sign < 0:
             res *= sign  # a distance becomes a similarity; nothing downstream changes
         # Uniform windows (saturated white background) give zero variance, which is NaN for
@@ -235,13 +236,13 @@ def fused_response(img: np.ndarray, templates, scale_normalize: bool = False,
         if scale_normalize:
             res = _robust_z(res)
 
-        oy, ox = (th - 1) // 2, (tw - 1) // 2
+        oy, ox = (th - 1) // 2, (tw - 1) // 2 # different from the reference implementation because we are not using corner coordinates, but the center coordinates of the template
         rows, cols = res.shape
         view = fused[oy: oy + rows, ox: ox + cols]
         newer = res > view
         np.copyto(view, res, where=newer)
-        np.copyto(best[oy: oy + rows, ox: ox + cols], np.int16(i), where=newer)
-        valid[oy: oy + rows, ox: ox + cols] = True
+        np.copyto(best[oy: oy + rows, ox: ox + cols], np.int16(i), where=newer) # store the index of the winning augmentation for each pixel
+        valid[oy: oy + rows, ox: ox + cols] = True # any pixel that is touched by the template (or its augmentations) is valid
 
     return fused, best, valid
 

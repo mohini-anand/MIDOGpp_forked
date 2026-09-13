@@ -17,10 +17,16 @@ delta clustered at the ROI, and a two-ROI single-seed walkthrough is not that.
 Why the three `precision_at_k` notebook families disagree. They differ in exactly one thing — how
 the seed's search template is cut — and that difference is a **2×2**, not a list:
 
+**Correction (2026-09-12):** the table below and `seed_refinement_variants.ipynb`'s own header
+cell describe `DECISIONS.md` D8's 2026-09-09 amendment (click-centred), which was itself
+superseded the very next day by `D8_TEMPLATE_ANCHOR.md` (2026-09-10). Current production is
+`gated_recentred` (`seed_selection.tightened_template_box`), not `gated_click` — see
+`D8_TEMPLATE_ANCHOR.md`.
+
 | | template centred on **the click** | template centred on **the component's bbox centre** |
 |---|---|---|
 | **ungated** — the *largest* Otsu component in the 51 px window, click never consulted | `ungated_click`<br>`precision_at_k_budgets_14roi_8aug.ipynb`'s inline `largest_cc_box` | `ungated_recentred`<br>**new — the empty cell, written here** |
-| **gated** — the component the *click's own pixel* lands in; refuse and redraw if there is none | `gated_click`<br>`seed_selection.tightened_base_size`<br>**production today** (D8 amendment) | `gated_recentred`<br>`seed_selection.tightened_template_box`<br>D8 as originally written, superseded |
+| **gated** — the component the *click's own pixel* lands in; refuse and redraw if there is none | `gated_click`<br>`seed_selection.tightened_base_size`<br>the 2026-09-09 amendment's choice, superseded | `gated_recentred`<br>`seed_selection.tightened_template_box`<br>**current production** (`D8_TEMPLATE_ANCHOR.md`, 2026-09-10) |
 
 Two ROIs, because each isolates a different axis:
 
