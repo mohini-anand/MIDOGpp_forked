@@ -1,4 +1,19 @@
-"""Loading MIDOG++ annotations and ROI images."""
+"""Loading MIDOG++ annotations and ROI images.
+
+Two dataset conventions matter here and are both easy to get wrong:
+
+1. ``bbox`` in ``databases/MIDOG++.json`` is ``[x1, y1, x2, y2]`` in absolute pixels --
+   *not* the COCO ``[x, y, width, height]`` the file otherwise imitates. Values are
+   floats; 3114 annotations carry ``.5`` coordinates.
+2. Every one of the 26286 boxes is exactly 50x50 and synthetic. The real ground truth
+   is a single SlideRunner point click and the box is ``point +- 25``. Everything
+   downstream of this module is therefore point-based, never IoU-based.
+
+ROI images are read with ``tifffile`` rather than ``openslide``. These files are flat
+~2 mm^2 regions, not pyramidal whole-slide images, so there is nothing to gain from a
+slide reader -- and ``openslide`` is not installed in the environment that has a
+working ``cv2``.
+"""
 
 from __future__ import annotations
 
@@ -9,18 +24,24 @@ import numpy as np
 import pandas as pd
 import tifffile
 
-BOX_SIZE = 50  # every MIDOG++ bbox is a synthetic point +- 25, mitotic and look-alike alike
+BOX_SIZE = 50  # every MIDOG++ bbox, mitotic and look-alike alike
 
 MITOTIC = 1
 LOOKALIKE = 2  # "not mitotic figure" -- pathologist-marked hard negative
 CATEGORY_NAMES = {MITOTIC: "mitotic figure", LOOKALIKE: "not mitotic figure"}
 
-UNANNOTATED_IMAGE_IDS = range(151, 201)  # in the JSON but carry zero annotations
+# Image ids 151-200 are in the JSON but carry zero annotations, are absent from
+# datasets_xvalidation.csv, and are not downloadable via Setup.ipynb. 553 - 50 = 503,
+# which is the specimen count the README quotes.
+UNANNOTATED_IMAGE_IDS = range(151, 201)
 
+# The JSON and datasets_xvalidation.csv disagree on two spellings. Normalise to the
+# JSON's, since that is what this package joins on.
 TUMOR_ALIASES = {"canine lymphoma": "canine lymphosarcoma"}
 SCANNER_ALIASES = {"Hamammatsu XR": "Hamamatsu XR"}
 
-_RESOLUTION_UNIT_UM = {2: 25400.0, 3: 10000.0}  # TIFF ResolutionUnit tag: 2 = inch, 3 = centimetre
+# TIFF ResolutionUnit tag values -> microns per unit.
+_RESOLUTION_UNIT_UM = {2: 25400.0, 3: 10000.0}  # 2 = inch, 3 = centimetre
 
 
 def canonical_tumor(name: str) -> str:
@@ -32,15 +53,25 @@ def canonical_scanner(name: str) -> str:
 
 
 def load_annotations(json_path="databases/MIDOG++.json", drop_unannotated=True):
-    """
-        Read the COCO-ish JSON into two tidy frames.
+    """Read the COCO-ish JSON into two tidy frames.
 
-        json_path (str): path to MIDOG++.json.
-        drop_unannotated (bool): drop image ids with zero annotations.
+    Returns ``(images, annotations)`` where
 
-        Returns tuple[pd.DataFrame, pd.DataFrame]: (images, annotations). ``images`` has
-        image_id, file_name, width, height, tumor_type. ``annotations`` has ann_id,
-        image_id, file_name, cx, cy, category_id, n_votes, n_mitotic_votes, unanimous.
+    * ``images``      -- image_id, file_name, width, height, tumor_type
+    * ``annotations`` -- ann_id, image_id, file_name, cx, cy, category_id, n_votes,
+                         n_mitotic_votes, unanimous
+
+    ``cx``/``cy`` are the recovered point clicks (box centres), as floats.
+    ``unanimous`` marks annotations every expert scored the same way -- useful for
+    splitting recall into "missed an obvious mitosis" vs "missed one the pathologists
+    themselves argued about".
+
+    Worth knowing before treating ``unanimous`` as independent information: category-1
+    annotations carry only two label multisets in the whole dataset, ``(1, 1)`` x8917 and
+    ``(1, 1, 2)`` x3020. So for mitotic figures ``unanimous`` is *exactly* equivalent to
+    ``n_votes == 2`` -- a clean proxy for "did this need a third reader", but not a signal
+    separate from the vote count. Category 2 is less tidy: ``(2, 2)`` x8810,
+    ``(2, 2, 2)`` x3044, ``(1, 2, 2)`` x2495.
     """
     raw = json.loads(Path(json_path).read_text())
 
@@ -122,8 +153,12 @@ def points(df: pd.DataFrame) -> np.ndarray:
 
 
 def load_roi(path) -> np.ndarray:
-    """Full-resolution RGB uint8 array for one ROI. Handles both flat single-page TIFFs
-    and pyramidal ones; the alpha channel is stripped."""
+    """Full-resolution RGB uint8 array for one ROI.
+
+    Handles both TIFF layouts present in this dataset: flat uncompressed single-page
+    files (001-406) and 7-level LZW pyramids (505/506). Alpha is stripped -- the files
+    are RGBA but the alpha channel is uniform.
+    """
     with tifffile.TiffFile(str(path)) as tf:
         series = tf.series[0]
         levels = getattr(series, "levels", None)
@@ -134,8 +169,13 @@ def load_roi(path) -> np.ndarray:
 
 
 def roi_mpp(path) -> float:
-    """Microns per pixel from the TIFF resolution tags. Honours ResolutionUnit -- some
-    scanners in this dataset store centimetres rather than inches."""
+    """Microns per pixel from the TIFF resolution tags.
+
+    Honouring ``ResolutionUnit`` is not optional. 505.tiff and 506.tiff store unit 3
+    (centimetre) while every other image stores unit 2 (inch). Assuming inches gives
+    0.578 um/px for those two -- implying a 13 mm^2 ROI -- instead of the correct
+    0.227 um/px and 2.0 mm^2.
+    """
     with tifffile.TiffFile(str(path)) as tf:
         page = tf.pages[0]
         num, den = page.tags["XResolution"].value

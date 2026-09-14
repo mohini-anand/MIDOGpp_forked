@@ -1,28 +1,7 @@
-"""Seed selection under pathologist agreement and bbox-tightening filters.
-
-Two independent filters narrow the candidate pool below what `experiment.pick_seed`
-draws from uniformly at random, applied in this order:
-
-1. **Pathologist agreement** (`agreement_pool`): prefer a mitotic annotation every rater
-   who saw it called mitotic (`n_mitotic_votes == n_votes`). If none exist in the image,
-   fall back to the majority-mitotic contested set (>= 2/3 of votes mitotic) and flag the
-   image -- a seed the experts themselves argued about is plausibly a morphologically
-   atypical example, and using it as the *only* template risks building a poor template
-   from the start.
-2. **Bbox tightening** (`tighten_box_otsu`, `foreground_filter`): Otsu-threshold the
-   padded patch and require the click to land inside the connected component that
-   produces. An annotation whose click sits outside its own object's foreground would
-   need the largest-connected-component fallback the reference implementation
-   (`bbox tuning code reference/`) uses to recover a box at all -- refused here, not
-   applied; such annotations are dropped from the candidate pool instead of being built
-   into a template from the wrong object.
-
-`tightened_base_size` turns the same Otsu+CC bbox into a `FSConfig(base_size=...)`
-value for the actual template-matching pass -- the tightened box's *native size*, kept
-centred on the click rather than recentred to the component's own centroid, since only
-the scale is being corrected here.
-
-See `Research Logs/design_choices.md`, sections 1-2.
+"""
+    Seed selection under pathologist agreement and bbox-tightening filters. `build_seed`
+    is the production entry point: draws a mitotic annotation, gates it against its own
+    Otsu-thresholded connected component, and returns the template's size and centre.
 """
 
 from __future__ import annotations
@@ -46,14 +25,11 @@ def _odd(n: int, minimum: int = 5) -> int:
 
 
 def agreement_pool(gt_mitotic: pd.DataFrame):
-    """Split an image's mitotic annotations into the agreement tier to draw from.
+    """
+        Split an image's mitotic annotations into the agreement tier to draw from.
 
-    Returns ``(pool, flagged)``. ``pool`` is every annotation every rater who saw it
-    called mitotic (``n_mitotic_votes == n_votes``), when that set is non-empty;
-    otherwise it is the majority-mitotic contested set (>= 2/3 of votes mitotic -- which,
-    given only 2- and 3-rater annotations exist, means the 2-of-3 case) and ``flagged``
-    is True, meaning the caller should record that this image had no fully-agreed
-    annotation to seed from.
+        Returns tuple[pd.DataFrame, bool]: (pool, flagged) -- pool is the unanimous tier
+        when non-empty, else the 2-of-3 contested tier with flagged=True.
     """
     unanimous = gt_mitotic[gt_mitotic["n_mitotic_votes"] == gt_mitotic["n_votes"]]
     if len(unanimous):
@@ -67,14 +43,8 @@ def agreement_pool(gt_mitotic: pd.DataFrame):
 
 
 def border_filter(df: pd.DataFrame, border: int, roi_shape) -> pd.DataFrame:
-    """Annotations far enough from the ROI edge to read a full padded patch.
-
-    Same predicate as `experiment.pick_seed` -- duplicated rather than imported from
-    there so this module has no dependency on `experiment`, and tested on the *rounded*
-    centre for the same reason documented there: the reader's own predicate is on the
-    rounded pixel, and testing the unrounded float could pass an annotation the reader
-    then rejects.
-    """
+    """Annotations far enough from the ROI edge to read a full padded patch, tested on
+    the rounded centre."""
     h, w = roi_shape[:2]
     ix = np.rint(df["cx"].to_numpy()).astype(int)
     iy = np.rint(df["cy"].to_numpy()).astype(int)
@@ -83,12 +53,7 @@ def border_filter(df: pd.DataFrame, border: int, roi_shape) -> pd.DataFrame:
 
 
 def _nearest_label_within(labels: np.ndarray, cy: int, cx: int, tolerance: int) -> int:
-    """The foreground label closest to ``(cy, cx)`` within an L-inf ``tolerance``, or 0.
-
-    Ties (equal squared-distance pixels with different labels) resolve to whichever
-    `np.nonzero` visits first -- row-major order -- which is an arbitrary but stable
-    choice; ties are rare enough at these tolerances (1-3 px) not to warrant more.
-    """
+    """The foreground label closest to (cy, cx) within an L-inf tolerance, or 0."""
     h, w = labels.shape
     y0, y1 = max(0, cy - tolerance), min(h, cy + tolerance + 1)
     x0, x1 = max(0, cx - tolerance), min(w, cx + tolerance + 1)
@@ -101,110 +66,22 @@ def _nearest_label_within(labels: np.ndarray, cy: int, cx: int, tolerance: int) 
     return int(window[ys[nearest], xs[nearest]])
 
 
-def tighten_box_otsu(
-    patch: np.ndarray,
-    min_area: int = 50,
-    max_area_frac: float = 0.85,
-    min_solidity: float = 0.5,
-    method: str = "binary",
-    center_tolerance: int = 0,
-    headroom_frac: float = None,
-):
-    """Threshold ``patch`` and return the connected component under (or near) its centre.
+def tighten_box_otsu(patch: np.ndarray, min_area: int = 50, max_area_frac: float = 0.85, min_solidity: float = 0.5, method: str = "binary", center_tolerance: int = 0, headroom_frac: float = None):
+    """
+        Threshold ``patch`` and return the connected component under (or near) its centre.
 
-    ``patch`` is a single-channel array in "more object -> higher value" convention (a
-    `channels.to_gray_inverted` or `channels.to_hematoxylin` crop -- not `channels.to_rgb`,
-    which this raises on). Returns ``(y0, y1, x0, x1)`` -- half-open, patch-local -- or
-    ``None`` when the centre pixel itself is not foreground, or when the component it
-    lands in fails the size/shape sanity check below. Not-foreground is the case the
-    reference implementation resolves by falling back to the largest component in the
-    crop; that fallback is refused here, so a ``None`` means the caller should treat the
-    annotation as unusable as a seed.
+        patch (np.ndarray): single-channel patch, "more object -> higher value".
+        min_area (int): reject a component smaller than this.
+        max_area_frac (float): reject a component larger than this fraction of the patch.
+        min_solidity (float): reject a component less convex than this (filled/hull area).
+        method (str): "binary" (two-class Otsu), "multiotsu" (3-class, brightest kept), or
+            "headroom" (Otsu threshold raised by headroom_frac of the headroom to max).
+        center_tolerance (int): widen the centre check to the nearest foreground pixel
+            within this L-inf half-width, instead of requiring the exact click pixel.
+        headroom_frac (float): required in [0, 1] when method="headroom".
 
-    ``method`` selects the foreground threshold:
-
-    * ``"binary"`` (default): the original two-class `cv2.THRESH_OTSU` split -- the
-      patch's whole non-background range becomes foreground.
-    * ``"multiotsu"``: `skimage.filters.threshold_multiotsu` with 3 classes, keeping only
-      the brightest class as foreground. Binary Otsu can under-separate a component that
-      bridges into a neighbouring structure through a lighter, swept-in fringe -- a
-      visibly darker core distinct from that fringe reads as a threshold-placement
-      problem the middle multi-Otsu class absorbs instead of merging into the core. See
-      `Research Logs/design_choices.md`, section 7. Raises no further than returning
-      ``None`` when the patch has fewer unique intensities than classes (a near-flat
-      window multi-Otsu can't threshold) -- refused rather than silently falling back to
-      binary Otsu for that one patch, consistent with the rest of this function's
-      "exclude, don't patch over" handling.
-    * ``"headroom"``: binary Otsu's own split, raised by a fraction of the headroom
-      between that split and the crop's max (always 255, since the crop is normalized
-      to [0, 255] before thresholding either way) -- ``threshold = otsu_thresh +
-      headroom_frac * (255 - otsu_thresh)``, foreground is ``u8 > threshold`` (strict,
-      matching ``cv2.THRESH_BINARY``'s own semantics). A dialable middle ground between
-      ``"binary"`` and ``"multiotsu"``: on the window-saturating merges ``"multiotsu"``
-      was built for (a component spanning several adjacent nuclei rather than one, e.g.
-      `245.tiff` ann 6245's entire 51x51 window at area_frac=0.58), raising the
-      threshold un-merges most of them without multiotsu's separate 3-class fit -- but
-      the same intervention also shrinks or drops components that were never merged in
-      the first place, and that collateral cost lands in the same dense domains as the
-      benefit. ``frac=0`` reproduces ``"binary"`` exactly (verified byte-for-byte).
-      ``frac=0.15`` resolves roughly half the window-saturating population at about a
-      third of multiotsu's collateral exclusion rate in the dense domains that matter;
-      ``frac=0.30`` lands within ~3 points of multiotsu on every metric measured. See
-      `Research Logs/2026-09-03-bbox-threshold-sweep.md` for the full sweep (frac in
-      {0.05, 0.10, 0.15, 0.20, 0.30} vs. multiotsu, 933 candidates across 18 ROIs) and
-      its visual audit -- including cases where the flagged-large component was not
-      actually a merge, just a legitimately large chromatin mass the size-based flag
-      can't tell apart from one. ``headroom_frac`` must be a float in ``[0, 1]``;
-      raises ``ValueError`` otherwise (mirroring the bad-``method`` check below), since
-      an unset or out-of-range fraction almost certainly means the caller forgot to
-      pass it, not that some sensible default was intended. ``0.0`` is accepted (not
-      just documented as equivalent to it): Otsu's threshold is always integer-valued
-      on a ``uint8`` image, so ``threshold = otsu_thresh`` under this branch's strict
-      ``>`` gives byte-identical output to ``method="binary"`` -- deliberately, so a
-      sweep over ``headroom_frac`` (e.g. `Research Logs/2026-09-03-bbox-threshold-sweep.md`'s
-      own {0.05, ..., 0.30} grid) can include 0 as its own left endpoint rather than
-      needing a workaround value to stand in for it.
-
-    ``center_tolerance`` (default 0, exact-pixel-only, unchanged) widens the centre
-    check to the nearest foreground pixel within an L-inf square of this half-width
-    around the click, rather than requiring the exact rounded click pixel itself to be
-    foreground. A pathologist's click is a point annotation at the object's nominal
-    centre, not necessarily its brightest pixel; under `method="multiotsu"`'s tighter
-    top-class boundary, calibration found roughly half of the clicks it dropped had a
-    foreground pixel 1 px away and the large majority had one within 3 px -- i.e. the
-    exact-pixel test itself, not the absence of the object, was responsible for a
-    meaningful share of those losses. See `Research Logs/design_choices.md`, section 7a.
-    A real cost of widening this, also measured there: the accepted component's mask
-    never contains the click by construction (if it did, tolerance wouldn't have been
-    needed) -- calibration found its *bounding box* doesn't even reach the click for
-    about 1 in 6 candidates tolerance alone recovers, i.e. that component more plausibly
-    belongs to a neighbouring structure than the annotated one. Guarded against below:
-    the accepted component is rejected outright when the click falls outside its own
-    bounding box (see the bbox check just after ``center_label`` is resolved). This closes
-    the bbox-containment failure completely, but not the softer version of the same risk
-    -- section 7b found roughly 1 in 5 guard-recovered candidates still have the click
-    farther from the component's centroid than the component's own approximate radius
-    (an elongated neighbour whose bbox reaches the click while its mass sits elsewhere
-    would still pass). `Research Logs/design_choices.md`, section 7b has the numbers.
-
-    The sanity check mirrors `baselines.nucleus_blobs`'s ``min_area``/``max_area`` gate,
-    since an oversized or malformed component can pass the centre-pixel check above and
-    still not be a single nucleus:
-
-    * ``min_area`` rejects a degenerate sliver -- Otsu noise the click's rounded centre
-      happened to land on, not real chromatin.
-    * ``max_area_frac`` (of the window's own pixel count) rejects a component that has
-      grown implausibly large for the window.
-    * ``min_solidity`` (filled area / convex-hull area) rejects a markedly non-convex
-      shape -- the signature of two touching nuclei bridged into one component by Otsu.
-      Eccentricity is deliberately *not* used for this: a real mitotic figure can be
-      legitimately elongated or irregular (anaphase/telophase chromatin, for instance),
-      which reads as high eccentricity on a single, genuine object; solidity does not
-      flag a convex ellipse like that; it only flags the concave, dumbbell-shaped
-      bridge a merge produces.
-
-    Defaults are calibrated on ~450 unanimous mitotic candidates across 10 downloaded
-    ROIs (dense and sparse domains both) -- see `Research Logs/design_choices.md`.
+        Returns tuple[int, int, int, int] or None: (y0, y1, x0, x1) half-open, patch-local
+        bbox, or None when the centre isn't foreground or the component fails the gate.
     """
     if patch.ndim != 2:
         raise ValueError(
@@ -242,13 +119,6 @@ def tighten_box_otsu(
         return None
 
     region = next(p for p in regionprops(labels) if p.label == center_label)
-    # A tolerance-recovered label is, by construction, one the click's own pixel is NOT
-    # part of -- it can belong to a neighbouring structure rather than the annotated one
-    # (`Research Logs/design_choices.md`, section 7a). Requiring the click to at least
-    # fall inside the accepted component's own bounding box is a cheap, partial identity
-    # check: it does nothing when the exact pixel was already foreground (that click is
-    # trivially inside its own bbox), and only excludes tolerance-recovered candidates
-    # whose nearest component doesn't actually reach the click.
     min_row, min_col, max_row, max_col = region.bbox
     if not (min_row <= cy < max_row and min_col <= cx < max_col):
         return None
@@ -259,40 +129,19 @@ def tighten_box_otsu(
     if region.solidity < min_solidity:
         return None
 
-    y0, x0, y1, x1 = region.bbox  # skimage bbox is already half-open: (min_row, min_col, max_row, max_col)
+    y0, x0, y1, x1 = region.bbox  # skimage bbox order is (min_row, min_col, max_row, max_col)
     return int(y0), int(y1), int(x0), int(x1)
 
 
-def foreground_filter(
-    df: pd.DataFrame,
-    structural_channel: np.ndarray,
-    otsu_window: int = tm.BASE_SIZE,
-    method: str = "binary",
-    center_tolerance: int = 0,
-    headroom_frac: float = None,
-) -> pd.DataFrame:
-    """Keep only annotations whose click lands inside (or near) its own Otsu component.
+def foreground_filter(df: pd.DataFrame, structural_channel: np.ndarray, otsu_window: int = tm.BASE_SIZE, method: str = "binary", center_tolerance: int = 0, headroom_frac: float = None) -> pd.DataFrame:
+    """
+        Keep only annotations whose click lands inside (or near) its own Otsu component.
 
-    ``structural_channel`` is the single-channel image `tighten_box_otsu` runs on --
-    independent of whatever channel `FSConfig.channel` later searches in, since this is a
-    structural test of the click's location, not a matching score.
+        structural_channel (np.ndarray): single-channel image `tighten_box_otsu` runs on.
+        otsu_window (int): window size around each click.
+        method, center_tolerance, headroom_frac: passed through to `tighten_box_otsu`.
 
-    ``method``, ``center_tolerance``, and ``headroom_frac`` are passed straight through
-    to `tighten_box_otsu` -- ``method`` is ``"binary"`` (default), ``"multiotsu"``, or
-    ``"headroom"``; ``center_tolerance`` (default 0) is the exact-pixel-vs-nearby-pixel
-    centre check; ``headroom_frac`` (default ``None``) is `"headroom"`'s required
-    ``[0, 1]`` fraction, unused by the other two methods.
-
-    ``otsu_window`` defaults to the 51 px annotation box itself, *not*
-    `template_match.PATCH_SIZE` (73 px) -- despite the design doc's "Otsu-threshold the
-    padded crop" wording, which reads that way. Measured on 246.tiff (lymphosarcoma,
-    dense: 97 unanimous candidates), the 73 px window saturates 60/97 components at the
-    patch edge (mean tightened size 61 px, i.e. barely smaller than the padded read
-    itself -- not a tightening) because dense tissue gives Otsu enough neighbouring
-    nuclei to bridge into within 73 px. The 51 px window keeps sizes inside the box
-    (mean 43 px) at the cost of 8/97 clicks whose component doesn't cross threshold at
-    all in the smaller window (excluded here, not fallen back on). See the notebook's
-    side-by-side comparison.
+        Returns pd.DataFrame: the surviving rows of ``df``.
     """
     keep = np.zeros(len(df), dtype=bool)
     for i, (_, row) in enumerate(df.iterrows()):
@@ -311,51 +160,23 @@ class SeedInfo:
     n_after_foreground: int
 
 
-def pick_seed(
-    gt_mitotic: pd.DataFrame,
-    structural_channel: np.ndarray,
-    rng,
-    border: int,
-    roi_shape,
-    otsu_window: int = tm.BASE_SIZE,
-    method: str = "binary",
-    center_tolerance: int = 0,
-    headroom_frac: float = None,
-    tighten_bbox: bool = True,
-):
-    """Pick a mitotic seed under the pathologist-agreement and bbox-tightening filters.
+def pick_seed(gt_mitotic: pd.DataFrame, structural_channel: np.ndarray, rng, border: int, roi_shape, otsu_window: int = tm.BASE_SIZE, method: str = "binary", center_tolerance: int = 0, headroom_frac: float = None, tighten_bbox: bool = True):
+    """
+        Pick a mitotic seed under the pathologist-agreement and bbox-tightening filters.
+        `build_seed` is the entry point for new work; this is kept for callers that only
+        need the drawn row.
 
-    **`build_seed` is the entry point for new work** -- it returns the template's size and
-    centre as well as the annotation, and applies D8's recentred-border re-check. This
-    function is kept for callers that only need the drawn row.
+        gt_mitotic (pd.DataFrame): the image's mitotic ground truth.
+        structural_channel (np.ndarray): single-channel image for the foreground filter.
+        rng: numpy Generator, drawn from without replacement.
+        border (int): edge margin, usually FSConfig.patch_size // 2.
+        roi_shape: the ROI's array shape.
+        otsu_window, method, center_tolerance, headroom_frac: passed through to
+            `tighten_box_otsu`/`foreground_filter`.
+        tighten_bbox (bool): when False, skip the foreground filter entirely.
 
-    Order: agreement tiering first (on the image's full mitotic set), then the border
-    filter, then the foreground filter. Any of the three can empty the pool; unlike
-    `experiment.pick_seed`'s single border check, this raises naming the stage that
-    emptied it rather than silently returning from whatever tier happened to survive --
-    see `Research Logs/design_choices.md`'s caveat about the pool shrinking to zero on
-    sparse domains.
-
-    ``border`` is independent of ``otsu_window`` -- it should still be the caller's full
-    rotation-safe half-patch (`FSConfig.patch_size // 2`), since `find_and_suppress` reads
-    that much regardless of how large the tightened template turns out to be.
-
-    ``method``, ``center_tolerance``, and ``headroom_frac`` are passed straight through
-    to `tighten_box_otsu`/`foreground_filter` -- ``method`` is ``"binary"`` (default),
-    ``"multiotsu"``, or ``"headroom"``; ``center_tolerance`` (default 0) is the
-    exact-pixel-vs-nearby-pixel centre check; ``headroom_frac`` (default ``None``) is
-    `"headroom"`'s required ``[0, 1]`` fraction, unused by the other two methods.
-
-    ``tighten_bbox`` (default True, unchanged) toggles the foreground filter entirely --
-    when False, seed selection is pathologist agreement + the border filter only, no
-    Otsu/CC step at all (`method`/``center_tolerance``/``headroom_frac`` are then
-    unused). ``n_fg`` is left
-    equal to ``n_border`` in that case rather than a separate, always-identical number, so
-    `SeedInfo` still means "pool size after this stage" consistently whether or not the
-    stage actually ran.
-
-    Returns ``(seed, info)`` where ``info`` is a `SeedInfo` recording the pool size after
-    each stage, for logging.
+        Returns tuple[pd.Series, SeedInfo]: the drawn row and per-stage pool sizes; raises
+        ValueError naming the stage that emptied the pool.
     """
     pool, flagged = agreement_pool(gt_mitotic)
     n_pool = len(pool)
@@ -378,43 +199,13 @@ def pick_seed(
     return seed, info
 
 
-def tightened_base_size(structural_channel: np.ndarray, cx: float, cy: float,
-                         otsu_window: int = tm.BASE_SIZE, minimum: int = 5,
-                         method: str = "binary", center_tolerance: int = 0,
-                         headroom_frac: float = None):
-    """The native template size for a seed after bbox tightening, click-centred.
+def tightened_base_size(structural_channel: np.ndarray, cx: float, cy: float, otsu_window: int = tm.BASE_SIZE, minimum: int = 5, method: str = "binary", center_tolerance: int = 0, headroom_frac: float = None):
+    """
+        The native template size for a seed after bbox tightening, click-centred (size
+        only, no recentring). See `tightened_template_box` for the recentred variant
+        `build_seed` uses by default.
 
-    Otsu-thresholds the ``otsu_window``-sized box around the click, takes the connected
-    component under it, and returns the odd size spanning its longer side -- for
-    `FSConfig(base_size=...)`. Kept centred on the click rather than recentred to the
-    component's own centroid: only the *scale* is corrected here, not the position.
-
-    **Superseded for production seed/template construction by `tightened_template_box`
-    (`D8_TEMPLATE_ANCHOR.md`).** D8 found that among seeds this module's own
-    containment gate accepts, the accepted component's own bbox centre sits a median
-    3.1 px from the raw click (up to 13.9 px, 21.5% beyond 5 px) -- `tighten_box_otsu`
-    already measures that position and this function was discarding it. This function is
-    kept, unchanged, for any caller that explicitly wants size-only tightening. It is
-    what most already-committed click-centred results used, via this function or an
-    inline equivalent -- but not all: the four `production_seed_precision_at_k*`
-    notebooks called the old, recentred `tightened_template_box` instead
-    (`D8_TEMPLATE_ANCHOR.md`, "What it costs"). New work should call
-    `tightened_template_box` instead.
-
-    ``otsu_window`` defaults to `template_match.BASE_SIZE` (51 px, the annotation box),
-    not `template_match.PATCH_SIZE` (73 px) -- see `foreground_filter`'s docstring for
-    why the wider window was rejected.
-
-    ``method``, ``center_tolerance``, and ``headroom_frac`` must match whatever
-    `pick_seed` used to accept this seed -- passing different ones here can retighten a
-    box under settings that never actually validated this click's foreground membership.
-    ``method`` is ``"binary"`` (default), ``"multiotsu"``, or ``"headroom"``;
-    ``headroom_frac`` (default ``None``) is `"headroom"`'s required ``[0, 1]`` fraction,
-    unused by the other two methods.
-
-    Returns ``None`` when the patch can't be read or the click isn't foreground;
-    `pick_seed`'s foreground filter means a seed it returned will not hit the second case
-    when the same ``method``/``center_tolerance``/``headroom_frac`` are passed to both.
+        Returns int or None: the odd template size, or None if ungated.
     """
     patch = tm.read_padded_patch(structural_channel, cx, cy, otsu_window)
     if patch is None:
@@ -428,36 +219,21 @@ def tightened_base_size(structural_channel: np.ndarray, cx: float, cy: float,
     return _odd(size, minimum=minimum)
 
 
-def tightened_template_box(structural_channel: np.ndarray, cx: float, cy: float,
-                            otsu_window: int = tm.BASE_SIZE, minimum: int = 5,
-                            method: str = "binary", center_tolerance: int = 0,
-                            headroom_frac: float = None):
-    """The template size and centre for a seed: both taken from the accepted component.
+def tightened_template_box(structural_channel: np.ndarray, cx: float, cy: float, otsu_window: int = tm.BASE_SIZE, minimum: int = 5, method: str = "binary", center_tolerance: int = 0, headroom_frac: float = None):
+    """
+        The template size and centre for a seed: both taken from the accepted component.
+        D8's production seed/template constructor (`D8_TEMPLATE_ANCHOR.md`).
 
-    `D8_TEMPLATE_ANCHOR.md` -- the production seed/template constructor.
+        The centre is the accepted component's bounding-box pixel centre --
+        ``(x0 + x1 - 1) / 2``, not ``(x0 + x1) / 2``, since a half-open bbox covers pixels
+        x0..x1-1.
 
-    The click gates and only gates: `tighten_box_otsu` must accept a component the click's
-    own pixel lands inside, or this returns ``None`` and the caller redraws. The size is that
-    component's longer side made odd; the centre is its bounding box's pixel centre, in the
-    same full-image frame as ``(cx, cy)``.
+        Returns tuple[int, float, float] or None: (base_size, center_x, center_y), or None
+        when the patch can't be read or the gate refuses.
 
-    The centre is ``(x0 + x1 - 1) / 2``, not ``(x0 + x1) / 2``. A half-open bbox covers pixels
-    ``x0 .. x1 - 1``, and `read_padded_patch` rounds this value to a pixel index, so the centre
-    of those pixels is the correct one -- and since ``base_size >= max(h, w)``, a square of that
-    side centred there contains the whole component, which the half-pixel-larger value does not.
-
-    Returns ``(base_size, center_x, center_y)``, or ``None`` when the patch cannot be read or
-    the gate refuses. ``otsu_window``, ``minimum``, ``method``, ``center_tolerance`` and
-    ``headroom_frac`` mean what they mean in `tighten_box_otsu`.
-
-    Three things the caller owns:
-
-    1. Self-hit and seed-annulus removal reference the returned centre, not ``(cx, cy)`` --
-       the self-correlation peak lands where the template is centred.
-    2. `border_filter`'s margin is sized for a click-centred read. Re-check that the full
-       rotation-safe patch is readable at the returned centre, and refuse the seed if not.
-    3. Ground truth does not move: ``(cx, cy)`` stays the reference for ``gt_eval`` exclusion
-       and every match-radius computation.
+        Caller owns: self-hit/seed-annulus removal must reference the returned centre, not
+        (cx, cy); border readability at the returned centre must be re-checked; ground
+        truth stays keyed to (cx, cy), never the returned centre.
     """
     patch = tm.read_padded_patch(structural_channel, cx, cy, otsu_window)
     if patch is None:
@@ -478,13 +254,8 @@ def tightened_template_box(structural_channel: np.ndarray, cx: float, cy: float,
 @dataclass(frozen=True)
 class Seed:
     """One drawn seed: where its template is cut, and where its ground truth stays.
-
-    ``click_xy`` is the pathologist's annotation and is the reference for excluding this
-    seed from the evaluation set and for every match-radius computation. ``template_xy`` is
-    where the search template is cut from and where self-hit removal must be referenced.
-    Under ``recentred=True`` they are different points; nothing else in the pipeline may
-    substitute one for the other.
-    """
+    ``click_xy`` and ``template_xy`` differ under ``recentred=True``; nothing downstream
+    may substitute one for the other."""
 
     ann_id: int
     click_xy: tuple
@@ -499,56 +270,33 @@ class Seed:
 
 
 def _patch_readable(roi_shape, cx: float, cy: float, patch_size: int) -> bool:
-    """`template_match.read_padded_patch`'s own bounds predicate, on the rounded centre.
-
-    Duplicated rather than called so this needs no array -- the same reason `border_filter`
-    duplicates it, and tested on the same rounded pixel for the same reason.
-    """
+    """`template_match.read_padded_patch`'s own bounds predicate, on the rounded centre."""
     half = patch_size // 2
     ix, iy = int(round(cx)), int(round(cy))
     h, w = roi_shape[:2]
     return not (ix - half < 0 or iy - half < 0 or ix + half >= w or iy + half >= h)
 
 
-def build_seed(gt_mitotic: pd.DataFrame, structural_channel: np.ndarray, rng, roi_shape,
-               patch_size: int = tm.PATCH_SIZE, otsu_window: int = tm.BASE_SIZE,
-               recentre: bool = True, border: int = None, method: str = "binary",
-               center_tolerance: int = 0, headroom_frac: float = None) -> Seed:
-    """Draw a seed and everything needed to cut its template. `D8_TEMPLATE_ANCHOR.md`.
+def build_seed(gt_mitotic: pd.DataFrame, structural_channel: np.ndarray, rng, roi_shape, patch_size: int = tm.PATCH_SIZE, otsu_window: int = tm.BASE_SIZE, recentre: bool = True, border: int = None, method: str = "binary", center_tolerance: int = 0, headroom_frac: float = None) -> Seed:
+    """
+        Draw a seed and everything needed to cut its template. Production entry point
+        (`D8_TEMPLATE_ANCHOR.md`).
 
-    One call replaces the agreement/border/gate/draw/retry block every experiment in this
-    repo currently writes inline. The click gates the draw and fixes ground truth; the
-    accepted Otsu component fixes the template's size and centre.
+        gt_mitotic (pd.DataFrame): the image's mitotic ground truth, the draw pool.
+        structural_channel (np.ndarray): single-channel image for the Otsu gate.
+        rng: numpy Generator; drawn without replacement, retrying on a refused candidate.
+        roi_shape: the ROI's array shape.
+        patch_size (int): full rotation-safe patch size for the border check.
+        otsu_window (int): window size for the Otsu gate.
+        recentre (bool): True (default, production) centres the template on the accepted
+            component's bbox centre; False keeps it on the click and tightens size only.
+        border (int): edge margin; defaults to patch_size // 2.
+        method, center_tolerance, headroom_frac: passed through to `tighten_box_otsu`.
 
-    ``rng`` is used with rejection sampling *without replacement*: an index is drawn from
-    the remaining pool and a refused candidate is dropped before the next draw. That is
-    uniform over the accepted candidates and matches the inline ``draw_seed_with_retry``
-    every committed notebook uses -- but reproducing a given ``(seed_index, image_id)``
-    stream also requires the same accept/reject rule, and this function's is
-    `tighten_box_otsu`'s containment gate. Only notebooks whose inline ``check_fn`` used
-    that same gate (the `production_seed_precision_at_k*` family) reproduce; notebooks
-    built on the ungated ``largest_cc_box`` helper can accept a candidate this function
-    refuses -- `D8_TEMPLATE_ANCHOR.md`'s 403.tiff example -- which changes the retry count
-    and, downstream, which annotation the stream lands on.
+        Returns Seed. Raises ValueError naming the stage that emptied the pool.
 
-    ``recentre`` (default True) is the production path: the template centre is the accepted
-    component's bounding-box pixel centre. False keeps the centre on the click and takes
-    only the size (`tightened_base_size`) -- kept for the click-vs-recentred comparison D8
-    is waiting on. The choice is recorded on the returned `Seed` so it reaches any artifact
-    written from it.
-
-    A recentred point can sit closer to the ROI edge than the click `border_filter` passed,
-    so it is re-checked against ``patch_size``; a candidate whose full rotation-safe patch
-    is not readable there is refused and redrawn like any other.
-
-    ``border`` defaults to ``patch_size // 2``. ``method``, ``center_tolerance`` and
-    ``headroom_frac`` pass through to `tighten_box_otsu`.
-
-    Raises ValueError naming the stage that emptied the pool.
-
-    **The caller still owns one thing: ground truth does not move.** Exclude
-    ``seed.ann_id`` from the evaluation set and compute every match radius against
-    ``seed.click_xy``, never ``seed.template_xy``.
+        Caller still owns: exclude seed.ann_id from the evaluation set and compute every
+        match radius against seed.click_xy, never seed.template_xy.
     """
     border = patch_size // 2 if border is None else border
     pool, flagged = agreement_pool(gt_mitotic)

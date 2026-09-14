@@ -1,17 +1,4 @@
-"""Distance-based non-maximum suppression for point detections.
-
-MIDOG++ ground truth is a point click, so suppression by centre distance is the
-natural operation -- there are no real box extents to compute IoU over.
-
-This mirrors `non_max_suppression_by_distance` in `utils/nms_WSI.py`, which is already
-correctly score-ordered. It is re-implemented standalone only because importing that
-module drags in `utils.detection_helper` and therefore fastai.
-
-Note this is *not* what the reference `nms_with_area` does. That function walks the
-DataFrame index and keeps the last element, so the survivor of a cluster is whichever
-box happens to sit furthest right -- and the match score it computes is dropped
-before NMS ever sees it.
-"""
+"""Distance-based non-maximum suppression for point detections."""
 
 from __future__ import annotations
 
@@ -20,10 +7,14 @@ from sklearn.neighbors import KDTree
 
 
 def nms_by_distance(centers: np.ndarray, scores: np.ndarray, radius: float = 25.0) -> np.ndarray:
-    """Greedy NMS in descending score order.
+    """
+        Greedy NMS in descending score order.
 
-    Returns the indices to keep, ordered best-first, so downstream code can treat the
-    result as a ranked detection list.
+        centers (np.ndarray): (N, 2) point coordinates.
+        scores (np.ndarray): (N,) scores, higher is better.
+        radius (float): suppression radius.
+
+        Returns np.ndarray: indices to keep, ordered best-first.
     """
     centers = np.asarray(centers, dtype=np.float64)
     scores = np.asarray(scores, dtype=np.float64)
@@ -33,12 +24,7 @@ def nms_by_distance(centers: np.ndarray, scores: np.ndarray, radius: float = 25.
     tree = KDTree(centers)
     neighbours = tree.query_radius(centers, r=radius)
 
-    # `kind="stable"`, so equal scores keep the caller's incoming order instead of
-    # quicksort's arbitrary one. `template_match.extract_peaks` hands over a globally
-    # ordered list, so suppression becomes reproducible and, more importantly, independent
-    # of the list's length -- which is what lets one deep pool stand in for a re-extraction
-    # at any higher threshold.
-    order = np.argsort(-scores, kind="stable")
+    order = np.argsort(-scores, kind="stable")  # stable so ties keep the caller's incoming order
     suppressed = np.zeros(len(centers), dtype=bool)
     keep = []
     for idx in order:

@@ -3,9 +3,10 @@
 from __future__ import annotations
 
 import matplotlib.pyplot as plt
+import numpy as np
 from matplotlib.patches import Circle, Rectangle
 
-from .dataset import BOX_SIZE, MITOTIC
+from .dataset import BOX_SIZE, LOOKALIKE, MITOTIC
 from .evaluate import HUMAN_CORRECT_LABEL, HUMAN_REJECTED_LABEL, NON_HUMAN_FINDINGS
 
 BUCKET_COLORS = {
@@ -15,13 +16,16 @@ BUCKET_COLORS = {
 }
 
 
-def overlay(rgb, gt, detections, seed_xy=None, tpl_xy=None, ax=None, downsample=4, title="", top_n=None, radius=None):
-    """
-        Ground truth (red = mitotic, yellow = look-alike) with detections coloured by bucket.
+def overlay(rgb, gt, detections, seed_xy=None, tpl_xy=None, ax=None, downsample=4, title="",
+            top_n=None, radius=None):
+    """Ground truth (red = mitotic, yellow = look-alike) with detections coloured by bucket.
 
-        radius (float): evaluation match radius in full-resolution pixels; each detection
-        is drawn as a circle of that radius, so the picture matches what the scorer counts
-        as a hit.
+    ``radius`` is the evaluation match radius in full-resolution pixels; each detection is
+    drawn as a circle of exactly that radius, so what the picture shows is what the scorer
+    counts as a hit. The previous fixed radius was written ``8 * s * downsample / 2``, which
+    algebraically collapses to the constant 4 in display units regardless of ``downsample``
+    -- roughly half the match radius, so detections looked further from the ground truth
+    than the scorer considered them.
     """
     if ax is None:
         _, ax = plt.subplots(figsize=(14, 10))
@@ -52,7 +56,7 @@ def overlay(rgb, gt, detections, seed_xy=None, tpl_xy=None, ax=None, downsample=
         ax.plot(seed_xy[0] * s, seed_xy[1] * s, marker="*", markersize=18,
                 color="white", markeredgecolor="black", markeredgewidth=0.8)
 
-    if tpl_xy is not None:  # the recentred template centre, drawn distinct from the click
+    if tpl_xy is not None:  # D8: the recentred template centre, drawn distinct from the click
         ax.plot(tpl_xy[0] * s, tpl_xy[1] * s, marker="P", markersize=11,
                 color="#00e5ff", markeredgecolor="black", markeredgewidth=0.7)
 
@@ -62,12 +66,11 @@ def overlay(rgb, gt, detections, seed_xy=None, tpl_xy=None, ax=None, downsample=
 
 
 def draw_box(ax, box, color, lw=1.6, label=None, scale=1.0):
-    """
-        Draw a half-open ``(y0, y1, x0, x1)`` bbox, e.g. from `seed_selection.tighten_box_otsu`.
+    """Draw a half-open ``(y0, y1, x0, x1)`` bbox, e.g. from `seed_selection.tighten_box_otsu`.
 
-        scale (float): maps the box's own pixel frame to display coordinates -- 1.0 for a
-        box already in the axes' frame, or 1/downsample to draw a full-resolution box on
-        an `overlay()`-style thumbnail.
+    ``scale`` maps the box's own pixel frame to display coordinates: ``1.0`` (default)
+    for a box already in the axes' own pixel frame, or ``1 / downsample`` to draw a
+    full-resolution-pixel box on top of an `overlay()`-style thumbnail.
     """
     if box is None:
         return

@@ -1,8 +1,35 @@
-"""
-    Scoring detections against MIDOG++ ground truth by centre distance, greedily matched
-    best-detection-first so the resulting FROC is monotone. Three buckets: a detection
-    matches a mitotic figure (human_correct_label), a look-alike (human_rejected_label),
-    or nothing (non_human_findings).
+"""Scoring detections against MIDOG++ ground truth.
+
+Ground truth is a point click, so matching is by centre distance, not IoU. Because
+every annotation box is a synthetic 50x50 around that point, IoU would just be a
+monotone function of centre distance anyway.
+
+Matching is **greedy in descending detection score**, once, over the full ranked list.
+That is deliberate: optimal assignment recomputed at each score threshold can
+re-assign earlier detections and produce a non-monotone FROC, where lowering the
+threshold *decreases* sensitivity. With one greedy pass every threshold is a truncation
+of the ranked list, so the curve is monotone by construction. This is also what
+`evalutils.scorers.score_detection` -- the function `evaluation.py` uses -- does.
+`optimal_assignment_disagreement` is provided as a one-off cross-check at a fixed
+threshold.
+
+The three detection buckets:
+
+``human_correct_label``   matched a category-1 GT -- a real mitotic figure found from one click
+``human_rejected_label``  matched a category-2 GT -- a structure a pathologist examined and rejected
+``non_human_findings``    matched nothing
+
+Both of the latter two are false positives for the mitosis-detection task. The split is
+a diagnostic of *what kind* of mistake the algorithm makes, not a separate metric
+family. (Renamed from the original `TP`/`FP_lookalike`/`FP_unannotated` -- see
+`Research Logs/design_choices.md`, section 5; the underlying TP/FP counting logic below
+is unchanged, only these three label strings and their names.)
+
+**Read ``coverage_frac`` before reading any full-list number.** A detection list long
+enough to tile the ROI answers "is this annotation within the match radius of some
+detection?" by geometry rather than by evidence, and every metric here that is not
+budgeted at K is exactly that question. ``coverage_frac`` measures the saturation
+directly so it cannot be mistaken for a result.
 """
 
 from __future__ import annotations
@@ -18,7 +45,9 @@ HUMAN_CORRECT_LABEL = "human_correct_label"
 HUMAN_REJECTED_LABEL = "human_rejected_label"
 NON_HUMAN_FINDINGS = "non_human_findings"
 
-MIDOG_RADIUS_UM = 7.5  # MIDOG's own operating point
+# MIDOG's own operating point: evaluation.py calls score_detection(radius=7.5E-3), in
+# millimetres. Converted per image via that ROI's microns-per-pixel.
+MIDOG_RADIUS_UM = 7.5
 
 
 def radius_px(mpp: float, radius_um: float = MIDOG_RADIUS_UM) -> float:
@@ -26,11 +55,11 @@ def radius_px(mpp: float, radius_um: float = MIDOG_RADIUS_UM) -> float:
 
 
 def greedy_match(det_xy, gt_xy, radius):
-    """
-        Match detections (already ranked best-first) to ground truth, one-to-one.
+    """Match detections (already ranked best-first) to ground truth, one-to-one.
 
-        Returns tuple[np.ndarray, np.ndarray]: (det_to_gt, gt_to_det) -- for each detection
-        the GT index it claimed (-1 if none), and for each GT the rank that claimed it.
+    Returns ``(det_to_gt, gt_to_det)``: for each detection the index of the GT it
+    claimed (-1 if none), and for each GT the rank of the detection that claimed it
+    (-1 if none).
     """
     det_xy = np.asarray(det_xy, dtype=np.float64).reshape(-1, 2)
     gt_xy = np.asarray(gt_xy, dtype=np.float64).reshape(-1, 2)
@@ -54,8 +83,18 @@ def greedy_match(det_xy, gt_xy, radius):
 
 
 def coverage_fraction(det_xy, roi_shape, radius: float, stride: int = 16) -> float:
-    """Fraction of the ROI lying within ``radius`` of some detection -- the saturation
-    check for any un-budgeted recall number."""
+    """Fraction of the ROI lying within ``radius`` of *some* detection.
+
+    This is the sanity check on every un-budgeted metric in this module. "Was this
+    annotation found?" is scored as "is there a detection within ``radius`` of it?", so
+    if a large fraction of *arbitrary* ROI locations already satisfy that, a full-list
+    recall near 1.0 says nothing about the detector.
+
+    At the 0.25 score floor this run uses, the answer is 0.91-0.97 -- the detection list
+    tiles the ROI more finely than the metric can resolve. Sampled on a strided grid;
+    stride 16 gives ~150k probe points on a 39-megapixel ROI, far more than enough for
+    two decimal places.
+    """
     det_xy = np.asarray(det_xy, dtype=np.float64).reshape(-1, 2)
     if len(det_xy) == 0:
         return 0.0
@@ -67,14 +106,11 @@ def coverage_fraction(det_xy, roi_shape, radius: float, stride: int = 16) -> flo
 
 
 def bucket_detections(detections: pd.DataFrame, gt: pd.DataFrame, radius: float):
-    """
-        Annotate a ranked detection frame with its match and bucket.
+    """Annotate a ranked detection frame with its match and bucket.
 
-        detections (pd.DataFrame): ranked detections with cx, cy columns.
-        gt (pd.DataFrame): evaluation ground truth (seed annotation already excluded).
-        radius (float): match radius in pixels.
-
-        Returns tuple[pd.DataFrame, pd.DataFrame]: (detections, gt) each with match columns added.
+    ``gt`` must be the *evaluation* ground truth -- i.e. with the seed annotation
+    already removed -- and must pool both categories, so one detection cannot claim a
+    mitotic figure and a look-alike at the same time.
     """
     det_xy = detections[["cx", "cy"]].to_numpy() if len(detections) else np.zeros((0, 2))
     gt_xy = gt[["cx", "cy"]].to_numpy() if len(gt) else np.zeros((0, 2))
@@ -106,7 +142,13 @@ def bucket_detections(detections: pd.DataFrame, gt: pd.DataFrame, radius: float)
 
 
 def recall_at_k(det_buckets, n_gt_mitotic: int, k: int = None) -> float:
-    """Fraction of mitotic GT recovered by the top-K detections, K = number of mitotic GT."""
+    """Fraction of mitotic GT recovered by the top-K detections, K = number of mitotic GT.
+
+    This is the headline metric because it needs no threshold. Peak counts above any
+    fixed TM_CCOEFF_NORMED value differ by orders of magnitude between a dense domain
+    like lymphosarcoma and a sparse one like melanoma, which makes precision at a fixed
+    threshold incomparable across domains.
+    """
     if n_gt_mitotic == 0:
         return float("nan")
     k = n_gt_mitotic if k is None else k
@@ -120,7 +162,7 @@ def froc(det_buckets, n_gt_mitotic: int, area_mm2: float):
     if n_gt_mitotic == 0 or len(b) == 0:
         return np.zeros(0), np.zeros(0)
     tp = np.cumsum(b == HUMAN_CORRECT_LABEL)
-    fp = np.cumsum(b != HUMAN_CORRECT_LABEL)
+    fp = np.cumsum(b != HUMAN_CORRECT_LABEL)  # both FP buckets count against the mitosis task
     return fp / area_mm2, tp / n_gt_mitotic
 
 
@@ -140,8 +182,16 @@ def _found_within(df: pd.DataFrame, k: int = None):
 
 
 def lookalike_attraction_rate(gt_out: pd.DataFrame, k: int = None) -> dict:
-    """How often the search lands on a pathologist-rejected look-alike, at the same
-    budget as mitotic recall."""
+    """How often the search lands on a pathologist-rejected look-alike.
+
+    Reported *at a detection budget*, and at the same budget as mitotic recall, because
+    neither number means anything on its own -- a long enough detection list eventually
+    covers every annotation. With ``k`` set, only detections ranked above ``k`` count.
+
+    If attraction and recall are similar at the same budget, the matcher is not
+    discriminating mitosis from mimic at all. That comparison is the single most
+    informative number in this experiment.
+    """
     look = gt_out[gt_out["category_id"] == LOOKALIKE]
     mito = gt_out[gt_out["category_id"] == MITOTIC]
 
@@ -166,7 +216,13 @@ def topk_composition(det_out: pd.DataFrame, k: int) -> dict:
 
 
 def recall_by_agreement(gt_out: pd.DataFrame, k: int = None) -> dict:
-    """Mitotic recall split by whether the experts agreed (``unanimous`` votes)."""
+    """Mitotic recall split by whether the experts agreed, using the `labels` votes.
+
+    Takes the same ``k`` budget as `lookalike_attraction_rate`, and for the same reason.
+    Without it this reads the full detection list, where coverage saturation forces both
+    halves of the split to 1.0 and the comparison -- "did we miss an obvious mitosis or a
+    borderline one?" -- carries no information at all.
+    """
     mito = gt_out[gt_out["category_id"] == MITOTIC]
     unan, cont = mito[mito["unanimous"]], mito[~mito["unanimous"]]
     found_unan, found_cont = _found_within(unan, k), _found_within(cont, k)
@@ -180,7 +236,18 @@ def recall_by_agreement(gt_out: pd.DataFrame, k: int = None) -> dict:
 
 
 def optimal_assignment_disagreement(det: pd.DataFrame, gt: pd.DataFrame, radius: float) -> dict:
-    """Cross-check greedy matching against optimal assignment at one fixed threshold."""
+    """Cross-check greedy matching against optimal assignment at one operating point.
+
+    Only meaningful at a fixed threshold -- see the module docstring for why optimal
+    assignment must not drive the ranked metrics. `linear_sum_assignment` rejects
+    `np.inf`, so forbidden pairs get a large finite cost and are filtered afterwards.
+
+    ``greedy_only`` / ``optimal_only`` are the (detection, GT) pairs each scheme makes
+    and the other does not, counted directly. An earlier version reported
+    ``len(greedy ^ optimal) // 2``, which is only correct when every disagreement is a
+    swap between two pairs: a detection matched by one scheme and unmatched by the other
+    contributes 1 to the symmetric difference and was floored away to 0.
+    """
     empty = {"greedy_matches": 0, "optimal_matches": 0, "greedy_only": 0,
              "optimal_only": 0, "n_detections_differing": 0}
     if len(det) == 0 or len(gt) == 0:
@@ -209,7 +276,19 @@ def optimal_assignment_disagreement(det: pd.DataFrame, gt: pd.DataFrame, radius:
 
 
 def full_list_breakdown(det_out: pd.DataFrame, gt_out: pd.DataFrame) -> dict:
-    """Bucket counts over the entire detection list, with no top-K truncation."""
+    """Bucket counts over the *entire* detection list, with no top-K truncation.
+
+    `recall@K` answers "given a budget, how good are the best guesses". This answers the
+    complementary question: of everything the pipeline flagged, how much landed on an
+    annotation at all?
+
+    These numbers are **not** "the cost of the method at its natural operating point".
+    There is no natural operating point -- they are the cost of whatever
+    `FSConfig.score_threshold` happens to be, and what that floor means varies by orders
+    of magnitude between images (at 0.70: 1 detection on 301.tiff, 2601 on 405.tiff).
+    Read them next to `coverage_frac`, and next to the `random_in_tissue` row at the same
+    list length, which is the floor they have to beat.
+    """
     n = len(det_out)
     tp = int((det_out["bucket"] == HUMAN_CORRECT_LABEL).sum())
     look = int((det_out["bucket"] == HUMAN_REJECTED_LABEL).sum())
@@ -233,8 +312,11 @@ def full_list_breakdown(det_out: pd.DataFrame, gt_out: pd.DataFrame) -> dict:
 
 
 def evaluate_run(detections, gt_eval, radius, area_mm2, roi_shape=None):
-    """Everything above, bundled. ``gt_eval`` must already exclude the seed. Pass
-    ``roi_shape`` (h, w) to also get ``coverage_frac``."""
+    """Everything above, bundled. ``gt_eval`` must already exclude the seed.
+
+    ``roi_shape`` is ``(h, w)``; supply it to get ``coverage_frac``, without which the
+    un-budgeted metrics below cannot be interpreted.
+    """
     det_out, gt_out = bucket_detections(detections, gt_eval, radius)
     n_mit = int((gt_eval["category_id"] == MITOTIC).sum())
 
@@ -247,6 +329,8 @@ def evaluate_run(detections, gt_eval, radius, area_mm2, roi_shape=None):
     }
     metrics.update({f"sens@{k}fp_mm2": v for k, v in sensitivity_at_fp(fp_mm2, sens).items()})
     metrics.update(topk_composition(det_out, n_mit))
+    # Both at the same K budget, so they are directly comparable, plus the full-list
+    # versions for reference.
     metrics.update(lookalike_attraction_rate(gt_out, k=n_mit))
     metrics.update(lookalike_attraction_rate(gt_out))
     metrics["n_detections_total"] = len(det_out)
@@ -260,8 +344,19 @@ def evaluate_run(detections, gt_eval, radius, area_mm2, roi_shape=None):
     return det_out, gt_out, metrics, (fp_mm2, sens)
 
 
-def threshold_sweep(det_out: pd.DataFrame, gt_eval: pd.DataFrame, thresholds=(0.5, 0.6, 0.7, 0.8, 0.9)) -> pd.DataFrame:
-    """Bucket counts and P/R/F1 as the score cutoff moves."""
+def threshold_sweep(det_out: pd.DataFrame, gt_eval: pd.DataFrame,
+                    thresholds=(0.5, 0.6, 0.7, 0.8, 0.9)) -> pd.DataFrame:
+    """Bucket counts and P/R/F1 as the score cutoff moves.
+
+    Included because "all the results that were found" is only well defined relative to the
+    score floor the search ran at. This makes that dependence explicit instead of hiding it
+    in a config value.
+
+    ``thresholds`` starts at 0.5, matching `FSConfig.score_threshold`'s new floor -- values
+    below it are below the score the search itself now stops reporting at, so sweeping them
+    here would describe detections `find_and_suppress` no longer returns. See
+    `Research Logs/design_choices.md`, section 6.
+    """
     n_mit = int((gt_eval["category_id"] == MITOTIC).sum())
     rows = []
     for t in thresholds:
