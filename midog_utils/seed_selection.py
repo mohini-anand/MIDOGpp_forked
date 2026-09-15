@@ -246,6 +246,7 @@ def tightened_template_box(structural_channel: np.ndarray, cx: float, cy: float,
     base_size = _odd(max(y1 - y0, x1 - x0), minimum=minimum)
     half = otsu_window // 2
     ix, iy = int(round(cx)), int(round(cy))  # matches read_padded_patch's own rounding
+    # convert the patch's origin to the recentered templates center, in image coordinates
     center_x = ix - half + (x0 + x1 - 1) / 2.0
     center_y = iy - half + (y0 + y1 - 1) / 2.0
     return base_size, center_x, center_y
@@ -257,16 +258,16 @@ class Seed:
     ``click_xy`` and ``template_xy`` differ under ``recentred=True``; nothing downstream
     may substitute one for the other."""
 
-    ann_id: int
-    click_xy: tuple
-    template_xy: tuple
-    base_size: int
-    recentred: bool
-    offset_px: float
-    n_retries: int
-    agreement_flagged: bool
-    n_agreement_pool: int
-    n_after_border: int
+    ann_id: int # id of the seleced annotation
+    click_xy: tuple # center of the click
+    template_xy: tuple # cener of the tightened template
+    base_size: int # size of the tightened template
+    recentred: bool # whether the template is recentered based on the component
+    offset_px: float # offset between the click and template 
+    n_retries: int # number of retries
+    agreement_flagged: bool # whether the seed is flagged; True for non-unanimous annotations
+    n_agreement_pool: int # number of seeds in the agreement pool
+    n_after_border: int # number of seeds after the border filter
 
 
 def _patch_readable(roi_shape, cx: float, cy: float, patch_size: int) -> bool:
@@ -319,14 +320,21 @@ def build_seed(gt_mitotic: pd.DataFrame, structural_channel: np.ndarray, rng, ro
             spec = None if got is None else (got, cx, cy)
         if spec is not None and _patch_readable(roi_shape, spec[1], spec[2], patch_size):
             base_size, tx, ty = spec
-            return Seed(ann_id=int(row["ann_id"]), click_xy=(cx, cy), template_xy=(tx, ty),
-                        base_size=int(base_size), recentred=bool(recentre),
-                        offset_px=float(np.hypot(tx - cx, ty - cy)), n_retries=retries,
-                        agreement_flagged=bool(flagged), n_agreement_pool=n_pool,
-                        n_after_border=n_border)
+            return Seed(
+                ann_id=int(row["ann_id"]), 
+                click_xy=(cx, cy),
+                template_xy=(tx, ty),
+                base_size=int(base_size), 
+                recentred=bool(recentre),
+                offset_px=float(np.hypot(tx - cx, ty - cy)),
+                n_retries=retries,
+                agreement_flagged=bool(flagged),
+                n_agreement_pool=n_pool,
+                n_after_border=n_border
+                )
         working = working.drop(working.index[idx])
         retries += 1
-
+    # if the entire pool is exhausted, record why that happened and raise an error
     stage = "agreement" if n_pool == 0 else ("border" if n_border == 0 else "gate")
     raise ValueError(
         f"no seed candidates left (emptied at the {stage} stage); agreement_flagged={flagged}, "

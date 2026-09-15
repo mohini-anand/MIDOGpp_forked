@@ -74,7 +74,7 @@ def select_annotation(gt_mitotic: pd.DataFrame, gray_inv: np.ndarray, roi_shape:
         if pool.empty:
             raise ValueError(f"ann_id={ann_id} is not a mitotic annotation on this ROI")
 
-    rng = np.random.default_rng([seed_index, image_id])
+    rng = np.random.default_rng([seed_index, image_id]) # random number generator
     return ss.build_seed(pool, gray_inv, rng, roi_shape)
 
 
