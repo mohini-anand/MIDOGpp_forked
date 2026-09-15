@@ -38,9 +38,9 @@ def load_annotations(json_path="databases/MIDOG++.json", drop_unannotated=True):
         json_path (str): path to MIDOG++.json.
         drop_unannotated (bool): drop image ids with zero annotations.
 
-        Returns tuple[pd.DataFrame, pd.DataFrame]: (images, annotations). ``images`` has
-        image_id, file_name, width, height, tumor_type. ``annotations`` has ann_id,
-        image_id, file_name, cx, cy, category_id, n_votes, n_mitotic_votes, unanimous.
+        images (pd.DataFrame): image_id, file_name, width, height, tumor_type.
+        annotations (pd.DataFrame): ann_id, image_id, file_name, cx, cy, category_id,
+            n_votes, n_mitotic_votes, unanimous.
     """
     raw = json.loads(Path(json_path).read_text())
 
@@ -88,7 +88,13 @@ def load_annotations(json_path="databases/MIDOG++.json", drop_unannotated=True):
 
 
 def load_slide_metadata(csv_path="datasets_xvalidation.csv"):
-    """Scanner / origin / species, which live only in the CSV -- not in the JSON."""
+    """
+        Scanner / origin / species, which live only in the CSV -- not in the JSON.
+
+        csv_path (str): path to the crossvalidation CSV.
+
+        Returns pd.DataFrame: the CSV, with image_id/Tumor/Scanner canonicalised.
+    """
     df = pd.read_csv(csv_path, delimiter=";")
     df = df.rename(columns={"Slide": "image_id"})
     df["Tumor"] = df["Tumor"].map(canonical_tumor)
@@ -97,7 +103,13 @@ def load_slide_metadata(csv_path="datasets_xvalidation.csv"):
 
 
 def check_invariants(annotations: pd.DataFrame) -> None:
-    """Fail loudly if the two conventions this package relies on ever stop holding."""
+    """
+        Fail loudly if the two conventions this package relies on ever stop holding.
+
+        annotations (pd.DataFrame): must have w, h, category_id columns.
+
+        Returns None. Raises AssertionError naming the violated invariant.
+    """
     bad_size = annotations[(annotations["w"] != BOX_SIZE) | (annotations["h"] != BOX_SIZE)]
     if len(bad_size):
         raise AssertionError(f"{len(bad_size)} annotations are not {BOX_SIZE}x{BOX_SIZE}")
@@ -115,15 +127,27 @@ def image_annotations(annotations: pd.DataFrame, file_name: str, category_id=Non
 
 
 def points(df: pd.DataFrame) -> np.ndarray:
-    """(N, 2) float array of (x, y) centres."""
+    """
+        (N, 2) float array of (x, y) centres.
+
+        df (pd.DataFrame): must have cx, cy columns.
+
+        Returns np.ndarray: shape (N, 2), float64; empty when ``df`` is empty.
+    """
     if len(df) == 0:
         return np.zeros((0, 2), dtype=np.float64)
     return df[["cx", "cy"]].to_numpy(dtype=np.float64)
 
 
 def load_roi(path) -> np.ndarray:
-    """Full-resolution RGB uint8 array for one ROI. Handles both flat single-page TIFFs
-    and pyramidal ones; the alpha channel is stripped."""
+    """
+        Full-resolution RGB uint8 array for one ROI. Handles both flat single-page
+        TIFFs and pyramidal ones; the alpha channel is stripped.
+
+        path (str or Path): path to the ROI TIFF.
+
+        Returns np.ndarray: HxWx3 uint8 array.
+    """
     with tifffile.TiffFile(str(path)) as tf:
         series = tf.series[0]
         levels = getattr(series, "levels", None)
@@ -134,8 +158,14 @@ def load_roi(path) -> np.ndarray:
 
 
 def roi_mpp(path) -> float:
-    """Microns per pixel from the TIFF resolution tags. Honours ResolutionUnit -- some
-    scanners in this dataset store centimetres rather than inches."""
+    """
+        Microns per pixel from the TIFF resolution tags. Honours ResolutionUnit --
+        some scanners in this dataset store centimetres rather than inches.
+
+        path (str or Path): path to the ROI TIFF.
+
+        Returns float: microns per pixel.
+    """
     with tifffile.TiffFile(str(path)) as tf:
         page = tf.pages[0]
         num, den = page.tags["XResolution"].value
@@ -158,7 +188,16 @@ def roi_area_mm2(path, shape=None) -> float:
 
 
 def check_roi_scale(path, shape=None, expected=(1.9, 2.1)) -> float:
-    """MIDOG++ ROIs are all ~2 mm^2. This is what catches a misread resolution tag."""
+    """
+        MIDOG++ ROIs are all ~2 mm^2. This is what catches a misread resolution tag.
+
+        path (str or Path): path to the ROI TIFF.
+        shape (tuple or None): (height, width) to use instead of reading the TIFF.
+        expected (tuple[float, float]): accepted (min, max) area range, in mm^2.
+
+        Returns float: the computed ROI area, in mm^2.
+        Raises AssertionError when outside ``expected``.
+    """
     area = roi_area_mm2(path, shape)
     if not (expected[0] <= area <= expected[1]):
         raise AssertionError(
