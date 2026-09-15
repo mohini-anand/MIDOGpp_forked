@@ -30,7 +30,13 @@ METHODS = {
 
 
 def method_sign(method: int) -> float:
-    """+1.0 for similarity methods, -1.0 for the two distance methods."""
+    """
+        +1.0 for similarity methods, -1.0 for the two distance methods.
+
+        method (int): a cv2.TM_* method constant.
+
+        Returns float: the sign to multiply the raw response by.
+    """
     return _SIGN.get(int(method), 1.0)
 
 
@@ -42,7 +48,8 @@ def robust_stats(fused: np.ndarray, valid: np.ndarray, stride: int = 8):
         valid (np.ndarray): boolean mask of reachable pixels.
         stride (int): subsampling stride.
 
-        Returns tuple[float, float]: (median, 1.4826 * MAD).
+        median (float): the sample median.
+        mad_scale (float): 1.4826 * the sample MAD, a robust std-dev estimate.
     """
     sample = fused[::stride, ::stride][valid[::stride, ::stride]]
     sample = sample[np.isfinite(sample)]
@@ -73,7 +80,8 @@ def read_padded_patch(img: np.ndarray, cx: float, cy: float, patch_size: int = P
         Square patch centred on a point, large enough to survive arbitrary rotation.
 
         img (np.ndarray): the source image.
-        cx, cy (float): centre pixel.
+        cx (float): centre pixel, x.
+        cy (float): centre pixel, y.
         patch_size (int): the patch's side length.
 
         Returns np.ndarray or None: the patch, or None if too close to the border.
@@ -87,7 +95,18 @@ def read_padded_patch(img: np.ndarray, cx: float, cy: float, patch_size: int = P
 
 
 def build_augmentations(patch: np.ndarray, base_size: int = BASE_SIZE, scales=(0.6, 0.8, 1.0), n_angles: int = 12, flips=(False, True)):
-    """Expand one padded patch into the full (flip x angle x scale) template bank."""
+    """
+        Expand one padded patch into the full (flip x angle x scale) template bank.
+
+        patch (np.ndarray): padded source patch, centred on the click.
+        base_size (int): template side length before scaling.
+        scales (tuple[float]): scale factors applied to each rotated/flipped base.
+        n_angles (int): number of rotation angles, evenly spaced over 360 degrees.
+        flips (tuple[bool]): which flip states to generate.
+
+        templates (list[np.ndarray]): the augmentation bank.
+        metas (list[Augmentation]): metadata paired with ``templates``.
+    """
     patch = patch.astype(np.float32, copy=False)
     c = patch.shape[0] // 2
     half_base = base_size // 2
@@ -120,7 +139,15 @@ def build_augmentations(patch: np.ndarray, base_size: int = BASE_SIZE, scales=(0
 
 
 def _robust_z(res: np.ndarray, stride: int = 8) -> np.ndarray:
-    """Standardise a response map by its own median and MAD, on a strided subsample."""
+    """
+        Standardise a response map by its own median and MAD, on a strided subsample.
+
+        res (np.ndarray): a single template's response map.
+        stride (int): subsampling stride used to estimate median and MAD.
+
+        Returns np.ndarray: the standardised map, or ``res`` unchanged if the sample
+            is too small or too uniform to scale.
+    """
     sample = res[::stride, ::stride]
     sample = sample[sample > _SENTINEL_CUT]  # drop the sentinel written for zero-variance windows
     if sample.size < 1000:
@@ -142,8 +169,9 @@ def fused_response(img: np.ndarray, templates, scale_normalize: bool = False, me
         scale_normalize (bool): put each map on a robust z-scale before fusing.
         method (int): any cv2.TM_* method; the two distance methods are negated on the way in.
 
-        Returns tuple[np.ndarray, np.ndarray, np.ndarray]: (fused score map, winning
-        augmentation index per pixel, mask of pixels any template could reach).
+        fused (np.ndarray): fused score map.
+        best (np.ndarray): winning augmentation index per pixel.
+        valid (np.ndarray): mask of pixels any template could reach.
     """
     h, w = img.shape[:2]
     img = np.ascontiguousarray(img, dtype=np.float32)
@@ -177,7 +205,14 @@ def extract_peaks(fused, valid, min_distance=7, score_threshold=0.5, max_peaks=2
     """
         Local maxima of the fused map, returned best-first.
 
-        Returns tuple[np.ndarray, np.ndarray]: (centers, scores), ordered score-descending.
+        fused (np.ndarray): fused score map.
+        valid (np.ndarray): mask of pixels any template could reach.
+        min_distance (int): minimum pixel separation enforced between peaks.
+        score_threshold (float): minimum fused score to keep a peak.
+        max_peaks (int): cap on the number of peaks returned.
+
+        centers (np.ndarray): (x, y) pixel coordinates, score-descending.
+        scores (np.ndarray): fused score at each centre, score-descending.
     """
     k = 2 * int(min_distance) + 1
     dilated = cv2.dilate(fused, np.ones((k, k), np.uint8))
@@ -198,7 +233,17 @@ def plant_and_recover(templates, metas, canvas=257, noise_frac=0.25, tolerance=1
         Coordinate round-trip gate: plant each augmentation into a noise canvas and check
         the fused map's peak lands within tolerance of the known centre.
 
-        Returns list[tuple]: (Augmentation, dx, dy, score) per augmentation; raises on failure.
+        templates (list[np.ndarray]): the augmentation bank.
+        metas (list[Augmentation]): metadata paired with ``templates``.
+        canvas (int): side length of the synthetic canvas.
+        noise_frac (float): background noise std, as a fraction of the template's own std.
+        tolerance (float): allowed peak offset from the planted centre, in pixels.
+        rng (np.random.Generator or None): defaults to a fixed seed when None.
+        scale_normalize (bool): put each map on a robust z-scale before fusing.
+        method (int): any cv2.TM_* method; the two distance methods are negated on the way in.
+
+        Returns list[tuple]: (Augmentation, dx, dy, score) per augmentation.
+        Raises AssertionError when any augmentation's peak lands outside tolerance.
     """
     rng = np.random.default_rng(0) if rng is None else rng
     results = []

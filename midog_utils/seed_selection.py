@@ -28,8 +28,11 @@ def agreement_pool(gt_mitotic: pd.DataFrame):
     """
         Split an image's mitotic annotations into the agreement tier to draw from.
 
-        Returns tuple[pd.DataFrame, bool]: (pool, flagged) -- pool is the unanimous tier
-        when non-empty, else the 2-of-3 contested tier with flagged=True.
+        gt_mitotic (pd.DataFrame): the image's mitotic ground truth.
+
+        pool (pd.DataFrame): the unanimous tier when non-empty, else the 2-of-3
+            contested tier.
+        flagged (bool): True when ``pool`` is the contested tier.
     """
     unanimous = gt_mitotic[gt_mitotic["n_mitotic_votes"] == gt_mitotic["n_votes"]]
     if len(unanimous):
@@ -43,8 +46,16 @@ def agreement_pool(gt_mitotic: pd.DataFrame):
 
 
 def border_filter(df: pd.DataFrame, border: int, roi_shape) -> pd.DataFrame:
-    """Annotations far enough from the ROI edge to read a full padded patch, tested on
-    the rounded centre."""
+    """
+        Annotations far enough from the ROI edge to read a full padded patch, tested on
+        the rounded centre.
+
+        df (pd.DataFrame): candidate annotations, with cx/cy columns.
+        border (int): margin in pixels from every ROI edge.
+        roi_shape (tuple): the ROI's array shape.
+
+        Returns pd.DataFrame: rows whose rounded centre clears the margin on all sides.
+    """
     h, w = roi_shape[:2]
     ix = np.rint(df["cx"].to_numpy()).astype(int)
     iy = np.rint(df["cy"].to_numpy()).astype(int)
@@ -53,7 +64,16 @@ def border_filter(df: pd.DataFrame, border: int, roi_shape) -> pd.DataFrame:
 
 
 def _nearest_label_within(labels: np.ndarray, cy: int, cx: int, tolerance: int) -> int:
-    """The foreground label closest to (cy, cx) within an L-inf tolerance, or 0."""
+    """
+        The foreground label closest to (cy, cx) within an L-inf tolerance, or 0.
+
+        labels (np.ndarray): connected-component label image.
+        cy (int): row of the query point.
+        cx (int): column of the query point.
+        tolerance (int): L-inf half-width of the search window.
+
+        Returns int: the nearest label, or 0 when nothing is within tolerance.
+    """
     h, w = labels.shape
     y0, y1 = max(0, cy - tolerance), min(h, cy + tolerance + 1)
     x0, x1 = max(0, cx - tolerance), min(w, cx + tolerance + 1)
@@ -137,9 +157,12 @@ def foreground_filter(df: pd.DataFrame, structural_channel: np.ndarray, otsu_win
     """
         Keep only annotations whose click lands inside (or near) its own Otsu component.
 
+        df (pd.DataFrame): candidate annotations, with cx/cy columns.
         structural_channel (np.ndarray): single-channel image `tighten_box_otsu` runs on.
         otsu_window (int): window size around each click.
-        method, center_tolerance, headroom_frac: passed through to `tighten_box_otsu`.
+        method (str): passed through to `tighten_box_otsu`.
+        center_tolerance (int): passed through to `tighten_box_otsu`.
+        headroom_frac (float): passed through to `tighten_box_otsu`.
 
         Returns pd.DataFrame: the surviving rows of ``df``.
     """
@@ -168,15 +191,17 @@ def pick_seed(gt_mitotic: pd.DataFrame, structural_channel: np.ndarray, rng, bor
 
         gt_mitotic (pd.DataFrame): the image's mitotic ground truth.
         structural_channel (np.ndarray): single-channel image for the foreground filter.
-        rng: numpy Generator, drawn from without replacement.
+        rng (np.random.Generator): drawn from without replacement.
         border (int): edge margin, usually FSConfig.patch_size // 2.
-        roi_shape: the ROI's array shape.
-        otsu_window, method, center_tolerance, headroom_frac: passed through to
-            `tighten_box_otsu`/`foreground_filter`.
+        roi_shape (tuple): the ROI's array shape.
+        otsu_window (int): passed through to `tighten_box_otsu`/`foreground_filter`.
+        method (str): passed through to `tighten_box_otsu`/`foreground_filter`.
+        center_tolerance (int): passed through to `tighten_box_otsu`/`foreground_filter`.
+        headroom_frac (float): passed through to `tighten_box_otsu`/`foreground_filter`.
         tighten_bbox (bool): when False, skip the foreground filter entirely.
 
-        Returns tuple[pd.Series, SeedInfo]: the drawn row and per-stage pool sizes; raises
-        ValueError naming the stage that emptied the pool.
+        Returns tuple[pd.Series, SeedInfo]: the drawn row and per-stage pool sizes.
+        Raises ValueError naming the stage that emptied the pool.
     """
     pool, flagged = agreement_pool(gt_mitotic)
     n_pool = len(pool)
@@ -205,6 +230,15 @@ def tightened_base_size(structural_channel: np.ndarray, cx: float, cy: float, ot
         only, no recentring). See `tightened_template_box` for the recentred variant
         `build_seed` uses by default.
 
+        structural_channel (np.ndarray): single-channel image for the Otsu gate.
+        cx (float): click centre, x.
+        cy (float): click centre, y.
+        otsu_window (int): window size for the Otsu gate.
+        minimum (int): smallest odd size to return.
+        method (str): passed through to `tighten_box_otsu`.
+        center_tolerance (int): passed through to `tighten_box_otsu`.
+        headroom_frac (float): passed through to `tighten_box_otsu`.
+
         Returns int or None: the odd template size, or None if ungated.
     """
     patch = tm.read_padded_patch(structural_channel, cx, cy, otsu_window)
@@ -224,12 +258,20 @@ def tightened_template_box(structural_channel: np.ndarray, cx: float, cy: float,
         The template size and centre for a seed: both taken from the accepted component.
         D8's production seed/template constructor (`D8_TEMPLATE_ANCHOR.md`).
 
-        The centre is the accepted component's bounding-box pixel centre --
-        ``(x0 + x1 - 1) / 2``, not ``(x0 + x1) / 2``, since a half-open bbox covers pixels
-        x0..x1-1.
+        structural_channel (np.ndarray): single-channel image for the Otsu gate.
+        cx (float): click centre, x.
+        cy (float): click centre, y.
+        otsu_window (int): window size for the Otsu gate.
+        minimum (int): smallest odd size to return.
+        method (str): passed through to `tighten_box_otsu`.
+        center_tolerance (int): passed through to `tighten_box_otsu`.
+        headroom_frac (float): passed through to `tighten_box_otsu`.
 
-        Returns tuple[int, float, float] or None: (base_size, center_x, center_y), or None
-        when the patch can't be read or the gate refuses.
+        base_size (int): the odd template size.
+        center_x (float): accepted component's bbox pixel centre, x -- ``(x0 + x1 - 1) / 2``,
+            not ``(x0 + x1) / 2``, since a half-open bbox covers pixels x0..x1-1.
+        center_y (float): accepted component's bbox pixel centre, y (same convention).
+        Returns None when the patch can't be read or the gate refuses.
 
         Caller owns: self-hit/seed-annulus removal must reference the returned centre, not
         (cx, cy); border readability at the returned centre must be re-checked; ground
@@ -254,9 +296,11 @@ def tightened_template_box(structural_channel: np.ndarray, cx: float, cy: float,
 
 @dataclass(frozen=True)
 class Seed:
-    """One drawn seed: where its template is cut, and where its ground truth stays.
-    ``click_xy`` and ``template_xy`` differ under ``recentred=True``; nothing downstream
-    may substitute one for the other."""
+    """
+        One drawn seed: where its template is cut, and where its ground truth stays.
+        ``click_xy`` and ``template_xy`` differ under ``recentred=True``; nothing
+        downstream may substitute one for the other.
+    """
 
     ann_id: int # id of the seleced annotation
     click_xy: tuple # center of the click
@@ -271,7 +315,16 @@ class Seed:
 
 
 def _patch_readable(roi_shape, cx: float, cy: float, patch_size: int) -> bool:
-    """`template_match.read_padded_patch`'s own bounds predicate, on the rounded centre."""
+    """
+        `template_match.read_padded_patch`'s own bounds predicate, on the rounded centre.
+
+        roi_shape (tuple): the ROI's array shape.
+        cx (float): centre pixel, x.
+        cy (float): centre pixel, y.
+        patch_size (int): the patch's side length.
+
+        Returns bool: True when the patch fits inside the ROI.
+    """
     half = patch_size // 2
     ix, iy = int(round(cx)), int(round(cy))
     h, w = roi_shape[:2]
@@ -285,16 +338,19 @@ def build_seed(gt_mitotic: pd.DataFrame, structural_channel: np.ndarray, rng, ro
 
         gt_mitotic (pd.DataFrame): the image's mitotic ground truth, the draw pool.
         structural_channel (np.ndarray): single-channel image for the Otsu gate.
-        rng: numpy Generator; drawn without replacement, retrying on a refused candidate.
-        roi_shape: the ROI's array shape.
+        rng (np.random.Generator): drawn without replacement, retrying on a refused candidate.
+        roi_shape (tuple): the ROI's array shape.
         patch_size (int): full rotation-safe patch size for the border check.
         otsu_window (int): window size for the Otsu gate.
         recentre (bool): True (default, production) centres the template on the accepted
             component's bbox centre; False keeps it on the click and tightens size only.
         border (int): edge margin; defaults to patch_size // 2.
-        method, center_tolerance, headroom_frac: passed through to `tighten_box_otsu`.
+        method (str): passed through to `tighten_box_otsu`.
+        center_tolerance (int): passed through to `tighten_box_otsu`.
+        headroom_frac (float): passed through to `tighten_box_otsu`.
 
-        Returns Seed. Raises ValueError naming the stage that emptied the pool.
+        Returns Seed: the drawn seed and everything needed to cut its template.
+        Raises ValueError naming the stage that emptied the pool.
 
         Caller still owns: exclude seed.ann_id from the evaluation set and compute every
         match radius against seed.click_xy, never seed.template_xy.
