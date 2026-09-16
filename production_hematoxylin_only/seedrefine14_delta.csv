@@ -1,0 +1,15 @@
+file_name,domain,ann_id,base_hem,base_gray,delta_base_size,area_hem,area_gray,solidity_hem,solidity_gray,right_censored_gray,right_censored_hem,offset_hem_px,offset_gray_px,pct_change_base_size
+245.tiff,canine lymphosarcoma,6317,23,51,-28,296,1418,0.682,0.6529,True,False,5.385,0.0,-54.9
+300.tiff,canine cutaneous mast cell tumor,14499,25,49,-24,244,1069,0.9104,0.6186,False,False,4.123,2.5,-49.0
+201.tiff,canine lung cancer,4457,29,51,-22,347,1592,0.714,0.7443,True,False,5.0,0.5,-43.1
+403.tiff,human neuroendocrine tumor,20356,31,51,-20,505,1415,0.8516,0.8328,True,False,4.924,2.0,-39.2
+246.tiff,canine lymphosarcoma,6548,27,41,-14,265,495,0.8548,0.7011,False,False,2.5,8.515,-34.1
+301.tiff,canine cutaneous mast cell tumor,14969,33,41,-8,417,647,0.589,0.6013,False,False,4.5,5.5,-19.5
+460.tiff,canine soft tissue sarcoma,22577,41,47,-6,645,1338,0.8453,0.7852,False,False,3.905,4.472,-12.8
+529.tiff,human melanoma,24918,33,37,-4,500,672,0.7062,0.6985,False,False,6.671,6.083,-10.8
+402.tiff,human neuroendocrine tumor,20254,25,29,-4,397,565,0.9085,0.937,False,False,2.0,1.803,-13.8
+233.tiff,canine lung cancer,5761,23,25,-2,376,429,0.94,0.9032,False,False,0.0,1.414,-8.0
+459.tiff,canine soft tissue sarcoma,22441,31,33,-2,606,652,0.886,0.8763,False,False,1.0,0.707,-6.1
+094.tiff,human breast cancer,2512,23,25,-2,318,399,0.8908,0.9215,False,False,2.693,2.5,-8.0
+548.tiff,human melanoma,25804,27,29,-2,497,589,0.9431,0.9424,False,False,3.041,2.55,-6.9
+013.tiff,human breast cancer,249,39,39,0,934,998,0.9068,0.9122,False,False,1.118,2.5,0.0

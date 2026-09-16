@@ -1,0 +1,85 @@
+domain,arm,K,precision_pooled_hem,precision_pooled_gray,delta_precision_pooled
+canine cutaneous mast cell tumor,chromatin_od,10,0.8,0.85,-0.04999999999999993
+canine cutaneous mast cell tumor,chromatin_od,20,0.85,0.925,-0.07500000000000007
+canine cutaneous mast cell tumor,chromatin_od,30,0.8833,0.9,-0.016700000000000048
+canine cutaneous mast cell tumor,chromatin_od,50,0.81,0.87,-0.05999999999999994
+canine cutaneous mast cell tumor,od_contrast,10,0.75,0.8,-0.050000000000000044
+canine cutaneous mast cell tumor,od_contrast,20,0.825,0.9,-0.07500000000000007
+canine cutaneous mast cell tumor,od_contrast,30,0.85,0.9167,-0.06669999999999998
+canine cutaneous mast cell tumor,od_contrast,50,0.81,0.86,-0.04999999999999993
+canine cutaneous mast cell tumor,tm_score,10,0.95,0.9,0.04999999999999993
+canine cutaneous mast cell tumor,tm_score,20,0.85,0.875,-0.025000000000000022
+canine cutaneous mast cell tumor,tm_score,30,0.8167,0.8167,0.0
+canine cutaneous mast cell tumor,tm_score,50,0.75,0.8,-0.050000000000000044
+canine lung cancer,chromatin_od,10,0.5,0.55,-0.050000000000000044
+canine lung cancer,chromatin_od,20,0.325,0.4,-0.07500000000000001
+canine lung cancer,chromatin_od,30,0.2667,0.3167,-0.04999999999999999
+canine lung cancer,chromatin_od,50,0.16,0.21,-0.04999999999999999
+canine lung cancer,od_contrast,10,0.55,0.6,-0.04999999999999993
+canine lung cancer,od_contrast,20,0.325,0.375,-0.04999999999999999
+canine lung cancer,od_contrast,30,0.25,0.3,-0.04999999999999999
+canine lung cancer,od_contrast,50,0.18,0.21,-0.03
+canine lung cancer,tm_score,10,0.4,0.3,0.10000000000000003
+canine lung cancer,tm_score,20,0.275,0.25,0.025000000000000022
+canine lung cancer,tm_score,30,0.2,0.2333,-0.033299999999999996
+canine lung cancer,tm_score,50,0.13,0.19,-0.06
+canine lymphosarcoma,chromatin_od,10,0.55,0.55,0.0
+canine lymphosarcoma,chromatin_od,20,0.45,0.45,0.0
+canine lymphosarcoma,chromatin_od,30,0.45,0.4667,-0.016699999999999993
+canine lymphosarcoma,chromatin_od,50,0.41,0.41,0.0
+canine lymphosarcoma,od_contrast,10,0.55,0.55,0.0
+canine lymphosarcoma,od_contrast,20,0.475,0.5,-0.025000000000000022
+canine lymphosarcoma,od_contrast,30,0.4,0.45,-0.04999999999999999
+canine lymphosarcoma,od_contrast,50,0.4,0.42,-0.019999999999999962
+canine lymphosarcoma,tm_score,10,0.55,0.55,0.0
+canine lymphosarcoma,tm_score,20,0.525,0.5,0.025000000000000022
+canine lymphosarcoma,tm_score,30,0.4167,0.45,-0.033299999999999996
+canine lymphosarcoma,tm_score,50,0.34,0.37,-0.02999999999999997
+canine soft tissue sarcoma,chromatin_od,10,0.8,0.8,0.0
+canine soft tissue sarcoma,chromatin_od,20,0.775,0.825,-0.04999999999999993
+canine soft tissue sarcoma,chromatin_od,30,0.6667,0.7,-0.033299999999999996
+canine soft tissue sarcoma,chromatin_od,50,0.47,0.55,-0.08000000000000007
+canine soft tissue sarcoma,od_contrast,10,0.75,0.85,-0.09999999999999998
+canine soft tissue sarcoma,od_contrast,20,0.65,0.7,-0.04999999999999993
+canine soft tissue sarcoma,od_contrast,30,0.5833,0.6167,-0.033399999999999985
+canine soft tissue sarcoma,od_contrast,50,0.47,0.53,-0.06000000000000005
+canine soft tissue sarcoma,tm_score,10,0.55,0.65,-0.09999999999999998
+canine soft tissue sarcoma,tm_score,20,0.45,0.525,-0.07500000000000001
+canine soft tissue sarcoma,tm_score,30,0.4333,0.5167,-0.08340000000000003
+canine soft tissue sarcoma,tm_score,50,0.36,0.41,-0.04999999999999999
+human breast cancer,chromatin_od,10,0.55,0.55,0.0
+human breast cancer,chromatin_od,20,0.575,0.575,0.0
+human breast cancer,chromatin_od,30,0.5,0.5167,-0.016700000000000048
+human breast cancer,chromatin_od,50,0.34,0.36,-0.019999999999999962
+human breast cancer,od_contrast,10,0.55,0.5,0.050000000000000044
+human breast cancer,od_contrast,20,0.6,0.575,0.025000000000000022
+human breast cancer,od_contrast,30,0.4667,0.4833,-0.016600000000000004
+human breast cancer,od_contrast,50,0.32,0.34,-0.020000000000000018
+human breast cancer,tm_score,10,0.55,0.5,0.050000000000000044
+human breast cancer,tm_score,20,0.375,0.4,-0.025000000000000022
+human breast cancer,tm_score,30,0.3667,0.3833,-0.016599999999999948
+human breast cancer,tm_score,50,0.28,0.29,-0.009999999999999953
+human melanoma,chromatin_od,10,0.7,0.7,0.0
+human melanoma,chromatin_od,20,0.525,0.5,0.025000000000000022
+human melanoma,chromatin_od,30,0.4833,0.4667,0.016600000000000004
+human melanoma,chromatin_od,50,0.43,0.43,0.0
+human melanoma,od_contrast,10,0.75,0.7,0.050000000000000044
+human melanoma,od_contrast,20,0.6,0.55,0.04999999999999993
+human melanoma,od_contrast,30,0.5333,0.5167,0.016599999999999948
+human melanoma,od_contrast,50,0.43,0.42,0.010000000000000009
+human melanoma,tm_score,10,0.3,0.4,-0.10000000000000003
+human melanoma,tm_score,20,0.325,0.35,-0.024999999999999967
+human melanoma,tm_score,30,0.3333,0.3333,0.0
+human melanoma,tm_score,50,0.36,0.34,0.019999999999999962
+human neuroendocrine tumor,chromatin_od,10,0.55,0.6,-0.04999999999999993
+human neuroendocrine tumor,chromatin_od,20,0.45,0.55,-0.10000000000000003
+human neuroendocrine tumor,chromatin_od,30,0.4167,0.4833,-0.06659999999999999
+human neuroendocrine tumor,chromatin_od,50,0.4,0.42,-0.019999999999999962
+human neuroendocrine tumor,od_contrast,10,0.5,0.5,0.0
+human neuroendocrine tumor,od_contrast,20,0.5,0.525,-0.025000000000000022
+human neuroendocrine tumor,od_contrast,30,0.4667,0.5,-0.033299999999999996
+human neuroendocrine tumor,od_contrast,50,0.38,0.44,-0.06
+human neuroendocrine tumor,tm_score,10,0.35,0.45,-0.10000000000000003
+human neuroendocrine tumor,tm_score,20,0.3,0.4,-0.10000000000000003
+human neuroendocrine tumor,tm_score,30,0.2833,0.3667,-0.08340000000000003
+human neuroendocrine tumor,tm_score,50,0.32,0.37,-0.04999999999999999
