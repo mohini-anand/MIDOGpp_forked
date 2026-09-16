@@ -1,0 +1,171 @@
+file_name,image_id,domain,n_mitotic,seed_pool,draw_rank,split,figshare_id
+343.tiff,343,canine cutaneous mast cell tumor,37,28,0,train,40283038
+337.tiff,337,canine cutaneous mast cell tumor,30,13,1,train,40282936
+339.tiff,339,canine cutaneous mast cell tumor,15,10,2,test,40282942
+322.tiff,322,canine cutaneous mast cell tumor,23,23,3,train,40282906
+344.tiff,344,canine cutaneous mast cell tumor,44,30,4,test,40282966
+334.tiff,334,canine cutaneous mast cell tumor,20,8,5,train,40283005
+346.tiff,346,canine cutaneous mast cell tumor,164,111,6,test,40282972
+318.tiff,318,canine cutaneous mast cell tumor,97,79,7,train,40282948
+342.tiff,342,canine cutaneous mast cell tumor,16,9,8,train,40282954
+340.tiff,340,canine cutaneous mast cell tumor,66,59,9,train,40283029
+345.tiff,345,canine cutaneous mast cell tumor,191,162,10,test,40283071
+341.tiff,341,canine cutaneous mast cell tumor,23,13,11,train,40282960
+309.tiff,309,canine cutaneous mast cell tumor,201,178,12,train,40282933
+312.tiff,312,canine cutaneous mast cell tumor,18,9,13,train,40282873
+331.tiff,331,canine cutaneous mast cell tumor,36,32,14,train,40282999
+305.tiff,305,canine cutaneous mast cell tumor,33,22,15,test,40282915
+310.tiff,310,canine cutaneous mast cell tumor,20,17,16,test,40282879
+325.tiff,325,canine cutaneous mast cell tumor,210,179,17,train,40282978
+328.tiff,328,canine cutaneous mast cell tumor,130,103,18,train,40282993
+307.tiff,307,canine cutaneous mast cell tumor,157,128,19,train,40282918
+349.tiff,349,canine cutaneous mast cell tumor,53,46,20,train,40283047
+303.tiff,303,canine cutaneous mast cell tumor,169,110,21,train,40282897
+321.tiff,321,canine cutaneous mast cell tumor,27,15,22,train,40282963
+242.tiff,242,canine lung cancer,27,23,0,train,40282714
+211.tiff,211,canine lung cancer,20,14,1,train,40282612
+220.tiff,220,canine lung cancer,77,51,2,test,40282609
+235.tiff,235,canine lung cancer,22,20,3,train,40282645
+230.tiff,230,canine lung cancer,18,9,4,test,40282669
+240.tiff,240,canine lung cancer,18,12,5,train,40282708
+227.tiff,227,canine lung cancer,58,38,6,train,40282642
+237.tiff,237,canine lung cancer,29,23,7,train,40282654
+214.tiff,214,canine lung cancer,15,11,8,train,40282618
+218.tiff,218,canine lung cancer,30,14,9,test,40282627
+210.tiff,210,canine lung cancer,43,36,10,train,40282594
+228.tiff,228,canine lung cancer,39,25,11,train,40282672
+203.tiff,203,canine lung cancer,20,7,12,test,40282549
+205.tiff,205,canine lung cancer,24,16,13,train,40282552
+204.tiff,204,canine lung cancer,21,14,14,train,40282546
+229.tiff,229,canine lung cancer,41,22,15,train,40282633
+238.tiff,238,canine lung cancer,60,39,16,train,40282687
+212.tiff,212,canine lung cancer,26,20,17,test,40282621
+219.tiff,219,canine lung cancer,16,9,18,train,40282636
+284.tiff,284,canine lymphosarcoma,75,55,0,train,40282786
+249.tiff,249,canine lymphosarcoma,112,66,1,test,40282690
+293.tiff,293,canine lymphosarcoma,105,79,2,train,40282876
+289.tiff,289,canine lymphosarcoma,18,12,3,train,40282855
+291.tiff,291,canine lymphosarcoma,87,59,4,test,40282867
+270.tiff,270,canine lymphosarcoma,90,56,5,train,40282738
+264.tiff,264,canine lymphosarcoma,39,28,6,train,40282729
+266.tiff,266,canine lymphosarcoma,55,41,7,train,40282741
+268.tiff,268,canine lymphosarcoma,163,132,8,test,40282735
+257.tiff,257,canine lymphosarcoma,20,15,9,test,40282765
+296.tiff,296,canine lymphosarcoma,18,12,10,train,40282831
+271.tiff,271,canine lymphosarcoma,112,86,11,train,40282819
+275.tiff,275,canine lymphosarcoma,26,19,12,train,40282822
+280.tiff,280,canine lymphosarcoma,109,95,13,train,40282780
+286.tiff,286,canine lymphosarcoma,66,56,14,train,40282789
+252.tiff,252,canine lymphosarcoma,30,16,15,test,40282699
+273.tiff,273,canine lymphosarcoma,55,49,16,train,40282810
+250.tiff,250,canine lymphosarcoma,140,93,17,train,40282696
+283.tiff,283,canine lymphosarcoma,131,113,18,train,40282858
+279.tiff,279,canine lymphosarcoma,18,15,19,train,40282849
+248.tiff,248,canine lymphosarcoma,104,91,20,train,40282753
+298.tiff,298,canine lymphosarcoma,70,50,21,train,40282825
+295.tiff,295,canine lymphosarcoma,106,64,22,test,40282888
+251.tiff,251,canine lymphosarcoma,42,24,23,test,40282732
+290.tiff,290,canine lymphosarcoma,200,152,24,train,40282792
+292.tiff,292,canine lymphosarcoma,96,85,25,test,40282804
+288.tiff,288,canine lymphosarcoma,193,162,26,train,40282783
+260.tiff,260,canine lymphosarcoma,53,33,27,train,40282771
+299.tiff,299,canine lymphosarcoma,98,53,28,train,40282900
+278.tiff,278,canine lymphosarcoma,69,56,29,train,40282777
+285.tiff,285,canine lymphosarcoma,70,57,30,train,40282852
+281.tiff,281,canine lymphosarcoma,40,34,31,train,40282840
+269.tiff,269,canine lymphosarcoma,59,44,32,test,40282807
+297.tiff,297,canine lymphosarcoma,36,29,33,train,40282894
+294.tiff,294,canine lymphosarcoma,31,26,34,train,40282816
+254.tiff,254,canine lymphosarcoma,35,27,35,train,40282705
+262.tiff,262,canine lymphosarcoma,107,91,36,train,40282726
+272.tiff,272,canine lymphosarcoma,153,120,37,train,40282759
+267.tiff,267,canine lymphosarcoma,101,79,38,train,40282798
+277.tiff,277,canine lymphosarcoma,45,39,39,train,40282828
+261.tiff,261,canine lymphosarcoma,50,18,40,train,40282774
+253.tiff,253,canine lymphosarcoma,69,49,41,test,40282756
+282.tiff,282,canine lymphosarcoma,43,32,42,train,40282801
+259.tiff,259,canine lymphosarcoma,50,29,43,train,40282768
+256.tiff,256,canine lymphosarcoma,49,27,44,test,40282702
+258.tiff,258,canine lymphosarcoma,24,7,45,train,40282711
+287.tiff,287,canine lymphosarcoma,62,50,46,train,40282864
+255.tiff,255,canine lymphosarcoma,103,56,47,train,40282762
+263.tiff,263,canine lymphosarcoma,83,55,48,train,40282813
+462.tiff,462,canine soft tissue sarcoma,15,13,0,train,40283509
+435.tiff,435,canine soft tissue sarcoma,53,40,1,train,40283263
+425.tiff,425,canine soft tissue sarcoma,17,11,2,test,40283212
+499.tiff,499,canine soft tissue sarcoma,62,59,3,train,40283518
+410.tiff,410,canine soft tissue sarcoma,17,13,4,train,40283140
+489.tiff,489,canine soft tissue sarcoma,15,10,5,train,40283494
+421.tiff,421,canine soft tissue sarcoma,58,55,6,train,40283176
+476.tiff,476,canine soft tissue sarcoma,21,17,7,test,40283449
+440.tiff,440,canine soft tissue sarcoma,47,40,8,train,40283332
+448.tiff,448,canine soft tissue sarcoma,57,55,9,train,40283356
+486.tiff,486,canine soft tissue sarcoma,16,11,10,train,40283467
+444.tiff,444,canine soft tissue sarcoma,18,18,11,train,40283341
+469.tiff,469,canine soft tissue sarcoma,17,17,12,train,40283524
+470.tiff,470,canine soft tissue sarcoma,17,13,13,train,40283422
+436.tiff,436,canine soft tissue sarcoma,19,15,14,train,40283320
+504.tiff,504,canine soft tissue sarcoma,27,27,15,test,40283644
+492.tiff,492,canine soft tissue sarcoma,15,15,16,train,40283491
+473.tiff,473,canine soft tissue sarcoma,26,23,17,train,40283539
+458.tiff,458,canine soft tissue sarcoma,58,55,18,test,40283488
+471.tiff,471,canine soft tissue sarcoma,18,11,19,train,40283527
+463.tiff,463,canine soft tissue sarcoma,16,13,20,test,40283503
+502.tiff,502,canine soft tissue sarcoma,26,25,21,train,40283641
+007.tiff,7,human breast cancer,22,17,0,test,40282135
+072.tiff,72,human breast cancer,49,32,1,train,40282318
+128.tiff,128,human breast cancer,30,28,2,test,40282465
+100.tiff,100,human breast cancer,44,22,3,test,40282384
+123.tiff,123,human breast cancer,36,27,4,test,40282477
+134.tiff,134,human breast cancer,74,39,5,train,40282498
+130.tiff,130,human breast cancer,22,18,6,train,40282516
+064.tiff,64,human breast cancer,25,20,7,test,40282273
+139.tiff,139,human breast cancer,61,39,8,train,40282501
+140.tiff,140,human breast cancer,19,10,9,train,40282513
+040.tiff,40,human breast cancer,15,12,10,train,40282225
+121.tiff,121,human breast cancer,19,9,11,train,40282486
+034.tiff,34,human breast cancer,60,50,12,train,40282186
+078.tiff,78,human breast cancer,58,42,13,train,40282312
+149.tiff,149,human breast cancer,31,24,14,train,40282564
+136.tiff,136,human breast cancer,25,19,15,train,40282504
+027.tiff,27,human breast cancer,20,14,16,train,40282174
+131.tiff,131,human breast cancer,23,13,17,train,40282480
+071.tiff,71,human breast cancer,22,16,18,train,40282324
+102.tiff,102,human breast cancer,22,14,19,test,40282390
+114.tiff,114,human breast cancer,22,14,20,train,40282441
+039.tiff,39,human breast cancer,41,28,21,train,40282210
+106.tiff,106,human breast cancer,26,15,22,train,40282417
+112.tiff,112,human breast cancer,34,18,23,train,40282429
+070.tiff,70,human breast cancer,30,24,24,train,40282300
+141.tiff,141,human breast cancer,38,27,25,train,40282534
+083.tiff,83,human breast cancer,23,18,26,train,40282342
+107.tiff,107,human breast cancer,17,11,27,test,40282432
+024.tiff,24,human breast cancer,43,37,28,train,40282171
+084.tiff,84,human breast cancer,25,15,29,train,40282357
+086.tiff,86,human breast cancer,21,13,30,train,40282336
+050.tiff,50,human breast cancer,19,13,31,test,40282240
+076.tiff,76,human breast cancer,18,13,32,train,40282303
+546.tiff,546,human melanoma,28,15,0,train,40283665
+527.tiff,527,human melanoma,43,29,1,train,40283695
+509.tiff,509,human melanoma,18,18,2,train,40283542
+524.tiff,524,human melanoma,15,9,3,train,40283578
+549.tiff,549,human melanoma,28,22,4,train,40283731
+542.tiff,542,human melanoma,57,40,5,train,40283638
+544.tiff,544,human melanoma,34,18,6,train,40283653
+535.tiff,535,human melanoma,131,123,7,train,40283623
+533.tiff,533,human melanoma,23,18,8,test,40283704
+528.tiff,528,human melanoma,52,45,9,test,40283611
+526.tiff,526,human melanoma,69,50,10,train,40283602
+523.tiff,523,human melanoma,25,25,11,train,40283686
+539.tiff,539,human melanoma,27,25,12,test,40283713
+520.tiff,520,human melanoma,23,20,13,train,40283584
+553.tiff,553,human melanoma,22,21,14,train,40283740
+551.tiff,551,human melanoma,26,20,15,train,40283734
+552.tiff,552,human melanoma,79,74,16,test,40283671
+550.tiff,550,human melanoma,40,31,17,train,40283662
+353.tiff,353,human neuroendocrine tumor,63,47,0,test,40283056
+401.tiff,401,human neuroendocrine tumor,19,14,1,train,40283293
+364.tiff,364,human neuroendocrine tumor,23,7,2,train,40283101
+400.tiff,400,human neuroendocrine tumor,104,91,3,train,40283287
+404.tiff,404,human neuroendocrine tumor,61,49,4,train,40283128
+356.tiff,356,human neuroendocrine tumor,18,11,5,train,40283002
