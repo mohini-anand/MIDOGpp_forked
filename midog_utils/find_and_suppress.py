@@ -22,9 +22,9 @@ from .nms import nms_by_distance
 
 @dataclass
 class FSConfig:
-    channel: str = "gray_inverted"
-    base_size: int = tm.BASE_SIZE
-    patch_size: int = tm.PATCH_SIZE
+    channel: str = "gray_inverted" # production overrides this to "hematoxylin_od"; this default is only live in experiment.py's bare FSConfig() calls
+    base_size: int = tm.BASE_SIZE # longer side of refined template, actual template becomes square 
+    patch_size: int = tm.PATCH_SIZE # size of the patch to read from the image, ceil(BASE_SIZE * sqrt(2))
     scales: tuple = (1.0,)
     n_angles: int = 1
     flips: tuple = (False,)

@@ -100,7 +100,7 @@ def run_pipeline_on_roi(fn: str, *, ann_id: int | None = None, seed_index: int =
     rgb = ds.load_roi(f"{images_dir}/{fn}")
     mpp = ds.roi_mpp(f"{images_dir}/{fn}")
     roi_shape = rgb.shape
-    match_radius = ev.radius_px(mpp)
+    match_radius = ev.radius_px(mpp) # currently redundant, already returned by info as well.
     gray_inv = ch.to_channel(rgb, "gray_inverted")
 
     gt = ds.image_annotations(annotations, fn)
