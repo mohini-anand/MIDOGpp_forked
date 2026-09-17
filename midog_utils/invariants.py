@@ -6,82 +6,15 @@
 
 from __future__ import annotations
 
-from typing import Iterable, Optional, Sequence
+from typing import Iterable, Optional
 
 import numpy as np
-import pandas as pd
 
 from .evaluate import radius_px
 
 
 class InvariantError(AssertionError):
     """A structural property this experiment relies on has stopped holding."""
-
-
-def check_no_cap(n_items: int, caps: Sequence, label: str = "") -> dict:
-    """
-        Invariant: no arm's list length may equal a configured cap.
-
-        n_items (int): the list length to check.
-        caps (Sequence): every truncation limit that could have bound on this arm; None
-            entries (no limit configured) are skipped.
-        label (str): identifies the caller in the error message.
-
-        Returns dict: what was checked, or raises InvariantError on an exact-cap hit.
-    """
-    hits = [int(c) for c in caps if c is not None and int(c) == int(n_items)]
-    if hits:
-        raise InvariantError(
-            f"{label}: candidate list length {n_items} exactly equals configured cap(s) "
-            f"{hits} -- the list was almost certainly truncated, so every rank statistic "
-            "derived from it is conditioned on the truncation"
-        )
-    return {"check": "no_cap", "label": label, "n_items": int(n_items),
-            "caps": tuple(int(c) for c in caps if c is not None), "passed": True}
-
-
-def check_tissue_mask_covers_gt(mask: np.ndarray, gt: pd.DataFrame, label: str = "", strict_categories=(1,)) -> dict:
-    """
-        Invariant: `baselines.tissue_mask` must exclude 0 ground-truth annotations in
-        ``strict_categories`` (default: category 1, mitotic).
-
-        mask (np.ndarray): the tissue mask.
-        gt (pd.DataFrame): ground-truth annotations to check, tested on the rounded click pixel.
-        label (str): identifies the caller in the error message.
-        strict_categories (tuple or None): which categories make an exclusion fatal; None
-            requires full coverage of every category.
-
-        Returns dict: exclusion counts, or raises InvariantError on a fatal exclusion.
-    """
-    empty = {"check": "tissue_mask_covers_gt", "label": label, "n_gt": 0,
-             "n_excluded": 0, "n_excluded_strict": 0, "excluded_ann_ids": "",
-             "passed": True}
-    if len(gt) == 0:
-        return empty
-    h, w = mask.shape[:2]
-    ix = np.rint(gt["cx"].to_numpy()).astype(int)
-    iy = np.rint(gt["cy"].to_numpy()).astype(int)
-    inside = (ix >= 0) & (ix < w) & (iy >= 0) & (iy < h)
-    covered = np.zeros(len(gt), dtype=bool)
-    covered[inside] = mask[iy[inside], ix[inside]]
-
-    out = gt[~covered]
-    if strict_categories is None:
-        fatal = out
-    else:
-        fatal = out[out["category_id"].isin(list(strict_categories))]
-    if len(fatal):
-        raise InvariantError(
-            f"{label}: tissue_mask excludes {len(fatal)} of {len(gt)} ground-truth "
-            f"annotations in categories {strict_categories} (ann_ids "
-            f"{sorted(fatal['ann_id'].tolist())}) -- every seedless arm restricted to "
-            "this mask is being scored against ground truth it was never allowed to reach"
-        )
-    return {"check": "tissue_mask_covers_gt", "label": label, "n_gt": int(len(gt)),
-            "n_excluded": int(len(out)), "n_excluded_strict": 0,
-            "excluded_ann_ids": ";".join(
-                f"{int(r.ann_id)}(cat{int(r.category_id)})" for r in out.itertuples()),
-            "passed": True}
 
 
 def check_distinct_seeds(seed_records: Iterable, pool_size: Optional[int] = None, label: str = "") -> dict:
@@ -131,21 +64,3 @@ def check_nms_radius(used_radius: float, mpp: float, label: str = "", tol: float
         )
     return {"check": "nms_radius", "label": label, "used_radius": float(used_radius),
             "expected_radius": float(want), "mpp": float(mpp), "passed": True}
-
-
-def check_min_separation(centers: np.ndarray, radius: float, label: str = "") -> dict:
-    """Post-NMS geometry: no two kept points may lie within ``radius`` of each other."""
-    centers = np.asarray(centers, dtype=np.float64).reshape(-1, 2)
-    if len(centers) < 2:
-        return {"check": "min_separation", "label": label, "n": int(len(centers)),
-                "min_distance": float("inf"), "radius": float(radius), "passed": True}
-    from sklearn.neighbors import KDTree
-    dist, _ = KDTree(centers).query(centers, k=2)
-    d_min = float(dist[:, 1].min())
-    if d_min <= radius:
-        raise InvariantError(
-            f"{label}: two kept points are {d_min:.3f} px apart, within the "
-            f"{radius:.3f} px NMS radius -- suppression was not applied at the match radius"
-        )
-    return {"check": "min_separation", "label": label, "n": int(len(centers)),
-            "min_distance": d_min, "radius": float(radius), "passed": True}

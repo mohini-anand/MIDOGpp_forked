@@ -11,7 +11,6 @@ from dataclasses import dataclass
 import cv2
 import numpy as np
 import pandas as pd
-from skimage.filters import threshold_multiotsu
 from skimage.measure import label, regionprops
 
 from . import template_match as tm
@@ -63,42 +62,14 @@ def border_filter(df: pd.DataFrame, border: int, roi_shape) -> pd.DataFrame:
     return df[ok]
 
 
-def _nearest_label_within(labels: np.ndarray, cy: int, cx: int, tolerance: int) -> int:
+def tighten_box_otsu(patch: np.ndarray, min_area: int = 50, max_area_frac: float = 0.85, min_solidity: float = 0.5):
     """
-        The foreground label closest to (cy, cx) within an L-inf tolerance, or 0.
-
-        labels (np.ndarray): connected-component label image.
-        cy (int): row of the query point.
-        cx (int): column of the query point.
-        tolerance (int): L-inf half-width of the search window.
-
-        Returns int: the nearest label, or 0 when nothing is within tolerance.
-    """
-    h, w = labels.shape
-    y0, y1 = max(0, cy - tolerance), min(h, cy + tolerance + 1)
-    x0, x1 = max(0, cx - tolerance), min(w, cx + tolerance + 1)
-    window = labels[y0:y1, x0:x1]
-    ys, xs = np.nonzero(window)
-    if len(ys) == 0:
-        return 0
-    dy, dx = (ys + y0 - cy), (xs + x0 - cx)
-    nearest = np.argmin(dy * dy + dx * dx)
-    return int(window[ys[nearest], xs[nearest]])
-
-
-def tighten_box_otsu(patch: np.ndarray, min_area: int = 50, max_area_frac: float = 0.85, min_solidity: float = 0.5, method: str = "binary", center_tolerance: int = 0, headroom_frac: float = None):
-    """
-        Threshold ``patch`` and return the connected component under (or near) its centre.
+        Two-class Otsu threshold ``patch`` and return the connected component under its centre.
 
         patch (np.ndarray): single-channel patch, "more object -> higher value".
         min_area (int): reject a component smaller than this.
         max_area_frac (float): reject a component larger than this fraction of the patch.
         min_solidity (float): reject a component less convex than this (filled/hull area).
-        method (str): "binary" (two-class Otsu), "multiotsu" (3-class, brightest kept), or
-            "headroom" (Otsu threshold raised by headroom_frac of the headroom to max).
-        center_tolerance (int): widen the centre check to the nearest foreground pixel
-            within this L-inf half-width, instead of requiring the exact click pixel.
-        headroom_frac (float): required in [0, 1] when method="headroom".
 
         Returns tuple[int, int, int, int] or None: (y0, y1, x0, x1) half-open, patch-local
         bbox, or None when the centre isn't foreground or the component fails the gate.
@@ -106,35 +77,13 @@ def tighten_box_otsu(patch: np.ndarray, min_area: int = 50, max_area_frac: float
     if patch.ndim != 2:
         raise ValueError(
             f"tighten_box_otsu needs a single-channel patch, got shape {patch.shape} -- "
-            "pass the structural (gray_inverted/hematoxylin) channel, not channels.to_rgb"
+            "an RGB array was passed instead of a single structural channel (e.g. gray_inverted)"
         )
     u8 = cv2.normalize(patch.astype(np.float32), None, 0, 255, cv2.NORM_MINMAX).astype(np.uint8)
-    if method == "binary":
-        _, binary = cv2.threshold(u8, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
-    elif method == "multiotsu":
-        if len(np.unique(u8)) < 3:
-            return None
-        try:
-            thresholds = threshold_multiotsu(u8, classes=3)
-        except ValueError:
-            return None
-        binary = np.where(u8 > thresholds[-1], np.uint8(255), np.uint8(0))
-    elif method == "headroom":
-        if headroom_frac is None or not (0 <= headroom_frac <= 1):
-            raise ValueError(
-                f"headroom_frac must be a float in [0, 1] for method='headroom', "
-                f"got {headroom_frac!r}"
-            )
-        otsu_thresh, _ = cv2.threshold(u8, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
-        threshold = otsu_thresh + headroom_frac * (255 - otsu_thresh)
-        binary = np.where(u8 > threshold, np.uint8(255), np.uint8(0))
-    else:
-        raise ValueError(f"method must be 'binary', 'multiotsu', or 'headroom', got {method!r}")
+    _, binary = cv2.threshold(u8, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
     labels = label(binary, connectivity=2)
     cy, cx = patch.shape[0] // 2, patch.shape[1] // 2
     center_label = labels[cy, cx]
-    if center_label == 0 and center_tolerance > 0:
-        center_label = _nearest_label_within(labels, cy, cx, center_tolerance)
     if center_label == 0:
         return None
 
@@ -153,107 +102,7 @@ def tighten_box_otsu(patch: np.ndarray, min_area: int = 50, max_area_frac: float
     return int(y0), int(y1), int(x0), int(x1)
 
 
-def foreground_filter(df: pd.DataFrame, structural_channel: np.ndarray, otsu_window: int = tm.BASE_SIZE, method: str = "binary", center_tolerance: int = 0, headroom_frac: float = None) -> pd.DataFrame:
-    """
-        Keep only annotations whose click lands inside (or near) its own Otsu component.
-
-        df (pd.DataFrame): candidate annotations, with cx/cy columns.
-        structural_channel (np.ndarray): single-channel image `tighten_box_otsu` runs on.
-        otsu_window (int): window size around each click.
-        method (str): passed through to `tighten_box_otsu`.
-        center_tolerance (int): passed through to `tighten_box_otsu`.
-        headroom_frac (float): passed through to `tighten_box_otsu`.
-
-        Returns pd.DataFrame: the surviving rows of ``df``.
-    """
-    keep = np.zeros(len(df), dtype=bool)
-    for i, (_, row) in enumerate(df.iterrows()):
-        patch = tm.read_padded_patch(structural_channel, row["cx"], row["cy"], otsu_window)
-        keep[i] = patch is not None and tighten_box_otsu(
-            patch, method=method, center_tolerance=center_tolerance, headroom_frac=headroom_frac
-        ) is not None
-    return df[keep]
-
-
-@dataclass
-class SeedInfo:
-    agreement_flagged: bool
-    n_agreement_pool: int
-    n_after_border: int
-    n_after_foreground: int
-
-
-def pick_seed(gt_mitotic: pd.DataFrame, structural_channel: np.ndarray, rng, border: int, roi_shape, otsu_window: int = tm.BASE_SIZE, method: str = "binary", center_tolerance: int = 0, headroom_frac: float = None, tighten_bbox: bool = True):
-    """
-        Pick a mitotic seed under the pathologist-agreement and bbox-tightening filters.
-        `build_seed` is the entry point for new work; this is kept for callers that only
-        need the drawn row.
-
-        gt_mitotic (pd.DataFrame): the image's mitotic ground truth.
-        structural_channel (np.ndarray): single-channel image for the foreground filter.
-        rng (np.random.Generator): drawn from without replacement.
-        border (int): edge margin, usually FSConfig.patch_size // 2.
-        roi_shape (tuple): the ROI's array shape.
-        otsu_window (int): passed through to `tighten_box_otsu`/`foreground_filter`.
-        method (str): passed through to `tighten_box_otsu`/`foreground_filter`.
-        center_tolerance (int): passed through to `tighten_box_otsu`/`foreground_filter`.
-        headroom_frac (float): passed through to `tighten_box_otsu`/`foreground_filter`.
-        tighten_bbox (bool): when False, skip the foreground filter entirely.
-
-        Returns tuple[pd.Series, SeedInfo]: the drawn row and per-stage pool sizes.
-        Raises ValueError naming the stage that emptied the pool.
-    """
-    pool, flagged = agreement_pool(gt_mitotic)
-    n_pool = len(pool)
-    pool = border_filter(pool, border, roi_shape)
-    n_border = len(pool)
-    if tighten_bbox:
-        pool = foreground_filter(pool, structural_channel, otsu_window, method=method,
-                                 center_tolerance=center_tolerance, headroom_frac=headroom_frac)
-    n_fg = len(pool)
-
-    info = SeedInfo(flagged, n_pool, n_border, n_fg)
-    if n_fg == 0:
-        stage = "agreement" if n_pool == 0 else ("border" if n_border == 0 else "foreground")
-        raise ValueError(
-            f"no seed candidates left (emptied at the {stage} filter); "
-            f"agreement_flagged={flagged}, pool sizes: agreement={n_pool}, "
-            f"border={n_border}, foreground={n_fg}"
-        )
-    seed = pool.iloc[int(rng.integers(len(pool)))]
-    return seed, info
-
-
-def tightened_base_size(structural_channel: np.ndarray, cx: float, cy: float, otsu_window: int = tm.BASE_SIZE, minimum: int = 5, method: str = "binary", center_tolerance: int = 0, headroom_frac: float = None):
-    """
-        The native template size for a seed after bbox tightening, click-centred (size
-        only, no recentring). See `tightened_template_box` for the recentred variant
-        `build_seed` uses by default.
-
-        structural_channel (np.ndarray): single-channel image for the Otsu gate.
-        cx (float): click centre, x.
-        cy (float): click centre, y.
-        otsu_window (int): window size for the Otsu gate.
-        minimum (int): smallest odd size to return.
-        method (str): passed through to `tighten_box_otsu`.
-        center_tolerance (int): passed through to `tighten_box_otsu`.
-        headroom_frac (float): passed through to `tighten_box_otsu`.
-
-        Returns int or None: the odd template size, or None if ungated.
-    """
-    patch = tm.read_padded_patch(structural_channel, cx, cy, otsu_window)
-    if patch is None:
-        return None
-    bbox = tighten_box_otsu(patch, method=method, center_tolerance=center_tolerance,
-                            headroom_frac=headroom_frac)
-    if bbox is None:
-        return None
-    y0, y1, x0, x1 = bbox
-    size = max(y1 - y0, x1 - x0)
-    return _odd(size, minimum=minimum)
-
-
-def tightened_template_box(structural_channel: np.ndarray, cx: float, cy: float, otsu_window: int = tm.BASE_SIZE, minimum: int = 5, method: str = "binary", center_tolerance: int = 0, headroom_frac: float = None):
+def tightened_template_box(structural_channel: np.ndarray, cx: float, cy: float, otsu_window: int = tm.BASE_SIZE, minimum: int = 5):
     """
         The template size and centre for a seed: both taken from the accepted component.
         D8's production seed/template constructor (`D8_TEMPLATE_ANCHOR.md`).
@@ -263,9 +112,6 @@ def tightened_template_box(structural_channel: np.ndarray, cx: float, cy: float,
         cy (float): click centre, y.
         otsu_window (int): window size for the Otsu gate.
         minimum (int): smallest odd size to return.
-        method (str): passed through to `tighten_box_otsu`.
-        center_tolerance (int): passed through to `tighten_box_otsu`.
-        headroom_frac (float): passed through to `tighten_box_otsu`.
 
         base_size (int): the odd template size.
         center_x (float): accepted component's bbox pixel centre, x -- ``(x0 + x1 - 1) / 2``,
@@ -280,8 +126,7 @@ def tightened_template_box(structural_channel: np.ndarray, cx: float, cy: float,
     patch = tm.read_padded_patch(structural_channel, cx, cy, otsu_window)
     if patch is None:
         return None
-    bbox = tighten_box_otsu(patch, method=method, center_tolerance=center_tolerance,
-                            headroom_frac=headroom_frac)
+    bbox = tighten_box_otsu(patch)
     if bbox is None:
         return None
     y0, y1, x0, x1 = bbox
@@ -298,15 +143,15 @@ def tightened_template_box(structural_channel: np.ndarray, cx: float, cy: float,
 class Seed:
     """
         One drawn seed: where its template is cut, and where its ground truth stays.
-        ``click_xy`` and ``template_xy`` differ under ``recentred=True``; nothing
-        downstream may substitute one for the other.
+        ``click_xy`` and ``template_xy`` can differ, since the template is recentred on its
+        accepted component; nothing downstream may substitute one for the other.
     """
 
     ann_id: int # id of the seleced annotation
     click_xy: tuple # center of the click
     template_xy: tuple # cener of the tightened template
     base_size: int # size of the tightened template
-    recentred: bool # whether the template is recentered based on the component
+    recentred: bool # always True: the template is recentred on the accepted component
     offset_px: float # offset between the click and template 
     n_retries: int # number of retries
     agreement_flagged: bool # whether the seed is flagged; True for non-unanimous annotations
@@ -331,10 +176,10 @@ def _patch_readable(roi_shape, cx: float, cy: float, patch_size: int) -> bool:
     return not (ix - half < 0 or iy - half < 0 or ix + half >= w or iy + half >= h)
 
 
-def build_seed(gt_mitotic: pd.DataFrame, structural_channel: np.ndarray, rng, roi_shape, patch_size: int = tm.PATCH_SIZE, otsu_window: int = tm.BASE_SIZE, recentre: bool = True, border: int = None, method: str = "binary", center_tolerance: int = 0, headroom_frac: float = None) -> Seed:
+def build_seed(gt_mitotic: pd.DataFrame, structural_channel: np.ndarray, rng, roi_shape, patch_size: int = tm.PATCH_SIZE, otsu_window: int = tm.BASE_SIZE, border: int = None) -> Seed:
     """
-        Draw a seed and everything needed to cut its template. Production entry point
-        (`D8_TEMPLATE_ANCHOR.md`).
+        Draw a seed and everything needed to cut its template, centred on the accepted
+        component's bbox centre. Production entry point (`D8_TEMPLATE_ANCHOR.md`).
 
         gt_mitotic (pd.DataFrame): the image's mitotic ground truth, the draw pool.
         structural_channel (np.ndarray): single-channel image for the Otsu gate.
@@ -342,12 +187,7 @@ def build_seed(gt_mitotic: pd.DataFrame, structural_channel: np.ndarray, rng, ro
         roi_shape (tuple): the ROI's array shape.
         patch_size (int): full rotation-safe patch size for the border check.
         otsu_window (int): window size for the Otsu gate.
-        recentre (bool): True (default, production) centres the template on the accepted
-            component's bbox centre; False keeps it on the click and tightens size only.
         border (int): edge margin; defaults to patch_size // 2.
-        method (str): passed through to `tighten_box_otsu`.
-        center_tolerance (int): passed through to `tighten_box_otsu`.
-        headroom_frac (float): passed through to `tighten_box_otsu`.
 
         Returns Seed: the drawn seed and everything needed to cut its template.
         Raises ValueError naming the stage that emptied the pool.
@@ -366,14 +206,8 @@ def build_seed(gt_mitotic: pd.DataFrame, structural_channel: np.ndarray, rng, ro
         idx = int(rng.integers(len(working)))
         row = working.iloc[idx]
         cx, cy = float(row["cx"]), float(row["cy"])
-        kw = dict(otsu_window=otsu_window, method=method,
-                  center_tolerance=center_tolerance, headroom_frac=headroom_frac)
-        if recentre:
-            got = tightened_template_box(structural_channel, cx, cy, **kw)
-            spec = None if got is None else (got[0], got[1], got[2])
-        else:
-            got = tightened_base_size(structural_channel, cx, cy, **kw)
-            spec = None if got is None else (got, cx, cy)
+        got = tightened_template_box(structural_channel, cx, cy, otsu_window=otsu_window)
+        spec = None if got is None else (got[0], got[1], got[2])
         if spec is not None and _patch_readable(roi_shape, spec[1], spec[2], patch_size):
             base_size, tx, ty = spec
             return Seed(
@@ -381,7 +215,7 @@ def build_seed(gt_mitotic: pd.DataFrame, structural_channel: np.ndarray, rng, ro
                 click_xy=(cx, cy),
                 template_xy=(tx, ty),
                 base_size=int(base_size), 
-                recentred=bool(recentre),
+                recentred=True,
                 offset_px=float(np.hypot(tx - cx, ty - cy)),
                 n_retries=retries,
                 agreement_flagged=bool(flagged),

@@ -75,32 +75,3 @@ def draw_box(ax, box, color, lw=1.6, label=None, scale=1.0):
     ax.add_patch(Rectangle(((x0 - 0.5) * scale, (y0 - 0.5) * scale),
                            (x1 - x0) * scale, (y1 - y0) * scale,
                            fill=False, edgecolor=color, linewidth=lw, label=label))
-
-
-def legend_handles():
-    from matplotlib.lines import Line2D
-
-    return [
-        Line2D([], [], color="#d50000", lw=2, label="GT mitotic figure"),
-        Line2D([], [], color="#ffea00", lw=2, label="GT look-alike (cat 2)"),
-        Line2D([], [], color=BUCKET_COLORS[HUMAN_CORRECT_LABEL], lw=2, label="detection: human_correct_label"),
-        Line2D([], [], color=BUCKET_COLORS[HUMAN_REJECTED_LABEL], lw=2, label="detection: human_rejected_label"),
-        Line2D([], [], color=BUCKET_COLORS[NON_HUMAN_FINDINGS], lw=2, label="detection: non_human_findings"),
-        Line2D([], [], color="white", marker="*", markeredgecolor="black", lw=0, label="seed"),
-    ]
-
-
-def froc_plot(curves, ax=None, title="FROC"):
-    """curves: list of (label, fp_per_mm2, sensitivity)."""
-    if ax is None:
-        _, ax = plt.subplots(figsize=(6, 4.5))
-    for label, fp, sens in curves:
-        ax.plot(fp, sens, label=label, lw=1.5)
-    ax.set_xscale("symlog", linthresh=1)
-    ax.set_xlabel("false positives per mm$^2$")
-    ax.set_ylabel("sensitivity (mitotic GT recovered)")
-    ax.set_ylim(0, 1)
-    ax.grid(alpha=0.3)
-    ax.legend(fontsize=8)
-    ax.set_title(title, fontsize=10)
-    return ax

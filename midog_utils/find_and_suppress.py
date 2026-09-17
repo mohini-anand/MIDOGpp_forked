@@ -22,22 +22,19 @@ from .nms import nms_by_distance
 
 @dataclass
 class FSConfig:
-    channel: str = "gray_inverted" # production overrides this to "hematoxylin_od"; this default is only live in experiment.py's bare FSConfig() calls
     base_size: int = tm.BASE_SIZE # longer side of refined template, actual template becomes square 
     patch_size: int = tm.PATCH_SIZE # size of the patch to read from the image, ceil(BASE_SIZE * sqrt(2))
     scales: tuple = (1.0,)
     n_angles: int = 1
     flips: tuple = (False,)
     peak_min_distance: int = 7  # local-maxima window: k = 2 * peak_min_distance + 1
-    score_threshold: float = 0.5
-    deep_floor_z: Optional[float] = None  # robust-z floor (median + z*MAD); None = use score_threshold
+    deep_floor_z: Optional[float] = None  # robust-z floor (median + z*MAD); required, find_and_suppress raises when None
     max_peaks: int = 250000
     nms_radius: float = None  # None = caller must supply, normally evaluate.radius_px(mpp)
     self_hit_radius: float = 5.0
     border_pad: bool = False  # replicate-pad by half the template size so `valid` reaches the ROI edge
-    max_detections: int = 10 ** 9
     scale_normalize: bool = False  # see template_match.fused_response
-    tm_method: int = cv2.TM_CCOEFF_NORMED
+    tm_method: int = cv2.TM_CCOEFF
 
     @property
     def n_augmentations(self) -> int:
@@ -50,7 +47,7 @@ def find_and_suppress(img_channel: np.ndarray, seed_xy, cfg: FSConfig = None, nm
 
         img_channel (np.ndarray): the converted search channel for the whole ROI, 2D float32.
         seed_xy (tuple[float, float]): (x, y) pixel to centre the template on.
-        cfg (FSConfig or None): search settings; defaults to FSConfig().
+        cfg (FSConfig or None): search settings, deep_floor_z required; defaults to FSConfig().
         nms_radius (float or None): overrides cfg.nms_radius; one of the two must resolve.
 
         Returns tuple[pd.DataFrame, dict]: detections ranked best-first (columns rank, cx,
@@ -64,6 +61,8 @@ def find_and_suppress(img_channel: np.ndarray, seed_xy, cfg: FSConfig = None, nm
             "nms_radius is unset. Pass the image's evaluation match radius "
             "(evaluate.radius_px(mpp)), or set FSConfig(nms_radius=...) explicitly."
         )
+    if cfg.deep_floor_z is None:
+        raise ValueError("deep_floor_z is unset. The peak threshold is median + deep_floor_z * MAD of the response map; set FSConfig(deep_floor_z=...) explicitly (production uses -1.5).")
     info = {"nms_radius": round(float(nms_radius), 2)}
 
     patch = tm.read_padded_patch(img_channel, seed_x, seed_y, cfg.patch_size)
@@ -91,11 +90,9 @@ def find_and_suppress(img_channel: np.ndarray, seed_xy, cfg: FSConfig = None, nm
         fused, best, valid = tm.fused_response(img_channel, templates, cfg.scale_normalize, method=cfg.tm_method)
     info["t_match_s"] = round(time.time() - t0, 2)
 
-    threshold = cfg.score_threshold
-    if cfg.deep_floor_z is not None:
-        med, mad = tm.robust_stats(fused, valid)
-        threshold = med + cfg.deep_floor_z * mad
-        info["deep_floor_median"], info["deep_floor_mad"] = round(med, 5), round(mad, 5)
+    med, mad = tm.robust_stats(fused, valid)
+    threshold = med + cfg.deep_floor_z * mad
+    info["deep_floor_median"], info["deep_floor_mad"] = round(med, 5), round(mad, 5)
     info["score_threshold_used"] = round(float(threshold), 5)
 
     t0 = time.time()
@@ -117,7 +114,6 @@ def find_and_suppress(img_channel: np.ndarray, seed_xy, cfg: FSConfig = None, nm
         info["n_self_hits"] = 0
         info["seed_self_score"] = float("nan")
 
-    centers, scores = centers[: cfg.max_detections], scores[: cfg.max_detections]
     info["n_detections"] = len(centers)
     info["max_detection_score"] = float(scores[0]) if len(scores) else float("nan")
     info["t_postprocess_s"] = round(time.time() - t0, 2)

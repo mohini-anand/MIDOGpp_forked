@@ -1,15 +1,14 @@
 """
     Scoring detections against MIDOG++ ground truth by centre distance, greedily matched
-    best-detection-first so the resulting FROC is monotone. Three buckets: a detection
-    matches a mitotic figure (human_correct_label), a look-alike (human_rejected_label),
-    or nothing (non_human_findings).
+    best-detection-first so a top-K prefix's matches never depend on lower-ranked
+    detections. Three buckets: a detection matches a mitotic figure (human_correct_label),
+    a look-alike (human_rejected_label), or nothing (non_human_findings).
 """
 
 from __future__ import annotations
 
 import numpy as np
 import pandas as pd
-from scipy.optimize import linear_sum_assignment
 from sklearn.neighbors import KDTree
 
 from .dataset import LOOKALIKE, MITOTIC
@@ -114,24 +113,6 @@ def recall_at_k(det_buckets, n_gt_mitotic: int, k: int = None) -> float:
     return float(np.sum(top == HUMAN_CORRECT_LABEL) / n_gt_mitotic)
 
 
-def froc(det_buckets, n_gt_mitotic: int, area_mm2: float):
-    """Cumulative (false positives per mm^2, sensitivity) over the ranked list."""
-    b = np.asarray(det_buckets)
-    if n_gt_mitotic == 0 or len(b) == 0:
-        return np.zeros(0), np.zeros(0)
-    tp = np.cumsum(b == HUMAN_CORRECT_LABEL)
-    fp = np.cumsum(b != HUMAN_CORRECT_LABEL)
-    return fp / area_mm2, tp / n_gt_mitotic
-
-
-def sensitivity_at_fp(fp_per_mm2, sensitivity, levels=(1, 2, 4, 8, 16, 32, 64)):
-    out = {}
-    for lv in levels:
-        ok = fp_per_mm2 <= lv
-        out[lv] = float(sensitivity[ok].max()) if ok.any() else 0.0
-    return out
-
-
 def _found_within(df: pd.DataFrame, k: int = None):
     """Boolean 'this GT was claimed', optionally restricted to the top-K detections."""
     if k is None:
@@ -179,102 +160,26 @@ def recall_by_agreement(gt_out: pd.DataFrame, k: int = None) -> dict:
     }
 
 
-def optimal_assignment_disagreement(det: pd.DataFrame, gt: pd.DataFrame, radius: float) -> dict:
-    """Cross-check greedy matching against optimal assignment at one fixed threshold."""
-    empty = {"greedy_matches": 0, "optimal_matches": 0, "greedy_only": 0,
-             "optimal_only": 0, "n_detections_differing": 0}
-    if len(det) == 0 or len(gt) == 0:
-        return empty
-
-    d = det[["cx", "cy"]].to_numpy()
-    g = gt[["cx", "cy"]].to_numpy()
-    cost = np.hypot(d[:, None, 0] - g[None, :, 0], d[:, None, 1] - g[None, :, 1])
-    big = radius * 1000.0
-    cost_masked = np.where(cost <= radius, cost, big)
-
-    rows, cols = linear_sum_assignment(cost_masked)
-    ok = cost[rows, cols] <= radius
-    optimal = {(int(r), int(c)) for r, c in zip(rows[ok], cols[ok])}
-
-    det_to_gt, _ = greedy_match(d, g, radius)
-    greedy = {(i, int(gi)) for i, gi in enumerate(det_to_gt) if gi >= 0}
-
-    return {
-        "greedy_matches": len(greedy),
-        "optimal_matches": len(optimal),
-        "greedy_only": len(greedy - optimal),
-        "optimal_only": len(optimal - greedy),
-        "n_detections_differing": len({i for i, _ in greedy ^ optimal}),
-    }
-
-
-def full_list_breakdown(det_out: pd.DataFrame, gt_out: pd.DataFrame) -> dict:
-    """Bucket counts over the entire detection list, with no top-K truncation."""
-    n = len(det_out)
-    tp = int((det_out["bucket"] == HUMAN_CORRECT_LABEL).sum())
-    look = int((det_out["bucket"] == HUMAN_REJECTED_LABEL).sum())
-    un = int((det_out["bucket"] == NON_HUMAN_FINDINGS).sum())
-    mit_gt = gt_out[gt_out["category_id"] == MITOTIC]
-    look_gt = gt_out[gt_out["category_id"] == LOOKALIKE]
-    eps = 1e-9
-    return {
-        "all_n_detections": n,
-        "all_tp": tp,
-        "all_fp_lookalike": look,
-        "all_fp_unannotated": un,
-        "all_matched_any_gt": tp + look,
-        "all_matched_frac": (tp + look) / (n + eps),
-        "all_precision_mitotic": tp / (n + eps),
-        "all_mitotic_gt_found": int(mit_gt["found"].sum()),
-        "all_mitotic_gt_missed": int((~mit_gt["found"]).sum()),
-        "all_lookalike_gt_found": int(look_gt["found"].sum()),
-        "all_lookalike_gt_missed": int((~look_gt["found"]).sum()),
-    }
-
-
 def evaluate_run(detections, gt_eval, radius, area_mm2, roi_shape=None):
     """Everything above, bundled. ``gt_eval`` must already exclude the seed. Pass
     ``roi_shape`` (h, w) to also get ``coverage_frac``."""
     det_out, gt_out = bucket_detections(detections, gt_eval, radius)
     n_mit = int((gt_eval["category_id"] == MITOTIC).sum())
 
-    fp_mm2, sens = froc(det_out["bucket"].to_numpy(), n_mit, area_mm2)
     metrics = {
         "match_radius_px": round(float(radius), 1),
         "n_gt_mitotic_eval": n_mit,
         "recall_at_k": recall_at_k(det_out["bucket"].to_numpy(), n_mit),
         "roi_area_mm2": round(float(area_mm2), 2),
     }
-    metrics.update({f"sens@{k}fp_mm2": v for k, v in sensitivity_at_fp(fp_mm2, sens).items()})
     metrics.update(topk_composition(det_out, n_mit))
     metrics.update(lookalike_attraction_rate(gt_out, k=n_mit))
     metrics.update(lookalike_attraction_rate(gt_out))
     metrics["n_detections_total"] = len(det_out)
     metrics.update(recall_by_agreement(gt_out, k=n_mit))
     metrics.update(recall_by_agreement(gt_out))
-    metrics.update(full_list_breakdown(det_out, gt_out))
     metrics["coverage_frac"] = (
         round(coverage_fraction(det_out[["cx", "cy"]].to_numpy(), roi_shape, radius), 4)
         if roi_shape is not None else float("nan")
     )
-    return det_out, gt_out, metrics, (fp_mm2, sens)
-
-
-def threshold_sweep(det_out: pd.DataFrame, gt_eval: pd.DataFrame, thresholds=(0.5, 0.6, 0.7, 0.8, 0.9)) -> pd.DataFrame:
-    """Bucket counts and P/R/F1 as the score cutoff moves."""
-    n_mit = int((gt_eval["category_id"] == MITOTIC).sum())
-    rows = []
-    for t in thresholds:
-        sel = det_out[det_out["score"] >= t]
-        tp = int((sel["bucket"] == HUMAN_CORRECT_LABEL).sum())
-        look = int((sel["bucket"] == HUMAN_REJECTED_LABEL).sum())
-        un = int((sel["bucket"] == NON_HUMAN_FINDINGS).sum())
-        eps = 1e-9
-        rows.append({
-            "score_threshold": t, "n_detections": len(sel), "tp": tp,
-            "fp_lookalike": look, "fp_unannotated": un,
-            "precision": round(tp / (len(sel) + eps), 4),
-            "recall": round(tp / (n_mit + eps), 4),
-            "f1": round(2 * tp / (2 * tp + look + un + (n_mit - tp) + eps), 4),
-        })
-    return pd.DataFrame(rows)
+    return det_out, gt_out, metrics

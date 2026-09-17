@@ -17,28 +17,6 @@ PATCH_SIZE = 73  # ceil(BASE_SIZE * sqrt(2)), also odd
 _FLOOR = np.float32(-3.0e38)
 _SENTINEL_CUT = -1.5e38
 
-_SIGN = {cv2.TM_SQDIFF: -1.0, cv2.TM_SQDIFF_NORMED: -1.0}  # distance methods; everything else is a similarity
-
-METHODS = {
-    "sqdiff": cv2.TM_SQDIFF,
-    "sqdiff_normed": cv2.TM_SQDIFF_NORMED,
-    "ccorr": cv2.TM_CCORR,
-    "ccorr_normed": cv2.TM_CCORR_NORMED,
-    "ccoeff": cv2.TM_CCOEFF,
-    "ccoeff_normed": cv2.TM_CCOEFF_NORMED,
-}
-
-
-def method_sign(method: int) -> float:
-    """
-        +1.0 for similarity methods, -1.0 for the two distance methods.
-
-        method (int): a cv2.TM_* method constant.
-
-        Returns float: the sign to multiply the raw response by.
-    """
-    return _SIGN.get(int(method), 1.0)
-
 
 def robust_stats(fused: np.ndarray, valid: np.ndarray, stride: int = 8):
     """
@@ -160,14 +138,14 @@ def _robust_z(res: np.ndarray, stride: int = 8) -> np.ndarray:
     return ((res - med) / scale).astype(np.float32)
 
 
-def fused_response(img: np.ndarray, templates, scale_normalize: bool = False, method: int = cv2.TM_CCOEFF_NORMED):
+def fused_response(img: np.ndarray, templates, scale_normalize: bool = False, method: int = cv2.TM_CCOEFF):
     """
         Element-wise max of every augmentation's response, in image-centre coordinates.
 
         img (np.ndarray): the search image.
         templates (list[np.ndarray]): the augmentation bank.
         scale_normalize (bool): put each map on a robust z-scale before fusing.
-        method (int): any cv2.TM_* method; the two distance methods are negated on the way in.
+        method (int): the cv2.TM_* method passed to cv2.matchTemplate.
 
         fused (np.ndarray): fused score map.
         best (np.ndarray): winning augmentation index per pixel.
@@ -180,12 +158,9 @@ def fused_response(img: np.ndarray, templates, scale_normalize: bool = False, me
     best = np.full((h, w), -1, dtype=np.int16)
     valid = np.zeros((h, w), dtype=bool)
 
-    sign = np.float32(method_sign(method))
     for i, tmpl in enumerate(templates):
         th, tw = tmpl.shape[:2]
         res = np.asarray(cv2.matchTemplate(img, tmpl, method), dtype=np.float32)
-        if sign < 0:
-            res *= sign
         np.nan_to_num(res, copy=False, nan=float(_FLOOR), posinf=float(_FLOOR), neginf=float(_FLOOR))
         if scale_normalize:
             res = _robust_z(res)
@@ -228,7 +203,7 @@ def extract_peaks(fused, valid, min_distance=7, score_threshold=0.5, max_peaks=2
     return centers, scores[order]
 
 
-def plant_and_recover(templates, metas, canvas=257, noise_frac=0.25, tolerance=1.0, rng=None, scale_normalize=False, method: int = cv2.TM_CCOEFF_NORMED):
+def plant_and_recover(templates, metas, canvas=257, noise_frac=0.25, tolerance=1.0, rng=None, scale_normalize=False, method: int = cv2.TM_CCOEFF):
     """
         Coordinate round-trip gate: plant each augmentation into a noise canvas and check
         the fused map's peak lands within tolerance of the known centre.
@@ -240,7 +215,7 @@ def plant_and_recover(templates, metas, canvas=257, noise_frac=0.25, tolerance=1
         tolerance (float): allowed peak offset from the planted centre, in pixels.
         rng (np.random.Generator or None): defaults to a fixed seed when None.
         scale_normalize (bool): put each map on a robust z-scale before fusing.
-        method (int): any cv2.TM_* method; the two distance methods are negated on the way in.
+        method (int): the cv2.TM_* method passed to cv2.matchTemplate.
 
         Returns list[tuple]: (Augmentation, dx, dy, score) per augmentation.
         Raises AssertionError when any augmentation's peak lands outside tolerance.
