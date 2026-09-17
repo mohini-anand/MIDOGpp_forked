@@ -20,7 +20,6 @@ from .find_and_suppress import FSConfig, find_and_suppress
 CHANNEL = "hematoxylin_od"        # D3
 TM_METHOD = cv2.TM_CCOEFF         # D1
 PEAK_MIN_DISTANCE = 7
-SELF_HIT_RADIUS = 5.0
 DEEP_FLOOR_Z = -1.5
 MAX_PEAKS = 100                   # D9
 OD_WINDOW = tm.BASE_SIZE
@@ -47,7 +46,7 @@ def run_production_pipeline(rgb: np.ndarray, seed, mpp: float, *, rank_key: str 
     hem = ch.to_channel(rgb, CHANNEL)
     nms_radius = ev.radius_px(mpp)
 
-    cfg = FSConfig(base_size=seed.base_size, scales=(1.0,), n_angles=1, flips=(False,), peak_min_distance=PEAK_MIN_DISTANCE, max_peaks=max_peaks, nms_radius=nms_radius, self_hit_radius=SELF_HIT_RADIUS, deep_floor_z=DEEP_FLOOR_Z, border_pad=True, tm_method=TM_METHOD)
+    cfg = FSConfig(base_size=seed.base_size, scales=(1.0,), n_angles=1, flips=(False,), peak_min_distance=PEAK_MIN_DISTANCE, max_peaks=max_peaks, nms_radius=nms_radius, deep_floor_z=DEEP_FLOOR_Z, border_pad=True, tm_method=TM_METHOD)
 
     detections, info = find_and_suppress(hem, seed.template_xy, cfg, nms_radius=nms_radius)
 

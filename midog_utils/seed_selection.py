@@ -119,9 +119,10 @@ def tightened_template_box(structural_channel: np.ndarray, cx: float, cy: float,
         center_y (float): accepted component's bbox pixel centre, y (same convention).
         Returns None when the patch can't be read or the gate refuses.
 
-        Caller owns: self-hit/seed-annulus removal must reference the returned centre, not
-        (cx, cy); border readability at the returned centre must be re-checked; ground
-        truth stays keyed to (cx, cy), never the returned centre.
+        Caller owns: pass the returned centre, not (cx, cy), as `find_and_suppress`'s
+        seed_xy, since the search-channel blanking it does is centred there; border
+        readability at the returned centre must be re-checked; ground truth stays keyed to
+        (cx, cy), never the returned centre.
     """
     patch = tm.read_padded_patch(structural_channel, cx, cy, otsu_window)
     if patch is None:

@@ -1,9 +1,10 @@
 """
     Template-match search from one seed point. `FSConfig` holds the search settings;
-    `find_and_suppress` cuts a template, correlates it against the ROI, extracts peaks,
-    suppresses overlaps, drops the seed's own self-hit, and returns detections ranked
-    best-first. See `midog_utils/FIND_AND_SUPPRESS_REFERENCE_DIFFS.md` for how this differs
-    from the reference implementation it replaces.
+    `find_and_suppress` cuts a template, blanks its own footprint out of a copy of the
+    search channel so it can't match itself, correlates against that copy, extracts peaks,
+    suppresses overlaps, and returns detections ranked best-first. See
+    `midog_utils/FIND_AND_SUPPRESS_REFERENCE_DIFFS.md` for how this differs from the
+    reference implementation it replaces.
 """
 
 from __future__ import annotations
@@ -31,7 +32,6 @@ class FSConfig:
     deep_floor_z: Optional[float] = None  # robust-z floor (median + z*MAD); required, find_and_suppress raises when None
     max_peaks: int = 250000
     nms_radius: float = None  # None = caller must supply, normally evaluate.radius_px(mpp)
-    self_hit_radius: float = 5.0
     border_pad: bool = False  # replicate-pad by half the template size so `valid` reaches the ROI edge
     scale_normalize: bool = False  # see template_match.fused_response
     tm_method: int = cv2.TM_CCOEFF
@@ -76,10 +76,16 @@ def find_and_suppress(img_channel: np.ndarray, seed_xy, cfg: FSConfig = None, nm
     templates, metas = tm.build_augmentations(patch, cfg.base_size, cfg.scales, cfg.n_angles, cfg.flips)
     info["n_augmentations"] = len(templates)
 
+    # The template above is cut from the ORIGINAL, unblanked img_channel. Only now, after
+    # that cut, do we blank a COPY for the search -- img_channel itself (and anything else
+    # the caller derives from it, e.g. production.py's chromatin_od ranking) is untouched.
+    search_channel, n_blanked = tm.blank_seed_square(img_channel, seed_x, seed_y, cfg.base_size)
+    info["n_blanked_px"] = n_blanked
+
     if cfg.border_pad:
         pad = max((t.shape[0] - 1) // 2 for t in templates)
-        h, w = img_channel.shape[:2]
-        padded = cv2.copyMakeBorder(img_channel, pad, pad, pad, pad, borderType=cv2.BORDER_REPLICATE)
+        h, w = search_channel.shape[:2]
+        padded = cv2.copyMakeBorder(search_channel, pad, pad, pad, pad, borderType=cv2.BORDER_REPLICATE)
         fused_p, best_p, valid_p = tm.fused_response(padded, templates, cfg.scale_normalize, method=cfg.tm_method)
         fused, best, valid = (fused_p[pad:pad + h, pad:pad + w],
                               best_p[pad:pad + h, pad:pad + w],
@@ -87,7 +93,7 @@ def find_and_suppress(img_channel: np.ndarray, seed_xy, cfg: FSConfig = None, nm
         assert valid.all(), "border_pad left part of the ROI unreachable -- pad derivation is wrong"
         info["pad_px"] = pad
     else:
-        fused, best, valid = tm.fused_response(img_channel, templates, cfg.scale_normalize, method=cfg.tm_method)
+        fused, best, valid = tm.fused_response(search_channel, templates, cfg.scale_normalize, method=cfg.tm_method)
     info["t_match_s"] = round(time.time() - t0, 2)
 
     med, mad = tm.robust_stats(fused, valid)
@@ -98,21 +104,10 @@ def find_and_suppress(img_channel: np.ndarray, seed_xy, cfg: FSConfig = None, nm
     t0 = time.time()
     centers, scores = tm.extract_peaks(fused, valid, cfg.peak_min_distance, threshold, cfg.max_peaks)
     info["n_peaks"] = len(centers)
-    info["max_peak_score"] = float(scores[0]) if len(scores) else float("nan")
 
     keep = nms_by_distance(centers, scores, nms_radius)
     centers, scores = centers[keep], scores[keep]
     info["n_after_nms"] = len(centers)
-
-    if len(centers):
-        d_seed = np.hypot(centers[:, 0] - seed_x, centers[:, 1] - seed_y)
-        self_hit = d_seed <= cfg.self_hit_radius
-        info["n_self_hits"] = int(self_hit.sum())
-        info["seed_self_score"] = float(scores[self_hit].max()) if self_hit.any() else float("nan")
-        centers, scores = centers[~self_hit], scores[~self_hit]
-    else:
-        info["n_self_hits"] = 0
-        info["seed_self_score"] = float("nan")
 
     info["n_detections"] = len(centers)
     info["max_detection_score"] = float(scores[0]) if len(scores) else float("nan")

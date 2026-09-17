@@ -203,6 +203,41 @@ def extract_peaks(fused, valid, min_distance=7, score_threshold=0.5, max_peaks=2
     return centers, scores[order]
 
 
+def blank_seed_square(channel: np.ndarray, cx: float, cy: float, base_size: int):
+    """
+        Blank the seed's own refined-template footprint out of a COPY of a search channel,
+        so its own match can never form as a correlation peak.
+
+        channel (np.ndarray): the search channel for the whole ROI; never mutated.
+        cx (float): template centre, x, unrounded.
+        cy (float): template centre, y, unrounded.
+        base_size (int): the odd template side length; the blanked square is exactly
+            base_size x base_size, centred on ``(round(cx), round(cy))`` -- the same
+            rounding convention ``read_padded_patch`` uses, so the blanked square lines up
+            exactly with the footprint the template itself was cut from.
+
+        Returns tuple[np.ndarray, int]: a blanked copy of ``channel``, and the exact pixel
+        count blanked (clipped to the image; ``base_size**2`` unless the seed sits within
+        half a template of the ROI edge, which does not occur for a readable seed since
+        ``read_padded_patch``'s own border check already requires a half-``patch_size``
+        margin, larger than half a template).
+
+        The fill value is ``channel.min()`` over the WHOLE, unblanked ROI -- computed before
+        this function writes anything, so a caller that reuses ``channel`` (e.g. for
+        ``chromatin_od`` ranking) sees only the original, untouched array.
+    """
+    fill_value = float(channel.min())
+    half = base_size // 2
+    ix, iy = int(round(cx)), int(round(cy))
+    h, w = channel.shape[:2]
+    y0, y1 = max(0, iy - half), min(h - 1, iy + half)
+    x0, x1 = max(0, ix - half), min(w - 1, ix + half)
+    out = channel.copy()
+    out[y0:y1 + 1, x0:x1 + 1] = fill_value
+    n_blanked = (y1 - y0 + 1) * (x1 - x0 + 1)
+    return out, n_blanked
+
+
 def plant_and_recover(templates, metas, canvas=257, noise_frac=0.25, tolerance=1.0, rng=None, scale_normalize=False, method: int = cv2.TM_CCOEFF):
     """
         Coordinate round-trip gate: plant each augmentation into a noise canvas and check

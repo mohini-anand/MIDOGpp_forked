@@ -24,6 +24,8 @@ edits landed between reading and writing). Beyond reading the code, the whole pi
 If you edit `production.py` or anything it imports, re-run the demo notebook and diff its
 outputs — that reproducibility is itself a regression test.
 
+**Updated 2026-09-17:** the seed's own match is now excluded by blanking its refined-template footprint (`base_size x base_size`, centred on `template_xy`) out of a copy of the search channel before correlation runs (`template_match.blank_seed_square`), replacing a 5.0 px post-NMS filter. See `SELF_HIT_MASKING_PLAN.md` and `DECISIONS.md` D11. Numbers below were re-verified after that change.
+
 **Re-synced 2026-09-16** with the dead-code cleanup (`c066829`, `PRODUCTION_PIPELINE_CLEANUP.md`),
 which left production outputs bit-identical. Line numbers below are from the 2026-09-13 code,
 archived as `midog_utils_full/`.
@@ -58,17 +60,16 @@ ROIs gave:
 |---|---|---|---|
 | `n_peaks` | 100 | 100 | D9's `max_peaks=100` cap binds pre-NMS, as designed |
 | `max_peaks_binding` | True | True | recorded, not invariant-checked (see below) |
+| `n_blanked_px` | 2209 | 2601 | pixels of the refined template's own footprint (47^2 / 51^2) excluded before correlation |
 | `n_after_nms` | 90 | 99 | NMS removed 10 / 1 of the 100 pre-NMS peaks |
-| `n_self_hits` | 1 | 1 | self-hit removal found exactly one hit both times |
-| `seed_self_score` | 2.1670 | 19.1732 | **equals `max_peak_score` exactly both times** — the seed's own correlation peak really was the pool's global maximum before removal, confirming self-hit removal is catching the right point, not missing it (see the caveat this rules out, below) |
-| `n_detections` | 89 | 98 | final ranked-list size after NMS + self-hit removal |
+| `n_detections` | 90 | 99 | final ranked-list size; nothing is removed after NMS |
 | `deep_floor_median` / `mad` | -0.0074 / 0.2143 | -0.0071 / 0.7181 | the adaptive robust-z floor actually computed per-ROI, not a leftover fixed threshold |
 | `score_threshold_used` | -0.329 | -1.084 | deliberately permissive — "deep floor" is not a strict filter |
 
-The `seed_self_score == max_peak_score` equality matters because [[self-hit-radius-fixed-vs-match-radius-scaled]]
-documents a real failure mode elsewhere in this repo: a click whose own location never
-becomes a raw peak at all, leaving `n_self_hits == 0` and nothing for the self-hit stage
-to remove. That did not happen on either test ROI here.
+No detection can be extracted from inside the blanked square, because its source pixels are
+gone before correlation runs. The filter this replaced removed only points within 5.0 px, so
+it missed the seed's own match whenever that match fell below the `max_peaks` cutoff or moved
+under an augmented template bank (`FIND_AND_SUPPRESS_REFERENCE_DIFFS.md`).
 
 Visual check: `viz.overlay` renders correctly on both ROIs — ground-truth boxes, a
 white/black star at the click, a cyan `+` at the D8-recentred template centre (visually
@@ -160,8 +161,8 @@ build_seed(gt_mitotic, gray_inv, rng, roi_shape)              seed_selection.py:
      click_xy    = the raw pathologist click — the permanent ground-truth reference
      template_xy = the gated + recentred point — where the search template is actually cut
      These are DIFFERENT points (the template is always recentred). Nothing downstream may
-     substitute one for the other: self-hit removal and NMS-adjacent radii reference
-     template_xy; ground-truth exclusion and every match-radius computation reference
+     substitute one for the other: the search-channel blanking and NMS-adjacent radii
+     reference template_xy; ground-truth exclusion and every match-radius computation reference
      click_xy.
 ```
 
@@ -193,7 +194,6 @@ Module-level constants wiring in the decision record ([production.py:30-41](../m
 | `CHANNEL` | `"hematoxylin_od"` | D3 — unclipped optical density |
 | `TM_METHOD` | `cv2.TM_CCOEFF` | D1 |
 | `PEAK_MIN_DISTANCE` | 7 | local-maxima thinning window |
-| `SELF_HIT_RADIUS` | 5.0 px | tighter than the ~30 px match radius, on purpose |
 | `DEEP_FLOOR_Z` | -1.5 | adaptive floor = median - 1.5 * MAD, deliberately permissive |
 | `MAX_PEAKS` | 100 | D9 |
 | `OD_WINDOW` | `tm.BASE_SIZE` = 51 | `chromatin_density`'s window for the opt-in axis |
@@ -218,12 +218,12 @@ run_production_pipeline(rgb, seed, mpp, rank_key)              production.py:44
 │
 ├─ FSConfig(base_size=seed.base_size, scales=(1.0,), n_angles=1, flips=(False,),
 │           peak_min_distance=7, max_peaks=100, nms_radius=...,
-│           self_hit_radius=5.0, deep_floor_z=-1.5, border_pad=True,
+│           deep_floor_z=-1.5, border_pad=True,
 │           tm_method=cv2.TM_CCOEFF)                     find_and_suppress.py:34 (dataclass)
 │    Just a settings bundle — nothing computed yet.
 │
 ├─ find_and_suppress(hem, seed.template_xy, cfg, nms_radius)   find_and_suppress.py:101
-│  │  "cut a template, correlate it against the whole ROI, extract peaks, suppress, done"
+│  │  "cut a template, blank its own footprint from a copy, correlate that copy, suppress"
 │  │
 │  ├─ tm.read_padded_patch(hem, tx, ty, patch_size=73)         template_match.py:102
 │  │    73x73 crop centred on the TEMPLATE point (seed.template_xy, not the click).
@@ -237,11 +237,18 @@ run_production_pipeline(rgb, seed, mpp, rank_key)              production.py:44
 │  │    case (up to 12 angles x 2 flips x 3 scales elsewhere in the repo) but is a no-op
 │  │    at these settings today.
 │  │
-│  ├─ [cfg.border_pad=True] cv2.copyMakeBorder(hem, pad, ..., BORDER_REPLICATE)
-│  │    Pads the whole ROI by half the template size so correlation reaches every real
-│  │    ROI pixel, including near the border, without an unreachable band.
+│  ├─ tm.blank_seed_square(hem, tx, ty, base_size)              template_match.py
+│  │    Blanks a base_size x base_size copy of hem at the template's own footprint --
+│  │    never the original hem, which production.py reuses unblanked for chromatin_od
+│  │    ranking. Verified: n_blanked_px 2209 on 245.tiff, 2601 on 403.tiff.
 │  │
-│  ├─ tm.fused_response(padded_hem, templates, scale_normalize=False, method=TM_CCOEFF)
+│  ├─ [cfg.border_pad=True] cv2.copyMakeBorder(blanked_hem, pad, ..., BORDER_REPLICATE)
+│  │    Pads the whole ROI by half the template size so correlation reaches every real
+│  │    ROI pixel, including near the border, without an unreachable band. Note this
+│  │    pads the BLANKED copy from the node above — every search stage below runs on
+│  │    that copy. The unblanked hem survives untouched for chromatin_od ranking.
+│  │
+│  ├─ tm.fused_response(padded_blanked_hem, templates, scale_normalize=False, method=TM_CCOEFF)
 │  │                                                            template_match.py:184
 │  │    For each template (here: one), cv2.matchTemplate(image, template, TM_CCOEFF).
 │  │    The raw map is indexed by template TOP-LEFT; it's shifted by (size-1)//2 so the
@@ -278,13 +285,8 @@ run_production_pipeline(rgb, seed, mpp, rank_key)              production.py:44
 │  │    remaining candidate within ~30 px of each kept point. Verified: this stage alone
 │  │    removed 10 of 100 candidates on 245.tiff and 1 of 100 on 403.tiff.
 │  │
-│  ├─ self-hit removal: keep points with distance(point, template_xy) > 5.0 px
-│  │    Drops the seed's own near-perfect self-correlation. Verified: exactly 1 point
-│  │    removed on both ROIs, and its score matched the pool's pre-removal maximum
-│  │    exactly both times — the intended point, not a miss and not a false catch.
-│  │
 │  └─ returns (detections DataFrame[rank, cx, cy, score, angle, flip, scale], info dict)
-│       89 rows on 245.tiff, 98 on 403.tiff (100 - NMS losses - the 1 self-hit)
+│       90 rows on 245.tiff, 99 on 403.tiff (100 - NMS losses)
 │
 ├─ info["max_peaks_binding"] = (n_peaks == max_peaks)          production.py:80
 │    Recorded as a fact, not invariant-checked.
@@ -321,9 +323,10 @@ run_production_pipeline(rgb, seed, mpp, rank_key)              production.py:44
 ```
 
 **What `find_and_suppress` deliberately does NOT do**, per
-`midog_utils/FIND_AND_SUPPRESS_REFERENCE_DIFFS.md`: no image masking of existing
-annotations before correlating (the seed's own detection is dropped afterward instead,
-same effect, no zero-variance-window artefact); no boundary refinement, stability filter,
+`midog_utils/FIND_AND_SUPPRESS_REFERENCE_DIFFS.md`: no masking of every existing annotation
+before correlating (only the seed's own template footprint is blanked — narrower and
+well-defined: TM_CCOEFF against a flat window computes to ~0, not an extreme value, so no
+zero-variance-window artefact); no boundary refinement, stability filter,
 or aspect-ratio/PSNR filters (evaluation here is point-based, so box geometry moves no
 metric, and the stability check passes 0/9 objects on H&E anyway); nothing random
 anywhere in the search (the reference implementation used unseeded `sample`/`random.sample`
@@ -398,12 +401,13 @@ viz.draw_box(ax, box, ...)                                      viz.py:68
 
 ## Things to know, not bugs to fix
 
-1. **`SELF_HIT_RADIUS = 5.0` px is correct only paired with `n_angles = 1`.**
-   `pipeline_debug_visuals/seed_refinement_variants.ipynb` (cell 16) documents an
-   8-augmentation bank pushing the seed's self-correlation peak 6.08 px away on
-   `403.tiff` — past a 5.0 px radius. Production pins single-augmentation and the tight
-   radius together correctly today; raising `n_angles` later without revisiting this
-   radius would silently let the seed's own detection re-enter the ranked list.
+1. **Resolved 2026-09-17: augmented template banks no longer leak the seed's own match.** The
+   5.0 px post-NMS filter used to miss self-matches that moved under rotation/flip/scale
+   (12.66 px on 013.tiff, 5.39 px on 233.tiff, with the harness's 8-template bank);
+   blanking the template's own footprint before correlation covers both, verified. A
+   narrower gap remains where a *different* nearby detection (not the seed's own match)
+   sits within one match radius of the seed but outside the blanked square — see
+   `SELF_HIT_MASKING_PLAN.md` sec 2, "Known cost, accepted".
 2. **`OD_WINDOW = 51` px is the window `chromatin.py`'s own docstring argues against**
    (a 31 px window measured better on 6 of 7 ROIs, and at 51 px the statistic
    "substantially reads the neighbour rather than the object" for candidates within 25 px

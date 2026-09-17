@@ -229,7 +229,7 @@ explicitly named in `DECISIONS.md` as "a bug, not a configuration choice" — at
 z cutoff moves from 1.308 to 0.438. If you fork any config for experimentation, this
 invariant is your tripwire — do not disable it.
 
-**Self-hit removal** (notebook `suppress()`):
+**Self-hit removal** (notebook `suppress()`; replaced in production on 2026-09-17 by blanking the seed's own template footprint before correlation, see `SELF_HIT_MASKING_PLAN.md` and `DECISIONS.md` D11):
 ```python
 keep = nms_by_distance(centers, scores, radius)
 c, s = centers[keep], scores[keep]

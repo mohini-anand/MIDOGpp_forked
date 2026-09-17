@@ -27,6 +27,15 @@ dated amendment described there — don't edit D11's body otherwise.
   region from `valid` after correlation. Built as a standalone simulation and measured on 3
   ROIs, then all 49 ROIs `production_hematoxylin_only/bbox_refinement_three_way_chromatin_od_49roi_3seed.ipynb`
   uses. §3a/§3b. Not yet independently verified or gated at this point.
+- **2026-09-17, applied:** executed against `midog_utils/` at `e4b7884`; all gates passed and
+  `DECISIONS.md` D11 carries the dated amendment. Two defects in §5's own text were found
+  during application:
+  - §5.1 Edit 10's replacement text was affirmative inside a negation list — **corrected at
+    source above**, so a re-application gets the fixed text.
+  - §5.1 Edit 7 adds the `blank_seed_square` node but not the two downstream call-diagram
+    nodes, which keep naming the unblanked `hem` where the patched code correlates the blanked
+    copy. **Not corrected at source** — the three repairs are recorded only in the execution
+    log, so a re-application must redo them by hand.
 - **2026-09-17, later the same day (this revision):** independently re-verified in a separate
   session — mechanism claims re-derived analytically and on real data; §3a/§3b's numbers
   reproduced via a from-scratch prototype (not a re-execution of the design session's own
@@ -545,7 +554,10 @@ time — these illustrate the shape of the edit, not the exact numbers.)
 do**", change
 `no image masking of existing annotations before correlating (the seed's own detection is
 dropped afterward instead,` + `same effect, no zero-variance-window artefact);` to
-`the seed's own template footprint is blanked before correlating instead of masking every existing annotation (narrower and well-defined: TM_CCOEFF against a flat window computes to ~0, not an extreme value, so no zero-variance-window artefact);`.
+`no masking of every existing annotation before correlating (only the seed's own template footprint is blanked — narrower and well-defined: TM_CCOEFF against a flat window computes to ~0, not an extreme value, so no zero-variance-window artefact);`.
+Every other item in that paragraph is a negation; an affirmative item there reads, against
+the paragraph's own heading, as denying that the footprint is blanked. Corrected at source
+2026-09-17 — see the revision history.
 
 **After the edits, this must print nothing:**
 `grep -n "self_hit\|SELF_HIT_RADIUS\|n_self_hits\|seed_self_score\|max_peak_score\|self-hit\|dropped afterward" production_pipeline/PRODUCTION_PIPELINE_WALKTHROUGH.md`

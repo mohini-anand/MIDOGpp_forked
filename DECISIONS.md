@@ -921,6 +921,10 @@ lowers precision systematically. Additionally: **evidence that 301.tiff seed 1's
 (a real neighbour outside a too-small blanked square) recurs often enough to matter** would
 favour reverting to D10's full-radius disc instead.
 
+### Amendment, 2026-09-17 — applied
+
+Applied to `midog_utils/` via `SELF_HIT_MASKING_PLAN.md`. Harness and recent-experiment captures bit-identical to `imageblank_ref_post` (SHA-256 on all eight artefacts, the two `recent_*.pkl` included, not just the six `compare` diffs); `imageblank_check.py check`: PASS, 230 pairs, 9 TP@K changes, all attributed to the freed pool slot, plus 10 reported near-seed leaks accepted by design; `reference`: rows changed as pre-registered. `sanity`: PASS; `extref`: `n_detections` +1 uniformly on 84/84 rows with all 84 precision/recall rows within 0.0006, FAIL by design. Two documentation defects in the plan's own §5 text were found during application and both repaired: the call diagram still named the unblanked `hem` where the patched code correlates the blanked copy (§5.1 Edit 7 added the node but not its two downstream nodes), and §5.1 Edit 10's replacement text was affirmative inside a list headed "what `find_and_suppress` deliberately does NOT do". Edit 10 was first applied verbatim and the defect reported; on user authorisation it was repaired the same day and §5.1 Edit 10 corrected at source, so plan and walkthrough now agree. The Edit 7 repairs were not back-ported into §5.1 and live only in the execution log. Execution log: `../cleanup_harness/selfmask/image_blank_design/EXECUTION_LOG_2026-09-17.md`.
+
 ---
 
 ## Cross-references

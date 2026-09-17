@@ -5,21 +5,26 @@ search. This is the record of every place it deliberately changes *behaviour* fr
 `bbox tuning code reference/bbox_tuning.py:757`, not just style. For what the module
 actually does today, see its own module docstring, not this file.
 
-## No image masking
+## The seed's own footprint is blanked, not the whole reference-style mask
 
 The reference blacks out every existing annotation before correlating
 (`apply_mask_to_image(..., mode='black')`). On H&E that creates zero-variance windows --
 where `TM_CCOEFF_NORMED` is undefined -- and hard edges that rotated templates correlate
-against. The seed's own detection is dropped afterwards instead, which has the same effect
-with no artefact. (Note the reference's `'none'` mode does not disable masking; it sets
-masked pixels to 1.)
-
-## The self-hit is dropped with a tight radius, not the match radius
-
-The minimum spacing between two MIDOG++ annotations anywhere in the dataset is 26.2 px
-(403.tiff; 245.tiff is 26.6), below the ~30 px match radius, so dropping everything within
-a match radius of the seed could delete a legitimate detection of a neighbouring
-ground-truth object.
+against. Here, only the seed's own refined-template footprint (`base_size x base_size`,
+`template_match.blank_seed_square`) is blanked, in a copy of the search channel, after the
+template is cut from the original but before correlation runs -- `TM_CCOEFF` (D1, unlike
+`_NORMED`) is well-defined against a flat window (it computes to ~0, not an extreme value:
+the window's own local mean equals the constant, so the mean-subtracted term is exactly
+zero), and because matching is a sliding window, the corrupted response tapers off with the
+window's shrinking overlap rather than stepping sharply at a hard edge -- no boundary
+artefact detection. The minimum spacing between two MIDOG++ annotations anywhere in the
+dataset is 26.2 px (403.tiff; 245.tiff is 26.6), below the ~30 px match radius, so blanking
+a region as large as a full match radius (the disc this design's predecessor used, `D10`'s
+amendment) could delete a legitimate detection of a neighbouring ground-truth object; the
+smaller, exact template footprint accepts a narrower version of the same cost instead (see
+`SELF_HIT_MASKING_PLAN.md` sec 2's "Known cost, accepted", including the specific case,
+301.tiff seed_index=1, where a real secondary match 26.6 px from the seed survives because
+`base_size`'s half-width is smaller than that distance).
 
 ## Scores are kept and used to rank
 
