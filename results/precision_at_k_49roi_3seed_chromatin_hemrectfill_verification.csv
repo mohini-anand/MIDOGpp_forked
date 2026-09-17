@@ -1,0 +1,1768 @@
+check,severity,file_name,seed_index,condition,passed,detail
+budget_delivered,halt,300.tiff,0,default_51,True,n_detections=99
+budget_delivered,halt,300.tiff,0,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,300.tiff,1,default_51,True,n_detections=99
+budget_delivered,halt,300.tiff,1,hem_rect_fill,True,n_detections=98
+budget_delivered,halt,300.tiff,2,default_51,True,n_detections=99
+budget_delivered,halt,300.tiff,2,hem_rect_fill,True,n_detections=98
+budget_delivered,halt,301.tiff,0,default_51,True,n_detections=99
+budget_delivered,halt,301.tiff,0,hem_rect_fill,True,n_detections=100
+budget_delivered,halt,301.tiff,1,default_51,True,n_detections=99
+budget_delivered,halt,301.tiff,1,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,301.tiff,2,default_51,True,n_detections=93
+budget_delivered,halt,301.tiff,2,hem_rect_fill,True,n_detections=98
+budget_delivered,halt,322.tiff,0,default_51,True,n_detections=99
+budget_delivered,halt,322.tiff,0,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,322.tiff,1,default_51,True,n_detections=98
+budget_delivered,halt,322.tiff,1,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,322.tiff,2,default_51,True,n_detections=99
+budget_delivered,halt,322.tiff,2,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,337.tiff,0,default_51,True,n_detections=99
+budget_delivered,halt,337.tiff,0,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,337.tiff,1,default_51,True,n_detections=99
+budget_delivered,halt,337.tiff,1,hem_rect_fill,True,n_detections=100
+budget_delivered,halt,337.tiff,2,default_51,True,n_detections=99
+budget_delivered,halt,337.tiff,2,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,339.tiff,0,default_51,True,n_detections=98
+budget_delivered,halt,339.tiff,0,hem_rect_fill,True,n_detections=98
+budget_delivered,halt,339.tiff,1,default_51,True,n_detections=99
+budget_delivered,halt,339.tiff,1,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,339.tiff,2,default_51,True,n_detections=98
+budget_delivered,halt,339.tiff,2,hem_rect_fill,True,n_detections=98
+budget_delivered,halt,343.tiff,0,default_51,True,n_detections=95
+budget_delivered,halt,343.tiff,0,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,343.tiff,1,default_51,True,n_detections=99
+budget_delivered,halt,343.tiff,1,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,343.tiff,2,default_51,True,n_detections=99
+budget_delivered,halt,343.tiff,2,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,344.tiff,0,default_51,True,n_detections=99
+budget_delivered,halt,344.tiff,0,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,344.tiff,1,default_51,True,n_detections=98
+budget_delivered,halt,344.tiff,1,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,344.tiff,2,default_51,True,n_detections=98
+budget_delivered,halt,344.tiff,2,hem_rect_fill,True,n_detections=98
+budget_delivered,halt,201.tiff,0,default_51,True,n_detections=98
+budget_delivered,halt,201.tiff,0,hem_rect_fill,True,n_detections=97
+budget_delivered,halt,201.tiff,1,default_51,True,n_detections=99
+budget_delivered,halt,201.tiff,1,hem_rect_fill,True,n_detections=98
+budget_delivered,halt,201.tiff,2,default_51,True,n_detections=99
+budget_delivered,halt,201.tiff,2,hem_rect_fill,True,n_detections=98
+budget_delivered,halt,233.tiff,0,default_51,True,n_detections=99
+budget_delivered,halt,233.tiff,0,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,233.tiff,1,default_51,True,n_detections=99
+budget_delivered,halt,233.tiff,1,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,233.tiff,2,default_51,True,n_detections=99
+budget_delivered,halt,233.tiff,2,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,211.tiff,0,default_51,True,n_detections=99
+budget_delivered,halt,211.tiff,0,hem_rect_fill,True,n_detections=100
+budget_delivered,halt,211.tiff,1,default_51,True,n_detections=98
+budget_delivered,halt,211.tiff,1,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,211.tiff,2,default_51,True,n_detections=100
+budget_delivered,halt,211.tiff,2,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,220.tiff,0,default_51,True,n_detections=98
+budget_delivered,halt,220.tiff,0,hem_rect_fill,True,n_detections=98
+budget_delivered,halt,220.tiff,1,default_51,True,n_detections=99
+budget_delivered,halt,220.tiff,1,hem_rect_fill,True,n_detections=98
+budget_delivered,halt,220.tiff,2,default_51,True,n_detections=99
+budget_delivered,halt,220.tiff,2,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,230.tiff,0,default_51,True,n_detections=99
+budget_delivered,halt,230.tiff,0,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,230.tiff,1,default_51,True,n_detections=99
+budget_delivered,halt,230.tiff,1,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,230.tiff,2,default_51,True,n_detections=98
+budget_delivered,halt,230.tiff,2,hem_rect_fill,True,n_detections=98
+budget_delivered,halt,235.tiff,0,default_51,True,n_detections=97
+budget_delivered,halt,235.tiff,0,hem_rect_fill,True,n_detections=98
+budget_delivered,halt,235.tiff,1,default_51,True,n_detections=96
+budget_delivered,halt,235.tiff,1,hem_rect_fill,True,n_detections=98
+budget_delivered,halt,235.tiff,2,default_51,True,n_detections=99
+budget_delivered,halt,235.tiff,2,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,242.tiff,0,default_51,True,n_detections=97
+budget_delivered,halt,242.tiff,0,hem_rect_fill,True,n_detections=98
+budget_delivered,halt,242.tiff,1,default_51,True,n_detections=99
+budget_delivered,halt,242.tiff,1,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,242.tiff,2,default_51,True,n_detections=98
+budget_delivered,halt,242.tiff,2,hem_rect_fill,True,n_detections=98
+budget_delivered,halt,245.tiff,0,default_51,True,n_detections=97
+budget_delivered,halt,245.tiff,0,hem_rect_fill,True,n_detections=97
+budget_delivered,halt,245.tiff,1,default_51,True,n_detections=97
+budget_delivered,halt,245.tiff,1,hem_rect_fill,True,n_detections=95
+budget_delivered,halt,245.tiff,2,default_51,True,n_detections=98
+budget_delivered,halt,245.tiff,2,hem_rect_fill,True,n_detections=98
+budget_delivered,halt,246.tiff,0,default_51,True,n_detections=97
+budget_delivered,halt,246.tiff,0,hem_rect_fill,True,n_detections=96
+budget_delivered,halt,246.tiff,1,default_51,True,n_detections=97
+budget_delivered,halt,246.tiff,1,hem_rect_fill,True,n_detections=96
+budget_delivered,halt,246.tiff,2,default_51,True,n_detections=99
+budget_delivered,halt,246.tiff,2,hem_rect_fill,True,n_detections=98
+budget_delivered,halt,249.tiff,0,default_51,True,n_detections=99
+budget_delivered,halt,249.tiff,0,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,249.tiff,1,default_51,True,n_detections=96
+budget_delivered,halt,249.tiff,1,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,249.tiff,2,default_51,True,n_detections=99
+budget_delivered,halt,249.tiff,2,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,284.tiff,0,default_51,True,n_detections=99
+budget_delivered,halt,284.tiff,0,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,284.tiff,1,default_51,True,n_detections=99
+budget_delivered,halt,284.tiff,1,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,284.tiff,2,default_51,True,n_detections=99
+budget_delivered,halt,284.tiff,2,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,289.tiff,0,default_51,True,n_detections=99
+budget_delivered,halt,289.tiff,0,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,289.tiff,1,default_51,True,n_detections=97
+budget_delivered,halt,289.tiff,1,hem_rect_fill,True,n_detections=98
+budget_delivered,halt,289.tiff,2,default_51,True,n_detections=98
+budget_delivered,halt,289.tiff,2,hem_rect_fill,True,n_detections=98
+budget_delivered,halt,291.tiff,0,default_51,True,n_detections=81
+budget_delivered,halt,291.tiff,0,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,291.tiff,1,default_51,True,n_detections=96
+budget_delivered,halt,291.tiff,1,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,291.tiff,2,default_51,True,n_detections=98
+budget_delivered,halt,291.tiff,2,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,293.tiff,0,default_51,True,n_detections=99
+budget_delivered,halt,293.tiff,0,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,293.tiff,1,default_51,True,n_detections=99
+budget_delivered,halt,293.tiff,1,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,293.tiff,2,default_51,True,n_detections=99
+budget_delivered,halt,293.tiff,2,hem_rect_fill,True,n_detections=98
+budget_delivered,halt,459.tiff,0,default_51,True,n_detections=99
+budget_delivered,halt,459.tiff,0,hem_rect_fill,True,n_detections=98
+budget_delivered,halt,459.tiff,1,default_51,True,n_detections=99
+budget_delivered,halt,459.tiff,1,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,459.tiff,2,default_51,True,n_detections=99
+budget_delivered,halt,459.tiff,2,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,460.tiff,0,default_51,True,n_detections=99
+budget_delivered,halt,460.tiff,0,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,460.tiff,1,default_51,True,n_detections=99
+budget_delivered,halt,460.tiff,1,hem_rect_fill,True,n_detections=97
+budget_delivered,halt,460.tiff,2,default_51,True,n_detections=99
+budget_delivered,halt,460.tiff,2,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,410.tiff,0,default_51,True,n_detections=89
+budget_delivered,halt,410.tiff,0,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,410.tiff,1,default_51,True,n_detections=99
+budget_delivered,halt,410.tiff,1,hem_rect_fill,True,n_detections=98
+budget_delivered,halt,410.tiff,2,default_51,True,n_detections=99
+budget_delivered,halt,410.tiff,2,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,425.tiff,0,default_51,True,n_detections=99
+budget_delivered,halt,425.tiff,0,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,425.tiff,1,default_51,True,n_detections=96
+budget_delivered,halt,425.tiff,1,hem_rect_fill,True,n_detections=96
+budget_delivered,halt,425.tiff,2,default_51,True,n_detections=98
+budget_delivered,halt,425.tiff,2,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,435.tiff,0,default_51,True,n_detections=96
+budget_delivered,halt,435.tiff,0,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,435.tiff,1,default_51,True,n_detections=98
+budget_delivered,halt,435.tiff,1,hem_rect_fill,True,n_detections=98
+budget_delivered,halt,435.tiff,2,default_51,True,n_detections=98
+budget_delivered,halt,435.tiff,2,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,462.tiff,0,default_51,True,n_detections=99
+budget_delivered,halt,462.tiff,0,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,462.tiff,1,default_51,True,n_detections=99
+budget_delivered,halt,462.tiff,1,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,462.tiff,2,default_51,True,n_detections=99
+budget_delivered,halt,462.tiff,2,hem_rect_fill,True,n_detections=98
+budget_delivered,halt,499.tiff,0,default_51,True,n_detections=98
+budget_delivered,halt,499.tiff,0,hem_rect_fill,True,n_detections=98
+budget_delivered,halt,499.tiff,1,default_51,True,n_detections=97
+budget_delivered,halt,499.tiff,1,hem_rect_fill,True,n_detections=98
+budget_delivered,halt,499.tiff,2,default_51,True,n_detections=95
+budget_delivered,halt,499.tiff,2,hem_rect_fill,True,n_detections=95
+budget_delivered,halt,013.tiff,0,default_51,True,n_detections=99
+budget_delivered,halt,013.tiff,0,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,013.tiff,1,default_51,True,n_detections=99
+budget_delivered,halt,013.tiff,1,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,013.tiff,2,default_51,True,n_detections=98
+budget_delivered,halt,013.tiff,2,hem_rect_fill,True,n_detections=98
+budget_delivered,halt,094.tiff,0,default_51,True,n_detections=99
+budget_delivered,halt,094.tiff,0,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,094.tiff,1,default_51,True,n_detections=99
+budget_delivered,halt,094.tiff,1,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,094.tiff,2,default_51,True,n_detections=95
+budget_delivered,halt,094.tiff,2,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,007.tiff,0,default_51,True,n_detections=98
+budget_delivered,halt,007.tiff,0,hem_rect_fill,True,n_detections=98
+budget_delivered,halt,007.tiff,1,default_51,True,n_detections=99
+budget_delivered,halt,007.tiff,1,hem_rect_fill,True,n_detections=98
+budget_delivered,halt,007.tiff,2,default_51,True,n_detections=99
+budget_delivered,halt,007.tiff,2,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,072.tiff,0,default_51,True,n_detections=99
+budget_delivered,halt,072.tiff,0,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,072.tiff,1,default_51,True,n_detections=98
+budget_delivered,halt,072.tiff,1,hem_rect_fill,True,n_detections=98
+budget_delivered,halt,072.tiff,2,default_51,True,n_detections=99
+budget_delivered,halt,072.tiff,2,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,100.tiff,0,default_51,True,n_detections=97
+budget_delivered,halt,100.tiff,0,hem_rect_fill,True,n_detections=97
+budget_delivered,halt,100.tiff,1,default_51,True,n_detections=98
+budget_delivered,halt,100.tiff,1,hem_rect_fill,True,n_detections=98
+budget_delivered,halt,100.tiff,2,default_51,True,n_detections=99
+budget_delivered,halt,100.tiff,2,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,123.tiff,0,default_51,True,n_detections=94
+budget_delivered,halt,123.tiff,0,hem_rect_fill,True,n_detections=93
+budget_delivered,halt,123.tiff,1,default_51,True,n_detections=97
+budget_delivered,halt,123.tiff,1,hem_rect_fill,True,n_detections=97
+budget_delivered,halt,123.tiff,2,default_51,True,n_detections=99
+budget_delivered,halt,123.tiff,2,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,128.tiff,0,default_51,True,n_detections=81
+budget_delivered,halt,128.tiff,0,hem_rect_fill,True,n_detections=84
+budget_delivered,halt,128.tiff,1,default_51,True,n_detections=97
+budget_delivered,halt,128.tiff,1,hem_rect_fill,True,n_detections=96
+budget_delivered,halt,128.tiff,2,default_51,True,n_detections=97
+budget_delivered,halt,128.tiff,2,hem_rect_fill,True,n_detections=97
+budget_delivered,halt,529.tiff,0,default_51,True,n_detections=99
+budget_delivered,halt,529.tiff,0,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,529.tiff,1,default_51,True,n_detections=98
+budget_delivered,halt,529.tiff,1,hem_rect_fill,True,n_detections=98
+budget_delivered,halt,529.tiff,2,default_51,True,n_detections=98
+budget_delivered,halt,529.tiff,2,hem_rect_fill,True,n_detections=94
+budget_delivered,halt,548.tiff,0,default_51,True,n_detections=99
+budget_delivered,halt,548.tiff,0,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,548.tiff,1,default_51,True,n_detections=99
+budget_delivered,halt,548.tiff,1,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,548.tiff,2,default_51,True,n_detections=99
+budget_delivered,halt,548.tiff,2,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,509.tiff,0,default_51,True,n_detections=94
+budget_delivered,halt,509.tiff,0,hem_rect_fill,True,n_detections=95
+budget_delivered,halt,509.tiff,1,default_51,True,n_detections=86
+budget_delivered,halt,509.tiff,1,hem_rect_fill,True,n_detections=86
+budget_delivered,halt,509.tiff,2,default_51,True,n_detections=91
+budget_delivered,halt,509.tiff,2,hem_rect_fill,True,n_detections=88
+budget_delivered,halt,524.tiff,0,default_51,True,n_detections=98
+budget_delivered,halt,524.tiff,0,hem_rect_fill,True,n_detections=97
+budget_delivered,halt,524.tiff,1,default_51,True,n_detections=99
+budget_delivered,halt,524.tiff,1,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,524.tiff,2,default_51,True,n_detections=95
+budget_delivered,halt,524.tiff,2,hem_rect_fill,True,n_detections=98
+budget_delivered,halt,527.tiff,0,default_51,True,n_detections=99
+budget_delivered,halt,527.tiff,0,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,527.tiff,1,default_51,True,n_detections=99
+budget_delivered,halt,527.tiff,1,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,527.tiff,2,default_51,True,n_detections=99
+budget_delivered,halt,527.tiff,2,hem_rect_fill,True,n_detections=98
+budget_delivered,halt,546.tiff,0,default_51,True,n_detections=100
+budget_delivered,halt,546.tiff,0,hem_rect_fill,True,n_detections=100
+budget_delivered,halt,546.tiff,1,default_51,True,n_detections=99
+budget_delivered,halt,546.tiff,1,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,546.tiff,2,default_51,True,n_detections=99
+budget_delivered,halt,546.tiff,2,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,549.tiff,0,default_51,True,n_detections=99
+budget_delivered,halt,549.tiff,0,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,549.tiff,1,default_51,True,n_detections=99
+budget_delivered,halt,549.tiff,1,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,549.tiff,2,default_51,True,n_detections=99
+budget_delivered,halt,549.tiff,2,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,402.tiff,0,default_51,True,n_detections=99
+budget_delivered,halt,402.tiff,0,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,402.tiff,1,default_51,True,n_detections=99
+budget_delivered,halt,402.tiff,1,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,402.tiff,2,default_51,True,n_detections=99
+budget_delivered,halt,402.tiff,2,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,403.tiff,0,default_51,True,n_detections=98
+budget_delivered,halt,403.tiff,0,hem_rect_fill,True,n_detections=98
+budget_delivered,halt,403.tiff,1,default_51,True,n_detections=98
+budget_delivered,halt,403.tiff,1,hem_rect_fill,True,n_detections=98
+budget_delivered,halt,403.tiff,2,default_51,True,n_detections=99
+budget_delivered,halt,403.tiff,2,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,353.tiff,0,default_51,True,n_detections=94
+budget_delivered,halt,353.tiff,0,hem_rect_fill,True,n_detections=94
+budget_delivered,halt,353.tiff,1,default_51,True,n_detections=98
+budget_delivered,halt,353.tiff,1,hem_rect_fill,True,n_detections=98
+budget_delivered,halt,353.tiff,2,default_51,True,n_detections=99
+budget_delivered,halt,353.tiff,2,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,364.tiff,0,default_51,True,n_detections=98
+budget_delivered,halt,364.tiff,0,hem_rect_fill,True,n_detections=98
+budget_delivered,halt,364.tiff,1,default_51,True,n_detections=98
+budget_delivered,halt,364.tiff,1,hem_rect_fill,True,n_detections=98
+budget_delivered,halt,364.tiff,2,default_51,True,n_detections=99
+budget_delivered,halt,364.tiff,2,hem_rect_fill,True,n_detections=97
+budget_delivered,halt,400.tiff,0,default_51,True,n_detections=99
+budget_delivered,halt,400.tiff,0,hem_rect_fill,True,n_detections=98
+budget_delivered,halt,400.tiff,1,default_51,True,n_detections=99
+budget_delivered,halt,400.tiff,1,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,400.tiff,2,default_51,True,n_detections=99
+budget_delivered,halt,400.tiff,2,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,401.tiff,0,default_51,True,n_detections=99
+budget_delivered,halt,401.tiff,0,hem_rect_fill,True,n_detections=98
+budget_delivered,halt,401.tiff,1,default_51,True,n_detections=99
+budget_delivered,halt,401.tiff,1,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,401.tiff,2,default_51,True,n_detections=99
+budget_delivered,halt,401.tiff,2,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,404.tiff,0,default_51,True,n_detections=98
+budget_delivered,halt,404.tiff,0,hem_rect_fill,True,n_detections=98
+budget_delivered,halt,404.tiff,1,default_51,True,n_detections=98
+budget_delivered,halt,404.tiff,1,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,404.tiff,2,default_51,True,n_detections=99
+budget_delivered,halt,404.tiff,2,hem_rect_fill,True,n_detections=98
+od_no_nan,halt,300.tiff,0,default_51,True,
+od_no_nan,halt,300.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,300.tiff,1,default_51,True,
+od_no_nan,halt,300.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,300.tiff,2,default_51,True,
+od_no_nan,halt,300.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,301.tiff,0,default_51,True,
+od_no_nan,halt,301.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,301.tiff,1,default_51,True,
+od_no_nan,halt,301.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,301.tiff,2,default_51,True,
+od_no_nan,halt,301.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,322.tiff,0,default_51,True,
+od_no_nan,halt,322.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,322.tiff,1,default_51,True,
+od_no_nan,halt,322.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,322.tiff,2,default_51,True,
+od_no_nan,halt,322.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,337.tiff,0,default_51,True,
+od_no_nan,halt,337.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,337.tiff,1,default_51,True,
+od_no_nan,halt,337.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,337.tiff,2,default_51,True,
+od_no_nan,halt,337.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,339.tiff,0,default_51,True,
+od_no_nan,halt,339.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,339.tiff,1,default_51,True,
+od_no_nan,halt,339.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,339.tiff,2,default_51,True,
+od_no_nan,halt,339.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,343.tiff,0,default_51,True,
+od_no_nan,halt,343.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,343.tiff,1,default_51,True,
+od_no_nan,halt,343.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,343.tiff,2,default_51,True,
+od_no_nan,halt,343.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,344.tiff,0,default_51,True,
+od_no_nan,halt,344.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,344.tiff,1,default_51,True,
+od_no_nan,halt,344.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,344.tiff,2,default_51,True,
+od_no_nan,halt,344.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,201.tiff,0,default_51,True,
+od_no_nan,halt,201.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,201.tiff,1,default_51,True,
+od_no_nan,halt,201.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,201.tiff,2,default_51,True,
+od_no_nan,halt,201.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,233.tiff,0,default_51,True,
+od_no_nan,halt,233.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,233.tiff,1,default_51,True,
+od_no_nan,halt,233.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,233.tiff,2,default_51,True,
+od_no_nan,halt,233.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,211.tiff,0,default_51,True,
+od_no_nan,halt,211.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,211.tiff,1,default_51,True,
+od_no_nan,halt,211.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,211.tiff,2,default_51,True,
+od_no_nan,halt,211.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,220.tiff,0,default_51,True,
+od_no_nan,halt,220.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,220.tiff,1,default_51,True,
+od_no_nan,halt,220.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,220.tiff,2,default_51,True,
+od_no_nan,halt,220.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,230.tiff,0,default_51,True,
+od_no_nan,halt,230.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,230.tiff,1,default_51,True,
+od_no_nan,halt,230.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,230.tiff,2,default_51,True,
+od_no_nan,halt,230.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,235.tiff,0,default_51,True,
+od_no_nan,halt,235.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,235.tiff,1,default_51,True,
+od_no_nan,halt,235.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,235.tiff,2,default_51,True,
+od_no_nan,halt,235.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,242.tiff,0,default_51,True,
+od_no_nan,halt,242.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,242.tiff,1,default_51,True,
+od_no_nan,halt,242.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,242.tiff,2,default_51,True,
+od_no_nan,halt,242.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,245.tiff,0,default_51,True,
+od_no_nan,halt,245.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,245.tiff,1,default_51,True,
+od_no_nan,halt,245.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,245.tiff,2,default_51,True,
+od_no_nan,halt,245.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,246.tiff,0,default_51,True,
+od_no_nan,halt,246.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,246.tiff,1,default_51,True,
+od_no_nan,halt,246.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,246.tiff,2,default_51,True,
+od_no_nan,halt,246.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,249.tiff,0,default_51,True,
+od_no_nan,halt,249.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,249.tiff,1,default_51,True,
+od_no_nan,halt,249.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,249.tiff,2,default_51,True,
+od_no_nan,halt,249.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,284.tiff,0,default_51,True,
+od_no_nan,halt,284.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,284.tiff,1,default_51,True,
+od_no_nan,halt,284.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,284.tiff,2,default_51,True,
+od_no_nan,halt,284.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,289.tiff,0,default_51,True,
+od_no_nan,halt,289.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,289.tiff,1,default_51,True,
+od_no_nan,halt,289.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,289.tiff,2,default_51,True,
+od_no_nan,halt,289.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,291.tiff,0,default_51,True,
+od_no_nan,halt,291.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,291.tiff,1,default_51,True,
+od_no_nan,halt,291.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,291.tiff,2,default_51,True,
+od_no_nan,halt,291.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,293.tiff,0,default_51,True,
+od_no_nan,halt,293.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,293.tiff,1,default_51,True,
+od_no_nan,halt,293.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,293.tiff,2,default_51,True,
+od_no_nan,halt,293.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,459.tiff,0,default_51,True,
+od_no_nan,halt,459.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,459.tiff,1,default_51,True,
+od_no_nan,halt,459.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,459.tiff,2,default_51,True,
+od_no_nan,halt,459.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,460.tiff,0,default_51,True,
+od_no_nan,halt,460.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,460.tiff,1,default_51,True,
+od_no_nan,halt,460.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,460.tiff,2,default_51,True,
+od_no_nan,halt,460.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,410.tiff,0,default_51,True,
+od_no_nan,halt,410.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,410.tiff,1,default_51,True,
+od_no_nan,halt,410.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,410.tiff,2,default_51,True,
+od_no_nan,halt,410.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,425.tiff,0,default_51,True,
+od_no_nan,halt,425.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,425.tiff,1,default_51,True,
+od_no_nan,halt,425.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,425.tiff,2,default_51,True,
+od_no_nan,halt,425.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,435.tiff,0,default_51,True,
+od_no_nan,halt,435.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,435.tiff,1,default_51,True,
+od_no_nan,halt,435.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,435.tiff,2,default_51,True,
+od_no_nan,halt,435.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,462.tiff,0,default_51,True,
+od_no_nan,halt,462.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,462.tiff,1,default_51,True,
+od_no_nan,halt,462.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,462.tiff,2,default_51,True,
+od_no_nan,halt,462.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,499.tiff,0,default_51,True,
+od_no_nan,halt,499.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,499.tiff,1,default_51,True,
+od_no_nan,halt,499.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,499.tiff,2,default_51,True,
+od_no_nan,halt,499.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,013.tiff,0,default_51,True,
+od_no_nan,halt,013.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,013.tiff,1,default_51,True,
+od_no_nan,halt,013.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,013.tiff,2,default_51,True,
+od_no_nan,halt,013.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,094.tiff,0,default_51,True,
+od_no_nan,halt,094.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,094.tiff,1,default_51,True,
+od_no_nan,halt,094.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,094.tiff,2,default_51,True,
+od_no_nan,halt,094.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,007.tiff,0,default_51,True,
+od_no_nan,halt,007.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,007.tiff,1,default_51,True,
+od_no_nan,halt,007.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,007.tiff,2,default_51,True,
+od_no_nan,halt,007.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,072.tiff,0,default_51,True,
+od_no_nan,halt,072.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,072.tiff,1,default_51,True,
+od_no_nan,halt,072.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,072.tiff,2,default_51,True,
+od_no_nan,halt,072.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,100.tiff,0,default_51,True,
+od_no_nan,halt,100.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,100.tiff,1,default_51,True,
+od_no_nan,halt,100.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,100.tiff,2,default_51,True,
+od_no_nan,halt,100.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,123.tiff,0,default_51,True,
+od_no_nan,halt,123.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,123.tiff,1,default_51,True,
+od_no_nan,halt,123.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,123.tiff,2,default_51,True,
+od_no_nan,halt,123.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,128.tiff,0,default_51,True,
+od_no_nan,halt,128.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,128.tiff,1,default_51,True,
+od_no_nan,halt,128.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,128.tiff,2,default_51,True,
+od_no_nan,halt,128.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,529.tiff,0,default_51,True,
+od_no_nan,halt,529.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,529.tiff,1,default_51,True,
+od_no_nan,halt,529.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,529.tiff,2,default_51,True,
+od_no_nan,halt,529.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,548.tiff,0,default_51,True,
+od_no_nan,halt,548.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,548.tiff,1,default_51,True,
+od_no_nan,halt,548.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,548.tiff,2,default_51,True,
+od_no_nan,halt,548.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,509.tiff,0,default_51,True,
+od_no_nan,halt,509.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,509.tiff,1,default_51,True,
+od_no_nan,halt,509.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,509.tiff,2,default_51,True,
+od_no_nan,halt,509.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,524.tiff,0,default_51,True,
+od_no_nan,halt,524.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,524.tiff,1,default_51,True,
+od_no_nan,halt,524.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,524.tiff,2,default_51,True,
+od_no_nan,halt,524.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,527.tiff,0,default_51,True,
+od_no_nan,halt,527.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,527.tiff,1,default_51,True,
+od_no_nan,halt,527.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,527.tiff,2,default_51,True,
+od_no_nan,halt,527.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,546.tiff,0,default_51,True,
+od_no_nan,halt,546.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,546.tiff,1,default_51,True,
+od_no_nan,halt,546.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,546.tiff,2,default_51,True,
+od_no_nan,halt,546.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,549.tiff,0,default_51,True,
+od_no_nan,halt,549.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,549.tiff,1,default_51,True,
+od_no_nan,halt,549.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,549.tiff,2,default_51,True,
+od_no_nan,halt,549.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,402.tiff,0,default_51,True,
+od_no_nan,halt,402.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,402.tiff,1,default_51,True,
+od_no_nan,halt,402.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,402.tiff,2,default_51,True,
+od_no_nan,halt,402.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,403.tiff,0,default_51,True,
+od_no_nan,halt,403.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,403.tiff,1,default_51,True,
+od_no_nan,halt,403.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,403.tiff,2,default_51,True,
+od_no_nan,halt,403.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,353.tiff,0,default_51,True,
+od_no_nan,halt,353.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,353.tiff,1,default_51,True,
+od_no_nan,halt,353.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,353.tiff,2,default_51,True,
+od_no_nan,halt,353.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,364.tiff,0,default_51,True,
+od_no_nan,halt,364.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,364.tiff,1,default_51,True,
+od_no_nan,halt,364.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,364.tiff,2,default_51,True,
+od_no_nan,halt,364.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,400.tiff,0,default_51,True,
+od_no_nan,halt,400.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,400.tiff,1,default_51,True,
+od_no_nan,halt,400.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,400.tiff,2,default_51,True,
+od_no_nan,halt,400.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,401.tiff,0,default_51,True,
+od_no_nan,halt,401.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,401.tiff,1,default_51,True,
+od_no_nan,halt,401.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,401.tiff,2,default_51,True,
+od_no_nan,halt,401.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,404.tiff,0,default_51,True,
+od_no_nan,halt,404.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,404.tiff,1,default_51,True,
+od_no_nan,halt,404.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,404.tiff,2,default_51,True,
+od_no_nan,halt,404.tiff,2,hem_rect_fill,True,
+od_descending,halt,300.tiff,0,default_51,True,
+od_descending,halt,300.tiff,0,hem_rect_fill,True,
+od_descending,halt,300.tiff,1,default_51,True,
+od_descending,halt,300.tiff,1,hem_rect_fill,True,
+od_descending,halt,300.tiff,2,default_51,True,
+od_descending,halt,300.tiff,2,hem_rect_fill,True,
+od_descending,halt,301.tiff,0,default_51,True,
+od_descending,halt,301.tiff,0,hem_rect_fill,True,
+od_descending,halt,301.tiff,1,default_51,True,
+od_descending,halt,301.tiff,1,hem_rect_fill,True,
+od_descending,halt,301.tiff,2,default_51,True,
+od_descending,halt,301.tiff,2,hem_rect_fill,True,
+od_descending,halt,322.tiff,0,default_51,True,
+od_descending,halt,322.tiff,0,hem_rect_fill,True,
+od_descending,halt,322.tiff,1,default_51,True,
+od_descending,halt,322.tiff,1,hem_rect_fill,True,
+od_descending,halt,322.tiff,2,default_51,True,
+od_descending,halt,322.tiff,2,hem_rect_fill,True,
+od_descending,halt,337.tiff,0,default_51,True,
+od_descending,halt,337.tiff,0,hem_rect_fill,True,
+od_descending,halt,337.tiff,1,default_51,True,
+od_descending,halt,337.tiff,1,hem_rect_fill,True,
+od_descending,halt,337.tiff,2,default_51,True,
+od_descending,halt,337.tiff,2,hem_rect_fill,True,
+od_descending,halt,339.tiff,0,default_51,True,
+od_descending,halt,339.tiff,0,hem_rect_fill,True,
+od_descending,halt,339.tiff,1,default_51,True,
+od_descending,halt,339.tiff,1,hem_rect_fill,True,
+od_descending,halt,339.tiff,2,default_51,True,
+od_descending,halt,339.tiff,2,hem_rect_fill,True,
+od_descending,halt,343.tiff,0,default_51,True,
+od_descending,halt,343.tiff,0,hem_rect_fill,True,
+od_descending,halt,343.tiff,1,default_51,True,
+od_descending,halt,343.tiff,1,hem_rect_fill,True,
+od_descending,halt,343.tiff,2,default_51,True,
+od_descending,halt,343.tiff,2,hem_rect_fill,True,
+od_descending,halt,344.tiff,0,default_51,True,
+od_descending,halt,344.tiff,0,hem_rect_fill,True,
+od_descending,halt,344.tiff,1,default_51,True,
+od_descending,halt,344.tiff,1,hem_rect_fill,True,
+od_descending,halt,344.tiff,2,default_51,True,
+od_descending,halt,344.tiff,2,hem_rect_fill,True,
+od_descending,halt,201.tiff,0,default_51,True,
+od_descending,halt,201.tiff,0,hem_rect_fill,True,
+od_descending,halt,201.tiff,1,default_51,True,
+od_descending,halt,201.tiff,1,hem_rect_fill,True,
+od_descending,halt,201.tiff,2,default_51,True,
+od_descending,halt,201.tiff,2,hem_rect_fill,True,
+od_descending,halt,233.tiff,0,default_51,True,
+od_descending,halt,233.tiff,0,hem_rect_fill,True,
+od_descending,halt,233.tiff,1,default_51,True,
+od_descending,halt,233.tiff,1,hem_rect_fill,True,
+od_descending,halt,233.tiff,2,default_51,True,
+od_descending,halt,233.tiff,2,hem_rect_fill,True,
+od_descending,halt,211.tiff,0,default_51,True,
+od_descending,halt,211.tiff,0,hem_rect_fill,True,
+od_descending,halt,211.tiff,1,default_51,True,
+od_descending,halt,211.tiff,1,hem_rect_fill,True,
+od_descending,halt,211.tiff,2,default_51,True,
+od_descending,halt,211.tiff,2,hem_rect_fill,True,
+od_descending,halt,220.tiff,0,default_51,True,
+od_descending,halt,220.tiff,0,hem_rect_fill,True,
+od_descending,halt,220.tiff,1,default_51,True,
+od_descending,halt,220.tiff,1,hem_rect_fill,True,
+od_descending,halt,220.tiff,2,default_51,True,
+od_descending,halt,220.tiff,2,hem_rect_fill,True,
+od_descending,halt,230.tiff,0,default_51,True,
+od_descending,halt,230.tiff,0,hem_rect_fill,True,
+od_descending,halt,230.tiff,1,default_51,True,
+od_descending,halt,230.tiff,1,hem_rect_fill,True,
+od_descending,halt,230.tiff,2,default_51,True,
+od_descending,halt,230.tiff,2,hem_rect_fill,True,
+od_descending,halt,235.tiff,0,default_51,True,
+od_descending,halt,235.tiff,0,hem_rect_fill,True,
+od_descending,halt,235.tiff,1,default_51,True,
+od_descending,halt,235.tiff,1,hem_rect_fill,True,
+od_descending,halt,235.tiff,2,default_51,True,
+od_descending,halt,235.tiff,2,hem_rect_fill,True,
+od_descending,halt,242.tiff,0,default_51,True,
+od_descending,halt,242.tiff,0,hem_rect_fill,True,
+od_descending,halt,242.tiff,1,default_51,True,
+od_descending,halt,242.tiff,1,hem_rect_fill,True,
+od_descending,halt,242.tiff,2,default_51,True,
+od_descending,halt,242.tiff,2,hem_rect_fill,True,
+od_descending,halt,245.tiff,0,default_51,True,
+od_descending,halt,245.tiff,0,hem_rect_fill,True,
+od_descending,halt,245.tiff,1,default_51,True,
+od_descending,halt,245.tiff,1,hem_rect_fill,True,
+od_descending,halt,245.tiff,2,default_51,True,
+od_descending,halt,245.tiff,2,hem_rect_fill,True,
+od_descending,halt,246.tiff,0,default_51,True,
+od_descending,halt,246.tiff,0,hem_rect_fill,True,
+od_descending,halt,246.tiff,1,default_51,True,
+od_descending,halt,246.tiff,1,hem_rect_fill,True,
+od_descending,halt,246.tiff,2,default_51,True,
+od_descending,halt,246.tiff,2,hem_rect_fill,True,
+od_descending,halt,249.tiff,0,default_51,True,
+od_descending,halt,249.tiff,0,hem_rect_fill,True,
+od_descending,halt,249.tiff,1,default_51,True,
+od_descending,halt,249.tiff,1,hem_rect_fill,True,
+od_descending,halt,249.tiff,2,default_51,True,
+od_descending,halt,249.tiff,2,hem_rect_fill,True,
+od_descending,halt,284.tiff,0,default_51,True,
+od_descending,halt,284.tiff,0,hem_rect_fill,True,
+od_descending,halt,284.tiff,1,default_51,True,
+od_descending,halt,284.tiff,1,hem_rect_fill,True,
+od_descending,halt,284.tiff,2,default_51,True,
+od_descending,halt,284.tiff,2,hem_rect_fill,True,
+od_descending,halt,289.tiff,0,default_51,True,
+od_descending,halt,289.tiff,0,hem_rect_fill,True,
+od_descending,halt,289.tiff,1,default_51,True,
+od_descending,halt,289.tiff,1,hem_rect_fill,True,
+od_descending,halt,289.tiff,2,default_51,True,
+od_descending,halt,289.tiff,2,hem_rect_fill,True,
+od_descending,halt,291.tiff,0,default_51,True,
+od_descending,halt,291.tiff,0,hem_rect_fill,True,
+od_descending,halt,291.tiff,1,default_51,True,
+od_descending,halt,291.tiff,1,hem_rect_fill,True,
+od_descending,halt,291.tiff,2,default_51,True,
+od_descending,halt,291.tiff,2,hem_rect_fill,True,
+od_descending,halt,293.tiff,0,default_51,True,
+od_descending,halt,293.tiff,0,hem_rect_fill,True,
+od_descending,halt,293.tiff,1,default_51,True,
+od_descending,halt,293.tiff,1,hem_rect_fill,True,
+od_descending,halt,293.tiff,2,default_51,True,
+od_descending,halt,293.tiff,2,hem_rect_fill,True,
+od_descending,halt,459.tiff,0,default_51,True,
+od_descending,halt,459.tiff,0,hem_rect_fill,True,
+od_descending,halt,459.tiff,1,default_51,True,
+od_descending,halt,459.tiff,1,hem_rect_fill,True,
+od_descending,halt,459.tiff,2,default_51,True,
+od_descending,halt,459.tiff,2,hem_rect_fill,True,
+od_descending,halt,460.tiff,0,default_51,True,
+od_descending,halt,460.tiff,0,hem_rect_fill,True,
+od_descending,halt,460.tiff,1,default_51,True,
+od_descending,halt,460.tiff,1,hem_rect_fill,True,
+od_descending,halt,460.tiff,2,default_51,True,
+od_descending,halt,460.tiff,2,hem_rect_fill,True,
+od_descending,halt,410.tiff,0,default_51,True,
+od_descending,halt,410.tiff,0,hem_rect_fill,True,
+od_descending,halt,410.tiff,1,default_51,True,
+od_descending,halt,410.tiff,1,hem_rect_fill,True,
+od_descending,halt,410.tiff,2,default_51,True,
+od_descending,halt,410.tiff,2,hem_rect_fill,True,
+od_descending,halt,425.tiff,0,default_51,True,
+od_descending,halt,425.tiff,0,hem_rect_fill,True,
+od_descending,halt,425.tiff,1,default_51,True,
+od_descending,halt,425.tiff,1,hem_rect_fill,True,
+od_descending,halt,425.tiff,2,default_51,True,
+od_descending,halt,425.tiff,2,hem_rect_fill,True,
+od_descending,halt,435.tiff,0,default_51,True,
+od_descending,halt,435.tiff,0,hem_rect_fill,True,
+od_descending,halt,435.tiff,1,default_51,True,
+od_descending,halt,435.tiff,1,hem_rect_fill,True,
+od_descending,halt,435.tiff,2,default_51,True,
+od_descending,halt,435.tiff,2,hem_rect_fill,True,
+od_descending,halt,462.tiff,0,default_51,True,
+od_descending,halt,462.tiff,0,hem_rect_fill,True,
+od_descending,halt,462.tiff,1,default_51,True,
+od_descending,halt,462.tiff,1,hem_rect_fill,True,
+od_descending,halt,462.tiff,2,default_51,True,
+od_descending,halt,462.tiff,2,hem_rect_fill,True,
+od_descending,halt,499.tiff,0,default_51,True,
+od_descending,halt,499.tiff,0,hem_rect_fill,True,
+od_descending,halt,499.tiff,1,default_51,True,
+od_descending,halt,499.tiff,1,hem_rect_fill,True,
+od_descending,halt,499.tiff,2,default_51,True,
+od_descending,halt,499.tiff,2,hem_rect_fill,True,
+od_descending,halt,013.tiff,0,default_51,True,
+od_descending,halt,013.tiff,0,hem_rect_fill,True,
+od_descending,halt,013.tiff,1,default_51,True,
+od_descending,halt,013.tiff,1,hem_rect_fill,True,
+od_descending,halt,013.tiff,2,default_51,True,
+od_descending,halt,013.tiff,2,hem_rect_fill,True,
+od_descending,halt,094.tiff,0,default_51,True,
+od_descending,halt,094.tiff,0,hem_rect_fill,True,
+od_descending,halt,094.tiff,1,default_51,True,
+od_descending,halt,094.tiff,1,hem_rect_fill,True,
+od_descending,halt,094.tiff,2,default_51,True,
+od_descending,halt,094.tiff,2,hem_rect_fill,True,
+od_descending,halt,007.tiff,0,default_51,True,
+od_descending,halt,007.tiff,0,hem_rect_fill,True,
+od_descending,halt,007.tiff,1,default_51,True,
+od_descending,halt,007.tiff,1,hem_rect_fill,True,
+od_descending,halt,007.tiff,2,default_51,True,
+od_descending,halt,007.tiff,2,hem_rect_fill,True,
+od_descending,halt,072.tiff,0,default_51,True,
+od_descending,halt,072.tiff,0,hem_rect_fill,True,
+od_descending,halt,072.tiff,1,default_51,True,
+od_descending,halt,072.tiff,1,hem_rect_fill,True,
+od_descending,halt,072.tiff,2,default_51,True,
+od_descending,halt,072.tiff,2,hem_rect_fill,True,
+od_descending,halt,100.tiff,0,default_51,True,
+od_descending,halt,100.tiff,0,hem_rect_fill,True,
+od_descending,halt,100.tiff,1,default_51,True,
+od_descending,halt,100.tiff,1,hem_rect_fill,True,
+od_descending,halt,100.tiff,2,default_51,True,
+od_descending,halt,100.tiff,2,hem_rect_fill,True,
+od_descending,halt,123.tiff,0,default_51,True,
+od_descending,halt,123.tiff,0,hem_rect_fill,True,
+od_descending,halt,123.tiff,1,default_51,True,
+od_descending,halt,123.tiff,1,hem_rect_fill,True,
+od_descending,halt,123.tiff,2,default_51,True,
+od_descending,halt,123.tiff,2,hem_rect_fill,True,
+od_descending,halt,128.tiff,0,default_51,True,
+od_descending,halt,128.tiff,0,hem_rect_fill,True,
+od_descending,halt,128.tiff,1,default_51,True,
+od_descending,halt,128.tiff,1,hem_rect_fill,True,
+od_descending,halt,128.tiff,2,default_51,True,
+od_descending,halt,128.tiff,2,hem_rect_fill,True,
+od_descending,halt,529.tiff,0,default_51,True,
+od_descending,halt,529.tiff,0,hem_rect_fill,True,
+od_descending,halt,529.tiff,1,default_51,True,
+od_descending,halt,529.tiff,1,hem_rect_fill,True,
+od_descending,halt,529.tiff,2,default_51,True,
+od_descending,halt,529.tiff,2,hem_rect_fill,True,
+od_descending,halt,548.tiff,0,default_51,True,
+od_descending,halt,548.tiff,0,hem_rect_fill,True,
+od_descending,halt,548.tiff,1,default_51,True,
+od_descending,halt,548.tiff,1,hem_rect_fill,True,
+od_descending,halt,548.tiff,2,default_51,True,
+od_descending,halt,548.tiff,2,hem_rect_fill,True,
+od_descending,halt,509.tiff,0,default_51,True,
+od_descending,halt,509.tiff,0,hem_rect_fill,True,
+od_descending,halt,509.tiff,1,default_51,True,
+od_descending,halt,509.tiff,1,hem_rect_fill,True,
+od_descending,halt,509.tiff,2,default_51,True,
+od_descending,halt,509.tiff,2,hem_rect_fill,True,
+od_descending,halt,524.tiff,0,default_51,True,
+od_descending,halt,524.tiff,0,hem_rect_fill,True,
+od_descending,halt,524.tiff,1,default_51,True,
+od_descending,halt,524.tiff,1,hem_rect_fill,True,
+od_descending,halt,524.tiff,2,default_51,True,
+od_descending,halt,524.tiff,2,hem_rect_fill,True,
+od_descending,halt,527.tiff,0,default_51,True,
+od_descending,halt,527.tiff,0,hem_rect_fill,True,
+od_descending,halt,527.tiff,1,default_51,True,
+od_descending,halt,527.tiff,1,hem_rect_fill,True,
+od_descending,halt,527.tiff,2,default_51,True,
+od_descending,halt,527.tiff,2,hem_rect_fill,True,
+od_descending,halt,546.tiff,0,default_51,True,
+od_descending,halt,546.tiff,0,hem_rect_fill,True,
+od_descending,halt,546.tiff,1,default_51,True,
+od_descending,halt,546.tiff,1,hem_rect_fill,True,
+od_descending,halt,546.tiff,2,default_51,True,
+od_descending,halt,546.tiff,2,hem_rect_fill,True,
+od_descending,halt,549.tiff,0,default_51,True,
+od_descending,halt,549.tiff,0,hem_rect_fill,True,
+od_descending,halt,549.tiff,1,default_51,True,
+od_descending,halt,549.tiff,1,hem_rect_fill,True,
+od_descending,halt,549.tiff,2,default_51,True,
+od_descending,halt,549.tiff,2,hem_rect_fill,True,
+od_descending,halt,402.tiff,0,default_51,True,
+od_descending,halt,402.tiff,0,hem_rect_fill,True,
+od_descending,halt,402.tiff,1,default_51,True,
+od_descending,halt,402.tiff,1,hem_rect_fill,True,
+od_descending,halt,402.tiff,2,default_51,True,
+od_descending,halt,402.tiff,2,hem_rect_fill,True,
+od_descending,halt,403.tiff,0,default_51,True,
+od_descending,halt,403.tiff,0,hem_rect_fill,True,
+od_descending,halt,403.tiff,1,default_51,True,
+od_descending,halt,403.tiff,1,hem_rect_fill,True,
+od_descending,halt,403.tiff,2,default_51,True,
+od_descending,halt,403.tiff,2,hem_rect_fill,True,
+od_descending,halt,353.tiff,0,default_51,True,
+od_descending,halt,353.tiff,0,hem_rect_fill,True,
+od_descending,halt,353.tiff,1,default_51,True,
+od_descending,halt,353.tiff,1,hem_rect_fill,True,
+od_descending,halt,353.tiff,2,default_51,True,
+od_descending,halt,353.tiff,2,hem_rect_fill,True,
+od_descending,halt,364.tiff,0,default_51,True,
+od_descending,halt,364.tiff,0,hem_rect_fill,True,
+od_descending,halt,364.tiff,1,default_51,True,
+od_descending,halt,364.tiff,1,hem_rect_fill,True,
+od_descending,halt,364.tiff,2,default_51,True,
+od_descending,halt,364.tiff,2,hem_rect_fill,True,
+od_descending,halt,400.tiff,0,default_51,True,
+od_descending,halt,400.tiff,0,hem_rect_fill,True,
+od_descending,halt,400.tiff,1,default_51,True,
+od_descending,halt,400.tiff,1,hem_rect_fill,True,
+od_descending,halt,400.tiff,2,default_51,True,
+od_descending,halt,400.tiff,2,hem_rect_fill,True,
+od_descending,halt,401.tiff,0,default_51,True,
+od_descending,halt,401.tiff,0,hem_rect_fill,True,
+od_descending,halt,401.tiff,1,default_51,True,
+od_descending,halt,401.tiff,1,hem_rect_fill,True,
+od_descending,halt,401.tiff,2,default_51,True,
+od_descending,halt,401.tiff,2,hem_rect_fill,True,
+od_descending,halt,404.tiff,0,default_51,True,
+od_descending,halt,404.tiff,0,hem_rect_fill,True,
+od_descending,halt,404.tiff,1,default_51,True,
+od_descending,halt,404.tiff,1,hem_rect_fill,True,
+od_descending,halt,404.tiff,2,default_51,True,
+od_descending,halt,404.tiff,2,hem_rect_fill,True,
+one_row_per_arm_same_click,halt,300.tiff,0,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,300.tiff,1,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,300.tiff,2,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,301.tiff,0,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,301.tiff,1,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,301.tiff,2,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,322.tiff,0,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,322.tiff,1,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,322.tiff,2,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,337.tiff,0,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,337.tiff,1,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,337.tiff,2,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,339.tiff,0,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,339.tiff,1,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,339.tiff,2,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,343.tiff,0,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,343.tiff,1,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,343.tiff,2,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,344.tiff,0,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,344.tiff,1,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,344.tiff,2,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,201.tiff,0,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,201.tiff,1,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,201.tiff,2,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,233.tiff,0,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,233.tiff,1,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,233.tiff,2,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,211.tiff,0,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,211.tiff,1,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,211.tiff,2,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,220.tiff,0,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,220.tiff,1,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,220.tiff,2,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,230.tiff,0,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,230.tiff,1,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,230.tiff,2,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,235.tiff,0,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,235.tiff,1,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,235.tiff,2,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,242.tiff,0,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,242.tiff,1,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,242.tiff,2,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,245.tiff,0,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,245.tiff,1,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,245.tiff,2,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,246.tiff,0,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,246.tiff,1,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,246.tiff,2,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,249.tiff,0,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,249.tiff,1,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,249.tiff,2,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,284.tiff,0,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,284.tiff,1,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,284.tiff,2,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,289.tiff,0,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,289.tiff,1,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,289.tiff,2,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,291.tiff,0,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,291.tiff,1,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,291.tiff,2,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,293.tiff,0,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,293.tiff,1,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,293.tiff,2,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,459.tiff,0,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,459.tiff,1,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,459.tiff,2,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,460.tiff,0,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,460.tiff,1,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,460.tiff,2,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,410.tiff,0,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,410.tiff,1,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,410.tiff,2,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,425.tiff,0,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,425.tiff,1,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,425.tiff,2,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,435.tiff,0,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,435.tiff,1,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,435.tiff,2,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,462.tiff,0,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,462.tiff,1,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,462.tiff,2,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,499.tiff,0,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,499.tiff,1,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,499.tiff,2,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,013.tiff,0,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,013.tiff,1,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,013.tiff,2,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,094.tiff,0,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,094.tiff,1,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,094.tiff,2,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,007.tiff,0,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,007.tiff,1,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,007.tiff,2,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,072.tiff,0,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,072.tiff,1,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,072.tiff,2,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,100.tiff,0,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,100.tiff,1,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,100.tiff,2,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,123.tiff,0,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,123.tiff,1,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,123.tiff,2,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,128.tiff,0,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,128.tiff,1,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,128.tiff,2,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,529.tiff,0,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,529.tiff,1,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,529.tiff,2,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,548.tiff,0,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,548.tiff,1,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,548.tiff,2,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,509.tiff,0,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,509.tiff,1,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,509.tiff,2,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,524.tiff,0,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,524.tiff,1,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,524.tiff,2,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,527.tiff,0,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,527.tiff,1,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,527.tiff,2,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,546.tiff,0,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,546.tiff,1,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,546.tiff,2,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,549.tiff,0,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,549.tiff,1,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,549.tiff,2,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,402.tiff,0,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,402.tiff,1,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,402.tiff,2,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,403.tiff,0,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,403.tiff,1,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,403.tiff,2,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,353.tiff,0,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,353.tiff,1,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,353.tiff,2,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,364.tiff,0,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,364.tiff,1,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,364.tiff,2,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,400.tiff,0,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,400.tiff,1,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,400.tiff,2,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,401.tiff,0,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,401.tiff,1,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,401.tiff,2,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,404.tiff,0,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,404.tiff,1,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,404.tiff,2,ALL,True,arms=default_51;hem_rect_fill n_seed_ann=1 n_gt_values=1
+fill_keeps_template_mean,halt,300.tiff,0,ALL,True,|mean_filled - mean_default|=6.7e-10
+fill_keeps_template_mean,halt,300.tiff,1,ALL,True,|mean_filled - mean_default|=7.67e-10
+fill_keeps_template_mean,halt,300.tiff,2,ALL,True,|mean_filled - mean_default|=1.72e-10
+fill_keeps_template_mean,halt,301.tiff,0,ALL,True,|mean_filled - mean_default|=2.12e-10
+fill_keeps_template_mean,halt,301.tiff,1,ALL,True,|mean_filled - mean_default|=5.91e-10
+fill_keeps_template_mean,halt,301.tiff,2,ALL,True,|mean_filled - mean_default|=1.81e-10
+fill_keeps_template_mean,halt,322.tiff,0,ALL,True,|mean_filled - mean_default|=1.54e-10
+fill_keeps_template_mean,halt,322.tiff,1,ALL,True,|mean_filled - mean_default|=3.05e-10
+fill_keeps_template_mean,halt,322.tiff,2,ALL,True,|mean_filled - mean_default|=5.3e-10
+fill_keeps_template_mean,halt,337.tiff,0,ALL,True,|mean_filled - mean_default|=7.39e-10
+fill_keeps_template_mean,halt,337.tiff,1,ALL,True,|mean_filled - mean_default|=3.55e-10
+fill_keeps_template_mean,halt,337.tiff,2,ALL,True,|mean_filled - mean_default|=2.46e-10
+fill_keeps_template_mean,halt,339.tiff,0,ALL,True,|mean_filled - mean_default|=1.82e-10
+fill_keeps_template_mean,halt,339.tiff,1,ALL,True,|mean_filled - mean_default|=2.37e-10
+fill_keeps_template_mean,halt,339.tiff,2,ALL,True,|mean_filled - mean_default|=1.12e-10
+fill_keeps_template_mean,halt,343.tiff,0,ALL,True,|mean_filled - mean_default|=5.41e-11
+fill_keeps_template_mean,halt,343.tiff,1,ALL,True,|mean_filled - mean_default|=3.2e-10
+fill_keeps_template_mean,halt,343.tiff,2,ALL,True,|mean_filled - mean_default|=2.97e-10
+fill_keeps_template_mean,halt,344.tiff,0,ALL,True,|mean_filled - mean_default|=7.91e-11
+fill_keeps_template_mean,halt,344.tiff,1,ALL,True,|mean_filled - mean_default|=6.8e-10
+fill_keeps_template_mean,halt,344.tiff,2,ALL,True,|mean_filled - mean_default|=6.07e-10
+fill_keeps_template_mean,halt,201.tiff,0,ALL,True,|mean_filled - mean_default|=5.86e-11
+fill_keeps_template_mean,halt,201.tiff,1,ALL,True,|mean_filled - mean_default|=9.4e-10
+fill_keeps_template_mean,halt,201.tiff,2,ALL,True,|mean_filled - mean_default|=1.12e-09
+fill_keeps_template_mean,halt,233.tiff,0,ALL,True,|mean_filled - mean_default|=7.4e-10
+fill_keeps_template_mean,halt,233.tiff,1,ALL,True,|mean_filled - mean_default|=2.24e-10
+fill_keeps_template_mean,halt,233.tiff,2,ALL,True,|mean_filled - mean_default|=3.79e-10
+fill_keeps_template_mean,halt,211.tiff,0,ALL,True,|mean_filled - mean_default|=1.38e-09
+fill_keeps_template_mean,halt,211.tiff,1,ALL,True,|mean_filled - mean_default|=9.17e-10
+fill_keeps_template_mean,halt,211.tiff,2,ALL,True,|mean_filled - mean_default|=9.04e-10
+fill_keeps_template_mean,halt,220.tiff,0,ALL,True,|mean_filled - mean_default|=7.79e-10
+fill_keeps_template_mean,halt,220.tiff,1,ALL,True,|mean_filled - mean_default|=1.29e-09
+fill_keeps_template_mean,halt,220.tiff,2,ALL,True,|mean_filled - mean_default|=1.17e-09
+fill_keeps_template_mean,halt,230.tiff,0,ALL,True,|mean_filled - mean_default|=2.43e-10
+fill_keeps_template_mean,halt,230.tiff,1,ALL,True,|mean_filled - mean_default|=5.97e-10
+fill_keeps_template_mean,halt,230.tiff,2,ALL,True,|mean_filled - mean_default|=1.35e-10
+fill_keeps_template_mean,halt,235.tiff,0,ALL,True,|mean_filled - mean_default|=5.17e-10
+fill_keeps_template_mean,halt,235.tiff,1,ALL,True,|mean_filled - mean_default|=4.54e-10
+fill_keeps_template_mean,halt,235.tiff,2,ALL,True,|mean_filled - mean_default|=5.87e-10
+fill_keeps_template_mean,halt,242.tiff,0,ALL,True,|mean_filled - mean_default|=4.87e-10
+fill_keeps_template_mean,halt,242.tiff,1,ALL,True,|mean_filled - mean_default|=1.46e-10
+fill_keeps_template_mean,halt,242.tiff,2,ALL,True,|mean_filled - mean_default|=4.31e-10
+fill_keeps_template_mean,halt,245.tiff,0,ALL,True,|mean_filled - mean_default|=7.47e-10
+fill_keeps_template_mean,halt,245.tiff,1,ALL,True,|mean_filled - mean_default|=3.63e-10
+fill_keeps_template_mean,halt,245.tiff,2,ALL,True,|mean_filled - mean_default|=4.07e-10
+fill_keeps_template_mean,halt,246.tiff,0,ALL,True,|mean_filled - mean_default|=4.76e-10
+fill_keeps_template_mean,halt,246.tiff,1,ALL,True,|mean_filled - mean_default|=4.21e-10
+fill_keeps_template_mean,halt,246.tiff,2,ALL,True,|mean_filled - mean_default|=3.06e-10
+fill_keeps_template_mean,halt,249.tiff,0,ALL,True,|mean_filled - mean_default|=4.22e-10
+fill_keeps_template_mean,halt,249.tiff,1,ALL,True,|mean_filled - mean_default|=2.14e-10
+fill_keeps_template_mean,halt,249.tiff,2,ALL,True,|mean_filled - mean_default|=7.01e-10
+fill_keeps_template_mean,halt,284.tiff,0,ALL,True,|mean_filled - mean_default|=4.48e-10
+fill_keeps_template_mean,halt,284.tiff,1,ALL,True,|mean_filled - mean_default|=1.27e-09
+fill_keeps_template_mean,halt,284.tiff,2,ALL,True,|mean_filled - mean_default|=1.6e-10
+fill_keeps_template_mean,halt,289.tiff,0,ALL,True,|mean_filled - mean_default|=7.14e-10
+fill_keeps_template_mean,halt,289.tiff,1,ALL,True,|mean_filled - mean_default|=7.22e-10
+fill_keeps_template_mean,halt,289.tiff,2,ALL,True,|mean_filled - mean_default|=7.95e-10
+fill_keeps_template_mean,halt,291.tiff,0,ALL,True,|mean_filled - mean_default|=2.06e-10
+fill_keeps_template_mean,halt,291.tiff,1,ALL,True,|mean_filled - mean_default|=9.25e-10
+fill_keeps_template_mean,halt,291.tiff,2,ALL,True,|mean_filled - mean_default|=4.62e-10
+fill_keeps_template_mean,halt,293.tiff,0,ALL,True,|mean_filled - mean_default|=1.19e-10
+fill_keeps_template_mean,halt,293.tiff,1,ALL,True,|mean_filled - mean_default|=4.44e-10
+fill_keeps_template_mean,halt,293.tiff,2,ALL,True,|mean_filled - mean_default|=1.88e-10
+fill_keeps_template_mean,halt,459.tiff,0,ALL,True,|mean_filled - mean_default|=8.23e-10
+fill_keeps_template_mean,halt,459.tiff,1,ALL,True,|mean_filled - mean_default|=2.37e-10
+fill_keeps_template_mean,halt,459.tiff,2,ALL,True,|mean_filled - mean_default|=4.34e-10
+fill_keeps_template_mean,halt,460.tiff,0,ALL,True,|mean_filled - mean_default|=8.47e-10
+fill_keeps_template_mean,halt,460.tiff,1,ALL,True,|mean_filled - mean_default|=1.35e-09
+fill_keeps_template_mean,halt,460.tiff,2,ALL,True,|mean_filled - mean_default|=8.2e-10
+fill_keeps_template_mean,halt,410.tiff,0,ALL,True,|mean_filled - mean_default|=1.41e-10
+fill_keeps_template_mean,halt,410.tiff,1,ALL,True,|mean_filled - mean_default|=5.63e-11
+fill_keeps_template_mean,halt,410.tiff,2,ALL,True,|mean_filled - mean_default|=6.55e-10
+fill_keeps_template_mean,halt,425.tiff,0,ALL,True,|mean_filled - mean_default|=8.51e-10
+fill_keeps_template_mean,halt,425.tiff,1,ALL,True,|mean_filled - mean_default|=1.02e-10
+fill_keeps_template_mean,halt,425.tiff,2,ALL,True,|mean_filled - mean_default|=4.72e-10
+fill_keeps_template_mean,halt,435.tiff,0,ALL,True,|mean_filled - mean_default|=2.58e-09
+fill_keeps_template_mean,halt,435.tiff,1,ALL,True,|mean_filled - mean_default|=3.84e-10
+fill_keeps_template_mean,halt,435.tiff,2,ALL,True,|mean_filled - mean_default|=1.06e-09
+fill_keeps_template_mean,halt,462.tiff,0,ALL,True,|mean_filled - mean_default|=1.09e-10
+fill_keeps_template_mean,halt,462.tiff,1,ALL,True,|mean_filled - mean_default|=5.58e-10
+fill_keeps_template_mean,halt,462.tiff,2,ALL,True,|mean_filled - mean_default|=2.94e-10
+fill_keeps_template_mean,halt,499.tiff,0,ALL,True,|mean_filled - mean_default|=3.91e-10
+fill_keeps_template_mean,halt,499.tiff,1,ALL,True,|mean_filled - mean_default|=3.22e-11
+fill_keeps_template_mean,halt,499.tiff,2,ALL,True,|mean_filled - mean_default|=6.3e-11
+fill_keeps_template_mean,halt,013.tiff,0,ALL,True,|mean_filled - mean_default|=1.45e-10
+fill_keeps_template_mean,halt,013.tiff,1,ALL,True,|mean_filled - mean_default|=1.41e-10
+fill_keeps_template_mean,halt,013.tiff,2,ALL,True,|mean_filled - mean_default|=5.08e-10
+fill_keeps_template_mean,halt,094.tiff,0,ALL,True,|mean_filled - mean_default|=1.66e-10
+fill_keeps_template_mean,halt,094.tiff,1,ALL,True,|mean_filled - mean_default|=2.56e-10
+fill_keeps_template_mean,halt,094.tiff,2,ALL,True,|mean_filled - mean_default|=5.55e-10
+fill_keeps_template_mean,halt,007.tiff,0,ALL,True,|mean_filled - mean_default|=1.03e-09
+fill_keeps_template_mean,halt,007.tiff,1,ALL,True,|mean_filled - mean_default|=4e-11
+fill_keeps_template_mean,halt,007.tiff,2,ALL,True,|mean_filled - mean_default|=4.11e-10
+fill_keeps_template_mean,halt,072.tiff,0,ALL,True,|mean_filled - mean_default|=4.67e-10
+fill_keeps_template_mean,halt,072.tiff,1,ALL,True,|mean_filled - mean_default|=3.59e-10
+fill_keeps_template_mean,halt,072.tiff,2,ALL,True,|mean_filled - mean_default|=2.32e-10
+fill_keeps_template_mean,halt,100.tiff,0,ALL,True,|mean_filled - mean_default|=2.21e-12
+fill_keeps_template_mean,halt,100.tiff,1,ALL,True,|mean_filled - mean_default|=6.44e-11
+fill_keeps_template_mean,halt,100.tiff,2,ALL,True,|mean_filled - mean_default|=6.87e-11
+fill_keeps_template_mean,halt,123.tiff,0,ALL,True,|mean_filled - mean_default|=4.93e-10
+fill_keeps_template_mean,halt,123.tiff,1,ALL,True,|mean_filled - mean_default|=1.91e-10
+fill_keeps_template_mean,halt,123.tiff,2,ALL,True,|mean_filled - mean_default|=3.44e-10
+fill_keeps_template_mean,halt,128.tiff,0,ALL,True,|mean_filled - mean_default|=6.15e-11
+fill_keeps_template_mean,halt,128.tiff,1,ALL,True,|mean_filled - mean_default|=3.74e-11
+fill_keeps_template_mean,halt,128.tiff,2,ALL,True,|mean_filled - mean_default|=3.67e-10
+fill_keeps_template_mean,halt,529.tiff,0,ALL,True,|mean_filled - mean_default|=2.78e-10
+fill_keeps_template_mean,halt,529.tiff,1,ALL,True,|mean_filled - mean_default|=2.42e-11
+fill_keeps_template_mean,halt,529.tiff,2,ALL,True,|mean_filled - mean_default|=3.65e-10
+fill_keeps_template_mean,halt,548.tiff,0,ALL,True,|mean_filled - mean_default|=2.57e-09
+fill_keeps_template_mean,halt,548.tiff,1,ALL,True,|mean_filled - mean_default|=2.01e-11
+fill_keeps_template_mean,halt,548.tiff,2,ALL,True,|mean_filled - mean_default|=6.66e-11
+fill_keeps_template_mean,halt,509.tiff,0,ALL,True,|mean_filled - mean_default|=1.55e-10
+fill_keeps_template_mean,halt,509.tiff,1,ALL,True,|mean_filled - mean_default|=1.78e-10
+fill_keeps_template_mean,halt,509.tiff,2,ALL,True,|mean_filled - mean_default|=3.99e-10
+fill_keeps_template_mean,halt,524.tiff,0,ALL,True,|mean_filled - mean_default|=6.36e-10
+fill_keeps_template_mean,halt,524.tiff,1,ALL,True,|mean_filled - mean_default|=6.55e-10
+fill_keeps_template_mean,halt,524.tiff,2,ALL,True,|mean_filled - mean_default|=1.49e-09
+fill_keeps_template_mean,halt,527.tiff,0,ALL,True,|mean_filled - mean_default|=2.57e-09
+fill_keeps_template_mean,halt,527.tiff,1,ALL,True,|mean_filled - mean_default|=2.6e-10
+fill_keeps_template_mean,halt,527.tiff,2,ALL,True,|mean_filled - mean_default|=5.22e-10
+fill_keeps_template_mean,halt,546.tiff,0,ALL,True,|mean_filled - mean_default|=2.18e-10
+fill_keeps_template_mean,halt,546.tiff,1,ALL,True,|mean_filled - mean_default|=5.44e-10
+fill_keeps_template_mean,halt,546.tiff,2,ALL,True,|mean_filled - mean_default|=1.58e-10
+fill_keeps_template_mean,halt,549.tiff,0,ALL,True,|mean_filled - mean_default|=5.79e-10
+fill_keeps_template_mean,halt,549.tiff,1,ALL,True,|mean_filled - mean_default|=1.43e-10
+fill_keeps_template_mean,halt,549.tiff,2,ALL,True,|mean_filled - mean_default|=9.36e-10
+fill_keeps_template_mean,halt,402.tiff,0,ALL,True,|mean_filled - mean_default|=5.14e-10
+fill_keeps_template_mean,halt,402.tiff,1,ALL,True,|mean_filled - mean_default|=5.73e-10
+fill_keeps_template_mean,halt,402.tiff,2,ALL,True,|mean_filled - mean_default|=7.91e-10
+fill_keeps_template_mean,halt,403.tiff,0,ALL,True,|mean_filled - mean_default|=2.3e-09
+fill_keeps_template_mean,halt,403.tiff,1,ALL,True,|mean_filled - mean_default|=1.07e-09
+fill_keeps_template_mean,halt,403.tiff,2,ALL,True,|mean_filled - mean_default|=2.35e-10
+fill_keeps_template_mean,halt,353.tiff,0,ALL,True,|mean_filled - mean_default|=1.09e-11
+fill_keeps_template_mean,halt,353.tiff,1,ALL,True,|mean_filled - mean_default|=9.7e-11
+fill_keeps_template_mean,halt,353.tiff,2,ALL,True,|mean_filled - mean_default|=5.6e-10
+fill_keeps_template_mean,halt,364.tiff,0,ALL,True,|mean_filled - mean_default|=6.09e-10
+fill_keeps_template_mean,halt,364.tiff,1,ALL,True,|mean_filled - mean_default|=3.4e-10
+fill_keeps_template_mean,halt,364.tiff,2,ALL,True,|mean_filled - mean_default|=5.36e-10
+fill_keeps_template_mean,halt,400.tiff,0,ALL,True,|mean_filled - mean_default|=2.3e-12
+fill_keeps_template_mean,halt,400.tiff,1,ALL,True,|mean_filled - mean_default|=2.96e-10
+fill_keeps_template_mean,halt,400.tiff,2,ALL,True,|mean_filled - mean_default|=9.33e-10
+fill_keeps_template_mean,halt,401.tiff,0,ALL,True,|mean_filled - mean_default|=2.41e-10
+fill_keeps_template_mean,halt,401.tiff,1,ALL,True,|mean_filled - mean_default|=3.74e-10
+fill_keeps_template_mean,halt,401.tiff,2,ALL,True,|mean_filled - mean_default|=3.03e-10
+fill_keeps_template_mean,halt,404.tiff,0,ALL,True,|mean_filled - mean_default|=4.29e-10
+fill_keeps_template_mean,halt,404.tiff,1,ALL,True,|mean_filled - mean_default|=2.18e-10
+fill_keeps_template_mean,halt,404.tiff,2,ALL,True,|mean_filled - mean_default|=2.6e-10
+max_peaks_binds,report,300.tiff,0,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,300.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,300.tiff,1,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,300.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,300.tiff,2,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,300.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,301.tiff,0,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,301.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=100
+max_peaks_binds,report,301.tiff,1,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,301.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,301.tiff,2,default_51,True,n_peaks=100 n_detections=93
+max_peaks_binds,report,301.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,322.tiff,0,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,322.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,322.tiff,1,default_51,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,322.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,322.tiff,2,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,322.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,337.tiff,0,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,337.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,337.tiff,1,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,337.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=100
+max_peaks_binds,report,337.tiff,2,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,337.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,339.tiff,0,default_51,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,339.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,339.tiff,1,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,339.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,339.tiff,2,default_51,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,339.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,343.tiff,0,default_51,True,n_peaks=100 n_detections=95
+max_peaks_binds,report,343.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,343.tiff,1,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,343.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,343.tiff,2,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,343.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,344.tiff,0,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,344.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,344.tiff,1,default_51,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,344.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,344.tiff,2,default_51,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,344.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,201.tiff,0,default_51,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,201.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=97
+max_peaks_binds,report,201.tiff,1,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,201.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,201.tiff,2,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,201.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,233.tiff,0,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,233.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,233.tiff,1,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,233.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,233.tiff,2,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,233.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,211.tiff,0,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,211.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=100
+max_peaks_binds,report,211.tiff,1,default_51,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,211.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,211.tiff,2,default_51,True,n_peaks=100 n_detections=100
+max_peaks_binds,report,211.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,220.tiff,0,default_51,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,220.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,220.tiff,1,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,220.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,220.tiff,2,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,220.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,230.tiff,0,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,230.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,230.tiff,1,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,230.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,230.tiff,2,default_51,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,230.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,235.tiff,0,default_51,True,n_peaks=100 n_detections=97
+max_peaks_binds,report,235.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,235.tiff,1,default_51,True,n_peaks=100 n_detections=96
+max_peaks_binds,report,235.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,235.tiff,2,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,235.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,242.tiff,0,default_51,True,n_peaks=100 n_detections=97
+max_peaks_binds,report,242.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,242.tiff,1,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,242.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,242.tiff,2,default_51,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,242.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,245.tiff,0,default_51,True,n_peaks=100 n_detections=97
+max_peaks_binds,report,245.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=97
+max_peaks_binds,report,245.tiff,1,default_51,True,n_peaks=100 n_detections=97
+max_peaks_binds,report,245.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=95
+max_peaks_binds,report,245.tiff,2,default_51,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,245.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,246.tiff,0,default_51,True,n_peaks=100 n_detections=97
+max_peaks_binds,report,246.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=96
+max_peaks_binds,report,246.tiff,1,default_51,True,n_peaks=100 n_detections=97
+max_peaks_binds,report,246.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=96
+max_peaks_binds,report,246.tiff,2,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,246.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,249.tiff,0,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,249.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,249.tiff,1,default_51,True,n_peaks=100 n_detections=96
+max_peaks_binds,report,249.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,249.tiff,2,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,249.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,284.tiff,0,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,284.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,284.tiff,1,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,284.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,284.tiff,2,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,284.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,289.tiff,0,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,289.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,289.tiff,1,default_51,True,n_peaks=100 n_detections=97
+max_peaks_binds,report,289.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,289.tiff,2,default_51,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,289.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,291.tiff,0,default_51,True,n_peaks=100 n_detections=81
+max_peaks_binds,report,291.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,291.tiff,1,default_51,True,n_peaks=100 n_detections=96
+max_peaks_binds,report,291.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,291.tiff,2,default_51,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,291.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,293.tiff,0,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,293.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,293.tiff,1,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,293.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,293.tiff,2,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,293.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,459.tiff,0,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,459.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,459.tiff,1,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,459.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,459.tiff,2,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,459.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,460.tiff,0,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,460.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,460.tiff,1,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,460.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=97
+max_peaks_binds,report,460.tiff,2,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,460.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,410.tiff,0,default_51,True,n_peaks=100 n_detections=89
+max_peaks_binds,report,410.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,410.tiff,1,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,410.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,410.tiff,2,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,410.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,425.tiff,0,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,425.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,425.tiff,1,default_51,True,n_peaks=100 n_detections=96
+max_peaks_binds,report,425.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=96
+max_peaks_binds,report,425.tiff,2,default_51,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,425.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,435.tiff,0,default_51,True,n_peaks=100 n_detections=96
+max_peaks_binds,report,435.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,435.tiff,1,default_51,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,435.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,435.tiff,2,default_51,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,435.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,462.tiff,0,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,462.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,462.tiff,1,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,462.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,462.tiff,2,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,462.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,499.tiff,0,default_51,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,499.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,499.tiff,1,default_51,True,n_peaks=100 n_detections=97
+max_peaks_binds,report,499.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,499.tiff,2,default_51,True,n_peaks=100 n_detections=95
+max_peaks_binds,report,499.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=95
+max_peaks_binds,report,013.tiff,0,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,013.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,013.tiff,1,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,013.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,013.tiff,2,default_51,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,013.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,094.tiff,0,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,094.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,094.tiff,1,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,094.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,094.tiff,2,default_51,True,n_peaks=100 n_detections=95
+max_peaks_binds,report,094.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,007.tiff,0,default_51,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,007.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,007.tiff,1,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,007.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,007.tiff,2,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,007.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,072.tiff,0,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,072.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,072.tiff,1,default_51,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,072.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,072.tiff,2,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,072.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,100.tiff,0,default_51,True,n_peaks=100 n_detections=97
+max_peaks_binds,report,100.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=97
+max_peaks_binds,report,100.tiff,1,default_51,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,100.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,100.tiff,2,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,100.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,123.tiff,0,default_51,True,n_peaks=100 n_detections=94
+max_peaks_binds,report,123.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=93
+max_peaks_binds,report,123.tiff,1,default_51,True,n_peaks=100 n_detections=97
+max_peaks_binds,report,123.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=97
+max_peaks_binds,report,123.tiff,2,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,123.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,128.tiff,0,default_51,True,n_peaks=100 n_detections=81
+max_peaks_binds,report,128.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=84
+max_peaks_binds,report,128.tiff,1,default_51,True,n_peaks=100 n_detections=97
+max_peaks_binds,report,128.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=96
+max_peaks_binds,report,128.tiff,2,default_51,True,n_peaks=100 n_detections=97
+max_peaks_binds,report,128.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=97
+max_peaks_binds,report,529.tiff,0,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,529.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,529.tiff,1,default_51,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,529.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,529.tiff,2,default_51,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,529.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=94
+max_peaks_binds,report,548.tiff,0,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,548.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,548.tiff,1,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,548.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,548.tiff,2,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,548.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,509.tiff,0,default_51,True,n_peaks=100 n_detections=94
+max_peaks_binds,report,509.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=95
+max_peaks_binds,report,509.tiff,1,default_51,True,n_peaks=100 n_detections=86
+max_peaks_binds,report,509.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=86
+max_peaks_binds,report,509.tiff,2,default_51,True,n_peaks=100 n_detections=91
+max_peaks_binds,report,509.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=88
+max_peaks_binds,report,524.tiff,0,default_51,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,524.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=97
+max_peaks_binds,report,524.tiff,1,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,524.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,524.tiff,2,default_51,True,n_peaks=100 n_detections=95
+max_peaks_binds,report,524.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,527.tiff,0,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,527.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,527.tiff,1,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,527.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,527.tiff,2,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,527.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,546.tiff,0,default_51,True,n_peaks=100 n_detections=100
+max_peaks_binds,report,546.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=100
+max_peaks_binds,report,546.tiff,1,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,546.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,546.tiff,2,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,546.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,549.tiff,0,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,549.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,549.tiff,1,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,549.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,549.tiff,2,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,549.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,402.tiff,0,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,402.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,402.tiff,1,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,402.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,402.tiff,2,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,402.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,403.tiff,0,default_51,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,403.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,403.tiff,1,default_51,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,403.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,403.tiff,2,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,403.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,353.tiff,0,default_51,True,n_peaks=100 n_detections=94
+max_peaks_binds,report,353.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=94
+max_peaks_binds,report,353.tiff,1,default_51,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,353.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,353.tiff,2,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,353.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,364.tiff,0,default_51,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,364.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,364.tiff,1,default_51,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,364.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,364.tiff,2,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,364.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=97
+max_peaks_binds,report,400.tiff,0,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,400.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,400.tiff,1,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,400.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,400.tiff,2,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,400.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,401.tiff,0,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,401.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,401.tiff,1,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,401.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,401.tiff,2,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,401.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,404.tiff,0,default_51,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,404.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,404.tiff,1,default_51,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,404.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,404.tiff,2,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,404.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=98
+seed_annulus_empty,report,300.tiff,0,default_51,True,
+seed_annulus_empty,report,300.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,300.tiff,1,default_51,True,
+seed_annulus_empty,report,300.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,300.tiff,2,default_51,True,
+seed_annulus_empty,report,300.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,301.tiff,0,default_51,True,
+seed_annulus_empty,report,301.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,301.tiff,1,default_51,True,
+seed_annulus_empty,report,301.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,301.tiff,2,default_51,True,
+seed_annulus_empty,report,301.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,322.tiff,0,default_51,True,
+seed_annulus_empty,report,322.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,322.tiff,1,default_51,True,
+seed_annulus_empty,report,322.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,322.tiff,2,default_51,True,
+seed_annulus_empty,report,322.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,337.tiff,0,default_51,True,
+seed_annulus_empty,report,337.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,337.tiff,1,default_51,True,
+seed_annulus_empty,report,337.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,337.tiff,2,default_51,True,
+seed_annulus_empty,report,337.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,339.tiff,0,default_51,True,
+seed_annulus_empty,report,339.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,339.tiff,1,default_51,True,
+seed_annulus_empty,report,339.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,339.tiff,2,default_51,True,
+seed_annulus_empty,report,339.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,343.tiff,0,default_51,True,
+seed_annulus_empty,report,343.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,343.tiff,1,default_51,True,
+seed_annulus_empty,report,343.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,343.tiff,2,default_51,True,
+seed_annulus_empty,report,343.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,344.tiff,0,default_51,True,
+seed_annulus_empty,report,344.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,344.tiff,1,default_51,True,
+seed_annulus_empty,report,344.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,344.tiff,2,default_51,True,
+seed_annulus_empty,report,344.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,201.tiff,0,default_51,True,
+seed_annulus_empty,report,201.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,201.tiff,1,default_51,True,
+seed_annulus_empty,report,201.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,201.tiff,2,default_51,True,
+seed_annulus_empty,report,201.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,233.tiff,0,default_51,True,
+seed_annulus_empty,report,233.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,233.tiff,1,default_51,True,
+seed_annulus_empty,report,233.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,233.tiff,2,default_51,True,
+seed_annulus_empty,report,233.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,211.tiff,0,default_51,True,
+seed_annulus_empty,report,211.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,211.tiff,1,default_51,True,
+seed_annulus_empty,report,211.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,211.tiff,2,default_51,True,
+seed_annulus_empty,report,211.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,220.tiff,0,default_51,True,
+seed_annulus_empty,report,220.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,220.tiff,1,default_51,True,
+seed_annulus_empty,report,220.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,220.tiff,2,default_51,True,
+seed_annulus_empty,report,220.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,230.tiff,0,default_51,True,
+seed_annulus_empty,report,230.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,230.tiff,1,default_51,True,
+seed_annulus_empty,report,230.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,230.tiff,2,default_51,True,
+seed_annulus_empty,report,230.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,235.tiff,0,default_51,True,
+seed_annulus_empty,report,235.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,235.tiff,1,default_51,True,
+seed_annulus_empty,report,235.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,235.tiff,2,default_51,True,
+seed_annulus_empty,report,235.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,242.tiff,0,default_51,True,
+seed_annulus_empty,report,242.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,242.tiff,1,default_51,True,
+seed_annulus_empty,report,242.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,242.tiff,2,default_51,True,
+seed_annulus_empty,report,242.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,245.tiff,0,default_51,True,
+seed_annulus_empty,report,245.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,245.tiff,1,default_51,True,
+seed_annulus_empty,report,245.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,245.tiff,2,default_51,True,
+seed_annulus_empty,report,245.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,246.tiff,0,default_51,True,
+seed_annulus_empty,report,246.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,246.tiff,1,default_51,True,
+seed_annulus_empty,report,246.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,246.tiff,2,default_51,True,
+seed_annulus_empty,report,246.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,249.tiff,0,default_51,True,
+seed_annulus_empty,report,249.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,249.tiff,1,default_51,True,
+seed_annulus_empty,report,249.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,249.tiff,2,default_51,True,
+seed_annulus_empty,report,249.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,284.tiff,0,default_51,True,
+seed_annulus_empty,report,284.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,284.tiff,1,default_51,True,
+seed_annulus_empty,report,284.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,284.tiff,2,default_51,True,
+seed_annulus_empty,report,284.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,289.tiff,0,default_51,True,
+seed_annulus_empty,report,289.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,289.tiff,1,default_51,True,
+seed_annulus_empty,report,289.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,289.tiff,2,default_51,True,
+seed_annulus_empty,report,289.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,291.tiff,0,default_51,True,
+seed_annulus_empty,report,291.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,291.tiff,1,default_51,True,
+seed_annulus_empty,report,291.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,291.tiff,2,default_51,True,
+seed_annulus_empty,report,291.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,293.tiff,0,default_51,True,
+seed_annulus_empty,report,293.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,293.tiff,1,default_51,True,
+seed_annulus_empty,report,293.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,293.tiff,2,default_51,True,
+seed_annulus_empty,report,293.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,459.tiff,0,default_51,True,
+seed_annulus_empty,report,459.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,459.tiff,1,default_51,True,
+seed_annulus_empty,report,459.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,459.tiff,2,default_51,True,
+seed_annulus_empty,report,459.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,460.tiff,0,default_51,True,
+seed_annulus_empty,report,460.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,460.tiff,1,default_51,True,
+seed_annulus_empty,report,460.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,460.tiff,2,default_51,True,
+seed_annulus_empty,report,460.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,410.tiff,0,default_51,True,
+seed_annulus_empty,report,410.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,410.tiff,1,default_51,True,
+seed_annulus_empty,report,410.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,410.tiff,2,default_51,True,
+seed_annulus_empty,report,410.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,425.tiff,0,default_51,True,
+seed_annulus_empty,report,425.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,425.tiff,1,default_51,True,
+seed_annulus_empty,report,425.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,425.tiff,2,default_51,True,
+seed_annulus_empty,report,425.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,435.tiff,0,default_51,True,
+seed_annulus_empty,report,435.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,435.tiff,1,default_51,True,
+seed_annulus_empty,report,435.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,435.tiff,2,default_51,True,
+seed_annulus_empty,report,435.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,462.tiff,0,default_51,True,
+seed_annulus_empty,report,462.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,462.tiff,1,default_51,True,
+seed_annulus_empty,report,462.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,462.tiff,2,default_51,True,
+seed_annulus_empty,report,462.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,499.tiff,0,default_51,True,
+seed_annulus_empty,report,499.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,499.tiff,1,default_51,True,
+seed_annulus_empty,report,499.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,499.tiff,2,default_51,True,
+seed_annulus_empty,report,499.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,013.tiff,0,default_51,True,
+seed_annulus_empty,report,013.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,013.tiff,1,default_51,True,
+seed_annulus_empty,report,013.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,013.tiff,2,default_51,True,
+seed_annulus_empty,report,013.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,094.tiff,0,default_51,True,
+seed_annulus_empty,report,094.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,094.tiff,1,default_51,True,
+seed_annulus_empty,report,094.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,094.tiff,2,default_51,True,
+seed_annulus_empty,report,094.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,007.tiff,0,default_51,True,
+seed_annulus_empty,report,007.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,007.tiff,1,default_51,True,
+seed_annulus_empty,report,007.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,007.tiff,2,default_51,True,
+seed_annulus_empty,report,007.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,072.tiff,0,default_51,True,
+seed_annulus_empty,report,072.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,072.tiff,1,default_51,True,
+seed_annulus_empty,report,072.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,072.tiff,2,default_51,True,
+seed_annulus_empty,report,072.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,100.tiff,0,default_51,True,
+seed_annulus_empty,report,100.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,100.tiff,1,default_51,True,
+seed_annulus_empty,report,100.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,100.tiff,2,default_51,True,
+seed_annulus_empty,report,100.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,123.tiff,0,default_51,True,
+seed_annulus_empty,report,123.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,123.tiff,1,default_51,True,
+seed_annulus_empty,report,123.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,123.tiff,2,default_51,True,
+seed_annulus_empty,report,123.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,128.tiff,0,default_51,True,
+seed_annulus_empty,report,128.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,128.tiff,1,default_51,True,
+seed_annulus_empty,report,128.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,128.tiff,2,default_51,True,
+seed_annulus_empty,report,128.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,529.tiff,0,default_51,True,
+seed_annulus_empty,report,529.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,529.tiff,1,default_51,True,
+seed_annulus_empty,report,529.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,529.tiff,2,default_51,True,
+seed_annulus_empty,report,529.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,548.tiff,0,default_51,True,
+seed_annulus_empty,report,548.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,548.tiff,1,default_51,True,
+seed_annulus_empty,report,548.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,548.tiff,2,default_51,True,
+seed_annulus_empty,report,548.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,509.tiff,0,default_51,True,
+seed_annulus_empty,report,509.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,509.tiff,1,default_51,True,
+seed_annulus_empty,report,509.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,509.tiff,2,default_51,True,
+seed_annulus_empty,report,509.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,524.tiff,0,default_51,True,
+seed_annulus_empty,report,524.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,524.tiff,1,default_51,True,
+seed_annulus_empty,report,524.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,524.tiff,2,default_51,True,
+seed_annulus_empty,report,524.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,527.tiff,0,default_51,True,
+seed_annulus_empty,report,527.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,527.tiff,1,default_51,True,
+seed_annulus_empty,report,527.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,527.tiff,2,default_51,True,
+seed_annulus_empty,report,527.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,546.tiff,0,default_51,True,
+seed_annulus_empty,report,546.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,546.tiff,1,default_51,True,
+seed_annulus_empty,report,546.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,546.tiff,2,default_51,True,
+seed_annulus_empty,report,546.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,549.tiff,0,default_51,True,
+seed_annulus_empty,report,549.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,549.tiff,1,default_51,True,
+seed_annulus_empty,report,549.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,549.tiff,2,default_51,True,
+seed_annulus_empty,report,549.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,402.tiff,0,default_51,True,
+seed_annulus_empty,report,402.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,402.tiff,1,default_51,True,
+seed_annulus_empty,report,402.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,402.tiff,2,default_51,True,
+seed_annulus_empty,report,402.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,403.tiff,0,default_51,True,
+seed_annulus_empty,report,403.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,403.tiff,1,default_51,True,
+seed_annulus_empty,report,403.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,403.tiff,2,default_51,True,
+seed_annulus_empty,report,403.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,353.tiff,0,default_51,True,
+seed_annulus_empty,report,353.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,353.tiff,1,default_51,True,
+seed_annulus_empty,report,353.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,353.tiff,2,default_51,True,
+seed_annulus_empty,report,353.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,364.tiff,0,default_51,True,
+seed_annulus_empty,report,364.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,364.tiff,1,default_51,True,
+seed_annulus_empty,report,364.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,364.tiff,2,default_51,True,
+seed_annulus_empty,report,364.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,400.tiff,0,default_51,True,
+seed_annulus_empty,report,400.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,400.tiff,1,default_51,True,
+seed_annulus_empty,report,400.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,400.tiff,2,default_51,True,
+seed_annulus_empty,report,400.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,401.tiff,0,default_51,True,
+seed_annulus_empty,report,401.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,401.tiff,1,default_51,True,
+seed_annulus_empty,report,401.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,401.tiff,2,default_51,True,
+seed_annulus_empty,report,401.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,404.tiff,0,default_51,True,
+seed_annulus_empty,report,404.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,404.tiff,1,default_51,True,
+seed_annulus_empty,report,404.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,404.tiff,2,default_51,True,
+seed_annulus_empty,report,404.tiff,2,hem_rect_fill,True,
+n_self_hits_value_counts,report,ALL,ALL,default_51,,"{0: 2, 1: 145}"
+n_self_hits_value_counts,report,ALL,ALL,hem_rect_fill,,"{0: 11, 1: 136}"
+od_bit_exact_vs_recorded,report,ALL,ALL,default_51,True,4410/4410 top-30 od values bit-exact
