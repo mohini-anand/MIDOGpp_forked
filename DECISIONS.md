@@ -628,6 +628,301 @@ under-delivery. A multi-seed re-run showing precision or recall moves at K≤30.
 
 ---
 
+## D10 — The self-hit filter is removed; the seed is excluded by masking one NMS radius before peak extraction
+
+**Date:** 2026-09-17
+
+**Status:** decided, not yet applied. The code change, its pre-registered numbers and its gates are
+in [`SELF_HIT_MASKING_PLAN.md`](SELF_HIT_MASKING_PLAN.md). Record the application as a dated
+amendment under this entry, not by editing it.
+
+**Written for 7.5 µm, rewritten for 5 µm, then reverted to 7.5 µm, all on 2026-09-17 and
+before it was applied.** The first version set the mask radius equal to the NMS radius
+(7.5 µm). The user then set it to 5 µm, so that a neighbouring figure 5–7.5 µm from a masked
+point could still be found, and this entry and the plan were rewritten for that. After
+measuring how rarely such neighbours occur in MIDOG++ (below), the user reverted to 7.5 µm. The 5 µm variant stays fully measured: `../cleanup_harness/runs/selfmask_ref_post_5um`
+and `../cleanup_harness/selfmask/superseded_5um/`.
+
+### The decision
+
+`find_and_suppress` no longer drops detections within `self_hit_radius = 5.0` px of the seed after
+NMS. Instead, **after the deep-floor threshold and before `extract_peaks`**, every pixel within the
+image's NMS radius of the template centre is marked unreachable in `valid`
+(`template_match.mask_seed_disc`). The radius is D7's `evaluate.radius_px(mpp)`, 7.5 µm or
+29.6–33.1 px, and the score map itself is never modified. There is no separate mask-radius
+constant or `FSConfig` field.
+
+Removed with the filter: `FSConfig.self_hit_radius`, `production.SELF_HIT_RADIUS`, and the
+`max_peak_score`, `n_self_hits` and `seed_self_score` info keys. `n_seed_masked_px` is added.
+
+### Why, in plain words
+
+**The 5 px filter only ever removed the seed's own peak; NMS was what cleared its
+neighbourhood.** The seed's own match is almost always the strongest peak around it. Greedy NMS
+therefore deletes everything within one match radius of it before the filter runs, and the
+filter then deletes the peak. On the 14 ROIs at seed 0:
+- the seed's peak entered the 100-peak pool 14 of 14 times;
+- it was the pool maximum 12 of 14 times.
+
+So "nothing within one NMS radius of the seed" was already the behaviour, by accident of
+ordering. The mask makes it explicit and drops a fixed-pixel constant that sat beside an
+mpp-scaled radius.
+
+**It covers the two cases the accident didn't.**
+- *The seed's own peak falls below the `max_peaks` cutoff.* Nothing then suppresses its
+  neighbourhood. On 301.tiff at seed 1, a secondary peak of the clicked cell 26.6 px away stayed
+  in the list (rank 93 by `tm_score`, 65 by `chromatin_od`).
+- *An augmented template bank moves the self-match off-centre.* With the cleanup harness's
+  8-template bank, 013.tiff kept a self-match 12.66 px away at rank 7, and 233.tiff kept one
+  5.39 px away at rank 0.
+
+The mask left nothing within one NMS radius of the seed in every run measured:
+- 28 production runs;
+- 70 held-out testing-set runs;
+- 112 runs at seeds 1–4;
+- 84 recent-experiment runs;
+- 28 augmented runs.
+
+**Only `valid`, and the full radius, because the cheaper-looking versions add false positives.**
+- *Blanking the score map in a ±7 px box* (the first draft of the plan) turns the slope of the
+  seed's own match into a new peak one pixel outside the box. That peak landed 8.5 px from the
+  seed at rank 39 on 403.tiff and at rank 11 on 460.tiff, for −1 TP at `chromatin_od`
+  K = 10/20/30.
+- *A ±7 px box on `valid` alone* still leaks secondary self-matches 9–30 px out, at ranks 0–10.
+
+Leaving the score map intact lets `extract_peaks`'s own dilation keep the slope from becoming
+peaks. The full radius covers the secondary matches.
+
+**7.5 µm, not 5 µm: the neighbours a 5 µm mask would free almost never exist, and the rows it
+lets back in are visible.** Both radii were run on the real code. They give bit-identical
+detections on all 28 production-harness runs and all 84 recent-experiment condition runs.
+- *What 5 µm would gain.* A second annotation 5–7.5 µm from the seed could be found from its
+  own peak. In MIDOG++, 9 of 11,937 mitotic annotations have another annotation within 7.5 µm:
+  four mitotic pairs 6.6–7.4 µm apart (245.tiff, 220.tiff, 255.tiff, 295.tiff) and one mitotic
+  figure beside a look-alike (050.tiff). No two annotations are closer than 5.9 µm. Distances
+  are between box centres. µm/px comes from the tumour type, because only 23 of 503 images
+  are on disk, and the counts are the same at both ends of the human scanners' range
+  (0.2263–0.2298). Three of the four mitotic pairs are within 0.3 µm of 7.5 µm, so a 7.5 µm
+  mask may still leave those neighbours a peak just outside it.
+- *What 5 µm would cost.* It keeps secondary matches of the clicked cell 5–7.5 µm from its
+  centre, all unannotated:
+  - 300.tiff seed 1 at `tm_score` rank 7, costing one TP at K = 50 under both rank keys;
+  - 301.tiff seed 1 at rank 93 / 65 (the old filter's miss, which 5 µm doesn't fix);
+  - 289.tiff (held-out) at `chromatin_od` rank 10;
+  - with the 8-template bank, 245.tiff at ranks 4 and 8 and 548.tiff at ranks 16 and 23.
+
+  In a click-to-verify tool, such a row is an extra box next to the cell just clicked.
+
+**At `tm_score` it moves no precision number; at `chromatin_od` it moves a few by one.** Freeing
+the seed's slot in D9's 100-peak cap admits one more candidate, almost always far from the seed.
+- *Under `tm_score`* that candidate ranks last. No TP@K changed on any run measured: 14 ROIs × 5
+  seeds, 35 held-out ROIs, and the bbox3way and hembbox runs.
+- *Under `chromatin_od`* it can re-rank into the top K. Before the change, current code
+  reproduces all 770 stored rows of the recent experiments exactly (bbox3way, hembbox,
+  seed-robustness). After it, 9 of those rows change TP, 8 up and 1 down, each traced to that
+  one extra row.
+
+### What it costs
+
+- **A real annotation within one match radius of the seed can't be found from its own peak.**
+  This was already true whenever the seed's peak was in the pool.
+  - It is rare: 9 of 11,937 mitotic annotations (0.08 %) have another annotation within 7.5 µm,
+    the four mitotic pairs and one mitotic/look-alike pair above.
+  - This retires the reason `midog_utils/FIND_AND_SUPPRESS_REFERENCE_DIFFS.md` gave for keeping
+    the self-hit radius far below the match radius. NMS had been removing those neighbours all
+    along.
+- **Lists get one row longer.** `n_detections` rises by 1 on almost every run, so D9's post-NMS
+  "89–99 candidates" becomes 90–100. Pool sizes from before and after the change are not
+  comparable one for one. `tm_score` precision and recall are.
+- **`chromatin_od` comparisons must not straddle the change.** A few cells move by ±1 TP in both
+  directions, so re-run one side rather than mixing numbers from before and after.
+- **One experiment breaks when re-run.**
+  `production_hematoxylin_only/bbox_refinement_three_way_chromatin_od_49roi_3seed.ipynb` reads
+  `prod.SELF_HIT_RADIUS` and `n_self_hits`. Its prompt, `BBOX3WAY_49ROI_3SEED_PROMPT.md`, pins
+  "5 px self-hit removal".
+- **Verification level, stated plainly.**
+  - The design probes and every reference capture came from one session.
+  - A separate review agent re-derived the production-harness numbers from the 7.5 µm captures
+    and checked the code.
+  - The held-out testing-set and 8-template-bank numbers, and the 5 µm comparison, come from
+    running the real pre- and post-change code in that session. They have not been re-derived
+    independently.
+  - The close-pair counts come from the annotation database, with µm/px assigned by tumour
+    type as described above.
+
+### What would change my mind
+
+- **Mitotic figures within 7.5 µm of each other turning out to matter.** For example, a product
+  flow, dataset or multi-seed round where such pairs are common or clinically important;
+  MIDOG++ has four. The 5 µm variant is measured and kept for that case. It would still need
+  some other way to keep the seed's own secondary matches out of the top of the list.
+- **A template bank whose self-match lands more than one NMS radius from the template centre**,
+  for example larger rotations or scales than the 8-template bank tested. The disc would leak,
+  and the mask would have to follow the fused map's own self-match instead of a fixed disc.
+- **A multi-seed `chromatin_od` result where the extra candidate lowers precision
+  systematically**, rather than moving single cells by ±1 in both directions.
+
+### Amendment, 2026-09-17 — superseded
+
+The user proposed a different mechanism the same day: blank the seed's own refined-template
+footprint out of a copy of the search channel, before correlation, instead of clearing a
+disc from `valid` after the deep-floor threshold. Recorded as **[D11](#d11)**, with its own
+verification and gates; this entry's design was never applied to production. This body is
+left otherwise unchanged, per this file's own rule that a decided entry is not rewritten.
+
+---
+
+## D11 — The self-hit filter is removed; the seed's own template footprint is blanked from the search channel before correlation, replacing D10's seed-disc mask
+
+**Date:** 2026-09-17
+
+**Status:** decided, not yet applied. The code change, pre-registered numbers and gates are in
+[`SELF_HIT_MASKING_PLAN.md`](SELF_HIT_MASKING_PLAN.md). Record the application as a dated
+amendment under this entry, not by editing it.
+
+**Supersedes D10**, which is unchanged above except for its own amendment note. D10's disc-on-
+`valid` design is fully built and gated (`../cleanup_harness/selfmask/`) but was never applied;
+its assets remain untouched and still describe that design if it is ever revisited.
+
+### The decision
+
+`find_and_suppress` no longer drops detections within `self_hit_radius = 5.0` px of the seed
+after NMS. Instead, after the template is cut from the search channel but before correlation
+(`fused_response`) runs, a `base_size x base_size` square centred on the rounded template
+centre — the same footprint the template itself was cut from — is blanked in a **copy** of the
+search channel (`template_match.blank_seed_square`), filled with that channel's own whole-ROI
+minimum computed before any blanking. The original, unblanked channel is never mutated, so
+`chromatin_od` ranking (computed by the caller from the same channel reference) scores
+candidates against real tissue, not the blanked patch. Unlike D10, `valid` is never touched —
+the seed's own match simply has no source pixels left to correlate from.
+
+Removed with the filter: `FSConfig.self_hit_radius`, `production.SELF_HIT_RADIUS`, and the
+`max_peak_score`, `n_self_hits` and `seed_self_score` info keys — the same three D10 also
+removes. `n_blanked_px` is added (D10's equivalent is `n_seed_masked_px`).
+
+### Why, in plain words
+
+D10's own reasoning for *why* the self-hit filter under-covers (the peak dominates its
+neighbourhood via NMS, but only when it survives to the pool at all) applies unchanged here —
+see D10 above. What differs is *how* the fix avoids the earlier rejected score-map-flooring
+draft's failure (a false peak on the slope of the seed's own match, one pixel outside a masked
+box): D10 keeps the score map intact and clears `valid` instead; this design blanks the image
+itself, relying on a different argument — `TM_CCOEFF` (D1) against an exactly flat window
+computes to (numerically) zero, not an extreme value, because the window's own local mean
+equals the constant fill value, so the mean-subtracted term is exactly zero; and because
+matching is a sliding window, the corrupted response tapers off with the window's shrinking
+overlap rather than stepping sharply at a hard edge. Verified this session, both analytically
+(a realistic-magnitude synthetic flat-window test: response ~3e-7, five orders below background
+noise) and on real ROIs (403.tiff: the nearest pre-NMS peak to the blanked square sits 299 px
+away; no boundary-artefact detection found anywhere measured).
+
+**Why blank the image instead of reusing D10's disc.** This was the user's own proposal, tested
+empirically rather than assumed to fail or succeed by analogy. It does not strictly dominate
+D10 — see "What it costs" — but the blanked square is usually *smaller* than D10's full-NMS-
+radius disc (`base_size` 23–51 px vs. `match_radius` 30–33 px), so it excludes less of the
+image, at the cost of occasionally leaving a real secondary match reachable just outside the
+square.
+
+### What changes in the numbers (independently re-derived, not just re-read from the plan)
+
+All of the following were recomputed this session by a fresh, from-scratch prototype
+(`find_and_suppress_blanked`, modelled on `find_and_suppress.py`'s own body, not on the design
+session's archived scripts) calling real, unmodified `midog_utils` primitives — not a
+re-execution of the design session's own `blank_seed_variant_*.py` scripts, which were read
+adversarially instead and used only as a cross-check.
+
+- **49 ROIs, `chromatin_od`, pinned seeds:** pooled TP@K 270→269 / 460→461 / 589→590 at
+  K=10/20/30 — exact agreement with the design session's own numbers, via an independent code
+  path. The 3 (ROI, K) cells that move (128.tiff K10, 400.tiff K20/K30) and the 2 near-seed
+  leaks (289.tiff 24.4 px rank 10, 548.tiff 28.0 px rank 56) reproduce exactly, including their
+  precise scores and ranks. Zero bucket flips on shared rows across all 98 runs (49 ROIs × 2
+  rank keys) — the TP movement is pure displacement, not ground-truth reassignment.
+- **`tm_score`, same 49 ROIs (closing a gap the design session left open):** zero TP@K movement
+  at every K. Production's actual default ranker (D5) is unaffected in every real,
+  full-ROI, single-template run measured.
+- **8-template augmented bank (`scales=(0.8,1.2)`, `n_angles=2`, `flips=(False,True)`),
+  `harness.py`'s own crop methodology, plain `seed_index=0` draws (closing a second gap):**
+  both of the two historically-documented self-hit-radius failures reproduce exactly —
+  013.tiff (12.66 px, rank 7, score 20.196 — matching `probes/p3.log` to 5 decimal places) and
+  233.tiff (5.39 px, rank 0, score 12.246) — and this design removes both. 245.tiff shows a new
+  (smaller) near-seed leak at 24.2 px, the same "known cost" pattern as 289/548, not a
+  self-hit-radius-style failure. No `tm_score` movement on any of 4 ROIs × 2 `scale_normalize`
+  values with the correct (plain-draw) seeds.
+- **Seeds 1–4, 14 canonical ROIs (closing a third gap):** 4 (ROI, seed, K) cells move —
+  013.tiff seed 4 K20, 300.tiff seed 2 K50, 301.tiff seed 3 K30, 459.tiff seed 4 K50 — and all
+  four match D10's own pre-registered seed-robustness numbers **exactly**, cell for cell,
+  despite the two designs sharing no code. This is independent cross-validation that the shared
+  "freed pool slot" mechanism behaves identically regardless of which masking approach frees
+  the slot, in every case where both were measured.
+
+### What it costs
+
+- **Same class of cost as D10, narrower fix.** A real detection can survive within one match
+  radius of the seed but outside the blanked square, whenever `base_size < match_radius`
+  (true on the ROIs measured: base_size 23–51 px vs. match_radius ~30–33 px) — a structural
+  property of this design, expected to recur, not a rare fluke. Measured: 289.tiff (24.4 px,
+  548.tiff (28.0 px), 245.tiff under augmentation (24.2 px) — none reached top-10 or cost a TP
+  in any run measured.
+- **This design is strictly weaker than D10 on 301.tiff's seed 1.** D10's own §1 documents a
+  secondary peak of the clicked cell 26.6 px from the seed surviving because it fell below the
+  `max_peaks` cutoff, so nothing suppressed it. D10's full-match-radius disc (30-33 px) covers
+  this; this design's `base_size`=23 px square (half=11) does not; re-verified this session at
+  26.62 px, present unchanged in both the unpatched and patched code, in every run measured.
+  It costs no TP@K here, but is the one documented case where D10's disc would do strictly
+  better.
+- **A non-production mechanism, found and fully explained, not a production risk.** Under
+  `scale_normalize=True` (never used by production; `FSConfig`'s default and every production
+  call use `False`) combined with `harness.py`'s 1024 px test crop (never used by production,
+  which always searches the full ROI), blanking can, via `_robust_z`'s shared per-template
+  normalisation statistics, perturb an *unrelated* peak's score by ~1e-3, occasionally flipping
+  greedy NMS's survivor count among near-tied peaks in a "chain" suppression geometry (peak A
+  suppresses B and C, but B does not suppress C) — moving `tm_score` TP@K on one non-canonical
+  seed draw (K=20, 2→1). This pathway is structurally absent when `scale_normalize=False`
+  (`_robust_z` is never called; raw `TM_CCOEFF` scores for any window not overlapping the
+  blanked square are then provably bit-identical between arms), which is production's only
+  configuration — consistent with zero `tm_score` movement measured across every real,
+  full-ROI, `scale_normalize=False` run this session (49 ROIs + seeds 1-4 + the corrected
+  augmented-bank rerun).
+- **The `n_detections` unchanged-count cases are not what D10's text (written for its own
+  design) would suggest.** Re-derived this session for the 3 of 49 ROIs where blanking doesn't
+  change `n_detections`: on 401.tiff and 546.tiff the seed's own peak was never among the
+  post-NMS survivors even in the unpatched run (`n_self_hits=0`), so freeing its slot changes
+  nothing, by construction — not because `max_peaks_binding` was false (it was `True` on all
+  three). 123.tiff is a different, coincidental case: the freed slot's replacement candidate
+  happens to fall within NMS radius of another survivor, so post-NMS count drops by one
+  (95→94) exactly offsetting the one self-hit the old filter used to remove.
+- **Same downstream breakage as D10.** `production_hematoxylin_only/bbox_refinement_three_way_chromatin_od_49roi_3seed.ipynb`
+  and its prompt read `prod.SELF_HIT_RADIUS`/`n_self_hits`; not ported, per D10's own
+  disposition.
+
+### Verification level, stated plainly
+
+- The design's mechanism and pre-registered numbers (`SELF_HIT_MASKING_PLAN.md` sec 2-3) came
+  from one prior session's real simulation.
+- A separate verification session (this one) independently re-derived the mechanism claims
+  (analytically and on real ROI data), the pooled §3a/§3b numbers (via a from-scratch
+  prototype, not a re-execution of the prior session's scripts), and closed all three gaps the
+  prior session left open (`tm_score` at scale, the augmented bank, seeds 1-4) — including
+  finding and correcting one real bug in its own harness along the way (blanking before vs.
+  after template extraction) and one real seed-selection bug in its own augmented-bank test.
+- The real code patch, fresh bit-identical-by-design reference captures
+  (`../cleanup_harness/runs/imageblank_ref_pre`, `imageblank_ref_post`), a design-specific
+  `check`/`reference` script and negative tests were built in the same verification session,
+  against a scratch copy — never applied to `midog_utils/`.
+
+### What would change my mind
+
+Same three conditions as D10 (see above): mitotic figures within 7.5 µm of each other turning
+out to matter more broadly than MIDOG++'s 9 cases; a template bank whose self-match lands
+further than this design's blanked square (which, unlike D10's disc, is *not* always
+`nms_radius`-sized, so this risk is somewhat higher for augmentation configurations wider than
+the 8-template bank tested); or a multi-seed `chromatin_od` result where the extra candidate
+lowers precision systematically. Additionally: **evidence that 301.tiff seed 1's kind of gap
+(a real neighbour outside a too-small blanked square) recurs often enough to matter** would
+favour reverting to D10's full-radius disc instead.
+
+---
+
 ## Cross-references
 
 | decision | primary evidence |
@@ -641,6 +936,8 @@ under-delivery. A multi-seed re-run showing precision or recall moves at K≤30.
 | D7 NMS radius = 7.5 µm | `invariants.check_nms_radius`; `Research Logs/2026-09-04-f5-results.md` §7 and Correction 2; `tm_threshold_axis_sweep_largest_cc_high_z_r75.ipynb` and `results/tm_ccoeff_high_z_r75_vs_r50_seed_paired.csv` (the recall cost); `results/f5_nms_radius_ablation_spacing.csv` (annotation geometry); `find_and_suppress_high_threshold_precision.ipynb` Gate 4 (top-K invariance) |
 | D8 seed template anchor | **[`D8_TEMPLATE_ANCHOR.md`](D8_TEMPLATE_ANCHOR.md)** — the entry itself, with the superseded 2026-09-09 decision and amendment kept verbatim; `pipeline_debug_visuals/template_anchor_halfpixel_fix.ipynb` (the half-pixel derivation and the anchor comparison, verified against the live `seed_selection` functions); `midog_utils/seed_selection.py` (`tighten_box_otsu` the gate, `tightened_base_size` and `tightened_template_box` the two superseded anchors) |
 | D9 `max_peaks = 100` | `threshold_maxpeaks_ablation/max_peaks_100_variant.ipynb` (the measurement); `threshold_maxpeaks_ablation/z_floor_tightening_variant.ipynb` (`dynamic_z` branch — bit-exact equivalence proof) |
+| D10 seed mask (one NMS radius) replaces the self-hit filter | **[`SELF_HIT_MASKING_PLAN.md`](SELF_HIT_MASKING_PLAN.md)** — the change, pre-registered numbers and gates; `../cleanup_harness/selfmask/` (the patch, `selfmask_check.py`, expected outputs, `probes/` including `analyze_realcode_output.txt`, `REFERENCE_PROVENANCE.md`); `../cleanup_harness/selfmask/superseded_5um/` (the measured 5 µm variant, with its patch, checker and `analyze_realcode_output_5um.txt`); `../cleanup_harness/runs/selfmask_ref_pre`, `selfmask_ref_post` and `selfmask_ref_post_5um` (captures); `../cleanup_harness/selfmask/SELF_HIT_MASKING_PLAN.midog_utils_full_draft.md` (the rejected ±7 px draft) |
+| D11 image-blanking replaces D10's seed-disc mask | **[`SELF_HIT_MASKING_PLAN.md`](SELF_HIT_MASKING_PLAN.md)** (rewritten for this design) — the change, pre-registered and independently re-derived numbers, and gates; `../cleanup_harness/selfmask/image_blank_design/` (the patch, `imageblank_check.py`, expected outputs, the design session's own `blank_seed_variant_*.py`/logs/CSVs, this verification session's scripts); `../cleanup_harness/runs/imageblank_ref_pre`, `imageblank_ref_post` (captures); `../cleanup_harness/selfmask/SELF_HIT_MASKING_PLAN.valid_mask_disc_design.md` (D10's own design, archived unchanged) |
 
 ## Still open, deliberately
 
