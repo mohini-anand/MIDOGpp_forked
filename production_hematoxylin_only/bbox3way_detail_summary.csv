@@ -1,0 +1,43 @@
+domain,file_name,ann_id,condition,base_size,template_cx,template_cy,template_pixel_x,template_pixel_y,offset_from_click_px,template_px_outside_otsu_window,template_overhang_px,same_box_as_default_51,tp_at_10,tp_at_20,tp_at_30,component_area,component_frac_of_window,component_frac_of_template,solidity,bbox_h,bbox_w,fills_window,touches_window_edge,component_inside_template,otsu_cut
+canine cutaneous mast cell tumor,300.tiff,14499,default_51,51,1411.0,3551.0,1411,3551,0.0,0,0,,9,19,27,,,,,,,,,,
+canine cutaneous mast cell tumor,300.tiff,14499,gray_bbox,49,1413.0,3549.5,1413,3550,2.5,49,1,False,9,19,27,1069.0,0.411,0.445,0.619,48.0,43.0,False,True,True,113.0
+canine cutaneous mast cell tumor,300.tiff,14499,hem_bbox,25,1412.0,3555.0,1412,3555,4.123,0,0,False,8,17,27,244.0,0.094,0.39,0.91,25.0,13.0,False,False,True,92.0
+canine cutaneous mast cell tumor,301.tiff,14969,default_51,51,5911.0,3548.0,5911,3548,0.0,0,0,,8,18,26,,,,,,,,,,
+canine cutaneous mast cell tumor,301.tiff,14969,gray_bbox,41,5916.5,3548.0,5916,3548,5.5,0,0,False,8,18,27,647.0,0.249,0.385,0.601,41.0,38.0,False,False,True,145.0
+canine cutaneous mast cell tumor,301.tiff,14969,hem_bbox,33,5911.0,3552.5,5911,3552,4.5,0,0,False,8,17,26,417.0,0.16,0.383,0.589,32.0,27.0,False,False,True,75.0
+canine lung cancer,201.tiff,4457,default_51,51,4097.0,1978.0,4097,1978,0.0,0,0,,4,8,9,,,,,,,,,,
+canine lung cancer,201.tiff,4457,gray_bbox,51,4097.0,1977.5,4097,1978,0.5,0,0,True,4,8,9,1592.0,0.612,0.612,0.744,50.0,51.0,True,True,True,103.0
+canine lung cancer,201.tiff,4457,hem_bbox,29,4092.0,1978.0,4092,1978,5.0,0,0,False,4,6,7,347.0,0.133,0.413,0.714,29.0,27.0,False,False,True,88.0
+canine lung cancer,233.tiff,5761,default_51,51,4419.0,2138.0,4419,2138,0.0,0,0,,6,8,9,,,,,,,,,,
+canine lung cancer,233.tiff,5761,gray_bbox,25,4418.0,2139.0,4418,2139,1.414,0,0,False,7,8,10,429.0,0.165,0.686,0.903,25.0,25.0,False,False,True,160.0
+canine lung cancer,233.tiff,5761,hem_bbox,23,4419.0,2138.0,4419,2138,0.0,0,0,False,6,7,9,376.0,0.145,0.711,0.94,23.0,23.0,False,False,True,110.0
+canine lymphosarcoma,245.tiff,6317,default_51,51,4774.0,2184.0,4774,2184,0.0,0,0,,1,4,7,,,,,,,,,,
+canine lymphosarcoma,245.tiff,6317,gray_bbox,51,4774.0,2184.0,4774,2184,0.0,0,0,True,1,4,7,1418.0,0.545,0.545,0.653,51.0,51.0,True,True,True,156.0
+canine lymphosarcoma,245.tiff,6317,hem_bbox,23,4769.0,2186.0,4769,2186,5.385,0,0,False,1,2,5,296.0,0.114,0.56,0.682,23.0,21.0,False,False,True,84.0
+canine lymphosarcoma,246.tiff,6548,default_51,51,3634.0,3621.0,3634,3621,0.0,0,0,,10,17,23,,,,,,,,,,
+canine lymphosarcoma,246.tiff,6548,gray_bbox,41,3627.5,3615.5,3628,3616,8.515,41,1,False,10,14,21,495.0,0.19,0.294,0.701,40.0,30.0,False,True,True,155.0
+canine lymphosarcoma,246.tiff,6548,hem_bbox,27,3632.5,3619.0,3632,3619,2.5,0,0,False,10,16,22,265.0,0.102,0.364,0.855,27.0,16.0,False,False,True,87.0
+canine soft tissue sarcoma,459.tiff,22441,default_51,51,1845.0,4003.0,1845,4003,0.0,0,0,,9,17,26,,,,,,,,,,
+canine soft tissue sarcoma,459.tiff,22441,gray_bbox,33,1844.5,4002.5,1844,4002,0.707,0,0,False,9,17,25,652.0,0.251,0.599,0.876,32.0,32.0,False,False,True,166.0
+canine soft tissue sarcoma,459.tiff,22441,hem_bbox,31,1845.0,4002.0,1845,4002,1.0,0,0,False,9,17,25,606.0,0.233,0.631,0.886,29.0,31.0,False,False,True,91.0
+canine soft tissue sarcoma,460.tiff,22577,default_51,51,5152.0,3999.0,5152,3999,0.0,0,0,,7,16,17,,,,,,,,,,
+canine soft tissue sarcoma,460.tiff,22577,gray_bbox,47,5156.0,3997.0,5156,3997,4.472,94,2,False,7,16,17,1338.0,0.514,0.606,0.785,47.0,43.0,False,True,True,134.0
+canine soft tissue sarcoma,460.tiff,22577,hem_bbox,41,5149.0,3996.5,5149,3996,3.905,0,0,False,7,14,15,645.0,0.248,0.384,0.845,40.0,27.0,False,False,True,79.0
+human breast cancer,013.tiff,249,default_51,51,1710.0,2861.0,1710,2861,0.0,0,0,,6,8,9,,,,,,,,,,
+human breast cancer,013.tiff,249,gray_bbox,39,1712.0,2859.5,1712,2860,2.5,0,0,False,6,8,9,998.0,0.384,0.656,0.912,38.0,39.0,False,False,True,139.0
+human breast cancer,013.tiff,249,hem_bbox,39,1711.0,2860.5,1711,2860,1.118,0,0,False,6,9,10,934.0,0.359,0.614,0.907,38.0,39.0,False,False,True,84.0
+human breast cancer,094.tiff,2512,default_51,51,5560.0,1178.0,5560,1178,0.0,0,0,,5,15,21,,,,,,,,,,
+human breast cancer,094.tiff,2512,gray_bbox,25,5557.5,1178.0,5558,1178,2.5,0,0,False,5,15,22,399.0,0.153,0.638,0.921,25.0,22.0,False,False,True,126.0
+human breast cancer,094.tiff,2512,hem_bbox,23,5557.5,1177.0,5558,1177,2.693,0,0,False,5,14,20,318.0,0.122,0.601,0.891,23.0,20.0,False,False,True,80.0
+human melanoma,529.tiff,24918,default_51,51,3421.0,2720.0,3421,2720,0.0,0,0,,7,8,9,,,,,,,,,,
+human melanoma,529.tiff,24918,gray_bbox,37,3415.0,2721.0,3415,2721,6.083,0,0,False,6,7,7,672.0,0.258,0.491,0.699,35.0,37.0,False,False,True,152.0
+human melanoma,529.tiff,24918,hem_bbox,33,3414.5,2721.5,3414,2722,6.671,0,0,False,6,8,8,500.0,0.192,0.459,0.706,32.0,30.0,False,False,True,84.0
+human melanoma,548.tiff,25804,default_51,51,5163.0,3871.0,5163,3871,0.0,0,0,,9,15,22,,,,,,,,,,
+human melanoma,548.tiff,25804,gray_bbox,29,5163.5,3868.5,5164,3868,2.55,0,0,False,8,13,21,589.0,0.226,0.7,0.942,28.0,28.0,False,False,True,166.0
+human melanoma,548.tiff,25804,hem_bbox,27,5163.5,3868.0,5164,3868,3.041,0,0,False,8,13,21,497.0,0.191,0.682,0.943,27.0,26.0,False,False,True,91.0
+human neuroendocrine tumor,402.tiff,20254,default_51,51,989.0,4917.0,989,4917,0.0,0,0,,8,14,19,,,,,,,,,,
+human neuroendocrine tumor,402.tiff,20254,gray_bbox,29,990.0,4915.5,990,4916,1.803,0,0,False,7,12,15,565.0,0.217,0.672,0.937,28.0,27.0,False,False,True,147.0
+human neuroendocrine tumor,402.tiff,20254,hem_bbox,25,989.0,4915.0,989,4915,2.0,0,0,False,7,11,15,397.0,0.153,0.635,0.908,25.0,23.0,False,False,True,28.0
+human neuroendocrine tumor,403.tiff,20356,default_51,51,2227.0,2970.0,2227,2970,0.0,0,0,,5,10,14,,,,,,,,,,
+human neuroendocrine tumor,403.tiff,20356,gray_bbox,51,2227.0,2968.0,2227,2968,2.0,102,2,False,5,10,14,1415.0,0.544,0.544,0.833,47.0,51.0,True,True,True,151.0
+human neuroendocrine tumor,403.tiff,20356,hem_bbox,31,2225.0,2974.5,2225,2974,4.924,0,0,False,4,7,10,505.0,0.194,0.525,0.852,30.0,29.0,False,False,True,107.0
