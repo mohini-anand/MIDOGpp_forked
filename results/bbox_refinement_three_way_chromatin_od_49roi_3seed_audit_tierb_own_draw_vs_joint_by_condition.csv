@@ -1,0 +1,4 @@
+condition,n_clicks,sum_own_minus_joint_tp10,sum_own_minus_joint_tp20,sum_own_minus_joint_tp30,mean_own_minus_joint_tp10,mean_own_minus_joint_tp20,mean_own_minus_joint_tp30
+default_51,26,-10,-23,-33,-0.38461538461538464,-0.8846153846153846,-1.2692307692307692
+gray_bbox,10,-1,-3,-9,-0.1,-0.3,-0.9
+hem_bbox,2,1,4,3,0.5,2.0,1.5

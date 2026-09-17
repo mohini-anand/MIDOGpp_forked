@@ -1,0 +1,176 @@
+cell,claim,claimed,recomputed,match
+27,order default_51 > gray_bbox > hem_bbox holds in all_49 for each click index at every K (9 seed x K cells),9/9,9/9,True
+27,order default_51 > gray_bbox > hem_bbox holds at every K (all_49 pooled),3/3,3/3,True
+23,"Figure 1 rendered bar labels (27, read off the PNG)",27,27,True
+24,"Figure 2 rendered cells spot-checked (8, read off the PNG)",8,8,True
+24,Figure 2 shared colour limit = max |cell| (colourbar reads to about +-1.2),1.2,1.2,True
+25,"Figure 3 rendered cells spot-checked (6 deltas + W/L/T, read off the PNG)",6,6,True
+26,"Figure 4 rendered stacks and Holm labels (9 bars, read off the PNG)",9,9,True
+27,contested share of top-K TPs spans 23.1-25.8% across conditions and K,0.231-0.258,0.231-0.258,True
+27,every all_49 K=20/30 contrast keeps Holm p <= 0.05 and D5 bar under all three rules,True,True,True
+27,testing_35 hem_bbox - gray_bbox K=20 under contested_as_fp Holm p,0.065,0.065,True
+27,hem_bbox - default_51 K=20 under contested_as_fp (points),-4.52,-4.52,True
+10,Table A all_49 n_clicks,147,147,True
+10,Table A all_49 gray_median,39.0,39.0,True
+10,Table A all_49 gray_range,23-51,23-51,True
+10,Table A all_49 gray_below,116,116,True
+10,Table A all_49 gray_off,2.55,2.55,True
+10,Table A all_49 hem_median,29.0,29.0,True
+10,Table A all_49 hem_range,19-51,19-51,True
+10,Table A all_49 hem_below,144,144,True
+10,Table A all_49 hem_off,2.5,2.5,True
+10,Table A all_49 hem_lt,135,135,True
+10,Table A all_49 hem_eq,12,12,True
+10,Table A all_49 hem_gt,0,0,True
+10,Table A all_49 ceiling,31,31,True
+10,Table A all_49 refusal,26,26,True
+10,Table A all_49 dflt,26,26,True
+10,Table A all_49 gray,10,10,True
+10,Table A original_14 n_clicks,42,42,True
+10,Table A original_14 gray_median,40.0,40.0,True
+10,Table A original_14 gray_range,23-51,23-51,True
+10,Table A original_14 gray_below,32,32,True
+10,Table A original_14 gray_off,2.368,2.368,True
+10,Table A original_14 hem_median,29.0,29.0,True
+10,Table A original_14 hem_range,19-41,19-41,True
+10,Table A original_14 hem_below,42,42,True
+10,Table A original_14 hem_off,2.693,2.693,True
+10,Table A original_14 hem_lt,41,41,True
+10,Table A original_14 hem_eq,1,1,True
+10,Table A original_14 hem_gt,0,0,True
+10,Table A original_14 ceiling,10,10,True
+10,Table A original_14 refusal,12,12,True
+10,Table A original_14 dflt,12,12,True
+10,Table A original_14 gray,6,6,True
+10,Table A testing_35 n_clicks,105,105,True
+10,Table A testing_35 gray_median,39.0,39.0,True
+10,Table A testing_35 gray_range,23-51,23-51,True
+10,Table A testing_35 gray_below,84,84,True
+10,Table A testing_35 gray_off,2.915,2.915,True
+10,Table A testing_35 hem_median,29.0,29.0,True
+10,Table A testing_35 hem_range,19-51,19-51,True
+10,Table A testing_35 hem_below,102,102,True
+10,Table A testing_35 hem_off,2.236,2.236,True
+10,Table A testing_35 hem_lt,94,94,True
+10,Table A testing_35 hem_eq,11,11,True
+10,Table A testing_35 hem_gt,0,0,True
+10,Table A testing_35 ceiling,21,21,True
+10,Table A testing_35 refusal,14,14,True
+10,Table A testing_35 dflt,14,14,True
+10,Table A testing_35 gray,4,4,True
+10,refused draws by refusing condition(s),"{'gray_bbox+hem_bbox': 16, 'hem_bbox': 10, 'gray_bbox': 2}","{'gray_bbox+hem_bbox': 16, 'hem_bbox': 10, 'gray_bbox': 2}",True
+8,Gate B cases (identical template),17,17,True
+8,Gate B gray_bbox = default_51 cases,11,11,True
+8,Gate B hem_bbox = gray_bbox cases,6,6,True
+8,Gate B cases with identical top-30 and TP,17,17,True
+8,Gate B geometry and SHA tests agree,17,17,True
+27,Gate B sub-pixel centre offsets,"0.5,0.5,0.707","0.5,0.5,0.707",True
+8,verification records / halt failures,2600/0,2600/0,True
+6,"self-hits removed per run {0: 11, 1: 430}","{0: 11, 1: 430}","{0: 11, 1: 430}",True
+6,n_detections min/max,81/100,81/100,True
+6,n_peaks == 100 on all runs,441,441,True
+6,runs with a candidate within one match radius of the click,0,0,True
+6,min joint-valid pool (201.tiff;364.tiff),6 (201.tiff;364.tiff),6 (201.tiff;364.tiff),True
+6,contested seed tier used on 0 clicks,0,0,True
+27,"all_49 pooled precision ('default_51', 10)",0.5694,0.5694,True
+27,"all_49 pooled precision ('gray_bbox', 10)",0.5612,0.5612,True
+27,"all_49 pooled precision ('hem_bbox', 10)",0.5395,0.5395,True
+27,"all_49 pooled precision ('default_51', 20)",0.4969,0.4969,True
+27,"all_49 pooled precision ('gray_bbox', 20)",0.4735,0.4735,True
+27,"all_49 pooled precision ('hem_bbox', 20)",0.4405,0.4405,True
+27,"all_49 pooled precision ('default_51', 30)",0.4331,0.4331,True
+27,"all_49 pooled precision ('gray_bbox', 30)",0.4136,0.4136,True
+27,"all_49 pooled precision ('hem_bbox', 30)",0.3798,0.3798,True
+27,gray_bbox - default_51 K=10 pooled delta pts,-0.82,-0.82,True
+27,gray_bbox - default_51 K=10 CI pts,"[-2.52, +0.95]","[-2.52, +0.95]",True
+27,gray_bbox - default_51 K=10 W/L/T,15/18/16,15/18/16,True
+27,gray_bbox - default_51 K=10 exact p (2 sf),0.4,0.4,True
+27,gray_bbox - default_51 K=10 Holm p (2 sf),0.4,0.4,True
+27,gray_bbox - default_51 K=10 D5 bar,False,False,True
+27,gray_bbox - default_51 K=20 pooled delta pts,-2.35,-2.35,True
+27,gray_bbox - default_51 K=20 CI pts,"[-3.78, -0.92]","[-3.78, -0.92]",True
+27,gray_bbox - default_51 K=20 W/L/T,12/32/5,12/32/5,True
+27,gray_bbox - default_51 K=20 exact p (2 sf),0.0025,0.0025,True
+27,gray_bbox - default_51 K=20 Holm p (2 sf),0.01,0.01,True
+27,gray_bbox - default_51 K=20 D5 bar,True,True,True
+27,gray_bbox - default_51 K=30 pooled delta pts,-1.95,-1.95,True
+27,gray_bbox - default_51 K=30 CI pts,"[-3.11, -0.79]","[-3.11, -0.79]",True
+27,gray_bbox - default_51 K=30 W/L/T,9/29/11,9/29/11,True
+27,gray_bbox - default_51 K=30 exact p (2 sf),0.0014,0.0014,True
+27,gray_bbox - default_51 K=30 Holm p (2 sf),0.0068,0.0068,True
+27,gray_bbox - default_51 K=30 D5 bar,True,True,True
+27,hem_bbox - default_51 K=10 pooled delta pts,-2.99,-2.99,True
+27,hem_bbox - default_51 K=10 CI pts,"[-5.78, +0.00]","[-5.78, +0.00]",True
+27,hem_bbox - default_51 K=10 W/L/T,11/25/13,11/25/13,True
+27,hem_bbox - default_51 K=10 exact p (2 sf),0.052,0.052,True
+27,hem_bbox - default_51 K=10 Holm p (2 sf),0.1,0.1,True
+27,hem_bbox - default_51 K=10 D5 bar,False,False,True
+27,hem_bbox - default_51 K=20 pooled delta pts,-5.65,-5.65,True
+27,hem_bbox - default_51 K=20 CI pts,"[-8.06, -3.37]","[-8.06, -3.37]",True
+27,hem_bbox - default_51 K=20 W/L/T,8/37/4,8/37/4,True
+27,hem_bbox - default_51 K=20 exact p (2 sf),5.5e-06,5.5e-06,True
+27,hem_bbox - default_51 K=20 Holm p (2 sf),3.9e-05,3.9e-05,True
+27,hem_bbox - default_51 K=20 D5 bar,True,True,True
+27,hem_bbox - default_51 K=30 pooled delta pts,-5.33,-5.33,True
+27,hem_bbox - default_51 K=30 CI pts,"[-7.30, -3.47]","[-7.30, -3.47]",True
+27,hem_bbox - default_51 K=30 W/L/T,7/36/6,7/36/6,True
+27,hem_bbox - default_51 K=30 exact p (2 sf),5e-07,5e-07,True
+27,hem_bbox - default_51 K=30 Holm p (2 sf),4.5e-06,4.5e-06,True
+27,hem_bbox - default_51 K=30 D5 bar,True,True,True
+27,hem_bbox - gray_bbox K=10 pooled delta pts,-2.18,-2.18,True
+27,hem_bbox - gray_bbox K=10 CI pts,"[-4.15, -0.34]","[-4.15, -0.34]",True
+27,hem_bbox - gray_bbox K=10 W/L/T,7/23/19,7/23/19,True
+27,hem_bbox - gray_bbox K=10 exact p (2 sf),0.034,0.034,True
+27,hem_bbox - gray_bbox K=10 Holm p (2 sf),0.1,0.1,True
+27,hem_bbox - gray_bbox K=10 D5 bar,False,False,True
+27,hem_bbox - gray_bbox K=20 pooled delta pts,-3.3,-3.3,True
+27,hem_bbox - gray_bbox K=20 CI pts,"[-5.20, -1.73]","[-5.20, -1.73]",True
+27,hem_bbox - gray_bbox K=20 W/L/T,8/31/10,8/31/10,True
+27,hem_bbox - gray_bbox K=20 exact p (2 sf),5.1e-05,5.1e-05,True
+27,hem_bbox - gray_bbox K=20 Holm p (2 sf),0.00031,0.00031,True
+27,hem_bbox - gray_bbox K=20 D5 bar,True,True,True
+27,hem_bbox - gray_bbox K=30 pooled delta pts,-3.38,-3.38,True
+27,hem_bbox - gray_bbox K=30 CI pts,"[-5.01, -1.97]","[-5.01, -1.97]",True
+27,hem_bbox - gray_bbox K=30 W/L/T,5/33/11,5/33/11,True
+27,hem_bbox - gray_bbox K=30 exact p (2 sf),2.2e-06,2.2e-06,True
+27,hem_bbox - gray_bbox K=30 Holm p (2 sf),1.7e-05,1.7e-05,True
+27,hem_bbox - gray_bbox K=30 D5 bar,True,True,True
+27,min_attainable_p at most 2.3e-10 in every all_49 row,<=2.3e-10,<=1.9e-09,False
+27,hem_bbox - default_51 K=10: 2.5% of resamples at or above 0,0.025,0.025,True
+27,replication: same sign 9/9,9,9,True
+27,replication: CIs overlap 9/9,9,9,True
+27,testing_35 gray_bbox - default_51 K=20 Holm p,0.0325,0.032,True
+27,testing_35 gray_bbox - default_51 K=20 D5 bar met,True,True,True
+27,testing_35 gray_bbox - default_51 K=30 Holm p,0.0014,0.0014,True
+27,testing_35 gray_bbox - default_51 K=30 D5 bar met,True,True,True
+27,testing_35 hem_bbox - default_51 K=20 Holm p,0.0014,0.0014,True
+27,testing_35 hem_bbox - default_51 K=20 D5 bar met,True,True,True
+27,testing_35 hem_bbox - default_51 K=30 Holm p,2.8e-05,2.8e-05,True
+27,testing_35 hem_bbox - default_51 K=30 D5 bar met,True,True,True
+27,testing_35 hem_bbox - gray_bbox K=20 Holm p,0.0037,0.0037,True
+27,testing_35 hem_bbox - gray_bbox K=20 D5 bar met,True,True,True
+27,testing_35 hem_bbox - gray_bbox K=30 Holm p,0.00054,0.00054,True
+27,testing_35 hem_bbox - gray_bbox K=30 D5 bar met,True,True,True
+27,testing_35: no K=10 Holm p below 0.17,True,True,True
+27,testing_35 hem_bbox - gray_bbox K=10 CI and ROIs,"[-4.38, -0.10], 18/35","[-4.38, -0.10], 18/35",True
+27,original_14 hem_bbox - default_51 K=20 exact p,0.013,0.013,True
+27,original_14 hem_bbox - default_51 K=20 D5 bar met (bootstrap),True,True,True
+27,original_14 hem_bbox - default_51 K=30 exact p,0.042,0.042,True
+27,original_14 hem_bbox - default_51 K=30 D5 bar met (bootstrap),True,True,True
+27,original_14 hem_bbox - gray_bbox K=20 exact p,0.046,0.046,True
+27,original_14 hem_bbox - gray_bbox K=20 D5 bar met (bootstrap),True,True,True
+27,original_14 hem_bbox - gray_bbox K=30 exact p,0.018,0.018,True
+27,original_14 hem_bbox - gray_bbox K=30 D5 bar met (bootstrap),True,True,True
+27,original_14 gray_bbox - default_51 CI includes 0 at every K,True,True,True
+27,gray_bbox - default_51 negative at every K in all three human domains,True,True,True
+27,human breast / melanoma / NET gray-default pts,-1.43/-5.48/-5.24; -3.81/-4.76/-3.65; -5.71/-3.81/-3.33,-1.43/-5.48/-5.24; -3.81/-4.76/-3.65; -5.71/-3.81/-3.33,True
+27,mast cell gray-default +0.48..+1.43 at every K; lung +1.43/0/0,1.43/0.95/0.48; 1.43/0.00/0.00,1.43/0.95/0.48; 1.43/0.00/0.00,True
+27,hem_bbox - default_51 negative in 6/7 domains at K=20 and 7/7 at K=30,6/7;7/7,6/7;7/7,True
+27,canine lung is the one domain where no refinement moves precision by more than 1.9 pts at any K,"canine lung cancer only, 1.9","canine lung cancer only, 1.9",True
+27,211.tiff has 0 TPs in the top 30 on all 9 runs,9,9,True
+27,245.tiff K=20 original_14 worst ROI: 0.0833/0.1167/0.1000,0.0833/0.1167/0.1000,0.0833/0.1167/0.1000,True
+27,original_14 worst ROI is 245.tiff under every condition (every K),True,True,True
+27,median template size 51 / 39 / 29,51/39/29,51/39/29,True
+10,default_51 alone would have clicked differently (re-derived from pixels),26,26,True
+10,production gray_bbox alone would have clicked differently (re-derived from pixels),10,10,True
+10,hem_bbox alone would have clicked differently (re-derived from pixels; not claimed by the notebook),n/a,2,True

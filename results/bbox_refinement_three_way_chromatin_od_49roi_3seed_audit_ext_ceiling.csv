@@ -1,0 +1,10 @@
+K,condition,clicks_with_ceiling_below_K,clicks_at_ceiling,clicks_within_1_of_ceiling
+10,default_51,0,6,27
+10,gray_bbox,0,7,24
+10,hem_bbox,0,7,24
+20,default_51,42,0,6
+20,gray_bbox,42,0,8
+20,hem_bbox,42,0,4
+30,default_51,69,0,2
+30,gray_bbox,69,0,5
+30,hem_bbox,69,1,1

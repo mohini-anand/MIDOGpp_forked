@@ -1,0 +1,18 @@
+file_name,seed_index,pair,same_geo,same_px,offset,same_list,same_tp
+201.tiff,0,gray_bbox - default_51,True,True,0.5,True,True
+211.tiff,0,gray_bbox - default_51,True,True,0.0,True,True
+211.tiff,2,gray_bbox - default_51,True,True,0.0,True,True
+220.tiff,0,gray_bbox - default_51,True,True,0.0,True,True
+220.tiff,2,gray_bbox - default_51,True,True,0.0,True,True
+230.tiff,0,gray_bbox - default_51,True,True,0.0,True,True
+230.tiff,2,gray_bbox - default_51,True,True,0.0,True,True
+245.tiff,0,gray_bbox - default_51,True,True,0.0,True,True
+246.tiff,1,gray_bbox - default_51,True,True,0.0,True,True
+246.tiff,2,gray_bbox - default_51,True,True,0.0,True,True
+425.tiff,1,hem_bbox - gray_bbox,True,True,0.707,True,True
+435.tiff,0,gray_bbox - default_51,True,True,0.0,True,True
+509.tiff,1,hem_bbox - gray_bbox,True,True,0.0,True,True
+509.tiff,2,hem_bbox - gray_bbox,True,True,0.0,True,True
+524.tiff,0,hem_bbox - gray_bbox,True,True,0.5,True,True
+549.tiff,1,hem_bbox - gray_bbox,True,True,0.0,True,True
+549.tiff,2,hem_bbox - gray_bbox,True,True,0.0,True,True

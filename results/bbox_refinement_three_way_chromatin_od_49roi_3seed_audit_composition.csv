@@ -1,0 +1,28 @@
+check,expected,observed,passed
+rows:per_run,441,441,True
+rows:per_roi,147,147,True
+rows:summary,27,27,True
+rows:by_domain,63,63,True
+rows:by_seed,81,81,True
+rows:delta_per_roi,441,441,True
+rows:delta_stats,90,90,True
+rows:bootstrap_ci,54,54,True
+rows:contested_sensitivity,81,81,True
+rows:top30,13230,13230,True
+rows:verification,2600,2600,True
+duplicate_keys:per_run,0,0,True
+duplicate_keys:per_roi,0,0,True
+duplicate_keys:delta_per_roi,0,0,True
+duplicate_keys:top30,0,0,True
+duplicate_keys:summary,0,0,True
+duplicate_keys:delta_stats,0,0,True
+rois,49,49,True
+rois_original_14,14,14,True
+rois_testing_35,35,35,True
+files_on_disk_match:original_14,14,14,True
+files_on_disk_match:testing_35,35,35,True
+domain_column_matches_db,49,49,True
+rois_per_domain_all_7,7x7,human breast cancer=7;canine lung cancer=7;canine lymphosarcoma=7;canine cutaneous mast cell tumor=7;human neuroendocrine tumor=7;canine soft tissue sarcoma=7;human melanoma=7,True
+db_images_per_tumor_type (context),n/a,human breast cancer=150;canine soft tissue sarcoma=100;canine lymphosarcoma=55;human neuroendocrine tumor=55;canine cutaneous mast cell tumor=50;human melanoma=49;canine lung cancer=44,True
+runs_per_roi_is_9,9,9..9,True
+top30_ranks_0_to_29_every_run,441,441,True

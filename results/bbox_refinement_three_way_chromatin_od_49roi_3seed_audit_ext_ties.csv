@@ -1,0 +1,10 @@
+pair,K,roi_ties,ties_all_zero_tp,ties_both_at_ceiling_every_click,ties_identical_on_every_click,ties_cancelling_across_clicks
+gray_bbox - default_51,10,16,1,1,16,0
+gray_bbox - default_51,20,5,1,0,5,0
+gray_bbox - default_51,30,11,1,0,5,6
+hem_bbox - default_51,10,13,1,1,10,3
+hem_bbox - default_51,20,4,1,0,2,2
+hem_bbox - default_51,30,6,1,0,2,4
+hem_bbox - gray_bbox,10,19,1,1,16,3
+hem_bbox - gray_bbox,20,10,1,0,6,4
+hem_bbox - gray_bbox,30,11,1,0,6,5

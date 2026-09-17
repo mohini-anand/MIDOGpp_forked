@@ -1,0 +1,13 @@
+family,pair,K,holm_p,total_abs_delta_tp,net_delta_tp,unit_changes_to_lose_holm_005,tp_cells_in_family
+all_49,gray_bbox - default_51,20,0.009980493829061743,125,-69,6,294
+all_49,gray_bbox - default_51,30,0.006838962581241503,138,-86,9,294
+all_49,hem_bbox - default_51,20,3.8542500021776505e-05,218,-166,34,294
+all_49,hem_bbox - default_51,30,4.468585757422261e-06,285,-235,54,294
+all_49,hem_bbox - gray_bbox,20,0.00030825119029032066,127,-97,16,294
+all_49,hem_bbox - gray_bbox,30,1.7378770280629396e-05,175,-149,29,294
+testing_35,gray_bbox - default_51,20,0.032480571419000626,87,-51,2,210
+testing_35,gray_bbox - default_51,30,0.0013768672943115234,93,-77,11,210
+testing_35,hem_bbox - default_51,20,0.0013768672943115234,152,-112,18,210
+testing_35,hem_bbox - default_51,30,2.8070993721485138e-05,196,-172,36,210
+testing_35,hem_bbox - gray_bbox,20,0.003670603036880493,81,-61,8,210
+testing_35,hem_bbox - gray_bbox,30,0.0005354881286621094,109,-95,15,210

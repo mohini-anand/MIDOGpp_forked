@@ -1,0 +1,29 @@
+path,mtime,last_commit,status
+production_hematoxylin_only/bbox_refinement_three_way_chromatin_od_49roi_3seed.ipynb,2026-09-16 22:54:13,UNTRACKED/never committed,?? production_hematoxylin_only/bbox_refinement_three_way_chromatin_od_49roi_3seed.ipynb
+BBOX3WAY_49ROI_3SEED_PROMPT.md,2026-09-16 21:05:56,UNTRACKED/never committed,?? BBOX3WAY_49ROI_3SEED_PROMPT.md
+midog_utils/channels.py,2026-09-16 20:03:03,c066829 2026-09-16 20:30:49 -0400 mohini-anand,clean
+midog_utils/chromatin.py,2026-09-16 20:03:03,c066829 2026-09-16 20:30:49 -0400 mohini-anand,clean
+midog_utils/dataset.py,2026-09-16 19:19:06,c066829 2026-09-16 20:30:49 -0400 mohini-anand,clean
+midog_utils/evaluate.py,2026-09-16 19:55:16,c066829 2026-09-16 20:30:49 -0400 mohini-anand,clean
+midog_utils/find_and_suppress.py,2026-09-16 19:29:49,c066829 2026-09-16 20:30:49 -0400 mohini-anand,clean
+midog_utils/invariants.py,2026-09-16 19:47:13,c066829 2026-09-16 20:30:49 -0400 mohini-anand,clean
+midog_utils/nms.py,2026-09-14 18:47:47,f9b4a63 2026-09-14 19:13:04 -0400 mohini-anand,clean
+midog_utils/production.py,2026-09-16 19:29:49,c066829 2026-09-16 20:30:49 -0400 mohini-anand,clean
+midog_utils/seed_selection.py,2026-09-16 19:25:17,c066829 2026-09-16 20:30:49 -0400 mohini-anand,clean
+midog_utils/template_match.py,2026-09-16 19:36:01,c066829 2026-09-16 20:30:49 -0400 mohini-anand,clean
+results/precision_at_k_49roi_3seed_chromatin_bbox3way_per_run.csv,2026-09-16 22:53:55,UNTRACKED/never committed,?? results/precision_at_k_49roi_3seed_chromatin_bbox3way_per_run.csv
+results/precision_at_k_49roi_3seed_chromatin_bbox3way_per_roi.csv,2026-09-16 22:53:55,UNTRACKED/never committed,?? results/precision_at_k_49roi_3seed_chromatin_bbox3way_per_roi.csv
+results/precision_at_k_49roi_3seed_chromatin_bbox3way_summary.csv,2026-09-16 22:53:55,UNTRACKED/never committed,?? results/precision_at_k_49roi_3seed_chromatin_bbox3way_summary.csv
+results/precision_at_k_49roi_3seed_chromatin_bbox3way_by_domain.csv,2026-09-16 22:53:55,UNTRACKED/never committed,?? results/precision_at_k_49roi_3seed_chromatin_bbox3way_by_domain.csv
+results/precision_at_k_49roi_3seed_chromatin_bbox3way_by_seed.csv,2026-09-16 22:53:55,UNTRACKED/never committed,?? results/precision_at_k_49roi_3seed_chromatin_bbox3way_by_seed.csv
+results/precision_at_k_49roi_3seed_chromatin_bbox3way_delta_per_roi.csv,2026-09-16 22:53:58,UNTRACKED/never committed,?? results/precision_at_k_49roi_3seed_chromatin_bbox3way_delta_per_roi.csv
+results/precision_at_k_49roi_3seed_chromatin_bbox3way_delta_stats.csv,2026-09-16 22:53:59,UNTRACKED/never committed,?? results/precision_at_k_49roi_3seed_chromatin_bbox3way_delta_stats.csv
+results/precision_at_k_49roi_3seed_chromatin_bbox3way_bootstrap_ci.csv,2026-09-16 22:53:59,UNTRACKED/never committed,?? results/precision_at_k_49roi_3seed_chromatin_bbox3way_bootstrap_ci.csv
+results/precision_at_k_49roi_3seed_chromatin_bbox3way_contested_sensitivity.csv,2026-09-16 22:54:04,UNTRACKED/never committed,?? results/precision_at_k_49roi_3seed_chromatin_bbox3way_contested_sensitivity.csv
+results/precision_at_k_49roi_3seed_chromatin_bbox3way_top30.csv,2026-09-16 22:53:54,UNTRACKED/never committed,?? results/precision_at_k_49roi_3seed_chromatin_bbox3way_top30.csv
+results/precision_at_k_49roi_3seed_chromatin_bbox3way_verification.csv,2026-09-16 22:53:55,UNTRACKED/never committed,?? results/precision_at_k_49roi_3seed_chromatin_bbox3way_verification.csv
+results/precision_at_k_14roi_prodseed_chromatin_bbox3way_per_roi.csv,2026-09-16 20:16:47,0982979 2026-09-16 20:48:29 -0400 mohini-anand,clean
+results/precision_at_k_14roi_prodseed_chromatin_bbox3way_top30.csv,2026-09-16 20:16:46,0982979 2026-09-16 20:48:29 -0400 mohini-anand,clean
+results/precision_at_k_14roi_prodseed_chromatin_bbox3way_delta_per_roi.csv,2026-09-16 20:16:49,0982979 2026-09-16 20:48:29 -0400 mohini-anand,clean
+results/precision_at_k_14roi_prodseed_chromatin_bbox3way_delta_stats.csv,2026-09-16 20:16:50,0982979 2026-09-16 20:48:29 -0400 mohini-anand,clean
+databases/MIDOG++.json,2026-08-20 12:01:31,bd26c81 2023-06-13 11:39:39 +0200 Marc Aubreville,clean

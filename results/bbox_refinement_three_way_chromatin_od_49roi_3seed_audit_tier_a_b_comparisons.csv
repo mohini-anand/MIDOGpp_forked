@@ -1,0 +1,85 @@
+section,quantity,n_compared,n_divergent,max_abs_diff,tolerance,independence
+rescore,mpp from TIFF tags,441,0,0.0,1e-09,independent
+rescore,match radius px,441,0,0.0,1e-09,independent
+rescore,tp_at_10 (441 runs),441,0,0.0,0.0,independent
+rescore,tp_at_20 (441 runs),441,0,0.0,0.0,independent
+rescore,tp_at_30 (441 runs),441,0,0.0,0.0,independent
+rescore,"bucket (13,230 top-30 rows)",13230,0,,0.0,independent
+rescore,"matched_ann_id (13,230 top-30 rows)",13230,0,0.0,0.0,independent
+rescore,n_gt_mitotic,441,0,0.0,0.0,independent
+rescore,nearest_other_ann_px,441,0,0.0,0.011,independent
+rescore,tpl_offset_px,441,0,0.0,0.0011,independent
+rescore,seed_is_mitotic (all True),441,0,0.0,0.0,independent
+rescore,seed_is_unanimous (all True),441,0,0.0,0.0,independent
+rescore,seed_click_matches (all True),441,0,0.0,0.0,independent
+rescore,seed_border_ok (all True),441,0,0.0,0.0,independent
+rescore,tpl_patch_readable (all True),441,0,0.0,0.0,independent
+rescore,od_descending (all True),441,0,0.0,0.0,independent
+rescore,base_odd (all True),441,0,0.0,0.0,independent
+rescore,base_le_51 (all True),441,0,0.0,0.0,independent
+rescore,od NaN count (all 0),441,0,0.0,0.0,independent
+rescore,default_51 base 51 and template == click,147,0,0.0,0.0,independent
+rescore,"Gate C: one ann and one n_gt per (ROI, click)",147,0,0.0,0.0,independent
+rescore,Gate C: 3 distinct clicks per ROI,49,0,0.0,0.0,independent
+tables,per_roi tp_at_10,147,0,0.0,0.0,independent
+tables,per_roi precision_at_10,147,0,0.0,1e-12,independent
+tables,per_roi tp_at_20,147,0,0.0,0.0,independent
+tables,per_roi precision_at_20,147,0,0.0,1e-12,independent
+tables,per_roi tp_at_30,147,0,0.0,0.0,independent
+tables,per_roi precision_at_30,147,0,0.0,1e-12,independent
+tables,summary tp_sum,27,0,0.0,0.0,independent
+tables,summary precision_pooled,27,0,0.0,1e-09,independent
+tables,summary worst_roi_precision,27,0,0.0,1e-09,independent
+tables,summary n_roi_at_worst,27,0,0.0,0.0,independent
+tables,summary worst_roi_files,27,0,,0.0,independent
+tables,summary best_roi_precision,27,0,0.0,1e-09,independent
+tables,summary worst_click_precision,27,0,0.0,1e-09,independent
+tables,summary n_clicks_at_worst,27,0,0.0,0.0,independent
+tables,by_domain tp_sum,63,0,0.0,0.0,independent
+tables,by_domain precision_pooled,63,0,0.0,1e-09,independent
+tables,by_domain worst_roi_precision,63,0,0.0,1e-09,independent
+tables,by_domain worst_click_precision,63,0,0.0,1e-09,independent
+tables,by_seed tp_sum,81,0,0.0,0.0,independent
+tables,by_seed precision_pooled,81,0,0.0,1e-09,independent
+tables,delta_per_roi delta_tp_s0,441,0,0.0,0.0,independent
+tables,delta_per_roi delta_tp_s1,441,0,0.0,0.0,independent
+tables,delta_per_roi delta_tp_s2,441,0,0.0,0.0,independent
+tables,delta_per_roi delta_tp_sum,441,0,0.0,0.0,independent
+tables,delta_per_roi delta_precision_sum,441,0,0.0,1e-12,independent
+inference,pooled_delta_precision (90 rows),90,0,0.0,1e-12,independent
+inference,wins/losses/ties (270 values),270,0,0.0,0.0,independent
+inference,n_nonzero,90,0,0.0,0.0,independent
+inference,exact_p (90 rows),90,0,0.0,1e-12,independent
+inference,min_attainable_p,90,0,0.0,1e-15,independent
+inference,holm_p (18 family rows),18,0,0.0,1e-12,independent
+inference,n_same_direction,90,0,0.0,0.0,independent
+inference,majority_of_all_rois (27 subset rows),27,0,0.0,0.0,independent
+inference,majority_of_nonzero_rois (27 subset rows),27,0,0.0,0.0,independent
+inference,mc_p within 5 SE + 2/N of exact (90 rows),90,0,0.0,0.0,consistency
+bootstrap,CI low/high with the notebook RNG spec (54 values),54,0,0.0,1e-12,consistency
+bootstrap,share >=0 / <=0 with notebook RNG spec (54 values),54,0,0.0,1e-12,consistency
+figures,"Figure 1 (cell 23) bar heights: pooled precision, 27 bars",27,0,0.0,1e-12,independent
+figures,"Figure 2 (cell 24) heatmap cells: seed-summed precision delta, 441",441,0,0.0,1e-12,independent
+figures,"Figure 3 (cell 25) cells: per-domain pooled delta, 63",63,0,0.0,1e-09,independent
+contested,pooled_delta_precision (81 rows),81,0,0.0,1e-12,independent
+contested,wins/losses/ties (243 values),243,0,0.0,0.0,independent
+contested,"exact p, all_mitoses + contested_as_fp (54 rows)",54,0,0.0,1e-12,independent
+contested,"Holm p, exact rules (36 family rows)",36,0,0.0,1e-12,independent
+contested,contested_excluded MC p (own 1e6 draws) within 5 SE(200k) + 2/200k of notebook MC p (27 rows),27,0,0.0,0.0,independent
+contested,bootstrap CI with notebook RNG spec (162 values),162,0,0.0,1e-12,consistency
+contested,d5_bar_met (81 rows),81,0,0.0,0.0,consistency
+geometry,n_retries == number of refused_draws entries (147 clicks),147,0,0.0,0.0,independent
+geometry,top-30 detections within one match radius of the click (all 0),441,0,0.0,0.0,independent
+gateA,"seed-0 original_14 top-30 cx,cy,od,bucket,matched_ann_id vs committed 14-ROI top30 (1260 rows x 5)",5040,0,0.0,0.0,consistency
+gateA,bucket vs committed 14-ROI top30,1260,0,,0.0,consistency
+tierB,click draw: seed_ann_id (147 clicks x 3 conditions),441,0,0.0,0.0,independent
+tierB,template base_size (441),441,0,0.0,0.0,independent
+tierB,"template centre x,y (882)",882,0,0.0,1e-09,independent
+tierB,refused_draws strings (441),441,0,,0.0,independent
+tierB,n_joint_valid (441),441,0,0.0,0.0,independent
+tierB,"production build_seed(gray) ann vs my gray-alone walk (147 clicks, earlier clicks fixed)",147,0,0.0,0.0,consistency
+tierB,re-implemented pipeline tp_at_10 (15 runs),15,0,0.0,0.0,independent
+tierB,re-implemented pipeline tp_at_20 (15 runs),15,0,0.0,0.0,independent
+tierB,re-implemented pipeline tp_at_30 (15 runs),15,0,0.0,0.0,independent
+tierB,re-implemented pipeline n_peaks / n_detections / n_self_hits (45 values),45,0,0.0,0.0,independent
+tierB,re-implemented pipeline top-30 coordinates identical (15 runs),15,0,0.0,0.0,independent

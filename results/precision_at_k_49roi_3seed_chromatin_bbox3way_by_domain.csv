@@ -1,0 +1,64 @@
+domain,condition,K,n_roi,n_clicks,tp_sum,precision_pooled,worst_roi_precision,worst_roi_files,worst_click_precision
+canine cutaneous mast cell tumor,default_51,10,7,21,149,0.7095,0.4333,339.tiff,0.4
+canine cutaneous mast cell tumor,default_51,20,7,21,261,0.6214,0.2667,339.tiff,0.25
+canine cutaneous mast cell tumor,default_51,30,7,21,347,0.5508,0.2,339.tiff,0.1667
+canine cutaneous mast cell tumor,gray_bbox,10,7,21,152,0.7238,0.4333,339.tiff,0.4
+canine cutaneous mast cell tumor,gray_bbox,20,7,21,265,0.631,0.3,339.tiff,0.25
+canine cutaneous mast cell tumor,gray_bbox,30,7,21,350,0.5556,0.2,339.tiff,0.1667
+canine cutaneous mast cell tumor,hem_bbox,10,7,21,142,0.6762,0.3333,339.tiff,0.2
+canine cutaneous mast cell tumor,hem_bbox,20,7,21,232,0.5524,0.2333,339.tiff,0.15
+canine cutaneous mast cell tumor,hem_bbox,30,7,21,296,0.4698,0.1556,339.tiff,0.1
+canine lung cancer,default_51,10,7,21,72,0.3429,0.0,211.tiff,0.0
+canine lung cancer,default_51,20,7,21,118,0.281,0.0,211.tiff,0.0
+canine lung cancer,default_51,30,7,21,145,0.2302,0.0,211.tiff,0.0
+canine lung cancer,gray_bbox,10,7,21,75,0.3571,0.0,211.tiff,0.0
+canine lung cancer,gray_bbox,20,7,21,118,0.281,0.0,211.tiff,0.0
+canine lung cancer,gray_bbox,30,7,21,145,0.2302,0.0,211.tiff,0.0
+canine lung cancer,hem_bbox,10,7,21,76,0.3619,0.0,211.tiff,0.0
+canine lung cancer,hem_bbox,20,7,21,122,0.2905,0.0,211.tiff,0.0
+canine lung cancer,hem_bbox,30,7,21,143,0.227,0.0,211.tiff,0.0
+canine lymphosarcoma,default_51,10,7,21,111,0.5286,0.0667,245.tiff,0.0
+canine lymphosarcoma,default_51,20,7,21,230,0.5476,0.0833,245.tiff,0.0
+canine lymphosarcoma,default_51,30,7,21,328,0.5206,0.1,245.tiff,0.0333
+canine lymphosarcoma,gray_bbox,10,7,21,113,0.5381,0.1,245.tiff,0.0
+canine lymphosarcoma,gray_bbox,20,7,21,227,0.5405,0.1167,245.tiff,0.0
+canine lymphosarcoma,gray_bbox,30,7,21,324,0.5143,0.1222,245.tiff,0.0333
+canine lymphosarcoma,hem_bbox,10,7,21,117,0.5571,0.1,245.tiff,0.1
+canine lymphosarcoma,hem_bbox,20,7,21,218,0.519,0.1,245.tiff,0.1
+canine lymphosarcoma,hem_bbox,30,7,21,305,0.4841,0.1111,245.tiff,0.0667
+canine soft tissue sarcoma,default_51,10,7,21,132,0.6286,0.1,462.tiff,0.0
+canine soft tissue sarcoma,default_51,20,7,21,232,0.5524,0.1167,462.tiff,0.1
+canine soft tissue sarcoma,default_51,30,7,21,288,0.4571,0.1,462.tiff,0.1
+canine soft tissue sarcoma,gray_bbox,10,7,21,135,0.6429,0.1667,462.tiff,0.1
+canine soft tissue sarcoma,gray_bbox,20,7,21,221,0.5262,0.1167,462.tiff,0.1
+canine soft tissue sarcoma,gray_bbox,30,7,21,280,0.4444,0.1,410.tiff;462.tiff,0.1
+canine soft tissue sarcoma,hem_bbox,10,7,21,118,0.5619,0.1667,462.tiff,0.1
+canine soft tissue sarcoma,hem_bbox,20,7,21,191,0.4548,0.1167,410.tiff;462.tiff,0.1
+canine soft tissue sarcoma,hem_bbox,30,7,21,246,0.3905,0.0778,410.tiff,0.0667
+human breast cancer,default_51,10,7,21,132,0.6286,0.5,094.tiff,0.5
+human breast cancer,default_51,20,7,21,240,0.5714,0.35,007.tiff,0.35
+human breast cancer,default_51,30,7,21,295,0.4683,0.2444,007.tiff,0.2333
+human breast cancer,gray_bbox,10,7,21,129,0.6143,0.5,013.tiff;094.tiff,0.4
+human breast cancer,gray_bbox,20,7,21,217,0.5167,0.3333,013.tiff,0.25
+human breast cancer,gray_bbox,30,7,21,262,0.4159,0.2444,007.tiff,0.2333
+human breast cancer,hem_bbox,10,7,21,129,0.6143,0.5,072.tiff,0.3
+human breast cancer,hem_bbox,20,7,21,205,0.4881,0.3667,007.tiff;123.tiff,0.3
+human breast cancer,hem_bbox,30,7,21,252,0.4,0.2556,007.tiff,0.2
+human melanoma,default_51,10,7,21,98,0.4667,0.1,546.tiff,0.1
+human melanoma,default_51,20,7,21,149,0.3548,0.0667,546.tiff,0.05
+human melanoma,default_51,30,7,21,201,0.319,0.0889,524.tiff,0.0667
+human melanoma,gray_bbox,10,7,21,90,0.4286,0.1,546.tiff,0.1
+human melanoma,gray_bbox,20,7,21,129,0.3071,0.0667,524.tiff,0.05
+human melanoma,gray_bbox,30,7,21,178,0.2825,0.0667,524.tiff,0.0333
+human melanoma,hem_bbox,10,7,21,85,0.4048,0.0667,546.tiff,0.0
+human melanoma,hem_bbox,20,7,21,125,0.2976,0.0667,524.tiff,0.05
+human melanoma,hem_bbox,30,7,21,167,0.2651,0.0444,524.tiff,0.0333
+human neuroendocrine tumor,default_51,10,7,21,143,0.681,0.4333,404.tiff,0.4
+human neuroendocrine tumor,default_51,20,7,21,231,0.55,0.2667,364.tiff,0.25
+human neuroendocrine tumor,default_51,30,7,21,306,0.4857,0.1778,364.tiff,0.1667
+human neuroendocrine tumor,gray_bbox,10,7,21,131,0.6238,0.4,404.tiff,0.3
+human neuroendocrine tumor,gray_bbox,20,7,21,215,0.5119,0.25,364.tiff,0.2
+human neuroendocrine tumor,gray_bbox,30,7,21,285,0.4524,0.1778,364.tiff,0.1333
+human neuroendocrine tumor,hem_bbox,10,7,21,126,0.6,0.3667,364.tiff;404.tiff,0.2
+human neuroendocrine tumor,hem_bbox,20,7,21,202,0.481,0.2,364.tiff,0.1
+human neuroendocrine tumor,hem_bbox,30,7,21,266,0.4222,0.1333,364.tiff,0.0667
