@@ -1,0 +1,2799 @@
+check,severity,file_name,seed_index,condition,passed,detail
+budget_delivered,halt,300.tiff,0,default_51,True,n_detections=99
+budget_delivered,halt,300.tiff,0,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,300.tiff,0,hem_rect_fill_1um,True,n_detections=99
+budget_delivered,halt,300.tiff,1,default_51,True,n_detections=99
+budget_delivered,halt,300.tiff,1,hem_rect_fill,True,n_detections=98
+budget_delivered,halt,300.tiff,1,hem_rect_fill_1um,True,n_detections=98
+budget_delivered,halt,300.tiff,2,default_51,True,n_detections=99
+budget_delivered,halt,300.tiff,2,hem_rect_fill,True,n_detections=98
+budget_delivered,halt,300.tiff,2,hem_rect_fill_1um,True,n_detections=99
+budget_delivered,halt,301.tiff,0,default_51,True,n_detections=99
+budget_delivered,halt,301.tiff,0,hem_rect_fill,True,n_detections=100
+budget_delivered,halt,301.tiff,0,hem_rect_fill_1um,True,n_detections=99
+budget_delivered,halt,301.tiff,1,default_51,True,n_detections=99
+budget_delivered,halt,301.tiff,1,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,301.tiff,1,hem_rect_fill_1um,True,n_detections=99
+budget_delivered,halt,301.tiff,2,default_51,True,n_detections=93
+budget_delivered,halt,301.tiff,2,hem_rect_fill,True,n_detections=98
+budget_delivered,halt,301.tiff,2,hem_rect_fill_1um,True,n_detections=97
+budget_delivered,halt,322.tiff,0,default_51,True,n_detections=99
+budget_delivered,halt,322.tiff,0,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,322.tiff,0,hem_rect_fill_1um,True,n_detections=99
+budget_delivered,halt,322.tiff,1,default_51,True,n_detections=98
+budget_delivered,halt,322.tiff,1,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,322.tiff,1,hem_rect_fill_1um,True,n_detections=98
+budget_delivered,halt,322.tiff,2,default_51,True,n_detections=99
+budget_delivered,halt,322.tiff,2,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,322.tiff,2,hem_rect_fill_1um,True,n_detections=99
+budget_delivered,halt,337.tiff,0,default_51,True,n_detections=99
+budget_delivered,halt,337.tiff,0,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,337.tiff,0,hem_rect_fill_1um,True,n_detections=98
+budget_delivered,halt,337.tiff,1,default_51,True,n_detections=99
+budget_delivered,halt,337.tiff,1,hem_rect_fill,True,n_detections=100
+budget_delivered,halt,337.tiff,1,hem_rect_fill_1um,True,n_detections=100
+budget_delivered,halt,337.tiff,2,default_51,True,n_detections=99
+budget_delivered,halt,337.tiff,2,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,337.tiff,2,hem_rect_fill_1um,True,n_detections=99
+budget_delivered,halt,339.tiff,0,default_51,True,n_detections=98
+budget_delivered,halt,339.tiff,0,hem_rect_fill,True,n_detections=98
+budget_delivered,halt,339.tiff,0,hem_rect_fill_1um,True,n_detections=98
+budget_delivered,halt,339.tiff,1,default_51,True,n_detections=99
+budget_delivered,halt,339.tiff,1,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,339.tiff,1,hem_rect_fill_1um,True,n_detections=99
+budget_delivered,halt,339.tiff,2,default_51,True,n_detections=98
+budget_delivered,halt,339.tiff,2,hem_rect_fill,True,n_detections=98
+budget_delivered,halt,339.tiff,2,hem_rect_fill_1um,True,n_detections=98
+budget_delivered,halt,343.tiff,0,default_51,True,n_detections=95
+budget_delivered,halt,343.tiff,0,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,343.tiff,0,hem_rect_fill_1um,True,n_detections=98
+budget_delivered,halt,343.tiff,1,default_51,True,n_detections=99
+budget_delivered,halt,343.tiff,1,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,343.tiff,1,hem_rect_fill_1um,True,n_detections=99
+budget_delivered,halt,343.tiff,2,default_51,True,n_detections=99
+budget_delivered,halt,343.tiff,2,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,343.tiff,2,hem_rect_fill_1um,True,n_detections=99
+budget_delivered,halt,344.tiff,0,default_51,True,n_detections=99
+budget_delivered,halt,344.tiff,0,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,344.tiff,0,hem_rect_fill_1um,True,n_detections=99
+budget_delivered,halt,344.tiff,1,default_51,True,n_detections=98
+budget_delivered,halt,344.tiff,1,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,344.tiff,1,hem_rect_fill_1um,True,n_detections=99
+budget_delivered,halt,344.tiff,2,default_51,True,n_detections=98
+budget_delivered,halt,344.tiff,2,hem_rect_fill,True,n_detections=98
+budget_delivered,halt,344.tiff,2,hem_rect_fill_1um,True,n_detections=98
+budget_delivered,halt,201.tiff,0,default_51,True,n_detections=98
+budget_delivered,halt,201.tiff,0,hem_rect_fill,True,n_detections=97
+budget_delivered,halt,201.tiff,0,hem_rect_fill_1um,True,n_detections=98
+budget_delivered,halt,201.tiff,1,default_51,True,n_detections=99
+budget_delivered,halt,201.tiff,1,hem_rect_fill,True,n_detections=98
+budget_delivered,halt,201.tiff,1,hem_rect_fill_1um,True,n_detections=98
+budget_delivered,halt,201.tiff,2,default_51,True,n_detections=99
+budget_delivered,halt,201.tiff,2,hem_rect_fill,True,n_detections=98
+budget_delivered,halt,201.tiff,2,hem_rect_fill_1um,True,n_detections=98
+budget_delivered,halt,233.tiff,0,default_51,True,n_detections=99
+budget_delivered,halt,233.tiff,0,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,233.tiff,0,hem_rect_fill_1um,True,n_detections=99
+budget_delivered,halt,233.tiff,1,default_51,True,n_detections=99
+budget_delivered,halt,233.tiff,1,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,233.tiff,1,hem_rect_fill_1um,True,n_detections=99
+budget_delivered,halt,233.tiff,2,default_51,True,n_detections=99
+budget_delivered,halt,233.tiff,2,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,233.tiff,2,hem_rect_fill_1um,True,n_detections=99
+budget_delivered,halt,211.tiff,0,default_51,True,n_detections=99
+budget_delivered,halt,211.tiff,0,hem_rect_fill,True,n_detections=100
+budget_delivered,halt,211.tiff,0,hem_rect_fill_1um,True,n_detections=100
+budget_delivered,halt,211.tiff,1,default_51,True,n_detections=98
+budget_delivered,halt,211.tiff,1,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,211.tiff,1,hem_rect_fill_1um,True,n_detections=98
+budget_delivered,halt,211.tiff,2,default_51,True,n_detections=100
+budget_delivered,halt,211.tiff,2,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,211.tiff,2,hem_rect_fill_1um,True,n_detections=99
+budget_delivered,halt,220.tiff,0,default_51,True,n_detections=98
+budget_delivered,halt,220.tiff,0,hem_rect_fill,True,n_detections=98
+budget_delivered,halt,220.tiff,0,hem_rect_fill_1um,True,n_detections=97
+budget_delivered,halt,220.tiff,1,default_51,True,n_detections=99
+budget_delivered,halt,220.tiff,1,hem_rect_fill,True,n_detections=98
+budget_delivered,halt,220.tiff,1,hem_rect_fill_1um,True,n_detections=98
+budget_delivered,halt,220.tiff,2,default_51,True,n_detections=99
+budget_delivered,halt,220.tiff,2,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,220.tiff,2,hem_rect_fill_1um,True,n_detections=99
+budget_delivered,halt,230.tiff,0,default_51,True,n_detections=99
+budget_delivered,halt,230.tiff,0,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,230.tiff,0,hem_rect_fill_1um,True,n_detections=99
+budget_delivered,halt,230.tiff,1,default_51,True,n_detections=99
+budget_delivered,halt,230.tiff,1,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,230.tiff,1,hem_rect_fill_1um,True,n_detections=98
+budget_delivered,halt,230.tiff,2,default_51,True,n_detections=98
+budget_delivered,halt,230.tiff,2,hem_rect_fill,True,n_detections=98
+budget_delivered,halt,230.tiff,2,hem_rect_fill_1um,True,n_detections=98
+budget_delivered,halt,235.tiff,0,default_51,True,n_detections=97
+budget_delivered,halt,235.tiff,0,hem_rect_fill,True,n_detections=98
+budget_delivered,halt,235.tiff,0,hem_rect_fill_1um,True,n_detections=98
+budget_delivered,halt,235.tiff,1,default_51,True,n_detections=96
+budget_delivered,halt,235.tiff,1,hem_rect_fill,True,n_detections=98
+budget_delivered,halt,235.tiff,1,hem_rect_fill_1um,True,n_detections=98
+budget_delivered,halt,235.tiff,2,default_51,True,n_detections=99
+budget_delivered,halt,235.tiff,2,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,235.tiff,2,hem_rect_fill_1um,True,n_detections=99
+budget_delivered,halt,242.tiff,0,default_51,True,n_detections=97
+budget_delivered,halt,242.tiff,0,hem_rect_fill,True,n_detections=98
+budget_delivered,halt,242.tiff,0,hem_rect_fill_1um,True,n_detections=98
+budget_delivered,halt,242.tiff,1,default_51,True,n_detections=99
+budget_delivered,halt,242.tiff,1,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,242.tiff,1,hem_rect_fill_1um,True,n_detections=99
+budget_delivered,halt,242.tiff,2,default_51,True,n_detections=98
+budget_delivered,halt,242.tiff,2,hem_rect_fill,True,n_detections=98
+budget_delivered,halt,242.tiff,2,hem_rect_fill_1um,True,n_detections=98
+budget_delivered,halt,245.tiff,0,default_51,True,n_detections=97
+budget_delivered,halt,245.tiff,0,hem_rect_fill,True,n_detections=97
+budget_delivered,halt,245.tiff,0,hem_rect_fill_1um,True,n_detections=96
+budget_delivered,halt,245.tiff,1,default_51,True,n_detections=97
+budget_delivered,halt,245.tiff,1,hem_rect_fill,True,n_detections=95
+budget_delivered,halt,245.tiff,1,hem_rect_fill_1um,True,n_detections=94
+budget_delivered,halt,245.tiff,2,default_51,True,n_detections=98
+budget_delivered,halt,245.tiff,2,hem_rect_fill,True,n_detections=98
+budget_delivered,halt,245.tiff,2,hem_rect_fill_1um,True,n_detections=97
+budget_delivered,halt,246.tiff,0,default_51,True,n_detections=97
+budget_delivered,halt,246.tiff,0,hem_rect_fill,True,n_detections=96
+budget_delivered,halt,246.tiff,0,hem_rect_fill_1um,True,n_detections=96
+budget_delivered,halt,246.tiff,1,default_51,True,n_detections=97
+budget_delivered,halt,246.tiff,1,hem_rect_fill,True,n_detections=96
+budget_delivered,halt,246.tiff,1,hem_rect_fill_1um,True,n_detections=96
+budget_delivered,halt,246.tiff,2,default_51,True,n_detections=99
+budget_delivered,halt,246.tiff,2,hem_rect_fill,True,n_detections=98
+budget_delivered,halt,246.tiff,2,hem_rect_fill_1um,True,n_detections=98
+budget_delivered,halt,249.tiff,0,default_51,True,n_detections=99
+budget_delivered,halt,249.tiff,0,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,249.tiff,0,hem_rect_fill_1um,True,n_detections=99
+budget_delivered,halt,249.tiff,1,default_51,True,n_detections=96
+budget_delivered,halt,249.tiff,1,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,249.tiff,1,hem_rect_fill_1um,True,n_detections=99
+budget_delivered,halt,249.tiff,2,default_51,True,n_detections=99
+budget_delivered,halt,249.tiff,2,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,249.tiff,2,hem_rect_fill_1um,True,n_detections=99
+budget_delivered,halt,284.tiff,0,default_51,True,n_detections=99
+budget_delivered,halt,284.tiff,0,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,284.tiff,0,hem_rect_fill_1um,True,n_detections=99
+budget_delivered,halt,284.tiff,1,default_51,True,n_detections=99
+budget_delivered,halt,284.tiff,1,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,284.tiff,1,hem_rect_fill_1um,True,n_detections=99
+budget_delivered,halt,284.tiff,2,default_51,True,n_detections=99
+budget_delivered,halt,284.tiff,2,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,284.tiff,2,hem_rect_fill_1um,True,n_detections=99
+budget_delivered,halt,289.tiff,0,default_51,True,n_detections=99
+budget_delivered,halt,289.tiff,0,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,289.tiff,0,hem_rect_fill_1um,True,n_detections=98
+budget_delivered,halt,289.tiff,1,default_51,True,n_detections=97
+budget_delivered,halt,289.tiff,1,hem_rect_fill,True,n_detections=98
+budget_delivered,halt,289.tiff,1,hem_rect_fill_1um,True,n_detections=98
+budget_delivered,halt,289.tiff,2,default_51,True,n_detections=98
+budget_delivered,halt,289.tiff,2,hem_rect_fill,True,n_detections=98
+budget_delivered,halt,289.tiff,2,hem_rect_fill_1um,True,n_detections=98
+budget_delivered,halt,291.tiff,0,default_51,True,n_detections=81
+budget_delivered,halt,291.tiff,0,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,291.tiff,0,hem_rect_fill_1um,True,n_detections=97
+budget_delivered,halt,291.tiff,1,default_51,True,n_detections=96
+budget_delivered,halt,291.tiff,1,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,291.tiff,1,hem_rect_fill_1um,True,n_detections=98
+budget_delivered,halt,291.tiff,2,default_51,True,n_detections=98
+budget_delivered,halt,291.tiff,2,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,291.tiff,2,hem_rect_fill_1um,True,n_detections=99
+budget_delivered,halt,293.tiff,0,default_51,True,n_detections=99
+budget_delivered,halt,293.tiff,0,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,293.tiff,0,hem_rect_fill_1um,True,n_detections=99
+budget_delivered,halt,293.tiff,1,default_51,True,n_detections=99
+budget_delivered,halt,293.tiff,1,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,293.tiff,1,hem_rect_fill_1um,True,n_detections=99
+budget_delivered,halt,293.tiff,2,default_51,True,n_detections=99
+budget_delivered,halt,293.tiff,2,hem_rect_fill,True,n_detections=98
+budget_delivered,halt,293.tiff,2,hem_rect_fill_1um,True,n_detections=98
+budget_delivered,halt,459.tiff,0,default_51,True,n_detections=99
+budget_delivered,halt,459.tiff,0,hem_rect_fill,True,n_detections=98
+budget_delivered,halt,459.tiff,0,hem_rect_fill_1um,True,n_detections=99
+budget_delivered,halt,459.tiff,1,default_51,True,n_detections=99
+budget_delivered,halt,459.tiff,1,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,459.tiff,1,hem_rect_fill_1um,True,n_detections=99
+budget_delivered,halt,459.tiff,2,default_51,True,n_detections=99
+budget_delivered,halt,459.tiff,2,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,459.tiff,2,hem_rect_fill_1um,True,n_detections=99
+budget_delivered,halt,460.tiff,0,default_51,True,n_detections=99
+budget_delivered,halt,460.tiff,0,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,460.tiff,0,hem_rect_fill_1um,True,n_detections=99
+budget_delivered,halt,460.tiff,1,default_51,True,n_detections=99
+budget_delivered,halt,460.tiff,1,hem_rect_fill,True,n_detections=97
+budget_delivered,halt,460.tiff,1,hem_rect_fill_1um,True,n_detections=98
+budget_delivered,halt,460.tiff,2,default_51,True,n_detections=99
+budget_delivered,halt,460.tiff,2,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,460.tiff,2,hem_rect_fill_1um,True,n_detections=99
+budget_delivered,halt,410.tiff,0,default_51,True,n_detections=89
+budget_delivered,halt,410.tiff,0,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,410.tiff,0,hem_rect_fill_1um,True,n_detections=99
+budget_delivered,halt,410.tiff,1,default_51,True,n_detections=99
+budget_delivered,halt,410.tiff,1,hem_rect_fill,True,n_detections=98
+budget_delivered,halt,410.tiff,1,hem_rect_fill_1um,True,n_detections=99
+budget_delivered,halt,410.tiff,2,default_51,True,n_detections=99
+budget_delivered,halt,410.tiff,2,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,410.tiff,2,hem_rect_fill_1um,True,n_detections=99
+budget_delivered,halt,425.tiff,0,default_51,True,n_detections=99
+budget_delivered,halt,425.tiff,0,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,425.tiff,0,hem_rect_fill_1um,True,n_detections=99
+budget_delivered,halt,425.tiff,1,default_51,True,n_detections=96
+budget_delivered,halt,425.tiff,1,hem_rect_fill,True,n_detections=96
+budget_delivered,halt,425.tiff,1,hem_rect_fill_1um,True,n_detections=96
+budget_delivered,halt,425.tiff,2,default_51,True,n_detections=98
+budget_delivered,halt,425.tiff,2,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,425.tiff,2,hem_rect_fill_1um,True,n_detections=99
+budget_delivered,halt,435.tiff,0,default_51,True,n_detections=96
+budget_delivered,halt,435.tiff,0,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,435.tiff,0,hem_rect_fill_1um,True,n_detections=99
+budget_delivered,halt,435.tiff,1,default_51,True,n_detections=98
+budget_delivered,halt,435.tiff,1,hem_rect_fill,True,n_detections=98
+budget_delivered,halt,435.tiff,1,hem_rect_fill_1um,True,n_detections=98
+budget_delivered,halt,435.tiff,2,default_51,True,n_detections=98
+budget_delivered,halt,435.tiff,2,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,435.tiff,2,hem_rect_fill_1um,True,n_detections=99
+budget_delivered,halt,462.tiff,0,default_51,True,n_detections=99
+budget_delivered,halt,462.tiff,0,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,462.tiff,0,hem_rect_fill_1um,True,n_detections=99
+budget_delivered,halt,462.tiff,1,default_51,True,n_detections=99
+budget_delivered,halt,462.tiff,1,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,462.tiff,1,hem_rect_fill_1um,True,n_detections=99
+budget_delivered,halt,462.tiff,2,default_51,True,n_detections=99
+budget_delivered,halt,462.tiff,2,hem_rect_fill,True,n_detections=98
+budget_delivered,halt,462.tiff,2,hem_rect_fill_1um,True,n_detections=99
+budget_delivered,halt,499.tiff,0,default_51,True,n_detections=98
+budget_delivered,halt,499.tiff,0,hem_rect_fill,True,n_detections=98
+budget_delivered,halt,499.tiff,0,hem_rect_fill_1um,True,n_detections=98
+budget_delivered,halt,499.tiff,1,default_51,True,n_detections=97
+budget_delivered,halt,499.tiff,1,hem_rect_fill,True,n_detections=98
+budget_delivered,halt,499.tiff,1,hem_rect_fill_1um,True,n_detections=98
+budget_delivered,halt,499.tiff,2,default_51,True,n_detections=95
+budget_delivered,halt,499.tiff,2,hem_rect_fill,True,n_detections=95
+budget_delivered,halt,499.tiff,2,hem_rect_fill_1um,True,n_detections=96
+budget_delivered,halt,013.tiff,0,default_51,True,n_detections=99
+budget_delivered,halt,013.tiff,0,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,013.tiff,0,hem_rect_fill_1um,True,n_detections=99
+budget_delivered,halt,013.tiff,1,default_51,True,n_detections=99
+budget_delivered,halt,013.tiff,1,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,013.tiff,1,hem_rect_fill_1um,True,n_detections=99
+budget_delivered,halt,013.tiff,2,default_51,True,n_detections=98
+budget_delivered,halt,013.tiff,2,hem_rect_fill,True,n_detections=98
+budget_delivered,halt,013.tiff,2,hem_rect_fill_1um,True,n_detections=98
+budget_delivered,halt,094.tiff,0,default_51,True,n_detections=99
+budget_delivered,halt,094.tiff,0,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,094.tiff,0,hem_rect_fill_1um,True,n_detections=99
+budget_delivered,halt,094.tiff,1,default_51,True,n_detections=99
+budget_delivered,halt,094.tiff,1,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,094.tiff,1,hem_rect_fill_1um,True,n_detections=99
+budget_delivered,halt,094.tiff,2,default_51,True,n_detections=95
+budget_delivered,halt,094.tiff,2,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,094.tiff,2,hem_rect_fill_1um,True,n_detections=99
+budget_delivered,halt,007.tiff,0,default_51,True,n_detections=98
+budget_delivered,halt,007.tiff,0,hem_rect_fill,True,n_detections=98
+budget_delivered,halt,007.tiff,0,hem_rect_fill_1um,True,n_detections=98
+budget_delivered,halt,007.tiff,1,default_51,True,n_detections=99
+budget_delivered,halt,007.tiff,1,hem_rect_fill,True,n_detections=98
+budget_delivered,halt,007.tiff,1,hem_rect_fill_1um,True,n_detections=98
+budget_delivered,halt,007.tiff,2,default_51,True,n_detections=99
+budget_delivered,halt,007.tiff,2,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,007.tiff,2,hem_rect_fill_1um,True,n_detections=98
+budget_delivered,halt,072.tiff,0,default_51,True,n_detections=99
+budget_delivered,halt,072.tiff,0,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,072.tiff,0,hem_rect_fill_1um,True,n_detections=99
+budget_delivered,halt,072.tiff,1,default_51,True,n_detections=98
+budget_delivered,halt,072.tiff,1,hem_rect_fill,True,n_detections=98
+budget_delivered,halt,072.tiff,1,hem_rect_fill_1um,True,n_detections=98
+budget_delivered,halt,072.tiff,2,default_51,True,n_detections=99
+budget_delivered,halt,072.tiff,2,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,072.tiff,2,hem_rect_fill_1um,True,n_detections=99
+budget_delivered,halt,100.tiff,0,default_51,True,n_detections=97
+budget_delivered,halt,100.tiff,0,hem_rect_fill,True,n_detections=97
+budget_delivered,halt,100.tiff,0,hem_rect_fill_1um,True,n_detections=98
+budget_delivered,halt,100.tiff,1,default_51,True,n_detections=98
+budget_delivered,halt,100.tiff,1,hem_rect_fill,True,n_detections=98
+budget_delivered,halt,100.tiff,1,hem_rect_fill_1um,True,n_detections=98
+budget_delivered,halt,100.tiff,2,default_51,True,n_detections=99
+budget_delivered,halt,100.tiff,2,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,100.tiff,2,hem_rect_fill_1um,True,n_detections=99
+budget_delivered,halt,123.tiff,0,default_51,True,n_detections=94
+budget_delivered,halt,123.tiff,0,hem_rect_fill,True,n_detections=93
+budget_delivered,halt,123.tiff,0,hem_rect_fill_1um,True,n_detections=93
+budget_delivered,halt,123.tiff,1,default_51,True,n_detections=97
+budget_delivered,halt,123.tiff,1,hem_rect_fill,True,n_detections=97
+budget_delivered,halt,123.tiff,1,hem_rect_fill_1um,True,n_detections=98
+budget_delivered,halt,123.tiff,2,default_51,True,n_detections=99
+budget_delivered,halt,123.tiff,2,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,123.tiff,2,hem_rect_fill_1um,True,n_detections=99
+budget_delivered,halt,128.tiff,0,default_51,True,n_detections=81
+budget_delivered,halt,128.tiff,0,hem_rect_fill,True,n_detections=84
+budget_delivered,halt,128.tiff,0,hem_rect_fill_1um,True,n_detections=82
+budget_delivered,halt,128.tiff,1,default_51,True,n_detections=97
+budget_delivered,halt,128.tiff,1,hem_rect_fill,True,n_detections=96
+budget_delivered,halt,128.tiff,1,hem_rect_fill_1um,True,n_detections=96
+budget_delivered,halt,128.tiff,2,default_51,True,n_detections=97
+budget_delivered,halt,128.tiff,2,hem_rect_fill,True,n_detections=97
+budget_delivered,halt,128.tiff,2,hem_rect_fill_1um,True,n_detections=97
+budget_delivered,halt,529.tiff,0,default_51,True,n_detections=99
+budget_delivered,halt,529.tiff,0,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,529.tiff,0,hem_rect_fill_1um,True,n_detections=98
+budget_delivered,halt,529.tiff,1,default_51,True,n_detections=98
+budget_delivered,halt,529.tiff,1,hem_rect_fill,True,n_detections=98
+budget_delivered,halt,529.tiff,1,hem_rect_fill_1um,True,n_detections=98
+budget_delivered,halt,529.tiff,2,default_51,True,n_detections=98
+budget_delivered,halt,529.tiff,2,hem_rect_fill,True,n_detections=94
+budget_delivered,halt,529.tiff,2,hem_rect_fill_1um,True,n_detections=96
+budget_delivered,halt,548.tiff,0,default_51,True,n_detections=99
+budget_delivered,halt,548.tiff,0,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,548.tiff,0,hem_rect_fill_1um,True,n_detections=99
+budget_delivered,halt,548.tiff,1,default_51,True,n_detections=99
+budget_delivered,halt,548.tiff,1,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,548.tiff,1,hem_rect_fill_1um,True,n_detections=99
+budget_delivered,halt,548.tiff,2,default_51,True,n_detections=99
+budget_delivered,halt,548.tiff,2,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,548.tiff,2,hem_rect_fill_1um,True,n_detections=99
+budget_delivered,halt,509.tiff,0,default_51,True,n_detections=94
+budget_delivered,halt,509.tiff,0,hem_rect_fill,True,n_detections=95
+budget_delivered,halt,509.tiff,0,hem_rect_fill_1um,True,n_detections=93
+budget_delivered,halt,509.tiff,1,default_51,True,n_detections=86
+budget_delivered,halt,509.tiff,1,hem_rect_fill,True,n_detections=86
+budget_delivered,halt,509.tiff,1,hem_rect_fill_1um,True,n_detections=87
+budget_delivered,halt,509.tiff,2,default_51,True,n_detections=91
+budget_delivered,halt,509.tiff,2,hem_rect_fill,True,n_detections=88
+budget_delivered,halt,509.tiff,2,hem_rect_fill_1um,True,n_detections=89
+budget_delivered,halt,524.tiff,0,default_51,True,n_detections=98
+budget_delivered,halt,524.tiff,0,hem_rect_fill,True,n_detections=97
+budget_delivered,halt,524.tiff,0,hem_rect_fill_1um,True,n_detections=98
+budget_delivered,halt,524.tiff,1,default_51,True,n_detections=99
+budget_delivered,halt,524.tiff,1,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,524.tiff,1,hem_rect_fill_1um,True,n_detections=99
+budget_delivered,halt,524.tiff,2,default_51,True,n_detections=95
+budget_delivered,halt,524.tiff,2,hem_rect_fill,True,n_detections=98
+budget_delivered,halt,524.tiff,2,hem_rect_fill_1um,True,n_detections=98
+budget_delivered,halt,527.tiff,0,default_51,True,n_detections=99
+budget_delivered,halt,527.tiff,0,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,527.tiff,0,hem_rect_fill_1um,True,n_detections=99
+budget_delivered,halt,527.tiff,1,default_51,True,n_detections=99
+budget_delivered,halt,527.tiff,1,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,527.tiff,1,hem_rect_fill_1um,True,n_detections=99
+budget_delivered,halt,527.tiff,2,default_51,True,n_detections=99
+budget_delivered,halt,527.tiff,2,hem_rect_fill,True,n_detections=98
+budget_delivered,halt,527.tiff,2,hem_rect_fill_1um,True,n_detections=98
+budget_delivered,halt,546.tiff,0,default_51,True,n_detections=100
+budget_delivered,halt,546.tiff,0,hem_rect_fill,True,n_detections=100
+budget_delivered,halt,546.tiff,0,hem_rect_fill_1um,True,n_detections=100
+budget_delivered,halt,546.tiff,1,default_51,True,n_detections=99
+budget_delivered,halt,546.tiff,1,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,546.tiff,1,hem_rect_fill_1um,True,n_detections=99
+budget_delivered,halt,546.tiff,2,default_51,True,n_detections=99
+budget_delivered,halt,546.tiff,2,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,546.tiff,2,hem_rect_fill_1um,True,n_detections=99
+budget_delivered,halt,549.tiff,0,default_51,True,n_detections=99
+budget_delivered,halt,549.tiff,0,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,549.tiff,0,hem_rect_fill_1um,True,n_detections=99
+budget_delivered,halt,549.tiff,1,default_51,True,n_detections=99
+budget_delivered,halt,549.tiff,1,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,549.tiff,1,hem_rect_fill_1um,True,n_detections=99
+budget_delivered,halt,549.tiff,2,default_51,True,n_detections=99
+budget_delivered,halt,549.tiff,2,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,549.tiff,2,hem_rect_fill_1um,True,n_detections=99
+budget_delivered,halt,402.tiff,0,default_51,True,n_detections=99
+budget_delivered,halt,402.tiff,0,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,402.tiff,0,hem_rect_fill_1um,True,n_detections=98
+budget_delivered,halt,402.tiff,1,default_51,True,n_detections=99
+budget_delivered,halt,402.tiff,1,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,402.tiff,1,hem_rect_fill_1um,True,n_detections=99
+budget_delivered,halt,402.tiff,2,default_51,True,n_detections=99
+budget_delivered,halt,402.tiff,2,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,402.tiff,2,hem_rect_fill_1um,True,n_detections=99
+budget_delivered,halt,403.tiff,0,default_51,True,n_detections=98
+budget_delivered,halt,403.tiff,0,hem_rect_fill,True,n_detections=98
+budget_delivered,halt,403.tiff,0,hem_rect_fill_1um,True,n_detections=98
+budget_delivered,halt,403.tiff,1,default_51,True,n_detections=98
+budget_delivered,halt,403.tiff,1,hem_rect_fill,True,n_detections=98
+budget_delivered,halt,403.tiff,1,hem_rect_fill_1um,True,n_detections=95
+budget_delivered,halt,403.tiff,2,default_51,True,n_detections=99
+budget_delivered,halt,403.tiff,2,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,403.tiff,2,hem_rect_fill_1um,True,n_detections=99
+budget_delivered,halt,353.tiff,0,default_51,True,n_detections=94
+budget_delivered,halt,353.tiff,0,hem_rect_fill,True,n_detections=94
+budget_delivered,halt,353.tiff,0,hem_rect_fill_1um,True,n_detections=94
+budget_delivered,halt,353.tiff,1,default_51,True,n_detections=98
+budget_delivered,halt,353.tiff,1,hem_rect_fill,True,n_detections=98
+budget_delivered,halt,353.tiff,1,hem_rect_fill_1um,True,n_detections=98
+budget_delivered,halt,353.tiff,2,default_51,True,n_detections=99
+budget_delivered,halt,353.tiff,2,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,353.tiff,2,hem_rect_fill_1um,True,n_detections=99
+budget_delivered,halt,364.tiff,0,default_51,True,n_detections=98
+budget_delivered,halt,364.tiff,0,hem_rect_fill,True,n_detections=98
+budget_delivered,halt,364.tiff,0,hem_rect_fill_1um,True,n_detections=97
+budget_delivered,halt,364.tiff,1,default_51,True,n_detections=98
+budget_delivered,halt,364.tiff,1,hem_rect_fill,True,n_detections=98
+budget_delivered,halt,364.tiff,1,hem_rect_fill_1um,True,n_detections=98
+budget_delivered,halt,364.tiff,2,default_51,True,n_detections=99
+budget_delivered,halt,364.tiff,2,hem_rect_fill,True,n_detections=97
+budget_delivered,halt,364.tiff,2,hem_rect_fill_1um,True,n_detections=96
+budget_delivered,halt,400.tiff,0,default_51,True,n_detections=99
+budget_delivered,halt,400.tiff,0,hem_rect_fill,True,n_detections=98
+budget_delivered,halt,400.tiff,0,hem_rect_fill_1um,True,n_detections=99
+budget_delivered,halt,400.tiff,1,default_51,True,n_detections=99
+budget_delivered,halt,400.tiff,1,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,400.tiff,1,hem_rect_fill_1um,True,n_detections=99
+budget_delivered,halt,400.tiff,2,default_51,True,n_detections=99
+budget_delivered,halt,400.tiff,2,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,400.tiff,2,hem_rect_fill_1um,True,n_detections=99
+budget_delivered,halt,401.tiff,0,default_51,True,n_detections=99
+budget_delivered,halt,401.tiff,0,hem_rect_fill,True,n_detections=98
+budget_delivered,halt,401.tiff,0,hem_rect_fill_1um,True,n_detections=99
+budget_delivered,halt,401.tiff,1,default_51,True,n_detections=99
+budget_delivered,halt,401.tiff,1,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,401.tiff,1,hem_rect_fill_1um,True,n_detections=99
+budget_delivered,halt,401.tiff,2,default_51,True,n_detections=99
+budget_delivered,halt,401.tiff,2,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,401.tiff,2,hem_rect_fill_1um,True,n_detections=99
+budget_delivered,halt,404.tiff,0,default_51,True,n_detections=98
+budget_delivered,halt,404.tiff,0,hem_rect_fill,True,n_detections=98
+budget_delivered,halt,404.tiff,0,hem_rect_fill_1um,True,n_detections=98
+budget_delivered,halt,404.tiff,1,default_51,True,n_detections=98
+budget_delivered,halt,404.tiff,1,hem_rect_fill,True,n_detections=99
+budget_delivered,halt,404.tiff,1,hem_rect_fill_1um,True,n_detections=98
+budget_delivered,halt,404.tiff,2,default_51,True,n_detections=99
+budget_delivered,halt,404.tiff,2,hem_rect_fill,True,n_detections=98
+budget_delivered,halt,404.tiff,2,hem_rect_fill_1um,True,n_detections=99
+od_no_nan,halt,300.tiff,0,default_51,True,
+od_no_nan,halt,300.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,300.tiff,0,hem_rect_fill_1um,True,
+od_no_nan,halt,300.tiff,1,default_51,True,
+od_no_nan,halt,300.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,300.tiff,1,hem_rect_fill_1um,True,
+od_no_nan,halt,300.tiff,2,default_51,True,
+od_no_nan,halt,300.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,300.tiff,2,hem_rect_fill_1um,True,
+od_no_nan,halt,301.tiff,0,default_51,True,
+od_no_nan,halt,301.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,301.tiff,0,hem_rect_fill_1um,True,
+od_no_nan,halt,301.tiff,1,default_51,True,
+od_no_nan,halt,301.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,301.tiff,1,hem_rect_fill_1um,True,
+od_no_nan,halt,301.tiff,2,default_51,True,
+od_no_nan,halt,301.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,301.tiff,2,hem_rect_fill_1um,True,
+od_no_nan,halt,322.tiff,0,default_51,True,
+od_no_nan,halt,322.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,322.tiff,0,hem_rect_fill_1um,True,
+od_no_nan,halt,322.tiff,1,default_51,True,
+od_no_nan,halt,322.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,322.tiff,1,hem_rect_fill_1um,True,
+od_no_nan,halt,322.tiff,2,default_51,True,
+od_no_nan,halt,322.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,322.tiff,2,hem_rect_fill_1um,True,
+od_no_nan,halt,337.tiff,0,default_51,True,
+od_no_nan,halt,337.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,337.tiff,0,hem_rect_fill_1um,True,
+od_no_nan,halt,337.tiff,1,default_51,True,
+od_no_nan,halt,337.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,337.tiff,1,hem_rect_fill_1um,True,
+od_no_nan,halt,337.tiff,2,default_51,True,
+od_no_nan,halt,337.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,337.tiff,2,hem_rect_fill_1um,True,
+od_no_nan,halt,339.tiff,0,default_51,True,
+od_no_nan,halt,339.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,339.tiff,0,hem_rect_fill_1um,True,
+od_no_nan,halt,339.tiff,1,default_51,True,
+od_no_nan,halt,339.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,339.tiff,1,hem_rect_fill_1um,True,
+od_no_nan,halt,339.tiff,2,default_51,True,
+od_no_nan,halt,339.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,339.tiff,2,hem_rect_fill_1um,True,
+od_no_nan,halt,343.tiff,0,default_51,True,
+od_no_nan,halt,343.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,343.tiff,0,hem_rect_fill_1um,True,
+od_no_nan,halt,343.tiff,1,default_51,True,
+od_no_nan,halt,343.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,343.tiff,1,hem_rect_fill_1um,True,
+od_no_nan,halt,343.tiff,2,default_51,True,
+od_no_nan,halt,343.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,343.tiff,2,hem_rect_fill_1um,True,
+od_no_nan,halt,344.tiff,0,default_51,True,
+od_no_nan,halt,344.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,344.tiff,0,hem_rect_fill_1um,True,
+od_no_nan,halt,344.tiff,1,default_51,True,
+od_no_nan,halt,344.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,344.tiff,1,hem_rect_fill_1um,True,
+od_no_nan,halt,344.tiff,2,default_51,True,
+od_no_nan,halt,344.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,344.tiff,2,hem_rect_fill_1um,True,
+od_no_nan,halt,201.tiff,0,default_51,True,
+od_no_nan,halt,201.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,201.tiff,0,hem_rect_fill_1um,True,
+od_no_nan,halt,201.tiff,1,default_51,True,
+od_no_nan,halt,201.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,201.tiff,1,hem_rect_fill_1um,True,
+od_no_nan,halt,201.tiff,2,default_51,True,
+od_no_nan,halt,201.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,201.tiff,2,hem_rect_fill_1um,True,
+od_no_nan,halt,233.tiff,0,default_51,True,
+od_no_nan,halt,233.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,233.tiff,0,hem_rect_fill_1um,True,
+od_no_nan,halt,233.tiff,1,default_51,True,
+od_no_nan,halt,233.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,233.tiff,1,hem_rect_fill_1um,True,
+od_no_nan,halt,233.tiff,2,default_51,True,
+od_no_nan,halt,233.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,233.tiff,2,hem_rect_fill_1um,True,
+od_no_nan,halt,211.tiff,0,default_51,True,
+od_no_nan,halt,211.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,211.tiff,0,hem_rect_fill_1um,True,
+od_no_nan,halt,211.tiff,1,default_51,True,
+od_no_nan,halt,211.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,211.tiff,1,hem_rect_fill_1um,True,
+od_no_nan,halt,211.tiff,2,default_51,True,
+od_no_nan,halt,211.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,211.tiff,2,hem_rect_fill_1um,True,
+od_no_nan,halt,220.tiff,0,default_51,True,
+od_no_nan,halt,220.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,220.tiff,0,hem_rect_fill_1um,True,
+od_no_nan,halt,220.tiff,1,default_51,True,
+od_no_nan,halt,220.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,220.tiff,1,hem_rect_fill_1um,True,
+od_no_nan,halt,220.tiff,2,default_51,True,
+od_no_nan,halt,220.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,220.tiff,2,hem_rect_fill_1um,True,
+od_no_nan,halt,230.tiff,0,default_51,True,
+od_no_nan,halt,230.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,230.tiff,0,hem_rect_fill_1um,True,
+od_no_nan,halt,230.tiff,1,default_51,True,
+od_no_nan,halt,230.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,230.tiff,1,hem_rect_fill_1um,True,
+od_no_nan,halt,230.tiff,2,default_51,True,
+od_no_nan,halt,230.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,230.tiff,2,hem_rect_fill_1um,True,
+od_no_nan,halt,235.tiff,0,default_51,True,
+od_no_nan,halt,235.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,235.tiff,0,hem_rect_fill_1um,True,
+od_no_nan,halt,235.tiff,1,default_51,True,
+od_no_nan,halt,235.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,235.tiff,1,hem_rect_fill_1um,True,
+od_no_nan,halt,235.tiff,2,default_51,True,
+od_no_nan,halt,235.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,235.tiff,2,hem_rect_fill_1um,True,
+od_no_nan,halt,242.tiff,0,default_51,True,
+od_no_nan,halt,242.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,242.tiff,0,hem_rect_fill_1um,True,
+od_no_nan,halt,242.tiff,1,default_51,True,
+od_no_nan,halt,242.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,242.tiff,1,hem_rect_fill_1um,True,
+od_no_nan,halt,242.tiff,2,default_51,True,
+od_no_nan,halt,242.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,242.tiff,2,hem_rect_fill_1um,True,
+od_no_nan,halt,245.tiff,0,default_51,True,
+od_no_nan,halt,245.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,245.tiff,0,hem_rect_fill_1um,True,
+od_no_nan,halt,245.tiff,1,default_51,True,
+od_no_nan,halt,245.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,245.tiff,1,hem_rect_fill_1um,True,
+od_no_nan,halt,245.tiff,2,default_51,True,
+od_no_nan,halt,245.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,245.tiff,2,hem_rect_fill_1um,True,
+od_no_nan,halt,246.tiff,0,default_51,True,
+od_no_nan,halt,246.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,246.tiff,0,hem_rect_fill_1um,True,
+od_no_nan,halt,246.tiff,1,default_51,True,
+od_no_nan,halt,246.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,246.tiff,1,hem_rect_fill_1um,True,
+od_no_nan,halt,246.tiff,2,default_51,True,
+od_no_nan,halt,246.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,246.tiff,2,hem_rect_fill_1um,True,
+od_no_nan,halt,249.tiff,0,default_51,True,
+od_no_nan,halt,249.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,249.tiff,0,hem_rect_fill_1um,True,
+od_no_nan,halt,249.tiff,1,default_51,True,
+od_no_nan,halt,249.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,249.tiff,1,hem_rect_fill_1um,True,
+od_no_nan,halt,249.tiff,2,default_51,True,
+od_no_nan,halt,249.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,249.tiff,2,hem_rect_fill_1um,True,
+od_no_nan,halt,284.tiff,0,default_51,True,
+od_no_nan,halt,284.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,284.tiff,0,hem_rect_fill_1um,True,
+od_no_nan,halt,284.tiff,1,default_51,True,
+od_no_nan,halt,284.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,284.tiff,1,hem_rect_fill_1um,True,
+od_no_nan,halt,284.tiff,2,default_51,True,
+od_no_nan,halt,284.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,284.tiff,2,hem_rect_fill_1um,True,
+od_no_nan,halt,289.tiff,0,default_51,True,
+od_no_nan,halt,289.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,289.tiff,0,hem_rect_fill_1um,True,
+od_no_nan,halt,289.tiff,1,default_51,True,
+od_no_nan,halt,289.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,289.tiff,1,hem_rect_fill_1um,True,
+od_no_nan,halt,289.tiff,2,default_51,True,
+od_no_nan,halt,289.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,289.tiff,2,hem_rect_fill_1um,True,
+od_no_nan,halt,291.tiff,0,default_51,True,
+od_no_nan,halt,291.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,291.tiff,0,hem_rect_fill_1um,True,
+od_no_nan,halt,291.tiff,1,default_51,True,
+od_no_nan,halt,291.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,291.tiff,1,hem_rect_fill_1um,True,
+od_no_nan,halt,291.tiff,2,default_51,True,
+od_no_nan,halt,291.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,291.tiff,2,hem_rect_fill_1um,True,
+od_no_nan,halt,293.tiff,0,default_51,True,
+od_no_nan,halt,293.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,293.tiff,0,hem_rect_fill_1um,True,
+od_no_nan,halt,293.tiff,1,default_51,True,
+od_no_nan,halt,293.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,293.tiff,1,hem_rect_fill_1um,True,
+od_no_nan,halt,293.tiff,2,default_51,True,
+od_no_nan,halt,293.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,293.tiff,2,hem_rect_fill_1um,True,
+od_no_nan,halt,459.tiff,0,default_51,True,
+od_no_nan,halt,459.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,459.tiff,0,hem_rect_fill_1um,True,
+od_no_nan,halt,459.tiff,1,default_51,True,
+od_no_nan,halt,459.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,459.tiff,1,hem_rect_fill_1um,True,
+od_no_nan,halt,459.tiff,2,default_51,True,
+od_no_nan,halt,459.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,459.tiff,2,hem_rect_fill_1um,True,
+od_no_nan,halt,460.tiff,0,default_51,True,
+od_no_nan,halt,460.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,460.tiff,0,hem_rect_fill_1um,True,
+od_no_nan,halt,460.tiff,1,default_51,True,
+od_no_nan,halt,460.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,460.tiff,1,hem_rect_fill_1um,True,
+od_no_nan,halt,460.tiff,2,default_51,True,
+od_no_nan,halt,460.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,460.tiff,2,hem_rect_fill_1um,True,
+od_no_nan,halt,410.tiff,0,default_51,True,
+od_no_nan,halt,410.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,410.tiff,0,hem_rect_fill_1um,True,
+od_no_nan,halt,410.tiff,1,default_51,True,
+od_no_nan,halt,410.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,410.tiff,1,hem_rect_fill_1um,True,
+od_no_nan,halt,410.tiff,2,default_51,True,
+od_no_nan,halt,410.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,410.tiff,2,hem_rect_fill_1um,True,
+od_no_nan,halt,425.tiff,0,default_51,True,
+od_no_nan,halt,425.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,425.tiff,0,hem_rect_fill_1um,True,
+od_no_nan,halt,425.tiff,1,default_51,True,
+od_no_nan,halt,425.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,425.tiff,1,hem_rect_fill_1um,True,
+od_no_nan,halt,425.tiff,2,default_51,True,
+od_no_nan,halt,425.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,425.tiff,2,hem_rect_fill_1um,True,
+od_no_nan,halt,435.tiff,0,default_51,True,
+od_no_nan,halt,435.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,435.tiff,0,hem_rect_fill_1um,True,
+od_no_nan,halt,435.tiff,1,default_51,True,
+od_no_nan,halt,435.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,435.tiff,1,hem_rect_fill_1um,True,
+od_no_nan,halt,435.tiff,2,default_51,True,
+od_no_nan,halt,435.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,435.tiff,2,hem_rect_fill_1um,True,
+od_no_nan,halt,462.tiff,0,default_51,True,
+od_no_nan,halt,462.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,462.tiff,0,hem_rect_fill_1um,True,
+od_no_nan,halt,462.tiff,1,default_51,True,
+od_no_nan,halt,462.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,462.tiff,1,hem_rect_fill_1um,True,
+od_no_nan,halt,462.tiff,2,default_51,True,
+od_no_nan,halt,462.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,462.tiff,2,hem_rect_fill_1um,True,
+od_no_nan,halt,499.tiff,0,default_51,True,
+od_no_nan,halt,499.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,499.tiff,0,hem_rect_fill_1um,True,
+od_no_nan,halt,499.tiff,1,default_51,True,
+od_no_nan,halt,499.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,499.tiff,1,hem_rect_fill_1um,True,
+od_no_nan,halt,499.tiff,2,default_51,True,
+od_no_nan,halt,499.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,499.tiff,2,hem_rect_fill_1um,True,
+od_no_nan,halt,013.tiff,0,default_51,True,
+od_no_nan,halt,013.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,013.tiff,0,hem_rect_fill_1um,True,
+od_no_nan,halt,013.tiff,1,default_51,True,
+od_no_nan,halt,013.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,013.tiff,1,hem_rect_fill_1um,True,
+od_no_nan,halt,013.tiff,2,default_51,True,
+od_no_nan,halt,013.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,013.tiff,2,hem_rect_fill_1um,True,
+od_no_nan,halt,094.tiff,0,default_51,True,
+od_no_nan,halt,094.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,094.tiff,0,hem_rect_fill_1um,True,
+od_no_nan,halt,094.tiff,1,default_51,True,
+od_no_nan,halt,094.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,094.tiff,1,hem_rect_fill_1um,True,
+od_no_nan,halt,094.tiff,2,default_51,True,
+od_no_nan,halt,094.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,094.tiff,2,hem_rect_fill_1um,True,
+od_no_nan,halt,007.tiff,0,default_51,True,
+od_no_nan,halt,007.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,007.tiff,0,hem_rect_fill_1um,True,
+od_no_nan,halt,007.tiff,1,default_51,True,
+od_no_nan,halt,007.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,007.tiff,1,hem_rect_fill_1um,True,
+od_no_nan,halt,007.tiff,2,default_51,True,
+od_no_nan,halt,007.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,007.tiff,2,hem_rect_fill_1um,True,
+od_no_nan,halt,072.tiff,0,default_51,True,
+od_no_nan,halt,072.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,072.tiff,0,hem_rect_fill_1um,True,
+od_no_nan,halt,072.tiff,1,default_51,True,
+od_no_nan,halt,072.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,072.tiff,1,hem_rect_fill_1um,True,
+od_no_nan,halt,072.tiff,2,default_51,True,
+od_no_nan,halt,072.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,072.tiff,2,hem_rect_fill_1um,True,
+od_no_nan,halt,100.tiff,0,default_51,True,
+od_no_nan,halt,100.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,100.tiff,0,hem_rect_fill_1um,True,
+od_no_nan,halt,100.tiff,1,default_51,True,
+od_no_nan,halt,100.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,100.tiff,1,hem_rect_fill_1um,True,
+od_no_nan,halt,100.tiff,2,default_51,True,
+od_no_nan,halt,100.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,100.tiff,2,hem_rect_fill_1um,True,
+od_no_nan,halt,123.tiff,0,default_51,True,
+od_no_nan,halt,123.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,123.tiff,0,hem_rect_fill_1um,True,
+od_no_nan,halt,123.tiff,1,default_51,True,
+od_no_nan,halt,123.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,123.tiff,1,hem_rect_fill_1um,True,
+od_no_nan,halt,123.tiff,2,default_51,True,
+od_no_nan,halt,123.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,123.tiff,2,hem_rect_fill_1um,True,
+od_no_nan,halt,128.tiff,0,default_51,True,
+od_no_nan,halt,128.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,128.tiff,0,hem_rect_fill_1um,True,
+od_no_nan,halt,128.tiff,1,default_51,True,
+od_no_nan,halt,128.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,128.tiff,1,hem_rect_fill_1um,True,
+od_no_nan,halt,128.tiff,2,default_51,True,
+od_no_nan,halt,128.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,128.tiff,2,hem_rect_fill_1um,True,
+od_no_nan,halt,529.tiff,0,default_51,True,
+od_no_nan,halt,529.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,529.tiff,0,hem_rect_fill_1um,True,
+od_no_nan,halt,529.tiff,1,default_51,True,
+od_no_nan,halt,529.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,529.tiff,1,hem_rect_fill_1um,True,
+od_no_nan,halt,529.tiff,2,default_51,True,
+od_no_nan,halt,529.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,529.tiff,2,hem_rect_fill_1um,True,
+od_no_nan,halt,548.tiff,0,default_51,True,
+od_no_nan,halt,548.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,548.tiff,0,hem_rect_fill_1um,True,
+od_no_nan,halt,548.tiff,1,default_51,True,
+od_no_nan,halt,548.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,548.tiff,1,hem_rect_fill_1um,True,
+od_no_nan,halt,548.tiff,2,default_51,True,
+od_no_nan,halt,548.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,548.tiff,2,hem_rect_fill_1um,True,
+od_no_nan,halt,509.tiff,0,default_51,True,
+od_no_nan,halt,509.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,509.tiff,0,hem_rect_fill_1um,True,
+od_no_nan,halt,509.tiff,1,default_51,True,
+od_no_nan,halt,509.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,509.tiff,1,hem_rect_fill_1um,True,
+od_no_nan,halt,509.tiff,2,default_51,True,
+od_no_nan,halt,509.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,509.tiff,2,hem_rect_fill_1um,True,
+od_no_nan,halt,524.tiff,0,default_51,True,
+od_no_nan,halt,524.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,524.tiff,0,hem_rect_fill_1um,True,
+od_no_nan,halt,524.tiff,1,default_51,True,
+od_no_nan,halt,524.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,524.tiff,1,hem_rect_fill_1um,True,
+od_no_nan,halt,524.tiff,2,default_51,True,
+od_no_nan,halt,524.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,524.tiff,2,hem_rect_fill_1um,True,
+od_no_nan,halt,527.tiff,0,default_51,True,
+od_no_nan,halt,527.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,527.tiff,0,hem_rect_fill_1um,True,
+od_no_nan,halt,527.tiff,1,default_51,True,
+od_no_nan,halt,527.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,527.tiff,1,hem_rect_fill_1um,True,
+od_no_nan,halt,527.tiff,2,default_51,True,
+od_no_nan,halt,527.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,527.tiff,2,hem_rect_fill_1um,True,
+od_no_nan,halt,546.tiff,0,default_51,True,
+od_no_nan,halt,546.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,546.tiff,0,hem_rect_fill_1um,True,
+od_no_nan,halt,546.tiff,1,default_51,True,
+od_no_nan,halt,546.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,546.tiff,1,hem_rect_fill_1um,True,
+od_no_nan,halt,546.tiff,2,default_51,True,
+od_no_nan,halt,546.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,546.tiff,2,hem_rect_fill_1um,True,
+od_no_nan,halt,549.tiff,0,default_51,True,
+od_no_nan,halt,549.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,549.tiff,0,hem_rect_fill_1um,True,
+od_no_nan,halt,549.tiff,1,default_51,True,
+od_no_nan,halt,549.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,549.tiff,1,hem_rect_fill_1um,True,
+od_no_nan,halt,549.tiff,2,default_51,True,
+od_no_nan,halt,549.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,549.tiff,2,hem_rect_fill_1um,True,
+od_no_nan,halt,402.tiff,0,default_51,True,
+od_no_nan,halt,402.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,402.tiff,0,hem_rect_fill_1um,True,
+od_no_nan,halt,402.tiff,1,default_51,True,
+od_no_nan,halt,402.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,402.tiff,1,hem_rect_fill_1um,True,
+od_no_nan,halt,402.tiff,2,default_51,True,
+od_no_nan,halt,402.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,402.tiff,2,hem_rect_fill_1um,True,
+od_no_nan,halt,403.tiff,0,default_51,True,
+od_no_nan,halt,403.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,403.tiff,0,hem_rect_fill_1um,True,
+od_no_nan,halt,403.tiff,1,default_51,True,
+od_no_nan,halt,403.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,403.tiff,1,hem_rect_fill_1um,True,
+od_no_nan,halt,403.tiff,2,default_51,True,
+od_no_nan,halt,403.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,403.tiff,2,hem_rect_fill_1um,True,
+od_no_nan,halt,353.tiff,0,default_51,True,
+od_no_nan,halt,353.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,353.tiff,0,hem_rect_fill_1um,True,
+od_no_nan,halt,353.tiff,1,default_51,True,
+od_no_nan,halt,353.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,353.tiff,1,hem_rect_fill_1um,True,
+od_no_nan,halt,353.tiff,2,default_51,True,
+od_no_nan,halt,353.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,353.tiff,2,hem_rect_fill_1um,True,
+od_no_nan,halt,364.tiff,0,default_51,True,
+od_no_nan,halt,364.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,364.tiff,0,hem_rect_fill_1um,True,
+od_no_nan,halt,364.tiff,1,default_51,True,
+od_no_nan,halt,364.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,364.tiff,1,hem_rect_fill_1um,True,
+od_no_nan,halt,364.tiff,2,default_51,True,
+od_no_nan,halt,364.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,364.tiff,2,hem_rect_fill_1um,True,
+od_no_nan,halt,400.tiff,0,default_51,True,
+od_no_nan,halt,400.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,400.tiff,0,hem_rect_fill_1um,True,
+od_no_nan,halt,400.tiff,1,default_51,True,
+od_no_nan,halt,400.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,400.tiff,1,hem_rect_fill_1um,True,
+od_no_nan,halt,400.tiff,2,default_51,True,
+od_no_nan,halt,400.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,400.tiff,2,hem_rect_fill_1um,True,
+od_no_nan,halt,401.tiff,0,default_51,True,
+od_no_nan,halt,401.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,401.tiff,0,hem_rect_fill_1um,True,
+od_no_nan,halt,401.tiff,1,default_51,True,
+od_no_nan,halt,401.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,401.tiff,1,hem_rect_fill_1um,True,
+od_no_nan,halt,401.tiff,2,default_51,True,
+od_no_nan,halt,401.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,401.tiff,2,hem_rect_fill_1um,True,
+od_no_nan,halt,404.tiff,0,default_51,True,
+od_no_nan,halt,404.tiff,0,hem_rect_fill,True,
+od_no_nan,halt,404.tiff,0,hem_rect_fill_1um,True,
+od_no_nan,halt,404.tiff,1,default_51,True,
+od_no_nan,halt,404.tiff,1,hem_rect_fill,True,
+od_no_nan,halt,404.tiff,1,hem_rect_fill_1um,True,
+od_no_nan,halt,404.tiff,2,default_51,True,
+od_no_nan,halt,404.tiff,2,hem_rect_fill,True,
+od_no_nan,halt,404.tiff,2,hem_rect_fill_1um,True,
+od_descending,halt,300.tiff,0,default_51,True,
+od_descending,halt,300.tiff,0,hem_rect_fill,True,
+od_descending,halt,300.tiff,0,hem_rect_fill_1um,True,
+od_descending,halt,300.tiff,1,default_51,True,
+od_descending,halt,300.tiff,1,hem_rect_fill,True,
+od_descending,halt,300.tiff,1,hem_rect_fill_1um,True,
+od_descending,halt,300.tiff,2,default_51,True,
+od_descending,halt,300.tiff,2,hem_rect_fill,True,
+od_descending,halt,300.tiff,2,hem_rect_fill_1um,True,
+od_descending,halt,301.tiff,0,default_51,True,
+od_descending,halt,301.tiff,0,hem_rect_fill,True,
+od_descending,halt,301.tiff,0,hem_rect_fill_1um,True,
+od_descending,halt,301.tiff,1,default_51,True,
+od_descending,halt,301.tiff,1,hem_rect_fill,True,
+od_descending,halt,301.tiff,1,hem_rect_fill_1um,True,
+od_descending,halt,301.tiff,2,default_51,True,
+od_descending,halt,301.tiff,2,hem_rect_fill,True,
+od_descending,halt,301.tiff,2,hem_rect_fill_1um,True,
+od_descending,halt,322.tiff,0,default_51,True,
+od_descending,halt,322.tiff,0,hem_rect_fill,True,
+od_descending,halt,322.tiff,0,hem_rect_fill_1um,True,
+od_descending,halt,322.tiff,1,default_51,True,
+od_descending,halt,322.tiff,1,hem_rect_fill,True,
+od_descending,halt,322.tiff,1,hem_rect_fill_1um,True,
+od_descending,halt,322.tiff,2,default_51,True,
+od_descending,halt,322.tiff,2,hem_rect_fill,True,
+od_descending,halt,322.tiff,2,hem_rect_fill_1um,True,
+od_descending,halt,337.tiff,0,default_51,True,
+od_descending,halt,337.tiff,0,hem_rect_fill,True,
+od_descending,halt,337.tiff,0,hem_rect_fill_1um,True,
+od_descending,halt,337.tiff,1,default_51,True,
+od_descending,halt,337.tiff,1,hem_rect_fill,True,
+od_descending,halt,337.tiff,1,hem_rect_fill_1um,True,
+od_descending,halt,337.tiff,2,default_51,True,
+od_descending,halt,337.tiff,2,hem_rect_fill,True,
+od_descending,halt,337.tiff,2,hem_rect_fill_1um,True,
+od_descending,halt,339.tiff,0,default_51,True,
+od_descending,halt,339.tiff,0,hem_rect_fill,True,
+od_descending,halt,339.tiff,0,hem_rect_fill_1um,True,
+od_descending,halt,339.tiff,1,default_51,True,
+od_descending,halt,339.tiff,1,hem_rect_fill,True,
+od_descending,halt,339.tiff,1,hem_rect_fill_1um,True,
+od_descending,halt,339.tiff,2,default_51,True,
+od_descending,halt,339.tiff,2,hem_rect_fill,True,
+od_descending,halt,339.tiff,2,hem_rect_fill_1um,True,
+od_descending,halt,343.tiff,0,default_51,True,
+od_descending,halt,343.tiff,0,hem_rect_fill,True,
+od_descending,halt,343.tiff,0,hem_rect_fill_1um,True,
+od_descending,halt,343.tiff,1,default_51,True,
+od_descending,halt,343.tiff,1,hem_rect_fill,True,
+od_descending,halt,343.tiff,1,hem_rect_fill_1um,True,
+od_descending,halt,343.tiff,2,default_51,True,
+od_descending,halt,343.tiff,2,hem_rect_fill,True,
+od_descending,halt,343.tiff,2,hem_rect_fill_1um,True,
+od_descending,halt,344.tiff,0,default_51,True,
+od_descending,halt,344.tiff,0,hem_rect_fill,True,
+od_descending,halt,344.tiff,0,hem_rect_fill_1um,True,
+od_descending,halt,344.tiff,1,default_51,True,
+od_descending,halt,344.tiff,1,hem_rect_fill,True,
+od_descending,halt,344.tiff,1,hem_rect_fill_1um,True,
+od_descending,halt,344.tiff,2,default_51,True,
+od_descending,halt,344.tiff,2,hem_rect_fill,True,
+od_descending,halt,344.tiff,2,hem_rect_fill_1um,True,
+od_descending,halt,201.tiff,0,default_51,True,
+od_descending,halt,201.tiff,0,hem_rect_fill,True,
+od_descending,halt,201.tiff,0,hem_rect_fill_1um,True,
+od_descending,halt,201.tiff,1,default_51,True,
+od_descending,halt,201.tiff,1,hem_rect_fill,True,
+od_descending,halt,201.tiff,1,hem_rect_fill_1um,True,
+od_descending,halt,201.tiff,2,default_51,True,
+od_descending,halt,201.tiff,2,hem_rect_fill,True,
+od_descending,halt,201.tiff,2,hem_rect_fill_1um,True,
+od_descending,halt,233.tiff,0,default_51,True,
+od_descending,halt,233.tiff,0,hem_rect_fill,True,
+od_descending,halt,233.tiff,0,hem_rect_fill_1um,True,
+od_descending,halt,233.tiff,1,default_51,True,
+od_descending,halt,233.tiff,1,hem_rect_fill,True,
+od_descending,halt,233.tiff,1,hem_rect_fill_1um,True,
+od_descending,halt,233.tiff,2,default_51,True,
+od_descending,halt,233.tiff,2,hem_rect_fill,True,
+od_descending,halt,233.tiff,2,hem_rect_fill_1um,True,
+od_descending,halt,211.tiff,0,default_51,True,
+od_descending,halt,211.tiff,0,hem_rect_fill,True,
+od_descending,halt,211.tiff,0,hem_rect_fill_1um,True,
+od_descending,halt,211.tiff,1,default_51,True,
+od_descending,halt,211.tiff,1,hem_rect_fill,True,
+od_descending,halt,211.tiff,1,hem_rect_fill_1um,True,
+od_descending,halt,211.tiff,2,default_51,True,
+od_descending,halt,211.tiff,2,hem_rect_fill,True,
+od_descending,halt,211.tiff,2,hem_rect_fill_1um,True,
+od_descending,halt,220.tiff,0,default_51,True,
+od_descending,halt,220.tiff,0,hem_rect_fill,True,
+od_descending,halt,220.tiff,0,hem_rect_fill_1um,True,
+od_descending,halt,220.tiff,1,default_51,True,
+od_descending,halt,220.tiff,1,hem_rect_fill,True,
+od_descending,halt,220.tiff,1,hem_rect_fill_1um,True,
+od_descending,halt,220.tiff,2,default_51,True,
+od_descending,halt,220.tiff,2,hem_rect_fill,True,
+od_descending,halt,220.tiff,2,hem_rect_fill_1um,True,
+od_descending,halt,230.tiff,0,default_51,True,
+od_descending,halt,230.tiff,0,hem_rect_fill,True,
+od_descending,halt,230.tiff,0,hem_rect_fill_1um,True,
+od_descending,halt,230.tiff,1,default_51,True,
+od_descending,halt,230.tiff,1,hem_rect_fill,True,
+od_descending,halt,230.tiff,1,hem_rect_fill_1um,True,
+od_descending,halt,230.tiff,2,default_51,True,
+od_descending,halt,230.tiff,2,hem_rect_fill,True,
+od_descending,halt,230.tiff,2,hem_rect_fill_1um,True,
+od_descending,halt,235.tiff,0,default_51,True,
+od_descending,halt,235.tiff,0,hem_rect_fill,True,
+od_descending,halt,235.tiff,0,hem_rect_fill_1um,True,
+od_descending,halt,235.tiff,1,default_51,True,
+od_descending,halt,235.tiff,1,hem_rect_fill,True,
+od_descending,halt,235.tiff,1,hem_rect_fill_1um,True,
+od_descending,halt,235.tiff,2,default_51,True,
+od_descending,halt,235.tiff,2,hem_rect_fill,True,
+od_descending,halt,235.tiff,2,hem_rect_fill_1um,True,
+od_descending,halt,242.tiff,0,default_51,True,
+od_descending,halt,242.tiff,0,hem_rect_fill,True,
+od_descending,halt,242.tiff,0,hem_rect_fill_1um,True,
+od_descending,halt,242.tiff,1,default_51,True,
+od_descending,halt,242.tiff,1,hem_rect_fill,True,
+od_descending,halt,242.tiff,1,hem_rect_fill_1um,True,
+od_descending,halt,242.tiff,2,default_51,True,
+od_descending,halt,242.tiff,2,hem_rect_fill,True,
+od_descending,halt,242.tiff,2,hem_rect_fill_1um,True,
+od_descending,halt,245.tiff,0,default_51,True,
+od_descending,halt,245.tiff,0,hem_rect_fill,True,
+od_descending,halt,245.tiff,0,hem_rect_fill_1um,True,
+od_descending,halt,245.tiff,1,default_51,True,
+od_descending,halt,245.tiff,1,hem_rect_fill,True,
+od_descending,halt,245.tiff,1,hem_rect_fill_1um,True,
+od_descending,halt,245.tiff,2,default_51,True,
+od_descending,halt,245.tiff,2,hem_rect_fill,True,
+od_descending,halt,245.tiff,2,hem_rect_fill_1um,True,
+od_descending,halt,246.tiff,0,default_51,True,
+od_descending,halt,246.tiff,0,hem_rect_fill,True,
+od_descending,halt,246.tiff,0,hem_rect_fill_1um,True,
+od_descending,halt,246.tiff,1,default_51,True,
+od_descending,halt,246.tiff,1,hem_rect_fill,True,
+od_descending,halt,246.tiff,1,hem_rect_fill_1um,True,
+od_descending,halt,246.tiff,2,default_51,True,
+od_descending,halt,246.tiff,2,hem_rect_fill,True,
+od_descending,halt,246.tiff,2,hem_rect_fill_1um,True,
+od_descending,halt,249.tiff,0,default_51,True,
+od_descending,halt,249.tiff,0,hem_rect_fill,True,
+od_descending,halt,249.tiff,0,hem_rect_fill_1um,True,
+od_descending,halt,249.tiff,1,default_51,True,
+od_descending,halt,249.tiff,1,hem_rect_fill,True,
+od_descending,halt,249.tiff,1,hem_rect_fill_1um,True,
+od_descending,halt,249.tiff,2,default_51,True,
+od_descending,halt,249.tiff,2,hem_rect_fill,True,
+od_descending,halt,249.tiff,2,hem_rect_fill_1um,True,
+od_descending,halt,284.tiff,0,default_51,True,
+od_descending,halt,284.tiff,0,hem_rect_fill,True,
+od_descending,halt,284.tiff,0,hem_rect_fill_1um,True,
+od_descending,halt,284.tiff,1,default_51,True,
+od_descending,halt,284.tiff,1,hem_rect_fill,True,
+od_descending,halt,284.tiff,1,hem_rect_fill_1um,True,
+od_descending,halt,284.tiff,2,default_51,True,
+od_descending,halt,284.tiff,2,hem_rect_fill,True,
+od_descending,halt,284.tiff,2,hem_rect_fill_1um,True,
+od_descending,halt,289.tiff,0,default_51,True,
+od_descending,halt,289.tiff,0,hem_rect_fill,True,
+od_descending,halt,289.tiff,0,hem_rect_fill_1um,True,
+od_descending,halt,289.tiff,1,default_51,True,
+od_descending,halt,289.tiff,1,hem_rect_fill,True,
+od_descending,halt,289.tiff,1,hem_rect_fill_1um,True,
+od_descending,halt,289.tiff,2,default_51,True,
+od_descending,halt,289.tiff,2,hem_rect_fill,True,
+od_descending,halt,289.tiff,2,hem_rect_fill_1um,True,
+od_descending,halt,291.tiff,0,default_51,True,
+od_descending,halt,291.tiff,0,hem_rect_fill,True,
+od_descending,halt,291.tiff,0,hem_rect_fill_1um,True,
+od_descending,halt,291.tiff,1,default_51,True,
+od_descending,halt,291.tiff,1,hem_rect_fill,True,
+od_descending,halt,291.tiff,1,hem_rect_fill_1um,True,
+od_descending,halt,291.tiff,2,default_51,True,
+od_descending,halt,291.tiff,2,hem_rect_fill,True,
+od_descending,halt,291.tiff,2,hem_rect_fill_1um,True,
+od_descending,halt,293.tiff,0,default_51,True,
+od_descending,halt,293.tiff,0,hem_rect_fill,True,
+od_descending,halt,293.tiff,0,hem_rect_fill_1um,True,
+od_descending,halt,293.tiff,1,default_51,True,
+od_descending,halt,293.tiff,1,hem_rect_fill,True,
+od_descending,halt,293.tiff,1,hem_rect_fill_1um,True,
+od_descending,halt,293.tiff,2,default_51,True,
+od_descending,halt,293.tiff,2,hem_rect_fill,True,
+od_descending,halt,293.tiff,2,hem_rect_fill_1um,True,
+od_descending,halt,459.tiff,0,default_51,True,
+od_descending,halt,459.tiff,0,hem_rect_fill,True,
+od_descending,halt,459.tiff,0,hem_rect_fill_1um,True,
+od_descending,halt,459.tiff,1,default_51,True,
+od_descending,halt,459.tiff,1,hem_rect_fill,True,
+od_descending,halt,459.tiff,1,hem_rect_fill_1um,True,
+od_descending,halt,459.tiff,2,default_51,True,
+od_descending,halt,459.tiff,2,hem_rect_fill,True,
+od_descending,halt,459.tiff,2,hem_rect_fill_1um,True,
+od_descending,halt,460.tiff,0,default_51,True,
+od_descending,halt,460.tiff,0,hem_rect_fill,True,
+od_descending,halt,460.tiff,0,hem_rect_fill_1um,True,
+od_descending,halt,460.tiff,1,default_51,True,
+od_descending,halt,460.tiff,1,hem_rect_fill,True,
+od_descending,halt,460.tiff,1,hem_rect_fill_1um,True,
+od_descending,halt,460.tiff,2,default_51,True,
+od_descending,halt,460.tiff,2,hem_rect_fill,True,
+od_descending,halt,460.tiff,2,hem_rect_fill_1um,True,
+od_descending,halt,410.tiff,0,default_51,True,
+od_descending,halt,410.tiff,0,hem_rect_fill,True,
+od_descending,halt,410.tiff,0,hem_rect_fill_1um,True,
+od_descending,halt,410.tiff,1,default_51,True,
+od_descending,halt,410.tiff,1,hem_rect_fill,True,
+od_descending,halt,410.tiff,1,hem_rect_fill_1um,True,
+od_descending,halt,410.tiff,2,default_51,True,
+od_descending,halt,410.tiff,2,hem_rect_fill,True,
+od_descending,halt,410.tiff,2,hem_rect_fill_1um,True,
+od_descending,halt,425.tiff,0,default_51,True,
+od_descending,halt,425.tiff,0,hem_rect_fill,True,
+od_descending,halt,425.tiff,0,hem_rect_fill_1um,True,
+od_descending,halt,425.tiff,1,default_51,True,
+od_descending,halt,425.tiff,1,hem_rect_fill,True,
+od_descending,halt,425.tiff,1,hem_rect_fill_1um,True,
+od_descending,halt,425.tiff,2,default_51,True,
+od_descending,halt,425.tiff,2,hem_rect_fill,True,
+od_descending,halt,425.tiff,2,hem_rect_fill_1um,True,
+od_descending,halt,435.tiff,0,default_51,True,
+od_descending,halt,435.tiff,0,hem_rect_fill,True,
+od_descending,halt,435.tiff,0,hem_rect_fill_1um,True,
+od_descending,halt,435.tiff,1,default_51,True,
+od_descending,halt,435.tiff,1,hem_rect_fill,True,
+od_descending,halt,435.tiff,1,hem_rect_fill_1um,True,
+od_descending,halt,435.tiff,2,default_51,True,
+od_descending,halt,435.tiff,2,hem_rect_fill,True,
+od_descending,halt,435.tiff,2,hem_rect_fill_1um,True,
+od_descending,halt,462.tiff,0,default_51,True,
+od_descending,halt,462.tiff,0,hem_rect_fill,True,
+od_descending,halt,462.tiff,0,hem_rect_fill_1um,True,
+od_descending,halt,462.tiff,1,default_51,True,
+od_descending,halt,462.tiff,1,hem_rect_fill,True,
+od_descending,halt,462.tiff,1,hem_rect_fill_1um,True,
+od_descending,halt,462.tiff,2,default_51,True,
+od_descending,halt,462.tiff,2,hem_rect_fill,True,
+od_descending,halt,462.tiff,2,hem_rect_fill_1um,True,
+od_descending,halt,499.tiff,0,default_51,True,
+od_descending,halt,499.tiff,0,hem_rect_fill,True,
+od_descending,halt,499.tiff,0,hem_rect_fill_1um,True,
+od_descending,halt,499.tiff,1,default_51,True,
+od_descending,halt,499.tiff,1,hem_rect_fill,True,
+od_descending,halt,499.tiff,1,hem_rect_fill_1um,True,
+od_descending,halt,499.tiff,2,default_51,True,
+od_descending,halt,499.tiff,2,hem_rect_fill,True,
+od_descending,halt,499.tiff,2,hem_rect_fill_1um,True,
+od_descending,halt,013.tiff,0,default_51,True,
+od_descending,halt,013.tiff,0,hem_rect_fill,True,
+od_descending,halt,013.tiff,0,hem_rect_fill_1um,True,
+od_descending,halt,013.tiff,1,default_51,True,
+od_descending,halt,013.tiff,1,hem_rect_fill,True,
+od_descending,halt,013.tiff,1,hem_rect_fill_1um,True,
+od_descending,halt,013.tiff,2,default_51,True,
+od_descending,halt,013.tiff,2,hem_rect_fill,True,
+od_descending,halt,013.tiff,2,hem_rect_fill_1um,True,
+od_descending,halt,094.tiff,0,default_51,True,
+od_descending,halt,094.tiff,0,hem_rect_fill,True,
+od_descending,halt,094.tiff,0,hem_rect_fill_1um,True,
+od_descending,halt,094.tiff,1,default_51,True,
+od_descending,halt,094.tiff,1,hem_rect_fill,True,
+od_descending,halt,094.tiff,1,hem_rect_fill_1um,True,
+od_descending,halt,094.tiff,2,default_51,True,
+od_descending,halt,094.tiff,2,hem_rect_fill,True,
+od_descending,halt,094.tiff,2,hem_rect_fill_1um,True,
+od_descending,halt,007.tiff,0,default_51,True,
+od_descending,halt,007.tiff,0,hem_rect_fill,True,
+od_descending,halt,007.tiff,0,hem_rect_fill_1um,True,
+od_descending,halt,007.tiff,1,default_51,True,
+od_descending,halt,007.tiff,1,hem_rect_fill,True,
+od_descending,halt,007.tiff,1,hem_rect_fill_1um,True,
+od_descending,halt,007.tiff,2,default_51,True,
+od_descending,halt,007.tiff,2,hem_rect_fill,True,
+od_descending,halt,007.tiff,2,hem_rect_fill_1um,True,
+od_descending,halt,072.tiff,0,default_51,True,
+od_descending,halt,072.tiff,0,hem_rect_fill,True,
+od_descending,halt,072.tiff,0,hem_rect_fill_1um,True,
+od_descending,halt,072.tiff,1,default_51,True,
+od_descending,halt,072.tiff,1,hem_rect_fill,True,
+od_descending,halt,072.tiff,1,hem_rect_fill_1um,True,
+od_descending,halt,072.tiff,2,default_51,True,
+od_descending,halt,072.tiff,2,hem_rect_fill,True,
+od_descending,halt,072.tiff,2,hem_rect_fill_1um,True,
+od_descending,halt,100.tiff,0,default_51,True,
+od_descending,halt,100.tiff,0,hem_rect_fill,True,
+od_descending,halt,100.tiff,0,hem_rect_fill_1um,True,
+od_descending,halt,100.tiff,1,default_51,True,
+od_descending,halt,100.tiff,1,hem_rect_fill,True,
+od_descending,halt,100.tiff,1,hem_rect_fill_1um,True,
+od_descending,halt,100.tiff,2,default_51,True,
+od_descending,halt,100.tiff,2,hem_rect_fill,True,
+od_descending,halt,100.tiff,2,hem_rect_fill_1um,True,
+od_descending,halt,123.tiff,0,default_51,True,
+od_descending,halt,123.tiff,0,hem_rect_fill,True,
+od_descending,halt,123.tiff,0,hem_rect_fill_1um,True,
+od_descending,halt,123.tiff,1,default_51,True,
+od_descending,halt,123.tiff,1,hem_rect_fill,True,
+od_descending,halt,123.tiff,1,hem_rect_fill_1um,True,
+od_descending,halt,123.tiff,2,default_51,True,
+od_descending,halt,123.tiff,2,hem_rect_fill,True,
+od_descending,halt,123.tiff,2,hem_rect_fill_1um,True,
+od_descending,halt,128.tiff,0,default_51,True,
+od_descending,halt,128.tiff,0,hem_rect_fill,True,
+od_descending,halt,128.tiff,0,hem_rect_fill_1um,True,
+od_descending,halt,128.tiff,1,default_51,True,
+od_descending,halt,128.tiff,1,hem_rect_fill,True,
+od_descending,halt,128.tiff,1,hem_rect_fill_1um,True,
+od_descending,halt,128.tiff,2,default_51,True,
+od_descending,halt,128.tiff,2,hem_rect_fill,True,
+od_descending,halt,128.tiff,2,hem_rect_fill_1um,True,
+od_descending,halt,529.tiff,0,default_51,True,
+od_descending,halt,529.tiff,0,hem_rect_fill,True,
+od_descending,halt,529.tiff,0,hem_rect_fill_1um,True,
+od_descending,halt,529.tiff,1,default_51,True,
+od_descending,halt,529.tiff,1,hem_rect_fill,True,
+od_descending,halt,529.tiff,1,hem_rect_fill_1um,True,
+od_descending,halt,529.tiff,2,default_51,True,
+od_descending,halt,529.tiff,2,hem_rect_fill,True,
+od_descending,halt,529.tiff,2,hem_rect_fill_1um,True,
+od_descending,halt,548.tiff,0,default_51,True,
+od_descending,halt,548.tiff,0,hem_rect_fill,True,
+od_descending,halt,548.tiff,0,hem_rect_fill_1um,True,
+od_descending,halt,548.tiff,1,default_51,True,
+od_descending,halt,548.tiff,1,hem_rect_fill,True,
+od_descending,halt,548.tiff,1,hem_rect_fill_1um,True,
+od_descending,halt,548.tiff,2,default_51,True,
+od_descending,halt,548.tiff,2,hem_rect_fill,True,
+od_descending,halt,548.tiff,2,hem_rect_fill_1um,True,
+od_descending,halt,509.tiff,0,default_51,True,
+od_descending,halt,509.tiff,0,hem_rect_fill,True,
+od_descending,halt,509.tiff,0,hem_rect_fill_1um,True,
+od_descending,halt,509.tiff,1,default_51,True,
+od_descending,halt,509.tiff,1,hem_rect_fill,True,
+od_descending,halt,509.tiff,1,hem_rect_fill_1um,True,
+od_descending,halt,509.tiff,2,default_51,True,
+od_descending,halt,509.tiff,2,hem_rect_fill,True,
+od_descending,halt,509.tiff,2,hem_rect_fill_1um,True,
+od_descending,halt,524.tiff,0,default_51,True,
+od_descending,halt,524.tiff,0,hem_rect_fill,True,
+od_descending,halt,524.tiff,0,hem_rect_fill_1um,True,
+od_descending,halt,524.tiff,1,default_51,True,
+od_descending,halt,524.tiff,1,hem_rect_fill,True,
+od_descending,halt,524.tiff,1,hem_rect_fill_1um,True,
+od_descending,halt,524.tiff,2,default_51,True,
+od_descending,halt,524.tiff,2,hem_rect_fill,True,
+od_descending,halt,524.tiff,2,hem_rect_fill_1um,True,
+od_descending,halt,527.tiff,0,default_51,True,
+od_descending,halt,527.tiff,0,hem_rect_fill,True,
+od_descending,halt,527.tiff,0,hem_rect_fill_1um,True,
+od_descending,halt,527.tiff,1,default_51,True,
+od_descending,halt,527.tiff,1,hem_rect_fill,True,
+od_descending,halt,527.tiff,1,hem_rect_fill_1um,True,
+od_descending,halt,527.tiff,2,default_51,True,
+od_descending,halt,527.tiff,2,hem_rect_fill,True,
+od_descending,halt,527.tiff,2,hem_rect_fill_1um,True,
+od_descending,halt,546.tiff,0,default_51,True,
+od_descending,halt,546.tiff,0,hem_rect_fill,True,
+od_descending,halt,546.tiff,0,hem_rect_fill_1um,True,
+od_descending,halt,546.tiff,1,default_51,True,
+od_descending,halt,546.tiff,1,hem_rect_fill,True,
+od_descending,halt,546.tiff,1,hem_rect_fill_1um,True,
+od_descending,halt,546.tiff,2,default_51,True,
+od_descending,halt,546.tiff,2,hem_rect_fill,True,
+od_descending,halt,546.tiff,2,hem_rect_fill_1um,True,
+od_descending,halt,549.tiff,0,default_51,True,
+od_descending,halt,549.tiff,0,hem_rect_fill,True,
+od_descending,halt,549.tiff,0,hem_rect_fill_1um,True,
+od_descending,halt,549.tiff,1,default_51,True,
+od_descending,halt,549.tiff,1,hem_rect_fill,True,
+od_descending,halt,549.tiff,1,hem_rect_fill_1um,True,
+od_descending,halt,549.tiff,2,default_51,True,
+od_descending,halt,549.tiff,2,hem_rect_fill,True,
+od_descending,halt,549.tiff,2,hem_rect_fill_1um,True,
+od_descending,halt,402.tiff,0,default_51,True,
+od_descending,halt,402.tiff,0,hem_rect_fill,True,
+od_descending,halt,402.tiff,0,hem_rect_fill_1um,True,
+od_descending,halt,402.tiff,1,default_51,True,
+od_descending,halt,402.tiff,1,hem_rect_fill,True,
+od_descending,halt,402.tiff,1,hem_rect_fill_1um,True,
+od_descending,halt,402.tiff,2,default_51,True,
+od_descending,halt,402.tiff,2,hem_rect_fill,True,
+od_descending,halt,402.tiff,2,hem_rect_fill_1um,True,
+od_descending,halt,403.tiff,0,default_51,True,
+od_descending,halt,403.tiff,0,hem_rect_fill,True,
+od_descending,halt,403.tiff,0,hem_rect_fill_1um,True,
+od_descending,halt,403.tiff,1,default_51,True,
+od_descending,halt,403.tiff,1,hem_rect_fill,True,
+od_descending,halt,403.tiff,1,hem_rect_fill_1um,True,
+od_descending,halt,403.tiff,2,default_51,True,
+od_descending,halt,403.tiff,2,hem_rect_fill,True,
+od_descending,halt,403.tiff,2,hem_rect_fill_1um,True,
+od_descending,halt,353.tiff,0,default_51,True,
+od_descending,halt,353.tiff,0,hem_rect_fill,True,
+od_descending,halt,353.tiff,0,hem_rect_fill_1um,True,
+od_descending,halt,353.tiff,1,default_51,True,
+od_descending,halt,353.tiff,1,hem_rect_fill,True,
+od_descending,halt,353.tiff,1,hem_rect_fill_1um,True,
+od_descending,halt,353.tiff,2,default_51,True,
+od_descending,halt,353.tiff,2,hem_rect_fill,True,
+od_descending,halt,353.tiff,2,hem_rect_fill_1um,True,
+od_descending,halt,364.tiff,0,default_51,True,
+od_descending,halt,364.tiff,0,hem_rect_fill,True,
+od_descending,halt,364.tiff,0,hem_rect_fill_1um,True,
+od_descending,halt,364.tiff,1,default_51,True,
+od_descending,halt,364.tiff,1,hem_rect_fill,True,
+od_descending,halt,364.tiff,1,hem_rect_fill_1um,True,
+od_descending,halt,364.tiff,2,default_51,True,
+od_descending,halt,364.tiff,2,hem_rect_fill,True,
+od_descending,halt,364.tiff,2,hem_rect_fill_1um,True,
+od_descending,halt,400.tiff,0,default_51,True,
+od_descending,halt,400.tiff,0,hem_rect_fill,True,
+od_descending,halt,400.tiff,0,hem_rect_fill_1um,True,
+od_descending,halt,400.tiff,1,default_51,True,
+od_descending,halt,400.tiff,1,hem_rect_fill,True,
+od_descending,halt,400.tiff,1,hem_rect_fill_1um,True,
+od_descending,halt,400.tiff,2,default_51,True,
+od_descending,halt,400.tiff,2,hem_rect_fill,True,
+od_descending,halt,400.tiff,2,hem_rect_fill_1um,True,
+od_descending,halt,401.tiff,0,default_51,True,
+od_descending,halt,401.tiff,0,hem_rect_fill,True,
+od_descending,halt,401.tiff,0,hem_rect_fill_1um,True,
+od_descending,halt,401.tiff,1,default_51,True,
+od_descending,halt,401.tiff,1,hem_rect_fill,True,
+od_descending,halt,401.tiff,1,hem_rect_fill_1um,True,
+od_descending,halt,401.tiff,2,default_51,True,
+od_descending,halt,401.tiff,2,hem_rect_fill,True,
+od_descending,halt,401.tiff,2,hem_rect_fill_1um,True,
+od_descending,halt,404.tiff,0,default_51,True,
+od_descending,halt,404.tiff,0,hem_rect_fill,True,
+od_descending,halt,404.tiff,0,hem_rect_fill_1um,True,
+od_descending,halt,404.tiff,1,default_51,True,
+od_descending,halt,404.tiff,1,hem_rect_fill,True,
+od_descending,halt,404.tiff,1,hem_rect_fill_1um,True,
+od_descending,halt,404.tiff,2,default_51,True,
+od_descending,halt,404.tiff,2,hem_rect_fill,True,
+od_descending,halt,404.tiff,2,hem_rect_fill_1um,True,
+one_row_per_arm_same_click,halt,300.tiff,0,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,300.tiff,1,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,300.tiff,2,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,301.tiff,0,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,301.tiff,1,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,301.tiff,2,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,322.tiff,0,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,322.tiff,1,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,322.tiff,2,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,337.tiff,0,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,337.tiff,1,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,337.tiff,2,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,339.tiff,0,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,339.tiff,1,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,339.tiff,2,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,343.tiff,0,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,343.tiff,1,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,343.tiff,2,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,344.tiff,0,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,344.tiff,1,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,344.tiff,2,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,201.tiff,0,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,201.tiff,1,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,201.tiff,2,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,233.tiff,0,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,233.tiff,1,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,233.tiff,2,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,211.tiff,0,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,211.tiff,1,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,211.tiff,2,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,220.tiff,0,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,220.tiff,1,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,220.tiff,2,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,230.tiff,0,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,230.tiff,1,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,230.tiff,2,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,235.tiff,0,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,235.tiff,1,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,235.tiff,2,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,242.tiff,0,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,242.tiff,1,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,242.tiff,2,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,245.tiff,0,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,245.tiff,1,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,245.tiff,2,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,246.tiff,0,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,246.tiff,1,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,246.tiff,2,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,249.tiff,0,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,249.tiff,1,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,249.tiff,2,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,284.tiff,0,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,284.tiff,1,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,284.tiff,2,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,289.tiff,0,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,289.tiff,1,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,289.tiff,2,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,291.tiff,0,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,291.tiff,1,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,291.tiff,2,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,293.tiff,0,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,293.tiff,1,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,293.tiff,2,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,459.tiff,0,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,459.tiff,1,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,459.tiff,2,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,460.tiff,0,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,460.tiff,1,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,460.tiff,2,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,410.tiff,0,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,410.tiff,1,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,410.tiff,2,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,425.tiff,0,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,425.tiff,1,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,425.tiff,2,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,435.tiff,0,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,435.tiff,1,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,435.tiff,2,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,462.tiff,0,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,462.tiff,1,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,462.tiff,2,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,499.tiff,0,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,499.tiff,1,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,499.tiff,2,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,013.tiff,0,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,013.tiff,1,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,013.tiff,2,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,094.tiff,0,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,094.tiff,1,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,094.tiff,2,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,007.tiff,0,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,007.tiff,1,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,007.tiff,2,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,072.tiff,0,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,072.tiff,1,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,072.tiff,2,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,100.tiff,0,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,100.tiff,1,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,100.tiff,2,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,123.tiff,0,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,123.tiff,1,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,123.tiff,2,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,128.tiff,0,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,128.tiff,1,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,128.tiff,2,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,529.tiff,0,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,529.tiff,1,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,529.tiff,2,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,548.tiff,0,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,548.tiff,1,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,548.tiff,2,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,509.tiff,0,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,509.tiff,1,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,509.tiff,2,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,524.tiff,0,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,524.tiff,1,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,524.tiff,2,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,527.tiff,0,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,527.tiff,1,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,527.tiff,2,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,546.tiff,0,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,546.tiff,1,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,546.tiff,2,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,549.tiff,0,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,549.tiff,1,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,549.tiff,2,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,402.tiff,0,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,402.tiff,1,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,402.tiff,2,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,403.tiff,0,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,403.tiff,1,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,403.tiff,2,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,353.tiff,0,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,353.tiff,1,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,353.tiff,2,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,364.tiff,0,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,364.tiff,1,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,364.tiff,2,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,400.tiff,0,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,400.tiff,1,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,400.tiff,2,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,401.tiff,0,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,401.tiff,1,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,401.tiff,2,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,404.tiff,0,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,404.tiff,1,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+one_row_per_arm_same_click,halt,404.tiff,2,ALL,True,arms=default_51;hem_rect_fill;hem_rect_fill_1um n_seed_ann=1 n_gt_values=1
+margin_geometry,halt,300.tiff,0,ALL,True,"margin=4 room=(17, 9, 20, 18) grow=(4, 4, 4, 4) filled_1um=1908"
+margin_geometry,halt,300.tiff,1,ALL,True,"margin=4 room=(16, 21, 13, 17) grow=(4, 4, 4, 4) filled_1um=1963"
+margin_geometry,halt,300.tiff,2,ALL,True,"margin=4 room=(16, 14, 15, 11) grow=(4, 4, 4, 4) filled_1um=1644"
+margin_geometry,halt,301.tiff,0,ALL,True,"margin=4 room=(14, 5, 12, 12) grow=(4, 4, 4, 4) filled_1um=1201"
+margin_geometry,halt,301.tiff,1,ALL,True,"margin=4 room=(11, 16, 12, 14) grow=(4, 4, 4, 4) filled_1um=1545"
+margin_geometry,halt,301.tiff,2,ALL,True,"margin=4 room=(23, 18, 17, 15) grow=(4, 4, 4, 4) filled_1um=2115"
+margin_geometry,halt,322.tiff,0,ALL,True,"margin=4 room=(12, 15, 16, 11) grow=(4, 4, 4, 4) filled_1um=1577"
+margin_geometry,halt,322.tiff,1,ALL,True,"margin=4 room=(13, 9, 17, 18) grow=(4, 4, 4, 4) filled_1um=1713"
+margin_geometry,halt,322.tiff,2,ALL,True,"margin=4 room=(12, 12, 19, 16) grow=(4, 4, 4, 4) filled_1um=1761"
+margin_geometry,halt,337.tiff,0,ALL,True,"margin=4 room=(18, 14, 17, 19) grow=(4, 4, 4, 4) filled_1um=1980"
+margin_geometry,halt,337.tiff,1,ALL,True,"margin=4 room=(19, 19, 16, 15) grow=(4, 4, 4, 4) filled_1um=2013"
+margin_geometry,halt,337.tiff,2,ALL,True,"margin=4 room=(17, 14, 17, 14) grow=(4, 4, 4, 4) filled_1um=1817"
+margin_geometry,halt,339.tiff,0,ALL,True,"margin=4 room=(10, 17, 9, 11) grow=(4, 4, 4, 4) filled_1um=1353"
+margin_geometry,halt,339.tiff,1,ALL,True,"margin=4 room=(13, 7, 11, 15) grow=(4, 4, 4, 4) filled_1um=1314"
+margin_geometry,halt,339.tiff,2,ALL,True,"margin=4 room=(22, 21, 18, 14) grow=(4, 4, 4, 4) filled_1um=2169"
+margin_geometry,halt,343.tiff,0,ALL,True,"margin=4 room=(18, 13, 7, 24) grow=(4, 4, 4, 4) filled_1um=1817"
+margin_geometry,halt,343.tiff,1,ALL,True,"margin=4 room=(21, 16, 16, 17) grow=(4, 4, 4, 4) filled_1um=2029"
+margin_geometry,halt,343.tiff,2,ALL,True,"margin=4 room=(13, 15, 21, 18) grow=(4, 4, 4, 4) filled_1um=1981"
+margin_geometry,halt,344.tiff,0,ALL,True,"margin=4 room=(18, 14, 16, 16) grow=(4, 4, 4, 4) filled_1um=1872"
+margin_geometry,halt,344.tiff,1,ALL,True,"margin=4 room=(17, 18, 14, 17) grow=(4, 4, 4, 4) filled_1um=1929"
+margin_geometry,halt,344.tiff,2,ALL,True,"margin=4 room=(17, 14, 16, 16) grow=(4, 4, 4, 4) filled_1um=1845"
+margin_geometry,halt,201.tiff,0,ALL,True,"margin=4 room=(11, 11, 7, 17) grow=(4, 4, 4, 4) filled_1um=1306"
+margin_geometry,halt,201.tiff,1,ALL,True,"margin=4 room=(11, 10, 12, 16) grow=(4, 4, 4, 4) filled_1um=1423"
+margin_geometry,halt,201.tiff,2,ALL,True,"margin=4 room=(13, 12, 8, 10) grow=(4, 4, 4, 4) filled_1um=1207"
+margin_geometry,halt,233.tiff,0,ALL,True,"margin=4 room=(14, 14, 14, 14) grow=(4, 4, 4, 4) filled_1um=1640"
+margin_geometry,halt,233.tiff,1,ALL,True,"margin=4 room=(13, 11, 12, 10) grow=(4, 4, 4, 4) filled_1um=1306"
+margin_geometry,halt,233.tiff,2,ALL,True,"margin=4 room=(12, 14, 12, 8) grow=(4, 4, 4, 4) filled_1um=1314"
+margin_geometry,halt,211.tiff,0,ALL,True,"margin=4 room=(14, 14, 16, 17) grow=(4, 4, 4, 4) filled_1um=1795"
+margin_geometry,halt,211.tiff,1,ALL,True,"margin=4 room=(12, 15, 12, 13) grow=(4, 4, 4, 4) filled_1um=1513"
+margin_geometry,halt,211.tiff,2,ALL,True,"margin=4 room=(14, 13, 17, 17) grow=(4, 4, 4, 4) filled_1um=1801"
+margin_geometry,halt,220.tiff,0,ALL,True,"margin=4 room=(14, 12, 17, 14) grow=(4, 4, 4, 4) filled_1um=1677"
+margin_geometry,halt,220.tiff,1,ALL,True,"margin=4 room=(12, 14, 9, 11) grow=(4, 4, 4, 4) filled_1um=1314"
+margin_geometry,halt,220.tiff,2,ALL,True,"margin=4 room=(16, 12, 16, 22) grow=(4, 4, 4, 4) filled_1um=1950"
+margin_geometry,halt,230.tiff,0,ALL,True,"margin=4 room=(14, 14, 11, 14) grow=(4, 4, 4, 4) filled_1um=1547"
+margin_geometry,halt,230.tiff,1,ALL,True,"margin=4 room=(16, 14, 15, 15) grow=(4, 4, 4, 4) filled_1um=1760"
+margin_geometry,halt,230.tiff,2,ALL,True,"margin=4 room=(15, 17, 10, 15) grow=(4, 4, 4, 4) filled_1um=1683"
+margin_geometry,halt,235.tiff,0,ALL,True,"margin=4 room=(11, 16, 14, 16) grow=(4, 4, 4, 4) filled_1um=1673"
+margin_geometry,halt,235.tiff,1,ALL,True,"margin=4 room=(21, 14, 16, 13) grow=(4, 4, 4, 4) filled_1um=1881"
+margin_geometry,halt,235.tiff,2,ALL,True,"margin=4 room=(15, 16, 15, 20) grow=(4, 4, 4, 4) filled_1um=1929"
+margin_geometry,halt,242.tiff,0,ALL,True,"margin=4 room=(12, 17, 14, 14) grow=(4, 4, 4, 4) filled_1um=1671"
+margin_geometry,halt,242.tiff,1,ALL,True,"margin=4 room=(15, 20, 13, 7) grow=(4, 4, 4, 4) filled_1um=1665"
+margin_geometry,halt,242.tiff,2,ALL,True,"margin=4 room=(6, 10, 9, 12) grow=(4, 4, 4, 4) filled_1um=967"
+margin_geometry,halt,245.tiff,0,ALL,True,"margin=4 room=(16, 12, 10, 20) grow=(4, 4, 4, 4) filled_1um=1702"
+margin_geometry,halt,245.tiff,1,ALL,True,"margin=4 room=(0, 17, 0, 23) grow=(0, 4, 0, 4) filled_1um=1385"
+margin_geometry,halt,245.tiff,2,ALL,True,"margin=4 room=(16, 18, 17, 14) grow=(4, 4, 4, 4) filled_1um=1901"
+margin_geometry,halt,246.tiff,0,ALL,True,"margin=4 room=(10, 14, 16, 19) grow=(4, 4, 4, 4) filled_1um=1761"
+margin_geometry,halt,246.tiff,1,ALL,True,"margin=4 room=(21, 16, 16, 12) grow=(4, 4, 4, 4) filled_1um=1919"
+margin_geometry,halt,246.tiff,2,ALL,True,"margin=4 room=(18, 14, 12, 8) grow=(4, 4, 4, 4) filled_1um=1548"
+margin_geometry,halt,249.tiff,0,ALL,True,"margin=4 room=(14, 18, 15, 14) grow=(4, 4, 4, 4) filled_1um=1791"
+margin_geometry,halt,249.tiff,1,ALL,True,"margin=4 room=(18, 16, 14, 8) grow=(4, 4, 4, 4) filled_1um=1676"
+margin_geometry,halt,249.tiff,2,ALL,True,"margin=4 room=(13, 17, 15, 14) grow=(4, 4, 4, 4) filled_1um=1731"
+margin_geometry,halt,284.tiff,0,ALL,True,"margin=4 room=(19, 18, 13, 14) grow=(4, 4, 4, 4) filled_1um=1897"
+margin_geometry,halt,284.tiff,1,ALL,True,"margin=4 room=(17, 15, 14, 16) grow=(4, 4, 4, 4) filled_1um=1818"
+margin_geometry,halt,284.tiff,2,ALL,True,"margin=4 room=(15, 13, 22, 14) grow=(4, 4, 4, 4) filled_1um=1888"
+margin_geometry,halt,289.tiff,0,ALL,True,"margin=4 room=(15, 16, 16, 13) grow=(4, 4, 4, 4) filled_1um=1761"
+margin_geometry,halt,289.tiff,1,ALL,True,"margin=4 room=(14, 12, 12, 16) grow=(4, 4, 4, 4) filled_1um=1578"
+margin_geometry,halt,289.tiff,2,ALL,True,"margin=4 room=(16, 19, 14, 14) grow=(4, 4, 4, 4) filled_1um=1857"
+margin_geometry,halt,291.tiff,0,ALL,True,"margin=4 room=(16, 12, 7, 17) grow=(4, 4, 4, 4) filled_1um=1516"
+margin_geometry,halt,291.tiff,1,ALL,True,"margin=4 room=(11, 17, 14, 14) grow=(4, 4, 4, 4) filled_1um=1640"
+margin_geometry,halt,291.tiff,2,ALL,True,"margin=4 room=(14, 15, 14, 16) grow=(4, 4, 4, 4) filled_1um=1731"
+margin_geometry,halt,293.tiff,0,ALL,True,"margin=4 room=(21, 12, 13, 14) grow=(4, 4, 4, 4) filled_1um=1769"
+margin_geometry,halt,293.tiff,1,ALL,True,"margin=4 room=(10, 16, 13, 14) grow=(4, 4, 4, 4) filled_1um=1545"
+margin_geometry,halt,293.tiff,2,ALL,True,"margin=4 room=(14, 16, 15, 16) grow=(4, 4, 4, 4) filled_1um=1789"
+margin_geometry,halt,459.tiff,0,ALL,True,"margin=4 room=(10, 12, 10, 10) grow=(4, 4, 4, 4) filled_1um=1158"
+margin_geometry,halt,459.tiff,1,ALL,True,"margin=4 room=(7, 9, 5, 7) grow=(4, 4, 4, 4) filled_1um=580"
+margin_geometry,halt,459.tiff,2,ALL,True,"margin=4 room=(14, 15, 10, 9) grow=(4, 4, 4, 4) filled_1um=1401"
+margin_geometry,halt,460.tiff,0,ALL,True,"margin=4 room=(3, 8, 9, 15) grow=(3, 4, 4, 4) filled_1um=956"
+margin_geometry,halt,460.tiff,1,ALL,True,"margin=4 room=(12, 17, 21, 16) grow=(4, 4, 4, 4) filled_1um=1941"
+margin_geometry,halt,460.tiff,2,ALL,True,"margin=4 room=(13, 10, 8, 14) grow=(4, 4, 4, 4) filled_1um=1269"
+margin_geometry,halt,410.tiff,0,ALL,True,"margin=4 room=(20, 16, 13, 18) grow=(4, 4, 4, 4) filled_1um=1957"
+margin_geometry,halt,410.tiff,1,ALL,True,"margin=4 room=(13, 18, 9, 13) grow=(4, 4, 4, 4) filled_1um=1565"
+margin_geometry,halt,410.tiff,2,ALL,True,"margin=4 room=(18, 18, 9, 10) grow=(4, 4, 4, 4) filled_1um=1681"
+margin_geometry,halt,425.tiff,0,ALL,True,"margin=4 room=(8, 8, 0, 12) grow=(4, 4, 0, 4) filled_1um=752"
+margin_geometry,halt,425.tiff,1,ALL,True,"margin=4 room=(5, 1, 0, 1) grow=(4, 1, 0, 1) filled_1um=51"
+margin_geometry,halt,425.tiff,2,ALL,True,"margin=4 room=(5, 9, 9, 11) grow=(4, 4, 4, 4) filled_1um=846"
+margin_geometry,halt,435.tiff,0,ALL,True,"margin=4 room=(12, 10, 14, 16) grow=(4, 4, 4, 4) filled_1um=1528"
+margin_geometry,halt,435.tiff,1,ALL,True,"margin=4 room=(8, 12, 17, 16) grow=(4, 4, 4, 4) filled_1um=1587"
+margin_geometry,halt,435.tiff,2,ALL,True,"margin=4 room=(20, 6, 14, 14) grow=(4, 4, 4, 4) filled_1um=1578"
+margin_geometry,halt,462.tiff,0,ALL,True,"margin=4 room=(14, 15, 10, 11) grow=(4, 4, 4, 4) filled_1um=1461"
+margin_geometry,halt,462.tiff,1,ALL,True,"margin=4 room=(15, 15, 12, 11) grow=(4, 4, 4, 4) filled_1um=1557"
+margin_geometry,halt,462.tiff,2,ALL,True,"margin=4 room=(22, 15, 14, 17) grow=(4, 4, 4, 4) filled_1um=1985"
+margin_geometry,halt,499.tiff,0,ALL,True,"margin=4 room=(16, 19, 13, 12) grow=(4, 4, 4, 4) filled_1um=1785"
+margin_geometry,halt,499.tiff,1,ALL,True,"margin=4 room=(17, 17, 14, 14) grow=(4, 4, 4, 4) filled_1um=1826"
+margin_geometry,halt,499.tiff,2,ALL,True,"margin=4 room=(12, 20, 9, 12) grow=(4, 4, 4, 4) filled_1um=1575"
+margin_geometry,halt,013.tiff,0,ALL,True,"margin=4 room=(6, 7, 7, 5) grow=(4, 4, 4, 4) filled_1um=439"
+margin_geometry,halt,013.tiff,1,ALL,True,"margin=4 room=(13, 13, 15, 10) grow=(4, 4, 4, 4) filled_1um=1479"
+margin_geometry,halt,013.tiff,2,ALL,True,"margin=4 room=(15, 18, 3, 9) grow=(4, 4, 3, 4) filled_1um=1405"
+margin_geometry,halt,094.tiff,0,ALL,True,"margin=4 room=(13, 15, 13, 18) grow=(4, 4, 4, 4) filled_1um=1733"
+margin_geometry,halt,094.tiff,1,ALL,True,"margin=4 room=(18, 11, 18, 10) grow=(4, 4, 4, 4) filled_1um=1671"
+margin_geometry,halt,094.tiff,2,ALL,True,"margin=4 room=(9, 21, 10, 9) grow=(4, 4, 4, 4) filled_1um=1441"
+margin_geometry,halt,007.tiff,0,ALL,True,"margin=4 room=(14, 11, 9, 12) grow=(4, 4, 4, 4) filled_1um=1309"
+margin_geometry,halt,007.tiff,1,ALL,True,"margin=4 room=(11, 13, 7, 14) grow=(4, 4, 4, 4) filled_1um=1271"
+margin_geometry,halt,007.tiff,2,ALL,True,"margin=4 room=(3, 12, 12, 10) grow=(3, 4, 4, 4) filled_1um=1010"
+margin_geometry,halt,072.tiff,0,ALL,True,"margin=4 room=(8, 14, 12, 10) grow=(4, 4, 4, 4) filled_1um=1232"
+margin_geometry,halt,072.tiff,1,ALL,True,"margin=4 room=(12, 12, 14, 17) grow=(4, 4, 4, 4) filled_1um=1621"
+margin_geometry,halt,072.tiff,2,ALL,True,"margin=4 room=(4, 8, 7, 15) grow=(4, 4, 4, 4) filled_1um=862"
+margin_geometry,halt,100.tiff,0,ALL,True,"margin=4 room=(18, 14, 15, 8) grow=(4, 4, 4, 4) filled_1um=1629"
+margin_geometry,halt,100.tiff,1,ALL,True,"margin=4 room=(18, 5, 10, 10) grow=(4, 4, 4, 4) filled_1um=1197"
+margin_geometry,halt,100.tiff,2,ALL,True,"margin=4 room=(11, 12, 9, 15) grow=(4, 4, 4, 4) filled_1um=1341"
+margin_geometry,halt,123.tiff,0,ALL,True,"margin=4 room=(17, 13, 6, 5) grow=(4, 4, 4, 4) filled_1um=1209"
+margin_geometry,halt,123.tiff,1,ALL,True,"margin=4 room=(16, 11, 15, 16) grow=(4, 4, 4, 4) filled_1um=1705"
+margin_geometry,halt,123.tiff,2,ALL,True,"margin=4 room=(0, 15, 17, 18) grow=(0, 4, 4, 4) filled_1um=1641"
+margin_geometry,halt,128.tiff,0,ALL,True,"margin=4 room=(19, 9, 2, 0) grow=(4, 4, 2, 0) filled_1um=1020"
+margin_geometry,halt,128.tiff,1,ALL,True,"margin=4 room=(7, 11, 3, 12) grow=(4, 4, 3, 4) filled_1um=838"
+margin_geometry,halt,128.tiff,2,ALL,True,"margin=4 room=(6, 12, 17, 22) grow=(4, 4, 4, 4) filled_1um=1781"
+margin_geometry,halt,529.tiff,0,ALL,True,"margin=4 room=(11, 8, 4, 17) grow=(4, 4, 4, 4) filled_1um=1081"
+margin_geometry,halt,529.tiff,1,ALL,True,"margin=4 room=(17, 16, 8, 11) grow=(4, 4, 4, 4) filled_1um=1561"
+margin_geometry,halt,529.tiff,2,ALL,True,"margin=4 room=(16, 16, 11, 12) grow=(4, 4, 4, 4) filled_1um=1629"
+margin_geometry,halt,548.tiff,0,ALL,True,"margin=4 room=(9, 15, 13, 12) grow=(4, 4, 4, 4) filled_1um=1411"
+margin_geometry,halt,548.tiff,1,ALL,True,"margin=4 room=(7, 11, 10, 10) grow=(4, 4, 4, 4) filled_1um=1002"
+margin_geometry,halt,548.tiff,2,ALL,True,"margin=4 room=(9, 13, 13, 12) grow=(4, 4, 4, 4) filled_1um=1343"
+margin_geometry,halt,509.tiff,0,ALL,True,"margin=4 room=(3, 8, 3, 3) grow=(3, 4, 3, 3) filled_1um=204"
+margin_geometry,halt,509.tiff,1,ALL,True,"margin=4 room=(0, 0, 4, 7) grow=(0, 0, 4, 4) filled_1um=153"
+margin_geometry,halt,509.tiff,2,ALL,True,"margin=4 room=(13, 10, 0, 0) grow=(4, 4, 0, 0) filled_1um=765"
+margin_geometry,halt,524.tiff,0,ALL,True,"margin=4 room=(4, 5, 9, 4) grow=(4, 4, 4, 4) filled_1um=301"
+margin_geometry,halt,524.tiff,1,ALL,True,"margin=4 room=(15, 11, 12, 9) grow=(4, 4, 4, 4) filled_1um=1347"
+margin_geometry,halt,524.tiff,2,ALL,True,"margin=4 room=(15, 22, 10, 5) grow=(4, 4, 4, 4) filled_1um=1633"
+margin_geometry,halt,527.tiff,0,ALL,True,"margin=4 room=(9, 11, 11, 15) grow=(4, 4, 4, 4) filled_1um=1314"
+margin_geometry,halt,527.tiff,1,ALL,True,"margin=4 room=(6, 7, 10, 10) grow=(4, 4, 4, 4) filled_1um=807"
+margin_geometry,halt,527.tiff,2,ALL,True,"margin=4 room=(8, 7, 12, 10) grow=(4, 4, 4, 4) filled_1um=973"
+margin_geometry,halt,546.tiff,0,ALL,True,"margin=4 room=(9, 16, 13, 11) grow=(4, 4, 4, 4) filled_1um=1411"
+margin_geometry,halt,546.tiff,1,ALL,True,"margin=4 room=(11, 10, 15, 20) grow=(4, 4, 4, 4) filled_1um=1689"
+margin_geometry,halt,546.tiff,2,ALL,True,"margin=4 room=(14, 9, 6, 9) grow=(4, 4, 4, 4) filled_1um=1017"
+margin_geometry,halt,549.tiff,0,ALL,True,"margin=4 room=(9, 5, 11, 12) grow=(4, 4, 4, 4) filled_1um=981"
+margin_geometry,halt,549.tiff,1,ALL,True,"margin=4 room=(9, 13, 1, 10) grow=(4, 4, 1, 4) filled_1um=936"
+margin_geometry,halt,549.tiff,2,ALL,True,"margin=4 room=(13, 9, 0, 10) grow=(4, 4, 0, 4) filled_1um=936"
+margin_geometry,halt,402.tiff,0,ALL,True,"margin=4 room=(11, 15, 14, 14) grow=(4, 4, 4, 4) filled_1um=1578"
+margin_geometry,halt,402.tiff,1,ALL,True,"margin=4 room=(9, 10, 8, 17) grow=(4, 4, 4, 4) filled_1um=1241"
+margin_geometry,halt,402.tiff,2,ALL,True,"margin=4 room=(12, 16, 14, 10) grow=(4, 4, 4, 4) filled_1um=1516"
+margin_geometry,halt,403.tiff,0,ALL,True,"margin=4 room=(15, 6, 9, 13) grow=(4, 4, 4, 4) filled_1um=1195"
+margin_geometry,halt,403.tiff,1,ALL,True,"margin=4 room=(9, 9, 7, 12) grow=(4, 4, 4, 4) filled_1um=961"
+margin_geometry,halt,403.tiff,2,ALL,True,"margin=4 room=(5, 8, 6, 6) grow=(4, 4, 4, 4) filled_1um=439"
+margin_geometry,halt,353.tiff,0,ALL,True,"margin=4 room=(5, 4, 7, 6) grow=(4, 4, 4, 4) filled_1um=301"
+margin_geometry,halt,353.tiff,1,ALL,True,"margin=4 room=(9, 9, 17, 16) grow=(4, 4, 4, 4) filled_1um=1535"
+margin_geometry,halt,353.tiff,2,ALL,True,"margin=4 room=(6, 15, 11, 13) grow=(4, 4, 4, 4) filled_1um=1271"
+margin_geometry,halt,364.tiff,0,ALL,True,"margin=4 room=(0, 15, 16, 19) grow=(0, 4, 4, 4) filled_1um=1641"
+margin_geometry,halt,364.tiff,1,ALL,True,"margin=4 room=(16, 16, 17, 16) grow=(4, 4, 4, 4) filled_1um=1899"
+margin_geometry,halt,364.tiff,2,ALL,True,"margin=4 room=(9, 17, 16, 18) grow=(4, 4, 4, 4) filled_1um=1776"
+margin_geometry,halt,400.tiff,0,ALL,True,"margin=4 room=(14, 15, 13, 7) grow=(4, 4, 4, 4) filled_1um=1431"
+margin_geometry,halt,400.tiff,1,ALL,True,"margin=4 room=(8, 13, 10, 14) grow=(4, 4, 4, 4) filled_1um=1271"
+margin_geometry,halt,400.tiff,2,ALL,True,"margin=4 room=(10, 12, 10, 8) grow=(4, 4, 4, 4) filled_1um=1084"
+margin_geometry,halt,401.tiff,0,ALL,True,"margin=4 room=(13, 12, 14, 14) grow=(4, 4, 4, 4) filled_1um=1547"
+margin_geometry,halt,401.tiff,1,ALL,True,"margin=4 room=(10, 10, 12, 12) grow=(4, 4, 4, 4) filled_1um=1236"
+margin_geometry,halt,401.tiff,2,ALL,True,"margin=4 room=(14, 14, 15, 14) grow=(4, 4, 4, 4) filled_1um=1671"
+margin_geometry,halt,404.tiff,0,ALL,True,"margin=4 room=(7, 5, 8, 11) grow=(4, 4, 4, 4) filled_1um=721"
+margin_geometry,halt,404.tiff,1,ALL,True,"margin=4 room=(14, 10, 9, 11) grow=(4, 4, 4, 4) filled_1um=1236"
+margin_geometry,halt,404.tiff,2,ALL,True,"margin=4 room=(7, 4, 6, 18) grow=(4, 4, 4, 4) filled_1um=921"
+fills_keep_template_mean,halt,300.tiff,0,ALL,True,max |mean_filled - mean_default|=6.7e-10
+fills_keep_template_mean,halt,300.tiff,1,ALL,True,max |mean_filled - mean_default|=7.67e-10
+fills_keep_template_mean,halt,300.tiff,2,ALL,True,max |mean_filled - mean_default|=2.31e-10
+fills_keep_template_mean,halt,301.tiff,0,ALL,True,max |mean_filled - mean_default|=3.98e-10
+fills_keep_template_mean,halt,301.tiff,1,ALL,True,max |mean_filled - mean_default|=5.91e-10
+fills_keep_template_mean,halt,301.tiff,2,ALL,True,max |mean_filled - mean_default|=4.22e-10
+fills_keep_template_mean,halt,322.tiff,0,ALL,True,max |mean_filled - mean_default|=1.63e-10
+fills_keep_template_mean,halt,322.tiff,1,ALL,True,max |mean_filled - mean_default|=4.1e-10
+fills_keep_template_mean,halt,322.tiff,2,ALL,True,max |mean_filled - mean_default|=5.3e-10
+fills_keep_template_mean,halt,337.tiff,0,ALL,True,max |mean_filled - mean_default|=7.39e-10
+fills_keep_template_mean,halt,337.tiff,1,ALL,True,max |mean_filled - mean_default|=3.55e-10
+fills_keep_template_mean,halt,337.tiff,2,ALL,True,max |mean_filled - mean_default|=2.46e-10
+fills_keep_template_mean,halt,339.tiff,0,ALL,True,max |mean_filled - mean_default|=1.82e-10
+fills_keep_template_mean,halt,339.tiff,1,ALL,True,max |mean_filled - mean_default|=2.37e-10
+fills_keep_template_mean,halt,339.tiff,2,ALL,True,max |mean_filled - mean_default|=1.12e-10
+fills_keep_template_mean,halt,343.tiff,0,ALL,True,max |mean_filled - mean_default|=5.63e-10
+fills_keep_template_mean,halt,343.tiff,1,ALL,True,max |mean_filled - mean_default|=6.93e-10
+fills_keep_template_mean,halt,343.tiff,2,ALL,True,max |mean_filled - mean_default|=3.02e-10
+fills_keep_template_mean,halt,344.tiff,0,ALL,True,max |mean_filled - mean_default|=4.97e-10
+fills_keep_template_mean,halt,344.tiff,1,ALL,True,max |mean_filled - mean_default|=6.8e-10
+fills_keep_template_mean,halt,344.tiff,2,ALL,True,max |mean_filled - mean_default|=6.07e-10
+fills_keep_template_mean,halt,201.tiff,0,ALL,True,max |mean_filled - mean_default|=4.34e-10
+fills_keep_template_mean,halt,201.tiff,1,ALL,True,max |mean_filled - mean_default|=9.4e-10
+fills_keep_template_mean,halt,201.tiff,2,ALL,True,max |mean_filled - mean_default|=1.12e-09
+fills_keep_template_mean,halt,233.tiff,0,ALL,True,max |mean_filled - mean_default|=7.4e-10
+fills_keep_template_mean,halt,233.tiff,1,ALL,True,max |mean_filled - mean_default|=2.24e-10
+fills_keep_template_mean,halt,233.tiff,2,ALL,True,max |mean_filled - mean_default|=3.79e-10
+fills_keep_template_mean,halt,211.tiff,0,ALL,True,max |mean_filled - mean_default|=1.38e-09
+fills_keep_template_mean,halt,211.tiff,1,ALL,True,max |mean_filled - mean_default|=9.17e-10
+fills_keep_template_mean,halt,211.tiff,2,ALL,True,max |mean_filled - mean_default|=1.22e-09
+fills_keep_template_mean,halt,220.tiff,0,ALL,True,max |mean_filled - mean_default|=1.13e-09
+fills_keep_template_mean,halt,220.tiff,1,ALL,True,max |mean_filled - mean_default|=1.29e-09
+fills_keep_template_mean,halt,220.tiff,2,ALL,True,max |mean_filled - mean_default|=1.17e-09
+fills_keep_template_mean,halt,230.tiff,0,ALL,True,max |mean_filled - mean_default|=5.26e-10
+fills_keep_template_mean,halt,230.tiff,1,ALL,True,max |mean_filled - mean_default|=5.97e-10
+fills_keep_template_mean,halt,230.tiff,2,ALL,True,max |mean_filled - mean_default|=2.98e-10
+fills_keep_template_mean,halt,235.tiff,0,ALL,True,max |mean_filled - mean_default|=5.84e-10
+fills_keep_template_mean,halt,235.tiff,1,ALL,True,max |mean_filled - mean_default|=5.45e-10
+fills_keep_template_mean,halt,235.tiff,2,ALL,True,max |mean_filled - mean_default|=5.87e-10
+fills_keep_template_mean,halt,242.tiff,0,ALL,True,max |mean_filled - mean_default|=4.87e-10
+fills_keep_template_mean,halt,242.tiff,1,ALL,True,max |mean_filled - mean_default|=2.91e-10
+fills_keep_template_mean,halt,242.tiff,2,ALL,True,max |mean_filled - mean_default|=4.31e-10
+fills_keep_template_mean,halt,245.tiff,0,ALL,True,max |mean_filled - mean_default|=7.47e-10
+fills_keep_template_mean,halt,245.tiff,1,ALL,True,max |mean_filled - mean_default|=3.63e-10
+fills_keep_template_mean,halt,245.tiff,2,ALL,True,max |mean_filled - mean_default|=4.21e-10
+fills_keep_template_mean,halt,246.tiff,0,ALL,True,max |mean_filled - mean_default|=6.04e-10
+fills_keep_template_mean,halt,246.tiff,1,ALL,True,max |mean_filled - mean_default|=4.23e-10
+fills_keep_template_mean,halt,246.tiff,2,ALL,True,max |mean_filled - mean_default|=3.06e-10
+fills_keep_template_mean,halt,249.tiff,0,ALL,True,max |mean_filled - mean_default|=4.22e-10
+fills_keep_template_mean,halt,249.tiff,1,ALL,True,max |mean_filled - mean_default|=5.73e-10
+fills_keep_template_mean,halt,249.tiff,2,ALL,True,max |mean_filled - mean_default|=7.01e-10
+fills_keep_template_mean,halt,284.tiff,0,ALL,True,max |mean_filled - mean_default|=1.27e-09
+fills_keep_template_mean,halt,284.tiff,1,ALL,True,max |mean_filled - mean_default|=1.27e-09
+fills_keep_template_mean,halt,284.tiff,2,ALL,True,max |mean_filled - mean_default|=1.34e-09
+fills_keep_template_mean,halt,289.tiff,0,ALL,True,max |mean_filled - mean_default|=7.14e-10
+fills_keep_template_mean,halt,289.tiff,1,ALL,True,max |mean_filled - mean_default|=7.22e-10
+fills_keep_template_mean,halt,289.tiff,2,ALL,True,max |mean_filled - mean_default|=7.95e-10
+fills_keep_template_mean,halt,291.tiff,0,ALL,True,max |mean_filled - mean_default|=9.77e-10
+fills_keep_template_mean,halt,291.tiff,1,ALL,True,max |mean_filled - mean_default|=9.3e-10
+fills_keep_template_mean,halt,291.tiff,2,ALL,True,max |mean_filled - mean_default|=1.06e-09
+fills_keep_template_mean,halt,293.tiff,0,ALL,True,max |mean_filled - mean_default|=3.61e-10
+fills_keep_template_mean,halt,293.tiff,1,ALL,True,max |mean_filled - mean_default|=4.44e-10
+fills_keep_template_mean,halt,293.tiff,2,ALL,True,max |mean_filled - mean_default|=6.47e-10
+fills_keep_template_mean,halt,459.tiff,0,ALL,True,max |mean_filled - mean_default|=8.23e-10
+fills_keep_template_mean,halt,459.tiff,1,ALL,True,max |mean_filled - mean_default|=2.37e-10
+fills_keep_template_mean,halt,459.tiff,2,ALL,True,max |mean_filled - mean_default|=4.34e-10
+fills_keep_template_mean,halt,460.tiff,0,ALL,True,max |mean_filled - mean_default|=8.47e-10
+fills_keep_template_mean,halt,460.tiff,1,ALL,True,max |mean_filled - mean_default|=1.35e-09
+fills_keep_template_mean,halt,460.tiff,2,ALL,True,max |mean_filled - mean_default|=8.2e-10
+fills_keep_template_mean,halt,410.tiff,0,ALL,True,max |mean_filled - mean_default|=4.38e-10
+fills_keep_template_mean,halt,410.tiff,1,ALL,True,max |mean_filled - mean_default|=2.12e-10
+fills_keep_template_mean,halt,410.tiff,2,ALL,True,max |mean_filled - mean_default|=6.55e-10
+fills_keep_template_mean,halt,425.tiff,0,ALL,True,max |mean_filled - mean_default|=8.51e-10
+fills_keep_template_mean,halt,425.tiff,1,ALL,True,max |mean_filled - mean_default|=1.02e-10
+fills_keep_template_mean,halt,425.tiff,2,ALL,True,max |mean_filled - mean_default|=4.72e-10
+fills_keep_template_mean,halt,435.tiff,0,ALL,True,max |mean_filled - mean_default|=2.58e-09
+fills_keep_template_mean,halt,435.tiff,1,ALL,True,max |mean_filled - mean_default|=3.84e-10
+fills_keep_template_mean,halt,435.tiff,2,ALL,True,max |mean_filled - mean_default|=1.94e-09
+fills_keep_template_mean,halt,462.tiff,0,ALL,True,max |mean_filled - mean_default|=1.67e-10
+fills_keep_template_mean,halt,462.tiff,1,ALL,True,max |mean_filled - mean_default|=5.58e-10
+fills_keep_template_mean,halt,462.tiff,2,ALL,True,max |mean_filled - mean_default|=2.94e-10
+fills_keep_template_mean,halt,499.tiff,0,ALL,True,max |mean_filled - mean_default|=3.91e-10
+fills_keep_template_mean,halt,499.tiff,1,ALL,True,max |mean_filled - mean_default|=1.68e-10
+fills_keep_template_mean,halt,499.tiff,2,ALL,True,max |mean_filled - mean_default|=6.3e-11
+fills_keep_template_mean,halt,013.tiff,0,ALL,True,max |mean_filled - mean_default|=1.45e-10
+fills_keep_template_mean,halt,013.tiff,1,ALL,True,max |mean_filled - mean_default|=4.88e-10
+fills_keep_template_mean,halt,013.tiff,2,ALL,True,max |mean_filled - mean_default|=5.08e-10
+fills_keep_template_mean,halt,094.tiff,0,ALL,True,max |mean_filled - mean_default|=1.66e-10
+fills_keep_template_mean,halt,094.tiff,1,ALL,True,max |mean_filled - mean_default|=2.56e-10
+fills_keep_template_mean,halt,094.tiff,2,ALL,True,max |mean_filled - mean_default|=5.55e-10
+fills_keep_template_mean,halt,007.tiff,0,ALL,True,max |mean_filled - mean_default|=1.03e-09
+fills_keep_template_mean,halt,007.tiff,1,ALL,True,max |mean_filled - mean_default|=6.5e-11
+fills_keep_template_mean,halt,007.tiff,2,ALL,True,max |mean_filled - mean_default|=4.11e-10
+fills_keep_template_mean,halt,072.tiff,0,ALL,True,max |mean_filled - mean_default|=4.67e-10
+fills_keep_template_mean,halt,072.tiff,1,ALL,True,max |mean_filled - mean_default|=3.59e-10
+fills_keep_template_mean,halt,072.tiff,2,ALL,True,max |mean_filled - mean_default|=2.32e-10
+fills_keep_template_mean,halt,100.tiff,0,ALL,True,max |mean_filled - mean_default|=1.17e-10
+fills_keep_template_mean,halt,100.tiff,1,ALL,True,max |mean_filled - mean_default|=8.93e-11
+fills_keep_template_mean,halt,100.tiff,2,ALL,True,max |mean_filled - mean_default|=1.44e-10
+fills_keep_template_mean,halt,123.tiff,0,ALL,True,max |mean_filled - mean_default|=4.93e-10
+fills_keep_template_mean,halt,123.tiff,1,ALL,True,max |mean_filled - mean_default|=1.91e-10
+fills_keep_template_mean,halt,123.tiff,2,ALL,True,max |mean_filled - mean_default|=3.44e-10
+fills_keep_template_mean,halt,128.tiff,0,ALL,True,max |mean_filled - mean_default|=6.15e-11
+fills_keep_template_mean,halt,128.tiff,1,ALL,True,max |mean_filled - mean_default|=4.29e-11
+fills_keep_template_mean,halt,128.tiff,2,ALL,True,max |mean_filled - mean_default|=3.67e-10
+fills_keep_template_mean,halt,529.tiff,0,ALL,True,max |mean_filled - mean_default|=2.78e-10
+fills_keep_template_mean,halt,529.tiff,1,ALL,True,max |mean_filled - mean_default|=3.35e-10
+fills_keep_template_mean,halt,529.tiff,2,ALL,True,max |mean_filled - mean_default|=3.65e-10
+fills_keep_template_mean,halt,548.tiff,0,ALL,True,max |mean_filled - mean_default|=2.57e-09
+fills_keep_template_mean,halt,548.tiff,1,ALL,True,max |mean_filled - mean_default|=4.94e-11
+fills_keep_template_mean,halt,548.tiff,2,ALL,True,max |mean_filled - mean_default|=1.16e-09
+fills_keep_template_mean,halt,509.tiff,0,ALL,True,max |mean_filled - mean_default|=1.55e-10
+fills_keep_template_mean,halt,509.tiff,1,ALL,True,max |mean_filled - mean_default|=1.78e-10
+fills_keep_template_mean,halt,509.tiff,2,ALL,True,max |mean_filled - mean_default|=3.99e-10
+fills_keep_template_mean,halt,524.tiff,0,ALL,True,max |mean_filled - mean_default|=6.36e-10
+fills_keep_template_mean,halt,524.tiff,1,ALL,True,max |mean_filled - mean_default|=6.55e-10
+fills_keep_template_mean,halt,524.tiff,2,ALL,True,max |mean_filled - mean_default|=1.49e-09
+fills_keep_template_mean,halt,527.tiff,0,ALL,True,max |mean_filled - mean_default|=2.57e-09
+fills_keep_template_mean,halt,527.tiff,1,ALL,True,max |mean_filled - mean_default|=2.6e-10
+fills_keep_template_mean,halt,527.tiff,2,ALL,True,max |mean_filled - mean_default|=6.93e-10
+fills_keep_template_mean,halt,546.tiff,0,ALL,True,max |mean_filled - mean_default|=4.68e-10
+fills_keep_template_mean,halt,546.tiff,1,ALL,True,max |mean_filled - mean_default|=5.44e-10
+fills_keep_template_mean,halt,546.tiff,2,ALL,True,max |mean_filled - mean_default|=1.58e-10
+fills_keep_template_mean,halt,549.tiff,0,ALL,True,max |mean_filled - mean_default|=5.79e-10
+fills_keep_template_mean,halt,549.tiff,1,ALL,True,max |mean_filled - mean_default|=2.87e-10
+fills_keep_template_mean,halt,549.tiff,2,ALL,True,max |mean_filled - mean_default|=9.36e-10
+fills_keep_template_mean,halt,402.tiff,0,ALL,True,max |mean_filled - mean_default|=1.69e-09
+fills_keep_template_mean,halt,402.tiff,1,ALL,True,max |mean_filled - mean_default|=1.37e-09
+fills_keep_template_mean,halt,402.tiff,2,ALL,True,max |mean_filled - mean_default|=7.91e-10
+fills_keep_template_mean,halt,403.tiff,0,ALL,True,max |mean_filled - mean_default|=2.3e-09
+fills_keep_template_mean,halt,403.tiff,1,ALL,True,max |mean_filled - mean_default|=1.07e-09
+fills_keep_template_mean,halt,403.tiff,2,ALL,True,max |mean_filled - mean_default|=2.77e-10
+fills_keep_template_mean,halt,353.tiff,0,ALL,True,max |mean_filled - mean_default|=1.09e-11
+fills_keep_template_mean,halt,353.tiff,1,ALL,True,max |mean_filled - mean_default|=3.91e-10
+fills_keep_template_mean,halt,353.tiff,2,ALL,True,max |mean_filled - mean_default|=5.6e-10
+fills_keep_template_mean,halt,364.tiff,0,ALL,True,max |mean_filled - mean_default|=6.09e-10
+fills_keep_template_mean,halt,364.tiff,1,ALL,True,max |mean_filled - mean_default|=6.65e-10
+fills_keep_template_mean,halt,364.tiff,2,ALL,True,max |mean_filled - mean_default|=5.89e-10
+fills_keep_template_mean,halt,400.tiff,0,ALL,True,max |mean_filled - mean_default|=8.56e-10
+fills_keep_template_mean,halt,400.tiff,1,ALL,True,max |mean_filled - mean_default|=7.68e-10
+fills_keep_template_mean,halt,400.tiff,2,ALL,True,max |mean_filled - mean_default|=9.33e-10
+fills_keep_template_mean,halt,401.tiff,0,ALL,True,max |mean_filled - mean_default|=3.66e-10
+fills_keep_template_mean,halt,401.tiff,1,ALL,True,max |mean_filled - mean_default|=4.28e-10
+fills_keep_template_mean,halt,401.tiff,2,ALL,True,max |mean_filled - mean_default|=5.67e-10
+fills_keep_template_mean,halt,404.tiff,0,ALL,True,max |mean_filled - mean_default|=4.29e-10
+fills_keep_template_mean,halt,404.tiff,1,ALL,True,max |mean_filled - mean_default|=3.53e-10
+fills_keep_template_mean,halt,404.tiff,2,ALL,True,max |mean_filled - mean_default|=2.6e-10
+max_peaks_binds,report,300.tiff,0,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,300.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,300.tiff,0,hem_rect_fill_1um,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,300.tiff,1,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,300.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,300.tiff,1,hem_rect_fill_1um,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,300.tiff,2,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,300.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,300.tiff,2,hem_rect_fill_1um,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,301.tiff,0,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,301.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=100
+max_peaks_binds,report,301.tiff,0,hem_rect_fill_1um,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,301.tiff,1,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,301.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,301.tiff,1,hem_rect_fill_1um,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,301.tiff,2,default_51,True,n_peaks=100 n_detections=93
+max_peaks_binds,report,301.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,301.tiff,2,hem_rect_fill_1um,True,n_peaks=100 n_detections=97
+max_peaks_binds,report,322.tiff,0,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,322.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,322.tiff,0,hem_rect_fill_1um,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,322.tiff,1,default_51,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,322.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,322.tiff,1,hem_rect_fill_1um,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,322.tiff,2,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,322.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,322.tiff,2,hem_rect_fill_1um,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,337.tiff,0,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,337.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,337.tiff,0,hem_rect_fill_1um,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,337.tiff,1,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,337.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=100
+max_peaks_binds,report,337.tiff,1,hem_rect_fill_1um,True,n_peaks=100 n_detections=100
+max_peaks_binds,report,337.tiff,2,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,337.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,337.tiff,2,hem_rect_fill_1um,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,339.tiff,0,default_51,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,339.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,339.tiff,0,hem_rect_fill_1um,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,339.tiff,1,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,339.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,339.tiff,1,hem_rect_fill_1um,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,339.tiff,2,default_51,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,339.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,339.tiff,2,hem_rect_fill_1um,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,343.tiff,0,default_51,True,n_peaks=100 n_detections=95
+max_peaks_binds,report,343.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,343.tiff,0,hem_rect_fill_1um,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,343.tiff,1,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,343.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,343.tiff,1,hem_rect_fill_1um,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,343.tiff,2,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,343.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,343.tiff,2,hem_rect_fill_1um,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,344.tiff,0,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,344.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,344.tiff,0,hem_rect_fill_1um,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,344.tiff,1,default_51,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,344.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,344.tiff,1,hem_rect_fill_1um,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,344.tiff,2,default_51,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,344.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,344.tiff,2,hem_rect_fill_1um,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,201.tiff,0,default_51,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,201.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=97
+max_peaks_binds,report,201.tiff,0,hem_rect_fill_1um,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,201.tiff,1,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,201.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,201.tiff,1,hem_rect_fill_1um,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,201.tiff,2,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,201.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,201.tiff,2,hem_rect_fill_1um,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,233.tiff,0,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,233.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,233.tiff,0,hem_rect_fill_1um,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,233.tiff,1,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,233.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,233.tiff,1,hem_rect_fill_1um,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,233.tiff,2,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,233.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,233.tiff,2,hem_rect_fill_1um,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,211.tiff,0,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,211.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=100
+max_peaks_binds,report,211.tiff,0,hem_rect_fill_1um,True,n_peaks=100 n_detections=100
+max_peaks_binds,report,211.tiff,1,default_51,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,211.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,211.tiff,1,hem_rect_fill_1um,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,211.tiff,2,default_51,True,n_peaks=100 n_detections=100
+max_peaks_binds,report,211.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,211.tiff,2,hem_rect_fill_1um,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,220.tiff,0,default_51,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,220.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,220.tiff,0,hem_rect_fill_1um,True,n_peaks=100 n_detections=97
+max_peaks_binds,report,220.tiff,1,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,220.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,220.tiff,1,hem_rect_fill_1um,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,220.tiff,2,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,220.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,220.tiff,2,hem_rect_fill_1um,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,230.tiff,0,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,230.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,230.tiff,0,hem_rect_fill_1um,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,230.tiff,1,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,230.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,230.tiff,1,hem_rect_fill_1um,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,230.tiff,2,default_51,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,230.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,230.tiff,2,hem_rect_fill_1um,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,235.tiff,0,default_51,True,n_peaks=100 n_detections=97
+max_peaks_binds,report,235.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,235.tiff,0,hem_rect_fill_1um,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,235.tiff,1,default_51,True,n_peaks=100 n_detections=96
+max_peaks_binds,report,235.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,235.tiff,1,hem_rect_fill_1um,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,235.tiff,2,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,235.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,235.tiff,2,hem_rect_fill_1um,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,242.tiff,0,default_51,True,n_peaks=100 n_detections=97
+max_peaks_binds,report,242.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,242.tiff,0,hem_rect_fill_1um,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,242.tiff,1,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,242.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,242.tiff,1,hem_rect_fill_1um,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,242.tiff,2,default_51,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,242.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,242.tiff,2,hem_rect_fill_1um,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,245.tiff,0,default_51,True,n_peaks=100 n_detections=97
+max_peaks_binds,report,245.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=97
+max_peaks_binds,report,245.tiff,0,hem_rect_fill_1um,True,n_peaks=100 n_detections=96
+max_peaks_binds,report,245.tiff,1,default_51,True,n_peaks=100 n_detections=97
+max_peaks_binds,report,245.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=95
+max_peaks_binds,report,245.tiff,1,hem_rect_fill_1um,True,n_peaks=100 n_detections=94
+max_peaks_binds,report,245.tiff,2,default_51,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,245.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,245.tiff,2,hem_rect_fill_1um,True,n_peaks=100 n_detections=97
+max_peaks_binds,report,246.tiff,0,default_51,True,n_peaks=100 n_detections=97
+max_peaks_binds,report,246.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=96
+max_peaks_binds,report,246.tiff,0,hem_rect_fill_1um,True,n_peaks=100 n_detections=96
+max_peaks_binds,report,246.tiff,1,default_51,True,n_peaks=100 n_detections=97
+max_peaks_binds,report,246.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=96
+max_peaks_binds,report,246.tiff,1,hem_rect_fill_1um,True,n_peaks=100 n_detections=96
+max_peaks_binds,report,246.tiff,2,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,246.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,246.tiff,2,hem_rect_fill_1um,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,249.tiff,0,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,249.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,249.tiff,0,hem_rect_fill_1um,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,249.tiff,1,default_51,True,n_peaks=100 n_detections=96
+max_peaks_binds,report,249.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,249.tiff,1,hem_rect_fill_1um,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,249.tiff,2,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,249.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,249.tiff,2,hem_rect_fill_1um,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,284.tiff,0,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,284.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,284.tiff,0,hem_rect_fill_1um,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,284.tiff,1,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,284.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,284.tiff,1,hem_rect_fill_1um,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,284.tiff,2,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,284.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,284.tiff,2,hem_rect_fill_1um,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,289.tiff,0,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,289.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,289.tiff,0,hem_rect_fill_1um,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,289.tiff,1,default_51,True,n_peaks=100 n_detections=97
+max_peaks_binds,report,289.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,289.tiff,1,hem_rect_fill_1um,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,289.tiff,2,default_51,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,289.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,289.tiff,2,hem_rect_fill_1um,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,291.tiff,0,default_51,True,n_peaks=100 n_detections=81
+max_peaks_binds,report,291.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,291.tiff,0,hem_rect_fill_1um,True,n_peaks=100 n_detections=97
+max_peaks_binds,report,291.tiff,1,default_51,True,n_peaks=100 n_detections=96
+max_peaks_binds,report,291.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,291.tiff,1,hem_rect_fill_1um,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,291.tiff,2,default_51,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,291.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,291.tiff,2,hem_rect_fill_1um,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,293.tiff,0,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,293.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,293.tiff,0,hem_rect_fill_1um,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,293.tiff,1,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,293.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,293.tiff,1,hem_rect_fill_1um,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,293.tiff,2,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,293.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,293.tiff,2,hem_rect_fill_1um,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,459.tiff,0,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,459.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,459.tiff,0,hem_rect_fill_1um,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,459.tiff,1,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,459.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,459.tiff,1,hem_rect_fill_1um,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,459.tiff,2,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,459.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,459.tiff,2,hem_rect_fill_1um,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,460.tiff,0,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,460.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,460.tiff,0,hem_rect_fill_1um,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,460.tiff,1,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,460.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=97
+max_peaks_binds,report,460.tiff,1,hem_rect_fill_1um,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,460.tiff,2,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,460.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,460.tiff,2,hem_rect_fill_1um,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,410.tiff,0,default_51,True,n_peaks=100 n_detections=89
+max_peaks_binds,report,410.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,410.tiff,0,hem_rect_fill_1um,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,410.tiff,1,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,410.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,410.tiff,1,hem_rect_fill_1um,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,410.tiff,2,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,410.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,410.tiff,2,hem_rect_fill_1um,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,425.tiff,0,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,425.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,425.tiff,0,hem_rect_fill_1um,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,425.tiff,1,default_51,True,n_peaks=100 n_detections=96
+max_peaks_binds,report,425.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=96
+max_peaks_binds,report,425.tiff,1,hem_rect_fill_1um,True,n_peaks=100 n_detections=96
+max_peaks_binds,report,425.tiff,2,default_51,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,425.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,425.tiff,2,hem_rect_fill_1um,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,435.tiff,0,default_51,True,n_peaks=100 n_detections=96
+max_peaks_binds,report,435.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,435.tiff,0,hem_rect_fill_1um,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,435.tiff,1,default_51,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,435.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,435.tiff,1,hem_rect_fill_1um,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,435.tiff,2,default_51,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,435.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,435.tiff,2,hem_rect_fill_1um,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,462.tiff,0,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,462.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,462.tiff,0,hem_rect_fill_1um,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,462.tiff,1,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,462.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,462.tiff,1,hem_rect_fill_1um,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,462.tiff,2,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,462.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,462.tiff,2,hem_rect_fill_1um,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,499.tiff,0,default_51,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,499.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,499.tiff,0,hem_rect_fill_1um,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,499.tiff,1,default_51,True,n_peaks=100 n_detections=97
+max_peaks_binds,report,499.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,499.tiff,1,hem_rect_fill_1um,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,499.tiff,2,default_51,True,n_peaks=100 n_detections=95
+max_peaks_binds,report,499.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=95
+max_peaks_binds,report,499.tiff,2,hem_rect_fill_1um,True,n_peaks=100 n_detections=96
+max_peaks_binds,report,013.tiff,0,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,013.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,013.tiff,0,hem_rect_fill_1um,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,013.tiff,1,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,013.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,013.tiff,1,hem_rect_fill_1um,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,013.tiff,2,default_51,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,013.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,013.tiff,2,hem_rect_fill_1um,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,094.tiff,0,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,094.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,094.tiff,0,hem_rect_fill_1um,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,094.tiff,1,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,094.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,094.tiff,1,hem_rect_fill_1um,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,094.tiff,2,default_51,True,n_peaks=100 n_detections=95
+max_peaks_binds,report,094.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,094.tiff,2,hem_rect_fill_1um,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,007.tiff,0,default_51,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,007.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,007.tiff,0,hem_rect_fill_1um,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,007.tiff,1,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,007.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,007.tiff,1,hem_rect_fill_1um,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,007.tiff,2,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,007.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,007.tiff,2,hem_rect_fill_1um,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,072.tiff,0,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,072.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,072.tiff,0,hem_rect_fill_1um,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,072.tiff,1,default_51,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,072.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,072.tiff,1,hem_rect_fill_1um,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,072.tiff,2,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,072.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,072.tiff,2,hem_rect_fill_1um,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,100.tiff,0,default_51,True,n_peaks=100 n_detections=97
+max_peaks_binds,report,100.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=97
+max_peaks_binds,report,100.tiff,0,hem_rect_fill_1um,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,100.tiff,1,default_51,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,100.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,100.tiff,1,hem_rect_fill_1um,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,100.tiff,2,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,100.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,100.tiff,2,hem_rect_fill_1um,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,123.tiff,0,default_51,True,n_peaks=100 n_detections=94
+max_peaks_binds,report,123.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=93
+max_peaks_binds,report,123.tiff,0,hem_rect_fill_1um,True,n_peaks=100 n_detections=93
+max_peaks_binds,report,123.tiff,1,default_51,True,n_peaks=100 n_detections=97
+max_peaks_binds,report,123.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=97
+max_peaks_binds,report,123.tiff,1,hem_rect_fill_1um,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,123.tiff,2,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,123.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,123.tiff,2,hem_rect_fill_1um,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,128.tiff,0,default_51,True,n_peaks=100 n_detections=81
+max_peaks_binds,report,128.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=84
+max_peaks_binds,report,128.tiff,0,hem_rect_fill_1um,True,n_peaks=100 n_detections=82
+max_peaks_binds,report,128.tiff,1,default_51,True,n_peaks=100 n_detections=97
+max_peaks_binds,report,128.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=96
+max_peaks_binds,report,128.tiff,1,hem_rect_fill_1um,True,n_peaks=100 n_detections=96
+max_peaks_binds,report,128.tiff,2,default_51,True,n_peaks=100 n_detections=97
+max_peaks_binds,report,128.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=97
+max_peaks_binds,report,128.tiff,2,hem_rect_fill_1um,True,n_peaks=100 n_detections=97
+max_peaks_binds,report,529.tiff,0,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,529.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,529.tiff,0,hem_rect_fill_1um,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,529.tiff,1,default_51,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,529.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,529.tiff,1,hem_rect_fill_1um,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,529.tiff,2,default_51,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,529.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=94
+max_peaks_binds,report,529.tiff,2,hem_rect_fill_1um,True,n_peaks=100 n_detections=96
+max_peaks_binds,report,548.tiff,0,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,548.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,548.tiff,0,hem_rect_fill_1um,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,548.tiff,1,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,548.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,548.tiff,1,hem_rect_fill_1um,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,548.tiff,2,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,548.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,548.tiff,2,hem_rect_fill_1um,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,509.tiff,0,default_51,True,n_peaks=100 n_detections=94
+max_peaks_binds,report,509.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=95
+max_peaks_binds,report,509.tiff,0,hem_rect_fill_1um,True,n_peaks=100 n_detections=93
+max_peaks_binds,report,509.tiff,1,default_51,True,n_peaks=100 n_detections=86
+max_peaks_binds,report,509.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=86
+max_peaks_binds,report,509.tiff,1,hem_rect_fill_1um,True,n_peaks=100 n_detections=87
+max_peaks_binds,report,509.tiff,2,default_51,True,n_peaks=100 n_detections=91
+max_peaks_binds,report,509.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=88
+max_peaks_binds,report,509.tiff,2,hem_rect_fill_1um,True,n_peaks=100 n_detections=89
+max_peaks_binds,report,524.tiff,0,default_51,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,524.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=97
+max_peaks_binds,report,524.tiff,0,hem_rect_fill_1um,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,524.tiff,1,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,524.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,524.tiff,1,hem_rect_fill_1um,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,524.tiff,2,default_51,True,n_peaks=100 n_detections=95
+max_peaks_binds,report,524.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,524.tiff,2,hem_rect_fill_1um,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,527.tiff,0,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,527.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,527.tiff,0,hem_rect_fill_1um,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,527.tiff,1,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,527.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,527.tiff,1,hem_rect_fill_1um,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,527.tiff,2,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,527.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,527.tiff,2,hem_rect_fill_1um,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,546.tiff,0,default_51,True,n_peaks=100 n_detections=100
+max_peaks_binds,report,546.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=100
+max_peaks_binds,report,546.tiff,0,hem_rect_fill_1um,True,n_peaks=100 n_detections=100
+max_peaks_binds,report,546.tiff,1,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,546.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,546.tiff,1,hem_rect_fill_1um,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,546.tiff,2,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,546.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,546.tiff,2,hem_rect_fill_1um,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,549.tiff,0,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,549.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,549.tiff,0,hem_rect_fill_1um,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,549.tiff,1,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,549.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,549.tiff,1,hem_rect_fill_1um,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,549.tiff,2,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,549.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,549.tiff,2,hem_rect_fill_1um,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,402.tiff,0,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,402.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,402.tiff,0,hem_rect_fill_1um,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,402.tiff,1,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,402.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,402.tiff,1,hem_rect_fill_1um,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,402.tiff,2,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,402.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,402.tiff,2,hem_rect_fill_1um,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,403.tiff,0,default_51,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,403.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,403.tiff,0,hem_rect_fill_1um,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,403.tiff,1,default_51,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,403.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,403.tiff,1,hem_rect_fill_1um,True,n_peaks=100 n_detections=95
+max_peaks_binds,report,403.tiff,2,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,403.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,403.tiff,2,hem_rect_fill_1um,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,353.tiff,0,default_51,True,n_peaks=100 n_detections=94
+max_peaks_binds,report,353.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=94
+max_peaks_binds,report,353.tiff,0,hem_rect_fill_1um,True,n_peaks=100 n_detections=94
+max_peaks_binds,report,353.tiff,1,default_51,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,353.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,353.tiff,1,hem_rect_fill_1um,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,353.tiff,2,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,353.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,353.tiff,2,hem_rect_fill_1um,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,364.tiff,0,default_51,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,364.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,364.tiff,0,hem_rect_fill_1um,True,n_peaks=100 n_detections=97
+max_peaks_binds,report,364.tiff,1,default_51,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,364.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,364.tiff,1,hem_rect_fill_1um,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,364.tiff,2,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,364.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=97
+max_peaks_binds,report,364.tiff,2,hem_rect_fill_1um,True,n_peaks=100 n_detections=96
+max_peaks_binds,report,400.tiff,0,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,400.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,400.tiff,0,hem_rect_fill_1um,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,400.tiff,1,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,400.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,400.tiff,1,hem_rect_fill_1um,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,400.tiff,2,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,400.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,400.tiff,2,hem_rect_fill_1um,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,401.tiff,0,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,401.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,401.tiff,0,hem_rect_fill_1um,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,401.tiff,1,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,401.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,401.tiff,1,hem_rect_fill_1um,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,401.tiff,2,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,401.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,401.tiff,2,hem_rect_fill_1um,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,404.tiff,0,default_51,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,404.tiff,0,hem_rect_fill,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,404.tiff,0,hem_rect_fill_1um,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,404.tiff,1,default_51,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,404.tiff,1,hem_rect_fill,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,404.tiff,1,hem_rect_fill_1um,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,404.tiff,2,default_51,True,n_peaks=100 n_detections=99
+max_peaks_binds,report,404.tiff,2,hem_rect_fill,True,n_peaks=100 n_detections=98
+max_peaks_binds,report,404.tiff,2,hem_rect_fill_1um,True,n_peaks=100 n_detections=99
+seed_annulus_empty,report,300.tiff,0,default_51,True,
+seed_annulus_empty,report,300.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,300.tiff,0,hem_rect_fill_1um,True,
+seed_annulus_empty,report,300.tiff,1,default_51,True,
+seed_annulus_empty,report,300.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,300.tiff,1,hem_rect_fill_1um,True,
+seed_annulus_empty,report,300.tiff,2,default_51,True,
+seed_annulus_empty,report,300.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,300.tiff,2,hem_rect_fill_1um,True,
+seed_annulus_empty,report,301.tiff,0,default_51,True,
+seed_annulus_empty,report,301.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,301.tiff,0,hem_rect_fill_1um,True,
+seed_annulus_empty,report,301.tiff,1,default_51,True,
+seed_annulus_empty,report,301.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,301.tiff,1,hem_rect_fill_1um,True,
+seed_annulus_empty,report,301.tiff,2,default_51,True,
+seed_annulus_empty,report,301.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,301.tiff,2,hem_rect_fill_1um,True,
+seed_annulus_empty,report,322.tiff,0,default_51,True,
+seed_annulus_empty,report,322.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,322.tiff,0,hem_rect_fill_1um,True,
+seed_annulus_empty,report,322.tiff,1,default_51,True,
+seed_annulus_empty,report,322.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,322.tiff,1,hem_rect_fill_1um,True,
+seed_annulus_empty,report,322.tiff,2,default_51,True,
+seed_annulus_empty,report,322.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,322.tiff,2,hem_rect_fill_1um,True,
+seed_annulus_empty,report,337.tiff,0,default_51,True,
+seed_annulus_empty,report,337.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,337.tiff,0,hem_rect_fill_1um,True,
+seed_annulus_empty,report,337.tiff,1,default_51,True,
+seed_annulus_empty,report,337.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,337.tiff,1,hem_rect_fill_1um,True,
+seed_annulus_empty,report,337.tiff,2,default_51,True,
+seed_annulus_empty,report,337.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,337.tiff,2,hem_rect_fill_1um,True,
+seed_annulus_empty,report,339.tiff,0,default_51,True,
+seed_annulus_empty,report,339.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,339.tiff,0,hem_rect_fill_1um,True,
+seed_annulus_empty,report,339.tiff,1,default_51,True,
+seed_annulus_empty,report,339.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,339.tiff,1,hem_rect_fill_1um,True,
+seed_annulus_empty,report,339.tiff,2,default_51,True,
+seed_annulus_empty,report,339.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,339.tiff,2,hem_rect_fill_1um,True,
+seed_annulus_empty,report,343.tiff,0,default_51,True,
+seed_annulus_empty,report,343.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,343.tiff,0,hem_rect_fill_1um,True,
+seed_annulus_empty,report,343.tiff,1,default_51,True,
+seed_annulus_empty,report,343.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,343.tiff,1,hem_rect_fill_1um,True,
+seed_annulus_empty,report,343.tiff,2,default_51,True,
+seed_annulus_empty,report,343.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,343.tiff,2,hem_rect_fill_1um,True,
+seed_annulus_empty,report,344.tiff,0,default_51,True,
+seed_annulus_empty,report,344.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,344.tiff,0,hem_rect_fill_1um,True,
+seed_annulus_empty,report,344.tiff,1,default_51,True,
+seed_annulus_empty,report,344.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,344.tiff,1,hem_rect_fill_1um,True,
+seed_annulus_empty,report,344.tiff,2,default_51,True,
+seed_annulus_empty,report,344.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,344.tiff,2,hem_rect_fill_1um,True,
+seed_annulus_empty,report,201.tiff,0,default_51,True,
+seed_annulus_empty,report,201.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,201.tiff,0,hem_rect_fill_1um,True,
+seed_annulus_empty,report,201.tiff,1,default_51,True,
+seed_annulus_empty,report,201.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,201.tiff,1,hem_rect_fill_1um,True,
+seed_annulus_empty,report,201.tiff,2,default_51,True,
+seed_annulus_empty,report,201.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,201.tiff,2,hem_rect_fill_1um,True,
+seed_annulus_empty,report,233.tiff,0,default_51,True,
+seed_annulus_empty,report,233.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,233.tiff,0,hem_rect_fill_1um,True,
+seed_annulus_empty,report,233.tiff,1,default_51,True,
+seed_annulus_empty,report,233.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,233.tiff,1,hem_rect_fill_1um,True,
+seed_annulus_empty,report,233.tiff,2,default_51,True,
+seed_annulus_empty,report,233.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,233.tiff,2,hem_rect_fill_1um,True,
+seed_annulus_empty,report,211.tiff,0,default_51,True,
+seed_annulus_empty,report,211.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,211.tiff,0,hem_rect_fill_1um,True,
+seed_annulus_empty,report,211.tiff,1,default_51,True,
+seed_annulus_empty,report,211.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,211.tiff,1,hem_rect_fill_1um,True,
+seed_annulus_empty,report,211.tiff,2,default_51,True,
+seed_annulus_empty,report,211.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,211.tiff,2,hem_rect_fill_1um,True,
+seed_annulus_empty,report,220.tiff,0,default_51,True,
+seed_annulus_empty,report,220.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,220.tiff,0,hem_rect_fill_1um,True,
+seed_annulus_empty,report,220.tiff,1,default_51,True,
+seed_annulus_empty,report,220.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,220.tiff,1,hem_rect_fill_1um,True,
+seed_annulus_empty,report,220.tiff,2,default_51,True,
+seed_annulus_empty,report,220.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,220.tiff,2,hem_rect_fill_1um,True,
+seed_annulus_empty,report,230.tiff,0,default_51,True,
+seed_annulus_empty,report,230.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,230.tiff,0,hem_rect_fill_1um,True,
+seed_annulus_empty,report,230.tiff,1,default_51,True,
+seed_annulus_empty,report,230.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,230.tiff,1,hem_rect_fill_1um,True,
+seed_annulus_empty,report,230.tiff,2,default_51,True,
+seed_annulus_empty,report,230.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,230.tiff,2,hem_rect_fill_1um,True,
+seed_annulus_empty,report,235.tiff,0,default_51,True,
+seed_annulus_empty,report,235.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,235.tiff,0,hem_rect_fill_1um,True,
+seed_annulus_empty,report,235.tiff,1,default_51,True,
+seed_annulus_empty,report,235.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,235.tiff,1,hem_rect_fill_1um,True,
+seed_annulus_empty,report,235.tiff,2,default_51,True,
+seed_annulus_empty,report,235.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,235.tiff,2,hem_rect_fill_1um,True,
+seed_annulus_empty,report,242.tiff,0,default_51,True,
+seed_annulus_empty,report,242.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,242.tiff,0,hem_rect_fill_1um,True,
+seed_annulus_empty,report,242.tiff,1,default_51,True,
+seed_annulus_empty,report,242.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,242.tiff,1,hem_rect_fill_1um,True,
+seed_annulus_empty,report,242.tiff,2,default_51,True,
+seed_annulus_empty,report,242.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,242.tiff,2,hem_rect_fill_1um,True,
+seed_annulus_empty,report,245.tiff,0,default_51,True,
+seed_annulus_empty,report,245.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,245.tiff,0,hem_rect_fill_1um,True,
+seed_annulus_empty,report,245.tiff,1,default_51,True,
+seed_annulus_empty,report,245.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,245.tiff,1,hem_rect_fill_1um,True,
+seed_annulus_empty,report,245.tiff,2,default_51,True,
+seed_annulus_empty,report,245.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,245.tiff,2,hem_rect_fill_1um,True,
+seed_annulus_empty,report,246.tiff,0,default_51,True,
+seed_annulus_empty,report,246.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,246.tiff,0,hem_rect_fill_1um,True,
+seed_annulus_empty,report,246.tiff,1,default_51,True,
+seed_annulus_empty,report,246.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,246.tiff,1,hem_rect_fill_1um,True,
+seed_annulus_empty,report,246.tiff,2,default_51,True,
+seed_annulus_empty,report,246.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,246.tiff,2,hem_rect_fill_1um,True,
+seed_annulus_empty,report,249.tiff,0,default_51,True,
+seed_annulus_empty,report,249.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,249.tiff,0,hem_rect_fill_1um,True,
+seed_annulus_empty,report,249.tiff,1,default_51,True,
+seed_annulus_empty,report,249.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,249.tiff,1,hem_rect_fill_1um,True,
+seed_annulus_empty,report,249.tiff,2,default_51,True,
+seed_annulus_empty,report,249.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,249.tiff,2,hem_rect_fill_1um,True,
+seed_annulus_empty,report,284.tiff,0,default_51,True,
+seed_annulus_empty,report,284.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,284.tiff,0,hem_rect_fill_1um,True,
+seed_annulus_empty,report,284.tiff,1,default_51,True,
+seed_annulus_empty,report,284.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,284.tiff,1,hem_rect_fill_1um,True,
+seed_annulus_empty,report,284.tiff,2,default_51,True,
+seed_annulus_empty,report,284.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,284.tiff,2,hem_rect_fill_1um,True,
+seed_annulus_empty,report,289.tiff,0,default_51,True,
+seed_annulus_empty,report,289.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,289.tiff,0,hem_rect_fill_1um,True,
+seed_annulus_empty,report,289.tiff,1,default_51,True,
+seed_annulus_empty,report,289.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,289.tiff,1,hem_rect_fill_1um,True,
+seed_annulus_empty,report,289.tiff,2,default_51,True,
+seed_annulus_empty,report,289.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,289.tiff,2,hem_rect_fill_1um,True,
+seed_annulus_empty,report,291.tiff,0,default_51,True,
+seed_annulus_empty,report,291.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,291.tiff,0,hem_rect_fill_1um,True,
+seed_annulus_empty,report,291.tiff,1,default_51,True,
+seed_annulus_empty,report,291.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,291.tiff,1,hem_rect_fill_1um,True,
+seed_annulus_empty,report,291.tiff,2,default_51,True,
+seed_annulus_empty,report,291.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,291.tiff,2,hem_rect_fill_1um,True,
+seed_annulus_empty,report,293.tiff,0,default_51,True,
+seed_annulus_empty,report,293.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,293.tiff,0,hem_rect_fill_1um,True,
+seed_annulus_empty,report,293.tiff,1,default_51,True,
+seed_annulus_empty,report,293.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,293.tiff,1,hem_rect_fill_1um,True,
+seed_annulus_empty,report,293.tiff,2,default_51,True,
+seed_annulus_empty,report,293.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,293.tiff,2,hem_rect_fill_1um,True,
+seed_annulus_empty,report,459.tiff,0,default_51,True,
+seed_annulus_empty,report,459.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,459.tiff,0,hem_rect_fill_1um,True,
+seed_annulus_empty,report,459.tiff,1,default_51,True,
+seed_annulus_empty,report,459.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,459.tiff,1,hem_rect_fill_1um,True,
+seed_annulus_empty,report,459.tiff,2,default_51,True,
+seed_annulus_empty,report,459.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,459.tiff,2,hem_rect_fill_1um,True,
+seed_annulus_empty,report,460.tiff,0,default_51,True,
+seed_annulus_empty,report,460.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,460.tiff,0,hem_rect_fill_1um,True,
+seed_annulus_empty,report,460.tiff,1,default_51,True,
+seed_annulus_empty,report,460.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,460.tiff,1,hem_rect_fill_1um,True,
+seed_annulus_empty,report,460.tiff,2,default_51,True,
+seed_annulus_empty,report,460.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,460.tiff,2,hem_rect_fill_1um,True,
+seed_annulus_empty,report,410.tiff,0,default_51,True,
+seed_annulus_empty,report,410.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,410.tiff,0,hem_rect_fill_1um,True,
+seed_annulus_empty,report,410.tiff,1,default_51,True,
+seed_annulus_empty,report,410.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,410.tiff,1,hem_rect_fill_1um,True,
+seed_annulus_empty,report,410.tiff,2,default_51,True,
+seed_annulus_empty,report,410.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,410.tiff,2,hem_rect_fill_1um,True,
+seed_annulus_empty,report,425.tiff,0,default_51,True,
+seed_annulus_empty,report,425.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,425.tiff,0,hem_rect_fill_1um,True,
+seed_annulus_empty,report,425.tiff,1,default_51,True,
+seed_annulus_empty,report,425.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,425.tiff,1,hem_rect_fill_1um,True,
+seed_annulus_empty,report,425.tiff,2,default_51,True,
+seed_annulus_empty,report,425.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,425.tiff,2,hem_rect_fill_1um,True,
+seed_annulus_empty,report,435.tiff,0,default_51,True,
+seed_annulus_empty,report,435.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,435.tiff,0,hem_rect_fill_1um,True,
+seed_annulus_empty,report,435.tiff,1,default_51,True,
+seed_annulus_empty,report,435.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,435.tiff,1,hem_rect_fill_1um,True,
+seed_annulus_empty,report,435.tiff,2,default_51,True,
+seed_annulus_empty,report,435.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,435.tiff,2,hem_rect_fill_1um,True,
+seed_annulus_empty,report,462.tiff,0,default_51,True,
+seed_annulus_empty,report,462.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,462.tiff,0,hem_rect_fill_1um,True,
+seed_annulus_empty,report,462.tiff,1,default_51,True,
+seed_annulus_empty,report,462.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,462.tiff,1,hem_rect_fill_1um,True,
+seed_annulus_empty,report,462.tiff,2,default_51,True,
+seed_annulus_empty,report,462.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,462.tiff,2,hem_rect_fill_1um,True,
+seed_annulus_empty,report,499.tiff,0,default_51,True,
+seed_annulus_empty,report,499.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,499.tiff,0,hem_rect_fill_1um,True,
+seed_annulus_empty,report,499.tiff,1,default_51,True,
+seed_annulus_empty,report,499.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,499.tiff,1,hem_rect_fill_1um,True,
+seed_annulus_empty,report,499.tiff,2,default_51,True,
+seed_annulus_empty,report,499.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,499.tiff,2,hem_rect_fill_1um,True,
+seed_annulus_empty,report,013.tiff,0,default_51,True,
+seed_annulus_empty,report,013.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,013.tiff,0,hem_rect_fill_1um,True,
+seed_annulus_empty,report,013.tiff,1,default_51,True,
+seed_annulus_empty,report,013.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,013.tiff,1,hem_rect_fill_1um,True,
+seed_annulus_empty,report,013.tiff,2,default_51,True,
+seed_annulus_empty,report,013.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,013.tiff,2,hem_rect_fill_1um,True,
+seed_annulus_empty,report,094.tiff,0,default_51,True,
+seed_annulus_empty,report,094.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,094.tiff,0,hem_rect_fill_1um,True,
+seed_annulus_empty,report,094.tiff,1,default_51,True,
+seed_annulus_empty,report,094.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,094.tiff,1,hem_rect_fill_1um,True,
+seed_annulus_empty,report,094.tiff,2,default_51,True,
+seed_annulus_empty,report,094.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,094.tiff,2,hem_rect_fill_1um,True,
+seed_annulus_empty,report,007.tiff,0,default_51,True,
+seed_annulus_empty,report,007.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,007.tiff,0,hem_rect_fill_1um,True,
+seed_annulus_empty,report,007.tiff,1,default_51,True,
+seed_annulus_empty,report,007.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,007.tiff,1,hem_rect_fill_1um,True,
+seed_annulus_empty,report,007.tiff,2,default_51,True,
+seed_annulus_empty,report,007.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,007.tiff,2,hem_rect_fill_1um,True,
+seed_annulus_empty,report,072.tiff,0,default_51,True,
+seed_annulus_empty,report,072.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,072.tiff,0,hem_rect_fill_1um,True,
+seed_annulus_empty,report,072.tiff,1,default_51,True,
+seed_annulus_empty,report,072.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,072.tiff,1,hem_rect_fill_1um,True,
+seed_annulus_empty,report,072.tiff,2,default_51,True,
+seed_annulus_empty,report,072.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,072.tiff,2,hem_rect_fill_1um,True,
+seed_annulus_empty,report,100.tiff,0,default_51,True,
+seed_annulus_empty,report,100.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,100.tiff,0,hem_rect_fill_1um,True,
+seed_annulus_empty,report,100.tiff,1,default_51,True,
+seed_annulus_empty,report,100.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,100.tiff,1,hem_rect_fill_1um,True,
+seed_annulus_empty,report,100.tiff,2,default_51,True,
+seed_annulus_empty,report,100.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,100.tiff,2,hem_rect_fill_1um,True,
+seed_annulus_empty,report,123.tiff,0,default_51,True,
+seed_annulus_empty,report,123.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,123.tiff,0,hem_rect_fill_1um,True,
+seed_annulus_empty,report,123.tiff,1,default_51,True,
+seed_annulus_empty,report,123.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,123.tiff,1,hem_rect_fill_1um,True,
+seed_annulus_empty,report,123.tiff,2,default_51,True,
+seed_annulus_empty,report,123.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,123.tiff,2,hem_rect_fill_1um,True,
+seed_annulus_empty,report,128.tiff,0,default_51,True,
+seed_annulus_empty,report,128.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,128.tiff,0,hem_rect_fill_1um,True,
+seed_annulus_empty,report,128.tiff,1,default_51,True,
+seed_annulus_empty,report,128.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,128.tiff,1,hem_rect_fill_1um,True,
+seed_annulus_empty,report,128.tiff,2,default_51,True,
+seed_annulus_empty,report,128.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,128.tiff,2,hem_rect_fill_1um,True,
+seed_annulus_empty,report,529.tiff,0,default_51,True,
+seed_annulus_empty,report,529.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,529.tiff,0,hem_rect_fill_1um,True,
+seed_annulus_empty,report,529.tiff,1,default_51,True,
+seed_annulus_empty,report,529.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,529.tiff,1,hem_rect_fill_1um,True,
+seed_annulus_empty,report,529.tiff,2,default_51,True,
+seed_annulus_empty,report,529.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,529.tiff,2,hem_rect_fill_1um,True,
+seed_annulus_empty,report,548.tiff,0,default_51,True,
+seed_annulus_empty,report,548.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,548.tiff,0,hem_rect_fill_1um,True,
+seed_annulus_empty,report,548.tiff,1,default_51,True,
+seed_annulus_empty,report,548.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,548.tiff,1,hem_rect_fill_1um,True,
+seed_annulus_empty,report,548.tiff,2,default_51,True,
+seed_annulus_empty,report,548.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,548.tiff,2,hem_rect_fill_1um,True,
+seed_annulus_empty,report,509.tiff,0,default_51,True,
+seed_annulus_empty,report,509.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,509.tiff,0,hem_rect_fill_1um,True,
+seed_annulus_empty,report,509.tiff,1,default_51,True,
+seed_annulus_empty,report,509.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,509.tiff,1,hem_rect_fill_1um,True,
+seed_annulus_empty,report,509.tiff,2,default_51,True,
+seed_annulus_empty,report,509.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,509.tiff,2,hem_rect_fill_1um,True,
+seed_annulus_empty,report,524.tiff,0,default_51,True,
+seed_annulus_empty,report,524.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,524.tiff,0,hem_rect_fill_1um,True,
+seed_annulus_empty,report,524.tiff,1,default_51,True,
+seed_annulus_empty,report,524.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,524.tiff,1,hem_rect_fill_1um,True,
+seed_annulus_empty,report,524.tiff,2,default_51,True,
+seed_annulus_empty,report,524.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,524.tiff,2,hem_rect_fill_1um,True,
+seed_annulus_empty,report,527.tiff,0,default_51,True,
+seed_annulus_empty,report,527.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,527.tiff,0,hem_rect_fill_1um,True,
+seed_annulus_empty,report,527.tiff,1,default_51,True,
+seed_annulus_empty,report,527.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,527.tiff,1,hem_rect_fill_1um,True,
+seed_annulus_empty,report,527.tiff,2,default_51,True,
+seed_annulus_empty,report,527.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,527.tiff,2,hem_rect_fill_1um,True,
+seed_annulus_empty,report,546.tiff,0,default_51,True,
+seed_annulus_empty,report,546.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,546.tiff,0,hem_rect_fill_1um,True,
+seed_annulus_empty,report,546.tiff,1,default_51,True,
+seed_annulus_empty,report,546.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,546.tiff,1,hem_rect_fill_1um,True,
+seed_annulus_empty,report,546.tiff,2,default_51,True,
+seed_annulus_empty,report,546.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,546.tiff,2,hem_rect_fill_1um,True,
+seed_annulus_empty,report,549.tiff,0,default_51,True,
+seed_annulus_empty,report,549.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,549.tiff,0,hem_rect_fill_1um,True,
+seed_annulus_empty,report,549.tiff,1,default_51,True,
+seed_annulus_empty,report,549.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,549.tiff,1,hem_rect_fill_1um,True,
+seed_annulus_empty,report,549.tiff,2,default_51,True,
+seed_annulus_empty,report,549.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,549.tiff,2,hem_rect_fill_1um,True,
+seed_annulus_empty,report,402.tiff,0,default_51,True,
+seed_annulus_empty,report,402.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,402.tiff,0,hem_rect_fill_1um,True,
+seed_annulus_empty,report,402.tiff,1,default_51,True,
+seed_annulus_empty,report,402.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,402.tiff,1,hem_rect_fill_1um,True,
+seed_annulus_empty,report,402.tiff,2,default_51,True,
+seed_annulus_empty,report,402.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,402.tiff,2,hem_rect_fill_1um,True,
+seed_annulus_empty,report,403.tiff,0,default_51,True,
+seed_annulus_empty,report,403.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,403.tiff,0,hem_rect_fill_1um,True,
+seed_annulus_empty,report,403.tiff,1,default_51,True,
+seed_annulus_empty,report,403.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,403.tiff,1,hem_rect_fill_1um,True,
+seed_annulus_empty,report,403.tiff,2,default_51,True,
+seed_annulus_empty,report,403.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,403.tiff,2,hem_rect_fill_1um,True,
+seed_annulus_empty,report,353.tiff,0,default_51,True,
+seed_annulus_empty,report,353.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,353.tiff,0,hem_rect_fill_1um,True,
+seed_annulus_empty,report,353.tiff,1,default_51,True,
+seed_annulus_empty,report,353.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,353.tiff,1,hem_rect_fill_1um,True,
+seed_annulus_empty,report,353.tiff,2,default_51,True,
+seed_annulus_empty,report,353.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,353.tiff,2,hem_rect_fill_1um,True,
+seed_annulus_empty,report,364.tiff,0,default_51,True,
+seed_annulus_empty,report,364.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,364.tiff,0,hem_rect_fill_1um,True,
+seed_annulus_empty,report,364.tiff,1,default_51,True,
+seed_annulus_empty,report,364.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,364.tiff,1,hem_rect_fill_1um,True,
+seed_annulus_empty,report,364.tiff,2,default_51,True,
+seed_annulus_empty,report,364.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,364.tiff,2,hem_rect_fill_1um,True,
+seed_annulus_empty,report,400.tiff,0,default_51,True,
+seed_annulus_empty,report,400.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,400.tiff,0,hem_rect_fill_1um,True,
+seed_annulus_empty,report,400.tiff,1,default_51,True,
+seed_annulus_empty,report,400.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,400.tiff,1,hem_rect_fill_1um,True,
+seed_annulus_empty,report,400.tiff,2,default_51,True,
+seed_annulus_empty,report,400.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,400.tiff,2,hem_rect_fill_1um,True,
+seed_annulus_empty,report,401.tiff,0,default_51,True,
+seed_annulus_empty,report,401.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,401.tiff,0,hem_rect_fill_1um,True,
+seed_annulus_empty,report,401.tiff,1,default_51,True,
+seed_annulus_empty,report,401.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,401.tiff,1,hem_rect_fill_1um,True,
+seed_annulus_empty,report,401.tiff,2,default_51,True,
+seed_annulus_empty,report,401.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,401.tiff,2,hem_rect_fill_1um,True,
+seed_annulus_empty,report,404.tiff,0,default_51,True,
+seed_annulus_empty,report,404.tiff,0,hem_rect_fill,True,
+seed_annulus_empty,report,404.tiff,0,hem_rect_fill_1um,True,
+seed_annulus_empty,report,404.tiff,1,default_51,True,
+seed_annulus_empty,report,404.tiff,1,hem_rect_fill,True,
+seed_annulus_empty,report,404.tiff,1,hem_rect_fill_1um,True,
+seed_annulus_empty,report,404.tiff,2,default_51,True,
+seed_annulus_empty,report,404.tiff,2,hem_rect_fill,True,
+seed_annulus_empty,report,404.tiff,2,hem_rect_fill_1um,True,
+n_self_hits_value_counts,report,ALL,ALL,default_51,,"{0: 2, 1: 145}"
+n_self_hits_value_counts,report,ALL,ALL,hem_rect_fill,,"{0: 11, 1: 136}"
+n_self_hits_value_counts,report,ALL,ALL,hem_rect_fill_1um,,"{0: 6, 1: 141}"
+margin_all_edges_grow_full,report,300.tiff,0,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,300.tiff,1,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,300.tiff,2,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,301.tiff,0,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,301.tiff,1,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,301.tiff,2,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,322.tiff,0,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,322.tiff,1,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,322.tiff,2,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,337.tiff,0,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,337.tiff,1,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,337.tiff,2,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,339.tiff,0,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,339.tiff,1,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,339.tiff,2,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,343.tiff,0,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,343.tiff,1,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,343.tiff,2,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,344.tiff,0,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,344.tiff,1,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,344.tiff,2,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,201.tiff,0,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,201.tiff,1,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,201.tiff,2,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,233.tiff,0,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,233.tiff,1,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,233.tiff,2,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,211.tiff,0,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,211.tiff,1,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,211.tiff,2,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,220.tiff,0,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,220.tiff,1,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,220.tiff,2,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,230.tiff,0,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,230.tiff,1,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,230.tiff,2,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,235.tiff,0,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,235.tiff,1,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,235.tiff,2,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,242.tiff,0,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,242.tiff,1,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,242.tiff,2,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,245.tiff,0,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,245.tiff,1,ALL,False,"grow=(0, 4, 0, 4)"
+margin_all_edges_grow_full,report,245.tiff,2,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,246.tiff,0,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,246.tiff,1,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,246.tiff,2,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,249.tiff,0,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,249.tiff,1,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,249.tiff,2,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,284.tiff,0,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,284.tiff,1,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,284.tiff,2,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,289.tiff,0,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,289.tiff,1,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,289.tiff,2,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,291.tiff,0,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,291.tiff,1,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,291.tiff,2,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,293.tiff,0,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,293.tiff,1,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,293.tiff,2,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,459.tiff,0,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,459.tiff,1,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,459.tiff,2,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,460.tiff,0,ALL,False,"grow=(3, 4, 4, 4)"
+margin_all_edges_grow_full,report,460.tiff,1,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,460.tiff,2,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,410.tiff,0,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,410.tiff,1,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,410.tiff,2,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,425.tiff,0,ALL,False,"grow=(4, 4, 0, 4)"
+margin_all_edges_grow_full,report,425.tiff,1,ALL,False,"grow=(4, 1, 0, 1)"
+margin_all_edges_grow_full,report,425.tiff,2,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,435.tiff,0,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,435.tiff,1,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,435.tiff,2,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,462.tiff,0,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,462.tiff,1,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,462.tiff,2,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,499.tiff,0,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,499.tiff,1,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,499.tiff,2,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,013.tiff,0,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,013.tiff,1,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,013.tiff,2,ALL,False,"grow=(4, 4, 3, 4)"
+margin_all_edges_grow_full,report,094.tiff,0,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,094.tiff,1,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,094.tiff,2,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,007.tiff,0,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,007.tiff,1,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,007.tiff,2,ALL,False,"grow=(3, 4, 4, 4)"
+margin_all_edges_grow_full,report,072.tiff,0,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,072.tiff,1,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,072.tiff,2,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,100.tiff,0,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,100.tiff,1,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,100.tiff,2,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,123.tiff,0,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,123.tiff,1,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,123.tiff,2,ALL,False,"grow=(0, 4, 4, 4)"
+margin_all_edges_grow_full,report,128.tiff,0,ALL,False,"grow=(4, 4, 2, 0)"
+margin_all_edges_grow_full,report,128.tiff,1,ALL,False,"grow=(4, 4, 3, 4)"
+margin_all_edges_grow_full,report,128.tiff,2,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,529.tiff,0,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,529.tiff,1,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,529.tiff,2,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,548.tiff,0,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,548.tiff,1,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,548.tiff,2,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,509.tiff,0,ALL,False,"grow=(3, 4, 3, 3)"
+margin_all_edges_grow_full,report,509.tiff,1,ALL,False,"grow=(0, 0, 4, 4)"
+margin_all_edges_grow_full,report,509.tiff,2,ALL,False,"grow=(4, 4, 0, 0)"
+margin_all_edges_grow_full,report,524.tiff,0,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,524.tiff,1,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,524.tiff,2,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,527.tiff,0,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,527.tiff,1,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,527.tiff,2,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,546.tiff,0,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,546.tiff,1,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,546.tiff,2,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,549.tiff,0,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,549.tiff,1,ALL,False,"grow=(4, 4, 1, 4)"
+margin_all_edges_grow_full,report,549.tiff,2,ALL,False,"grow=(4, 4, 0, 4)"
+margin_all_edges_grow_full,report,402.tiff,0,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,402.tiff,1,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,402.tiff,2,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,403.tiff,0,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,403.tiff,1,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,403.tiff,2,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,353.tiff,0,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,353.tiff,1,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,353.tiff,2,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,364.tiff,0,ALL,False,"grow=(0, 4, 4, 4)"
+margin_all_edges_grow_full,report,364.tiff,1,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,364.tiff,2,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,400.tiff,0,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,400.tiff,1,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,400.tiff,2,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,401.tiff,0,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,401.tiff,1,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,401.tiff,2,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,404.tiff,0,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,404.tiff,1,ALL,True,"grow=(4, 4, 4, 4)"
+margin_all_edges_grow_full,report,404.tiff,2,ALL,True,"grow=(4, 4, 4, 4)"
+od_bit_exact_vs_recorded,report,ALL,ALL,default_51,True,4410/4410 top-30 od values bit-exact
+od_bit_exact_vs_recorded,report,ALL,ALL,hem_rect_fill,True,4410/4410 top-30 od values bit-exact
