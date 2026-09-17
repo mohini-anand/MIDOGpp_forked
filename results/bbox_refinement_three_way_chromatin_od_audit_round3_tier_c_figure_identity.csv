@@ -1,0 +1,4 @@
+figure,shape,pixel_identical
+bbox3way_pooled_precision.png,"(618, 1113, 4)",True
+bbox3way_roi_delta_heatmap.png,"(892, 1947, 4)",True
+bbox3way_win_counts.png,"(567, 1880, 4)",True

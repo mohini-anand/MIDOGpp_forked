@@ -1,0 +1,18 @@
+check,expected,observed,passed
+ROIs on disk,14,14,True
+per_roi rows (14 x 3),42,42,True
+"per_roi unique (file, condition)",42,42,True
+top30 rows (42 x 30),1260,1260,True
+"top30 unique (file, condition, rank)",1260,1260,True
+top30 ranks are 0..29 in each run,42,42,True
+top30 row order == rank order in each run,42,42,True
+summary rows (3 x 3),9,9,True
+by_domain rows (7 x 3 x 3),63,63,True
+delta_per_roi rows (14 x 3 x 3),126,126,True
+delta_stats rows (3 x 3),9,9,True
+verification rows (5x42 + 14 + 14 + 28 + 1),267,267,True
+verification all passed,267,267,True
+domains in JSON for the 14 ROIs,7,7,True
+min ROIs per domain,2,2,True
+max ROIs per domain,2,2,True
+"all 26,286 JSON boxes 50x50",26286,26286,True

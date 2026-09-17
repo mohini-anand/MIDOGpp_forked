@@ -1,0 +1,51 @@
+token,resolves
+013.tiff,file exists
+201.tiff,file exists
+245.tiff,file exists
+403.tiff,file exists
+529.tiff,file exists
+DECISIONS.md,file exists
+FSConfig.base_size,"defined/used in midog_utils/find_and_suppress.py,midog_utils/production.py,midog_utils/seed_selection.py"
+PRODUCTION_PIPELINE_CLEANUP.md,file exists
+Research Logs/2026-09-16-bbox-refinement-three-way-chromatin-od-audit.md,file exists
+agreement_pool,defined/used in midog_utils/seed_selection.py
+all_mitoses,notebook code
+base_size,"defined/used in midog_utils/find_and_suppress.py,midog_utils/production.py,midog_utils/seed_selection.py"
+border_filter,defined/used in midog_utils/seed_selection.py
+build_seed,"defined/used in midog_utils/production.py,midog_utils/seed_selection.py,production_pipeline/run_pipeline.py"
+check_nms_radius,"defined/used in midog_utils/invariants.py,midog_utils/production.py"
+chromatin_od,"defined/used in midog_utils/chromatin.py,midog_utils/production.py,production_pipeline/run_pipeline.py"
+contested_as_fp,notebook code
+contested_excluded,notebook code
+dataset.check_invariants,notebook code
+default_51,notebook code
+evaluate.bucket_detections,"defined/used in midog_utils/evaluate.py,production_pipeline/run_pipeline.py"
+evaluate.radius_px,"defined/used in midog_utils/evaluate.py,midog_utils/find_and_suppress.py,midog_utils/invariants.py"
+gray_at_ceiling,notebook code
+gray_bbox,notebook code
+gray_inverted,"defined/used in midog_utils/channels.py,midog_utils/seed_selection.py,production_pipeline/run_pipeline.py"
+gt_eval,"defined/used in midog_utils/evaluate.py,production_pipeline/run_pipeline.py"
+hem_bbox,notebook code
+hematoxylin_od,"defined/used in midog_utils/channels.py,midog_utils/chromatin.py,midog_utils/production.py"
+holm_p,notebook CSV column
+human_correct_label,defined/used in midog_utils/evaluate.py
+midog_utils,"defined/used in midog_utils/find_and_suppress.py,production_pipeline/run_pipeline.py"
+min_attainable_p,notebook CSV column
+n_gt_mitotic,defined/used in midog_utils/evaluate.py
+n_roi_at_worst,notebook CSV column
+od,"defined/used in midog_utils/chromatin.py,midog_utils/production.py"
+od51,UNRESOLVED
+precision_at_K,UNRESOLVED
+production.py,file exists
+production.run_production_pipeline,"defined/used in midog_utils/chromatin.py,midog_utils/production.py,production_pipeline/run_pipeline.py"
+production_seed_precision_at_k_chromatin_hem_bbox.ipynb,file exists
+read_padded_patch,"defined/used in midog_utils/chromatin.py,midog_utils/find_and_suppress.py,midog_utils/seed_selection.py"
+refused_draws,notebook code
+run_production_pipeline,"defined/used in midog_utils/chromatin.py,midog_utils/production.py,production_pipeline/run_pipeline.py"
+seed_ann_id,defined/used in midog_utils/invariants.py
+seed_selection.Seed,"defined/used in midog_utils/seed_selection.py,production_pipeline/run_pipeline.py"
+ss.tightened_template_box,"defined/used in midog_utils/seed_selection.py,production_pipeline/run_pipeline.py"
+tightened_template_box,"defined/used in midog_utils/seed_selection.py,production_pipeline/run_pipeline.py"
+tm.BASE_SIZE,"defined/used in midog_utils/chromatin.py,midog_utils/find_and_suppress.py,midog_utils/production.py"
+tm_score,"defined/used in midog_utils/production.py,production_pipeline/run_pipeline.py"
+worst_roi_precision,notebook CSV column

@@ -1,0 +1,64 @@
+domain,condition,K,n_roi,tp_sum,precision_pooled,worst_roi_precision
+canine cutaneous mast cell tumor,default_51,10,2,17,0.85,0.8
+canine cutaneous mast cell tumor,default_51,20,2,37,0.925,0.9
+canine cutaneous mast cell tumor,default_51,30,2,53,0.8833,0.8667
+canine cutaneous mast cell tumor,gray_bbox,10,2,17,0.85,0.8
+canine cutaneous mast cell tumor,gray_bbox,20,2,37,0.925,0.9
+canine cutaneous mast cell tumor,gray_bbox,30,2,54,0.9,0.9
+canine cutaneous mast cell tumor,hem_bbox,10,2,16,0.8,0.8
+canine cutaneous mast cell tumor,hem_bbox,20,2,34,0.85,0.85
+canine cutaneous mast cell tumor,hem_bbox,30,2,53,0.8833,0.8667
+canine lung cancer,default_51,10,2,10,0.5,0.4
+canine lung cancer,default_51,20,2,16,0.4,0.4
+canine lung cancer,default_51,30,2,18,0.3,0.3
+canine lung cancer,gray_bbox,10,2,11,0.55,0.4
+canine lung cancer,gray_bbox,20,2,16,0.4,0.4
+canine lung cancer,gray_bbox,30,2,19,0.3167,0.3
+canine lung cancer,hem_bbox,10,2,10,0.5,0.4
+canine lung cancer,hem_bbox,20,2,13,0.325,0.3
+canine lung cancer,hem_bbox,30,2,16,0.2667,0.2333
+canine lymphosarcoma,default_51,10,2,11,0.55,0.1
+canine lymphosarcoma,default_51,20,2,21,0.525,0.2
+canine lymphosarcoma,default_51,30,2,30,0.5,0.2333
+canine lymphosarcoma,gray_bbox,10,2,11,0.55,0.1
+canine lymphosarcoma,gray_bbox,20,2,18,0.45,0.2
+canine lymphosarcoma,gray_bbox,30,2,28,0.4667,0.2333
+canine lymphosarcoma,hem_bbox,10,2,11,0.55,0.1
+canine lymphosarcoma,hem_bbox,20,2,18,0.45,0.1
+canine lymphosarcoma,hem_bbox,30,2,27,0.45,0.1667
+canine soft tissue sarcoma,default_51,10,2,16,0.8,0.7
+canine soft tissue sarcoma,default_51,20,2,33,0.825,0.8
+canine soft tissue sarcoma,default_51,30,2,43,0.7167,0.5667
+canine soft tissue sarcoma,gray_bbox,10,2,16,0.8,0.7
+canine soft tissue sarcoma,gray_bbox,20,2,33,0.825,0.8
+canine soft tissue sarcoma,gray_bbox,30,2,42,0.7,0.5667
+canine soft tissue sarcoma,hem_bbox,10,2,16,0.8,0.7
+canine soft tissue sarcoma,hem_bbox,20,2,31,0.775,0.7
+canine soft tissue sarcoma,hem_bbox,30,2,40,0.6667,0.5
+human breast cancer,default_51,10,2,11,0.55,0.5
+human breast cancer,default_51,20,2,23,0.575,0.4
+human breast cancer,default_51,30,2,30,0.5,0.3
+human breast cancer,gray_bbox,10,2,11,0.55,0.5
+human breast cancer,gray_bbox,20,2,23,0.575,0.4
+human breast cancer,gray_bbox,30,2,31,0.5167,0.3
+human breast cancer,hem_bbox,10,2,11,0.55,0.5
+human breast cancer,hem_bbox,20,2,23,0.575,0.45
+human breast cancer,hem_bbox,30,2,30,0.5,0.3333
+human melanoma,default_51,10,2,16,0.8,0.7
+human melanoma,default_51,20,2,23,0.575,0.4
+human melanoma,default_51,30,2,31,0.5167,0.3
+human melanoma,gray_bbox,10,2,14,0.7,0.6
+human melanoma,gray_bbox,20,2,20,0.5,0.35
+human melanoma,gray_bbox,30,2,28,0.4667,0.2333
+human melanoma,hem_bbox,10,2,14,0.7,0.6
+human melanoma,hem_bbox,20,2,21,0.525,0.4
+human melanoma,hem_bbox,30,2,29,0.4833,0.2667
+human neuroendocrine tumor,default_51,10,2,13,0.65,0.5
+human neuroendocrine tumor,default_51,20,2,24,0.6,0.5
+human neuroendocrine tumor,default_51,30,2,33,0.55,0.4667
+human neuroendocrine tumor,gray_bbox,10,2,12,0.6,0.5
+human neuroendocrine tumor,gray_bbox,20,2,22,0.55,0.5
+human neuroendocrine tumor,gray_bbox,30,2,29,0.4833,0.4667
+human neuroendocrine tumor,hem_bbox,10,2,11,0.55,0.4
+human neuroendocrine tumor,hem_bbox,20,2,18,0.45,0.35
+human neuroendocrine tumor,hem_bbox,30,2,25,0.4167,0.3333

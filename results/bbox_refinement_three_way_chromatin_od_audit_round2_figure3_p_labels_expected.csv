@@ -1,0 +1,10 @@
+panel,K,p_label
+gray_bbox vs default_51,10,p=0.625
+gray_bbox vs default_51,20,p=0.125
+gray_bbox vs default_51,30,p=0.297
+hem_bbox vs default_51,10,p=0.0625
+hem_bbox vs default_51,20,p=0.00293
+hem_bbox vs default_51,30,p=0.00684
+hem_bbox vs gray_bbox,10,p=0.25
+hem_bbox vs gray_bbox,20,p=0.0898
+hem_bbox vs gray_bbox,30,p=0.0977

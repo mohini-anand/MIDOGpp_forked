@@ -1,0 +1,73 @@
+cell,claim,stated,recomputed,holds
+24,pooled precision default_51 K=10,0.671,0.6714,True
+24,pooled precision gray_bbox K=10,0.657,0.6571,True
+24,pooled precision hem_bbox K=10,0.636,0.6357,True
+24,pooled precision default_51 K=20,0.632,0.6321,True
+24,pooled precision gray_bbox K=20,0.604,0.6036,True
+24,pooled precision hem_bbox K=20,0.564,0.5643,True
+24,pooled precision default_51 K=30,0.567,0.5667,True
+24,pooled precision gray_bbox K=30,0.55,0.55,True
+24,pooled precision hem_bbox K=30,0.524,0.5238,True
+24,default_51 > gray_bbox > hem_bbox at every K (pooled),strict order,"[(0.6714, 0.6571, 0.6357), (0.6321, 0.6036, 0.5643), (0.5667, 0.55, 0.5238)]",True
+24,hem_bbox - default_51 K=10 points of precision lost,3.6,3.571,True
+24,hem_bbox - default_51 K=10 wins/losses,0/5,0/5,True
+24,hem_bbox - default_51 K=10 exact p,0.063,1/16 = 0.06250,True
+24,hem_bbox - default_51 K=20 points of precision lost,6.8,6.786,True
+24,hem_bbox - default_51 K=20 wins/losses,1/11,1/11,True
+24,hem_bbox - default_51 K=20 exact p,0.003,3/1024 = 0.00293,True
+24,hem_bbox - default_51 K=30 points of precision lost,4.3,4.286,True
+24,hem_bbox - default_51 K=30 wins/losses,1/10,1/10,True
+24,hem_bbox - default_51 K=30 exact p,0.007,7/1024 = 0.00684,True
+24,gray_bbox - default_51 K=10 points of precision lost,1.4,1.429,True
+24,gray_bbox - default_51 K=10 wins/losses,1/3,1/3,True
+24,gray_bbox - default_51 K=10 ties,10,10,True
+24,gray_bbox - default_51 K=10 exact p,0.63,5/8 = 0.62500,True
+24,gray_bbox - default_51 K=20 points of precision lost,2.9,2.857,True
+24,gray_bbox - default_51 K=20 wins/losses,0/4,0/4,True
+24,gray_bbox - default_51 K=20 ties,10,10,True
+24,gray_bbox - default_51 K=20 exact p,0.13,1/8 = 0.12500,True
+24,gray_bbox - default_51 K=30 points of precision lost,1.7,1.667,True
+24,gray_bbox - default_51 K=30 wins/losses,3/5,3/5,True
+24,gray_bbox - default_51 K=30 ties,6,6,True
+24,gray_bbox - default_51 K=30 exact p,0.3,19/64 = 0.29688,True
+24,hem_bbox - gray_bbox K=10 points of precision lost,2.1,2.143,True
+24,hem_bbox - gray_bbox K=10 wins/losses,0/3,0/3,True
+24,hem_bbox - gray_bbox K=10 ties,11,11,True
+24,hem_bbox - gray_bbox K=10 exact p,0.25,1/4 = 0.25000,True
+24,hem_bbox - gray_bbox K=20 points of precision lost,3.9,3.929,True
+24,hem_bbox - gray_bbox K=20 wins/losses,3/9,3/9,True
+24,hem_bbox - gray_bbox K=20 ties,2,2,True
+24,hem_bbox - gray_bbox K=20 exact p,0.09,23/256 = 0.08984,True
+24,hem_bbox - gray_bbox K=30 points of precision lost,2.6,2.619,True
+24,hem_bbox - gray_bbox K=30 wins/losses,3/7,3/7,True
+24,hem_bbox - gray_bbox K=30 ties,4,4,True
+24,hem_bbox - gray_bbox K=30 exact p,0.098,25/256 = 0.09766,True
+24,hem_bbox - default_51: the one win is 013.tiff,013.tiff,['013.tiff'],True
+24,Holm over 9 rejects only hem_bbox - default_51 at K=20,"[('hem_bbox - default_51', 20)]","[('hem_bbox - default_51', 20)]",True
+24,Holm step 1: 0.0029 x 9 = 0.026,0.026,0.02637,True
+24,Holm step 2: 0.0068 x 8 = 0.054,0.054,0.05469,False
+24,"gray_bbox - default_51 losses cluster on 402, 529, 548, 246","402, 529, 548, 246","{'246.tiff': [20, 30], '402.tiff': [10, 20, 30], '459.tiff': [30], '529.tiff': [10, 20, 30], '548.tiff': [10, 20, 30]}",True
+24,gray_bbox fills the 51 px window on 3 ROIs,"201, 245, 403","['201.tiff', '245.tiff', '403.tiff']",True
+24,"403.tiff: top-30 list changes completely, TP counts at 10/20/30 do not","0 shared, equal TP","shared coords [0, 0, 0], ties [True, True, True], shared mitoses [5, 10, 14]",True
+24,201.tiff: template identical to default_51 and so is the list,30/30 shared,30,True
+24,245.tiff: template identical to default_51 and so is the list,30/30 shared,30,True
+24,245.tiff worst ROI under every condition at every K,True,True,True
+24,tied with 529.tiff for gray_bbox at K=30,245;529,"['245.tiff', '529.tiff']",True
+24,"245.tiff hem_bbox 0.20 -> 0.10 at K=20, 0.23 -> 0.17 at K=30","0.20->0.10, 0.23->0.17","0.20->0.10, 0.23->0.17",True
+24,median template size 51 -> 40 -> 28 px,51/40/28,"(51.0, 40.0, 28.0)",True
+9,gray_bbox median base_size printed as 40 (f-string :.0f),40,40.0,True
+9,hem_bbox median base_size printed as 28 (f-string :.0f),28,28.0,True
+24,"median offset 2.5 px gray, 3.5 px hem",2.5/3.5,"(2.5, 3.473)",True
+9,"gray smaller than 51 on 11/14; hem 14/14; hem smaller than gray 13/14, equal 1/14","11,14,13,1","(11, 14, 13, 1)",True
+24,both Otsu conditions reproduce the reference chromatin_od numbers on 28/28 rows (re-run against the CSV now on disk),28/28,28/28,True
+24,reference notebook calls its K=10 tie count 'a structural property of the production cap',quoted,phrase present in current reference notebook: False; current text attributes K=10 ties to object convergence: True,False
+24,reference largest_tie_block of 1,1,1,True
+24,"Delta ties follow how different the two templates are, not the cap alone",ties track template difference,"gray_bbox - default_51 K=10: ties 10, mean |d base| 11.9; gray_bbox - default_51 K=20: ties 10, mean |d base| 11.9; gray_bbox - default_51 K=30: ties 6, mean |d base| 11.9; hem_bbox - default_51 K=10: ties 9, mean |d base| 21.7; hem_bbox - default_51 K=20: ties 2, mean |d base| 21.7; hem_bbox - default_51 K=30: ties 3, mean |d base| 21.7; hem_bbox - gray_bbox K=10: ties 11, mean |d base| 9.9; hem_bbox - gray_bbox K=20: ties 2, mean |d base| 9.9; hem_bbox - gray_bbox K=30: ties 4, mean |d base| 9.9",False
+16,"even with no real effect, about one test in ten would land below 0.10",about 0.9 of 9,"expected count under the conditional sign-flip null 0.423 (per test [0.0, 0.0, 0.0469, 0.0625, 0.0649, 0.0615, 0.0, 0.0898, 0.0977])",False
+24,"first draw refused on 013, 245, 300, 403 (n_retries=1)","013,245,300,403","['013.tiff', '245.tiff', '300.tiff', '403.tiff']",True
+24,D9 cap bound on 42/42 runs (independent search),42/42,42,True
+24,seed annulus empty on 42/42 (independent full lists),42/42,42,True
+6,self-hits removed per run {1: 42},{1: 42},{1: 42},True
+24,201.tiff 0.5 px offset rounds to the click pixel in read_padded_patch,True,True,True
+24,caveat: only default_51 is scored on a click it would not have drawn alone (the production gray-only draw is not named),default_51 only,"production gray-only build_seed draw differs from the joint click on ['013.tiff', '245.tiff', '300.tiff']",False
+0,default_51 adds no constraint beyond border_filter (joint predicate == reference predicate),True,click readable on every visited draw: True,True

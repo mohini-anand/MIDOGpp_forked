@@ -1,0 +1,16 @@
+table,compared,divergences
+by_domain,252,0
+clicks,42,0
+delta_per_roi,504,0
+delta_stats,54,0
+gate2_current_raw,140,0
+mpp,14,0
+per_roi,462,0
+summary,81,0
+tierB_click,28,0
+tierB_geometry,84,0
+tierB_pipeline,210,0
+tierB_prefix,252,0
+tierB_vs_reference_raw,224,0
+tiff,28,0
+top30,2520,0

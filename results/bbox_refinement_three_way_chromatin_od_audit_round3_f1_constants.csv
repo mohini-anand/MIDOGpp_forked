@@ -1,0 +1,7 @@
+constant,head,working_tree,equal
+BOX_SIZE,50.0,50.0,True
+MITOTIC,1.0,1.0,True
+LOOKALIKE,2.0,2.0,True
+working-tree load_annotations vs JSON: w_equal_json,,,True
+working-tree load_annotations vs JSON: h_equal_json,,,True
+working-tree load_annotations vs JSON: category_equal_json,,,True

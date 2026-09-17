@@ -1,0 +1,33 @@
+file_name,draw,ann_id,gray_reason,hem_reason,click_readable,gray_template_readable,hem_template_readable,joint_accept
+013.tiff,0,254,accepted,click_not_foreground,True,True,False,False
+013.tiff,1,249,accepted,accepted,True,True,True,True
+013.tiff,summary,249,solo gray draw=254,solo hem draw=249,unconditional draw=254,,,n_retries=1
+094.tiff,0,2512,accepted,accepted,True,True,True,True
+094.tiff,summary,2512,solo gray draw=2512,solo hem draw=2512,unconditional draw=2512,,,n_retries=0
+201.tiff,0,4457,accepted,accepted,True,True,True,True
+201.tiff,summary,4457,solo gray draw=4457,solo hem draw=4457,unconditional draw=4457,,,n_retries=0
+233.tiff,0,5761,accepted,accepted,True,True,True,True
+233.tiff,summary,5761,solo gray draw=5761,solo hem draw=5761,unconditional draw=5761,,,n_retries=0
+245.tiff,0,6274,accepted,click_not_foreground,True,True,False,False
+245.tiff,1,6317,accepted,accepted,True,True,True,True
+245.tiff,summary,6317,solo gray draw=6274,solo hem draw=6317,unconditional draw=6274,,,n_retries=1
+246.tiff,0,6548,accepted,accepted,True,True,True,True
+246.tiff,summary,6548,solo gray draw=6548,solo hem draw=6548,unconditional draw=6548,,,n_retries=0
+300.tiff,0,14581,accepted,click_not_foreground,True,True,False,False
+300.tiff,1,14499,accepted,accepted,True,True,True,True
+300.tiff,summary,14499,solo gray draw=14581,solo hem draw=14499,unconditional draw=14581,,,n_retries=1
+301.tiff,0,14969,accepted,accepted,True,True,True,True
+301.tiff,summary,14969,solo gray draw=14969,solo hem draw=14969,unconditional draw=14969,,,n_retries=0
+402.tiff,0,20254,accepted,accepted,True,True,True,True
+402.tiff,summary,20254,solo gray draw=20254,solo hem draw=20254,unconditional draw=20254,,,n_retries=0
+403.tiff,0,20334,click_not_foreground,click_not_foreground,True,False,False,False
+403.tiff,1,20356,accepted,accepted,True,True,True,True
+403.tiff,summary,20356,solo gray draw=20356,solo hem draw=20356,unconditional draw=20334,,,n_retries=1
+459.tiff,0,22441,accepted,accepted,True,True,True,True
+459.tiff,summary,22441,solo gray draw=22441,solo hem draw=22441,unconditional draw=22441,,,n_retries=0
+460.tiff,0,22577,accepted,accepted,True,True,True,True
+460.tiff,summary,22577,solo gray draw=22577,solo hem draw=22577,unconditional draw=22577,,,n_retries=0
+529.tiff,0,24918,accepted,accepted,True,True,True,True
+529.tiff,summary,24918,solo gray draw=24918,solo hem draw=24918,unconditional draw=24918,,,n_retries=0
+548.tiff,0,25804,accepted,accepted,True,True,True,True
+548.tiff,summary,25804,solo gray draw=25804,solo hem draw=25804,unconditional draw=25804,,,n_retries=0

@@ -1,0 +1,27 @@
+file,mtime,git_status,last_commit
+production_hematoxylin_only/bbox_refinement_three_way_chromatin_od.ipynb,2026-09-16 17:40:31,??,never committed
+production_hematoxylin_only/production_seed_precision_at_k_chromatin_hem_bbox.ipynb,2026-09-16 18:18:09,clean,a7279ba 2026-09-16 18:47:08 -0400
+results/precision_at_k_14roi_prodseed_chromatin_bbox3way_per_roi.csv,2026-09-16 17:40:24,??,never committed
+results/precision_at_k_14roi_prodseed_chromatin_bbox3way_summary.csv,2026-09-16 17:40:24,??,never committed
+results/precision_at_k_14roi_prodseed_chromatin_bbox3way_by_domain.csv,2026-09-16 17:40:24,??,never committed
+results/precision_at_k_14roi_prodseed_chromatin_bbox3way_delta_per_roi.csv,2026-09-16 17:40:25,??,never committed
+results/precision_at_k_14roi_prodseed_chromatin_bbox3way_delta_stats.csv,2026-09-16 17:40:25,??,never committed
+results/precision_at_k_14roi_prodseed_chromatin_bbox3way_top30.csv,2026-09-16 17:40:24,??,never committed
+results/precision_at_k_14roi_prodseed_chromatin_bbox3way_verification.csv,2026-09-16 17:40:24,??,never committed
+results/precision_at_k_14roi_prodseed_chromatin_hembbox_raw.csv,2026-09-16 18:12:22,clean,a7279ba 2026-09-16 18:47:08 -0400
+production_hematoxylin_only/bbox3way_pooled_precision.png,2026-09-16 17:40:25,??,never committed
+production_hematoxylin_only/bbox3way_roi_delta_heatmap.png,2026-09-16 17:40:27,??,never committed
+production_hematoxylin_only/bbox3way_win_counts.png,2026-09-16 17:33:37,??,never committed
+midog_utils/channels.py,2026-09-14 18:47:55,clean,f9b4a63 2026-09-14 19:13:04 -0400
+midog_utils/dataset.py,2026-09-15 12:18:09,clean,bf532d1 2026-09-15 12:18:40 -0400
+midog_utils/evaluate.py,2026-09-14 18:48:46,clean,f9b4a63 2026-09-14 19:13:04 -0400
+midog_utils/production.py,2026-09-14 18:46:43,clean,f9b4a63 2026-09-14 19:13:04 -0400
+midog_utils/seed_selection.py,2026-09-15 12:08:45,clean,7f1bdb6 2026-09-15 12:12:33 -0400
+midog_utils/template_match.py,2026-09-15 12:09:18,clean,7f1bdb6 2026-09-15 12:12:33 -0400
+midog_utils/find_and_suppress.py,2026-09-16 10:14:46,clean,74fbea0 2026-09-16 10:16:38 -0400
+midog_utils/nms.py,2026-09-14 18:47:47,clean,f9b4a63 2026-09-14 19:13:04 -0400
+midog_utils/chromatin.py,2026-09-14 18:48:09,clean,f9b4a63 2026-09-14 19:13:04 -0400
+midog_utils/invariants.py,2026-09-14 18:49:12,clean,f9b4a63 2026-09-14 19:13:04 -0400
+DECISIONS.md,2026-09-12 14:52:59,clean,f835885 2026-09-12 14:54:26 -0400
+D8_TEMPLATE_ANCHOR.md,2026-09-10 13:27:59,clean,6d5cc01 2026-09-10 13:28:46 -0400
+PRODUCTION_PIPELINE_CLEANUP.md,2026-09-16 17:16:06,??,never committed

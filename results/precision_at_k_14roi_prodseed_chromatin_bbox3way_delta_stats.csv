@@ -1,0 +1,10 @@
+pair,K,mean_delta_precision,wins,losses,ties,n_nonzero,exact_p,min_attainable_p,holm_p
+gray_bbox - default_51,10,-0.0143,1,3,10,4,0.625,0.125,0.75
+gray_bbox - default_51,20,-0.0286,0,4,10,4,0.125,0.125,0.539062
+gray_bbox - default_51,30,-0.0167,3,5,6,8,0.296875,0.007812,0.75
+hem_bbox - default_51,10,-0.0357,0,5,9,5,0.0625,0.0625,0.4375
+hem_bbox - default_51,20,-0.0679,1,11,2,12,0.00293,0.000488,0.026367
+hem_bbox - default_51,30,-0.0429,1,10,3,11,0.006836,0.000977,0.054688
+hem_bbox - gray_bbox,10,-0.0214,0,3,11,3,0.25,0.25,0.75
+hem_bbox - gray_bbox,20,-0.0393,3,9,2,12,0.089844,0.000488,0.539062
+hem_bbox - gray_bbox,30,-0.0262,3,7,4,10,0.097656,0.001953,0.539062

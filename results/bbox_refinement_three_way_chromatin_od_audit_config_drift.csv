@@ -1,0 +1,14 @@
+setting,production_py,fsconfig_default,decision,notebook
+search channel,hematoxylin_od,'gray_inverted',hematoxylin_od (D3),hematoxylin_od via production (asserted cell 1)
+tm_method,cv2.TM_CCOEFF,cv2.TM_CCOEFF_NORMED,"TM_CCOEFF (D1, DECISIONS_UNVERIFIED.md)","TM_CCOEFF (asserted, value 4)"
+peak_min_distance,7,7,not in D-entries,7
+self_hit_radius px,5.0,5.0,D8 cost 1: at template centre,5.0
+deep_floor_z,-1.5,None,-1.5 unchanged (D9),-1.5
+max_peaks (pre-NMS),100,250000,"100 (D9), validated K<=30 on tm_score arm only",100
+nms_radius,ev.radius_px(mpp),None,7.5 um per image (D7),7.5 um (asserted)
+border_pad,True,False,not in D-entries,via production
+augmentations,"scales=(1.0,), n_angles=1, flips=(False,)","scales=(1.0,), n_angles=1, flips=(False,)",not in D-entries,via production
+od window,OD_WINDOW = tm.BASE_SIZE (51),n/a,od51 (D5),51
+ranking key,"rank_key default ""tm_score""",n/a,D5: tm_score is production; PRODUCTION_PIPELINE_CLEANUP.md working assumption: chromatin_od,chromatin_od
+seed gate channel,"run_pipeline.py: build_seed(pool, gray_inv, ...)",n/a,D8: Otsu on structural channel (gray_inverted in build_seed callers),joint: gray_inverted AND hematoxylin_od
+otsu gate params,"tighten_box_otsu defaults: binary, min_area 50, max_area_frac 0.85, min_solidity 0.5, center_tolerance 0",n/a,same (D8 item 1),"defaults, otsu_window=51"

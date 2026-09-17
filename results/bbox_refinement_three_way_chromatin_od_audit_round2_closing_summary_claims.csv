@@ -1,0 +1,22 @@
+claim,stated,recomputed,holds
+pooled table 9 values (3 dp),0.671 0.657 0.636 / 0.632 0.604 0.564 / 0.567 0.550 0.524,0.671 0.657 0.636 / 0.632 0.604 0.564 / 0.567 0.550 0.524,True
+hem-default size 3.6/6.8/4.3,3.6/6.8/4.3,3.6/6.8/4.3,True
+"hem-default losses 5/11/10, wins 0/1/1",5/11/10; 0/1/1,5/11/10; 0/1/1,True
+the one hem-default win is 013,013.tiff,['013.tiff'],True
+hem-default exact p 0.0625/0.0029/0.0068,0.0625/0.0029/0.0068,1/16/3/1024/7/1024,True
+hem-default Holm 0.44/0.026/0.055,0.44/0.026/0.055,0.437500/0.026367/0.054688,True
+"K=10 hem-default: only 5 ROIs differ, min p 0.0625",5; 0.0625,5; 1/16,True
+contested share 22.5-25.5% of top-K TPs,22.5-25.5%,22.5-25.5%,True
+contested_excluded keeps it: Holm 0.029 at K=20 and K=30,0.029/0.029,0.028564/0.028564,True
+"contested_as_fp does not: p 0.064/0.037, Holm 0.52/0.33",0.064/0.037; 0.52/0.33,0.064453/0.036865; 0.515625/0.331787,True
+hem-default direction negative at every K under all three rules,negative 9/9,True,True
+"heading: hem-default 'resolves, but only under this TP convention'",resolves only under all_mitoses,"Holm <= 0.05 at K: {'all_mitoses': [20], 'contested_excluded': [20, 30], 'contested_as_fp': []}",False
+gray-default -1.4/-2.9/-1.7; ties 10/10/6; losses 3/4/5; wins 1/0/3; p 0.625/0.125/0.297,as stated,-1.4/-2.9/-1.7; 10/10/6; 3/4/5; 1/0/3; 0.625/0.125/0.297,True
+"gray-default: 4 non-tied at K=10 and 20, min attainable p 0.125 (cannot resolve)","4, 0.125",4/4; 1/8/1/8,True
+"gray-default loses at some K on 246,402,459,529,548; wins on 094,233,301","246,402,459,529,548 | 094,233,301","['246.tiff', '402.tiff', '459.tiff', '529.tiff', '548.tiff'] | ['094.tiff', '233.tiff', '301.tiff']",True
+"hem-gray -2.1/-3.9/-2.6; W/L/T 0/3/11, 3/9/2, 3/7/4; p 0.25/0.090/0.098; Holm 0.75/0.54/0.54",as stated,"2.1/3.9/2.6; 0/3/11, 3/9/2, 3/7/4; 0.2500/0.0898/0.0977; 0.7500/0.5391/0.5391",True
+K=10 ties 9-11 of 14; mean gap 9.9-21.7 px,9-11; 9.9-21.7,9.0-11.0; 9.9-21.7,True
+"K=10, where templates differ: 1-2 shared coordinates in total",1-2,2.0/1.0/2.0,True
+"K=10, where templates differ: lists find 5.2-6.1 of the same mitoses per ROI",5.2-6.1 (scoped to ROIs where templates differ),all 14 ROIs: 6.14/5.29/5.21; ROIs where templates differ: 6.75/5.29/5.21,False
+"K=20: gray-default (11.9 px) 10 ties; hem-default (21.7) and hem-gray (9.9, smallest) 2 each",10/2/2; 11.9/21.7/9.9,10.0/2.0/2.0; 11.9/21.7/9.9,True
+"caveat: default_51 alone differs on 013,245,300,403; production gray on 013,245,300","013,245,300,403 | 013,245,300","['013.tiff', '245.tiff', '300.tiff', '403.tiff'] | ['013.tiff', '245.tiff', '300.tiff']",True

@@ -1,0 +1,6 @@
+table,column,rows
+TIES,mean_mitoses_found_by_both_all_14,9
+rule_definitions,exact_p,18
+rule_definitions,mean_delta,18
+worktree_spotcheck,n_detections,6
+worktree_spotcheck,top30 identical with current production.py,6

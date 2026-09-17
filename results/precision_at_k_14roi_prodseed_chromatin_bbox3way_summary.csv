@@ -1,0 +1,10 @@
+condition,K,n_roi,tp_sum,delivered_sum,precision_pooled,worst_roi_precision,n_roi_at_worst,worst_roi_files,best_roi_precision
+default_51,10,14,94,140,0.6714,0.1,1,245.tiff,1.0
+default_51,20,14,177,280,0.6321,0.2,1,245.tiff,0.95
+default_51,30,14,238,420,0.5667,0.2333,1,245.tiff,0.9
+gray_bbox,10,14,92,140,0.6571,0.1,1,245.tiff,1.0
+gray_bbox,20,14,169,280,0.6036,0.2,1,245.tiff,0.95
+gray_bbox,30,14,231,420,0.55,0.2333,2,245.tiff;529.tiff,0.9
+hem_bbox,10,14,89,140,0.6357,0.1,1,245.tiff,1.0
+hem_bbox,20,14,158,280,0.5643,0.1,1,245.tiff,0.85
+hem_bbox,30,14,220,420,0.5238,0.1667,1,245.tiff,0.9

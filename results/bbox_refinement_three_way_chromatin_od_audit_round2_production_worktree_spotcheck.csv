@@ -1,0 +1,7 @@
+file_name,condition,top30_identical,n_detections_now,n_detections_notebook
+245.tiff,default_51,True,97,97
+245.tiff,gray_bbox,True,97,97
+245.tiff,hem_bbox,True,98,98
+403.tiff,default_51,True,98,98
+403.tiff,gray_bbox,True,98,98
+403.tiff,hem_bbox,True,95,95

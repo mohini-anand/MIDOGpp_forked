@@ -1,0 +1,9 @@
+case,pre_cleanup_check_invariants,inlined_asserts,same
+real table,passes,passes,True
+one w = 49,raises,raises,True
+one h = 51,raises,raises,True
+one w = NaN,raises,raises,True
+one category = 3,raises,raises,True
+one category = 0,raises,raises,True
+look-alikes only,passes,passes,True
+empty table,passes,passes,True

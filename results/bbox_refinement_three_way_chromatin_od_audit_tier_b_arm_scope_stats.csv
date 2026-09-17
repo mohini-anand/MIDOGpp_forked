@@ -1,0 +1,49 @@
+arm,K,row,condition,value
+tm_score,10,pooled_precision,default_51,0.6285714285714286
+tm_score,10,pooled_precision,gray_bbox,0.5357142857142857
+tm_score,10,pooled_precision,hem_bbox,0.5214285714285715
+tm_score,10,gray_bbox - default_51,W/L/T 3/6/5,0.171875
+tm_score,10,hem_bbox - default_51,W/L/T 4/6/4,0.173828125
+tm_score,10,hem_bbox - gray_bbox,W/L/T 5/6/3,0.828125
+tm_score,20,pooled_precision,default_51,0.5678571428571428
+tm_score,20,pooled_precision,gray_bbox,0.4714285714285714
+tm_score,20,pooled_precision,hem_bbox,0.44285714285714284
+tm_score,20,gray_bbox - default_51,W/L/T 2/8/4,0.078125
+tm_score,20,hem_bbox - default_51,W/L/T 2/11/1,0.060791015625
+tm_score,20,hem_bbox - gray_bbox,W/L/T 2/8/4,0.388671875
+tm_score,30,pooled_precision,default_51,0.5119047619047619
+tm_score,30,pooled_precision,gray_bbox,0.44285714285714284
+tm_score,30,pooled_precision,hem_bbox,0.40714285714285714
+tm_score,30,gray_bbox - default_51,W/L/T 2/8/4,0.0625
+tm_score,30,hem_bbox - default_51,W/L/T 2/11/1,0.054443359375
+tm_score,30,hem_bbox - gray_bbox,W/L/T 3/9/2,0.28076171875
+tm_score,50,pooled_precision,default_51,0.4642857142857143
+tm_score,50,pooled_precision,gray_bbox,0.39571428571428574
+tm_score,50,pooled_precision,hem_bbox,0.3628571428571429
+tm_score,50,gray_bbox - default_51,W/L/T 3/7/4,0.068359375
+tm_score,50,hem_bbox - default_51,W/L/T 2/11/1,0.027587890625
+tm_score,50,hem_bbox - gray_bbox,W/L/T 3/9/2,0.19677734375
+chromatin_od,10,pooled_precision,default_51,0.6714285714285714
+chromatin_od,10,pooled_precision,gray_bbox,0.6571428571428571
+chromatin_od,10,pooled_precision,hem_bbox,0.6357142857142857
+chromatin_od,10,gray_bbox - default_51,W/L/T 1/3/10,0.625
+chromatin_od,10,hem_bbox - default_51,W/L/T 0/5/9,0.0625
+chromatin_od,10,hem_bbox - gray_bbox,W/L/T 0/3/11,0.25
+chromatin_od,20,pooled_precision,default_51,0.6321428571428571
+chromatin_od,20,pooled_precision,gray_bbox,0.6035714285714285
+chromatin_od,20,pooled_precision,hem_bbox,0.5642857142857143
+chromatin_od,20,gray_bbox - default_51,W/L/T 0/4/10,0.125
+chromatin_od,20,hem_bbox - default_51,W/L/T 1/11/2,0.0029296875
+chromatin_od,20,hem_bbox - gray_bbox,W/L/T 3/9/2,0.08984375
+chromatin_od,30,pooled_precision,default_51,0.5666666666666667
+chromatin_od,30,pooled_precision,gray_bbox,0.55
+chromatin_od,30,pooled_precision,hem_bbox,0.5238095238095238
+chromatin_od,30,gray_bbox - default_51,W/L/T 3/5/6,0.296875
+chromatin_od,30,hem_bbox - default_51,W/L/T 1/10/3,0.0068359375
+chromatin_od,30,hem_bbox - gray_bbox,W/L/T 3/7/4,0.09765625
+chromatin_od,50,pooled_precision,default_51,0.5
+chromatin_od,50,pooled_precision,gray_bbox,0.4642857142857143
+chromatin_od,50,pooled_precision,hem_bbox,0.43142857142857144
+chromatin_od,50,gray_bbox - default_51,W/L/T 2/6/6,0.0703125
+chromatin_od,50,hem_bbox - default_51,W/L/T 3/11/0,0.012451171875
+chromatin_od,50,hem_bbox - gray_bbox,W/L/T 4/9/1,0.06884765625

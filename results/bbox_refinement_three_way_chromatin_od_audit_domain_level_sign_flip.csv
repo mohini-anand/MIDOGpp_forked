@@ -1,0 +1,10 @@
+pair,K,unit,n_units,n_nonzero,exact_p,p_floor,roi_level_p,holm_adjusted_p,holm_reject_0.05
+gray_bbox - default_51,10,domain (sum of 2 ROI deltas),7,3,0.75,0.25,0.625,1.0,False
+gray_bbox - default_51,20,domain (sum of 2 ROI deltas),7,3,0.25,0.25,0.125,1.0,False
+gray_bbox - default_51,30,domain (sum of 2 ROI deltas),7,7,0.328125,0.015625,0.296875,1.0,False
+hem_bbox - default_51,10,domain (sum of 2 ROI deltas),7,3,0.25,0.25,0.0625,1.0,False
+hem_bbox - default_51,20,domain (sum of 2 ROI deltas),7,6,0.03125,0.03125,0.0029296875,0.28125,False
+hem_bbox - default_51,30,domain (sum of 2 ROI deltas),7,5,0.0625,0.0625,0.0068359375,0.5,False
+hem_bbox - gray_bbox,10,domain (sum of 2 ROI deltas),7,3,0.25,0.25,0.25,1.0,False
+hem_bbox - gray_bbox,20,domain (sum of 2 ROI deltas),7,5,0.125,0.0625,0.08984375,0.75,False
+hem_bbox - gray_bbox,30,domain (sum of 2 ROI deltas),7,7,0.078125,0.015625,0.09765625,0.546875,False

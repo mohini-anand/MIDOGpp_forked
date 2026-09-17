@@ -1,0 +1,859 @@
+table,key,column,notebook_1923,notebook_2016,identical
+identity,top30,rows present in both runs,1260,1260,True
+identity,top30 vs 17:40 top30,cx,1260,1260,True
+identity,top30 vs 17:40 top30,cy,1260,1260,True
+identity,top30 vs 17:40 top30,od,1260,1260,True
+identity,top30 vs 17:40 top30,bucket,1260,1260,True
+identity,top30 vs 17:40 top30,matched_ann_id,1260,1260,True
+identity,top30 vs round-1 pixel re-implementation,"identical (cx, cy)",1260,1260,True
+identity,verification,rows / passed,267/267,267/267,True
+top30,013.tiff/default_51,bucket agreement (30),30,30,True
+per_roi,013.tiff/default_51,tp_at_10,6,6,True
+per_roi,013.tiff/default_51,precision_at_10,0.6,0.6,True
+per_roi,013.tiff/default_51,tp_at_20,8,8,True
+per_roi,013.tiff/default_51,precision_at_20,0.4,0.4,True
+per_roi,013.tiff/default_51,tp_at_30,9,9,True
+per_roi,013.tiff/default_51,precision_at_30,0.3,0.3,True
+top30,013.tiff/gray_bbox,bucket agreement (30),30,30,True
+per_roi,013.tiff/gray_bbox,tp_at_10,6,6,True
+per_roi,013.tiff/gray_bbox,precision_at_10,0.6,0.6,True
+per_roi,013.tiff/gray_bbox,tp_at_20,8,8,True
+per_roi,013.tiff/gray_bbox,precision_at_20,0.4,0.4,True
+per_roi,013.tiff/gray_bbox,tp_at_30,9,9,True
+per_roi,013.tiff/gray_bbox,precision_at_30,0.3,0.3,True
+top30,013.tiff/hem_bbox,bucket agreement (30),30,30,True
+per_roi,013.tiff/hem_bbox,tp_at_10,6,6,True
+per_roi,013.tiff/hem_bbox,precision_at_10,0.6,0.6,True
+per_roi,013.tiff/hem_bbox,tp_at_20,9,9,True
+per_roi,013.tiff/hem_bbox,precision_at_20,0.45,0.45,True
+per_roi,013.tiff/hem_bbox,tp_at_30,10,10,True
+per_roi,013.tiff/hem_bbox,precision_at_30,0.3333333333333333,0.3333333333333333,True
+top30,094.tiff/default_51,bucket agreement (30),30,30,True
+per_roi,094.tiff/default_51,tp_at_10,5,5,True
+per_roi,094.tiff/default_51,precision_at_10,0.5,0.5,True
+per_roi,094.tiff/default_51,tp_at_20,15,15,True
+per_roi,094.tiff/default_51,precision_at_20,0.75,0.75,True
+per_roi,094.tiff/default_51,tp_at_30,21,21,True
+per_roi,094.tiff/default_51,precision_at_30,0.7,0.7,True
+top30,094.tiff/gray_bbox,bucket agreement (30),30,30,True
+per_roi,094.tiff/gray_bbox,tp_at_10,5,5,True
+per_roi,094.tiff/gray_bbox,precision_at_10,0.5,0.5,True
+per_roi,094.tiff/gray_bbox,tp_at_20,15,15,True
+per_roi,094.tiff/gray_bbox,precision_at_20,0.75,0.75,True
+per_roi,094.tiff/gray_bbox,tp_at_30,22,22,True
+per_roi,094.tiff/gray_bbox,precision_at_30,0.7333333333333333,0.7333333333333333,True
+top30,094.tiff/hem_bbox,bucket agreement (30),30,30,True
+per_roi,094.tiff/hem_bbox,tp_at_10,5,5,True
+per_roi,094.tiff/hem_bbox,precision_at_10,0.5,0.5,True
+per_roi,094.tiff/hem_bbox,tp_at_20,14,14,True
+per_roi,094.tiff/hem_bbox,precision_at_20,0.7,0.7,True
+per_roi,094.tiff/hem_bbox,tp_at_30,20,20,True
+per_roi,094.tiff/hem_bbox,precision_at_30,0.6666666666666666,0.6666666666666666,True
+top30,201.tiff/default_51,bucket agreement (30),30,30,True
+per_roi,201.tiff/default_51,tp_at_10,4,4,True
+per_roi,201.tiff/default_51,precision_at_10,0.4,0.4,True
+per_roi,201.tiff/default_51,tp_at_20,8,8,True
+per_roi,201.tiff/default_51,precision_at_20,0.4,0.4,True
+per_roi,201.tiff/default_51,tp_at_30,9,9,True
+per_roi,201.tiff/default_51,precision_at_30,0.3,0.3,True
+top30,201.tiff/gray_bbox,bucket agreement (30),30,30,True
+per_roi,201.tiff/gray_bbox,tp_at_10,4,4,True
+per_roi,201.tiff/gray_bbox,precision_at_10,0.4,0.4,True
+per_roi,201.tiff/gray_bbox,tp_at_20,8,8,True
+per_roi,201.tiff/gray_bbox,precision_at_20,0.4,0.4,True
+per_roi,201.tiff/gray_bbox,tp_at_30,9,9,True
+per_roi,201.tiff/gray_bbox,precision_at_30,0.3,0.3,True
+top30,201.tiff/hem_bbox,bucket agreement (30),30,30,True
+per_roi,201.tiff/hem_bbox,tp_at_10,4,4,True
+per_roi,201.tiff/hem_bbox,precision_at_10,0.4,0.4,True
+per_roi,201.tiff/hem_bbox,tp_at_20,6,6,True
+per_roi,201.tiff/hem_bbox,precision_at_20,0.3,0.3,True
+per_roi,201.tiff/hem_bbox,tp_at_30,7,7,True
+per_roi,201.tiff/hem_bbox,precision_at_30,0.2333333333333333,0.2333333333333333,True
+top30,233.tiff/default_51,bucket agreement (30),30,30,True
+per_roi,233.tiff/default_51,tp_at_10,6,6,True
+per_roi,233.tiff/default_51,precision_at_10,0.6,0.6,True
+per_roi,233.tiff/default_51,tp_at_20,8,8,True
+per_roi,233.tiff/default_51,precision_at_20,0.4,0.4,True
+per_roi,233.tiff/default_51,tp_at_30,9,9,True
+per_roi,233.tiff/default_51,precision_at_30,0.3,0.3,True
+top30,233.tiff/gray_bbox,bucket agreement (30),30,30,True
+per_roi,233.tiff/gray_bbox,tp_at_10,7,7,True
+per_roi,233.tiff/gray_bbox,precision_at_10,0.7,0.7,True
+per_roi,233.tiff/gray_bbox,tp_at_20,8,8,True
+per_roi,233.tiff/gray_bbox,precision_at_20,0.4,0.4,True
+per_roi,233.tiff/gray_bbox,tp_at_30,10,10,True
+per_roi,233.tiff/gray_bbox,precision_at_30,0.3333333333333333,0.3333333333333333,True
+top30,233.tiff/hem_bbox,bucket agreement (30),30,30,True
+per_roi,233.tiff/hem_bbox,tp_at_10,6,6,True
+per_roi,233.tiff/hem_bbox,precision_at_10,0.6,0.6,True
+per_roi,233.tiff/hem_bbox,tp_at_20,7,7,True
+per_roi,233.tiff/hem_bbox,precision_at_20,0.35,0.35,True
+per_roi,233.tiff/hem_bbox,tp_at_30,9,9,True
+per_roi,233.tiff/hem_bbox,precision_at_30,0.3,0.3,True
+top30,245.tiff/default_51,bucket agreement (30),30,30,True
+per_roi,245.tiff/default_51,tp_at_10,1,1,True
+per_roi,245.tiff/default_51,precision_at_10,0.1,0.1,True
+per_roi,245.tiff/default_51,tp_at_20,4,4,True
+per_roi,245.tiff/default_51,precision_at_20,0.2,0.2,True
+per_roi,245.tiff/default_51,tp_at_30,7,7,True
+per_roi,245.tiff/default_51,precision_at_30,0.2333333333333333,0.2333333333333333,True
+top30,245.tiff/gray_bbox,bucket agreement (30),30,30,True
+per_roi,245.tiff/gray_bbox,tp_at_10,1,1,True
+per_roi,245.tiff/gray_bbox,precision_at_10,0.1,0.1,True
+per_roi,245.tiff/gray_bbox,tp_at_20,4,4,True
+per_roi,245.tiff/gray_bbox,precision_at_20,0.2,0.2,True
+per_roi,245.tiff/gray_bbox,tp_at_30,7,7,True
+per_roi,245.tiff/gray_bbox,precision_at_30,0.2333333333333333,0.2333333333333333,True
+top30,245.tiff/hem_bbox,bucket agreement (30),30,30,True
+per_roi,245.tiff/hem_bbox,tp_at_10,1,1,True
+per_roi,245.tiff/hem_bbox,precision_at_10,0.1,0.1,True
+per_roi,245.tiff/hem_bbox,tp_at_20,2,2,True
+per_roi,245.tiff/hem_bbox,precision_at_20,0.1,0.1,True
+per_roi,245.tiff/hem_bbox,tp_at_30,5,5,True
+per_roi,245.tiff/hem_bbox,precision_at_30,0.1666666666666666,0.1666666666666666,True
+top30,246.tiff/default_51,bucket agreement (30),30,30,True
+per_roi,246.tiff/default_51,tp_at_10,10,10,True
+per_roi,246.tiff/default_51,precision_at_10,1.0,1.0,True
+per_roi,246.tiff/default_51,tp_at_20,17,17,True
+per_roi,246.tiff/default_51,precision_at_20,0.85,0.85,True
+per_roi,246.tiff/default_51,tp_at_30,23,23,True
+per_roi,246.tiff/default_51,precision_at_30,0.7666666666666667,0.7666666666666667,True
+top30,246.tiff/gray_bbox,bucket agreement (30),30,30,True
+per_roi,246.tiff/gray_bbox,tp_at_10,10,10,True
+per_roi,246.tiff/gray_bbox,precision_at_10,1.0,1.0,True
+per_roi,246.tiff/gray_bbox,tp_at_20,14,14,True
+per_roi,246.tiff/gray_bbox,precision_at_20,0.7,0.7,True
+per_roi,246.tiff/gray_bbox,tp_at_30,21,21,True
+per_roi,246.tiff/gray_bbox,precision_at_30,0.7,0.7,True
+top30,246.tiff/hem_bbox,bucket agreement (30),30,30,True
+per_roi,246.tiff/hem_bbox,tp_at_10,10,10,True
+per_roi,246.tiff/hem_bbox,precision_at_10,1.0,1.0,True
+per_roi,246.tiff/hem_bbox,tp_at_20,16,16,True
+per_roi,246.tiff/hem_bbox,precision_at_20,0.8,0.8,True
+per_roi,246.tiff/hem_bbox,tp_at_30,22,22,True
+per_roi,246.tiff/hem_bbox,precision_at_30,0.7333333333333333,0.7333333333333333,True
+top30,300.tiff/default_51,bucket agreement (30),30,30,True
+per_roi,300.tiff/default_51,tp_at_10,9,9,True
+per_roi,300.tiff/default_51,precision_at_10,0.9,0.9,True
+per_roi,300.tiff/default_51,tp_at_20,19,19,True
+per_roi,300.tiff/default_51,precision_at_20,0.95,0.95,True
+per_roi,300.tiff/default_51,tp_at_30,27,27,True
+per_roi,300.tiff/default_51,precision_at_30,0.9,0.9,True
+top30,300.tiff/gray_bbox,bucket agreement (30),30,30,True
+per_roi,300.tiff/gray_bbox,tp_at_10,9,9,True
+per_roi,300.tiff/gray_bbox,precision_at_10,0.9,0.9,True
+per_roi,300.tiff/gray_bbox,tp_at_20,19,19,True
+per_roi,300.tiff/gray_bbox,precision_at_20,0.95,0.95,True
+per_roi,300.tiff/gray_bbox,tp_at_30,27,27,True
+per_roi,300.tiff/gray_bbox,precision_at_30,0.9,0.9,True
+top30,300.tiff/hem_bbox,bucket agreement (30),30,30,True
+per_roi,300.tiff/hem_bbox,tp_at_10,8,8,True
+per_roi,300.tiff/hem_bbox,precision_at_10,0.8,0.8,True
+per_roi,300.tiff/hem_bbox,tp_at_20,17,17,True
+per_roi,300.tiff/hem_bbox,precision_at_20,0.85,0.85,True
+per_roi,300.tiff/hem_bbox,tp_at_30,27,27,True
+per_roi,300.tiff/hem_bbox,precision_at_30,0.9,0.9,True
+top30,301.tiff/default_51,bucket agreement (30),30,30,True
+per_roi,301.tiff/default_51,tp_at_10,8,8,True
+per_roi,301.tiff/default_51,precision_at_10,0.8,0.8,True
+per_roi,301.tiff/default_51,tp_at_20,18,18,True
+per_roi,301.tiff/default_51,precision_at_20,0.9,0.9,True
+per_roi,301.tiff/default_51,tp_at_30,26,26,True
+per_roi,301.tiff/default_51,precision_at_30,0.8666666666666667,0.8666666666666667,True
+top30,301.tiff/gray_bbox,bucket agreement (30),30,30,True
+per_roi,301.tiff/gray_bbox,tp_at_10,8,8,True
+per_roi,301.tiff/gray_bbox,precision_at_10,0.8,0.8,True
+per_roi,301.tiff/gray_bbox,tp_at_20,18,18,True
+per_roi,301.tiff/gray_bbox,precision_at_20,0.9,0.9,True
+per_roi,301.tiff/gray_bbox,tp_at_30,27,27,True
+per_roi,301.tiff/gray_bbox,precision_at_30,0.9,0.9,True
+top30,301.tiff/hem_bbox,bucket agreement (30),30,30,True
+per_roi,301.tiff/hem_bbox,tp_at_10,8,8,True
+per_roi,301.tiff/hem_bbox,precision_at_10,0.8,0.8,True
+per_roi,301.tiff/hem_bbox,tp_at_20,17,17,True
+per_roi,301.tiff/hem_bbox,precision_at_20,0.85,0.85,True
+per_roi,301.tiff/hem_bbox,tp_at_30,26,26,True
+per_roi,301.tiff/hem_bbox,precision_at_30,0.8666666666666667,0.8666666666666667,True
+top30,402.tiff/default_51,bucket agreement (30),30,30,True
+per_roi,402.tiff/default_51,tp_at_10,8,8,True
+per_roi,402.tiff/default_51,precision_at_10,0.8,0.8,True
+per_roi,402.tiff/default_51,tp_at_20,14,14,True
+per_roi,402.tiff/default_51,precision_at_20,0.7,0.7,True
+per_roi,402.tiff/default_51,tp_at_30,19,19,True
+per_roi,402.tiff/default_51,precision_at_30,0.6333333333333333,0.6333333333333333,True
+top30,402.tiff/gray_bbox,bucket agreement (30),30,30,True
+per_roi,402.tiff/gray_bbox,tp_at_10,7,7,True
+per_roi,402.tiff/gray_bbox,precision_at_10,0.7,0.7,True
+per_roi,402.tiff/gray_bbox,tp_at_20,12,12,True
+per_roi,402.tiff/gray_bbox,precision_at_20,0.6,0.6,True
+per_roi,402.tiff/gray_bbox,tp_at_30,15,15,True
+per_roi,402.tiff/gray_bbox,precision_at_30,0.5,0.5,True
+top30,402.tiff/hem_bbox,bucket agreement (30),30,30,True
+per_roi,402.tiff/hem_bbox,tp_at_10,7,7,True
+per_roi,402.tiff/hem_bbox,precision_at_10,0.7,0.7,True
+per_roi,402.tiff/hem_bbox,tp_at_20,11,11,True
+per_roi,402.tiff/hem_bbox,precision_at_20,0.55,0.55,True
+per_roi,402.tiff/hem_bbox,tp_at_30,15,15,True
+per_roi,402.tiff/hem_bbox,precision_at_30,0.5,0.5,True
+top30,403.tiff/default_51,bucket agreement (30),30,30,True
+per_roi,403.tiff/default_51,tp_at_10,5,5,True
+per_roi,403.tiff/default_51,precision_at_10,0.5,0.5,True
+per_roi,403.tiff/default_51,tp_at_20,10,10,True
+per_roi,403.tiff/default_51,precision_at_20,0.5,0.5,True
+per_roi,403.tiff/default_51,tp_at_30,14,14,True
+per_roi,403.tiff/default_51,precision_at_30,0.4666666666666667,0.4666666666666667,True
+top30,403.tiff/gray_bbox,bucket agreement (30),30,30,True
+per_roi,403.tiff/gray_bbox,tp_at_10,5,5,True
+per_roi,403.tiff/gray_bbox,precision_at_10,0.5,0.5,True
+per_roi,403.tiff/gray_bbox,tp_at_20,10,10,True
+per_roi,403.tiff/gray_bbox,precision_at_20,0.5,0.5,True
+per_roi,403.tiff/gray_bbox,tp_at_30,14,14,True
+per_roi,403.tiff/gray_bbox,precision_at_30,0.4666666666666667,0.4666666666666667,True
+top30,403.tiff/hem_bbox,bucket agreement (30),30,30,True
+per_roi,403.tiff/hem_bbox,tp_at_10,4,4,True
+per_roi,403.tiff/hem_bbox,precision_at_10,0.4,0.4,True
+per_roi,403.tiff/hem_bbox,tp_at_20,7,7,True
+per_roi,403.tiff/hem_bbox,precision_at_20,0.35,0.35,True
+per_roi,403.tiff/hem_bbox,tp_at_30,10,10,True
+per_roi,403.tiff/hem_bbox,precision_at_30,0.3333333333333333,0.3333333333333333,True
+top30,459.tiff/default_51,bucket agreement (30),30,30,True
+per_roi,459.tiff/default_51,tp_at_10,9,9,True
+per_roi,459.tiff/default_51,precision_at_10,0.9,0.9,True
+per_roi,459.tiff/default_51,tp_at_20,17,17,True
+per_roi,459.tiff/default_51,precision_at_20,0.85,0.85,True
+per_roi,459.tiff/default_51,tp_at_30,26,26,True
+per_roi,459.tiff/default_51,precision_at_30,0.8666666666666667,0.8666666666666667,True
+top30,459.tiff/gray_bbox,bucket agreement (30),30,30,True
+per_roi,459.tiff/gray_bbox,tp_at_10,9,9,True
+per_roi,459.tiff/gray_bbox,precision_at_10,0.9,0.9,True
+per_roi,459.tiff/gray_bbox,tp_at_20,17,17,True
+per_roi,459.tiff/gray_bbox,precision_at_20,0.85,0.85,True
+per_roi,459.tiff/gray_bbox,tp_at_30,25,25,True
+per_roi,459.tiff/gray_bbox,precision_at_30,0.8333333333333334,0.8333333333333334,True
+top30,459.tiff/hem_bbox,bucket agreement (30),30,30,True
+per_roi,459.tiff/hem_bbox,tp_at_10,9,9,True
+per_roi,459.tiff/hem_bbox,precision_at_10,0.9,0.9,True
+per_roi,459.tiff/hem_bbox,tp_at_20,17,17,True
+per_roi,459.tiff/hem_bbox,precision_at_20,0.85,0.85,True
+per_roi,459.tiff/hem_bbox,tp_at_30,25,25,True
+per_roi,459.tiff/hem_bbox,precision_at_30,0.8333333333333334,0.8333333333333334,True
+top30,460.tiff/default_51,bucket agreement (30),30,30,True
+per_roi,460.tiff/default_51,tp_at_10,7,7,True
+per_roi,460.tiff/default_51,precision_at_10,0.7,0.7,True
+per_roi,460.tiff/default_51,tp_at_20,16,16,True
+per_roi,460.tiff/default_51,precision_at_20,0.8,0.8,True
+per_roi,460.tiff/default_51,tp_at_30,17,17,True
+per_roi,460.tiff/default_51,precision_at_30,0.5666666666666667,0.5666666666666667,True
+top30,460.tiff/gray_bbox,bucket agreement (30),30,30,True
+per_roi,460.tiff/gray_bbox,tp_at_10,7,7,True
+per_roi,460.tiff/gray_bbox,precision_at_10,0.7,0.7,True
+per_roi,460.tiff/gray_bbox,tp_at_20,16,16,True
+per_roi,460.tiff/gray_bbox,precision_at_20,0.8,0.8,True
+per_roi,460.tiff/gray_bbox,tp_at_30,17,17,True
+per_roi,460.tiff/gray_bbox,precision_at_30,0.5666666666666667,0.5666666666666667,True
+top30,460.tiff/hem_bbox,bucket agreement (30),30,30,True
+per_roi,460.tiff/hem_bbox,tp_at_10,7,7,True
+per_roi,460.tiff/hem_bbox,precision_at_10,0.7,0.7,True
+per_roi,460.tiff/hem_bbox,tp_at_20,14,14,True
+per_roi,460.tiff/hem_bbox,precision_at_20,0.7,0.7,True
+per_roi,460.tiff/hem_bbox,tp_at_30,15,15,True
+per_roi,460.tiff/hem_bbox,precision_at_30,0.5,0.5,True
+top30,529.tiff/default_51,bucket agreement (30),30,30,True
+per_roi,529.tiff/default_51,tp_at_10,7,7,True
+per_roi,529.tiff/default_51,precision_at_10,0.7,0.7,True
+per_roi,529.tiff/default_51,tp_at_20,8,8,True
+per_roi,529.tiff/default_51,precision_at_20,0.4,0.4,True
+per_roi,529.tiff/default_51,tp_at_30,9,9,True
+per_roi,529.tiff/default_51,precision_at_30,0.3,0.3,True
+top30,529.tiff/gray_bbox,bucket agreement (30),30,30,True
+per_roi,529.tiff/gray_bbox,tp_at_10,6,6,True
+per_roi,529.tiff/gray_bbox,precision_at_10,0.6,0.6,True
+per_roi,529.tiff/gray_bbox,tp_at_20,7,7,True
+per_roi,529.tiff/gray_bbox,precision_at_20,0.35,0.35,True
+per_roi,529.tiff/gray_bbox,tp_at_30,7,7,True
+per_roi,529.tiff/gray_bbox,precision_at_30,0.2333333333333333,0.2333333333333333,True
+top30,529.tiff/hem_bbox,bucket agreement (30),30,30,True
+per_roi,529.tiff/hem_bbox,tp_at_10,6,6,True
+per_roi,529.tiff/hem_bbox,precision_at_10,0.6,0.6,True
+per_roi,529.tiff/hem_bbox,tp_at_20,8,8,True
+per_roi,529.tiff/hem_bbox,precision_at_20,0.4,0.4,True
+per_roi,529.tiff/hem_bbox,tp_at_30,8,8,True
+per_roi,529.tiff/hem_bbox,precision_at_30,0.2666666666666666,0.2666666666666666,True
+top30,548.tiff/default_51,bucket agreement (30),30,30,True
+per_roi,548.tiff/default_51,tp_at_10,9,9,True
+per_roi,548.tiff/default_51,precision_at_10,0.9,0.9,True
+per_roi,548.tiff/default_51,tp_at_20,15,15,True
+per_roi,548.tiff/default_51,precision_at_20,0.75,0.75,True
+per_roi,548.tiff/default_51,tp_at_30,22,22,True
+per_roi,548.tiff/default_51,precision_at_30,0.7333333333333333,0.7333333333333333,True
+top30,548.tiff/gray_bbox,bucket agreement (30),30,30,True
+per_roi,548.tiff/gray_bbox,tp_at_10,8,8,True
+per_roi,548.tiff/gray_bbox,precision_at_10,0.8,0.8,True
+per_roi,548.tiff/gray_bbox,tp_at_20,13,13,True
+per_roi,548.tiff/gray_bbox,precision_at_20,0.65,0.65,True
+per_roi,548.tiff/gray_bbox,tp_at_30,21,21,True
+per_roi,548.tiff/gray_bbox,precision_at_30,0.7,0.7,True
+top30,548.tiff/hem_bbox,bucket agreement (30),30,30,True
+per_roi,548.tiff/hem_bbox,tp_at_10,8,8,True
+per_roi,548.tiff/hem_bbox,precision_at_10,0.8,0.8,True
+per_roi,548.tiff/hem_bbox,tp_at_20,13,13,True
+per_roi,548.tiff/hem_bbox,precision_at_20,0.65,0.65,True
+per_roi,548.tiff/hem_bbox,tp_at_30,21,21,True
+per_roi,548.tiff/hem_bbox,precision_at_30,0.7,0.7,True
+summary,default_51/K10,tp_sum,94,94,True
+summary,default_51/K10,precision_pooled,0.6714,0.6714,True
+summary,default_51/K10,worst_roi_precision,0.1,0.1,True
+summary,default_51/K10,n_roi_at_worst,1,1,True
+summary,default_51/K10,best_roi_precision,1.0,1.0,True
+summary,default_51/K20,tp_sum,177,177,True
+summary,default_51/K20,precision_pooled,0.6321,0.6321,True
+summary,default_51/K20,worst_roi_precision,0.2,0.2,True
+summary,default_51/K20,n_roi_at_worst,1,1,True
+summary,default_51/K20,best_roi_precision,0.95,0.95,True
+summary,default_51/K30,tp_sum,238,238,True
+summary,default_51/K30,precision_pooled,0.5667,0.5667,True
+summary,default_51/K30,worst_roi_precision,0.2333,0.2333,True
+summary,default_51/K30,n_roi_at_worst,1,1,True
+summary,default_51/K30,best_roi_precision,0.9,0.9,True
+summary,gray_bbox/K10,tp_sum,92,92,True
+summary,gray_bbox/K10,precision_pooled,0.6571,0.6571,True
+summary,gray_bbox/K10,worst_roi_precision,0.1,0.1,True
+summary,gray_bbox/K10,n_roi_at_worst,1,1,True
+summary,gray_bbox/K10,best_roi_precision,1.0,1.0,True
+summary,gray_bbox/K20,tp_sum,169,169,True
+summary,gray_bbox/K20,precision_pooled,0.6036,0.6036,True
+summary,gray_bbox/K20,worst_roi_precision,0.2,0.2,True
+summary,gray_bbox/K20,n_roi_at_worst,1,1,True
+summary,gray_bbox/K20,best_roi_precision,0.95,0.95,True
+summary,gray_bbox/K30,tp_sum,231,231,True
+summary,gray_bbox/K30,precision_pooled,0.55,0.55,True
+summary,gray_bbox/K30,worst_roi_precision,0.2333,0.2333,True
+summary,gray_bbox/K30,n_roi_at_worst,2,2,True
+summary,gray_bbox/K30,best_roi_precision,0.9,0.9,True
+summary,hem_bbox/K10,tp_sum,89,89,True
+summary,hem_bbox/K10,precision_pooled,0.6357,0.6357,True
+summary,hem_bbox/K10,worst_roi_precision,0.1,0.1,True
+summary,hem_bbox/K10,n_roi_at_worst,1,1,True
+summary,hem_bbox/K10,best_roi_precision,1.0,1.0,True
+summary,hem_bbox/K20,tp_sum,158,158,True
+summary,hem_bbox/K20,precision_pooled,0.5643,0.5643,True
+summary,hem_bbox/K20,worst_roi_precision,0.1,0.1,True
+summary,hem_bbox/K20,n_roi_at_worst,1,1,True
+summary,hem_bbox/K20,best_roi_precision,0.85,0.85,True
+summary,hem_bbox/K30,tp_sum,220,220,True
+summary,hem_bbox/K30,precision_pooled,0.5238,0.5238,True
+summary,hem_bbox/K30,worst_roi_precision,0.1667,0.1667,True
+summary,hem_bbox/K30,n_roi_at_worst,1,1,True
+summary,hem_bbox/K30,best_roi_precision,0.9,0.9,True
+by_domain,canine cutaneous mast cell tumor/default_51/K10,precision_pooled,0.85,0.85,True
+by_domain,canine cutaneous mast cell tumor/default_51/K10,tp_sum,17,17,True
+by_domain,canine cutaneous mast cell tumor/default_51/K20,precision_pooled,0.925,0.925,True
+by_domain,canine cutaneous mast cell tumor/default_51/K20,tp_sum,37,37,True
+by_domain,canine cutaneous mast cell tumor/default_51/K30,precision_pooled,0.8833,0.8833,True
+by_domain,canine cutaneous mast cell tumor/default_51/K30,tp_sum,53,53,True
+by_domain,canine cutaneous mast cell tumor/gray_bbox/K10,precision_pooled,0.85,0.85,True
+by_domain,canine cutaneous mast cell tumor/gray_bbox/K10,tp_sum,17,17,True
+by_domain,canine cutaneous mast cell tumor/gray_bbox/K20,precision_pooled,0.925,0.925,True
+by_domain,canine cutaneous mast cell tumor/gray_bbox/K20,tp_sum,37,37,True
+by_domain,canine cutaneous mast cell tumor/gray_bbox/K30,precision_pooled,0.9,0.9,True
+by_domain,canine cutaneous mast cell tumor/gray_bbox/K30,tp_sum,54,54,True
+by_domain,canine cutaneous mast cell tumor/hem_bbox/K10,precision_pooled,0.8,0.8,True
+by_domain,canine cutaneous mast cell tumor/hem_bbox/K10,tp_sum,16,16,True
+by_domain,canine cutaneous mast cell tumor/hem_bbox/K20,precision_pooled,0.85,0.85,True
+by_domain,canine cutaneous mast cell tumor/hem_bbox/K20,tp_sum,34,34,True
+by_domain,canine cutaneous mast cell tumor/hem_bbox/K30,precision_pooled,0.8833,0.8833,True
+by_domain,canine cutaneous mast cell tumor/hem_bbox/K30,tp_sum,53,53,True
+by_domain,canine lung cancer/default_51/K10,precision_pooled,0.5,0.5,True
+by_domain,canine lung cancer/default_51/K10,tp_sum,10,10,True
+by_domain,canine lung cancer/default_51/K20,precision_pooled,0.4,0.4,True
+by_domain,canine lung cancer/default_51/K20,tp_sum,16,16,True
+by_domain,canine lung cancer/default_51/K30,precision_pooled,0.3,0.3,True
+by_domain,canine lung cancer/default_51/K30,tp_sum,18,18,True
+by_domain,canine lung cancer/gray_bbox/K10,precision_pooled,0.55,0.55,True
+by_domain,canine lung cancer/gray_bbox/K10,tp_sum,11,11,True
+by_domain,canine lung cancer/gray_bbox/K20,precision_pooled,0.4,0.4,True
+by_domain,canine lung cancer/gray_bbox/K20,tp_sum,16,16,True
+by_domain,canine lung cancer/gray_bbox/K30,precision_pooled,0.3167,0.3167,True
+by_domain,canine lung cancer/gray_bbox/K30,tp_sum,19,19,True
+by_domain,canine lung cancer/hem_bbox/K10,precision_pooled,0.5,0.5,True
+by_domain,canine lung cancer/hem_bbox/K10,tp_sum,10,10,True
+by_domain,canine lung cancer/hem_bbox/K20,precision_pooled,0.325,0.325,True
+by_domain,canine lung cancer/hem_bbox/K20,tp_sum,13,13,True
+by_domain,canine lung cancer/hem_bbox/K30,precision_pooled,0.2667,0.2667,True
+by_domain,canine lung cancer/hem_bbox/K30,tp_sum,16,16,True
+by_domain,canine lymphosarcoma/default_51/K10,precision_pooled,0.55,0.55,True
+by_domain,canine lymphosarcoma/default_51/K10,tp_sum,11,11,True
+by_domain,canine lymphosarcoma/default_51/K20,precision_pooled,0.525,0.525,True
+by_domain,canine lymphosarcoma/default_51/K20,tp_sum,21,21,True
+by_domain,canine lymphosarcoma/default_51/K30,precision_pooled,0.5,0.5,True
+by_domain,canine lymphosarcoma/default_51/K30,tp_sum,30,30,True
+by_domain,canine lymphosarcoma/gray_bbox/K10,precision_pooled,0.55,0.55,True
+by_domain,canine lymphosarcoma/gray_bbox/K10,tp_sum,11,11,True
+by_domain,canine lymphosarcoma/gray_bbox/K20,precision_pooled,0.45,0.45,True
+by_domain,canine lymphosarcoma/gray_bbox/K20,tp_sum,18,18,True
+by_domain,canine lymphosarcoma/gray_bbox/K30,precision_pooled,0.4667,0.4667,True
+by_domain,canine lymphosarcoma/gray_bbox/K30,tp_sum,28,28,True
+by_domain,canine lymphosarcoma/hem_bbox/K10,precision_pooled,0.55,0.55,True
+by_domain,canine lymphosarcoma/hem_bbox/K10,tp_sum,11,11,True
+by_domain,canine lymphosarcoma/hem_bbox/K20,precision_pooled,0.45,0.45,True
+by_domain,canine lymphosarcoma/hem_bbox/K20,tp_sum,18,18,True
+by_domain,canine lymphosarcoma/hem_bbox/K30,precision_pooled,0.45,0.45,True
+by_domain,canine lymphosarcoma/hem_bbox/K30,tp_sum,27,27,True
+by_domain,canine soft tissue sarcoma/default_51/K10,precision_pooled,0.8,0.8,True
+by_domain,canine soft tissue sarcoma/default_51/K10,tp_sum,16,16,True
+by_domain,canine soft tissue sarcoma/default_51/K20,precision_pooled,0.825,0.825,True
+by_domain,canine soft tissue sarcoma/default_51/K20,tp_sum,33,33,True
+by_domain,canine soft tissue sarcoma/default_51/K30,precision_pooled,0.7167,0.7167,True
+by_domain,canine soft tissue sarcoma/default_51/K30,tp_sum,43,43,True
+by_domain,canine soft tissue sarcoma/gray_bbox/K10,precision_pooled,0.8,0.8,True
+by_domain,canine soft tissue sarcoma/gray_bbox/K10,tp_sum,16,16,True
+by_domain,canine soft tissue sarcoma/gray_bbox/K20,precision_pooled,0.825,0.825,True
+by_domain,canine soft tissue sarcoma/gray_bbox/K20,tp_sum,33,33,True
+by_domain,canine soft tissue sarcoma/gray_bbox/K30,precision_pooled,0.7,0.7,True
+by_domain,canine soft tissue sarcoma/gray_bbox/K30,tp_sum,42,42,True
+by_domain,canine soft tissue sarcoma/hem_bbox/K10,precision_pooled,0.8,0.8,True
+by_domain,canine soft tissue sarcoma/hem_bbox/K10,tp_sum,16,16,True
+by_domain,canine soft tissue sarcoma/hem_bbox/K20,precision_pooled,0.775,0.775,True
+by_domain,canine soft tissue sarcoma/hem_bbox/K20,tp_sum,31,31,True
+by_domain,canine soft tissue sarcoma/hem_bbox/K30,precision_pooled,0.6667,0.6667,True
+by_domain,canine soft tissue sarcoma/hem_bbox/K30,tp_sum,40,40,True
+by_domain,human breast cancer/default_51/K10,precision_pooled,0.55,0.55,True
+by_domain,human breast cancer/default_51/K10,tp_sum,11,11,True
+by_domain,human breast cancer/default_51/K20,precision_pooled,0.575,0.575,True
+by_domain,human breast cancer/default_51/K20,tp_sum,23,23,True
+by_domain,human breast cancer/default_51/K30,precision_pooled,0.5,0.5,True
+by_domain,human breast cancer/default_51/K30,tp_sum,30,30,True
+by_domain,human breast cancer/gray_bbox/K10,precision_pooled,0.55,0.55,True
+by_domain,human breast cancer/gray_bbox/K10,tp_sum,11,11,True
+by_domain,human breast cancer/gray_bbox/K20,precision_pooled,0.575,0.575,True
+by_domain,human breast cancer/gray_bbox/K20,tp_sum,23,23,True
+by_domain,human breast cancer/gray_bbox/K30,precision_pooled,0.5167,0.5167,True
+by_domain,human breast cancer/gray_bbox/K30,tp_sum,31,31,True
+by_domain,human breast cancer/hem_bbox/K10,precision_pooled,0.55,0.55,True
+by_domain,human breast cancer/hem_bbox/K10,tp_sum,11,11,True
+by_domain,human breast cancer/hem_bbox/K20,precision_pooled,0.575,0.575,True
+by_domain,human breast cancer/hem_bbox/K20,tp_sum,23,23,True
+by_domain,human breast cancer/hem_bbox/K30,precision_pooled,0.5,0.5,True
+by_domain,human breast cancer/hem_bbox/K30,tp_sum,30,30,True
+by_domain,human melanoma/default_51/K10,precision_pooled,0.8,0.8,True
+by_domain,human melanoma/default_51/K10,tp_sum,16,16,True
+by_domain,human melanoma/default_51/K20,precision_pooled,0.575,0.575,True
+by_domain,human melanoma/default_51/K20,tp_sum,23,23,True
+by_domain,human melanoma/default_51/K30,precision_pooled,0.5167,0.5167,True
+by_domain,human melanoma/default_51/K30,tp_sum,31,31,True
+by_domain,human melanoma/gray_bbox/K10,precision_pooled,0.7,0.7,True
+by_domain,human melanoma/gray_bbox/K10,tp_sum,14,14,True
+by_domain,human melanoma/gray_bbox/K20,precision_pooled,0.5,0.5,True
+by_domain,human melanoma/gray_bbox/K20,tp_sum,20,20,True
+by_domain,human melanoma/gray_bbox/K30,precision_pooled,0.4667,0.4667,True
+by_domain,human melanoma/gray_bbox/K30,tp_sum,28,28,True
+by_domain,human melanoma/hem_bbox/K10,precision_pooled,0.7,0.7,True
+by_domain,human melanoma/hem_bbox/K10,tp_sum,14,14,True
+by_domain,human melanoma/hem_bbox/K20,precision_pooled,0.525,0.525,True
+by_domain,human melanoma/hem_bbox/K20,tp_sum,21,21,True
+by_domain,human melanoma/hem_bbox/K30,precision_pooled,0.4833,0.4833,True
+by_domain,human melanoma/hem_bbox/K30,tp_sum,29,29,True
+by_domain,human neuroendocrine tumor/default_51/K10,precision_pooled,0.65,0.65,True
+by_domain,human neuroendocrine tumor/default_51/K10,tp_sum,13,13,True
+by_domain,human neuroendocrine tumor/default_51/K20,precision_pooled,0.6,0.6,True
+by_domain,human neuroendocrine tumor/default_51/K20,tp_sum,24,24,True
+by_domain,human neuroendocrine tumor/default_51/K30,precision_pooled,0.55,0.55,True
+by_domain,human neuroendocrine tumor/default_51/K30,tp_sum,33,33,True
+by_domain,human neuroendocrine tumor/gray_bbox/K10,precision_pooled,0.6,0.6,True
+by_domain,human neuroendocrine tumor/gray_bbox/K10,tp_sum,12,12,True
+by_domain,human neuroendocrine tumor/gray_bbox/K20,precision_pooled,0.55,0.55,True
+by_domain,human neuroendocrine tumor/gray_bbox/K20,tp_sum,22,22,True
+by_domain,human neuroendocrine tumor/gray_bbox/K30,precision_pooled,0.4833,0.4833,True
+by_domain,human neuroendocrine tumor/gray_bbox/K30,tp_sum,29,29,True
+by_domain,human neuroendocrine tumor/hem_bbox/K10,precision_pooled,0.55,0.55,True
+by_domain,human neuroendocrine tumor/hem_bbox/K10,tp_sum,11,11,True
+by_domain,human neuroendocrine tumor/hem_bbox/K20,precision_pooled,0.45,0.45,True
+by_domain,human neuroendocrine tumor/hem_bbox/K20,tp_sum,18,18,True
+by_domain,human neuroendocrine tumor/hem_bbox/K30,precision_pooled,0.4167,0.4167,True
+by_domain,human neuroendocrine tumor/hem_bbox/K30,tp_sum,25,25,True
+delta_per_roi,300.tiff/gray_bbox - default_51/K10,delta_tp,0,0,True
+delta_per_roi,301.tiff/gray_bbox - default_51/K10,delta_tp,0,0,True
+delta_per_roi,201.tiff/gray_bbox - default_51/K10,delta_tp,0,0,True
+delta_per_roi,233.tiff/gray_bbox - default_51/K10,delta_tp,1,1,True
+delta_per_roi,245.tiff/gray_bbox - default_51/K10,delta_tp,0,0,True
+delta_per_roi,246.tiff/gray_bbox - default_51/K10,delta_tp,0,0,True
+delta_per_roi,459.tiff/gray_bbox - default_51/K10,delta_tp,0,0,True
+delta_per_roi,460.tiff/gray_bbox - default_51/K10,delta_tp,0,0,True
+delta_per_roi,013.tiff/gray_bbox - default_51/K10,delta_tp,0,0,True
+delta_per_roi,094.tiff/gray_bbox - default_51/K10,delta_tp,0,0,True
+delta_per_roi,529.tiff/gray_bbox - default_51/K10,delta_tp,-1,-1,True
+delta_per_roi,548.tiff/gray_bbox - default_51/K10,delta_tp,-1,-1,True
+delta_per_roi,402.tiff/gray_bbox - default_51/K10,delta_tp,-1,-1,True
+delta_per_roi,403.tiff/gray_bbox - default_51/K10,delta_tp,0,0,True
+delta_per_roi,300.tiff/gray_bbox - default_51/K20,delta_tp,0,0,True
+delta_per_roi,301.tiff/gray_bbox - default_51/K20,delta_tp,0,0,True
+delta_per_roi,201.tiff/gray_bbox - default_51/K20,delta_tp,0,0,True
+delta_per_roi,233.tiff/gray_bbox - default_51/K20,delta_tp,0,0,True
+delta_per_roi,245.tiff/gray_bbox - default_51/K20,delta_tp,0,0,True
+delta_per_roi,246.tiff/gray_bbox - default_51/K20,delta_tp,-3,-3,True
+delta_per_roi,459.tiff/gray_bbox - default_51/K20,delta_tp,0,0,True
+delta_per_roi,460.tiff/gray_bbox - default_51/K20,delta_tp,0,0,True
+delta_per_roi,013.tiff/gray_bbox - default_51/K20,delta_tp,0,0,True
+delta_per_roi,094.tiff/gray_bbox - default_51/K20,delta_tp,0,0,True
+delta_per_roi,529.tiff/gray_bbox - default_51/K20,delta_tp,-1,-1,True
+delta_per_roi,548.tiff/gray_bbox - default_51/K20,delta_tp,-2,-2,True
+delta_per_roi,402.tiff/gray_bbox - default_51/K20,delta_tp,-2,-2,True
+delta_per_roi,403.tiff/gray_bbox - default_51/K20,delta_tp,0,0,True
+delta_per_roi,300.tiff/gray_bbox - default_51/K30,delta_tp,0,0,True
+delta_per_roi,301.tiff/gray_bbox - default_51/K30,delta_tp,1,1,True
+delta_per_roi,201.tiff/gray_bbox - default_51/K30,delta_tp,0,0,True
+delta_per_roi,233.tiff/gray_bbox - default_51/K30,delta_tp,1,1,True
+delta_per_roi,245.tiff/gray_bbox - default_51/K30,delta_tp,0,0,True
+delta_per_roi,246.tiff/gray_bbox - default_51/K30,delta_tp,-2,-2,True
+delta_per_roi,459.tiff/gray_bbox - default_51/K30,delta_tp,-1,-1,True
+delta_per_roi,460.tiff/gray_bbox - default_51/K30,delta_tp,0,0,True
+delta_per_roi,013.tiff/gray_bbox - default_51/K30,delta_tp,0,0,True
+delta_per_roi,094.tiff/gray_bbox - default_51/K30,delta_tp,1,1,True
+delta_per_roi,529.tiff/gray_bbox - default_51/K30,delta_tp,-2,-2,True
+delta_per_roi,548.tiff/gray_bbox - default_51/K30,delta_tp,-1,-1,True
+delta_per_roi,402.tiff/gray_bbox - default_51/K30,delta_tp,-4,-4,True
+delta_per_roi,403.tiff/gray_bbox - default_51/K30,delta_tp,0,0,True
+delta_per_roi,300.tiff/hem_bbox - default_51/K10,delta_tp,-1,-1,True
+delta_per_roi,301.tiff/hem_bbox - default_51/K10,delta_tp,0,0,True
+delta_per_roi,201.tiff/hem_bbox - default_51/K10,delta_tp,0,0,True
+delta_per_roi,233.tiff/hem_bbox - default_51/K10,delta_tp,0,0,True
+delta_per_roi,245.tiff/hem_bbox - default_51/K10,delta_tp,0,0,True
+delta_per_roi,246.tiff/hem_bbox - default_51/K10,delta_tp,0,0,True
+delta_per_roi,459.tiff/hem_bbox - default_51/K10,delta_tp,0,0,True
+delta_per_roi,460.tiff/hem_bbox - default_51/K10,delta_tp,0,0,True
+delta_per_roi,013.tiff/hem_bbox - default_51/K10,delta_tp,0,0,True
+delta_per_roi,094.tiff/hem_bbox - default_51/K10,delta_tp,0,0,True
+delta_per_roi,529.tiff/hem_bbox - default_51/K10,delta_tp,-1,-1,True
+delta_per_roi,548.tiff/hem_bbox - default_51/K10,delta_tp,-1,-1,True
+delta_per_roi,402.tiff/hem_bbox - default_51/K10,delta_tp,-1,-1,True
+delta_per_roi,403.tiff/hem_bbox - default_51/K10,delta_tp,-1,-1,True
+delta_per_roi,300.tiff/hem_bbox - default_51/K20,delta_tp,-2,-2,True
+delta_per_roi,301.tiff/hem_bbox - default_51/K20,delta_tp,-1,-1,True
+delta_per_roi,201.tiff/hem_bbox - default_51/K20,delta_tp,-2,-2,True
+delta_per_roi,233.tiff/hem_bbox - default_51/K20,delta_tp,-1,-1,True
+delta_per_roi,245.tiff/hem_bbox - default_51/K20,delta_tp,-2,-2,True
+delta_per_roi,246.tiff/hem_bbox - default_51/K20,delta_tp,-1,-1,True
+delta_per_roi,459.tiff/hem_bbox - default_51/K20,delta_tp,0,0,True
+delta_per_roi,460.tiff/hem_bbox - default_51/K20,delta_tp,-2,-2,True
+delta_per_roi,013.tiff/hem_bbox - default_51/K20,delta_tp,1,1,True
+delta_per_roi,094.tiff/hem_bbox - default_51/K20,delta_tp,-1,-1,True
+delta_per_roi,529.tiff/hem_bbox - default_51/K20,delta_tp,0,0,True
+delta_per_roi,548.tiff/hem_bbox - default_51/K20,delta_tp,-2,-2,True
+delta_per_roi,402.tiff/hem_bbox - default_51/K20,delta_tp,-3,-3,True
+delta_per_roi,403.tiff/hem_bbox - default_51/K20,delta_tp,-3,-3,True
+delta_per_roi,300.tiff/hem_bbox - default_51/K30,delta_tp,0,0,True
+delta_per_roi,301.tiff/hem_bbox - default_51/K30,delta_tp,0,0,True
+delta_per_roi,201.tiff/hem_bbox - default_51/K30,delta_tp,-2,-2,True
+delta_per_roi,233.tiff/hem_bbox - default_51/K30,delta_tp,0,0,True
+delta_per_roi,245.tiff/hem_bbox - default_51/K30,delta_tp,-2,-2,True
+delta_per_roi,246.tiff/hem_bbox - default_51/K30,delta_tp,-1,-1,True
+delta_per_roi,459.tiff/hem_bbox - default_51/K30,delta_tp,-1,-1,True
+delta_per_roi,460.tiff/hem_bbox - default_51/K30,delta_tp,-2,-2,True
+delta_per_roi,013.tiff/hem_bbox - default_51/K30,delta_tp,1,1,True
+delta_per_roi,094.tiff/hem_bbox - default_51/K30,delta_tp,-1,-1,True
+delta_per_roi,529.tiff/hem_bbox - default_51/K30,delta_tp,-1,-1,True
+delta_per_roi,548.tiff/hem_bbox - default_51/K30,delta_tp,-1,-1,True
+delta_per_roi,402.tiff/hem_bbox - default_51/K30,delta_tp,-4,-4,True
+delta_per_roi,403.tiff/hem_bbox - default_51/K30,delta_tp,-4,-4,True
+delta_per_roi,300.tiff/hem_bbox - gray_bbox/K10,delta_tp,-1,-1,True
+delta_per_roi,301.tiff/hem_bbox - gray_bbox/K10,delta_tp,0,0,True
+delta_per_roi,201.tiff/hem_bbox - gray_bbox/K10,delta_tp,0,0,True
+delta_per_roi,233.tiff/hem_bbox - gray_bbox/K10,delta_tp,-1,-1,True
+delta_per_roi,245.tiff/hem_bbox - gray_bbox/K10,delta_tp,0,0,True
+delta_per_roi,246.tiff/hem_bbox - gray_bbox/K10,delta_tp,0,0,True
+delta_per_roi,459.tiff/hem_bbox - gray_bbox/K10,delta_tp,0,0,True
+delta_per_roi,460.tiff/hem_bbox - gray_bbox/K10,delta_tp,0,0,True
+delta_per_roi,013.tiff/hem_bbox - gray_bbox/K10,delta_tp,0,0,True
+delta_per_roi,094.tiff/hem_bbox - gray_bbox/K10,delta_tp,0,0,True
+delta_per_roi,529.tiff/hem_bbox - gray_bbox/K10,delta_tp,0,0,True
+delta_per_roi,548.tiff/hem_bbox - gray_bbox/K10,delta_tp,0,0,True
+delta_per_roi,402.tiff/hem_bbox - gray_bbox/K10,delta_tp,0,0,True
+delta_per_roi,403.tiff/hem_bbox - gray_bbox/K10,delta_tp,-1,-1,True
+delta_per_roi,300.tiff/hem_bbox - gray_bbox/K20,delta_tp,-2,-2,True
+delta_per_roi,301.tiff/hem_bbox - gray_bbox/K20,delta_tp,-1,-1,True
+delta_per_roi,201.tiff/hem_bbox - gray_bbox/K20,delta_tp,-2,-2,True
+delta_per_roi,233.tiff/hem_bbox - gray_bbox/K20,delta_tp,-1,-1,True
+delta_per_roi,245.tiff/hem_bbox - gray_bbox/K20,delta_tp,-2,-2,True
+delta_per_roi,246.tiff/hem_bbox - gray_bbox/K20,delta_tp,2,2,True
+delta_per_roi,459.tiff/hem_bbox - gray_bbox/K20,delta_tp,0,0,True
+delta_per_roi,460.tiff/hem_bbox - gray_bbox/K20,delta_tp,-2,-2,True
+delta_per_roi,013.tiff/hem_bbox - gray_bbox/K20,delta_tp,1,1,True
+delta_per_roi,094.tiff/hem_bbox - gray_bbox/K20,delta_tp,-1,-1,True
+delta_per_roi,529.tiff/hem_bbox - gray_bbox/K20,delta_tp,1,1,True
+delta_per_roi,548.tiff/hem_bbox - gray_bbox/K20,delta_tp,0,0,True
+delta_per_roi,402.tiff/hem_bbox - gray_bbox/K20,delta_tp,-1,-1,True
+delta_per_roi,403.tiff/hem_bbox - gray_bbox/K20,delta_tp,-3,-3,True
+delta_per_roi,300.tiff/hem_bbox - gray_bbox/K30,delta_tp,0,0,True
+delta_per_roi,301.tiff/hem_bbox - gray_bbox/K30,delta_tp,-1,-1,True
+delta_per_roi,201.tiff/hem_bbox - gray_bbox/K30,delta_tp,-2,-2,True
+delta_per_roi,233.tiff/hem_bbox - gray_bbox/K30,delta_tp,-1,-1,True
+delta_per_roi,245.tiff/hem_bbox - gray_bbox/K30,delta_tp,-2,-2,True
+delta_per_roi,246.tiff/hem_bbox - gray_bbox/K30,delta_tp,1,1,True
+delta_per_roi,459.tiff/hem_bbox - gray_bbox/K30,delta_tp,0,0,True
+delta_per_roi,460.tiff/hem_bbox - gray_bbox/K30,delta_tp,-2,-2,True
+delta_per_roi,013.tiff/hem_bbox - gray_bbox/K30,delta_tp,1,1,True
+delta_per_roi,094.tiff/hem_bbox - gray_bbox/K30,delta_tp,-2,-2,True
+delta_per_roi,529.tiff/hem_bbox - gray_bbox/K30,delta_tp,1,1,True
+delta_per_roi,548.tiff/hem_bbox - gray_bbox/K30,delta_tp,0,0,True
+delta_per_roi,402.tiff/hem_bbox - gray_bbox/K30,delta_tp,0,0,True
+delta_per_roi,403.tiff/hem_bbox - gray_bbox/K30,delta_tp,-4,-4,True
+delta_stats,gray_bbox - default_51/K10,mean_delta_precision,-0.0143,-0.0143,True
+delta_stats,gray_bbox - default_51/K10,wins,1,1,True
+delta_stats,gray_bbox - default_51/K10,losses,3,3,True
+delta_stats,gray_bbox - default_51/K10,ties,10,10,True
+delta_stats,gray_bbox - default_51/K10,n_nonzero,4,4,True
+delta_stats,gray_bbox - default_51/K10,exact_p (6 dp),0.625,0.625,True
+delta_stats,gray_bbox - default_51/K10,min_attainable_p (6 dp),0.125,0.125,True
+delta_stats,gray_bbox - default_51/K10,holm_p (6 dp),0.75,0.75,True
+delta_stats,gray_bbox - default_51/K20,mean_delta_precision,-0.0286,-0.0286,True
+delta_stats,gray_bbox - default_51/K20,wins,0,0,True
+delta_stats,gray_bbox - default_51/K20,losses,4,4,True
+delta_stats,gray_bbox - default_51/K20,ties,10,10,True
+delta_stats,gray_bbox - default_51/K20,n_nonzero,4,4,True
+delta_stats,gray_bbox - default_51/K20,exact_p (6 dp),0.125,0.125,True
+delta_stats,gray_bbox - default_51/K20,min_attainable_p (6 dp),0.125,0.125,True
+delta_stats,gray_bbox - default_51/K20,holm_p (6 dp),0.539062,0.539062,True
+delta_stats,gray_bbox - default_51/K30,mean_delta_precision,-0.0167,-0.0167,True
+delta_stats,gray_bbox - default_51/K30,wins,3,3,True
+delta_stats,gray_bbox - default_51/K30,losses,5,5,True
+delta_stats,gray_bbox - default_51/K30,ties,6,6,True
+delta_stats,gray_bbox - default_51/K30,n_nonzero,8,8,True
+delta_stats,gray_bbox - default_51/K30,exact_p (6 dp),0.296875,0.296875,True
+delta_stats,gray_bbox - default_51/K30,min_attainable_p (6 dp),0.007812,0.007812,True
+delta_stats,gray_bbox - default_51/K30,holm_p (6 dp),0.75,0.75,True
+delta_stats,hem_bbox - default_51/K10,mean_delta_precision,-0.0357,-0.0357,True
+delta_stats,hem_bbox - default_51/K10,wins,0,0,True
+delta_stats,hem_bbox - default_51/K10,losses,5,5,True
+delta_stats,hem_bbox - default_51/K10,ties,9,9,True
+delta_stats,hem_bbox - default_51/K10,n_nonzero,5,5,True
+delta_stats,hem_bbox - default_51/K10,exact_p (6 dp),0.0625,0.0625,True
+delta_stats,hem_bbox - default_51/K10,min_attainable_p (6 dp),0.0625,0.0625,True
+delta_stats,hem_bbox - default_51/K10,holm_p (6 dp),0.4375,0.4375,True
+delta_stats,hem_bbox - default_51/K20,mean_delta_precision,-0.0679,-0.0679,True
+delta_stats,hem_bbox - default_51/K20,wins,1,1,True
+delta_stats,hem_bbox - default_51/K20,losses,11,11,True
+delta_stats,hem_bbox - default_51/K20,ties,2,2,True
+delta_stats,hem_bbox - default_51/K20,n_nonzero,12,12,True
+delta_stats,hem_bbox - default_51/K20,exact_p (6 dp),0.00293,0.00293,True
+delta_stats,hem_bbox - default_51/K20,min_attainable_p (6 dp),0.000488,0.000488,True
+delta_stats,hem_bbox - default_51/K20,holm_p (6 dp),0.026367,0.026367,True
+delta_stats,hem_bbox - default_51/K30,mean_delta_precision,-0.0429,-0.0429,True
+delta_stats,hem_bbox - default_51/K30,wins,1,1,True
+delta_stats,hem_bbox - default_51/K30,losses,10,10,True
+delta_stats,hem_bbox - default_51/K30,ties,3,3,True
+delta_stats,hem_bbox - default_51/K30,n_nonzero,11,11,True
+delta_stats,hem_bbox - default_51/K30,exact_p (6 dp),0.006836,0.006836,True
+delta_stats,hem_bbox - default_51/K30,min_attainable_p (6 dp),0.000977,0.000977,True
+delta_stats,hem_bbox - default_51/K30,holm_p (6 dp),0.054688,0.054688,True
+delta_stats,hem_bbox - gray_bbox/K10,mean_delta_precision,-0.0214,-0.0214,True
+delta_stats,hem_bbox - gray_bbox/K10,wins,0,0,True
+delta_stats,hem_bbox - gray_bbox/K10,losses,3,3,True
+delta_stats,hem_bbox - gray_bbox/K10,ties,11,11,True
+delta_stats,hem_bbox - gray_bbox/K10,n_nonzero,3,3,True
+delta_stats,hem_bbox - gray_bbox/K10,exact_p (6 dp),0.25,0.25,True
+delta_stats,hem_bbox - gray_bbox/K10,min_attainable_p (6 dp),0.25,0.25,True
+delta_stats,hem_bbox - gray_bbox/K10,holm_p (6 dp),0.75,0.75,True
+delta_stats,hem_bbox - gray_bbox/K20,mean_delta_precision,-0.0393,-0.0393,True
+delta_stats,hem_bbox - gray_bbox/K20,wins,3,3,True
+delta_stats,hem_bbox - gray_bbox/K20,losses,9,9,True
+delta_stats,hem_bbox - gray_bbox/K20,ties,2,2,True
+delta_stats,hem_bbox - gray_bbox/K20,n_nonzero,12,12,True
+delta_stats,hem_bbox - gray_bbox/K20,exact_p (6 dp),0.089844,0.089844,True
+delta_stats,hem_bbox - gray_bbox/K20,min_attainable_p (6 dp),0.000488,0.000488,True
+delta_stats,hem_bbox - gray_bbox/K20,holm_p (6 dp),0.539062,0.539062,True
+delta_stats,hem_bbox - gray_bbox/K30,mean_delta_precision,-0.0262,-0.0262,True
+delta_stats,hem_bbox - gray_bbox/K30,wins,3,3,True
+delta_stats,hem_bbox - gray_bbox/K30,losses,7,7,True
+delta_stats,hem_bbox - gray_bbox/K30,ties,4,4,True
+delta_stats,hem_bbox - gray_bbox/K30,n_nonzero,10,10,True
+delta_stats,hem_bbox - gray_bbox/K30,exact_p (6 dp),0.097656,0.097656,True
+delta_stats,hem_bbox - gray_bbox/K30,min_attainable_p (6 dp),0.001953,0.001953,True
+delta_stats,hem_bbox - gray_bbox/K30,holm_p (6 dp),0.539062,0.539062,True
+contested_sensitivity,all_mitoses/gray_bbox - default_51/K10,mean_delta_precision,-0.0143,-0.0143,True
+contested_sensitivity,all_mitoses/gray_bbox - default_51/K10,wins,1,1,True
+contested_sensitivity,all_mitoses/gray_bbox - default_51/K10,losses,3,3,True
+contested_sensitivity,all_mitoses/gray_bbox - default_51/K10,exact_p (6 dp),0.625,0.625,True
+contested_sensitivity,all_mitoses/gray_bbox - default_51/K10,holm_p (6 dp),0.75,0.75,True
+contested_sensitivity,all_mitoses/gray_bbox - default_51/K20,mean_delta_precision,-0.0286,-0.0286,True
+contested_sensitivity,all_mitoses/gray_bbox - default_51/K20,wins,0,0,True
+contested_sensitivity,all_mitoses/gray_bbox - default_51/K20,losses,4,4,True
+contested_sensitivity,all_mitoses/gray_bbox - default_51/K20,exact_p (6 dp),0.125,0.125,True
+contested_sensitivity,all_mitoses/gray_bbox - default_51/K20,holm_p (6 dp),0.539062,0.539062,True
+contested_sensitivity,all_mitoses/gray_bbox - default_51/K30,mean_delta_precision,-0.0167,-0.0167,True
+contested_sensitivity,all_mitoses/gray_bbox - default_51/K30,wins,3,3,True
+contested_sensitivity,all_mitoses/gray_bbox - default_51/K30,losses,5,5,True
+contested_sensitivity,all_mitoses/gray_bbox - default_51/K30,exact_p (6 dp),0.296875,0.296875,True
+contested_sensitivity,all_mitoses/gray_bbox - default_51/K30,holm_p (6 dp),0.75,0.75,True
+contested_sensitivity,all_mitoses/hem_bbox - default_51/K10,mean_delta_precision,-0.0357,-0.0357,True
+contested_sensitivity,all_mitoses/hem_bbox - default_51/K10,wins,0,0,True
+contested_sensitivity,all_mitoses/hem_bbox - default_51/K10,losses,5,5,True
+contested_sensitivity,all_mitoses/hem_bbox - default_51/K10,exact_p (6 dp),0.0625,0.0625,True
+contested_sensitivity,all_mitoses/hem_bbox - default_51/K10,holm_p (6 dp),0.4375,0.4375,True
+contested_sensitivity,all_mitoses/hem_bbox - default_51/K20,mean_delta_precision,-0.0679,-0.0679,True
+contested_sensitivity,all_mitoses/hem_bbox - default_51/K20,wins,1,1,True
+contested_sensitivity,all_mitoses/hem_bbox - default_51/K20,losses,11,11,True
+contested_sensitivity,all_mitoses/hem_bbox - default_51/K20,exact_p (6 dp),0.00293,0.00293,True
+contested_sensitivity,all_mitoses/hem_bbox - default_51/K20,holm_p (6 dp),0.026367,0.026367,True
+contested_sensitivity,all_mitoses/hem_bbox - default_51/K30,mean_delta_precision,-0.0429,-0.0429,True
+contested_sensitivity,all_mitoses/hem_bbox - default_51/K30,wins,1,1,True
+contested_sensitivity,all_mitoses/hem_bbox - default_51/K30,losses,10,10,True
+contested_sensitivity,all_mitoses/hem_bbox - default_51/K30,exact_p (6 dp),0.006836,0.006836,True
+contested_sensitivity,all_mitoses/hem_bbox - default_51/K30,holm_p (6 dp),0.054688,0.054688,True
+contested_sensitivity,all_mitoses/hem_bbox - gray_bbox/K10,mean_delta_precision,-0.0214,-0.0214,True
+contested_sensitivity,all_mitoses/hem_bbox - gray_bbox/K10,wins,0,0,True
+contested_sensitivity,all_mitoses/hem_bbox - gray_bbox/K10,losses,3,3,True
+contested_sensitivity,all_mitoses/hem_bbox - gray_bbox/K10,exact_p (6 dp),0.25,0.25,True
+contested_sensitivity,all_mitoses/hem_bbox - gray_bbox/K10,holm_p (6 dp),0.75,0.75,True
+contested_sensitivity,all_mitoses/hem_bbox - gray_bbox/K20,mean_delta_precision,-0.0393,-0.0393,True
+contested_sensitivity,all_mitoses/hem_bbox - gray_bbox/K20,wins,3,3,True
+contested_sensitivity,all_mitoses/hem_bbox - gray_bbox/K20,losses,9,9,True
+contested_sensitivity,all_mitoses/hem_bbox - gray_bbox/K20,exact_p (6 dp),0.089844,0.089844,True
+contested_sensitivity,all_mitoses/hem_bbox - gray_bbox/K20,holm_p (6 dp),0.539062,0.539062,True
+contested_sensitivity,all_mitoses/hem_bbox - gray_bbox/K30,mean_delta_precision,-0.0262,-0.0262,True
+contested_sensitivity,all_mitoses/hem_bbox - gray_bbox/K30,wins,3,3,True
+contested_sensitivity,all_mitoses/hem_bbox - gray_bbox/K30,losses,7,7,True
+contested_sensitivity,all_mitoses/hem_bbox - gray_bbox/K30,exact_p (6 dp),0.097656,0.097656,True
+contested_sensitivity,all_mitoses/hem_bbox - gray_bbox/K30,holm_p (6 dp),0.539062,0.539062,True
+contested_sensitivity,contested_excluded/gray_bbox - default_51/K10,mean_delta_precision,-0.0142,-0.0142,True
+contested_sensitivity,contested_excluded/gray_bbox - default_51/K10,wins,2,2,True
+contested_sensitivity,contested_excluded/gray_bbox - default_51/K10,losses,3,3,True
+contested_sensitivity,contested_excluded/gray_bbox - default_51/K10,exact_p (6 dp),0.5,0.5,True
+contested_sensitivity,contested_excluded/gray_bbox - default_51/K10,holm_p (6 dp),0.9375,0.9375,True
+contested_sensitivity,contested_excluded/gray_bbox - default_51/K20,mean_delta_precision,-0.0314,-0.0314,True
+contested_sensitivity,contested_excluded/gray_bbox - default_51/K20,wins,1,1,True
+contested_sensitivity,contested_excluded/gray_bbox - default_51/K20,losses,5,5,True
+contested_sensitivity,contested_excluded/gray_bbox - default_51/K20,exact_p (6 dp),0.0625,0.0625,True
+contested_sensitivity,contested_excluded/gray_bbox - default_51/K20,holm_p (6 dp),0.4375,0.4375,True
+contested_sensitivity,contested_excluded/gray_bbox - default_51/K30,mean_delta_precision,-0.0185,-0.0185,True
+contested_sensitivity,contested_excluded/gray_bbox - default_51/K30,wins,3,3,True
+contested_sensitivity,contested_excluded/gray_bbox - default_51/K30,losses,6,6,True
+contested_sensitivity,contested_excluded/gray_bbox - default_51/K30,exact_p (6 dp),0.238281,0.238281,True
+contested_sensitivity,contested_excluded/gray_bbox - default_51/K30,holm_p (6 dp),0.714844,0.714844,True
+contested_sensitivity,contested_excluded/hem_bbox - default_51/K10,mean_delta_precision,-0.0269,-0.0269,True
+contested_sensitivity,contested_excluded/hem_bbox - default_51/K10,wins,1,1,True
+contested_sensitivity,contested_excluded/hem_bbox - default_51/K10,losses,5,5,True
+contested_sensitivity,contested_excluded/hem_bbox - default_51/K10,exact_p (6 dp),0.15625,0.15625,True
+contested_sensitivity,contested_excluded/hem_bbox - default_51/K10,holm_p (6 dp),0.625,0.625,True
+contested_sensitivity,contested_excluded/hem_bbox - default_51/K20,mean_delta_precision,-0.0666,-0.0666,True
+contested_sensitivity,contested_excluded/hem_bbox - default_51/K20,wins,1,1,True
+contested_sensitivity,contested_excluded/hem_bbox - default_51/K20,losses,11,11,True
+contested_sensitivity,contested_excluded/hem_bbox - default_51/K20,exact_p (6 dp),0.003418,0.003418,True
+contested_sensitivity,contested_excluded/hem_bbox - default_51/K20,holm_p (6 dp),0.028564,0.028564,True
+contested_sensitivity,contested_excluded/hem_bbox - default_51/K30,mean_delta_precision,-0.0435,-0.0435,True
+contested_sensitivity,contested_excluded/hem_bbox - default_51/K30,wins,2,2,True
+contested_sensitivity,contested_excluded/hem_bbox - default_51/K30,losses,12,12,True
+contested_sensitivity,contested_excluded/hem_bbox - default_51/K30,exact_p (6 dp),0.003174,0.003174,True
+contested_sensitivity,contested_excluded/hem_bbox - default_51/K30,holm_p (6 dp),0.028564,0.028564,True
+contested_sensitivity,contested_excluded/hem_bbox - gray_bbox/K10,mean_delta_precision,-0.0127,-0.0127,True
+contested_sensitivity,contested_excluded/hem_bbox - gray_bbox/K10,wins,2,2,True
+contested_sensitivity,contested_excluded/hem_bbox - gray_bbox/K10,losses,5,5,True
+contested_sensitivity,contested_excluded/hem_bbox - gray_bbox/K10,exact_p (6 dp),0.46875,0.46875,True
+contested_sensitivity,contested_excluded/hem_bbox - gray_bbox/K10,holm_p (6 dp),0.9375,0.9375,True
+contested_sensitivity,contested_excluded/hem_bbox - gray_bbox/K20,mean_delta_precision,-0.0352,-0.0352,True
+contested_sensitivity,contested_excluded/hem_bbox - gray_bbox/K20,wins,3,3,True
+contested_sensitivity,contested_excluded/hem_bbox - gray_bbox/K20,losses,9,9,True
+contested_sensitivity,contested_excluded/hem_bbox - gray_bbox/K20,exact_p (6 dp),0.114258,0.114258,True
+contested_sensitivity,contested_excluded/hem_bbox - gray_bbox/K20,holm_p (6 dp),0.571289,0.571289,True
+contested_sensitivity,contested_excluded/hem_bbox - gray_bbox/K30,mean_delta_precision,-0.0249,-0.0249,True
+contested_sensitivity,contested_excluded/hem_bbox - gray_bbox/K30,wins,3,3,True
+contested_sensitivity,contested_excluded/hem_bbox - gray_bbox/K30,losses,9,9,True
+contested_sensitivity,contested_excluded/hem_bbox - gray_bbox/K30,exact_p (6 dp),0.078125,0.078125,True
+contested_sensitivity,contested_excluded/hem_bbox - gray_bbox/K30,holm_p (6 dp),0.46875,0.46875,True
+contested_sensitivity,contested_as_fp/gray_bbox - default_51/K10,mean_delta_precision,0.0,0.0,True
+contested_sensitivity,contested_as_fp/gray_bbox - default_51/K10,wins,2,2,True
+contested_sensitivity,contested_as_fp/gray_bbox - default_51/K10,losses,2,2,True
+contested_sensitivity,contested_as_fp/gray_bbox - default_51/K10,exact_p (6 dp),1.0,1.0,True
+contested_sensitivity,contested_as_fp/gray_bbox - default_51/K10,holm_p (6 dp),1.0,1.0,True
+contested_sensitivity,contested_as_fp/gray_bbox - default_51/K20,mean_delta_precision,-0.0214,-0.0214,True
+contested_sensitivity,contested_as_fp/gray_bbox - default_51/K20,wins,1,1,True
+contested_sensitivity,contested_as_fp/gray_bbox - default_51/K20,losses,5,5,True
+contested_sensitivity,contested_as_fp/gray_bbox - default_51/K20,exact_p (6 dp),0.15625,0.15625,True
+contested_sensitivity,contested_as_fp/gray_bbox - default_51/K20,holm_p (6 dp),1.0,1.0,True
+contested_sensitivity,contested_as_fp/gray_bbox - default_51/K30,mean_delta_precision,-0.0167,-0.0167,True
+contested_sensitivity,contested_as_fp/gray_bbox - default_51/K30,wins,2,2,True
+contested_sensitivity,contested_as_fp/gray_bbox - default_51/K30,losses,6,6,True
+contested_sensitivity,contested_as_fp/gray_bbox - default_51/K30,exact_p (6 dp),0.296875,0.296875,True
+contested_sensitivity,contested_as_fp/gray_bbox - default_51/K30,holm_p (6 dp),1.0,1.0,True
+contested_sensitivity,contested_as_fp/hem_bbox - default_51/K10,mean_delta_precision,-0.0071,-0.0071,True
+contested_sensitivity,contested_as_fp/hem_bbox - default_51/K10,wins,2,2,True
+contested_sensitivity,contested_as_fp/hem_bbox - default_51/K10,losses,3,3,True
+contested_sensitivity,contested_as_fp/hem_bbox - default_51/K10,exact_p (6 dp),1.0,1.0,True
+contested_sensitivity,contested_as_fp/hem_bbox - default_51/K10,holm_p (6 dp),1.0,1.0,True
+contested_sensitivity,contested_as_fp/hem_bbox - default_51/K20,mean_delta_precision,-0.0429,-0.0429,True
+contested_sensitivity,contested_as_fp/hem_bbox - default_51/K20,wins,3,3,True
+contested_sensitivity,contested_as_fp/hem_bbox - default_51/K20,losses,7,7,True
+contested_sensitivity,contested_as_fp/hem_bbox - default_51/K20,exact_p (6 dp),0.064453,0.064453,True
+contested_sensitivity,contested_as_fp/hem_bbox - default_51/K20,holm_p (6 dp),0.515625,0.515625,True
+contested_sensitivity,contested_as_fp/hem_bbox - default_51/K30,mean_delta_precision,-0.0357,-0.0357,True
+contested_sensitivity,contested_as_fp/hem_bbox - default_51/K30,wins,3,3,True
+contested_sensitivity,contested_as_fp/hem_bbox - default_51/K30,losses,10,10,True
+contested_sensitivity,contested_as_fp/hem_bbox - default_51/K30,exact_p (6 dp),0.036865,0.036865,True
+contested_sensitivity,contested_as_fp/hem_bbox - default_51/K30,holm_p (6 dp),0.331787,0.331787,True
+contested_sensitivity,contested_as_fp/hem_bbox - gray_bbox/K10,mean_delta_precision,-0.0071,-0.0071,True
+contested_sensitivity,contested_as_fp/hem_bbox - gray_bbox/K10,wins,3,3,True
+contested_sensitivity,contested_as_fp/hem_bbox - gray_bbox/K10,losses,4,4,True
+contested_sensitivity,contested_as_fp/hem_bbox - gray_bbox/K10,exact_p (6 dp),1.0,1.0,True
+contested_sensitivity,contested_as_fp/hem_bbox - gray_bbox/K10,holm_p (6 dp),1.0,1.0,True
+contested_sensitivity,contested_as_fp/hem_bbox - gray_bbox/K20,mean_delta_precision,-0.0214,-0.0214,True
+contested_sensitivity,contested_as_fp/hem_bbox - gray_bbox/K20,wins,3,3,True
+contested_sensitivity,contested_as_fp/hem_bbox - gray_bbox/K20,losses,6,6,True
+contested_sensitivity,contested_as_fp/hem_bbox - gray_bbox/K20,exact_p (6 dp),0.390625,0.390625,True
+contested_sensitivity,contested_as_fp/hem_bbox - gray_bbox/K20,holm_p (6 dp),1.0,1.0,True
+contested_sensitivity,contested_as_fp/hem_bbox - gray_bbox/K30,mean_delta_precision,-0.019,-0.019,True
+contested_sensitivity,contested_as_fp/hem_bbox - gray_bbox/K30,wins,3,3,True
+contested_sensitivity,contested_as_fp/hem_bbox - gray_bbox/K30,losses,9,9,True
+contested_sensitivity,contested_as_fp/hem_bbox - gray_bbox/K30,exact_p (6 dp),0.175293,0.175293,True
+contested_sensitivity,contested_as_fp/hem_bbox - gray_bbox/K30,holm_p (6 dp),1.0,1.0,True
+TIES,gray_bbox - default_51/K10,mean_abs_size_gap_px,11.9,11.9,True
+TIES,gray_bbox - default_51/K10,ties,10.0,10.0,True
+TIES,gray_bbox - default_51/K10,rois_with_different_template,12.0,12.0,True
+TIES,gray_bbox - default_51/K10,shared_topk_coordinates_where_templates_differ,2.0,2.0,True
+TIES,gray_bbox - default_51/K20,mean_abs_size_gap_px,11.9,11.9,True
+TIES,gray_bbox - default_51/K20,ties,10.0,10.0,True
+TIES,gray_bbox - default_51/K20,rois_with_different_template,12.0,12.0,True
+TIES,gray_bbox - default_51/K20,shared_topk_coordinates_where_templates_differ,2.0,2.0,True
+TIES,gray_bbox - default_51/K30,mean_abs_size_gap_px,11.9,11.9,True
+TIES,gray_bbox - default_51/K30,ties,6.0,6.0,True
+TIES,gray_bbox - default_51/K30,rois_with_different_template,12.0,12.0,True
+TIES,gray_bbox - default_51/K30,shared_topk_coordinates_where_templates_differ,3.0,3.0,True
+TIES,hem_bbox - default_51/K10,mean_abs_size_gap_px,21.7,21.7,True
+TIES,hem_bbox - default_51/K10,ties,9.0,9.0,True
+TIES,hem_bbox - default_51/K10,rois_with_different_template,14.0,14.0,True
+TIES,hem_bbox - default_51/K10,shared_topk_coordinates_where_templates_differ,1.0,1.0,True
+TIES,hem_bbox - default_51/K20,mean_abs_size_gap_px,21.7,21.7,True
+TIES,hem_bbox - default_51/K20,ties,2.0,2.0,True
+TIES,hem_bbox - default_51/K20,rois_with_different_template,14.0,14.0,True
+TIES,hem_bbox - default_51/K20,shared_topk_coordinates_where_templates_differ,2.0,2.0,True
+TIES,hem_bbox - default_51/K30,mean_abs_size_gap_px,21.7,21.7,True
+TIES,hem_bbox - default_51/K30,ties,3.0,3.0,True
+TIES,hem_bbox - default_51/K30,rois_with_different_template,14.0,14.0,True
+TIES,hem_bbox - default_51/K30,shared_topk_coordinates_where_templates_differ,2.0,2.0,True
+TIES,hem_bbox - gray_bbox/K10,mean_abs_size_gap_px,9.9,9.9,True
+TIES,hem_bbox - gray_bbox/K10,ties,11.0,11.0,True
+TIES,hem_bbox - gray_bbox/K10,rois_with_different_template,14.0,14.0,True
+TIES,hem_bbox - gray_bbox/K10,shared_topk_coordinates_where_templates_differ,2.0,2.0,True
+TIES,hem_bbox - gray_bbox/K20,mean_abs_size_gap_px,9.9,9.9,True
+TIES,hem_bbox - gray_bbox/K20,ties,2.0,2.0,True
+TIES,hem_bbox - gray_bbox/K20,rois_with_different_template,14.0,14.0,True
+TIES,hem_bbox - gray_bbox/K20,shared_topk_coordinates_where_templates_differ,6.0,6.0,True
+TIES,hem_bbox - gray_bbox/K30,mean_abs_size_gap_px,9.9,9.9,True
+TIES,hem_bbox - gray_bbox/K30,ties,4.0,4.0,True
+TIES,hem_bbox - gray_bbox/K30,rois_with_different_template,14.0,14.0,True
+TIES,hem_bbox - gray_bbox/K30,shared_topk_coordinates_where_templates_differ,12.0,12.0,True
+refusals,013.tiff,refused_draws,254:hem_bbox,254:hem_bbox,True
+refusals,094.tiff,refused_draws,,,True
+refusals,201.tiff,refused_draws,,,True
+refusals,233.tiff,refused_draws,,,True
+refusals,245.tiff,refused_draws,6274:hem_bbox,6274:hem_bbox,True
+refusals,246.tiff,refused_draws,,,True
+refusals,300.tiff,refused_draws,14581:hem_bbox,14581:hem_bbox,True
+refusals,301.tiff,refused_draws,,,True
+refusals,402.tiff,refused_draws,,,True
+refusals,403.tiff,refused_draws,20334:gray_bbox+hem_bbox,20334:gray_bbox+hem_bbox,True
+refusals,459.tiff,refused_draws,,,True
+refusals,460.tiff,refused_draws,,,True
+refusals,529.tiff,refused_draws,,,True
+refusals,548.tiff,refused_draws,,,True
+refusals,ALL,production gray_bbox would click differently,"['013.tiff', '245.tiff', '300.tiff']","['013.tiff', '245.tiff', '300.tiff']",True
+refusals,ALL,default_51 alone would click differently,"['013.tiff', '245.tiff', '300.tiff', '403.tiff']","['013.tiff', '245.tiff', '300.tiff', '403.tiff']",True

@@ -1,0 +1,172 @@
+figure,panel,row,label
+1 pooled precision bars,default_51,top 10,0.671
+1 pooled precision bars,default_51,top 20,0.632
+1 pooled precision bars,default_51,top 30,0.567
+1 pooled precision bars,gray_bbox,top 10,0.657
+1 pooled precision bars,gray_bbox,top 20,0.604
+1 pooled precision bars,gray_bbox,top 30,0.550
+1 pooled precision bars,hem_bbox,top 10,0.636
+1 pooled precision bars,hem_bbox,top 20,0.564
+1 pooled precision bars,hem_bbox,top 30,0.524
+2 per-ROI delta heatmap,gray_bbox minus default_51,300.tiff K=10,0
+2 per-ROI delta heatmap,gray_bbox minus default_51,300.tiff K=20,0
+2 per-ROI delta heatmap,gray_bbox minus default_51,300.tiff K=30,0
+2 per-ROI delta heatmap,gray_bbox minus default_51,301.tiff K=10,0
+2 per-ROI delta heatmap,gray_bbox minus default_51,301.tiff K=20,0
+2 per-ROI delta heatmap,gray_bbox minus default_51,301.tiff K=30,+0.03
+2 per-ROI delta heatmap,gray_bbox minus default_51,201.tiff K=10,0
+2 per-ROI delta heatmap,gray_bbox minus default_51,201.tiff K=20,0
+2 per-ROI delta heatmap,gray_bbox minus default_51,201.tiff K=30,0
+2 per-ROI delta heatmap,gray_bbox minus default_51,233.tiff K=10,+0.10
+2 per-ROI delta heatmap,gray_bbox minus default_51,233.tiff K=20,0
+2 per-ROI delta heatmap,gray_bbox minus default_51,233.tiff K=30,+0.03
+2 per-ROI delta heatmap,gray_bbox minus default_51,245.tiff K=10,0
+2 per-ROI delta heatmap,gray_bbox minus default_51,245.tiff K=20,0
+2 per-ROI delta heatmap,gray_bbox minus default_51,245.tiff K=30,0
+2 per-ROI delta heatmap,gray_bbox minus default_51,246.tiff K=10,0
+2 per-ROI delta heatmap,gray_bbox minus default_51,246.tiff K=20,-0.15
+2 per-ROI delta heatmap,gray_bbox minus default_51,246.tiff K=30,-0.07
+2 per-ROI delta heatmap,gray_bbox minus default_51,459.tiff K=10,0
+2 per-ROI delta heatmap,gray_bbox minus default_51,459.tiff K=20,0
+2 per-ROI delta heatmap,gray_bbox minus default_51,459.tiff K=30,-0.03
+2 per-ROI delta heatmap,gray_bbox minus default_51,460.tiff K=10,0
+2 per-ROI delta heatmap,gray_bbox minus default_51,460.tiff K=20,0
+2 per-ROI delta heatmap,gray_bbox minus default_51,460.tiff K=30,0
+2 per-ROI delta heatmap,gray_bbox minus default_51,013.tiff K=10,0
+2 per-ROI delta heatmap,gray_bbox minus default_51,013.tiff K=20,0
+2 per-ROI delta heatmap,gray_bbox minus default_51,013.tiff K=30,0
+2 per-ROI delta heatmap,gray_bbox minus default_51,094.tiff K=10,0
+2 per-ROI delta heatmap,gray_bbox minus default_51,094.tiff K=20,0
+2 per-ROI delta heatmap,gray_bbox minus default_51,094.tiff K=30,+0.03
+2 per-ROI delta heatmap,gray_bbox minus default_51,529.tiff K=10,-0.10
+2 per-ROI delta heatmap,gray_bbox minus default_51,529.tiff K=20,-0.05
+2 per-ROI delta heatmap,gray_bbox minus default_51,529.tiff K=30,-0.07
+2 per-ROI delta heatmap,gray_bbox minus default_51,548.tiff K=10,-0.10
+2 per-ROI delta heatmap,gray_bbox minus default_51,548.tiff K=20,-0.10
+2 per-ROI delta heatmap,gray_bbox minus default_51,548.tiff K=30,-0.03
+2 per-ROI delta heatmap,gray_bbox minus default_51,402.tiff K=10,-0.10
+2 per-ROI delta heatmap,gray_bbox minus default_51,402.tiff K=20,-0.10
+2 per-ROI delta heatmap,gray_bbox minus default_51,402.tiff K=30,-0.13
+2 per-ROI delta heatmap,gray_bbox minus default_51,403.tiff K=10,0
+2 per-ROI delta heatmap,gray_bbox minus default_51,403.tiff K=20,0
+2 per-ROI delta heatmap,gray_bbox minus default_51,403.tiff K=30,0
+3 win/loss/tie stacks,gray_bbox vs default_51,K=10 wins,1
+3 win/loss/tie stacks,gray_bbox vs default_51,K=10 losses,3
+3 win/loss/tie stacks,gray_bbox vs default_51,K=10 ties,10
+3 win/loss/tie stacks,gray_bbox vs default_51,K=10 p label,p=0.625
+3 win/loss/tie stacks,gray_bbox vs default_51,K=20 wins,(not drawn)
+3 win/loss/tie stacks,gray_bbox vs default_51,K=20 losses,4
+3 win/loss/tie stacks,gray_bbox vs default_51,K=20 ties,10
+3 win/loss/tie stacks,gray_bbox vs default_51,K=20 p label,p=0.125
+3 win/loss/tie stacks,gray_bbox vs default_51,K=30 wins,3
+3 win/loss/tie stacks,gray_bbox vs default_51,K=30 losses,5
+3 win/loss/tie stacks,gray_bbox vs default_51,K=30 ties,6
+3 win/loss/tie stacks,gray_bbox vs default_51,K=30 p label,p=0.297
+2 per-ROI delta heatmap,hem_bbox minus default_51,300.tiff K=10,-0.10
+2 per-ROI delta heatmap,hem_bbox minus default_51,300.tiff K=20,-0.10
+2 per-ROI delta heatmap,hem_bbox minus default_51,300.tiff K=30,0
+2 per-ROI delta heatmap,hem_bbox minus default_51,301.tiff K=10,0
+2 per-ROI delta heatmap,hem_bbox minus default_51,301.tiff K=20,-0.05
+2 per-ROI delta heatmap,hem_bbox minus default_51,301.tiff K=30,0
+2 per-ROI delta heatmap,hem_bbox minus default_51,201.tiff K=10,0
+2 per-ROI delta heatmap,hem_bbox minus default_51,201.tiff K=20,-0.10
+2 per-ROI delta heatmap,hem_bbox minus default_51,201.tiff K=30,-0.07
+2 per-ROI delta heatmap,hem_bbox minus default_51,233.tiff K=10,0
+2 per-ROI delta heatmap,hem_bbox minus default_51,233.tiff K=20,-0.05
+2 per-ROI delta heatmap,hem_bbox minus default_51,233.tiff K=30,0
+2 per-ROI delta heatmap,hem_bbox minus default_51,245.tiff K=10,0
+2 per-ROI delta heatmap,hem_bbox minus default_51,245.tiff K=20,-0.10
+2 per-ROI delta heatmap,hem_bbox minus default_51,245.tiff K=30,-0.07
+2 per-ROI delta heatmap,hem_bbox minus default_51,246.tiff K=10,0
+2 per-ROI delta heatmap,hem_bbox minus default_51,246.tiff K=20,-0.05
+2 per-ROI delta heatmap,hem_bbox minus default_51,246.tiff K=30,-0.03
+2 per-ROI delta heatmap,hem_bbox minus default_51,459.tiff K=10,0
+2 per-ROI delta heatmap,hem_bbox minus default_51,459.tiff K=20,0
+2 per-ROI delta heatmap,hem_bbox minus default_51,459.tiff K=30,-0.03
+2 per-ROI delta heatmap,hem_bbox minus default_51,460.tiff K=10,0
+2 per-ROI delta heatmap,hem_bbox minus default_51,460.tiff K=20,-0.10
+2 per-ROI delta heatmap,hem_bbox minus default_51,460.tiff K=30,-0.07
+2 per-ROI delta heatmap,hem_bbox minus default_51,013.tiff K=10,0
+2 per-ROI delta heatmap,hem_bbox minus default_51,013.tiff K=20,+0.05
+2 per-ROI delta heatmap,hem_bbox minus default_51,013.tiff K=30,+0.03
+2 per-ROI delta heatmap,hem_bbox minus default_51,094.tiff K=10,0
+2 per-ROI delta heatmap,hem_bbox minus default_51,094.tiff K=20,-0.05
+2 per-ROI delta heatmap,hem_bbox minus default_51,094.tiff K=30,-0.03
+2 per-ROI delta heatmap,hem_bbox minus default_51,529.tiff K=10,-0.10
+2 per-ROI delta heatmap,hem_bbox minus default_51,529.tiff K=20,0
+2 per-ROI delta heatmap,hem_bbox minus default_51,529.tiff K=30,-0.03
+2 per-ROI delta heatmap,hem_bbox minus default_51,548.tiff K=10,-0.10
+2 per-ROI delta heatmap,hem_bbox minus default_51,548.tiff K=20,-0.10
+2 per-ROI delta heatmap,hem_bbox minus default_51,548.tiff K=30,-0.03
+2 per-ROI delta heatmap,hem_bbox minus default_51,402.tiff K=10,-0.10
+2 per-ROI delta heatmap,hem_bbox minus default_51,402.tiff K=20,-0.15
+2 per-ROI delta heatmap,hem_bbox minus default_51,402.tiff K=30,-0.13
+2 per-ROI delta heatmap,hem_bbox minus default_51,403.tiff K=10,-0.10
+2 per-ROI delta heatmap,hem_bbox minus default_51,403.tiff K=20,-0.15
+2 per-ROI delta heatmap,hem_bbox minus default_51,403.tiff K=30,-0.13
+3 win/loss/tie stacks,hem_bbox vs default_51,K=10 wins,(not drawn)
+3 win/loss/tie stacks,hem_bbox vs default_51,K=10 losses,5
+3 win/loss/tie stacks,hem_bbox vs default_51,K=10 ties,9
+3 win/loss/tie stacks,hem_bbox vs default_51,K=10 p label,p=0.062
+3 win/loss/tie stacks,hem_bbox vs default_51,K=20 wins,1
+3 win/loss/tie stacks,hem_bbox vs default_51,K=20 losses,11
+3 win/loss/tie stacks,hem_bbox vs default_51,K=20 ties,2
+3 win/loss/tie stacks,hem_bbox vs default_51,K=20 p label,p=0.003
+3 win/loss/tie stacks,hem_bbox vs default_51,K=30 wins,1
+3 win/loss/tie stacks,hem_bbox vs default_51,K=30 losses,10
+3 win/loss/tie stacks,hem_bbox vs default_51,K=30 ties,3
+3 win/loss/tie stacks,hem_bbox vs default_51,K=30 p label,p=0.007
+2 per-ROI delta heatmap,hem_bbox minus gray_bbox,300.tiff K=10,-0.10
+2 per-ROI delta heatmap,hem_bbox minus gray_bbox,300.tiff K=20,-0.10
+2 per-ROI delta heatmap,hem_bbox minus gray_bbox,300.tiff K=30,0
+2 per-ROI delta heatmap,hem_bbox minus gray_bbox,301.tiff K=10,0
+2 per-ROI delta heatmap,hem_bbox minus gray_bbox,301.tiff K=20,-0.05
+2 per-ROI delta heatmap,hem_bbox minus gray_bbox,301.tiff K=30,-0.03
+2 per-ROI delta heatmap,hem_bbox minus gray_bbox,201.tiff K=10,0
+2 per-ROI delta heatmap,hem_bbox minus gray_bbox,201.tiff K=20,-0.10
+2 per-ROI delta heatmap,hem_bbox minus gray_bbox,201.tiff K=30,-0.07
+2 per-ROI delta heatmap,hem_bbox minus gray_bbox,233.tiff K=10,-0.10
+2 per-ROI delta heatmap,hem_bbox minus gray_bbox,233.tiff K=20,-0.05
+2 per-ROI delta heatmap,hem_bbox minus gray_bbox,233.tiff K=30,-0.03
+2 per-ROI delta heatmap,hem_bbox minus gray_bbox,245.tiff K=10,0
+2 per-ROI delta heatmap,hem_bbox minus gray_bbox,245.tiff K=20,-0.10
+2 per-ROI delta heatmap,hem_bbox minus gray_bbox,245.tiff K=30,-0.07
+2 per-ROI delta heatmap,hem_bbox minus gray_bbox,246.tiff K=10,0
+2 per-ROI delta heatmap,hem_bbox minus gray_bbox,246.tiff K=20,+0.10
+2 per-ROI delta heatmap,hem_bbox minus gray_bbox,246.tiff K=30,+0.03
+2 per-ROI delta heatmap,hem_bbox minus gray_bbox,459.tiff K=10,0
+2 per-ROI delta heatmap,hem_bbox minus gray_bbox,459.tiff K=20,0
+2 per-ROI delta heatmap,hem_bbox minus gray_bbox,459.tiff K=30,0
+2 per-ROI delta heatmap,hem_bbox minus gray_bbox,460.tiff K=10,0
+2 per-ROI delta heatmap,hem_bbox minus gray_bbox,460.tiff K=20,-0.10
+2 per-ROI delta heatmap,hem_bbox minus gray_bbox,460.tiff K=30,-0.07
+2 per-ROI delta heatmap,hem_bbox minus gray_bbox,013.tiff K=10,0
+2 per-ROI delta heatmap,hem_bbox minus gray_bbox,013.tiff K=20,+0.05
+2 per-ROI delta heatmap,hem_bbox minus gray_bbox,013.tiff K=30,+0.03
+2 per-ROI delta heatmap,hem_bbox minus gray_bbox,094.tiff K=10,0
+2 per-ROI delta heatmap,hem_bbox minus gray_bbox,094.tiff K=20,-0.05
+2 per-ROI delta heatmap,hem_bbox minus gray_bbox,094.tiff K=30,-0.07
+2 per-ROI delta heatmap,hem_bbox minus gray_bbox,529.tiff K=10,0
+2 per-ROI delta heatmap,hem_bbox minus gray_bbox,529.tiff K=20,+0.05
+2 per-ROI delta heatmap,hem_bbox minus gray_bbox,529.tiff K=30,+0.03
+2 per-ROI delta heatmap,hem_bbox minus gray_bbox,548.tiff K=10,0
+2 per-ROI delta heatmap,hem_bbox minus gray_bbox,548.tiff K=20,0
+2 per-ROI delta heatmap,hem_bbox minus gray_bbox,548.tiff K=30,0
+2 per-ROI delta heatmap,hem_bbox minus gray_bbox,402.tiff K=10,0
+2 per-ROI delta heatmap,hem_bbox minus gray_bbox,402.tiff K=20,-0.05
+2 per-ROI delta heatmap,hem_bbox minus gray_bbox,402.tiff K=30,0
+2 per-ROI delta heatmap,hem_bbox minus gray_bbox,403.tiff K=10,-0.10
+2 per-ROI delta heatmap,hem_bbox minus gray_bbox,403.tiff K=20,-0.15
+2 per-ROI delta heatmap,hem_bbox minus gray_bbox,403.tiff K=30,-0.13
+3 win/loss/tie stacks,hem_bbox vs gray_bbox,K=10 wins,(not drawn)
+3 win/loss/tie stacks,hem_bbox vs gray_bbox,K=10 losses,3
+3 win/loss/tie stacks,hem_bbox vs gray_bbox,K=10 ties,11
+3 win/loss/tie stacks,hem_bbox vs gray_bbox,K=10 p label,p=0.250
+3 win/loss/tie stacks,hem_bbox vs gray_bbox,K=20 wins,3
+3 win/loss/tie stacks,hem_bbox vs gray_bbox,K=20 losses,9
+3 win/loss/tie stacks,hem_bbox vs gray_bbox,K=20 ties,2
+3 win/loss/tie stacks,hem_bbox vs gray_bbox,K=20 p label,p=0.090
+3 win/loss/tie stacks,hem_bbox vs gray_bbox,K=30 wins,3
+3 win/loss/tie stacks,hem_bbox vs gray_bbox,K=30 losses,7
+3 win/loss/tie stacks,hem_bbox vs gray_bbox,K=30 ties,4
+3 win/loss/tie stacks,hem_bbox vs gray_bbox,K=30 p label,p=0.098

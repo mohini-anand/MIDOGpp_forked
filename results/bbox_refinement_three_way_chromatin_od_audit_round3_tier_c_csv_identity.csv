@@ -1,0 +1,9 @@
+csv,rows,columns,cells_compared,text_divergences
+per_roi,42,14,588,0
+summary,9,10,90,0
+by_domain,63,7,441,0
+delta_per_roi,126,8,1008,0
+delta_stats,9,10,90,0
+top30,1260,13,16380,0
+verification,267,4,1068,0
+contested_sensitivity,27,8,216,0

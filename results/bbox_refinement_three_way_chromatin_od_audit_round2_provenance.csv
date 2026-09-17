@@ -1,0 +1,25 @@
+file,mtime,git_status
+production_hematoxylin_only/bbox_refinement_three_way_chromatin_od.ipynb,2026-09-16 19:24:32,??
+results/precision_at_k_14roi_prodseed_chromatin_bbox3way_per_roi.csv,2026-09-16 19:23:46,??
+results/precision_at_k_14roi_prodseed_chromatin_bbox3way_summary.csv,2026-09-16 19:23:46,??
+results/precision_at_k_14roi_prodseed_chromatin_bbox3way_by_domain.csv,2026-09-16 19:23:46,??
+results/precision_at_k_14roi_prodseed_chromatin_bbox3way_delta_per_roi.csv,2026-09-16 19:23:47,??
+results/precision_at_k_14roi_prodseed_chromatin_bbox3way_delta_stats.csv,2026-09-16 19:23:47,??
+results/precision_at_k_14roi_prodseed_chromatin_bbox3way_top30.csv,2026-09-16 19:23:46,??
+results/precision_at_k_14roi_prodseed_chromatin_bbox3way_verification.csv,2026-09-16 19:23:46,??
+results/precision_at_k_14roi_prodseed_chromatin_bbox3way_contested_sensitivity.csv,2026-09-16 19:23:50,??
+production_hematoxylin_only/bbox3way_pooled_precision.png,2026-09-16 19:23:51,??
+production_hematoxylin_only/bbox3way_roi_delta_heatmap.png,2026-09-16 19:23:54,??
+production_hematoxylin_only/bbox3way_win_counts.png,2026-09-16 19:23:57,??
+results/precision_at_k_14roi_prodseed_chromatin_hembbox_raw.csv,2026-09-16 18:12:22,clean
+midog_utils/channels.py,2026-09-14 18:47:55,clean
+midog_utils/dataset.py,2026-09-16 19:19:06,M 
+midog_utils/evaluate.py,2026-09-14 18:48:46,clean
+midog_utils/production.py,2026-09-16 19:29:49,M 
+midog_utils/seed_selection.py,2026-09-16 19:25:17,M 
+midog_utils/template_match.py,2026-09-15 12:09:18,clean
+midog_utils/find_and_suppress.py,2026-09-16 19:29:49,M 
+midog_utils/nms.py,2026-09-14 18:47:47,clean
+midog_utils/chromatin.py,2026-09-14 18:48:09,clean
+midog_utils/invariants.py,2026-09-14 18:49:12,clean
+midog_utils/__init__.py,2026-08-27 12:54:15,clean
