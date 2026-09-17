@@ -24,6 +24,10 @@ edits landed between reading and writing). Beyond reading the code, the whole pi
 If you edit `production.py` or anything it imports, re-run the demo notebook and diff its
 outputs — that reproducibility is itself a regression test.
 
+**Re-synced 2026-09-16** with the dead-code cleanup (`c066829`, `PRODUCTION_PIPELINE_CLEANUP.md`),
+which left production outputs bit-identical. Line numbers below are from the 2026-09-13 code,
+archived as `midog_utils_full/`.
+
 ---
 
 ## Relationship to the rest of the repo
@@ -36,11 +40,8 @@ outputs — that reproducibility is itself a regression test.
   caveats). All six of its punch-list items are resolved in the code described here; see
   "Punch-list resolution" near the end.
 - **`midog_utils/compare.py`**'s `Arm`/`evaluate_arms` machinery, which every earlier
-  notebook used for ranking, is **not called anywhere in this pipeline**. `production.py`
-  reimplements the same five-line stable-sort inline
-  (`midog_utils/production.py:98-103`) instead of importing `chromatin.rerank`, so that
-  `chromatin.py`'s own docstring claim ("nothing in the pipeline calls this" — D5) stays
-  literally true. This is a deliberate four-line duplication, not an oversight.
+  notebook used for ranking, and `chromatin.rerank` were removed in `c066829`.
+  `production.py` ranks with its own inline stable sort.
 - **`midog_utils/FIND_AND_SUPPRESS_REFERENCE_DIFFS.md`** documents how `find_and_suppress`
   deliberately diverges from the original reference implementation it replaced (no image
   masking, scores kept for ranking, nothing random, etc.) — read it if you're asking "why
@@ -158,7 +159,7 @@ build_seed(gt_mitotic, gray_inv, rng, roi_shape)              seed_selection.py:
                                                                seed_selection.py:478 (dataclass)
      click_xy    = the raw pathologist click — the permanent ground-truth reference
      template_xy = the gated + recentred point — where the search template is actually cut
-     These are DIFFERENT points under recentre=True (the default). Nothing downstream may
+     These are DIFFERENT points (the template is always recentred). Nothing downstream may
      substitute one for the other: self-hit removal and NMS-adjacent radii reference
      template_xy; ground-truth exclusion and every match-radius computation reference
      click_xy.
@@ -215,8 +216,8 @@ run_production_pipeline(rgb, seed, mpp, rank_key)              production.py:44
 │    Computed PER IMAGE from that scanner's resolution (29.6-33.1 px across this
 │    dataset's four scanners) — never a hardcoded pixel constant (D7).
 │
-├─ FSConfig(channel=CHANNEL, base_size=seed.base_size, scales=(1.0,), n_angles=1,
-│           flips=(False,), peak_min_distance=7, max_peaks=100, nms_radius=...,
+├─ FSConfig(base_size=seed.base_size, scales=(1.0,), n_angles=1, flips=(False,),
+│           peak_min_distance=7, max_peaks=100, nms_radius=...,
 │           self_hit_radius=5.0, deep_floor_z=-1.5, border_pad=True,
 │           tm_method=cv2.TM_CCOEFF)                     find_and_suppress.py:34 (dataclass)
 │    Just a settings bundle — nothing computed yet.
@@ -259,6 +260,7 @@ run_production_pipeline(rgb, seed, mpp, rank_key)              production.py:44
 │  │    fixed value).
 │  │
 │  ├─ threshold = median + (-1.5) * MAD                        (cfg.deep_floor_z)
+│  │    Required: find_and_suppress raises ValueError if cfg.deep_floor_z is None.
 │  │    Deliberately permissive — the label "deep floor" means almost everything above
 │  │    noise survives to the next stage; this is not the pipeline's real selectivity.
 │  │
@@ -285,15 +287,10 @@ run_production_pipeline(rgb, seed, mpp, rank_key)              production.py:44
 │       89 rows on 245.tiff, 98 on 403.tiff (100 - NMS losses - the 1 self-hit)
 │
 ├─ info["max_peaks_binding"] = (n_peaks == max_peaks)          production.py:80
-│    Recorded as a fact, not invariant-checked — see "vacuous invariants" below for why.
+│    Recorded as a fact, not invariant-checked.
 │
 ├─ inv.check_nms_radius(nms_radius, mpp, label=...)            invariants.py:177
 │    Asserts the radius actually used equals evaluate.radius_px(mpp) recomputed fresh.
-│
-├─ inv.check_no_cap(n_detections, caps=(cfg.max_detections=1e9,), label=...)  invariants.py:49
-│    A dormant tripwire — max_detections defaults to 10**9, so this can structurally
-│    never fire at shipped settings. Note it correctly does NOT include MAX_PEAKS (100)
-│    in this check, which would be the wrong invariant to assert (see below).
 │
 ├─ [only if rank_key == "chromatin_od"]:
 │    │
@@ -350,8 +347,8 @@ ev.bucket_detections(det, gt_eval, match_radius)               evaluate.py:108
      KD-tree radius query, processed BEST-FIRST in the ranked detections' own order:
      each detection claims the nearest still-unclaimed ground-truth point within
      `radius`; one-to-one (a claimed GT point can't be claimed twice). Order is
-     deliberate — a single greedy pass is what makes the resulting precision/recall
-     curve monotone by construction, per the module's own docstring.
+     deliberate — a top-K prefix's matches never depend on lower-ranked detections,
+     per the module's own docstring.
 
      labels each detection: HUMAN_CORRECT_LABEL (claimed a mitotic figure),
      HUMAN_REJECTED_LABEL (claimed a look-alike), or NON_HUMAN_FINDINGS (claimed nothing)
@@ -381,7 +378,7 @@ viz.draw_box(ax, box, ...)                                      viz.py:68
 | Template matching | `read_padded_patch`, `build_augmentations`, `fused_response`, `robust_stats`, `extract_peaks` | [midog_utils/template_match.py](../midog_utils/template_match.py) |
 | Suppression | `nms_by_distance` | [midog_utils/nms.py](../midog_utils/nms.py) |
 | Chromatin axis | `hematoxylin_od`, `chromatin_density`, `score_detections` | [midog_utils/chromatin.py](../midog_utils/chromatin.py) |
-| Invariant checks | `check_nms_radius`, `check_no_cap` | [midog_utils/invariants.py](../midog_utils/invariants.py) |
+| Invariant checks | `check_nms_radius` | [midog_utils/invariants.py](../midog_utils/invariants.py) |
 | Scoring | `radius_px`, `greedy_match`, `bucket_detections` | [midog_utils/evaluate.py](../midog_utils/evaluate.py) |
 | Visualization | `overlay`, `draw_box` | [midog_utils/viz.py](../midog_utils/viz.py) |
 | Usage example | end-to-end demo | [production_pipeline_demo.ipynb](production_pipeline_demo.ipynb) |
@@ -393,10 +390,10 @@ viz.draw_box(ax, box, ...)                                      viz.py:68
 | Old gap | Status in `production.py` |
 |---|---|
 | `MAX_PEAKS = 2,000,000` never actually set to D9's 100 | Resolved — [production.py:35](../midog_utils/production.py#L35) hardcodes 100 |
-| `FSConfig.tm_method` defaults to `TM_CCOEFF_NORMED`, not D1's `TM_CCOEFF` | Resolved — [production.py:74](../midog_utils/production.py#L74) passes `tm_method=TM_METHOD` explicitly at every call |
+| `FSConfig.tm_method` defaults to `TM_CCOEFF_NORMED`, not D1's `TM_CCOEFF` | Resolved — the default is `cv2.TM_CCOEFF` since `c066829`, and [production.py](../midog_utils/production.py) also passes `tm_method=TM_METHOD` explicitly |
 | Stale "click-centred is production" notebook cell | Resolved — `pipeline_debug_visuals/seed_refinement_variants.ipynb` cell 0 carries a 2026-09-12 correction pointing to `D8_TEMPLATE_ANCHOR.md` |
 | Per-notebook `AXES` dict, no shared registry | Resolved — [production.py:41](../midog_utils/production.py#L41) is the one shared dict |
-| `check_no_cap` structurally vacuous at `max_peaks=100` | Resolved by design choice — not invariant-checked at all; recorded as `info["max_peaks_binding"]` instead |
+| `check_no_cap` structurally vacuous at `max_peaks=100` | Resolved — `check_no_cap` removed in `c066829`; recorded as `info["max_peaks_binding"]` instead |
 | D9/D5 caveats absent from user-facing docs | Resolved — the demo notebook's closing markdown cell states both explicitly |
 
 ## Things to know, not bugs to fix
@@ -412,13 +409,11 @@ viz.draw_box(ax, box, ...)                                      viz.py:68
    "substantially reads the neighbour rather than the object" for candidates within 25 px
    of each other). Not a bug — it faithfully reproduces the old notebooks' `od51` — but
    the opt-in `chromatin_od` axis ships the weaker of two already-measured window sizes.
-3. **Two invariant checks are currently tautological.** `inv.check_nms_radius` compares
-   `nms_radius` (computed at [production.py:68](../midog_utils/production.py#L68) as
-   `ev.radius_px(mpp)`) against the same `radius_px(mpp)` formula recomputed inside the
-   check itself — it can only ever pass today. It's a guard against future drift (e.g.
-   someone hardcoding a radius elsewhere), not live evidence of anything right now. Same
-   character as `check_no_cap`'s vacuity at `max_peaks=100`. Two vacuous tripwires, both
-   correctly documented as such in the code's own comments, is the honest count.
+3. **`inv.check_nms_radius` is currently tautological.** It compares `nms_radius`
+   (computed in [production.py](../midog_utils/production.py) as `ev.radius_px(mpp)`)
+   against the same `radius_px(mpp)` formula recomputed inside the check itself — it can
+   only ever pass today. It's a guard against future drift (e.g. someone hardcoding a
+   radius elsewhere), not live evidence of anything right now.
 4. **`base_size` cannot exceed `patch_size` (73) only because `otsu_window` (51) bounds
    it.** `tightened_template_box` returns `odd(max(component height, component width))`
    from a 51 px window, so it can never exceed 51 in practice (observed: 47 and 51 on the

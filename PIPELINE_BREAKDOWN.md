@@ -16,6 +16,10 @@ walks through. But **its literal constants and the decision record disagree in p
 end. If you package this for GitHub without resolving them, you are shipping the
 disagreement, not the decision.
 
+**Status (2026-09-16):** superseded as a description of production by `midog_utils/production.py`
+(see `production_pipeline/PRODUCTION_PIPELINE_WALKTHROUGH.md`). All six punch-list items are
+resolved. Code removed in the `c066829` cleanup is marked below. Line refs date from 2026-09-12.
+
 Every stage below is given as three columns of truth:
 - **Decided** — what `DECISIONS.md` / `D8_TEMPLATE_ANCHOR.md` says should happen
 - **Library default** (`midog_utils/find_and_suppress.py`'s `FSConfig`, or the relevant
@@ -28,17 +32,17 @@ Every stage below is given as three columns of truth:
 
 | | Decided | Library default (`FSConfig`) | Notebook value |
 |---|---|---|---|
-| Channel | `hematoxylin_od` (D3) | `"gray_inverted"` (`find_and_suppress.py:49`) | `CHANNEL = 'hematoxylin_od'` |
-| TM method | `cv2.TM_CCOEFF` (D1) | `cv2.TM_CCOEFF_NORMED` (`find_and_suppress.py:93`) | `METHOD = cv2.TM_CCOEFF` |
+| Channel | `hematoxylin_od` (D3) | `"gray_inverted"` (`find_and_suppress.py:49`; field removed in `c066829`) | `CHANNEL = 'hematoxylin_od'` |
+| TM method | `cv2.TM_CCOEFF` (D1) | `cv2.TM_CCOEFF_NORMED` (`find_and_suppress.py:93`; `cv2.TM_CCOEFF` since `c066829`) | `METHOD = cv2.TM_CCOEFF` |
 
 `hematoxylin_od` (`midog_utils/chromatin.py:102-110`) = `rgb2hed(rgb/255.0)[:,:,0]` —
 **unclipped** optical density from skimage's colour deconvolution, hematoxylin channel
-only. D3's whole point: never rescale/clip this to 0–255 (that operation exists as
-`to_hematoxylin` and is deliberately not used here), because clipping saturates exactly
+only. D3's whole point: never rescale/clip this to 0–255 (that operation was
+`to_hematoxylin`, removed in `c066829`), because clipping saturates exactly
 the densest-chromatin pixels at 255 and destroys the contrast signal `TM_CCOEFF` needs.
 
-**Gap:** D1 is applied only where a call site explicitly passes `METHOD = cv2.TM_CCOEFF`.
-`FSConfig.tm_method`'s dataclass default is still `TM_CCOEFF_NORMED`
+**Gap (resolved in `c066829`: the default is now `cv2.TM_CCOEFF`):** D1 was applied only where a call site explicitly passed `METHOD = cv2.TM_CCOEFF`.
+`FSConfig.tm_method`'s dataclass default was `TM_CCOEFF_NORMED`
 (`DECISIONS_UNVERIFIED.md:105-109` — D1 itself was moved out of `DECISIONS.md` on
 2026-09-12 as *never independently re-checked*, not reversed). **Anyone who constructs
 `FSConfig()` with defaults and calls `find_and_suppress()` directly gets the
@@ -58,7 +62,7 @@ and say so in the API.
    drawing without replacement via `draw_seed_with_retry`.
 4. **`tighten_box_otsu`** — the gate (`:104-263`). Otsu-threshold a 51 px window
    (`otsu_window = tm.BASE_SIZE = 51`) around the click; take the connected component
-   under the click's own rounded pixel (`center_tolerance=0`). Reject (redraw) unless:
+   under the click's own rounded pixel (no tolerance). Reject (redraw) unless:
    `min_area=50`, `max_area_frac=0.85`, `min_solidity=0.5` (all `seed_selection.py:107-109`
    defaults), and the click falls inside that component's own bbox.
 5. **`tightened_template_box`** (`:431-475`) — the D8-current seed constructor:
@@ -126,7 +130,7 @@ made for one notebook.** `FSConfig`'s own comment (`find_and_suppress.py:59-65`)
 documents this as a deliberate "simplest configuration for the next run," explicitly
 *not* a claim that it outperforms the previous 12-angle × 2-flip default — a 3-way
 augmentation-footprint comparison (`n_angles=1` vs. `4×2` vs. `12×2`,
-`experiment.py:565-569`) exists and, on the one seed measured so far, actually ranked the
+`midog_utils_full/experiment.py:565-569`) exists and, on the one seed measured so far, actually ranked the
 4-angle/2-flip config best and the current no-augmentation default worst. That comparison
 was never promoted to a decision. `base_size = tm.BASE_SIZE = 51`,
 `patch_size = tm.PATCH_SIZE = 73`.
@@ -188,6 +192,7 @@ Peak ordering is a global lexicographic sort, `order = np.lexsort((ys, xs, -scor
 including tie order.
 
 **Gap — D9's decided value is not wired into the notebook this doc walks through.**
+*(Resolved: `production.MAX_PEAKS = 100`.)*
 `DECISIONS.md` (D9, 2026-09-12) adopts `max_peaks = 100` before NMS as production,
 citing zero measured precision/recall cost through K=30 on 14 ROIs and a ~99.7% NMS
 runtime reduction. That value lives only in
@@ -253,11 +258,14 @@ Computed on `pool` (post-NMS, post-self-hit), all on the same `hematoxylin_od` c
 
 `chromatin.py`'s own module docstring states in bold that this module **"is NOT the
 production ranker"** — `chromatin.rerank`, which would swap `score` for an OD axis as the
-sort key, is called only by three superseded 2026-08-31 probe scripts, nothing current.
+sort key, was removed in `c066829`; production sorts by `od` inline when `rank_key="chromatin_od"`.
 
 ---
 
 ## Stage 7 — Ranking (`midog_utils/compare.py`, `Arm` + `_rank`)
+
+*`compare.py` was removed in `c066829`; production ranks with the same stable sort inside
+`production.run_production_pipeline`.*
 
 Each candidate axis is declared as an `Arm`:
 ```python
@@ -288,9 +296,10 @@ AXES = {
 — but **redeclared inline, per notebook**, not a shared library-level registry. There's
 no config file or CLI flag anywhere that selects `rank_key`; every notebook that wants to
 compare axes copy-pastes this dict and the feature-computation code that produces its
-columns.
+columns. *(Resolved: `production.AXES` is the shared registry; `run_pipeline.py --rank-key` selects from it.)*
 
 **Gap — `check_no_cap` is structurally vacuous at `max_peaks=100`.**
+*(Resolved: `check_no_cap` was removed in `c066829`; `info["max_peaks_binding"]` records the cap instead.)*
 `invariants.check_no_cap(len(det), arm.caps)` compares `len(det)` — `det = arm.candidates()`,
 the **post-NMS** pool the arm actually ranks — against `caps=(MAX_PEAKS,)`, which is the
 **pre-NMS** extraction cap. At `MAX_PEAKS=100`, the cap binds pre-NMS on every ROI (14/14
@@ -311,7 +320,8 @@ construction.
 
 ## Stage 8 — The top-K budget step (answers "what happens at the top-10 budget")
 
-`compare.evaluate_arms` (`compare.py:133-231`) does the truncation:
+`compare.evaluate_arms` (`compare.py:133-231`; removed in `c066829`, production's equivalent is
+`run_pipeline.summarize`) did the truncation:
 ```python
 for k in budgets:                      # BUDGETS = (10, 20, 30, 50) in the notebook
     delivered = min(int(k), len(tp_cum))
@@ -347,11 +357,11 @@ def greedy_match(det_xy, gt_xy, radius):
   order** — the exact order Stage 7 produced. A higher-ranked detection claims a
   contested ground-truth object before a lower-ranked one ever sees it. The module
   docstring states this is deliberate: a single greedy pass (vs. recomputing an optimal
-  assignment at every threshold) is what makes the resulting FROC/precision curve
-  monotone by construction — recomputing per-threshold could reassign an earlier
-  detection and produce a non-monotone curve. `evaluate.optimal_assignment_disagreement`
-  exists as a Hungarian-algorithm cross-check against this, purely diagnostic — it is
-  explicitly not what drives any reported precision@K.
+  assignment at every threshold) means a top-K prefix's matches never depend on
+  lower-ranked detections — recomputing per-threshold could reassign an earlier
+  detection and produce a non-monotone curve. `evaluate.optimal_assignment_disagreement`,
+  a purely diagnostic Hungarian-algorithm cross-check, was removed in `c066829`; it never
+  drove any reported precision@K.
 
 Precision at budget = `tp_at_budget / budget_delivered`. At `max_peaks=100`, note D9's
 own caveat: the capped pool can under-deliver even a K=100 ask (89–99 candidates
@@ -388,10 +398,13 @@ Implementation-wise, per Stage 7: the natural place for this knob is to promote 
 inline `AXES` dict into a shared `midog_utils` module (it doesn't exist as shared code
 today — every notebook redeclares it) and expose `rank_key` as the parameter the knob
 sets, rather than inventing a new mechanism — `Arm.rank_key` already does exactly this.
+*(Done: `production.AXES` and `run_production_pipeline(rank_key=...)`.)*
 
 ---
 
 ## Punch list before this ships
+
+*All resolved; see "Punch-list resolution" in `production_pipeline/PRODUCTION_PIPELINE_WALKTHROUGH.md`.*
 
 1. Set `MAX_PEAKS = 100` at the point you assemble the shippable entrypoint — it is
    `2,000,000` in the notebook this doc calls "production" today (Stage 4).
