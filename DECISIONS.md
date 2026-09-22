@@ -992,3 +992,27 @@ now it is clear they were considered and deferred, not overlooked. See
    multisets present are `(1,1)` and `(1,1,2)`, so `unanimous` is exactly `n_votes == 2`: a
    proxy for "did this need a third reader", not a measure of label quality.
 4. **Calibrated stopping.** Turning a chosen K into a coverage guarantee.
+
+---
+
+## Candidates raised for template refinement, not decided
+
+Recorded for the record only. Not a decision, not evaluated against production's own
+`gray_bbox`/`hem_bbox` arms or run through precision@K/NMS/matching, and not implemented in
+`seed_selection.py`.
+
+**2026-09-22 — a hybrid gray-gated, hem-anchored tightening prototype, with an erosion-first gray
+gate.** `production_hematoxylin_only/hybrid_gray_hem_tightening_14roi.ipynb` prototypes a method
+outside `seed_selection.py`: gate the hem (chromatin) component search to fall inside a
+gray-channel component selected near the click. Its own closing notes flag two gaps: the
+"completely inside" hem-containment rule is strict enough that eroding the gray gate instead of
+dilating it collapses acceptance from 24/24 to 4/24 on a 24-click sample, and the fallback union
+(no solidity/compactness gate) can span two separate nuclei in one box — observed on
+`013.tiff`/243.
+`production_hematoxylin_only/hybrid_erode50_vs_original_14roi.ipynb` tests a combined fix: erode
+the gray channel's threshold *before* selecting a component (rather than selecting then dilating),
+and loosen hem containment to `>=50%` (not 100%). Result on the same 24 clicks: 24/24 accepted,
+23/24 land on the identical box as the original method, and the one that differs
+(`245.tiff`/6243) is a visually confirmed fix of the fragmentation gap above. Whether this belongs
+in `seed_selection.py`, and whether the hybrid approach beats `gray_bbox`/`hem_bbox` at all, is
+unevaluated — see that notebook's own closing notes for the full numbers and caveats.
