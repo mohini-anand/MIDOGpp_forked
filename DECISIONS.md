@@ -925,6 +925,33 @@ favour reverting to D10's full-radius disc instead.
 
 Applied to `midog_utils/` via `SELF_HIT_MASKING_PLAN.md`. Harness and recent-experiment captures bit-identical to `imageblank_ref_post` (SHA-256 on all eight artefacts, the two `recent_*.pkl` included, not just the six `compare` diffs); `imageblank_check.py check`: PASS, 230 pairs, 9 TP@K changes, all attributed to the freed pool slot, plus 10 reported near-seed leaks accepted by design; `reference`: rows changed as pre-registered. `sanity`: PASS; `extref`: `n_detections` +1 uniformly on 84/84 rows with all 84 precision/recall rows within 0.0006, FAIL by design. Two documentation defects in the plan's own §5 text were found during application and both repaired: the call diagram still named the unblanked `hem` where the patched code correlates the blanked copy (§5.1 Edit 7 added the node but not its two downstream nodes), and §5.1 Edit 10's replacement text was affirmative inside a list headed "what `find_and_suppress` deliberately does NOT do". Edit 10 was first applied verbatim and the defect reported; on user authorisation it was repaired the same day and §5.1 Edit 10 corrected at source, so plan and walkthrough now agree. The Edit 7 repairs were not back-ported into §5.1 and live only in the execution log. Execution log: `../cleanup_harness/selfmask/image_blank_design/EXECUTION_LOG_2026-09-17.md`.
 
+### Amendment, 2026-09-22 — near-seed leak checked against precision@10/20 on the tightened-template rerun, design kept
+
+The 49-ROI × 3-seed × 3-arm (`default_51`/`gray_bbox`/`hem_bbox`) template-refinement experiment
+was re-run post-D11 (commit `0af7ff1`, `rerun_bbox3way_postD11.py`), producing
+`results/precision_at_k_49roi_3seed_chromatin_bbox3way_postD11_{per_run,tp_changes,top30}.csv`.
+This is a different, later dataset from the one the 2026-09-17 amendment above verified (this one
+uses the Otsu-tightened per-arm templates, `base_size` 23–51 px, not a single D8 template), so its
+near-seed-leak count is measured separately here rather than folded into the "10" above.
+
+**`n_near_click > 0` on 4 of 441 runs, all `non_human_findings`, none in `default_51`** (its 51 px
+blank already exceeds `match_radius` ≈ 29.6–30.2 px): 289.tiff seed 0 `gray_bbox` rank 10
+(d_click=24.6 px), 289.tiff seed 0 `hem_bbox` rank 7 (d_click=23.7 px), 548.tiff seed 0
+`gray_bbox` rank 56 (d_click=30.5 px), 548.tiff seed 0 `hem_bbox` rank 55 (d_click=30.5 px). The
+548.tiff pair sits far past any evaluated K.
+
+**Checked directly against `..._tp_changes.csv` (the pre-D11-vs-post-D11 diff), not assumed:**
+every K=10 and K=20 `tp_delta` row in all 441 runs has its entered/left detections thousands of
+pixels from that run's click — the unrelated D9 freed-pool-slot mechanism, not this leak. Zero
+K=10/K=20 precision changes are attributable to a near-seed leak anywhere in this rerun. The leak
+changes a TP exactly once, at K=30: 289.tiff seed 0 `hem_bbox`, `tp_delta=-1`
+(`entered` at d_click=23.7 px, matching the flagged leak exactly; precision@30 0.133→0.1).
+
+**Decision: keep D11's blanking design as applied.** No revert to D10's full-`match_radius`
+disc, no widening the blanked square. Basis: at the budgets this product cares about (K=10, 20)
+the exposure this design accepts by construction (see "What it costs" above) is measured, not
+theoretical, and it is invisible; it costs exactly one TP, at K=30, across 441 runs.
+
 ---
 
 ## Cross-references
