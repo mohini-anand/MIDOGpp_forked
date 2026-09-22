@@ -136,6 +136,9 @@ dmypy.json
 # a single * does not cross a '/', so the second pattern is not redundant.
 images/*.tiff
 images/**/*.tiff
+# same, for isolated experiment folders with their own images/ (e.g. human_neuroendocrine_followup/) --
+# these patterns above are anchored to the repo root and don't cover a nested images/ on their own.
+**/images/*.tiff
 .DS_Store
 
 # Microsoft Office lock files (created while a .pptx/.docx/.xlsx is open)
