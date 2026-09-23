@@ -1,0 +1,14 @@
+check,expected,observed,passed
+row count == 7 domains x 2 clicks x 2 channels = 28,28,28,True
+"distinct (file_name, ann_id, channel) keys",28,28,True
+fully duplicated rows,0,0,True
+distinct ROIs,7,7,True
+distinct domains,7,7,True
+every domain present exactly 4x (2 clicks x 2 channels),all 4,[4],True
+distinct ann_ids,14,14,True
+each channel appears 14x,14/14,"{'gray_inverted': 14, 'hematoxylin_od': 14}",True
+base_size null exactly where accepted is False,True,True,True
+reason null exactly where accepted is True,True,True,True
+every base_size odd and >= 5,True,True,True
+notebook's 14 ann_ids == rebuilt 14 ann_ids,True,True,True
+ROIs used are 7 of the 14 on disk (one per domain),7,7,True

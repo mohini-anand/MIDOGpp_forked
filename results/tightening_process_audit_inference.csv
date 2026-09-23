@@ -1,0 +1,5 @@
+claim,test,detail,statistic,p_value,G,note
+hematoxylin_od refuses more often,exact two-sided McNemar over the 14 paired examples,"discordant pairs b=3 (gray accept / hem refuse), c=0 (reverse)",3 vs 0,0.25,14 examples from 7 ROIs,"ROI is the exchangeable unit (D5), so 14 is not 14 independent units"
+hematoxylin_od refuses more often (ROI-clustered),ROI-level sign-flip on the per-ROI accept-count difference,3 of 7 ROIs carry a non-zero difference,G_eff=3,0.25,3 effective ROIs,p cannot go below 0.2500 at G=3; the observed all-one-direction case sits exactly at that floor
+"where both accept, hem gives a smaller box",exact ROI-level sign-flip on the mean per-ROI % change,"observed mean -26.7%, all 6/6 ROIs negative",mean=-26.7%,0.0312,6 ROIs (013.tiff contributes no both-accepted pair),p-floor at G=6 is 0.0312; 2^6 enumerated exactly
+"where both accept, hem gives a smaller box (per-example, uncorrected)","exact sign test over the 10 both-accepted examples, ignoring clustering",10/10 negative,10/10,0.00195,10 examples from 6 ROIs,"ANTI-CONSERVATIVE -- the 10 examples are 6 clusters, not 10 units"

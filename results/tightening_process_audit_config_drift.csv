@@ -1,0 +1,8 @@
+name,notebook,source,source_value,agrees
+OTSU_WINDOW,51,template_match.BASE_SIZE,51,True
+BORDER,36,FSConfig().patch_size // 2,36,True
+min_area,50,tighten_box_otsu default,50,True
+max_area_frac,0.85,tighten_box_otsu default,0.85,True
+min_solidity,0.5,tighten_box_otsu default,0.5,True
+method,binary,tighten_box_otsu default,binary,True
+center_tolerance,0,tighten_box_otsu default,0,True

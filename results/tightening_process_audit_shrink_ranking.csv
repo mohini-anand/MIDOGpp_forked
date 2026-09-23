@@ -1,0 +1,11 @@
+file_name,ann_id,which,gray_base_size,hem_base_size,delta_px,pct_change,gray_censored_at_window,abs_shrink_rank
+201.tiff,4457,#1 (seed_index=0),51.0,29.0,-22.0,-43.13725490196079,True,1
+201.tiff,4469,#2 (seed_index=1),51.0,31.0,-20.0,-39.21568627450981,True,2
+402.tiff,20258,#2 (seed_index=1),51.0,33.0,-18.0,-35.294117647058826,True,3
+245.tiff,6243,#2 (seed_index=1),51.0,35.0,-16.0,-31.372549019607842,True,4
+300.tiff,14575,#2 (seed_index=1),33.0,19.0,-14.0,-42.42424242424242,False,5
+529.tiff,24937,#2 (seed_index=1),41.0,33.0,-8.0,-19.51219512195122,False,6
+402.tiff,20254,#1 (seed_index=0),29.0,25.0,-4.0,-13.793103448275861,False,7
+529.tiff,24918,#1 (seed_index=0),37.0,33.0,-4.0,-10.81081081081081,False,8
+459.tiff,22441,#1 (seed_index=0),33.0,31.0,-2.0,-6.0606060606060606,False,9
+459.tiff,22446,#2 (seed_index=1),41.0,39.0,-2.0,-4.878048780487805,False,10

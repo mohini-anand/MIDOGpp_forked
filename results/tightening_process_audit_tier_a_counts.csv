@@ -1,0 +1,3 @@
+artifact,basis,rows,columns,values_compared,divergences
+tightening_process_summary.csv,independently derived,28,4,112,0
+tightening_process_summary.csv,reproduced by construction,28,1,28,0

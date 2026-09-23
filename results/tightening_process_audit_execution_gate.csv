@@ -1,0 +1,6 @@
+check,value,passed
+execution_count contiguous from 1,"[1, 2, 3, 4, 5]",True
+no error outputs,0,True
+no unrun code cells,[],True
+last cell is markdown summary (not an unrun code cell),markdown,True
+vendored exemption applies,"no -- imports midog_utils, reads images/ and databases/",False

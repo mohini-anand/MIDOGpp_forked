@@ -1,0 +1,8 @@
+tumor_type,n_roi_of_14,files,n_roi_whole_db
+canine cutaneous mast cell tumor,2,"['300.tiff', '301.tiff']",50
+canine lung cancer,2,"['201.tiff', '233.tiff']",44
+canine lymphosarcoma,2,"['245.tiff', '246.tiff']",55
+canine soft tissue sarcoma,2,"['459.tiff', '460.tiff']",100
+human breast cancer,2,"['013.tiff', '094.tiff']",150
+human melanoma,2,"['529.tiff', '548.tiff']",49
+human neuroendocrine tumor,2,"['402.tiff', '403.tiff']",55

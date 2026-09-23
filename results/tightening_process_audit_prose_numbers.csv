@@ -1,0 +1,16 @@
+claim,notebook,recomputed,agrees
+gray_inverted accepted 13/14,13/14,13/14,True
+hematoxylin_od accepted only 10/14,10/14,10/14,True
+CSV printed 'accepted: 23/28',23/28,23/28,True
+3 of the 4 hem refusals had gray accept the same click,3 of 4,3 of 4,True
+"those three are 300/14581, 245/6274, 013/254","14581, 6274, 254","254, 6274, 14581",True
+"where both accept, hem is smaller every time",10/10 smaller,"10/10 smaller, 0 tied, 0 larger",True
+'All 10 examples both channels accepted',10,10,True
+300.tiff#2 is 45->19px,45 -> 19,"33 -> 19 (45 is 300.tiff#1's gray size, ann 14581, whose hem was REFUSED)",False
+300.tiff#2 is 'the extreme',300.tiff#2,"largest absolute shrink is 201.tiff #1 (seed_index=0) (51->29, -22px); largest proportional shrink is 201.tiff #1 (seed_index=0) (-43.1%) vs 300#2 (-42.4%)",False
+459.tiff#1 barely moves (33->31),33 -> 31,33 -> 31,True
+459.tiff#2 barely moves (41->39),41 -> 39,41 -> 39,True
+"7 domains -> 7 ROIs, alphabetically-first file per domain",7,"7 domains, alphabetical rule holds: True",True
+013.tiff chosen over 094.tiff for human breast cancer,013.tiff,013.tiff,True
+14 ROIs on disk in images/extra_valid,14,14,True
+every accepted example's 'final template' crop is base_size x base_size,implied,23/23,True

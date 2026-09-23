@@ -1,0 +1,15 @@
+file_name,ann_id,which,domain,gray_accepted,hem_accepted,gray_base_size,hem_base_size,both_accepted,delta_px,pct_change
+013.tiff,254,#1 (seed_index=0),human breast cancer,True,False,31.0,,False,,
+013.tiff,243,#2 (seed_index=1),human breast cancer,False,False,,,False,,
+201.tiff,4457,#1 (seed_index=0),canine lung cancer,True,True,51.0,29.0,True,-22.0,-43.13725490196079
+201.tiff,4469,#2 (seed_index=1),canine lung cancer,True,True,51.0,31.0,True,-20.0,-39.21568627450981
+245.tiff,6274,#1 (seed_index=0),canine lymphosarcoma,True,False,47.0,,False,,
+245.tiff,6243,#2 (seed_index=1),canine lymphosarcoma,True,True,51.0,35.0,True,-16.0,-31.372549019607842
+300.tiff,14581,#1 (seed_index=0),canine cutaneous mast cell tumor,True,False,45.0,,False,,
+300.tiff,14575,#2 (seed_index=1),canine cutaneous mast cell tumor,True,True,33.0,19.0,True,-14.0,-42.42424242424242
+402.tiff,20254,#1 (seed_index=0),human neuroendocrine tumor,True,True,29.0,25.0,True,-4.0,-13.793103448275861
+402.tiff,20258,#2 (seed_index=1),human neuroendocrine tumor,True,True,51.0,33.0,True,-18.0,-35.294117647058826
+459.tiff,22441,#1 (seed_index=0),canine soft tissue sarcoma,True,True,33.0,31.0,True,-2.0,-6.0606060606060606
+459.tiff,22446,#2 (seed_index=1),canine soft tissue sarcoma,True,True,41.0,39.0,True,-2.0,-4.878048780487805
+529.tiff,24918,#1 (seed_index=0),human melanoma,True,True,37.0,33.0,True,-4.0,-10.81081081081081
+529.tiff,24937,#2 (seed_index=1),human melanoma,True,True,41.0,33.0,True,-8.0,-19.51219512195122

@@ -1,0 +1,6 @@
+file_name,ann_id,refused_channel,reason,center_label,n_components_in_patch,otsu_cut,other_channel,other_accepted,other_center_label,other_base_size,other_area,other_solidity,same_pixel_opposite_verdict
+300.tiff,14581,hematoxylin_od,click lands on background at this Otsu cut,0,8,69.0,gray_inverted,True,2,45.0,1126.0,0.8002842928216063,True
+245.tiff,6274,hematoxylin_od,click lands on background at this Otsu cut,0,15,91.0,gray_inverted,True,3,47.0,1258.0,0.735672514619883,True
+013.tiff,254,hematoxylin_od,click lands on background at this Otsu cut,0,3,91.0,gray_inverted,True,3,31.0,582.0,0.8447024673439768,True
+013.tiff,243,gray_inverted,click lands on background at this Otsu cut,0,2,140.0,hematoxylin_od,False,0,,,,False
+013.tiff,243,hematoxylin_od,click lands on background at this Otsu cut,0,2,91.0,gray_inverted,False,0,,,,False

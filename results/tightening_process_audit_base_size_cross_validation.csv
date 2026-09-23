@@ -1,0 +1,8 @@
+file_name,ann_id,this_nb_gray_base_size,this_nb_hem_base_size,halfpixfix_used_ann,halfpixfix_base_size,gray_matches_halfpixfix,hembbox_used_ann,hembbox_base_size,hem_matches_hembbox
+300.tiff,14581,45.0,,14581,45,True,14499,25,False
+201.tiff,4457,51.0,29.0,4457,51,True,4457,29,True
+245.tiff,6274,47.0,,6274,47,True,6317,23,False
+459.tiff,22441,33.0,31.0,22441,33,True,22441,31,True
+013.tiff,254,31.0,,254,31,True,249,39,False
+529.tiff,24918,37.0,33.0,24918,37,True,24918,33,True
+402.tiff,20254,29.0,25.0,20254,29,True,20254,25,True

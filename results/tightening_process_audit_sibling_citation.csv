@@ -1,0 +1,5 @@
+claim,recomputed,agrees
+sibling: 13/14 ROIs shrink,13/14,True
+sibling: median ~13%,-13.3%,True
+this notebook's 10 both-accepted pairs show the same magnitude,median -25.4% here vs -13.3% there,False
+the sibling's one growing ROI is a DIFFERENT-click ROI,"['013.tiff'], same_seed=[False]",True

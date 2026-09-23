@@ -1,0 +1,5 @@
+file_name,ann_id,here,here_pct,sibling,sibling_pct,same_click_in_both_runs,identical
+201.tiff,4457,51->29,-43.1,51->29,-43.1,True,True
+459.tiff,22441,33->31,-6.1,33->31,-6.1,True,True
+529.tiff,24918,37->33,-10.8,37->33,-10.8,True,True
+402.tiff,20254,29->25,-13.8,29->25,-13.8,True,True

@@ -1,0 +1,9 @@
+path,mtime,last_commit,porcelain
+midog_utils/seed_selection.py,2026-09-15 12:08:45,7f1bdb6 2026-09-15 Reformat seed_selection.py and template_match.py docstrings to the input/output convention,(clean)
+midog_utils/template_match.py,2026-09-15 12:09:18,7f1bdb6 2026-09-15 Reformat seed_selection.py and template_match.py docstrings to the input/output convention,(clean)
+midog_utils/channels.py,2026-09-14 18:47:55,"f9b4a63 2026-09-14 Archive midog_utils as midog_utils_full, strip the production pipeline's docstrings and comments to brief descriptions",(clean)
+midog_utils/chromatin.py,2026-09-14 18:48:09,"f9b4a63 2026-09-14 Archive midog_utils as midog_utils_full, strip the production pipeline's docstrings and comments to brief descriptions",(clean)
+midog_utils/dataset.py,2026-09-15 12:18:09,bf532d1 2026-09-15 Reformat dataset.py docstrings to the input/output convention,(clean)
+midog_utils/find_and_suppress.py,2026-09-16 10:14:46,"74fbea0 2026-09-16 Add explanatory comments to FSConfig and run_pipeline.py, verified pipeline-intact",(clean)
+production_hematoxylin_only/tightening_process_hem_vs_gray.ipynb,2026-09-16 11:27:57,<untracked>,?? production_hematoxylin_only/tightening_process_hem_vs_gray.ipynb
+production_hematoxylin_only/tightening_process_summary.csv,2026-09-16 11:27:55,<untracked>,?? production_hematoxylin_only/tightening_process_summary.csv

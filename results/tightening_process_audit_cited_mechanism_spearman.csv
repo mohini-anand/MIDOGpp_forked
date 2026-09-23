@@ -1,0 +1,9 @@
+subset,arm,K,n,spearman_rho_delta_base_size_vs_delta_precision,perm_p,sign_supports_smaller_is_worse
+all 14 ROIs,tm_score,10,14,-0.153,0.581,False
+all 14 ROIs,tm_score,20,14,-0.162,0.577,False
+all 14 ROIs,tm_score,30,14,-0.306,0.284,False
+all 14 ROIs,tm_score,50,14,-0.078,0.781,False
+all 14 ROIs,chromatin_od,10,14,0.0,1.0,False
+all 14 ROIs,chromatin_od,20,14,-0.022,0.945,False
+all 14 ROIs,chromatin_od,30,14,0.208,0.45,True
+all 14 ROIs,chromatin_od,50,14,-0.398,0.219,False
