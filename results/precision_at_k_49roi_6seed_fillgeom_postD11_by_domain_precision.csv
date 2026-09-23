@@ -1,0 +1,65 @@
+rank_key,domain,condition,n_roi,tp,precision
+chromatin_od,canine cutaneous mast cell tumor,default_51,7,293,0.6976190476190476
+tm_score,canine cutaneous mast cell tumor,default_51,7,257,0.611904761904762
+chromatin_od,canine cutaneous mast cell tumor,hem_rect_fill,7,295,0.7023809523809523
+tm_score,canine cutaneous mast cell tumor,hem_rect_fill,7,268,0.638095238095238
+chromatin_od,canine cutaneous mast cell tumor,hem_rect_fill_1um,7,297,0.7071428571428572
+tm_score,canine cutaneous mast cell tumor,hem_rect_fill_1um,7,263,0.6261904761904762
+chromatin_od,canine cutaneous mast cell tumor,hem_mask_fill_1um,7,297,0.7071428571428572
+tm_score,canine cutaneous mast cell tumor,hem_mask_fill_1um,7,262,0.6238095238095238
+chromatin_od,canine lung cancer,default_51,7,151,0.3595238095238095
+tm_score,canine lung cancer,default_51,7,135,0.32142857142857145
+chromatin_od,canine lung cancer,hem_rect_fill,7,150,0.35714285714285715
+tm_score,canine lung cancer,hem_rect_fill,7,155,0.36904761904761907
+chromatin_od,canine lung cancer,hem_rect_fill_1um,7,151,0.3595238095238095
+tm_score,canine lung cancer,hem_rect_fill_1um,7,151,0.3595238095238095
+chromatin_od,canine lung cancer,hem_mask_fill_1um,7,148,0.3523809523809524
+tm_score,canine lung cancer,hem_mask_fill_1um,7,153,0.36428571428571427
+chromatin_od,canine lymphosarcoma,default_51,7,232,0.5523809523809524
+tm_score,canine lymphosarcoma,default_51,7,229,0.5452380952380952
+chromatin_od,canine lymphosarcoma,hem_rect_fill,7,234,0.5571428571428572
+tm_score,canine lymphosarcoma,hem_rect_fill,7,256,0.6095238095238096
+chromatin_od,canine lymphosarcoma,hem_rect_fill_1um,7,239,0.569047619047619
+tm_score,canine lymphosarcoma,hem_rect_fill_1um,7,259,0.6166666666666667
+chromatin_od,canine lymphosarcoma,hem_mask_fill_1um,7,239,0.569047619047619
+tm_score,canine lymphosarcoma,hem_mask_fill_1um,7,262,0.6238095238095238
+chromatin_od,canine soft tissue sarcoma,default_51,7,262,0.6238095238095238
+tm_score,canine soft tissue sarcoma,default_51,7,231,0.55
+chromatin_od,canine soft tissue sarcoma,hem_rect_fill,7,262,0.6238095238095238
+tm_score,canine soft tissue sarcoma,hem_rect_fill,7,232,0.5523809523809524
+chromatin_od,canine soft tissue sarcoma,hem_rect_fill_1um,7,262,0.6238095238095238
+tm_score,canine soft tissue sarcoma,hem_rect_fill_1um,7,234,0.5571428571428572
+chromatin_od,canine soft tissue sarcoma,hem_mask_fill_1um,7,261,0.6214285714285714
+tm_score,canine soft tissue sarcoma,hem_mask_fill_1um,7,233,0.5547619047619048
+chromatin_od,human breast cancer,default_51,7,259,0.6166666666666667
+tm_score,human breast cancer,default_51,7,253,0.6023809523809524
+chromatin_od,human breast cancer,hem_rect_fill,7,262,0.6238095238095238
+tm_score,human breast cancer,hem_rect_fill,7,253,0.6023809523809524
+chromatin_od,human breast cancer,hem_rect_fill_1um,7,264,0.6285714285714286
+tm_score,human breast cancer,hem_rect_fill_1um,7,253,0.6023809523809524
+chromatin_od,human breast cancer,hem_mask_fill_1um,7,263,0.6261904761904762
+tm_score,human breast cancer,hem_mask_fill_1um,7,250,0.5952380952380952
+chromatin_od,human melanoma,default_51,7,190,0.4523809523809524
+tm_score,human melanoma,default_51,7,152,0.3619047619047619
+chromatin_od,human melanoma,hem_rect_fill,7,191,0.45476190476190476
+tm_score,human melanoma,hem_rect_fill,7,149,0.3547619047619048
+chromatin_od,human melanoma,hem_rect_fill_1um,7,193,0.4595238095238095
+tm_score,human melanoma,hem_rect_fill_1um,7,149,0.3547619047619048
+chromatin_od,human melanoma,hem_mask_fill_1um,7,192,0.45714285714285713
+tm_score,human melanoma,hem_mask_fill_1um,7,148,0.3523809523809524
+chromatin_od,human neuroendocrine tumor,default_51,7,279,0.6642857142857143
+tm_score,human neuroendocrine tumor,default_51,7,238,0.5666666666666667
+chromatin_od,human neuroendocrine tumor,hem_rect_fill,7,276,0.6571428571428571
+tm_score,human neuroendocrine tumor,hem_rect_fill,7,235,0.5595238095238095
+chromatin_od,human neuroendocrine tumor,hem_rect_fill_1um,7,275,0.6547619047619048
+tm_score,human neuroendocrine tumor,hem_rect_fill_1um,7,234,0.5571428571428572
+chromatin_od,human neuroendocrine tumor,hem_mask_fill_1um,7,275,0.6547619047619048
+tm_score,human neuroendocrine tumor,hem_mask_fill_1um,7,236,0.5619047619047619
+chromatin_od,ALL 49 ROIs (pooled),default_51,49,1666,0.5666666666666667
+tm_score,ALL 49 ROIs (pooled),default_51,49,1495,0.5085034013605442
+chromatin_od,ALL 49 ROIs (pooled),hem_rect_fill,49,1670,0.5680272108843537
+tm_score,ALL 49 ROIs (pooled),hem_rect_fill,49,1548,0.5265306122448979
+chromatin_od,ALL 49 ROIs (pooled),hem_rect_fill_1um,49,1681,0.5717687074829932
+tm_score,ALL 49 ROIs (pooled),hem_rect_fill_1um,49,1543,0.5248299319727892
+chromatin_od,ALL 49 ROIs (pooled),hem_mask_fill_1um,49,1675,0.5697278911564626
+tm_score,ALL 49 ROIs (pooled),hem_mask_fill_1um,49,1544,0.5251700680272109
