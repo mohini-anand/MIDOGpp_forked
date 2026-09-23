@@ -115,30 +115,45 @@ Cluster 8 is two output families, and the repo already contained a third. All th
 notebook — `production_hematoxylin_only/hybrid_erode50_vs_original_14roi.ipynb` — re-run with
 `OUT_PREFIX` changed. The notebook's committed state emits only the third.
 
-| `OUT_PREFIX` | rule | accepts | geometry vs original | state |
-|---|---|---|---|---|
-| `hybriderode50vsoriginal14` | erode + 50% containment | 24/24 | identical 24/24 | `9dd94ab` |
-| `hybriderodefirstvsoriginal14` | erosion-first, full containment | **4/24** | n/a | `141078f` |
-| `hybriderodefirst50vsoriginal14` | erosion-first + 50% | 24/24 | identical 23/24 | committed earlier |
+Selection **order** and containment **threshold** are independent axes, and the three families vary
+them separately:
+
+| `OUT_PREFIX` | selection order | containment | accepts | geometry vs original | state |
+|---|---|---|---|---|---|
+| `hybriderode50vsoriginal14` | original (select, then erode) | 50% | 24/24 | identical 24/24 | `9dd94ab` |
+| `hybriderodefirstvsoriginal14` | erosion-first | 100% | **4/24** | n/a | `141078f` |
+| `hybriderodefirst50vsoriginal14` | erosion-first | 50% | 24/24 | identical 23/24 | committed earlier |
 
 All three run the same 24 clicks: the 14 original ROIs plus 10 from
 `tightening_process_hem_vs_gray`, over 7 domains.
 
-The erosion-first arm fails on **containment, not area** — 15 of its 20 rejections are "click's
-`hematoxylin_od` component is not completely inside the eroded gray component", 2 more are that
-same failure for every component within 3.0 µm of the click, and only 3 are the `min_area` floor.
-Read against the erode+50% arm, that isolates the 50% relaxation as the ingredient that makes
-erosion usable at all, which is what the third family then adopts.
+The erosion-first-at-100% arm fails on **containment, not area** — 15 of its 20 rejections are
+"click's `hematoxylin_od` component is not completely inside the eroded gray component", 2 more are
+that same failure for every component within 3.0 µm of the click, and only 3 are the `min_area`
+floor. So 100% containment is what makes erosion unusable, regardless of order.
 
-The one row where `hybriderodefirst50` diverges geometrically is `245.tiff/6243` (base 31 → 19,
-union 271 → 121) — the ROI where erosion fragments the gray component into islands. Note that
-`hybriderode50` matches the original there too, so at this draw the 50% relaxation absorbs the
-fragmentation on its own. This is the distinction behind the "23/24" in
-`erosion-first-plus-50pct-fixes-both-gaps`: that figure is *geometry* identity, not acceptance,
-which is 24/24 for both surviving arms.
+**What each arm is actually evidence for.** `hybriderode50` holds the original selection order and
+only relaxes containment to 50%: it diverges from the original on 0 of 24 clicks — the notebook's
+own cell prints `clicks where erode+50% diverges from the original hybrid: 0/24`. That makes it a
+**null result**: at this draw the containment relaxation alone changes nothing, and in particular
+it does *not* fix the fragmentation at `245.tiff/6243`, where it reproduces the original's
+4-component 31px box unchanged.
+
+The fragmentation fix comes from the **ordering**, not the threshold.
+`hybriderodefirst50` is the only arm that tightens `245.tiff/6243` to the correct 2-component 19px
+box (union 271 → 121), and that is its single geometric divergence from the original — hence the
+"23/24" in `erosion-first-plus-50pct-fixes-both-gaps`, which is *geometry* identity, not
+acceptance (24/24 for both surviving arms). Read together: erosion-first ordering supplies the fix,
+and the 50% relaxation is what keeps that ordering from collapsing acceptance to 4/24.
+
+> **Correction.** The commit message on `9dd94ab` states that the 50% relaxation "absorbs the
+> fragmentation on its own" at `245.tiff/6243`. That inverts the mechanism — the identical geometry
+> there is the *absence* of a fix, not a fix. This section is correct; that sentence is not.
 
 Anyone re-running the notebook today will reproduce the third family and find no source for the
-first two. They are kept as the ablation record, not as reproducible outputs.
+first two. The session that produced them (`2d7c388f`) deliberately left both untracked when it
+committed the adopted arm as `4043cae` ("note as unadopted candidate"), so their presence in the
+history now is a later decision to preserve the ablation record, not a reversal of that judgement.
 
 ---
 
