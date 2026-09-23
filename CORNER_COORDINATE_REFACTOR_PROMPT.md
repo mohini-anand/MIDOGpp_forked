@@ -1,5 +1,10 @@
 # Task: convert midog_utils's internal point representation to box corners (TL/BR)
 
+> **Superseded 2026-09-23 — do not execute.** Replaced by `ANNOTATION_DATAFRAME_SPEC.md` and its
+> hand-off prompt `ANNOTATION_FRAME_IMPLEMENTATION_PROMPT.md`, which add the frame as a new layer
+> instead of changing the existing functions. Kept for the record.
+> `Research Logs/2026-09-23-corner-coordinate-refactor-prompt-audit.md` audits this version.
+
 ## Goal
 
 Convert the internal representation of seeds, templates, and detections in `midog_utils/`
