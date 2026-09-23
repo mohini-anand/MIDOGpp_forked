@@ -1,0 +1,1177 @@
+subset,domain,file_name,pair,K,delta_tp_s0,delta_tp_s1,delta_tp_s2,delta_tp_sum
+original_14,canine cutaneous mast cell tumor,300.tiff,fill_alpha_0 - fill_alpha_1,10,-1,0,0,-1
+original_14,canine cutaneous mast cell tumor,300.tiff,fill_alpha_0 - fill_alpha_1,20,0,1,-1,0
+original_14,canine cutaneous mast cell tumor,300.tiff,fill_alpha_0 - fill_alpha_1,30,1,3,0,4
+original_14,canine cutaneous mast cell tumor,301.tiff,fill_alpha_0 - fill_alpha_1,10,3,0,2,5
+original_14,canine cutaneous mast cell tumor,301.tiff,fill_alpha_0 - fill_alpha_1,20,3,0,2,5
+original_14,canine cutaneous mast cell tumor,301.tiff,fill_alpha_0 - fill_alpha_1,30,3,-1,1,3
+testing_35,canine cutaneous mast cell tumor,322.tiff,fill_alpha_0 - fill_alpha_1,10,0,0,0,0
+testing_35,canine cutaneous mast cell tumor,322.tiff,fill_alpha_0 - fill_alpha_1,20,-1,0,0,-1
+testing_35,canine cutaneous mast cell tumor,322.tiff,fill_alpha_0 - fill_alpha_1,30,-3,0,-2,-5
+testing_35,canine cutaneous mast cell tumor,337.tiff,fill_alpha_0 - fill_alpha_1,10,0,-2,-2,-4
+testing_35,canine cutaneous mast cell tumor,337.tiff,fill_alpha_0 - fill_alpha_1,20,-2,-4,-3,-9
+testing_35,canine cutaneous mast cell tumor,337.tiff,fill_alpha_0 - fill_alpha_1,30,-2,-4,-5,-11
+testing_35,canine cutaneous mast cell tumor,339.tiff,fill_alpha_0 - fill_alpha_1,10,-2,-1,-2,-5
+testing_35,canine cutaneous mast cell tumor,339.tiff,fill_alpha_0 - fill_alpha_1,20,-1,-1,-2,-4
+testing_35,canine cutaneous mast cell tumor,339.tiff,fill_alpha_0 - fill_alpha_1,30,-3,-1,-2,-6
+testing_35,canine cutaneous mast cell tumor,343.tiff,fill_alpha_0 - fill_alpha_1,10,-1,-2,-3,-6
+testing_35,canine cutaneous mast cell tumor,343.tiff,fill_alpha_0 - fill_alpha_1,20,1,-3,-4,-6
+testing_35,canine cutaneous mast cell tumor,343.tiff,fill_alpha_0 - fill_alpha_1,30,-3,-1,-5,-9
+testing_35,canine cutaneous mast cell tumor,344.tiff,fill_alpha_0 - fill_alpha_1,10,1,2,0,3
+testing_35,canine cutaneous mast cell tumor,344.tiff,fill_alpha_0 - fill_alpha_1,20,-1,-5,1,-5
+testing_35,canine cutaneous mast cell tumor,344.tiff,fill_alpha_0 - fill_alpha_1,30,-7,-9,-4,-20
+original_14,canine lung cancer,201.tiff,fill_alpha_0 - fill_alpha_1,10,1,0,2,3
+original_14,canine lung cancer,201.tiff,fill_alpha_0 - fill_alpha_1,20,-1,0,2,1
+original_14,canine lung cancer,201.tiff,fill_alpha_0 - fill_alpha_1,30,-3,-1,1,-3
+original_14,canine lung cancer,233.tiff,fill_alpha_0 - fill_alpha_1,10,0,0,-1,-1
+original_14,canine lung cancer,233.tiff,fill_alpha_0 - fill_alpha_1,20,-1,2,0,1
+original_14,canine lung cancer,233.tiff,fill_alpha_0 - fill_alpha_1,30,-1,3,1,3
+testing_35,canine lung cancer,211.tiff,fill_alpha_0 - fill_alpha_1,10,0,0,0,0
+testing_35,canine lung cancer,211.tiff,fill_alpha_0 - fill_alpha_1,20,0,0,0,0
+testing_35,canine lung cancer,211.tiff,fill_alpha_0 - fill_alpha_1,30,0,0,0,0
+testing_35,canine lung cancer,220.tiff,fill_alpha_0 - fill_alpha_1,10,1,-1,-1,-1
+testing_35,canine lung cancer,220.tiff,fill_alpha_0 - fill_alpha_1,20,0,-1,-1,-2
+testing_35,canine lung cancer,220.tiff,fill_alpha_0 - fill_alpha_1,30,-6,1,-3,-8
+testing_35,canine lung cancer,230.tiff,fill_alpha_0 - fill_alpha_1,10,0,0,0,0
+testing_35,canine lung cancer,230.tiff,fill_alpha_0 - fill_alpha_1,20,0,0,0,0
+testing_35,canine lung cancer,230.tiff,fill_alpha_0 - fill_alpha_1,30,0,-1,-1,-2
+testing_35,canine lung cancer,235.tiff,fill_alpha_0 - fill_alpha_1,10,0,-1,-1,-2
+testing_35,canine lung cancer,235.tiff,fill_alpha_0 - fill_alpha_1,20,-1,-1,-1,-3
+testing_35,canine lung cancer,235.tiff,fill_alpha_0 - fill_alpha_1,30,-2,-3,-2,-7
+testing_35,canine lung cancer,242.tiff,fill_alpha_0 - fill_alpha_1,10,0,1,0,1
+testing_35,canine lung cancer,242.tiff,fill_alpha_0 - fill_alpha_1,20,-1,1,0,0
+testing_35,canine lung cancer,242.tiff,fill_alpha_0 - fill_alpha_1,30,-1,1,0,0
+original_14,canine lymphosarcoma,245.tiff,fill_alpha_0 - fill_alpha_1,10,-1,1,0,0
+original_14,canine lymphosarcoma,245.tiff,fill_alpha_0 - fill_alpha_1,20,-1,3,-1,1
+original_14,canine lymphosarcoma,245.tiff,fill_alpha_0 - fill_alpha_1,30,0,2,-3,-1
+original_14,canine lymphosarcoma,246.tiff,fill_alpha_0 - fill_alpha_1,10,0,-2,0,-2
+original_14,canine lymphosarcoma,246.tiff,fill_alpha_0 - fill_alpha_1,20,0,-6,-2,-8
+original_14,canine lymphosarcoma,246.tiff,fill_alpha_0 - fill_alpha_1,30,-1,-9,-3,-13
+testing_35,canine lymphosarcoma,249.tiff,fill_alpha_0 - fill_alpha_1,10,-1,0,-1,-2
+testing_35,canine lymphosarcoma,249.tiff,fill_alpha_0 - fill_alpha_1,20,0,1,-2,-1
+testing_35,canine lymphosarcoma,249.tiff,fill_alpha_0 - fill_alpha_1,30,-2,0,-3,-5
+testing_35,canine lymphosarcoma,284.tiff,fill_alpha_0 - fill_alpha_1,10,-1,0,-1,-2
+testing_35,canine lymphosarcoma,284.tiff,fill_alpha_0 - fill_alpha_1,20,-4,-2,0,-6
+testing_35,canine lymphosarcoma,284.tiff,fill_alpha_0 - fill_alpha_1,30,-6,-3,0,-9
+testing_35,canine lymphosarcoma,289.tiff,fill_alpha_0 - fill_alpha_1,10,0,-1,2,1
+testing_35,canine lymphosarcoma,289.tiff,fill_alpha_0 - fill_alpha_1,20,-1,-3,2,-2
+testing_35,canine lymphosarcoma,289.tiff,fill_alpha_0 - fill_alpha_1,30,-1,-1,2,0
+testing_35,canine lymphosarcoma,291.tiff,fill_alpha_0 - fill_alpha_1,10,2,-1,0,1
+testing_35,canine lymphosarcoma,291.tiff,fill_alpha_0 - fill_alpha_1,20,-3,-5,-3,-11
+testing_35,canine lymphosarcoma,291.tiff,fill_alpha_0 - fill_alpha_1,30,-6,-9,-5,-20
+testing_35,canine lymphosarcoma,293.tiff,fill_alpha_0 - fill_alpha_1,10,4,5,3,12
+testing_35,canine lymphosarcoma,293.tiff,fill_alpha_0 - fill_alpha_1,20,3,5,2,10
+testing_35,canine lymphosarcoma,293.tiff,fill_alpha_0 - fill_alpha_1,30,2,3,2,7
+original_14,canine soft tissue sarcoma,459.tiff,fill_alpha_0 - fill_alpha_1,10,0,0,-1,-1
+original_14,canine soft tissue sarcoma,459.tiff,fill_alpha_0 - fill_alpha_1,20,-2,0,-1,-3
+original_14,canine soft tissue sarcoma,459.tiff,fill_alpha_0 - fill_alpha_1,30,-3,-1,-7,-11
+original_14,canine soft tissue sarcoma,460.tiff,fill_alpha_0 - fill_alpha_1,10,2,-6,-4,-8
+original_14,canine soft tissue sarcoma,460.tiff,fill_alpha_0 - fill_alpha_1,20,-4,-10,-12,-26
+original_14,canine soft tissue sarcoma,460.tiff,fill_alpha_0 - fill_alpha_1,30,-5,-10,-13,-28
+testing_35,canine soft tissue sarcoma,410.tiff,fill_alpha_0 - fill_alpha_1,10,-1,-2,0,-3
+testing_35,canine soft tissue sarcoma,410.tiff,fill_alpha_0 - fill_alpha_1,20,-2,-3,-3,-8
+testing_35,canine soft tissue sarcoma,410.tiff,fill_alpha_0 - fill_alpha_1,30,-2,-3,-3,-8
+testing_35,canine soft tissue sarcoma,425.tiff,fill_alpha_0 - fill_alpha_1,10,0,0,1,1
+testing_35,canine soft tissue sarcoma,425.tiff,fill_alpha_0 - fill_alpha_1,20,0,1,-1,0
+testing_35,canine soft tissue sarcoma,425.tiff,fill_alpha_0 - fill_alpha_1,30,1,1,-1,1
+testing_35,canine soft tissue sarcoma,435.tiff,fill_alpha_0 - fill_alpha_1,10,-1,-1,-2,-4
+testing_35,canine soft tissue sarcoma,435.tiff,fill_alpha_0 - fill_alpha_1,20,-3,-1,-4,-8
+testing_35,canine soft tissue sarcoma,435.tiff,fill_alpha_0 - fill_alpha_1,30,-4,-2,-2,-8
+testing_35,canine soft tissue sarcoma,462.tiff,fill_alpha_0 - fill_alpha_1,10,0,0,0,0
+testing_35,canine soft tissue sarcoma,462.tiff,fill_alpha_0 - fill_alpha_1,20,0,-1,-2,-3
+testing_35,canine soft tissue sarcoma,462.tiff,fill_alpha_0 - fill_alpha_1,30,-1,-1,-1,-3
+testing_35,canine soft tissue sarcoma,499.tiff,fill_alpha_0 - fill_alpha_1,10,1,0,0,1
+testing_35,canine soft tissue sarcoma,499.tiff,fill_alpha_0 - fill_alpha_1,20,0,-1,1,0
+testing_35,canine soft tissue sarcoma,499.tiff,fill_alpha_0 - fill_alpha_1,30,2,0,1,3
+original_14,human breast cancer,013.tiff,fill_alpha_0 - fill_alpha_1,10,0,-1,-1,-2
+original_14,human breast cancer,013.tiff,fill_alpha_0 - fill_alpha_1,20,1,-3,0,-2
+original_14,human breast cancer,013.tiff,fill_alpha_0 - fill_alpha_1,30,1,-2,1,0
+original_14,human breast cancer,094.tiff,fill_alpha_0 - fill_alpha_1,10,0,0,0,0
+original_14,human breast cancer,094.tiff,fill_alpha_0 - fill_alpha_1,20,-3,-1,-1,-5
+original_14,human breast cancer,094.tiff,fill_alpha_0 - fill_alpha_1,30,-1,-1,0,-2
+testing_35,human breast cancer,007.tiff,fill_alpha_0 - fill_alpha_1,10,0,-1,0,-1
+testing_35,human breast cancer,007.tiff,fill_alpha_0 - fill_alpha_1,20,0,-1,0,-1
+testing_35,human breast cancer,007.tiff,fill_alpha_0 - fill_alpha_1,30,1,-1,0,0
+testing_35,human breast cancer,072.tiff,fill_alpha_0 - fill_alpha_1,10,0,-1,0,-1
+testing_35,human breast cancer,072.tiff,fill_alpha_0 - fill_alpha_1,20,-6,-3,0,-9
+testing_35,human breast cancer,072.tiff,fill_alpha_0 - fill_alpha_1,30,-12,-4,-2,-18
+testing_35,human breast cancer,100.tiff,fill_alpha_0 - fill_alpha_1,10,0,0,0,0
+testing_35,human breast cancer,100.tiff,fill_alpha_0 - fill_alpha_1,20,-3,0,-3,-6
+testing_35,human breast cancer,100.tiff,fill_alpha_0 - fill_alpha_1,30,-2,0,-6,-8
+testing_35,human breast cancer,123.tiff,fill_alpha_0 - fill_alpha_1,10,-3,0,0,-3
+testing_35,human breast cancer,123.tiff,fill_alpha_0 - fill_alpha_1,20,-5,-4,-1,-10
+testing_35,human breast cancer,123.tiff,fill_alpha_0 - fill_alpha_1,30,-6,-6,-2,-14
+testing_35,human breast cancer,128.tiff,fill_alpha_0 - fill_alpha_1,10,1,-1,0,0
+testing_35,human breast cancer,128.tiff,fill_alpha_0 - fill_alpha_1,20,-3,-2,1,-4
+testing_35,human breast cancer,128.tiff,fill_alpha_0 - fill_alpha_1,30,-2,-2,1,-3
+original_14,human melanoma,529.tiff,fill_alpha_0 - fill_alpha_1,10,1,-2,-4,-5
+original_14,human melanoma,529.tiff,fill_alpha_0 - fill_alpha_1,20,0,-4,-7,-11
+original_14,human melanoma,529.tiff,fill_alpha_0 - fill_alpha_1,30,-2,-5,-7,-14
+original_14,human melanoma,548.tiff,fill_alpha_0 - fill_alpha_1,10,0,-1,-1,-2
+original_14,human melanoma,548.tiff,fill_alpha_0 - fill_alpha_1,20,-2,-2,-1,-5
+original_14,human melanoma,548.tiff,fill_alpha_0 - fill_alpha_1,30,-1,-2,-2,-5
+testing_35,human melanoma,509.tiff,fill_alpha_0 - fill_alpha_1,10,0,0,0,0
+testing_35,human melanoma,509.tiff,fill_alpha_0 - fill_alpha_1,20,1,0,-1,0
+testing_35,human melanoma,509.tiff,fill_alpha_0 - fill_alpha_1,30,0,-3,-1,-4
+testing_35,human melanoma,524.tiff,fill_alpha_0 - fill_alpha_1,10,-1,0,-1,-2
+testing_35,human melanoma,524.tiff,fill_alpha_0 - fill_alpha_1,20,-2,0,-2,-4
+testing_35,human melanoma,524.tiff,fill_alpha_0 - fill_alpha_1,30,-2,1,-2,-3
+testing_35,human melanoma,527.tiff,fill_alpha_0 - fill_alpha_1,10,-2,-2,-2,-6
+testing_35,human melanoma,527.tiff,fill_alpha_0 - fill_alpha_1,20,-4,-4,-1,-9
+testing_35,human melanoma,527.tiff,fill_alpha_0 - fill_alpha_1,30,-5,-4,-2,-11
+testing_35,human melanoma,546.tiff,fill_alpha_0 - fill_alpha_1,10,0,-1,0,-1
+testing_35,human melanoma,546.tiff,fill_alpha_0 - fill_alpha_1,20,2,-3,0,-1
+testing_35,human melanoma,546.tiff,fill_alpha_0 - fill_alpha_1,30,1,-4,-1,-4
+testing_35,human melanoma,549.tiff,fill_alpha_0 - fill_alpha_1,10,-1,-1,-1,-3
+testing_35,human melanoma,549.tiff,fill_alpha_0 - fill_alpha_1,20,-2,-3,-2,-7
+testing_35,human melanoma,549.tiff,fill_alpha_0 - fill_alpha_1,30,-2,-4,-3,-9
+original_14,human neuroendocrine tumor,402.tiff,fill_alpha_0 - fill_alpha_1,10,0,0,-1,-1
+original_14,human neuroendocrine tumor,402.tiff,fill_alpha_0 - fill_alpha_1,20,0,1,-1,0
+original_14,human neuroendocrine tumor,402.tiff,fill_alpha_0 - fill_alpha_1,30,-3,2,-1,-2
+original_14,human neuroendocrine tumor,403.tiff,fill_alpha_0 - fill_alpha_1,10,-1,1,1,1
+original_14,human neuroendocrine tumor,403.tiff,fill_alpha_0 - fill_alpha_1,20,-3,1,-3,-5
+original_14,human neuroendocrine tumor,403.tiff,fill_alpha_0 - fill_alpha_1,30,-2,0,-1,-3
+testing_35,human neuroendocrine tumor,353.tiff,fill_alpha_0 - fill_alpha_1,10,1,0,0,1
+testing_35,human neuroendocrine tumor,353.tiff,fill_alpha_0 - fill_alpha_1,20,1,-2,0,-1
+testing_35,human neuroendocrine tumor,353.tiff,fill_alpha_0 - fill_alpha_1,30,1,-2,-1,-2
+testing_35,human neuroendocrine tumor,364.tiff,fill_alpha_0 - fill_alpha_1,10,0,0,-1,-1
+testing_35,human neuroendocrine tumor,364.tiff,fill_alpha_0 - fill_alpha_1,20,0,1,0,1
+testing_35,human neuroendocrine tumor,364.tiff,fill_alpha_0 - fill_alpha_1,30,0,1,1,2
+testing_35,human neuroendocrine tumor,400.tiff,fill_alpha_0 - fill_alpha_1,10,0,0,0,0
+testing_35,human neuroendocrine tumor,400.tiff,fill_alpha_0 - fill_alpha_1,20,-2,0,0,-2
+testing_35,human neuroendocrine tumor,400.tiff,fill_alpha_0 - fill_alpha_1,30,-3,-2,-1,-6
+testing_35,human neuroendocrine tumor,401.tiff,fill_alpha_0 - fill_alpha_1,10,-2,-1,-3,-6
+testing_35,human neuroendocrine tumor,401.tiff,fill_alpha_0 - fill_alpha_1,20,-3,-2,-4,-9
+testing_35,human neuroendocrine tumor,401.tiff,fill_alpha_0 - fill_alpha_1,30,-4,-1,-5,-10
+testing_35,human neuroendocrine tumor,404.tiff,fill_alpha_0 - fill_alpha_1,10,1,-2,-1,-2
+testing_35,human neuroendocrine tumor,404.tiff,fill_alpha_0 - fill_alpha_1,20,-2,-3,-2,-7
+testing_35,human neuroendocrine tumor,404.tiff,fill_alpha_0 - fill_alpha_1,30,-1,-4,-2,-7
+original_14,canine cutaneous mast cell tumor,300.tiff,fill_alpha_2 - fill_alpha_0,10,1,0,-1,0
+original_14,canine cutaneous mast cell tumor,300.tiff,fill_alpha_2 - fill_alpha_0,20,0,-1,0,-1
+original_14,canine cutaneous mast cell tumor,300.tiff,fill_alpha_2 - fill_alpha_0,30,-1,-3,-1,-5
+original_14,canine cutaneous mast cell tumor,301.tiff,fill_alpha_2 - fill_alpha_0,10,-3,0,-3,-6
+original_14,canine cutaneous mast cell tumor,301.tiff,fill_alpha_2 - fill_alpha_0,20,-2,0,-3,-5
+original_14,canine cutaneous mast cell tumor,301.tiff,fill_alpha_2 - fill_alpha_0,30,-4,1,-2,-5
+testing_35,canine cutaneous mast cell tumor,322.tiff,fill_alpha_2 - fill_alpha_0,10,0,0,0,0
+testing_35,canine cutaneous mast cell tumor,322.tiff,fill_alpha_2 - fill_alpha_0,20,1,0,0,1
+testing_35,canine cutaneous mast cell tumor,322.tiff,fill_alpha_2 - fill_alpha_0,30,3,0,1,4
+testing_35,canine cutaneous mast cell tumor,337.tiff,fill_alpha_2 - fill_alpha_0,10,0,2,2,4
+testing_35,canine cutaneous mast cell tumor,337.tiff,fill_alpha_2 - fill_alpha_0,20,2,4,3,9
+testing_35,canine cutaneous mast cell tumor,337.tiff,fill_alpha_2 - fill_alpha_0,30,1,4,3,8
+testing_35,canine cutaneous mast cell tumor,339.tiff,fill_alpha_2 - fill_alpha_0,10,2,1,2,5
+testing_35,canine cutaneous mast cell tumor,339.tiff,fill_alpha_2 - fill_alpha_0,20,1,1,3,5
+testing_35,canine cutaneous mast cell tumor,339.tiff,fill_alpha_2 - fill_alpha_0,30,3,1,4,8
+testing_35,canine cutaneous mast cell tumor,343.tiff,fill_alpha_2 - fill_alpha_0,10,1,2,3,6
+testing_35,canine cutaneous mast cell tumor,343.tiff,fill_alpha_2 - fill_alpha_0,20,1,3,4,8
+testing_35,canine cutaneous mast cell tumor,343.tiff,fill_alpha_2 - fill_alpha_0,30,2,2,6,10
+testing_35,canine cutaneous mast cell tumor,344.tiff,fill_alpha_2 - fill_alpha_0,10,-1,-2,0,-3
+testing_35,canine cutaneous mast cell tumor,344.tiff,fill_alpha_2 - fill_alpha_0,20,2,5,-2,5
+testing_35,canine cutaneous mast cell tumor,344.tiff,fill_alpha_2 - fill_alpha_0,30,7,8,3,18
+original_14,canine lung cancer,201.tiff,fill_alpha_2 - fill_alpha_0,10,-1,1,-3,-3
+original_14,canine lung cancer,201.tiff,fill_alpha_2 - fill_alpha_0,20,2,0,-3,-1
+original_14,canine lung cancer,201.tiff,fill_alpha_2 - fill_alpha_0,30,4,1,-4,1
+original_14,canine lung cancer,233.tiff,fill_alpha_2 - fill_alpha_0,10,1,1,1,3
+original_14,canine lung cancer,233.tiff,fill_alpha_2 - fill_alpha_0,20,1,-2,0,-1
+original_14,canine lung cancer,233.tiff,fill_alpha_2 - fill_alpha_0,30,2,-3,-2,-3
+testing_35,canine lung cancer,211.tiff,fill_alpha_2 - fill_alpha_0,10,0,0,0,0
+testing_35,canine lung cancer,211.tiff,fill_alpha_2 - fill_alpha_0,20,0,0,0,0
+testing_35,canine lung cancer,211.tiff,fill_alpha_2 - fill_alpha_0,30,0,0,0,0
+testing_35,canine lung cancer,220.tiff,fill_alpha_2 - fill_alpha_0,10,-1,0,1,0
+testing_35,canine lung cancer,220.tiff,fill_alpha_2 - fill_alpha_0,20,0,0,2,2
+testing_35,canine lung cancer,220.tiff,fill_alpha_2 - fill_alpha_0,30,5,-2,5,8
+testing_35,canine lung cancer,230.tiff,fill_alpha_2 - fill_alpha_0,10,0,0,-1,-1
+testing_35,canine lung cancer,230.tiff,fill_alpha_2 - fill_alpha_0,20,-3,-1,-1,-5
+testing_35,canine lung cancer,230.tiff,fill_alpha_2 - fill_alpha_0,30,-4,0,-1,-5
+testing_35,canine lung cancer,235.tiff,fill_alpha_2 - fill_alpha_0,10,1,0,1,2
+testing_35,canine lung cancer,235.tiff,fill_alpha_2 - fill_alpha_0,20,1,3,2,6
+testing_35,canine lung cancer,235.tiff,fill_alpha_2 - fill_alpha_0,30,2,3,3,8
+testing_35,canine lung cancer,242.tiff,fill_alpha_2 - fill_alpha_0,10,0,-1,0,-1
+testing_35,canine lung cancer,242.tiff,fill_alpha_2 - fill_alpha_0,20,1,-1,0,0
+testing_35,canine lung cancer,242.tiff,fill_alpha_2 - fill_alpha_0,30,1,-1,0,0
+original_14,canine lymphosarcoma,245.tiff,fill_alpha_2 - fill_alpha_0,10,0,0,1,1
+original_14,canine lymphosarcoma,245.tiff,fill_alpha_2 - fill_alpha_0,20,0,-2,3,1
+original_14,canine lymphosarcoma,245.tiff,fill_alpha_2 - fill_alpha_0,30,-2,-2,4,0
+original_14,canine lymphosarcoma,246.tiff,fill_alpha_2 - fill_alpha_0,10,0,2,0,2
+original_14,canine lymphosarcoma,246.tiff,fill_alpha_2 - fill_alpha_0,20,1,6,3,10
+original_14,canine lymphosarcoma,246.tiff,fill_alpha_2 - fill_alpha_0,30,2,8,5,15
+testing_35,canine lymphosarcoma,249.tiff,fill_alpha_2 - fill_alpha_0,10,1,-1,1,1
+testing_35,canine lymphosarcoma,249.tiff,fill_alpha_2 - fill_alpha_0,20,0,-1,2,1
+testing_35,canine lymphosarcoma,249.tiff,fill_alpha_2 - fill_alpha_0,30,2,-1,3,4
+testing_35,canine lymphosarcoma,284.tiff,fill_alpha_2 - fill_alpha_0,10,1,1,1,3
+testing_35,canine lymphosarcoma,284.tiff,fill_alpha_2 - fill_alpha_0,20,5,3,0,8
+testing_35,canine lymphosarcoma,284.tiff,fill_alpha_2 - fill_alpha_0,30,6,3,-1,8
+testing_35,canine lymphosarcoma,289.tiff,fill_alpha_2 - fill_alpha_0,10,0,1,-1,0
+testing_35,canine lymphosarcoma,289.tiff,fill_alpha_2 - fill_alpha_0,20,1,4,-1,4
+testing_35,canine lymphosarcoma,289.tiff,fill_alpha_2 - fill_alpha_0,30,1,1,-1,1
+testing_35,canine lymphosarcoma,291.tiff,fill_alpha_2 - fill_alpha_0,10,-2,1,0,-1
+testing_35,canine lymphosarcoma,291.tiff,fill_alpha_2 - fill_alpha_0,20,3,5,3,11
+testing_35,canine lymphosarcoma,291.tiff,fill_alpha_2 - fill_alpha_0,30,6,9,5,20
+testing_35,canine lymphosarcoma,293.tiff,fill_alpha_2 - fill_alpha_0,10,-6,-7,-6,-19
+testing_35,canine lymphosarcoma,293.tiff,fill_alpha_2 - fill_alpha_0,20,-4,-11,-5,-20
+testing_35,canine lymphosarcoma,293.tiff,fill_alpha_2 - fill_alpha_0,30,-2,-8,-5,-15
+original_14,canine soft tissue sarcoma,459.tiff,fill_alpha_2 - fill_alpha_0,10,0,0,0,0
+original_14,canine soft tissue sarcoma,459.tiff,fill_alpha_2 - fill_alpha_0,20,2,0,1,3
+original_14,canine soft tissue sarcoma,459.tiff,fill_alpha_2 - fill_alpha_0,30,3,2,7,12
+original_14,canine soft tissue sarcoma,460.tiff,fill_alpha_2 - fill_alpha_0,10,-1,6,4,9
+original_14,canine soft tissue sarcoma,460.tiff,fill_alpha_2 - fill_alpha_0,20,4,11,12,27
+original_14,canine soft tissue sarcoma,460.tiff,fill_alpha_2 - fill_alpha_0,30,4,12,13,29
+testing_35,canine soft tissue sarcoma,410.tiff,fill_alpha_2 - fill_alpha_0,10,1,1,0,2
+testing_35,canine soft tissue sarcoma,410.tiff,fill_alpha_2 - fill_alpha_0,20,3,3,3,9
+testing_35,canine soft tissue sarcoma,410.tiff,fill_alpha_2 - fill_alpha_0,30,3,3,3,9
+testing_35,canine soft tissue sarcoma,425.tiff,fill_alpha_2 - fill_alpha_0,10,0,0,-1,-1
+testing_35,canine soft tissue sarcoma,425.tiff,fill_alpha_2 - fill_alpha_0,20,0,-1,1,0
+testing_35,canine soft tissue sarcoma,425.tiff,fill_alpha_2 - fill_alpha_0,30,-1,-1,2,0
+testing_35,canine soft tissue sarcoma,435.tiff,fill_alpha_2 - fill_alpha_0,10,1,1,2,4
+testing_35,canine soft tissue sarcoma,435.tiff,fill_alpha_2 - fill_alpha_0,20,4,2,4,10
+testing_35,canine soft tissue sarcoma,435.tiff,fill_alpha_2 - fill_alpha_0,30,4,3,2,9
+testing_35,canine soft tissue sarcoma,462.tiff,fill_alpha_2 - fill_alpha_0,10,0,-1,0,-1
+testing_35,canine soft tissue sarcoma,462.tiff,fill_alpha_2 - fill_alpha_0,20,0,0,2,2
+testing_35,canine soft tissue sarcoma,462.tiff,fill_alpha_2 - fill_alpha_0,30,0,1,1,2
+testing_35,canine soft tissue sarcoma,499.tiff,fill_alpha_2 - fill_alpha_0,10,-1,0,0,-1
+testing_35,canine soft tissue sarcoma,499.tiff,fill_alpha_2 - fill_alpha_0,20,0,2,0,2
+testing_35,canine soft tissue sarcoma,499.tiff,fill_alpha_2 - fill_alpha_0,30,-2,1,0,-1
+original_14,human breast cancer,013.tiff,fill_alpha_2 - fill_alpha_0,10,0,1,0,1
+original_14,human breast cancer,013.tiff,fill_alpha_2 - fill_alpha_0,20,-1,3,0,2
+original_14,human breast cancer,013.tiff,fill_alpha_2 - fill_alpha_0,30,-1,2,-1,0
+original_14,human breast cancer,094.tiff,fill_alpha_2 - fill_alpha_0,10,0,0,0,0
+original_14,human breast cancer,094.tiff,fill_alpha_2 - fill_alpha_0,20,3,1,1,5
+original_14,human breast cancer,094.tiff,fill_alpha_2 - fill_alpha_0,30,1,2,0,3
+testing_35,human breast cancer,007.tiff,fill_alpha_2 - fill_alpha_0,10,0,1,0,1
+testing_35,human breast cancer,007.tiff,fill_alpha_2 - fill_alpha_0,20,0,1,0,1
+testing_35,human breast cancer,007.tiff,fill_alpha_2 - fill_alpha_0,30,-1,1,0,0
+testing_35,human breast cancer,072.tiff,fill_alpha_2 - fill_alpha_0,10,0,0,0,0
+testing_35,human breast cancer,072.tiff,fill_alpha_2 - fill_alpha_0,20,7,3,0,10
+testing_35,human breast cancer,072.tiff,fill_alpha_2 - fill_alpha_0,30,12,6,2,20
+testing_35,human breast cancer,100.tiff,fill_alpha_2 - fill_alpha_0,10,0,0,0,0
+testing_35,human breast cancer,100.tiff,fill_alpha_2 - fill_alpha_0,20,2,0,3,5
+testing_35,human breast cancer,100.tiff,fill_alpha_2 - fill_alpha_0,30,2,0,6,8
+testing_35,human breast cancer,123.tiff,fill_alpha_2 - fill_alpha_0,10,3,0,0,3
+testing_35,human breast cancer,123.tiff,fill_alpha_2 - fill_alpha_0,20,5,5,1,11
+testing_35,human breast cancer,123.tiff,fill_alpha_2 - fill_alpha_0,30,7,6,3,16
+testing_35,human breast cancer,128.tiff,fill_alpha_2 - fill_alpha_0,10,0,1,0,1
+testing_35,human breast cancer,128.tiff,fill_alpha_2 - fill_alpha_0,20,3,4,-1,6
+testing_35,human breast cancer,128.tiff,fill_alpha_2 - fill_alpha_0,30,2,5,-1,6
+original_14,human melanoma,529.tiff,fill_alpha_2 - fill_alpha_0,10,0,2,4,6
+original_14,human melanoma,529.tiff,fill_alpha_2 - fill_alpha_0,20,1,4,7,12
+original_14,human melanoma,529.tiff,fill_alpha_2 - fill_alpha_0,30,2,5,7,14
+original_14,human melanoma,548.tiff,fill_alpha_2 - fill_alpha_0,10,0,1,1,2
+original_14,human melanoma,548.tiff,fill_alpha_2 - fill_alpha_0,20,3,3,2,8
+original_14,human melanoma,548.tiff,fill_alpha_2 - fill_alpha_0,30,2,2,3,7
+testing_35,human melanoma,509.tiff,fill_alpha_2 - fill_alpha_0,10,0,1,0,1
+testing_35,human melanoma,509.tiff,fill_alpha_2 - fill_alpha_0,20,-1,0,1,0
+testing_35,human melanoma,509.tiff,fill_alpha_2 - fill_alpha_0,30,0,5,0,5
+testing_35,human melanoma,524.tiff,fill_alpha_2 - fill_alpha_0,10,1,0,1,2
+testing_35,human melanoma,524.tiff,fill_alpha_2 - fill_alpha_0,20,2,0,1,3
+testing_35,human melanoma,524.tiff,fill_alpha_2 - fill_alpha_0,30,2,-1,1,2
+testing_35,human melanoma,527.tiff,fill_alpha_2 - fill_alpha_0,10,2,3,2,7
+testing_35,human melanoma,527.tiff,fill_alpha_2 - fill_alpha_0,20,5,4,1,10
+testing_35,human melanoma,527.tiff,fill_alpha_2 - fill_alpha_0,30,5,4,2,11
+testing_35,human melanoma,546.tiff,fill_alpha_2 - fill_alpha_0,10,0,1,0,1
+testing_35,human melanoma,546.tiff,fill_alpha_2 - fill_alpha_0,20,-2,2,0,0
+testing_35,human melanoma,546.tiff,fill_alpha_2 - fill_alpha_0,30,0,3,1,4
+testing_35,human melanoma,549.tiff,fill_alpha_2 - fill_alpha_0,10,1,1,1,3
+testing_35,human melanoma,549.tiff,fill_alpha_2 - fill_alpha_0,20,2,1,2,5
+testing_35,human melanoma,549.tiff,fill_alpha_2 - fill_alpha_0,30,2,1,3,6
+original_14,human neuroendocrine tumor,402.tiff,fill_alpha_2 - fill_alpha_0,10,0,0,1,1
+original_14,human neuroendocrine tumor,402.tiff,fill_alpha_2 - fill_alpha_0,20,1,0,2,3
+original_14,human neuroendocrine tumor,402.tiff,fill_alpha_2 - fill_alpha_0,30,3,-1,1,3
+original_14,human neuroendocrine tumor,403.tiff,fill_alpha_2 - fill_alpha_0,10,1,-1,-1,-1
+original_14,human neuroendocrine tumor,403.tiff,fill_alpha_2 - fill_alpha_0,20,3,1,2,6
+original_14,human neuroendocrine tumor,403.tiff,fill_alpha_2 - fill_alpha_0,30,2,2,0,4
+testing_35,human neuroendocrine tumor,353.tiff,fill_alpha_2 - fill_alpha_0,10,-1,0,0,-1
+testing_35,human neuroendocrine tumor,353.tiff,fill_alpha_2 - fill_alpha_0,20,-1,1,0,0
+testing_35,human neuroendocrine tumor,353.tiff,fill_alpha_2 - fill_alpha_0,30,0,1,0,1
+testing_35,human neuroendocrine tumor,364.tiff,fill_alpha_2 - fill_alpha_0,10,0,0,1,1
+testing_35,human neuroendocrine tumor,364.tiff,fill_alpha_2 - fill_alpha_0,20,0,-1,0,-1
+testing_35,human neuroendocrine tumor,364.tiff,fill_alpha_2 - fill_alpha_0,30,0,-1,-1,-2
+testing_35,human neuroendocrine tumor,400.tiff,fill_alpha_2 - fill_alpha_0,10,0,0,0,0
+testing_35,human neuroendocrine tumor,400.tiff,fill_alpha_2 - fill_alpha_0,20,2,0,0,2
+testing_35,human neuroendocrine tumor,400.tiff,fill_alpha_2 - fill_alpha_0,30,4,2,1,7
+testing_35,human neuroendocrine tumor,401.tiff,fill_alpha_2 - fill_alpha_0,10,2,1,3,6
+testing_35,human neuroendocrine tumor,401.tiff,fill_alpha_2 - fill_alpha_0,20,3,2,4,9
+testing_35,human neuroendocrine tumor,401.tiff,fill_alpha_2 - fill_alpha_0,30,4,2,5,11
+testing_35,human neuroendocrine tumor,404.tiff,fill_alpha_2 - fill_alpha_0,10,-1,2,0,1
+testing_35,human neuroendocrine tumor,404.tiff,fill_alpha_2 - fill_alpha_0,20,2,5,3,10
+testing_35,human neuroendocrine tumor,404.tiff,fill_alpha_2 - fill_alpha_0,30,2,6,2,10
+original_14,canine cutaneous mast cell tumor,300.tiff,fill_alpha_m1 - fill_alpha_1,10,-1,-1,0,-2
+original_14,canine cutaneous mast cell tumor,300.tiff,fill_alpha_m1 - fill_alpha_1,20,-10,-5,-3,-18
+original_14,canine cutaneous mast cell tumor,300.tiff,fill_alpha_m1 - fill_alpha_1,30,-18,-13,-8,-39
+original_14,canine cutaneous mast cell tumor,301.tiff,fill_alpha_m1 - fill_alpha_1,10,-1,0,-3,-4
+original_14,canine cutaneous mast cell tumor,301.tiff,fill_alpha_m1 - fill_alpha_1,20,-5,-4,-10,-19
+original_14,canine cutaneous mast cell tumor,301.tiff,fill_alpha_m1 - fill_alpha_1,30,-12,-10,-19,-41
+testing_35,canine cutaneous mast cell tumor,322.tiff,fill_alpha_m1 - fill_alpha_1,10,-3,-2,-1,-6
+testing_35,canine cutaneous mast cell tumor,322.tiff,fill_alpha_m1 - fill_alpha_1,20,-7,-7,-6,-20
+testing_35,canine cutaneous mast cell tumor,322.tiff,fill_alpha_m1 - fill_alpha_1,30,-9,-9,-8,-26
+testing_35,canine cutaneous mast cell tumor,337.tiff,fill_alpha_m1 - fill_alpha_1,10,-5,-4,-4,-13
+testing_35,canine cutaneous mast cell tumor,337.tiff,fill_alpha_m1 - fill_alpha_1,20,-8,-7,-7,-22
+testing_35,canine cutaneous mast cell tumor,337.tiff,fill_alpha_m1 - fill_alpha_1,30,-9,-7,-9,-25
+testing_35,canine cutaneous mast cell tumor,339.tiff,fill_alpha_m1 - fill_alpha_1,10,-3,-4,-4,-11
+testing_35,canine cutaneous mast cell tumor,339.tiff,fill_alpha_m1 - fill_alpha_1,20,-3,-3,-5,-11
+testing_35,canine cutaneous mast cell tumor,339.tiff,fill_alpha_m1 - fill_alpha_1,30,-5,-2,-5,-12
+testing_35,canine cutaneous mast cell tumor,343.tiff,fill_alpha_m1 - fill_alpha_1,10,-7,-7,-8,-22
+testing_35,canine cutaneous mast cell tumor,343.tiff,fill_alpha_m1 - fill_alpha_1,20,-7,-8,-9,-24
+testing_35,canine cutaneous mast cell tumor,343.tiff,fill_alpha_m1 - fill_alpha_1,30,-11,-9,-12,-32
+testing_35,canine cutaneous mast cell tumor,344.tiff,fill_alpha_m1 - fill_alpha_1,10,-2,-4,-4,-10
+testing_35,canine cutaneous mast cell tumor,344.tiff,fill_alpha_m1 - fill_alpha_1,20,-5,-11,-9,-25
+testing_35,canine cutaneous mast cell tumor,344.tiff,fill_alpha_m1 - fill_alpha_1,30,-12,-16,-15,-43
+original_14,canine lung cancer,201.tiff,fill_alpha_m1 - fill_alpha_1,10,-1,-1,-3,-5
+original_14,canine lung cancer,201.tiff,fill_alpha_m1 - fill_alpha_1,20,-5,-6,-4,-15
+original_14,canine lung cancer,201.tiff,fill_alpha_m1 - fill_alpha_1,30,-7,-7,-6,-20
+original_14,canine lung cancer,233.tiff,fill_alpha_m1 - fill_alpha_1,10,-5,-5,-6,-16
+original_14,canine lung cancer,233.tiff,fill_alpha_m1 - fill_alpha_1,20,-7,-6,-7,-20
+original_14,canine lung cancer,233.tiff,fill_alpha_m1 - fill_alpha_1,30,-9,-7,-9,-25
+testing_35,canine lung cancer,211.tiff,fill_alpha_m1 - fill_alpha_1,10,0,0,0,0
+testing_35,canine lung cancer,211.tiff,fill_alpha_m1 - fill_alpha_1,20,0,0,0,0
+testing_35,canine lung cancer,211.tiff,fill_alpha_m1 - fill_alpha_1,30,0,0,0,0
+testing_35,canine lung cancer,220.tiff,fill_alpha_m1 - fill_alpha_1,10,-5,-4,-5,-14
+testing_35,canine lung cancer,220.tiff,fill_alpha_m1 - fill_alpha_1,20,-10,-5,-9,-24
+testing_35,canine lung cancer,220.tiff,fill_alpha_m1 - fill_alpha_1,30,-16,-8,-12,-36
+testing_35,canine lung cancer,230.tiff,fill_alpha_m1 - fill_alpha_1,10,-4,-5,-4,-13
+testing_35,canine lung cancer,230.tiff,fill_alpha_m1 - fill_alpha_1,20,-11,-11,-10,-32
+testing_35,canine lung cancer,230.tiff,fill_alpha_m1 - fill_alpha_1,30,-12,-12,-12,-36
+testing_35,canine lung cancer,235.tiff,fill_alpha_m1 - fill_alpha_1,10,-2,-4,-4,-10
+testing_35,canine lung cancer,235.tiff,fill_alpha_m1 - fill_alpha_1,20,-3,-3,-4,-10
+testing_35,canine lung cancer,235.tiff,fill_alpha_m1 - fill_alpha_1,30,-5,-6,-7,-18
+testing_35,canine lung cancer,242.tiff,fill_alpha_m1 - fill_alpha_1,10,0,-1,0,-1
+testing_35,canine lung cancer,242.tiff,fill_alpha_m1 - fill_alpha_1,20,-1,-1,-1,-3
+testing_35,canine lung cancer,242.tiff,fill_alpha_m1 - fill_alpha_1,30,-1,-1,-1,-3
+original_14,canine lymphosarcoma,245.tiff,fill_alpha_m1 - fill_alpha_1,10,-1,1,-1,-1
+original_14,canine lymphosarcoma,245.tiff,fill_alpha_m1 - fill_alpha_1,20,-1,2,-2,-1
+original_14,canine lymphosarcoma,245.tiff,fill_alpha_m1 - fill_alpha_1,30,0,1,-4,-3
+original_14,canine lymphosarcoma,246.tiff,fill_alpha_m1 - fill_alpha_1,10,-4,-3,-2,-9
+original_14,canine lymphosarcoma,246.tiff,fill_alpha_m1 - fill_alpha_1,20,-10,-9,-9,-28
+original_14,canine lymphosarcoma,246.tiff,fill_alpha_m1 - fill_alpha_1,30,-15,-11,-13,-39
+testing_35,canine lymphosarcoma,249.tiff,fill_alpha_m1 - fill_alpha_1,10,-3,-2,-4,-9
+testing_35,canine lymphosarcoma,249.tiff,fill_alpha_m1 - fill_alpha_1,20,-10,-7,-12,-29
+testing_35,canine lymphosarcoma,249.tiff,fill_alpha_m1 - fill_alpha_1,30,-19,-15,-20,-54
+testing_35,canine lymphosarcoma,284.tiff,fill_alpha_m1 - fill_alpha_1,10,-8,-7,-3,-18
+testing_35,canine lymphosarcoma,284.tiff,fill_alpha_m1 - fill_alpha_1,20,-16,-16,-9,-41
+testing_35,canine lymphosarcoma,284.tiff,fill_alpha_m1 - fill_alpha_1,30,-20,-20,-15,-55
+testing_35,canine lymphosarcoma,289.tiff,fill_alpha_m1 - fill_alpha_1,10,0,-2,0,-2
+testing_35,canine lymphosarcoma,289.tiff,fill_alpha_m1 - fill_alpha_1,20,-2,-4,-1,-7
+testing_35,canine lymphosarcoma,289.tiff,fill_alpha_m1 - fill_alpha_1,30,-2,-5,-1,-8
+testing_35,canine lymphosarcoma,291.tiff,fill_alpha_m1 - fill_alpha_1,10,-3,-5,-4,-12
+testing_35,canine lymphosarcoma,291.tiff,fill_alpha_m1 - fill_alpha_1,20,-8,-11,-9,-28
+testing_35,canine lymphosarcoma,291.tiff,fill_alpha_m1 - fill_alpha_1,30,-14,-17,-14,-45
+testing_35,canine lymphosarcoma,293.tiff,fill_alpha_m1 - fill_alpha_1,10,-4,-4,-4,-12
+testing_35,canine lymphosarcoma,293.tiff,fill_alpha_m1 - fill_alpha_1,20,-12,-10,-12,-34
+testing_35,canine lymphosarcoma,293.tiff,fill_alpha_m1 - fill_alpha_1,30,-18,-17,-17,-52
+original_14,canine soft tissue sarcoma,459.tiff,fill_alpha_m1 - fill_alpha_1,10,-6,-7,-7,-20
+original_14,canine soft tissue sarcoma,459.tiff,fill_alpha_m1 - fill_alpha_1,20,-15,-16,-14,-45
+original_14,canine soft tissue sarcoma,459.tiff,fill_alpha_m1 - fill_alpha_1,30,-24,-25,-23,-72
+original_14,canine soft tissue sarcoma,460.tiff,fill_alpha_m1 - fill_alpha_1,10,-4,-6,-7,-17
+original_14,canine soft tissue sarcoma,460.tiff,fill_alpha_m1 - fill_alpha_1,20,-11,-12,-14,-37
+original_14,canine soft tissue sarcoma,460.tiff,fill_alpha_m1 - fill_alpha_1,30,-12,-13,-15,-40
+testing_35,canine soft tissue sarcoma,410.tiff,fill_alpha_m1 - fill_alpha_1,10,-2,-3,-2,-7
+testing_35,canine soft tissue sarcoma,410.tiff,fill_alpha_m1 - fill_alpha_1,20,-3,-3,-5,-11
+testing_35,canine soft tissue sarcoma,410.tiff,fill_alpha_m1 - fill_alpha_1,30,-3,-2,-4,-9
+testing_35,canine soft tissue sarcoma,425.tiff,fill_alpha_m1 - fill_alpha_1,10,-3,1,-3,-5
+testing_35,canine soft tissue sarcoma,425.tiff,fill_alpha_m1 - fill_alpha_1,20,-8,-1,-8,-17
+testing_35,canine soft tissue sarcoma,425.tiff,fill_alpha_m1 - fill_alpha_1,30,-8,-1,-8,-17
+testing_35,canine soft tissue sarcoma,435.tiff,fill_alpha_m1 - fill_alpha_1,10,-6,-5,-5,-16
+testing_35,canine soft tissue sarcoma,435.tiff,fill_alpha_m1 - fill_alpha_1,20,-8,-7,-8,-23
+testing_35,canine soft tissue sarcoma,435.tiff,fill_alpha_m1 - fill_alpha_1,30,-11,-10,-10,-31
+testing_35,canine soft tissue sarcoma,462.tiff,fill_alpha_m1 - fill_alpha_1,10,0,-1,0,-1
+testing_35,canine soft tissue sarcoma,462.tiff,fill_alpha_m1 - fill_alpha_1,20,-2,-2,-2,-6
+testing_35,canine soft tissue sarcoma,462.tiff,fill_alpha_m1 - fill_alpha_1,30,-3,-2,-2,-7
+testing_35,canine soft tissue sarcoma,499.tiff,fill_alpha_m1 - fill_alpha_1,10,-4,-4,-4,-12
+testing_35,canine soft tissue sarcoma,499.tiff,fill_alpha_m1 - fill_alpha_1,20,-8,-9,-3,-20
+testing_35,canine soft tissue sarcoma,499.tiff,fill_alpha_m1 - fill_alpha_1,30,-7,-10,-5,-22
+original_14,human breast cancer,013.tiff,fill_alpha_m1 - fill_alpha_1,10,-3,-2,-3,-8
+original_14,human breast cancer,013.tiff,fill_alpha_m1 - fill_alpha_1,20,-3,-3,-1,-7
+original_14,human breast cancer,013.tiff,fill_alpha_m1 - fill_alpha_1,30,-2,-3,1,-4
+original_14,human breast cancer,094.tiff,fill_alpha_m1 - fill_alpha_1,10,0,0,0,0
+original_14,human breast cancer,094.tiff,fill_alpha_m1 - fill_alpha_1,20,-10,-9,-9,-28
+original_14,human breast cancer,094.tiff,fill_alpha_m1 - fill_alpha_1,30,-16,-13,-16,-45
+testing_35,human breast cancer,007.tiff,fill_alpha_m1 - fill_alpha_1,10,-2,0,-1,-3
+testing_35,human breast cancer,007.tiff,fill_alpha_m1 - fill_alpha_1,20,-3,-1,-2,-6
+testing_35,human breast cancer,007.tiff,fill_alpha_m1 - fill_alpha_1,30,-3,-1,-2,-6
+testing_35,human breast cancer,072.tiff,fill_alpha_m1 - fill_alpha_1,10,-2,-5,-4,-11
+testing_35,human breast cancer,072.tiff,fill_alpha_m1 - fill_alpha_1,20,-8,-10,-10,-28
+testing_35,human breast cancer,072.tiff,fill_alpha_m1 - fill_alpha_1,30,-15,-12,-14,-41
+testing_35,human breast cancer,100.tiff,fill_alpha_m1 - fill_alpha_1,10,-3,0,-2,-5
+testing_35,human breast cancer,100.tiff,fill_alpha_m1 - fill_alpha_1,20,-5,-4,-4,-13
+testing_35,human breast cancer,100.tiff,fill_alpha_m1 - fill_alpha_1,30,-7,-2,-6,-15
+testing_35,human breast cancer,123.tiff,fill_alpha_m1 - fill_alpha_1,10,-2,0,1,-1
+testing_35,human breast cancer,123.tiff,fill_alpha_m1 - fill_alpha_1,20,-4,-2,-1,-7
+testing_35,human breast cancer,123.tiff,fill_alpha_m1 - fill_alpha_1,30,-5,-4,-2,-11
+testing_35,human breast cancer,128.tiff,fill_alpha_m1 - fill_alpha_1,10,0,-3,-2,-5
+testing_35,human breast cancer,128.tiff,fill_alpha_m1 - fill_alpha_1,20,-3,-3,-3,-9
+testing_35,human breast cancer,128.tiff,fill_alpha_m1 - fill_alpha_1,30,-4,-3,-3,-10
+original_14,human melanoma,529.tiff,fill_alpha_m1 - fill_alpha_1,10,-5,-6,-6,-17
+original_14,human melanoma,529.tiff,fill_alpha_m1 - fill_alpha_1,20,-7,-10,-9,-26
+original_14,human melanoma,529.tiff,fill_alpha_m1 - fill_alpha_1,30,-9,-11,-10,-30
+original_14,human melanoma,548.tiff,fill_alpha_m1 - fill_alpha_1,10,-3,-3,-5,-11
+original_14,human melanoma,548.tiff,fill_alpha_m1 - fill_alpha_1,20,-3,-1,-3,-7
+original_14,human melanoma,548.tiff,fill_alpha_m1 - fill_alpha_1,30,-4,-5,-6,-15
+testing_35,human melanoma,509.tiff,fill_alpha_m1 - fill_alpha_1,10,0,1,-1,0
+testing_35,human melanoma,509.tiff,fill_alpha_m1 - fill_alpha_1,20,1,0,-2,-1
+testing_35,human melanoma,509.tiff,fill_alpha_m1 - fill_alpha_1,30,-1,-3,-1,-5
+testing_35,human melanoma,524.tiff,fill_alpha_m1 - fill_alpha_1,10,-2,-1,-2,-5
+testing_35,human melanoma,524.tiff,fill_alpha_m1 - fill_alpha_1,20,-3,-1,-3,-7
+testing_35,human melanoma,524.tiff,fill_alpha_m1 - fill_alpha_1,30,-3,-1,-3,-7
+testing_35,human melanoma,527.tiff,fill_alpha_m1 - fill_alpha_1,10,-3,-3,-4,-10
+testing_35,human melanoma,527.tiff,fill_alpha_m1 - fill_alpha_1,20,-5,-5,-6,-16
+testing_35,human melanoma,527.tiff,fill_alpha_m1 - fill_alpha_1,30,-6,-6,-8,-20
+testing_35,human melanoma,546.tiff,fill_alpha_m1 - fill_alpha_1,10,-1,-1,-1,-3
+testing_35,human melanoma,546.tiff,fill_alpha_m1 - fill_alpha_1,20,-1,-3,-1,-5
+testing_35,human melanoma,546.tiff,fill_alpha_m1 - fill_alpha_1,30,-3,-4,-2,-9
+testing_35,human melanoma,549.tiff,fill_alpha_m1 - fill_alpha_1,10,-6,-6,-4,-16
+testing_35,human melanoma,549.tiff,fill_alpha_m1 - fill_alpha_1,20,-8,-8,-6,-22
+testing_35,human melanoma,549.tiff,fill_alpha_m1 - fill_alpha_1,30,-10,-8,-7,-25
+original_14,human neuroendocrine tumor,402.tiff,fill_alpha_m1 - fill_alpha_1,10,-4,-4,-3,-11
+original_14,human neuroendocrine tumor,402.tiff,fill_alpha_m1 - fill_alpha_1,20,-7,-7,-8,-22
+original_14,human neuroendocrine tumor,402.tiff,fill_alpha_m1 - fill_alpha_1,30,-13,-10,-12,-35
+original_14,human neuroendocrine tumor,403.tiff,fill_alpha_m1 - fill_alpha_1,10,2,-2,-3,-3
+original_14,human neuroendocrine tumor,403.tiff,fill_alpha_m1 - fill_alpha_1,20,0,-4,-9,-13
+original_14,human neuroendocrine tumor,403.tiff,fill_alpha_m1 - fill_alpha_1,30,0,-6,-9,-15
+testing_35,human neuroendocrine tumor,353.tiff,fill_alpha_m1 - fill_alpha_1,10,0,-5,-3,-8
+testing_35,human neuroendocrine tumor,353.tiff,fill_alpha_m1 - fill_alpha_1,20,-2,-6,-6,-14
+testing_35,human neuroendocrine tumor,353.tiff,fill_alpha_m1 - fill_alpha_1,30,-3,-8,-7,-18
+testing_35,human neuroendocrine tumor,364.tiff,fill_alpha_m1 - fill_alpha_1,10,-2,-2,-2,-6
+testing_35,human neuroendocrine tumor,364.tiff,fill_alpha_m1 - fill_alpha_1,20,-1,-2,-2,-5
+testing_35,human neuroendocrine tumor,364.tiff,fill_alpha_m1 - fill_alpha_1,30,-1,-1,-1,-3
+testing_35,human neuroendocrine tumor,400.tiff,fill_alpha_m1 - fill_alpha_1,10,-2,-2,-3,-7
+testing_35,human neuroendocrine tumor,400.tiff,fill_alpha_m1 - fill_alpha_1,20,-5,-4,-4,-13
+testing_35,human neuroendocrine tumor,400.tiff,fill_alpha_m1 - fill_alpha_1,30,-5,-10,-8,-23
+testing_35,human neuroendocrine tumor,401.tiff,fill_alpha_m1 - fill_alpha_1,10,-5,-5,-6,-16
+testing_35,human neuroendocrine tumor,401.tiff,fill_alpha_m1 - fill_alpha_1,20,-7,-6,-8,-21
+testing_35,human neuroendocrine tumor,401.tiff,fill_alpha_m1 - fill_alpha_1,30,-8,-6,-9,-23
+testing_35,human neuroendocrine tumor,404.tiff,fill_alpha_m1 - fill_alpha_1,10,-1,-2,-2,-5
+testing_35,human neuroendocrine tumor,404.tiff,fill_alpha_m1 - fill_alpha_1,20,-5,-2,-1,-8
+testing_35,human neuroendocrine tumor,404.tiff,fill_alpha_m1 - fill_alpha_1,30,-6,-3,-2,-11
+original_14,canine cutaneous mast cell tumor,300.tiff,fill_alpha_2 - fill_alpha_1,10,0,0,-1,-1
+original_14,canine cutaneous mast cell tumor,300.tiff,fill_alpha_2 - fill_alpha_1,20,0,0,-1,-1
+original_14,canine cutaneous mast cell tumor,300.tiff,fill_alpha_2 - fill_alpha_1,30,0,0,-1,-1
+original_14,canine cutaneous mast cell tumor,301.tiff,fill_alpha_2 - fill_alpha_1,10,0,0,-1,-1
+original_14,canine cutaneous mast cell tumor,301.tiff,fill_alpha_2 - fill_alpha_1,20,1,0,-1,0
+original_14,canine cutaneous mast cell tumor,301.tiff,fill_alpha_2 - fill_alpha_1,30,-1,0,-1,-2
+testing_35,canine cutaneous mast cell tumor,322.tiff,fill_alpha_2 - fill_alpha_1,10,0,0,0,0
+testing_35,canine cutaneous mast cell tumor,322.tiff,fill_alpha_2 - fill_alpha_1,20,0,0,0,0
+testing_35,canine cutaneous mast cell tumor,322.tiff,fill_alpha_2 - fill_alpha_1,30,0,0,-1,-1
+testing_35,canine cutaneous mast cell tumor,337.tiff,fill_alpha_2 - fill_alpha_1,10,0,0,0,0
+testing_35,canine cutaneous mast cell tumor,337.tiff,fill_alpha_2 - fill_alpha_1,20,0,0,0,0
+testing_35,canine cutaneous mast cell tumor,337.tiff,fill_alpha_2 - fill_alpha_1,30,-1,0,-2,-3
+testing_35,canine cutaneous mast cell tumor,339.tiff,fill_alpha_2 - fill_alpha_1,10,0,0,0,0
+testing_35,canine cutaneous mast cell tumor,339.tiff,fill_alpha_2 - fill_alpha_1,20,0,0,1,1
+testing_35,canine cutaneous mast cell tumor,339.tiff,fill_alpha_2 - fill_alpha_1,30,0,0,2,2
+testing_35,canine cutaneous mast cell tumor,343.tiff,fill_alpha_2 - fill_alpha_1,10,0,0,0,0
+testing_35,canine cutaneous mast cell tumor,343.tiff,fill_alpha_2 - fill_alpha_1,20,2,0,0,2
+testing_35,canine cutaneous mast cell tumor,343.tiff,fill_alpha_2 - fill_alpha_1,30,-1,1,1,1
+testing_35,canine cutaneous mast cell tumor,344.tiff,fill_alpha_2 - fill_alpha_1,10,0,0,0,0
+testing_35,canine cutaneous mast cell tumor,344.tiff,fill_alpha_2 - fill_alpha_1,20,1,0,-1,0
+testing_35,canine cutaneous mast cell tumor,344.tiff,fill_alpha_2 - fill_alpha_1,30,0,-1,-1,-2
+original_14,canine lung cancer,201.tiff,fill_alpha_2 - fill_alpha_1,10,0,1,-1,0
+original_14,canine lung cancer,201.tiff,fill_alpha_2 - fill_alpha_1,20,1,0,-1,0
+original_14,canine lung cancer,201.tiff,fill_alpha_2 - fill_alpha_1,30,1,0,-3,-2
+original_14,canine lung cancer,233.tiff,fill_alpha_2 - fill_alpha_1,10,1,1,0,2
+original_14,canine lung cancer,233.tiff,fill_alpha_2 - fill_alpha_1,20,0,0,0,0
+original_14,canine lung cancer,233.tiff,fill_alpha_2 - fill_alpha_1,30,1,0,-1,0
+testing_35,canine lung cancer,211.tiff,fill_alpha_2 - fill_alpha_1,10,0,0,0,0
+testing_35,canine lung cancer,211.tiff,fill_alpha_2 - fill_alpha_1,20,0,0,0,0
+testing_35,canine lung cancer,211.tiff,fill_alpha_2 - fill_alpha_1,30,0,0,0,0
+testing_35,canine lung cancer,220.tiff,fill_alpha_2 - fill_alpha_1,10,0,-1,0,-1
+testing_35,canine lung cancer,220.tiff,fill_alpha_2 - fill_alpha_1,20,0,-1,1,0
+testing_35,canine lung cancer,220.tiff,fill_alpha_2 - fill_alpha_1,30,-1,-1,2,0
+testing_35,canine lung cancer,230.tiff,fill_alpha_2 - fill_alpha_1,10,0,0,-1,-1
+testing_35,canine lung cancer,230.tiff,fill_alpha_2 - fill_alpha_1,20,-3,-1,-1,-5
+testing_35,canine lung cancer,230.tiff,fill_alpha_2 - fill_alpha_1,30,-4,-1,-2,-7
+testing_35,canine lung cancer,235.tiff,fill_alpha_2 - fill_alpha_1,10,1,-1,0,0
+testing_35,canine lung cancer,235.tiff,fill_alpha_2 - fill_alpha_1,20,0,2,1,3
+testing_35,canine lung cancer,235.tiff,fill_alpha_2 - fill_alpha_1,30,0,0,1,1
+testing_35,canine lung cancer,242.tiff,fill_alpha_2 - fill_alpha_1,10,0,0,0,0
+testing_35,canine lung cancer,242.tiff,fill_alpha_2 - fill_alpha_1,20,0,0,0,0
+testing_35,canine lung cancer,242.tiff,fill_alpha_2 - fill_alpha_1,30,0,0,0,0
+original_14,canine lymphosarcoma,245.tiff,fill_alpha_2 - fill_alpha_1,10,-1,1,1,1
+original_14,canine lymphosarcoma,245.tiff,fill_alpha_2 - fill_alpha_1,20,-1,1,2,2
+original_14,canine lymphosarcoma,245.tiff,fill_alpha_2 - fill_alpha_1,30,-2,0,1,-1
+original_14,canine lymphosarcoma,246.tiff,fill_alpha_2 - fill_alpha_1,10,0,0,0,0
+original_14,canine lymphosarcoma,246.tiff,fill_alpha_2 - fill_alpha_1,20,1,0,1,2
+original_14,canine lymphosarcoma,246.tiff,fill_alpha_2 - fill_alpha_1,30,1,-1,2,2
+testing_35,canine lymphosarcoma,249.tiff,fill_alpha_2 - fill_alpha_1,10,0,-1,0,-1
+testing_35,canine lymphosarcoma,249.tiff,fill_alpha_2 - fill_alpha_1,20,0,0,0,0
+testing_35,canine lymphosarcoma,249.tiff,fill_alpha_2 - fill_alpha_1,30,0,-1,0,-1
+testing_35,canine lymphosarcoma,284.tiff,fill_alpha_2 - fill_alpha_1,10,0,1,0,1
+testing_35,canine lymphosarcoma,284.tiff,fill_alpha_2 - fill_alpha_1,20,1,1,0,2
+testing_35,canine lymphosarcoma,284.tiff,fill_alpha_2 - fill_alpha_1,30,0,0,-1,-1
+testing_35,canine lymphosarcoma,289.tiff,fill_alpha_2 - fill_alpha_1,10,0,0,1,1
+testing_35,canine lymphosarcoma,289.tiff,fill_alpha_2 - fill_alpha_1,20,0,1,1,2
+testing_35,canine lymphosarcoma,289.tiff,fill_alpha_2 - fill_alpha_1,30,0,0,1,1
+testing_35,canine lymphosarcoma,291.tiff,fill_alpha_2 - fill_alpha_1,10,0,0,0,0
+testing_35,canine lymphosarcoma,291.tiff,fill_alpha_2 - fill_alpha_1,20,0,0,0,0
+testing_35,canine lymphosarcoma,291.tiff,fill_alpha_2 - fill_alpha_1,30,0,0,0,0
+testing_35,canine lymphosarcoma,293.tiff,fill_alpha_2 - fill_alpha_1,10,-2,-2,-3,-7
+testing_35,canine lymphosarcoma,293.tiff,fill_alpha_2 - fill_alpha_1,20,-1,-6,-3,-10
+testing_35,canine lymphosarcoma,293.tiff,fill_alpha_2 - fill_alpha_1,30,0,-5,-3,-8
+original_14,canine soft tissue sarcoma,459.tiff,fill_alpha_2 - fill_alpha_1,10,0,0,-1,-1
+original_14,canine soft tissue sarcoma,459.tiff,fill_alpha_2 - fill_alpha_1,20,0,0,0,0
+original_14,canine soft tissue sarcoma,459.tiff,fill_alpha_2 - fill_alpha_1,30,0,1,0,1
+original_14,canine soft tissue sarcoma,460.tiff,fill_alpha_2 - fill_alpha_1,10,1,0,0,1
+original_14,canine soft tissue sarcoma,460.tiff,fill_alpha_2 - fill_alpha_1,20,0,1,0,1
+original_14,canine soft tissue sarcoma,460.tiff,fill_alpha_2 - fill_alpha_1,30,-1,2,0,1
+testing_35,canine soft tissue sarcoma,410.tiff,fill_alpha_2 - fill_alpha_1,10,0,-1,0,-1
+testing_35,canine soft tissue sarcoma,410.tiff,fill_alpha_2 - fill_alpha_1,20,1,0,0,1
+testing_35,canine soft tissue sarcoma,410.tiff,fill_alpha_2 - fill_alpha_1,30,1,0,0,1
+testing_35,canine soft tissue sarcoma,425.tiff,fill_alpha_2 - fill_alpha_1,10,0,0,0,0
+testing_35,canine soft tissue sarcoma,425.tiff,fill_alpha_2 - fill_alpha_1,20,0,0,0,0
+testing_35,canine soft tissue sarcoma,425.tiff,fill_alpha_2 - fill_alpha_1,30,0,0,1,1
+testing_35,canine soft tissue sarcoma,435.tiff,fill_alpha_2 - fill_alpha_1,10,0,0,0,0
+testing_35,canine soft tissue sarcoma,435.tiff,fill_alpha_2 - fill_alpha_1,20,1,1,0,2
+testing_35,canine soft tissue sarcoma,435.tiff,fill_alpha_2 - fill_alpha_1,30,0,1,0,1
+testing_35,canine soft tissue sarcoma,462.tiff,fill_alpha_2 - fill_alpha_1,10,0,-1,0,-1
+testing_35,canine soft tissue sarcoma,462.tiff,fill_alpha_2 - fill_alpha_1,20,0,-1,0,-1
+testing_35,canine soft tissue sarcoma,462.tiff,fill_alpha_2 - fill_alpha_1,30,-1,0,0,-1
+testing_35,canine soft tissue sarcoma,499.tiff,fill_alpha_2 - fill_alpha_1,10,0,0,0,0
+testing_35,canine soft tissue sarcoma,499.tiff,fill_alpha_2 - fill_alpha_1,20,0,1,1,2
+testing_35,canine soft tissue sarcoma,499.tiff,fill_alpha_2 - fill_alpha_1,30,0,1,1,2
+original_14,human breast cancer,013.tiff,fill_alpha_2 - fill_alpha_1,10,0,0,-1,-1
+original_14,human breast cancer,013.tiff,fill_alpha_2 - fill_alpha_1,20,0,0,0,0
+original_14,human breast cancer,013.tiff,fill_alpha_2 - fill_alpha_1,30,0,0,0,0
+original_14,human breast cancer,094.tiff,fill_alpha_2 - fill_alpha_1,10,0,0,0,0
+original_14,human breast cancer,094.tiff,fill_alpha_2 - fill_alpha_1,20,0,0,0,0
+original_14,human breast cancer,094.tiff,fill_alpha_2 - fill_alpha_1,30,0,1,0,1
+testing_35,human breast cancer,007.tiff,fill_alpha_2 - fill_alpha_1,10,0,0,0,0
+testing_35,human breast cancer,007.tiff,fill_alpha_2 - fill_alpha_1,20,0,0,0,0
+testing_35,human breast cancer,007.tiff,fill_alpha_2 - fill_alpha_1,30,0,0,0,0
+testing_35,human breast cancer,072.tiff,fill_alpha_2 - fill_alpha_1,10,0,-1,0,-1
+testing_35,human breast cancer,072.tiff,fill_alpha_2 - fill_alpha_1,20,1,0,0,1
+testing_35,human breast cancer,072.tiff,fill_alpha_2 - fill_alpha_1,30,0,2,0,2
+testing_35,human breast cancer,100.tiff,fill_alpha_2 - fill_alpha_1,10,0,0,0,0
+testing_35,human breast cancer,100.tiff,fill_alpha_2 - fill_alpha_1,20,-1,0,0,-1
+testing_35,human breast cancer,100.tiff,fill_alpha_2 - fill_alpha_1,30,0,0,0,0
+testing_35,human breast cancer,123.tiff,fill_alpha_2 - fill_alpha_1,10,0,0,0,0
+testing_35,human breast cancer,123.tiff,fill_alpha_2 - fill_alpha_1,20,0,1,0,1
+testing_35,human breast cancer,123.tiff,fill_alpha_2 - fill_alpha_1,30,1,0,1,2
+testing_35,human breast cancer,128.tiff,fill_alpha_2 - fill_alpha_1,10,1,0,0,1
+testing_35,human breast cancer,128.tiff,fill_alpha_2 - fill_alpha_1,20,0,2,0,2
+testing_35,human breast cancer,128.tiff,fill_alpha_2 - fill_alpha_1,30,0,3,0,3
+original_14,human melanoma,529.tiff,fill_alpha_2 - fill_alpha_1,10,1,0,0,1
+original_14,human melanoma,529.tiff,fill_alpha_2 - fill_alpha_1,20,1,0,0,1
+original_14,human melanoma,529.tiff,fill_alpha_2 - fill_alpha_1,30,0,0,0,0
+original_14,human melanoma,548.tiff,fill_alpha_2 - fill_alpha_1,10,0,0,0,0
+original_14,human melanoma,548.tiff,fill_alpha_2 - fill_alpha_1,20,1,1,1,3
+original_14,human melanoma,548.tiff,fill_alpha_2 - fill_alpha_1,30,1,0,1,2
+testing_35,human melanoma,509.tiff,fill_alpha_2 - fill_alpha_1,10,0,1,0,1
+testing_35,human melanoma,509.tiff,fill_alpha_2 - fill_alpha_1,20,0,0,0,0
+testing_35,human melanoma,509.tiff,fill_alpha_2 - fill_alpha_1,30,0,2,-1,1
+testing_35,human melanoma,524.tiff,fill_alpha_2 - fill_alpha_1,10,0,0,0,0
+testing_35,human melanoma,524.tiff,fill_alpha_2 - fill_alpha_1,20,0,0,-1,-1
+testing_35,human melanoma,524.tiff,fill_alpha_2 - fill_alpha_1,30,0,0,-1,-1
+testing_35,human melanoma,527.tiff,fill_alpha_2 - fill_alpha_1,10,0,1,0,1
+testing_35,human melanoma,527.tiff,fill_alpha_2 - fill_alpha_1,20,1,0,0,1
+testing_35,human melanoma,527.tiff,fill_alpha_2 - fill_alpha_1,30,0,0,0,0
+testing_35,human melanoma,546.tiff,fill_alpha_2 - fill_alpha_1,10,0,0,0,0
+testing_35,human melanoma,546.tiff,fill_alpha_2 - fill_alpha_1,20,0,-1,0,-1
+testing_35,human melanoma,546.tiff,fill_alpha_2 - fill_alpha_1,30,1,-1,0,0
+testing_35,human melanoma,549.tiff,fill_alpha_2 - fill_alpha_1,10,0,0,0,0
+testing_35,human melanoma,549.tiff,fill_alpha_2 - fill_alpha_1,20,0,-2,0,-2
+testing_35,human melanoma,549.tiff,fill_alpha_2 - fill_alpha_1,30,0,-3,0,-3
+original_14,human neuroendocrine tumor,402.tiff,fill_alpha_2 - fill_alpha_1,10,0,0,0,0
+original_14,human neuroendocrine tumor,402.tiff,fill_alpha_2 - fill_alpha_1,20,1,1,1,3
+original_14,human neuroendocrine tumor,402.tiff,fill_alpha_2 - fill_alpha_1,30,0,1,0,1
+original_14,human neuroendocrine tumor,403.tiff,fill_alpha_2 - fill_alpha_1,10,0,0,0,0
+original_14,human neuroendocrine tumor,403.tiff,fill_alpha_2 - fill_alpha_1,20,0,2,-1,1
+original_14,human neuroendocrine tumor,403.tiff,fill_alpha_2 - fill_alpha_1,30,0,2,-1,1
+testing_35,human neuroendocrine tumor,353.tiff,fill_alpha_2 - fill_alpha_1,10,0,0,0,0
+testing_35,human neuroendocrine tumor,353.tiff,fill_alpha_2 - fill_alpha_1,20,0,-1,0,-1
+testing_35,human neuroendocrine tumor,353.tiff,fill_alpha_2 - fill_alpha_1,30,1,-1,-1,-1
+testing_35,human neuroendocrine tumor,364.tiff,fill_alpha_2 - fill_alpha_1,10,0,0,0,0
+testing_35,human neuroendocrine tumor,364.tiff,fill_alpha_2 - fill_alpha_1,20,0,0,0,0
+testing_35,human neuroendocrine tumor,364.tiff,fill_alpha_2 - fill_alpha_1,30,0,0,0,0
+testing_35,human neuroendocrine tumor,400.tiff,fill_alpha_2 - fill_alpha_1,10,0,0,0,0
+testing_35,human neuroendocrine tumor,400.tiff,fill_alpha_2 - fill_alpha_1,20,0,0,0,0
+testing_35,human neuroendocrine tumor,400.tiff,fill_alpha_2 - fill_alpha_1,30,1,0,0,1
+testing_35,human neuroendocrine tumor,401.tiff,fill_alpha_2 - fill_alpha_1,10,0,0,0,0
+testing_35,human neuroendocrine tumor,401.tiff,fill_alpha_2 - fill_alpha_1,20,0,0,0,0
+testing_35,human neuroendocrine tumor,401.tiff,fill_alpha_2 - fill_alpha_1,30,0,1,0,1
+testing_35,human neuroendocrine tumor,404.tiff,fill_alpha_2 - fill_alpha_1,10,0,0,-1,-1
+testing_35,human neuroendocrine tumor,404.tiff,fill_alpha_2 - fill_alpha_1,20,0,2,1,3
+testing_35,human neuroendocrine tumor,404.tiff,fill_alpha_2 - fill_alpha_1,30,1,2,0,3
+original_14,canine cutaneous mast cell tumor,300.tiff,fill_alpha_m1 - default_51,10,-1,-1,0,-2
+original_14,canine cutaneous mast cell tumor,300.tiff,fill_alpha_m1 - default_51,20,-11,-6,-3,-20
+original_14,canine cutaneous mast cell tumor,300.tiff,fill_alpha_m1 - default_51,30,-19,-14,-8,-41
+original_14,canine cutaneous mast cell tumor,301.tiff,fill_alpha_m1 - default_51,10,-3,0,-1,-4
+original_14,canine cutaneous mast cell tumor,301.tiff,fill_alpha_m1 - default_51,20,-8,-4,-5,-17
+original_14,canine cutaneous mast cell tumor,301.tiff,fill_alpha_m1 - default_51,30,-13,-9,-12,-34
+testing_35,canine cutaneous mast cell tumor,322.tiff,fill_alpha_m1 - default_51,10,-3,-2,-1,-6
+testing_35,canine cutaneous mast cell tumor,322.tiff,fill_alpha_m1 - default_51,20,-7,-6,-6,-19
+testing_35,canine cutaneous mast cell tumor,322.tiff,fill_alpha_m1 - default_51,30,-9,-8,-7,-24
+testing_35,canine cutaneous mast cell tumor,337.tiff,fill_alpha_m1 - default_51,10,-5,-4,-4,-13
+testing_35,canine cutaneous mast cell tumor,337.tiff,fill_alpha_m1 - default_51,20,-8,-7,-7,-22
+testing_35,canine cutaneous mast cell tumor,337.tiff,fill_alpha_m1 - default_51,30,-8,-8,-9,-25
+testing_35,canine cutaneous mast cell tumor,339.tiff,fill_alpha_m1 - default_51,10,-3,-3,-4,-10
+testing_35,canine cutaneous mast cell tumor,339.tiff,fill_alpha_m1 - default_51,20,-3,-3,-5,-11
+testing_35,canine cutaneous mast cell tumor,339.tiff,fill_alpha_m1 - default_51,30,-5,-2,-5,-12
+testing_35,canine cutaneous mast cell tumor,343.tiff,fill_alpha_m1 - default_51,10,-6,-7,-8,-21
+testing_35,canine cutaneous mast cell tumor,343.tiff,fill_alpha_m1 - default_51,20,-9,-8,-9,-26
+testing_35,canine cutaneous mast cell tumor,343.tiff,fill_alpha_m1 - default_51,30,-9,-11,-12,-32
+testing_35,canine cutaneous mast cell tumor,344.tiff,fill_alpha_m1 - default_51,10,-2,-4,-4,-10
+testing_35,canine cutaneous mast cell tumor,344.tiff,fill_alpha_m1 - default_51,20,-5,-12,-9,-26
+testing_35,canine cutaneous mast cell tumor,344.tiff,fill_alpha_m1 - default_51,30,-12,-17,-15,-44
+original_14,canine lung cancer,201.tiff,fill_alpha_m1 - default_51,10,-2,-2,-3,-7
+original_14,canine lung cancer,201.tiff,fill_alpha_m1 - default_51,20,-6,-6,-4,-16
+original_14,canine lung cancer,201.tiff,fill_alpha_m1 - default_51,30,-7,-8,-6,-21
+original_14,canine lung cancer,233.tiff,fill_alpha_m1 - default_51,10,-5,-4,-6,-15
+original_14,canine lung cancer,233.tiff,fill_alpha_m1 - default_51,20,-7,-6,-7,-20
+original_14,canine lung cancer,233.tiff,fill_alpha_m1 - default_51,30,-8,-7,-8,-23
+testing_35,canine lung cancer,211.tiff,fill_alpha_m1 - default_51,10,0,0,0,0
+testing_35,canine lung cancer,211.tiff,fill_alpha_m1 - default_51,20,0,0,0,0
+testing_35,canine lung cancer,211.tiff,fill_alpha_m1 - default_51,30,0,0,0,0
+testing_35,canine lung cancer,220.tiff,fill_alpha_m1 - default_51,10,-3,-3,-5,-11
+testing_35,canine lung cancer,220.tiff,fill_alpha_m1 - default_51,20,-7,-7,-8,-22
+testing_35,canine lung cancer,220.tiff,fill_alpha_m1 - default_51,30,-11,-9,-12,-32
+testing_35,canine lung cancer,230.tiff,fill_alpha_m1 - default_51,10,-4,-5,-4,-13
+testing_35,canine lung cancer,230.tiff,fill_alpha_m1 - default_51,20,-10,-11,-8,-29
+testing_35,canine lung cancer,230.tiff,fill_alpha_m1 - default_51,30,-11,-12,-9,-32
+testing_35,canine lung cancer,235.tiff,fill_alpha_m1 - default_51,10,-3,-3,-3,-9
+testing_35,canine lung cancer,235.tiff,fill_alpha_m1 - default_51,20,-3,-3,-3,-9
+testing_35,canine lung cancer,235.tiff,fill_alpha_m1 - default_51,30,-6,-3,-6,-15
+testing_35,canine lung cancer,242.tiff,fill_alpha_m1 - default_51,10,0,-1,0,-1
+testing_35,canine lung cancer,242.tiff,fill_alpha_m1 - default_51,20,-1,-1,-1,-3
+testing_35,canine lung cancer,242.tiff,fill_alpha_m1 - default_51,30,-1,-1,-1,-3
+original_14,canine lymphosarcoma,245.tiff,fill_alpha_m1 - default_51,10,0,2,-1,1
+original_14,canine lymphosarcoma,245.tiff,fill_alpha_m1 - default_51,20,-1,3,0,2
+original_14,canine lymphosarcoma,245.tiff,fill_alpha_m1 - default_51,30,-2,3,0,1
+original_14,canine lymphosarcoma,246.tiff,fill_alpha_m1 - default_51,10,-4,-3,-2,-9
+original_14,canine lymphosarcoma,246.tiff,fill_alpha_m1 - default_51,20,-9,-10,-10,-29
+original_14,canine lymphosarcoma,246.tiff,fill_alpha_m1 - default_51,30,-15,-13,-15,-43
+testing_35,canine lymphosarcoma,249.tiff,fill_alpha_m1 - default_51,10,-3,-2,-4,-9
+testing_35,canine lymphosarcoma,249.tiff,fill_alpha_m1 - default_51,20,-11,-8,-12,-31
+testing_35,canine lymphosarcoma,249.tiff,fill_alpha_m1 - default_51,30,-19,-14,-20,-53
+testing_35,canine lymphosarcoma,284.tiff,fill_alpha_m1 - default_51,10,-9,-8,-3,-20
+testing_35,canine lymphosarcoma,284.tiff,fill_alpha_m1 - default_51,20,-15,-17,-10,-42
+testing_35,canine lymphosarcoma,284.tiff,fill_alpha_m1 - default_51,30,-17,-21,-15,-53
+testing_35,canine lymphosarcoma,289.tiff,fill_alpha_m1 - default_51,10,0,-4,-3,-7
+testing_35,canine lymphosarcoma,289.tiff,fill_alpha_m1 - default_51,20,0,-5,-5,-10
+testing_35,canine lymphosarcoma,289.tiff,fill_alpha_m1 - default_51,30,0,-6,-5,-11
+testing_35,canine lymphosarcoma,291.tiff,fill_alpha_m1 - default_51,10,1,-4,-3,-6
+testing_35,canine lymphosarcoma,291.tiff,fill_alpha_m1 - default_51,20,1,-9,-7,-15
+testing_35,canine lymphosarcoma,291.tiff,fill_alpha_m1 - default_51,30,-3,-15,-11,-29
+testing_35,canine lymphosarcoma,293.tiff,fill_alpha_m1 - default_51,10,-4,-4,-4,-12
+testing_35,canine lymphosarcoma,293.tiff,fill_alpha_m1 - default_51,20,-12,-10,-11,-33
+testing_35,canine lymphosarcoma,293.tiff,fill_alpha_m1 - default_51,30,-18,-15,-18,-51
+original_14,canine soft tissue sarcoma,459.tiff,fill_alpha_m1 - default_51,10,-6,-7,-7,-20
+original_14,canine soft tissue sarcoma,459.tiff,fill_alpha_m1 - default_51,20,-14,-16,-14,-44
+original_14,canine soft tissue sarcoma,459.tiff,fill_alpha_m1 - default_51,30,-23,-26,-22,-71
+original_14,canine soft tissue sarcoma,460.tiff,fill_alpha_m1 - default_51,10,-4,-5,-7,-16
+original_14,canine soft tissue sarcoma,460.tiff,fill_alpha_m1 - default_51,20,-11,-12,-15,-38
+original_14,canine soft tissue sarcoma,460.tiff,fill_alpha_m1 - default_51,30,-11,-14,-16,-41
+testing_35,canine soft tissue sarcoma,410.tiff,fill_alpha_m1 - default_51,10,-4,-2,-2,-8
+testing_35,canine soft tissue sarcoma,410.tiff,fill_alpha_m1 - default_51,20,-4,-1,-5,-10
+testing_35,canine soft tissue sarcoma,410.tiff,fill_alpha_m1 - default_51,30,-4,0,-4,-8
+testing_35,canine soft tissue sarcoma,425.tiff,fill_alpha_m1 - default_51,10,-3,1,-3,-5
+testing_35,canine soft tissue sarcoma,425.tiff,fill_alpha_m1 - default_51,20,-8,-1,-9,-18
+testing_35,canine soft tissue sarcoma,425.tiff,fill_alpha_m1 - default_51,30,-8,-1,-9,-18
+testing_35,canine soft tissue sarcoma,435.tiff,fill_alpha_m1 - default_51,10,-6,-5,-6,-17
+testing_35,canine soft tissue sarcoma,435.tiff,fill_alpha_m1 - default_51,20,-6,-9,-8,-23
+testing_35,canine soft tissue sarcoma,435.tiff,fill_alpha_m1 - default_51,30,-9,-11,-10,-30
+testing_35,canine soft tissue sarcoma,462.tiff,fill_alpha_m1 - default_51,10,0,-1,0,-1
+testing_35,canine soft tissue sarcoma,462.tiff,fill_alpha_m1 - default_51,20,-2,-1,-2,-5
+testing_35,canine soft tissue sarcoma,462.tiff,fill_alpha_m1 - default_51,30,-3,-2,-2,-7
+testing_35,canine soft tissue sarcoma,499.tiff,fill_alpha_m1 - default_51,10,-4,-5,-3,-12
+testing_35,canine soft tissue sarcoma,499.tiff,fill_alpha_m1 - default_51,20,-8,-10,-4,-22
+testing_35,canine soft tissue sarcoma,499.tiff,fill_alpha_m1 - default_51,30,-7,-11,-4,-22
+original_14,human breast cancer,013.tiff,fill_alpha_m1 - default_51,10,-3,-2,-3,-8
+original_14,human breast cancer,013.tiff,fill_alpha_m1 - default_51,20,-3,-3,-1,-7
+original_14,human breast cancer,013.tiff,fill_alpha_m1 - default_51,30,-2,-3,1,-4
+original_14,human breast cancer,094.tiff,fill_alpha_m1 - default_51,10,0,0,0,0
+original_14,human breast cancer,094.tiff,fill_alpha_m1 - default_51,20,-10,-9,-9,-28
+original_14,human breast cancer,094.tiff,fill_alpha_m1 - default_51,30,-16,-14,-15,-45
+testing_35,human breast cancer,007.tiff,fill_alpha_m1 - default_51,10,-2,0,-1,-3
+testing_35,human breast cancer,007.tiff,fill_alpha_m1 - default_51,20,-3,-1,-2,-6
+testing_35,human breast cancer,007.tiff,fill_alpha_m1 - default_51,30,-4,-1,-2,-7
+testing_35,human breast cancer,072.tiff,fill_alpha_m1 - default_51,10,-2,-5,-4,-11
+testing_35,human breast cancer,072.tiff,fill_alpha_m1 - default_51,20,-8,-10,-10,-28
+testing_35,human breast cancer,072.tiff,fill_alpha_m1 - default_51,30,-14,-13,-14,-41
+testing_35,human breast cancer,100.tiff,fill_alpha_m1 - default_51,10,-3,0,-2,-5
+testing_35,human breast cancer,100.tiff,fill_alpha_m1 - default_51,20,-4,-4,-4,-12
+testing_35,human breast cancer,100.tiff,fill_alpha_m1 - default_51,30,-6,-2,-6,-14
+testing_35,human breast cancer,123.tiff,fill_alpha_m1 - default_51,10,-2,0,1,-1
+testing_35,human breast cancer,123.tiff,fill_alpha_m1 - default_51,20,-3,-2,-1,-6
+testing_35,human breast cancer,123.tiff,fill_alpha_m1 - default_51,30,-3,-4,-2,-9
+testing_35,human breast cancer,128.tiff,fill_alpha_m1 - default_51,10,0,-3,-2,-5
+testing_35,human breast cancer,128.tiff,fill_alpha_m1 - default_51,20,-4,-3,-4,-11
+testing_35,human breast cancer,128.tiff,fill_alpha_m1 - default_51,30,-5,-3,-4,-12
+original_14,human melanoma,529.tiff,fill_alpha_m1 - default_51,10,-6,-6,-6,-18
+original_14,human melanoma,529.tiff,fill_alpha_m1 - default_51,20,-7,-10,-9,-26
+original_14,human melanoma,529.tiff,fill_alpha_m1 - default_51,30,-8,-11,-10,-29
+original_14,human melanoma,548.tiff,fill_alpha_m1 - default_51,10,-3,-3,-5,-11
+original_14,human melanoma,548.tiff,fill_alpha_m1 - default_51,20,-3,-1,-3,-7
+original_14,human melanoma,548.tiff,fill_alpha_m1 - default_51,30,-4,-5,-6,-15
+testing_35,human melanoma,509.tiff,fill_alpha_m1 - default_51,10,0,1,-1,0
+testing_35,human melanoma,509.tiff,fill_alpha_m1 - default_51,20,1,0,-1,0
+testing_35,human melanoma,509.tiff,fill_alpha_m1 - default_51,30,-1,-3,1,-3
+testing_35,human melanoma,524.tiff,fill_alpha_m1 - default_51,10,-2,-1,-2,-5
+testing_35,human melanoma,524.tiff,fill_alpha_m1 - default_51,20,-3,-1,-2,-6
+testing_35,human melanoma,524.tiff,fill_alpha_m1 - default_51,30,-3,-2,-2,-7
+testing_35,human melanoma,527.tiff,fill_alpha_m1 - default_51,10,-3,-3,-3,-9
+testing_35,human melanoma,527.tiff,fill_alpha_m1 - default_51,20,-4,-5,-5,-14
+testing_35,human melanoma,527.tiff,fill_alpha_m1 - default_51,30,-5,-5,-7,-17
+testing_35,human melanoma,546.tiff,fill_alpha_m1 - default_51,10,-1,-1,-1,-3
+testing_35,human melanoma,546.tiff,fill_alpha_m1 - default_51,20,-1,-2,-1,-4
+testing_35,human melanoma,546.tiff,fill_alpha_m1 - default_51,30,-4,-4,-2,-10
+testing_35,human melanoma,549.tiff,fill_alpha_m1 - default_51,10,-6,-6,-4,-16
+testing_35,human melanoma,549.tiff,fill_alpha_m1 - default_51,20,-8,-8,-6,-22
+testing_35,human melanoma,549.tiff,fill_alpha_m1 - default_51,30,-10,-8,-7,-25
+original_14,human neuroendocrine tumor,402.tiff,fill_alpha_m1 - default_51,10,-5,-4,-3,-12
+original_14,human neuroendocrine tumor,402.tiff,fill_alpha_m1 - default_51,20,-9,-8,-9,-26
+original_14,human neuroendocrine tumor,402.tiff,fill_alpha_m1 - default_51,30,-14,-12,-12,-38
+original_14,human neuroendocrine tumor,403.tiff,fill_alpha_m1 - default_51,10,2,-2,-4,-4
+original_14,human neuroendocrine tumor,403.tiff,fill_alpha_m1 - default_51,20,0,-3,-9,-12
+original_14,human neuroendocrine tumor,403.tiff,fill_alpha_m1 - default_51,30,-2,-7,-9,-18
+testing_35,human neuroendocrine tumor,353.tiff,fill_alpha_m1 - default_51,10,0,-5,-3,-8
+testing_35,human neuroendocrine tumor,353.tiff,fill_alpha_m1 - default_51,20,-2,-6,-7,-15
+testing_35,human neuroendocrine tumor,353.tiff,fill_alpha_m1 - default_51,30,-3,-8,-8,-19
+testing_35,human neuroendocrine tumor,364.tiff,fill_alpha_m1 - default_51,10,-2,-3,-2,-7
+testing_35,human neuroendocrine tumor,364.tiff,fill_alpha_m1 - default_51,20,-1,-3,-2,-6
+testing_35,human neuroendocrine tumor,364.tiff,fill_alpha_m1 - default_51,30,-1,-2,-1,-4
+testing_35,human neuroendocrine tumor,400.tiff,fill_alpha_m1 - default_51,10,-2,-2,-3,-7
+testing_35,human neuroendocrine tumor,400.tiff,fill_alpha_m1 - default_51,20,-5,-4,-4,-13
+testing_35,human neuroendocrine tumor,400.tiff,fill_alpha_m1 - default_51,30,-5,-10,-9,-24
+testing_35,human neuroendocrine tumor,401.tiff,fill_alpha_m1 - default_51,10,-5,-5,-6,-16
+testing_35,human neuroendocrine tumor,401.tiff,fill_alpha_m1 - default_51,20,-7,-6,-8,-21
+testing_35,human neuroendocrine tumor,401.tiff,fill_alpha_m1 - default_51,30,-8,-6,-9,-23
+testing_35,human neuroendocrine tumor,404.tiff,fill_alpha_m1 - default_51,10,-1,-2,-2,-5
+testing_35,human neuroendocrine tumor,404.tiff,fill_alpha_m1 - default_51,20,-5,-3,-1,-9
+testing_35,human neuroendocrine tumor,404.tiff,fill_alpha_m1 - default_51,30,-7,-3,-2,-12
+original_14,canine cutaneous mast cell tumor,300.tiff,fill_alpha_0 - default_51,10,-1,0,0,-1
+original_14,canine cutaneous mast cell tumor,300.tiff,fill_alpha_0 - default_51,20,-1,0,-1,-2
+original_14,canine cutaneous mast cell tumor,300.tiff,fill_alpha_0 - default_51,30,0,2,0,2
+original_14,canine cutaneous mast cell tumor,301.tiff,fill_alpha_0 - default_51,10,1,0,4,5
+original_14,canine cutaneous mast cell tumor,301.tiff,fill_alpha_0 - default_51,20,0,0,7,7
+original_14,canine cutaneous mast cell tumor,301.tiff,fill_alpha_0 - default_51,30,2,0,8,10
+testing_35,canine cutaneous mast cell tumor,322.tiff,fill_alpha_0 - default_51,10,0,0,0,0
+testing_35,canine cutaneous mast cell tumor,322.tiff,fill_alpha_0 - default_51,20,-1,1,0,0
+testing_35,canine cutaneous mast cell tumor,322.tiff,fill_alpha_0 - default_51,30,-3,1,-1,-3
+testing_35,canine cutaneous mast cell tumor,337.tiff,fill_alpha_0 - default_51,10,0,-2,-2,-4
+testing_35,canine cutaneous mast cell tumor,337.tiff,fill_alpha_0 - default_51,20,-2,-4,-3,-9
+testing_35,canine cutaneous mast cell tumor,337.tiff,fill_alpha_0 - default_51,30,-1,-5,-5,-11
+testing_35,canine cutaneous mast cell tumor,339.tiff,fill_alpha_0 - default_51,10,-2,0,-2,-4
+testing_35,canine cutaneous mast cell tumor,339.tiff,fill_alpha_0 - default_51,20,-1,-1,-2,-4
+testing_35,canine cutaneous mast cell tumor,339.tiff,fill_alpha_0 - default_51,30,-3,-1,-2,-6
+testing_35,canine cutaneous mast cell tumor,343.tiff,fill_alpha_0 - default_51,10,0,-2,-3,-5
+testing_35,canine cutaneous mast cell tumor,343.tiff,fill_alpha_0 - default_51,20,-1,-3,-4,-8
+testing_35,canine cutaneous mast cell tumor,343.tiff,fill_alpha_0 - default_51,30,-1,-3,-5,-9
+testing_35,canine cutaneous mast cell tumor,344.tiff,fill_alpha_0 - default_51,10,1,2,0,3
+testing_35,canine cutaneous mast cell tumor,344.tiff,fill_alpha_0 - default_51,20,-1,-6,1,-6
+testing_35,canine cutaneous mast cell tumor,344.tiff,fill_alpha_0 - default_51,30,-7,-10,-4,-21
+original_14,canine lung cancer,201.tiff,fill_alpha_0 - default_51,10,0,-1,2,1
+original_14,canine lung cancer,201.tiff,fill_alpha_0 - default_51,20,-2,0,2,0
+original_14,canine lung cancer,201.tiff,fill_alpha_0 - default_51,30,-3,-2,1,-4
+original_14,canine lung cancer,233.tiff,fill_alpha_0 - default_51,10,0,1,-1,0
+original_14,canine lung cancer,233.tiff,fill_alpha_0 - default_51,20,-1,2,0,1
+original_14,canine lung cancer,233.tiff,fill_alpha_0 - default_51,30,0,3,2,5
+testing_35,canine lung cancer,211.tiff,fill_alpha_0 - default_51,10,0,0,0,0
+testing_35,canine lung cancer,211.tiff,fill_alpha_0 - default_51,20,0,0,0,0
+testing_35,canine lung cancer,211.tiff,fill_alpha_0 - default_51,30,0,0,0,0
+testing_35,canine lung cancer,220.tiff,fill_alpha_0 - default_51,10,3,0,-1,2
+testing_35,canine lung cancer,220.tiff,fill_alpha_0 - default_51,20,3,-3,0,0
+testing_35,canine lung cancer,220.tiff,fill_alpha_0 - default_51,30,-1,0,-3,-4
+testing_35,canine lung cancer,230.tiff,fill_alpha_0 - default_51,10,0,0,0,0
+testing_35,canine lung cancer,230.tiff,fill_alpha_0 - default_51,20,1,0,2,3
+testing_35,canine lung cancer,230.tiff,fill_alpha_0 - default_51,30,1,-1,2,2
+testing_35,canine lung cancer,235.tiff,fill_alpha_0 - default_51,10,-1,0,0,-1
+testing_35,canine lung cancer,235.tiff,fill_alpha_0 - default_51,20,-1,-1,0,-2
+testing_35,canine lung cancer,235.tiff,fill_alpha_0 - default_51,30,-3,0,-1,-4
+testing_35,canine lung cancer,242.tiff,fill_alpha_0 - default_51,10,0,1,0,1
+testing_35,canine lung cancer,242.tiff,fill_alpha_0 - default_51,20,-1,1,0,0
+testing_35,canine lung cancer,242.tiff,fill_alpha_0 - default_51,30,-1,1,0,0
+original_14,canine lymphosarcoma,245.tiff,fill_alpha_0 - default_51,10,0,2,0,2
+original_14,canine lymphosarcoma,245.tiff,fill_alpha_0 - default_51,20,-1,4,1,4
+original_14,canine lymphosarcoma,245.tiff,fill_alpha_0 - default_51,30,-2,4,1,3
+original_14,canine lymphosarcoma,246.tiff,fill_alpha_0 - default_51,10,0,-2,0,-2
+original_14,canine lymphosarcoma,246.tiff,fill_alpha_0 - default_51,20,1,-7,-3,-9
+original_14,canine lymphosarcoma,246.tiff,fill_alpha_0 - default_51,30,-1,-11,-5,-17
+testing_35,canine lymphosarcoma,249.tiff,fill_alpha_0 - default_51,10,-1,0,-1,-2
+testing_35,canine lymphosarcoma,249.tiff,fill_alpha_0 - default_51,20,-1,0,-2,-3
+testing_35,canine lymphosarcoma,249.tiff,fill_alpha_0 - default_51,30,-2,1,-3,-4
+testing_35,canine lymphosarcoma,284.tiff,fill_alpha_0 - default_51,10,-2,-1,-1,-4
+testing_35,canine lymphosarcoma,284.tiff,fill_alpha_0 - default_51,20,-3,-3,-1,-7
+testing_35,canine lymphosarcoma,284.tiff,fill_alpha_0 - default_51,30,-3,-4,0,-7
+testing_35,canine lymphosarcoma,289.tiff,fill_alpha_0 - default_51,10,0,-3,-1,-4
+testing_35,canine lymphosarcoma,289.tiff,fill_alpha_0 - default_51,20,1,-4,-2,-5
+testing_35,canine lymphosarcoma,289.tiff,fill_alpha_0 - default_51,30,1,-2,-2,-3
+testing_35,canine lymphosarcoma,291.tiff,fill_alpha_0 - default_51,10,6,0,1,7
+testing_35,canine lymphosarcoma,291.tiff,fill_alpha_0 - default_51,20,6,-3,-1,2
+testing_35,canine lymphosarcoma,291.tiff,fill_alpha_0 - default_51,30,5,-7,-2,-4
+testing_35,canine lymphosarcoma,293.tiff,fill_alpha_0 - default_51,10,4,5,3,12
+testing_35,canine lymphosarcoma,293.tiff,fill_alpha_0 - default_51,20,3,5,3,11
+testing_35,canine lymphosarcoma,293.tiff,fill_alpha_0 - default_51,30,2,5,1,8
+original_14,canine soft tissue sarcoma,459.tiff,fill_alpha_0 - default_51,10,0,0,-1,-1
+original_14,canine soft tissue sarcoma,459.tiff,fill_alpha_0 - default_51,20,-1,0,-1,-2
+original_14,canine soft tissue sarcoma,459.tiff,fill_alpha_0 - default_51,30,-2,-2,-6,-10
+original_14,canine soft tissue sarcoma,460.tiff,fill_alpha_0 - default_51,10,2,-5,-4,-7
+original_14,canine soft tissue sarcoma,460.tiff,fill_alpha_0 - default_51,20,-4,-10,-13,-27
+original_14,canine soft tissue sarcoma,460.tiff,fill_alpha_0 - default_51,30,-4,-11,-14,-29
+testing_35,canine soft tissue sarcoma,410.tiff,fill_alpha_0 - default_51,10,-3,-1,0,-4
+testing_35,canine soft tissue sarcoma,410.tiff,fill_alpha_0 - default_51,20,-3,-1,-3,-7
+testing_35,canine soft tissue sarcoma,410.tiff,fill_alpha_0 - default_51,30,-3,-1,-3,-7
+testing_35,canine soft tissue sarcoma,425.tiff,fill_alpha_0 - default_51,10,0,0,1,1
+testing_35,canine soft tissue sarcoma,425.tiff,fill_alpha_0 - default_51,20,0,1,-2,-1
+testing_35,canine soft tissue sarcoma,425.tiff,fill_alpha_0 - default_51,30,1,1,-2,0
+testing_35,canine soft tissue sarcoma,435.tiff,fill_alpha_0 - default_51,10,-1,-1,-3,-5
+testing_35,canine soft tissue sarcoma,435.tiff,fill_alpha_0 - default_51,20,-1,-3,-4,-8
+testing_35,canine soft tissue sarcoma,435.tiff,fill_alpha_0 - default_51,30,-2,-3,-2,-7
+testing_35,canine soft tissue sarcoma,462.tiff,fill_alpha_0 - default_51,10,0,0,0,0
+testing_35,canine soft tissue sarcoma,462.tiff,fill_alpha_0 - default_51,20,0,0,-2,-2
+testing_35,canine soft tissue sarcoma,462.tiff,fill_alpha_0 - default_51,30,-1,-1,-1,-3
+testing_35,canine soft tissue sarcoma,499.tiff,fill_alpha_0 - default_51,10,1,-1,1,1
+testing_35,canine soft tissue sarcoma,499.tiff,fill_alpha_0 - default_51,20,0,-2,0,-2
+testing_35,canine soft tissue sarcoma,499.tiff,fill_alpha_0 - default_51,30,2,-1,2,3
+original_14,human breast cancer,013.tiff,fill_alpha_0 - default_51,10,0,-1,-1,-2
+original_14,human breast cancer,013.tiff,fill_alpha_0 - default_51,20,1,-3,0,-2
+original_14,human breast cancer,013.tiff,fill_alpha_0 - default_51,30,1,-2,1,0
+original_14,human breast cancer,094.tiff,fill_alpha_0 - default_51,10,0,0,0,0
+original_14,human breast cancer,094.tiff,fill_alpha_0 - default_51,20,-3,-1,-1,-5
+original_14,human breast cancer,094.tiff,fill_alpha_0 - default_51,30,-1,-2,1,-2
+testing_35,human breast cancer,007.tiff,fill_alpha_0 - default_51,10,0,-1,0,-1
+testing_35,human breast cancer,007.tiff,fill_alpha_0 - default_51,20,0,-1,0,-1
+testing_35,human breast cancer,007.tiff,fill_alpha_0 - default_51,30,0,-1,0,-1
+testing_35,human breast cancer,072.tiff,fill_alpha_0 - default_51,10,0,-1,0,-1
+testing_35,human breast cancer,072.tiff,fill_alpha_0 - default_51,20,-6,-3,0,-9
+testing_35,human breast cancer,072.tiff,fill_alpha_0 - default_51,30,-11,-5,-2,-18
+testing_35,human breast cancer,100.tiff,fill_alpha_0 - default_51,10,0,0,0,0
+testing_35,human breast cancer,100.tiff,fill_alpha_0 - default_51,20,-2,0,-3,-5
+testing_35,human breast cancer,100.tiff,fill_alpha_0 - default_51,30,-1,0,-6,-7
+testing_35,human breast cancer,123.tiff,fill_alpha_0 - default_51,10,-3,0,0,-3
+testing_35,human breast cancer,123.tiff,fill_alpha_0 - default_51,20,-4,-4,-1,-9
+testing_35,human breast cancer,123.tiff,fill_alpha_0 - default_51,30,-4,-6,-2,-12
+testing_35,human breast cancer,128.tiff,fill_alpha_0 - default_51,10,1,-1,0,0
+testing_35,human breast cancer,128.tiff,fill_alpha_0 - default_51,20,-4,-2,0,-6
+testing_35,human breast cancer,128.tiff,fill_alpha_0 - default_51,30,-3,-2,0,-5
+original_14,human melanoma,529.tiff,fill_alpha_0 - default_51,10,0,-2,-4,-6
+original_14,human melanoma,529.tiff,fill_alpha_0 - default_51,20,0,-4,-7,-11
+original_14,human melanoma,529.tiff,fill_alpha_0 - default_51,30,-1,-5,-7,-13
+original_14,human melanoma,548.tiff,fill_alpha_0 - default_51,10,0,-1,-1,-2
+original_14,human melanoma,548.tiff,fill_alpha_0 - default_51,20,-2,-2,-1,-5
+original_14,human melanoma,548.tiff,fill_alpha_0 - default_51,30,-1,-2,-2,-5
+testing_35,human melanoma,509.tiff,fill_alpha_0 - default_51,10,0,0,0,0
+testing_35,human melanoma,509.tiff,fill_alpha_0 - default_51,20,1,0,0,1
+testing_35,human melanoma,509.tiff,fill_alpha_0 - default_51,30,0,-3,1,-2
+testing_35,human melanoma,524.tiff,fill_alpha_0 - default_51,10,-1,0,-1,-2
+testing_35,human melanoma,524.tiff,fill_alpha_0 - default_51,20,-2,0,-1,-3
+testing_35,human melanoma,524.tiff,fill_alpha_0 - default_51,30,-2,0,-1,-3
+testing_35,human melanoma,527.tiff,fill_alpha_0 - default_51,10,-2,-2,-1,-5
+testing_35,human melanoma,527.tiff,fill_alpha_0 - default_51,20,-3,-4,0,-7
+testing_35,human melanoma,527.tiff,fill_alpha_0 - default_51,30,-4,-3,-1,-8
+testing_35,human melanoma,546.tiff,fill_alpha_0 - default_51,10,0,-1,0,-1
+testing_35,human melanoma,546.tiff,fill_alpha_0 - default_51,20,2,-2,0,0
+testing_35,human melanoma,546.tiff,fill_alpha_0 - default_51,30,0,-4,-1,-5
+testing_35,human melanoma,549.tiff,fill_alpha_0 - default_51,10,-1,-1,-1,-3
+testing_35,human melanoma,549.tiff,fill_alpha_0 - default_51,20,-2,-3,-2,-7
+testing_35,human melanoma,549.tiff,fill_alpha_0 - default_51,30,-2,-4,-3,-9
+original_14,human neuroendocrine tumor,402.tiff,fill_alpha_0 - default_51,10,-1,0,-1,-2
+original_14,human neuroendocrine tumor,402.tiff,fill_alpha_0 - default_51,20,-2,0,-2,-4
+original_14,human neuroendocrine tumor,402.tiff,fill_alpha_0 - default_51,30,-4,0,-1,-5
+original_14,human neuroendocrine tumor,403.tiff,fill_alpha_0 - default_51,10,-1,1,0,0
+original_14,human neuroendocrine tumor,403.tiff,fill_alpha_0 - default_51,20,-3,2,-3,-4
+original_14,human neuroendocrine tumor,403.tiff,fill_alpha_0 - default_51,30,-4,-1,-1,-6
+testing_35,human neuroendocrine tumor,353.tiff,fill_alpha_0 - default_51,10,1,0,0,1
+testing_35,human neuroendocrine tumor,353.tiff,fill_alpha_0 - default_51,20,1,-2,-1,-2
+testing_35,human neuroendocrine tumor,353.tiff,fill_alpha_0 - default_51,30,1,-2,-2,-3
+testing_35,human neuroendocrine tumor,364.tiff,fill_alpha_0 - default_51,10,0,-1,-1,-2
+testing_35,human neuroendocrine tumor,364.tiff,fill_alpha_0 - default_51,20,0,0,0,0
+testing_35,human neuroendocrine tumor,364.tiff,fill_alpha_0 - default_51,30,0,0,1,1
+testing_35,human neuroendocrine tumor,400.tiff,fill_alpha_0 - default_51,10,0,0,0,0
+testing_35,human neuroendocrine tumor,400.tiff,fill_alpha_0 - default_51,20,-2,0,0,-2
+testing_35,human neuroendocrine tumor,400.tiff,fill_alpha_0 - default_51,30,-3,-2,-2,-7
+testing_35,human neuroendocrine tumor,401.tiff,fill_alpha_0 - default_51,10,-2,-1,-3,-6
+testing_35,human neuroendocrine tumor,401.tiff,fill_alpha_0 - default_51,20,-3,-2,-4,-9
+testing_35,human neuroendocrine tumor,401.tiff,fill_alpha_0 - default_51,30,-4,-1,-5,-10
+testing_35,human neuroendocrine tumor,404.tiff,fill_alpha_0 - default_51,10,1,-2,-1,-2
+testing_35,human neuroendocrine tumor,404.tiff,fill_alpha_0 - default_51,20,-2,-4,-2,-8
+testing_35,human neuroendocrine tumor,404.tiff,fill_alpha_0 - default_51,30,-2,-4,-2,-8
+original_14,canine cutaneous mast cell tumor,300.tiff,fill_alpha_1 - default_51,10,0,0,0,0
+original_14,canine cutaneous mast cell tumor,300.tiff,fill_alpha_1 - default_51,20,-1,-1,0,-2
+original_14,canine cutaneous mast cell tumor,300.tiff,fill_alpha_1 - default_51,30,-1,-1,0,-2
+original_14,canine cutaneous mast cell tumor,301.tiff,fill_alpha_1 - default_51,10,-2,0,2,0
+original_14,canine cutaneous mast cell tumor,301.tiff,fill_alpha_1 - default_51,20,-3,0,5,2
+original_14,canine cutaneous mast cell tumor,301.tiff,fill_alpha_1 - default_51,30,-1,1,7,7
+testing_35,canine cutaneous mast cell tumor,322.tiff,fill_alpha_1 - default_51,10,0,0,0,0
+testing_35,canine cutaneous mast cell tumor,322.tiff,fill_alpha_1 - default_51,20,0,1,0,1
+testing_35,canine cutaneous mast cell tumor,322.tiff,fill_alpha_1 - default_51,30,0,1,1,2
+testing_35,canine cutaneous mast cell tumor,337.tiff,fill_alpha_1 - default_51,10,0,0,0,0
+testing_35,canine cutaneous mast cell tumor,337.tiff,fill_alpha_1 - default_51,20,0,0,0,0
+testing_35,canine cutaneous mast cell tumor,337.tiff,fill_alpha_1 - default_51,30,1,-1,0,0
+testing_35,canine cutaneous mast cell tumor,339.tiff,fill_alpha_1 - default_51,10,0,1,0,1
+testing_35,canine cutaneous mast cell tumor,339.tiff,fill_alpha_1 - default_51,20,0,0,0,0
+testing_35,canine cutaneous mast cell tumor,339.tiff,fill_alpha_1 - default_51,30,0,0,0,0
+testing_35,canine cutaneous mast cell tumor,343.tiff,fill_alpha_1 - default_51,10,1,0,0,1
+testing_35,canine cutaneous mast cell tumor,343.tiff,fill_alpha_1 - default_51,20,-2,0,0,-2
+testing_35,canine cutaneous mast cell tumor,343.tiff,fill_alpha_1 - default_51,30,2,-2,0,0
+testing_35,canine cutaneous mast cell tumor,344.tiff,fill_alpha_1 - default_51,10,0,0,0,0
+testing_35,canine cutaneous mast cell tumor,344.tiff,fill_alpha_1 - default_51,20,0,-1,0,-1
+testing_35,canine cutaneous mast cell tumor,344.tiff,fill_alpha_1 - default_51,30,0,-1,0,-1
+original_14,canine lung cancer,201.tiff,fill_alpha_1 - default_51,10,-1,-1,0,-2
+original_14,canine lung cancer,201.tiff,fill_alpha_1 - default_51,20,-1,0,0,-1
+original_14,canine lung cancer,201.tiff,fill_alpha_1 - default_51,30,0,-1,0,-1
+original_14,canine lung cancer,233.tiff,fill_alpha_1 - default_51,10,0,1,0,1
+original_14,canine lung cancer,233.tiff,fill_alpha_1 - default_51,20,0,0,0,0
+original_14,canine lung cancer,233.tiff,fill_alpha_1 - default_51,30,1,0,1,2
+testing_35,canine lung cancer,211.tiff,fill_alpha_1 - default_51,10,0,0,0,0
+testing_35,canine lung cancer,211.tiff,fill_alpha_1 - default_51,20,0,0,0,0
+testing_35,canine lung cancer,211.tiff,fill_alpha_1 - default_51,30,0,0,0,0
+testing_35,canine lung cancer,220.tiff,fill_alpha_1 - default_51,10,2,1,0,3
+testing_35,canine lung cancer,220.tiff,fill_alpha_1 - default_51,20,3,-2,1,2
+testing_35,canine lung cancer,220.tiff,fill_alpha_1 - default_51,30,5,-1,0,4
+testing_35,canine lung cancer,230.tiff,fill_alpha_1 - default_51,10,0,0,0,0
+testing_35,canine lung cancer,230.tiff,fill_alpha_1 - default_51,20,1,0,2,3
+testing_35,canine lung cancer,230.tiff,fill_alpha_1 - default_51,30,1,0,3,4
+testing_35,canine lung cancer,235.tiff,fill_alpha_1 - default_51,10,-1,1,1,1
+testing_35,canine lung cancer,235.tiff,fill_alpha_1 - default_51,20,0,0,1,1
+testing_35,canine lung cancer,235.tiff,fill_alpha_1 - default_51,30,-1,3,1,3
+testing_35,canine lung cancer,242.tiff,fill_alpha_1 - default_51,10,0,0,0,0
+testing_35,canine lung cancer,242.tiff,fill_alpha_1 - default_51,20,0,0,0,0
+testing_35,canine lung cancer,242.tiff,fill_alpha_1 - default_51,30,0,0,0,0
+original_14,canine lymphosarcoma,245.tiff,fill_alpha_1 - default_51,10,1,1,0,2
+original_14,canine lymphosarcoma,245.tiff,fill_alpha_1 - default_51,20,0,1,2,3
+original_14,canine lymphosarcoma,245.tiff,fill_alpha_1 - default_51,30,-2,2,4,4
+original_14,canine lymphosarcoma,246.tiff,fill_alpha_1 - default_51,10,0,0,0,0
+original_14,canine lymphosarcoma,246.tiff,fill_alpha_1 - default_51,20,1,-1,-1,-1
+original_14,canine lymphosarcoma,246.tiff,fill_alpha_1 - default_51,30,0,-2,-2,-4
+testing_35,canine lymphosarcoma,249.tiff,fill_alpha_1 - default_51,10,0,0,0,0
+testing_35,canine lymphosarcoma,249.tiff,fill_alpha_1 - default_51,20,-1,-1,0,-2
+testing_35,canine lymphosarcoma,249.tiff,fill_alpha_1 - default_51,30,0,1,0,1
+testing_35,canine lymphosarcoma,284.tiff,fill_alpha_1 - default_51,10,-1,-1,0,-2
+testing_35,canine lymphosarcoma,284.tiff,fill_alpha_1 - default_51,20,1,-1,-1,-1
+testing_35,canine lymphosarcoma,284.tiff,fill_alpha_1 - default_51,30,3,-1,0,2
+testing_35,canine lymphosarcoma,289.tiff,fill_alpha_1 - default_51,10,0,-2,-3,-5
+testing_35,canine lymphosarcoma,289.tiff,fill_alpha_1 - default_51,20,2,-1,-4,-3
+testing_35,canine lymphosarcoma,289.tiff,fill_alpha_1 - default_51,30,2,-1,-4,-3
+testing_35,canine lymphosarcoma,291.tiff,fill_alpha_1 - default_51,10,4,1,1,6
+testing_35,canine lymphosarcoma,291.tiff,fill_alpha_1 - default_51,20,9,2,2,13
+testing_35,canine lymphosarcoma,291.tiff,fill_alpha_1 - default_51,30,11,2,3,16
+testing_35,canine lymphosarcoma,293.tiff,fill_alpha_1 - default_51,10,0,0,0,0
+testing_35,canine lymphosarcoma,293.tiff,fill_alpha_1 - default_51,20,0,0,1,1
+testing_35,canine lymphosarcoma,293.tiff,fill_alpha_1 - default_51,30,0,2,-1,1
+original_14,canine soft tissue sarcoma,459.tiff,fill_alpha_1 - default_51,10,0,0,0,0
+original_14,canine soft tissue sarcoma,459.tiff,fill_alpha_1 - default_51,20,1,0,0,1
+original_14,canine soft tissue sarcoma,459.tiff,fill_alpha_1 - default_51,30,1,-1,1,1
+original_14,canine soft tissue sarcoma,460.tiff,fill_alpha_1 - default_51,10,0,1,0,1
+original_14,canine soft tissue sarcoma,460.tiff,fill_alpha_1 - default_51,20,0,0,-1,-1
+original_14,canine soft tissue sarcoma,460.tiff,fill_alpha_1 - default_51,30,1,-1,-1,-1
+testing_35,canine soft tissue sarcoma,410.tiff,fill_alpha_1 - default_51,10,-2,1,0,-1
+testing_35,canine soft tissue sarcoma,410.tiff,fill_alpha_1 - default_51,20,-1,2,0,1
+testing_35,canine soft tissue sarcoma,410.tiff,fill_alpha_1 - default_51,30,-1,2,0,1
+testing_35,canine soft tissue sarcoma,425.tiff,fill_alpha_1 - default_51,10,0,0,0,0
+testing_35,canine soft tissue sarcoma,425.tiff,fill_alpha_1 - default_51,20,0,0,-1,-1
+testing_35,canine soft tissue sarcoma,425.tiff,fill_alpha_1 - default_51,30,0,0,-1,-1
+testing_35,canine soft tissue sarcoma,435.tiff,fill_alpha_1 - default_51,10,0,0,-1,-1
+testing_35,canine soft tissue sarcoma,435.tiff,fill_alpha_1 - default_51,20,2,-2,0,0
+testing_35,canine soft tissue sarcoma,435.tiff,fill_alpha_1 - default_51,30,2,-1,0,1
+testing_35,canine soft tissue sarcoma,462.tiff,fill_alpha_1 - default_51,10,0,0,0,0
+testing_35,canine soft tissue sarcoma,462.tiff,fill_alpha_1 - default_51,20,0,1,0,1
+testing_35,canine soft tissue sarcoma,462.tiff,fill_alpha_1 - default_51,30,0,0,0,0
+testing_35,canine soft tissue sarcoma,499.tiff,fill_alpha_1 - default_51,10,0,-1,1,0
+testing_35,canine soft tissue sarcoma,499.tiff,fill_alpha_1 - default_51,20,0,-1,-1,-2
+testing_35,canine soft tissue sarcoma,499.tiff,fill_alpha_1 - default_51,30,0,-1,1,0
+original_14,human breast cancer,013.tiff,fill_alpha_1 - default_51,10,0,0,0,0
+original_14,human breast cancer,013.tiff,fill_alpha_1 - default_51,20,0,0,0,0
+original_14,human breast cancer,013.tiff,fill_alpha_1 - default_51,30,0,0,0,0
+original_14,human breast cancer,094.tiff,fill_alpha_1 - default_51,10,0,0,0,0
+original_14,human breast cancer,094.tiff,fill_alpha_1 - default_51,20,0,0,0,0
+original_14,human breast cancer,094.tiff,fill_alpha_1 - default_51,30,0,-1,1,0
+testing_35,human breast cancer,007.tiff,fill_alpha_1 - default_51,10,0,0,0,0
+testing_35,human breast cancer,007.tiff,fill_alpha_1 - default_51,20,0,0,0,0
+testing_35,human breast cancer,007.tiff,fill_alpha_1 - default_51,30,-1,0,0,-1
+testing_35,human breast cancer,072.tiff,fill_alpha_1 - default_51,10,0,0,0,0
+testing_35,human breast cancer,072.tiff,fill_alpha_1 - default_51,20,0,0,0,0
+testing_35,human breast cancer,072.tiff,fill_alpha_1 - default_51,30,1,-1,0,0
+testing_35,human breast cancer,100.tiff,fill_alpha_1 - default_51,10,0,0,0,0
+testing_35,human breast cancer,100.tiff,fill_alpha_1 - default_51,20,1,0,0,1
+testing_35,human breast cancer,100.tiff,fill_alpha_1 - default_51,30,1,0,0,1
+testing_35,human breast cancer,123.tiff,fill_alpha_1 - default_51,10,0,0,0,0
+testing_35,human breast cancer,123.tiff,fill_alpha_1 - default_51,20,1,0,0,1
+testing_35,human breast cancer,123.tiff,fill_alpha_1 - default_51,30,2,0,0,2
+testing_35,human breast cancer,128.tiff,fill_alpha_1 - default_51,10,0,0,0,0
+testing_35,human breast cancer,128.tiff,fill_alpha_1 - default_51,20,-1,0,-1,-2
+testing_35,human breast cancer,128.tiff,fill_alpha_1 - default_51,30,-1,0,-1,-2
+original_14,human melanoma,529.tiff,fill_alpha_1 - default_51,10,-1,0,0,-1
+original_14,human melanoma,529.tiff,fill_alpha_1 - default_51,20,0,0,0,0
+original_14,human melanoma,529.tiff,fill_alpha_1 - default_51,30,1,0,0,1
+original_14,human melanoma,548.tiff,fill_alpha_1 - default_51,10,0,0,0,0
+original_14,human melanoma,548.tiff,fill_alpha_1 - default_51,20,0,0,0,0
+original_14,human melanoma,548.tiff,fill_alpha_1 - default_51,30,0,0,0,0
+testing_35,human melanoma,509.tiff,fill_alpha_1 - default_51,10,0,0,0,0
+testing_35,human melanoma,509.tiff,fill_alpha_1 - default_51,20,0,0,1,1
+testing_35,human melanoma,509.tiff,fill_alpha_1 - default_51,30,0,0,2,2
+testing_35,human melanoma,524.tiff,fill_alpha_1 - default_51,10,0,0,0,0
+testing_35,human melanoma,524.tiff,fill_alpha_1 - default_51,20,0,0,1,1
+testing_35,human melanoma,524.tiff,fill_alpha_1 - default_51,30,0,-1,1,0
+testing_35,human melanoma,527.tiff,fill_alpha_1 - default_51,10,0,0,1,1
+testing_35,human melanoma,527.tiff,fill_alpha_1 - default_51,20,1,0,1,2
+testing_35,human melanoma,527.tiff,fill_alpha_1 - default_51,30,1,1,1,3
+testing_35,human melanoma,546.tiff,fill_alpha_1 - default_51,10,0,0,0,0
+testing_35,human melanoma,546.tiff,fill_alpha_1 - default_51,20,0,1,0,1
+testing_35,human melanoma,546.tiff,fill_alpha_1 - default_51,30,-1,0,0,-1
+testing_35,human melanoma,549.tiff,fill_alpha_1 - default_51,10,0,0,0,0
+testing_35,human melanoma,549.tiff,fill_alpha_1 - default_51,20,0,0,0,0
+testing_35,human melanoma,549.tiff,fill_alpha_1 - default_51,30,0,0,0,0
+original_14,human neuroendocrine tumor,402.tiff,fill_alpha_1 - default_51,10,-1,0,0,-1
+original_14,human neuroendocrine tumor,402.tiff,fill_alpha_1 - default_51,20,-2,-1,-1,-4
+original_14,human neuroendocrine tumor,402.tiff,fill_alpha_1 - default_51,30,-1,-2,0,-3
+original_14,human neuroendocrine tumor,403.tiff,fill_alpha_1 - default_51,10,0,0,-1,-1
+original_14,human neuroendocrine tumor,403.tiff,fill_alpha_1 - default_51,20,0,1,0,1
+original_14,human neuroendocrine tumor,403.tiff,fill_alpha_1 - default_51,30,-2,-1,0,-3
+testing_35,human neuroendocrine tumor,353.tiff,fill_alpha_1 - default_51,10,0,0,0,0
+testing_35,human neuroendocrine tumor,353.tiff,fill_alpha_1 - default_51,20,0,0,-1,-1
+testing_35,human neuroendocrine tumor,353.tiff,fill_alpha_1 - default_51,30,0,0,-1,-1
+testing_35,human neuroendocrine tumor,364.tiff,fill_alpha_1 - default_51,10,0,-1,0,-1
+testing_35,human neuroendocrine tumor,364.tiff,fill_alpha_1 - default_51,20,0,-1,0,-1
+testing_35,human neuroendocrine tumor,364.tiff,fill_alpha_1 - default_51,30,0,-1,0,-1
+testing_35,human neuroendocrine tumor,400.tiff,fill_alpha_1 - default_51,10,0,0,0,0
+testing_35,human neuroendocrine tumor,400.tiff,fill_alpha_1 - default_51,20,0,0,0,0
+testing_35,human neuroendocrine tumor,400.tiff,fill_alpha_1 - default_51,30,0,0,-1,-1
+testing_35,human neuroendocrine tumor,401.tiff,fill_alpha_1 - default_51,10,0,0,0,0
+testing_35,human neuroendocrine tumor,401.tiff,fill_alpha_1 - default_51,20,0,0,0,0
+testing_35,human neuroendocrine tumor,401.tiff,fill_alpha_1 - default_51,30,0,0,0,0
+testing_35,human neuroendocrine tumor,404.tiff,fill_alpha_1 - default_51,10,0,0,0,0
+testing_35,human neuroendocrine tumor,404.tiff,fill_alpha_1 - default_51,20,0,-1,0,-1
+testing_35,human neuroendocrine tumor,404.tiff,fill_alpha_1 - default_51,30,-1,0,0,-1
+original_14,canine cutaneous mast cell tumor,300.tiff,fill_alpha_2 - default_51,10,0,0,-1,-1
+original_14,canine cutaneous mast cell tumor,300.tiff,fill_alpha_2 - default_51,20,-1,-1,-1,-3
+original_14,canine cutaneous mast cell tumor,300.tiff,fill_alpha_2 - default_51,30,-1,-1,-1,-3
+original_14,canine cutaneous mast cell tumor,301.tiff,fill_alpha_2 - default_51,10,-2,0,1,-1
+original_14,canine cutaneous mast cell tumor,301.tiff,fill_alpha_2 - default_51,20,-2,0,4,2
+original_14,canine cutaneous mast cell tumor,301.tiff,fill_alpha_2 - default_51,30,-2,1,6,5
+testing_35,canine cutaneous mast cell tumor,322.tiff,fill_alpha_2 - default_51,10,0,0,0,0
+testing_35,canine cutaneous mast cell tumor,322.tiff,fill_alpha_2 - default_51,20,0,1,0,1
+testing_35,canine cutaneous mast cell tumor,322.tiff,fill_alpha_2 - default_51,30,0,1,0,1
+testing_35,canine cutaneous mast cell tumor,337.tiff,fill_alpha_2 - default_51,10,0,0,0,0
+testing_35,canine cutaneous mast cell tumor,337.tiff,fill_alpha_2 - default_51,20,0,0,0,0
+testing_35,canine cutaneous mast cell tumor,337.tiff,fill_alpha_2 - default_51,30,0,-1,-2,-3
+testing_35,canine cutaneous mast cell tumor,339.tiff,fill_alpha_2 - default_51,10,0,1,0,1
+testing_35,canine cutaneous mast cell tumor,339.tiff,fill_alpha_2 - default_51,20,0,0,1,1
+testing_35,canine cutaneous mast cell tumor,339.tiff,fill_alpha_2 - default_51,30,0,0,2,2
+testing_35,canine cutaneous mast cell tumor,343.tiff,fill_alpha_2 - default_51,10,1,0,0,1
+testing_35,canine cutaneous mast cell tumor,343.tiff,fill_alpha_2 - default_51,20,0,0,0,0
+testing_35,canine cutaneous mast cell tumor,343.tiff,fill_alpha_2 - default_51,30,1,-1,1,1
+testing_35,canine cutaneous mast cell tumor,344.tiff,fill_alpha_2 - default_51,10,0,0,0,0
+testing_35,canine cutaneous mast cell tumor,344.tiff,fill_alpha_2 - default_51,20,1,-1,-1,-1
+testing_35,canine cutaneous mast cell tumor,344.tiff,fill_alpha_2 - default_51,30,0,-2,-1,-3
+original_14,canine lung cancer,201.tiff,fill_alpha_2 - default_51,10,-1,0,-1,-2
+original_14,canine lung cancer,201.tiff,fill_alpha_2 - default_51,20,0,0,-1,-1
+original_14,canine lung cancer,201.tiff,fill_alpha_2 - default_51,30,1,-1,-3,-3
+original_14,canine lung cancer,233.tiff,fill_alpha_2 - default_51,10,1,2,0,3
+original_14,canine lung cancer,233.tiff,fill_alpha_2 - default_51,20,0,0,0,0
+original_14,canine lung cancer,233.tiff,fill_alpha_2 - default_51,30,2,0,0,2
+testing_35,canine lung cancer,211.tiff,fill_alpha_2 - default_51,10,0,0,0,0
+testing_35,canine lung cancer,211.tiff,fill_alpha_2 - default_51,20,0,0,0,0
+testing_35,canine lung cancer,211.tiff,fill_alpha_2 - default_51,30,0,0,0,0
+testing_35,canine lung cancer,220.tiff,fill_alpha_2 - default_51,10,2,0,0,2
+testing_35,canine lung cancer,220.tiff,fill_alpha_2 - default_51,20,3,-3,2,2
+testing_35,canine lung cancer,220.tiff,fill_alpha_2 - default_51,30,4,-2,2,4
+testing_35,canine lung cancer,230.tiff,fill_alpha_2 - default_51,10,0,0,-1,-1
+testing_35,canine lung cancer,230.tiff,fill_alpha_2 - default_51,20,-2,-1,1,-2
+testing_35,canine lung cancer,230.tiff,fill_alpha_2 - default_51,30,-3,-1,1,-3
+testing_35,canine lung cancer,235.tiff,fill_alpha_2 - default_51,10,0,0,1,1
+testing_35,canine lung cancer,235.tiff,fill_alpha_2 - default_51,20,0,2,2,4
+testing_35,canine lung cancer,235.tiff,fill_alpha_2 - default_51,30,-1,3,2,4
+testing_35,canine lung cancer,242.tiff,fill_alpha_2 - default_51,10,0,0,0,0
+testing_35,canine lung cancer,242.tiff,fill_alpha_2 - default_51,20,0,0,0,0
+testing_35,canine lung cancer,242.tiff,fill_alpha_2 - default_51,30,0,0,0,0
+original_14,canine lymphosarcoma,245.tiff,fill_alpha_2 - default_51,10,0,2,1,3
+original_14,canine lymphosarcoma,245.tiff,fill_alpha_2 - default_51,20,-1,2,4,5
+original_14,canine lymphosarcoma,245.tiff,fill_alpha_2 - default_51,30,-4,2,5,3
+original_14,canine lymphosarcoma,246.tiff,fill_alpha_2 - default_51,10,0,0,0,0
+original_14,canine lymphosarcoma,246.tiff,fill_alpha_2 - default_51,20,2,-1,0,1
+original_14,canine lymphosarcoma,246.tiff,fill_alpha_2 - default_51,30,1,-3,0,-2
+testing_35,canine lymphosarcoma,249.tiff,fill_alpha_2 - default_51,10,0,-1,0,-1
+testing_35,canine lymphosarcoma,249.tiff,fill_alpha_2 - default_51,20,-1,-1,0,-2
+testing_35,canine lymphosarcoma,249.tiff,fill_alpha_2 - default_51,30,0,0,0,0
+testing_35,canine lymphosarcoma,284.tiff,fill_alpha_2 - default_51,10,-1,0,0,-1
+testing_35,canine lymphosarcoma,284.tiff,fill_alpha_2 - default_51,20,2,0,-1,1
+testing_35,canine lymphosarcoma,284.tiff,fill_alpha_2 - default_51,30,3,-1,-1,1
+testing_35,canine lymphosarcoma,289.tiff,fill_alpha_2 - default_51,10,0,-2,-2,-4
+testing_35,canine lymphosarcoma,289.tiff,fill_alpha_2 - default_51,20,2,0,-3,-1
+testing_35,canine lymphosarcoma,289.tiff,fill_alpha_2 - default_51,30,2,-1,-3,-2
+testing_35,canine lymphosarcoma,291.tiff,fill_alpha_2 - default_51,10,4,1,1,6
+testing_35,canine lymphosarcoma,291.tiff,fill_alpha_2 - default_51,20,9,2,2,13
+testing_35,canine lymphosarcoma,291.tiff,fill_alpha_2 - default_51,30,11,2,3,16
+testing_35,canine lymphosarcoma,293.tiff,fill_alpha_2 - default_51,10,-2,-2,-3,-7
+testing_35,canine lymphosarcoma,293.tiff,fill_alpha_2 - default_51,20,-1,-6,-2,-9
+testing_35,canine lymphosarcoma,293.tiff,fill_alpha_2 - default_51,30,0,-3,-4,-7
+original_14,canine soft tissue sarcoma,459.tiff,fill_alpha_2 - default_51,10,0,0,-1,-1
+original_14,canine soft tissue sarcoma,459.tiff,fill_alpha_2 - default_51,20,1,0,0,1
+original_14,canine soft tissue sarcoma,459.tiff,fill_alpha_2 - default_51,30,1,0,1,2
+original_14,canine soft tissue sarcoma,460.tiff,fill_alpha_2 - default_51,10,1,1,0,2
+original_14,canine soft tissue sarcoma,460.tiff,fill_alpha_2 - default_51,20,0,1,-1,0
+original_14,canine soft tissue sarcoma,460.tiff,fill_alpha_2 - default_51,30,0,1,-1,0
+testing_35,canine soft tissue sarcoma,410.tiff,fill_alpha_2 - default_51,10,-2,0,0,-2
+testing_35,canine soft tissue sarcoma,410.tiff,fill_alpha_2 - default_51,20,0,2,0,2
+testing_35,canine soft tissue sarcoma,410.tiff,fill_alpha_2 - default_51,30,0,2,0,2
+testing_35,canine soft tissue sarcoma,425.tiff,fill_alpha_2 - default_51,10,0,0,0,0
+testing_35,canine soft tissue sarcoma,425.tiff,fill_alpha_2 - default_51,20,0,0,-1,-1
+testing_35,canine soft tissue sarcoma,425.tiff,fill_alpha_2 - default_51,30,0,0,0,0
+testing_35,canine soft tissue sarcoma,435.tiff,fill_alpha_2 - default_51,10,0,0,-1,-1
+testing_35,canine soft tissue sarcoma,435.tiff,fill_alpha_2 - default_51,20,3,-1,0,2
+testing_35,canine soft tissue sarcoma,435.tiff,fill_alpha_2 - default_51,30,2,0,0,2
+testing_35,canine soft tissue sarcoma,462.tiff,fill_alpha_2 - default_51,10,0,-1,0,-1
+testing_35,canine soft tissue sarcoma,462.tiff,fill_alpha_2 - default_51,20,0,0,0,0
+testing_35,canine soft tissue sarcoma,462.tiff,fill_alpha_2 - default_51,30,-1,0,0,-1
+testing_35,canine soft tissue sarcoma,499.tiff,fill_alpha_2 - default_51,10,0,-1,1,0
+testing_35,canine soft tissue sarcoma,499.tiff,fill_alpha_2 - default_51,20,0,0,0,0
+testing_35,canine soft tissue sarcoma,499.tiff,fill_alpha_2 - default_51,30,0,0,2,2
+original_14,human breast cancer,013.tiff,fill_alpha_2 - default_51,10,0,0,-1,-1
+original_14,human breast cancer,013.tiff,fill_alpha_2 - default_51,20,0,0,0,0
+original_14,human breast cancer,013.tiff,fill_alpha_2 - default_51,30,0,0,0,0
+original_14,human breast cancer,094.tiff,fill_alpha_2 - default_51,10,0,0,0,0
+original_14,human breast cancer,094.tiff,fill_alpha_2 - default_51,20,0,0,0,0
+original_14,human breast cancer,094.tiff,fill_alpha_2 - default_51,30,0,0,1,1
+testing_35,human breast cancer,007.tiff,fill_alpha_2 - default_51,10,0,0,0,0
+testing_35,human breast cancer,007.tiff,fill_alpha_2 - default_51,20,0,0,0,0
+testing_35,human breast cancer,007.tiff,fill_alpha_2 - default_51,30,-1,0,0,-1
+testing_35,human breast cancer,072.tiff,fill_alpha_2 - default_51,10,0,-1,0,-1
+testing_35,human breast cancer,072.tiff,fill_alpha_2 - default_51,20,1,0,0,1
+testing_35,human breast cancer,072.tiff,fill_alpha_2 - default_51,30,1,1,0,2
+testing_35,human breast cancer,100.tiff,fill_alpha_2 - default_51,10,0,0,0,0
+testing_35,human breast cancer,100.tiff,fill_alpha_2 - default_51,20,0,0,0,0
+testing_35,human breast cancer,100.tiff,fill_alpha_2 - default_51,30,1,0,0,1
+testing_35,human breast cancer,123.tiff,fill_alpha_2 - default_51,10,0,0,0,0
+testing_35,human breast cancer,123.tiff,fill_alpha_2 - default_51,20,1,1,0,2
+testing_35,human breast cancer,123.tiff,fill_alpha_2 - default_51,30,3,0,1,4
+testing_35,human breast cancer,128.tiff,fill_alpha_2 - default_51,10,1,0,0,1
+testing_35,human breast cancer,128.tiff,fill_alpha_2 - default_51,20,-1,2,-1,0
+testing_35,human breast cancer,128.tiff,fill_alpha_2 - default_51,30,-1,3,-1,1
+original_14,human melanoma,529.tiff,fill_alpha_2 - default_51,10,0,0,0,0
+original_14,human melanoma,529.tiff,fill_alpha_2 - default_51,20,1,0,0,1
+original_14,human melanoma,529.tiff,fill_alpha_2 - default_51,30,1,0,0,1
+original_14,human melanoma,548.tiff,fill_alpha_2 - default_51,10,0,0,0,0
+original_14,human melanoma,548.tiff,fill_alpha_2 - default_51,20,1,1,1,3
+original_14,human melanoma,548.tiff,fill_alpha_2 - default_51,30,1,0,1,2
+testing_35,human melanoma,509.tiff,fill_alpha_2 - default_51,10,0,1,0,1
+testing_35,human melanoma,509.tiff,fill_alpha_2 - default_51,20,0,0,1,1
+testing_35,human melanoma,509.tiff,fill_alpha_2 - default_51,30,0,2,1,3
+testing_35,human melanoma,524.tiff,fill_alpha_2 - default_51,10,0,0,0,0
+testing_35,human melanoma,524.tiff,fill_alpha_2 - default_51,20,0,0,0,0
+testing_35,human melanoma,524.tiff,fill_alpha_2 - default_51,30,0,-1,0,-1
+testing_35,human melanoma,527.tiff,fill_alpha_2 - default_51,10,0,1,1,2
+testing_35,human melanoma,527.tiff,fill_alpha_2 - default_51,20,2,0,1,3
+testing_35,human melanoma,527.tiff,fill_alpha_2 - default_51,30,1,1,1,3
+testing_35,human melanoma,546.tiff,fill_alpha_2 - default_51,10,0,0,0,0
+testing_35,human melanoma,546.tiff,fill_alpha_2 - default_51,20,0,0,0,0
+testing_35,human melanoma,546.tiff,fill_alpha_2 - default_51,30,0,-1,0,-1
+testing_35,human melanoma,549.tiff,fill_alpha_2 - default_51,10,0,0,0,0
+testing_35,human melanoma,549.tiff,fill_alpha_2 - default_51,20,0,-2,0,-2
+testing_35,human melanoma,549.tiff,fill_alpha_2 - default_51,30,0,-3,0,-3
+original_14,human neuroendocrine tumor,402.tiff,fill_alpha_2 - default_51,10,-1,0,0,-1
+original_14,human neuroendocrine tumor,402.tiff,fill_alpha_2 - default_51,20,-1,0,0,-1
+original_14,human neuroendocrine tumor,402.tiff,fill_alpha_2 - default_51,30,-1,-1,0,-2
+original_14,human neuroendocrine tumor,403.tiff,fill_alpha_2 - default_51,10,0,0,-1,-1
+original_14,human neuroendocrine tumor,403.tiff,fill_alpha_2 - default_51,20,0,3,-1,2
+original_14,human neuroendocrine tumor,403.tiff,fill_alpha_2 - default_51,30,-2,1,-1,-2
+testing_35,human neuroendocrine tumor,353.tiff,fill_alpha_2 - default_51,10,0,0,0,0
+testing_35,human neuroendocrine tumor,353.tiff,fill_alpha_2 - default_51,20,0,-1,-1,-2
+testing_35,human neuroendocrine tumor,353.tiff,fill_alpha_2 - default_51,30,1,-1,-2,-2
+testing_35,human neuroendocrine tumor,364.tiff,fill_alpha_2 - default_51,10,0,-1,0,-1
+testing_35,human neuroendocrine tumor,364.tiff,fill_alpha_2 - default_51,20,0,-1,0,-1
+testing_35,human neuroendocrine tumor,364.tiff,fill_alpha_2 - default_51,30,0,-1,0,-1
+testing_35,human neuroendocrine tumor,400.tiff,fill_alpha_2 - default_51,10,0,0,0,0
+testing_35,human neuroendocrine tumor,400.tiff,fill_alpha_2 - default_51,20,0,0,0,0
+testing_35,human neuroendocrine tumor,400.tiff,fill_alpha_2 - default_51,30,1,0,-1,0
+testing_35,human neuroendocrine tumor,401.tiff,fill_alpha_2 - default_51,10,0,0,0,0
+testing_35,human neuroendocrine tumor,401.tiff,fill_alpha_2 - default_51,20,0,0,0,0
+testing_35,human neuroendocrine tumor,401.tiff,fill_alpha_2 - default_51,30,0,1,0,1
+testing_35,human neuroendocrine tumor,404.tiff,fill_alpha_2 - default_51,10,0,0,-1,-1
+testing_35,human neuroendocrine tumor,404.tiff,fill_alpha_2 - default_51,20,0,1,1,2
+testing_35,human neuroendocrine tumor,404.tiff,fill_alpha_2 - default_51,30,0,2,0,2

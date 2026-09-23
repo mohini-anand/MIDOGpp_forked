@@ -1,0 +1,4 @@
+K,recorded_pre_d11_pts,recorded_pre_d11_ci,recorded_pre_d11_wlt,this_run_post_d11_pts,this_run_post_d11_ci,this_run_post_d11_wlt,this_run_n_nonzero_rois
+10,0.2,"[-1.09, +1.56]",10/9/30,0.14,"[-1.16, +1.50]",9/9/31,18
+20,0.48,"[-0.51, +1.70]",19/16/14,0.37,"[-0.58, +1.60]",18/16/15,34
+30,0.93,"[+0.05, +2.04]",20/14/15,0.7,"[-0.14, +1.72]",19/16/14,35
