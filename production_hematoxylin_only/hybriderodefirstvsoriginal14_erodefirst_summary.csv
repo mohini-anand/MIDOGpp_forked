@@ -1,0 +1,25 @@
+source,domain,file_name,ann_id,accepted,base_size,gray_mode,n_included,n_candidates,union_area,reason
+original_14,canine cutaneous mast cell tumor,300.tiff,14499,True,23.0,base (click on eroded-gray foreground),1,1,215.0,
+tightening_process_hem_vs_gray,canine cutaneous mast cell tumor,300.tiff,14575,False,,base (click on eroded-gray foreground),1,5,3.0,union area 3px < min_area 50px
+tightening_process_hem_vs_gray,canine cutaneous mast cell tumor,300.tiff,14581,True,21.0,base (click on eroded-gray foreground),2,3,150.0,
+original_14,canine cutaneous mast cell tumor,301.tiff,14969,False,,base (click on eroded-gray foreground),0,1,,click's hematoxylin_od component is not completely inside the eroded gray component
+original_14,canine lung cancer,201.tiff,4457,False,,base (click on eroded-gray foreground),0,1,,click's hematoxylin_od component is not completely inside the eroded gray component
+tightening_process_hem_vs_gray,canine lung cancer,201.tiff,4469,False,,base (click on eroded-gray foreground),0,1,,click's hematoxylin_od component is not completely inside the eroded gray component
+original_14,canine lung cancer,233.tiff,5761,False,,base (click on eroded-gray foreground),0,1,,click's hematoxylin_od component is not completely inside the eroded gray component
+tightening_process_hem_vs_gray,canine lymphosarcoma,245.tiff,6243,False,,base (click on eroded-gray foreground),1,4,1.0,union area 1px < min_area 50px
+tightening_process_hem_vs_gray,canine lymphosarcoma,245.tiff,6274,False,,base (click on eroded-gray foreground),1,3,1.0,union area 1px < min_area 50px
+original_14,canine lymphosarcoma,245.tiff,6317,False,,base (click on eroded-gray foreground),0,1,,click's hematoxylin_od component is not completely inside the eroded gray component
+original_14,canine lymphosarcoma,246.tiff,6548,False,,base (click on eroded-gray foreground),0,1,,click's hematoxylin_od component is not completely inside the eroded gray component
+original_14,canine soft tissue sarcoma,459.tiff,22441,False,,base (click on eroded-gray foreground),0,1,,click's hematoxylin_od component is not completely inside the eroded gray component
+tightening_process_hem_vs_gray,canine soft tissue sarcoma,459.tiff,22446,False,,base (click on eroded-gray foreground),0,1,,click's hematoxylin_od component is not completely inside the eroded gray component
+original_14,canine soft tissue sarcoma,460.tiff,22577,False,,base (click on eroded-gray foreground),0,1,,click's hematoxylin_od component is not completely inside the eroded gray component
+tightening_process_hem_vs_gray,human breast cancer,013.tiff,243,False,,"fallback (click on eroded-gray background, nearest of 2 eroded components within 3.0um)",0,2,,no hematoxylin_od component within 3.0um of the click is completely inside the eroded gray component
+original_14,human breast cancer,013.tiff,249,False,,base (click on eroded-gray foreground),0,1,,click's hematoxylin_od component is not completely inside the eroded gray component
+tightening_process_hem_vs_gray,human breast cancer,013.tiff,254,False,,"fallback (click on eroded-gray background, nearest of 1 eroded components within 3.0um)",0,1,,no hematoxylin_od component within 3.0um of the click is completely inside the eroded gray component
+original_14,human breast cancer,094.tiff,2512,False,,base (click on eroded-gray foreground),0,1,,click's hematoxylin_od component is not completely inside the eroded gray component
+original_14,human melanoma,529.tiff,24918,False,,base (click on eroded-gray foreground),0,1,,click's hematoxylin_od component is not completely inside the eroded gray component
+tightening_process_hem_vs_gray,human melanoma,529.tiff,24937,True,29.0,base (click on eroded-gray foreground),1,1,219.0,
+original_14,human melanoma,548.tiff,25804,False,,base (click on eroded-gray foreground),0,1,,click's hematoxylin_od component is not completely inside the eroded gray component
+original_14,human neuroendocrine tumor,402.tiff,20254,False,,base (click on eroded-gray foreground),0,1,,click's hematoxylin_od component is not completely inside the eroded gray component
+tightening_process_hem_vs_gray,human neuroendocrine tumor,402.tiff,20258,False,,base (click on eroded-gray foreground),0,1,,click's hematoxylin_od component is not completely inside the eroded gray component
+original_14,human neuroendocrine tumor,403.tiff,20356,True,29.0,base (click on eroded-gray foreground),1,1,436.0,
