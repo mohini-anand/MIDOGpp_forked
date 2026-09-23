@@ -1,0 +1,25 @@
+check,expected,observed,passed
+RAW rows == 14 ROI x 2 cond x 3 arm x 4 budget,336,336,True
+TABLE_A rows == 14 x 2 x 3,84,84,True
+TABLE_B rows == 7 domain x 2 x 3 x 4,168,168,True
+DELTA_A rows == 14 x 3,42,42,True
+DELTA_B rows == 7 x 3 x 4,84,84,True
+STAT_CONTEXT rows == 3 arm x 4 budget,12,12,True
+distinct ROIs in RAW,14,14,True
+distinct domains in RAW,7,7,True
+distinct conditions in RAW,2,2,True
+distinct arms in RAW,3,3,True
+"RAW duplicate (file,cond,arm,budget) keys",0,0,True
+"TABLE_A duplicate (file,cond,arm) keys",0,0,True
+"TABLE_B duplicate (domain,cond,arm,K) keys",0,0,True
+RAW fully-duplicate rows,0,0,True
+RAW NaN cells in analysis columns,0,0,True
+every domain carries exactly 2 ROIs,True,True,True
+"DELTA_A merge kept every (ROI, arm)",42,42,True
+"DELTA_B merge kept every (domain, arm, K)",84,84,True
+ROIs on disk in images/extra_valid,14,14,True
+ROIs on disk all present in RAW,14,14,True
+ROIs on disk all present in MIDOG++.json,14,14,True
+VERIF records == 168 harness + 56 inline + 4 summary + 14 gate1,242,242,True
+VERIF hard checks all passed,True,True,True
+VERIF rows with passed == False,0,0,True

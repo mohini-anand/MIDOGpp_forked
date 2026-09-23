@@ -1,0 +1,19 @@
+check,expected,got,passed
+raw rows = 14 ROI x n_arms x 4 budgets,112,112,True
+raw distinct arms,2,2,True
+raw distinct ROIs,14,14,True
+raw ROIs match disk,14,14,True
+per_roi rows,28,28,True
+by_domain rows,56,56,True
+delta per_roi rows (inner merge loses nothing),28,28,True
+delta by_domain rows,56,56,True
+domains x 2 ROIs each,7,7,True
+"duplicate (file,arm,budget) keys",0,0,True
+duplicate raw rows,0,0,True
+NaN tp_at_budget,0,0,True
+budget_delivered == budget on all rows,112,112,True
+n_detections >= 50 on all rows,112,112,True
+verification records,87,87,True
+verification no_cap rows (T3-3 should have removed these),0,28,False
+stat_context rows = n_arms x 4 budgets,8,8,True
+seed_annulus_empty per-ROI violations,0,1,False

@@ -1,0 +1,21 @@
+item,mtime,last_commit,uncommitted,code_identical_to_baseline_run
+midog_utils/channels.py,2026-09-14 18:47,f9b4a63 2026-09-14,False,True
+midog_utils/chromatin.py,2026-09-14 18:48,f9b4a63 2026-09-14,False,True
+midog_utils/dataset.py,2026-09-15 12:18,bf532d1 2026-09-15,False,True
+midog_utils/evaluate.py,2026-09-14 18:48,f9b4a63 2026-09-14,False,True
+midog_utils/seed_selection.py,2026-09-15 12:08,7f1bdb6 2026-09-15,False,True
+midog_utils/template_match.py,2026-09-15 12:09,7f1bdb6 2026-09-15,False,True
+midog_utils/compare.py,2026-09-01 19:11,eb34505 2026-09-04,False,True
+midog_utils/nms.py,2026-09-14 18:47,f9b4a63 2026-09-14,False,True
+midog_utils/invariants.py,2026-09-14 18:49,f9b4a63 2026-09-14,False,True
+midog_utils/find_and_suppress.py,2026-09-16 10:14,74fbea0 2026-09-16,False,False
+production_hematoxylin_only/production_seed_precision_at_k_chromatin_hem_bbox.ipynb,2026-09-16 10:56,UNTRACKED,True,
+results/precision_at_k_14roi_prodseed_chromatin_hembbox_raw.csv,2026-09-16 10:56,UNTRACKED,True,
+results/precision_at_k_14roi_prodseed_chromatin_hembbox_per_roi.csv,2026-09-16 10:56,UNTRACKED,True,
+results/precision_at_k_14roi_prodseed_chromatin_hembbox_by_domain.csv,2026-09-16 10:56,UNTRACKED,True,
+results/precision_at_k_14roi_prodseed_chromatin_hembbox_verification.csv,2026-09-16 10:56,UNTRACKED,True,
+results/precision_at_k_14roi_prodseed_chromatin_hembbox_vs_halfpixfix_per_roi.csv,2026-09-16 10:56,UNTRACKED,True,
+results/precision_at_k_14roi_prodseed_chromatin_hembbox_vs_halfpixfix_by_domain.csv,2026-09-16 10:56,UNTRACKED,True,
+results/precision_at_k_14roi_prodseed_chromatin_halfpixfix_raw.csv,2026-09-10 15:51,fa94b90 2026-09-11,False,
+results/precision_at_k_14roi_prodseed_chromatin_halfpixfix_per_roi.csv,2026-09-10 15:51,fa94b90 2026-09-11,False,
+results/precision_at_k_14roi_prodseed_chromatin_halfpixfix_by_domain.csv,2026-09-10 15:51,fa94b90 2026-09-11,False,

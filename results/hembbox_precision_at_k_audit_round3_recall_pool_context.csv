@@ -1,0 +1,32 @@
+arm,quantity,n_roi_defined,mean_hem,mean_gray,mean_delta,n_hem_better,n_gray_better,ties,n_nonzero,sign_flip_p,hem_direction
+tm_score,coverage_frac,14,0.0085,0.0085,-0.0,5,6,3,11,0.7012,hem worse
+tm_score,full_list_recall,14,0.3711,0.4089,-0.0378,5,9,0,14,0.1221,hem worse
+tm_score,read_50,2,68.5,60.5,3.5,0,1,1,1,1.0,hem worse
+tm_score,read_80,0,,,,0,0,0,0,,tied / undefined
+tm_score,read_90,0,,,,0,0,0,0,,tied / undefined
+tm_score,read_95,0,,,,0,0,0,0,,tied / undefined
+tm_score,read_99,0,,,,0,0,0,0,,tied / undefined
+tm_score,read_100,0,,,,0,0,0,0,,tied / undefined
+tm_score,n_detections,14,97.4286,97.6429,-0.2143,4,5,5,9,0.6953,hem worse
+tm_score,n_lookalike_in_list,14,10.0714,10.2857,-0.2143,6,3,5,9,0.6172,hem better
+chromatin_od,coverage_frac,14,0.0085,0.0085,-0.0,5,6,3,11,0.7012,hem worse
+chromatin_od,full_list_recall,14,0.3711,0.4089,-0.0378,5,9,0,14,0.1221,hem worse
+chromatin_od,read_50,2,23.0,27.25,-1.5,1,1,0,2,1.0,hem better
+chromatin_od,read_80,0,,,,0,0,0,0,,tied / undefined
+chromatin_od,read_90,0,,,,0,0,0,0,,tied / undefined
+chromatin_od,read_95,0,,,,0,0,0,0,,tied / undefined
+chromatin_od,read_99,0,,,,0,0,0,0,,tied / undefined
+chromatin_od,read_100,0,,,,0,0,0,0,,tied / undefined
+chromatin_od,n_detections,14,97.4286,97.6429,-0.2143,4,5,5,9,0.6953,hem worse
+chromatin_od,n_lookalike_in_list,14,10.0714,10.2857,-0.2143,6,3,5,9,0.6172,hem better
+od_contrast,coverage_frac,14,0.0085,0.0085,-0.0,5,6,3,11,0.7012,hem worse
+od_contrast,full_list_recall,14,0.3711,0.4089,-0.0378,5,9,0,14,0.1221,hem worse
+od_contrast,read_50,2,20.5,31.0,-7.5,2,0,0,2,0.5,hem better
+od_contrast,read_80,0,,,,0,0,0,0,,tied / undefined
+od_contrast,read_90,0,,,,0,0,0,0,,tied / undefined
+od_contrast,read_95,0,,,,0,0,0,0,,tied / undefined
+od_contrast,read_99,0,,,,0,0,0,0,,tied / undefined
+od_contrast,read_100,0,,,,0,0,0,0,,tied / undefined
+od_contrast,n_detections,14,97.4286,97.6429,-0.2143,4,5,5,9,0.6953,hem worse
+od_contrast,n_lookalike_in_list,14,10.0714,10.2857,-0.2143,6,3,5,9,0.6172,hem better
+ALL,max |delta_recall - delta_precision*K/n_gt|,168,,,9.71445146547012e-17,0,0,0,0,,recall column is redundant with precision in this design

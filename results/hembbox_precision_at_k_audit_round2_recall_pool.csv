@@ -1,0 +1,7 @@
+column,arm,mean_new,mean_old,mean_delta,n_better,n_worse,n_effective_units,p_exact_sign_flip
+n_detections,tm_score,17729.6429,17331.0714,398.5714,10,4,14,0.007
+coverage_frac,tm_score,0.963,0.9564,0.0066,11,3,14,0.006
+full_list_recall,tm_score,0.9992,0.9985,0.0007,2,0,2,0.5
+read_95,tm_score,3186.5714,3941.9286,-755.3571,4,10,14,0.0273
+read_95,chromatin_od,3591.6429,3663.7143,-72.0714,10,4,14,0.618
+full_list_recall_reaching_1.000,tm_score,,,,2,0,2,

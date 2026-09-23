@@ -1,0 +1,20 @@
+kind,path,mtime,git_last,porcelain
+module,midog_utils/compare.py,2026-09-01 19:11:16,eb34505 2026-09-04 Generalise the search harness to six TM methods and short reading budgets,(clean)
+module,midog_utils/evaluate.py,2026-09-14 18:48:46,"f9b4a63 2026-09-14 Archive midog_utils as midog_utils_full, strip the production pipeline's docstrings and comments to brief descriptions",(clean)
+module,midog_utils/seed_selection.py,2026-09-15 12:08:45,7f1bdb6 2026-09-15 Reformat seed_selection.py and template_match.py docstrings to the input/output convention,(clean)
+module,midog_utils/template_match.py,2026-09-15 12:09:18,7f1bdb6 2026-09-15 Reformat seed_selection.py and template_match.py docstrings to the input/output convention,(clean)
+module,midog_utils/chromatin.py,2026-09-14 18:48:09,"f9b4a63 2026-09-14 Archive midog_utils as midog_utils_full, strip the production pipeline's docstrings and comments to brief descriptions",(clean)
+module,midog_utils/dataset.py,2026-09-15 12:18:09,bf532d1 2026-09-15 Reformat dataset.py docstrings to the input/output convention,(clean)
+module,midog_utils/channels.py,2026-09-14 18:47:55,"f9b4a63 2026-09-14 Archive midog_utils as midog_utils_full, strip the production pipeline's docstrings and comments to brief descriptions",(clean)
+module,midog_utils/nms.py,2026-09-14 18:47:47,"f9b4a63 2026-09-14 Archive midog_utils as midog_utils_full, strip the production pipeline's docstrings and comments to brief descriptions",(clean)
+module,midog_utils/invariants.py,2026-09-14 18:49:12,"f9b4a63 2026-09-14 Archive midog_utils as midog_utils_full, strip the production pipeline's docstrings and comments to brief descriptions",(clean)
+module,midog_utils/find_and_suppress.py,2026-09-16 10:14:46,"74fbea0 2026-09-16 Add explanatory comments to FSConfig and run_pipeline.py, verified pipeline-intact",(clean)
+notebook,production_hematoxylin_only/production_seed_precision_at_k_chromatin_hem_bbox.ipynb,2026-09-16 16:10:58,(untracked),?? production_hematoxylin_only/production_seed_precision_at_k_chromatin_hem_bbox.ipynb
+artifact,results/precision_at_k_14roi_prodseed_chromatin_hembbox_raw.csv,2026-09-16 16:09:50,(untracked),?? results/precision_at_k_14roi_prodseed_chromatin_hembbox_raw.csv
+artifact,results/precision_at_k_14roi_prodseed_chromatin_hembbox_per_roi.csv,2026-09-16 16:09:50,(untracked),?? results/precision_at_k_14roi_prodseed_chromatin_hembbox_per_roi.csv
+artifact,results/precision_at_k_14roi_prodseed_chromatin_hembbox_by_domain.csv,2026-09-16 16:09:50,(untracked),?? results/precision_at_k_14roi_prodseed_chromatin_hembbox_by_domain.csv
+artifact,results/precision_at_k_14roi_prodseed_chromatin_hembbox_delta_per_roi.csv,2026-09-16 16:09:50,(untracked),?? results/precision_at_k_14roi_prodseed_chromatin_hembbox_delta_per_roi.csv
+artifact,results/precision_at_k_14roi_prodseed_chromatin_hembbox_delta_by_domain.csv,2026-09-16 16:09:50,(untracked),?? results/precision_at_k_14roi_prodseed_chromatin_hembbox_delta_by_domain.csv
+artifact,results/precision_at_k_14roi_prodseed_chromatin_hembbox_stat_context.csv,2026-09-16 16:10:49,(untracked),?? results/precision_at_k_14roi_prodseed_chromatin_hembbox_stat_context.csv
+artifact,results/precision_at_k_14roi_prodseed_chromatin_hembbox_verification.csv,2026-09-16 16:09:50,(untracked),?? results/precision_at_k_14roi_prodseed_chromatin_hembbox_verification.csv
+verdict,artifacts_newer_than_every_module,True,,

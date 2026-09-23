@@ -1,0 +1,18 @@
+prose_claim,notebook_says,audit_finds,agrees
+median old base_size,39,39,True
+median new base_size,28,28,True
+median per-ROI pct change,-13.3,-13.3,True
+n shrink,13,13,True
+n grow,1,1,True
+201.tiff base_size old->new,51->29,51->29,True
+245.tiff base_size old->new,47->23,47->23,True
+403.tiff base_size old->new,51->31,51->31,True
+tm_score same-seed wins range across K,2-3,1-3,False
+tm_score same-seed losses range across K,6-8,6-8,True
+chromatin_od same-seed ties range across K,7-10,7-10,True
+403 annulus candidate distance to click (px),33.29,33.29,True
+403 match_radius (px),33.06,33.06,True
+"403 annulus candidate rank, tm_score (ordinal)",3281st,3282th,False
+"403 annulus candidate rank, chromatin_od (ordinal)",393rd,394th,False
+403 pool size,17626,17626,True
+403 annulus candidate reaches K<=50,False,False,True

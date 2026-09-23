@@ -1,0 +1,15 @@
+file_name,domain,n_pool,n_hem_accepts,n_gray_accepts,n_both,n_hem_only,n_gray_only,gray_refuses_a_hem_accept,n_walk_visits,solo_hem_ann_id,solo_gray_ann_id,joint_ann_id,joint_eq_solo_hem,joint_eq_solo_gray
+013.tiff,human breast cancer,11,7,9,7,0,2,0,2,249,254,249,True,False
+094.tiff,human breast cancer,49,41,44,41,0,3,0,1,2512,2512,2512,True,True
+201.tiff,canine lung cancer,7,6,6,6,0,0,0,1,4457,4457,4457,True,True
+233.tiff,canine lung cancer,12,11,11,11,0,0,0,1,5761,5761,5761,True,True
+245.tiff,canine lymphosarcoma,78,65,73,64,1,9,1,2,6317,6274,6317,True,False
+246.tiff,canine lymphosarcoma,97,74,87,72,2,15,2,1,6548,6548,6548,True,True
+300.tiff,canine cutaneous mast cell tumor,127,99,116,99,0,17,0,2,14499,14581,14499,True,False
+301.tiff,canine cutaneous mast cell tumor,162,122,136,122,0,14,0,1,14969,14969,14969,True,True
+402.tiff,human neuroendocrine tumor,65,58,60,58,0,2,0,1,20254,20254,20254,True,True
+403.tiff,human neuroendocrine tumor,36,30,32,30,0,2,0,2,20356,20356,20356,True,True
+459.tiff,canine soft tissue sarcoma,121,104,115,104,0,11,0,1,22441,22441,22441,True,True
+460.tiff,canine soft tissue sarcoma,31,27,30,27,0,3,0,1,22577,22577,22577,True,True
+529.tiff,human melanoma,13,9,10,8,1,2,1,1,24918,24918,24918,True,True
+548.tiff,human melanoma,184,162,167,162,0,5,0,1,25804,25804,25804,True,True

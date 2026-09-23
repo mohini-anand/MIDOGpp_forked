@@ -1,0 +1,3 @@
+file_name,condition,base_size,tpl_cx,tpl_cy,nms_radius_px,n_peaks_uncapped,n_annulus_survivors_uncapped,annulus_survivor_preNMS_ranks,annulus_survivor_distances,dist_to_nearest_kept,margin_over_nms_radius,any_rank_within_100
+403.tiff,hem_bbox,31,2225.0,2974.5,33.059940944881895,53746,1,4444,32.898,33.106,+0.046,False
+403.tiff,gray_bbox,51,2227.0,2968.0,33.059940944881895,34638,0,,,,,False

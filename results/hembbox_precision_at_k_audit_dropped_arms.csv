@@ -1,0 +1,7 @@
+arm,carried_into_hembbox_notebook,P@10,P@20,P@30,P@50
+od_contrast,False,0.6357,0.6179,0.55,0.4829
+chromatin_od,True,0.6214,0.6107,0.5595,0.4886
+od31,False,0.5643,0.55,0.5238,0.4657
+tm_score,True,0.5,0.4536,0.4286,0.3743
+mask_od_mean,False,0.4071,0.4,0.4119,0.3843
+od_falloff,False,0.3429,0.3464,0.3333,0.3143

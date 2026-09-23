@@ -1,0 +1,18 @@
+claim,notebook_says,audit_finds,agrees,where
+"tm_score resolvable at K=20 only, p=0.039",0.039,0.0391,True,cell 26
+K=10/30/50 do not clear p<0.05,none clear 0.05,"{10: 0.3125, 30: 0.0957, 50: 0.1348}",True,cell 26
+1-3 wins vs 6-8 losses for tm_score across the four budgets,1-3 / 6-8,"{10: (3, 6), 20: (1, 7), 30: (2, 8), 50: (2, 8)}",True,cell 26
+tm_score falls on 6-8 of 11 ROIs at every budget,6-8 of 11,"{10: 6, 20: 7, 30: 8, 50: 8}",True,cell 26
+"all-14 K=10 mean delta +0.021, 6 better / 6 worse / 2 tied, p=0.75","+0.021, 6/6/2, p=0.75","+0.0214, 6/6/2, p=0.7515",True,cell 26
+over all 14 ROIs the tm_score penalty shrinks to roughly 1-2pp,1-2 pp,"[1.07, 2.14, 1.14]",True,cell 26
+chromatin_od: only 1 of 11 same-seed ROIs moves at K=10,1 of 11,1,True,cell 26
+"pool size +399 candidates/ROI, 10/14 larger, p=0.007","+399, 10/14, p=0.007","+398.6, 10/14, p=0.0070",True,cell 26 (declined T2-1)
+"coverage_frac +0.007, p=0.006","+0.007, p=0.006","+0.0066, p=0.0060",True,cell 26 (declined T2-1)
+"read_95 for tm_score falls by 755 candidates, p=0.027","-755, p=0.027","-755.4, p=0.0273",True,cell 26 (declined T2-1)
+300.tiff and 301.tiff reach full-list recall 1.000,"300, 301","['300.tiff', '301.tiff']",True,cell 26 (declined T2-1)
+"""every [Spearman] coefficient is small and non-significant""",none significant; all small,"computed subset (all_14): max |rho|=0.398, min p_asym=0.158. UNCOMPUTED subset (same_seed_11, 8 of the audit's 16 cells): chromatin_od/K=50 rho=-0.595, p_asym=0.054, p_perm=0.032",False,cell 26
+"""on the all-14 set the sign runs the wrong way""",negative rho on all-14 tm_score,"{10: -0.104, 20: -0.11, 30: -0.323, 50: -0.025}",True,cell 26
+245.tiff shrank 47 -> 23 px,47 -> 23,47 -> 23,True,cell 26
+base_size shrinks on 13 of 14 ROIs,"13 shrink, 1 grows","13 shrink, 1 grow, 0 unchanged",True,cells 17/26
+seed_ann_id matches the baseline on 11/14 ROIs,11/14,11/14,True,cell 18
+"MAX_PEAKS = 2_000_000, D9 supersedes it with 100",notebook still at 2_000_000,2_000_000,True,"cell 26 scope-gap paragraph (self-reported, and true)"

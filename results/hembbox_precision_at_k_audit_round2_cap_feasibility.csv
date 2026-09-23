@@ -1,0 +1,15 @@
+file_name,n_pre_nms_peaks_uncapped,n_peaks_at_MAX_PEAKS_100,cell5_assert_n_peaks_lt_MAX_PEAKS,check_no_cap_would_raise
+013.tiff,62536,100,False,True
+094.tiff,69995,100,False,True
+201.tiff,46192,100,False,True
+233.tiff,55954,100,False,True
+245.tiff,62302,100,False,True
+246.tiff,54858,100,False,True
+300.tiff,44384,100,False,True
+301.tiff,39243,100,False,True
+402.tiff,62747,100,False,True
+403.tiff,53746,100,False,True
+459.tiff,40493,100,False,True
+460.tiff,24975,100,False,True
+529.tiff,38958,100,False,True
+548.tiff,52285,100,False,True

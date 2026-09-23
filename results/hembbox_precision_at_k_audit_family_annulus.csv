@@ -1,0 +1,7 @@
+verification_csv,n_rows,has_seed_annulus_check,n_per_roi_rows,n_violations,violating_labels
+precision_at_k_14roi_prodseed_8aug_verification.csv,44,True,14,0,
+precision_at_k_14roi_prodseed_chromatin_halfpixfix_verification.csv,199,True,14,0,
+precision_at_k_14roi_prodseed_chromatin_hembbox_verification.csv,87,True,14,1,403.tiff
+precision_at_k_14roi_prodseed_chromatin_verification.csv,185,True,14,0,
+precision_at_k_14roi_prodseed_normed_verification.csv,59,True,14,0,
+precision_at_k_14roi_prodseed_verification.csv,44,True,14,0,

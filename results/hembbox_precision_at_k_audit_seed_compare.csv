@@ -1,0 +1,15 @@
+file_name,tumor_type,seed_ann_id,base_size,old_seed_ann_id,old_base_size,same_seed,delta_base_size,pct_change_base_size
+013.tiff,human breast cancer,249,39,254,31,False,8,25.8
+094.tiff,human breast cancer,2512,23,2512,25,True,-2,-8.0
+201.tiff,canine lung cancer,4457,29,4457,51,True,-22,-43.1
+233.tiff,canine lung cancer,5761,23,5761,25,True,-2,-8.0
+245.tiff,canine lymphosarcoma,6317,23,6274,47,False,-24,-51.1
+246.tiff,canine lymphosarcoma,6548,27,6548,41,True,-14,-34.1
+300.tiff,canine cutaneous mast cell tumor,14499,25,14581,45,False,-20,-44.4
+301.tiff,canine cutaneous mast cell tumor,14969,33,14969,41,True,-8,-19.5
+402.tiff,human neuroendocrine tumor,20254,25,20254,29,True,-4,-13.8
+403.tiff,human neuroendocrine tumor,20356,31,20356,51,True,-20,-39.2
+459.tiff,canine soft tissue sarcoma,22441,31,22441,33,True,-2,-6.1
+460.tiff,canine soft tissue sarcoma,22577,41,22577,47,True,-6,-12.8
+529.tiff,human melanoma,24918,33,24918,37,True,-4,-10.8
+548.tiff,human melanoma,25804,27,25804,29,True,-2,-6.9

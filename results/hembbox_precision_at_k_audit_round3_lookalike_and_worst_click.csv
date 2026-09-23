@@ -1,0 +1,13 @@
+arm,K,lookalike_hem,lookalike_gray,delta_lookalike_total,mean_delta_lookalike,lk_sign_flip_p,lk_n_nonzero,worst_roi_precision_hem,worst_roi_precision_gray,delta_worst_roi_precision
+tm_score,10,21,20,1,0.0714,1.0,4,0.2,0.1,0.1
+tm_score,20,37,41,-4,-0.2857,0.5312,9,0.2,0.1,0.1
+tm_score,30,63,54,9,0.6429,0.1719,9,0.1667,0.1,0.0667
+tm_score,50,86,88,-2,-0.1429,0.8613,10,0.12,0.12,0.0
+chromatin_od,10,19,19,0,0.0,1.0,4,0.1,0.1,0.0
+chromatin_od,20,37,35,2,0.1429,0.7656,7,0.1,0.2,-0.1
+chromatin_od,30,54,55,-1,-0.0714,1.0,5,0.1667,0.2333,-0.0667
+chromatin_od,50,89,86,3,0.2143,0.5625,8,0.14,0.14,0.0
+od_contrast,10,18,21,-3,-0.2143,0.375,5,0.1,0.1,0.0
+od_contrast,20,37,39,-2,-0.1429,0.7969,8,0.1,0.25,-0.15
+od_contrast,30,56,53,3,0.2143,0.6958,13,0.1333,0.2,-0.0667
+od_contrast,50,92,89,3,0.2143,0.7295,11,0.16,0.14,0.02

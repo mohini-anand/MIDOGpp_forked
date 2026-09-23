@@ -1,0 +1,13 @@
+setting,notebook,fsconfig_default,decisions,agrees_with_decision
+channel (search),hematoxylin_od,gray_inverted,D3: hematoxylin_od unclipped,True
+tm_method,cv2.TM_CCOEFF (=4),5 (TM_CCOEFF_NORMED=5),D1: TM_CCOEFF,True
+nms_radius,"radius_px(mpp, 7.5)",None,"D7: = match radius, 7.5 um",True
+match_radius,"radius_px(mpp, 7.5)",n/a,D7: 7.5 um,True
+self_hit_radius,5.0 px (fixed),5.0,not decided; fixed-px while match radius is mpp-scaled,True
+peak_min_distance,7,7,not decided,True
+MAX_PEAKS (pre-NMS),2_000_000,250000,D9 (2026-09-12): 100,False
+deep floor z,-1.5,None,D9: unchanged at -1.5,True
+base_size source,tightened_template_box (Otsu on hematoxylin_od),51,"D8: accepted component, centre (x0+x1-1)/2",True
+otsu_window,51,51,D8 default,True
+patch_size,73,73,tm.PATCH_SIZE,True
+Arm(caps=...),"(MAX_PEAKS,) -- a PRE-NMS cap checked against a POST-NMS length",n/a,invariants.check_no_cap contract,False

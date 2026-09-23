@@ -1,0 +1,44 @@
+cell,claim,claimed,recomputed,match
+19,base_size matches between conditions on N/14 ROIs,1,1,True
+19,median base_size gray_bbox,40,40,True
+19,median base_size hem_bbox,28,28,True
+19,median per-ROI base_size change %,-13.3,-13.3,True
+19,n shrink,13,13,True
+19,n grow,0,0,True
+27,"tm_score pooled delta range (pp), min",-3.6,-3.6,True
+27,"tm_score pooled delta range (pp), max",-1.4,-1.4,True
+27,"chromatin_od pooled delta range (pp), min",-3.9,-3.9,True
+27,"chromatin_od pooled delta range (pp), max",-2.1,-2.1,True
+27,"od_contrast pooled delta range (pp), min",-3.3,-3.3,True
+27,"od_contrast pooled delta range (pp), max",-1.4,-1.4,True
+27,"all 12 (arm,K) pooled deltas negative -- no exceptions",12,12,True
+27,"n (arm,K) cells with exact_p < 0.05",1,1,True
+27,the one significant cell,od_contrast/K=30,od_contrast/K=30,True
+27,its p,0.047,0.047,True
+27,other cells p range low,0.07,0.07,True
+27,other cells p range high,0.83,0.83,True
+27,chromatin_od@K10 wins/losses/ties,0/3/11,0/3/11,True
+27,tm_score |spearman rho| max <= 0.30,True,True,True
+27,tm_score spearman p_asym min >= 0.30,True,True,True
+27,n non-tm cells with nominally significant spearman,2,2,True
+27,which cells,chromatin_od/K=20;od_contrast/K=30,chromatin_od/K=20;od_contrast/K=30,True
+27,their rho,0.62;0.61,0.62;0.61,True
+10,tightened_template_box reproduces on 14 ROIs x 2 conditions (Tier B),True,True,True
+10,joint click matches an independent hem-gated walk on N/14,14,14,True
+10,"gray gate refuses a hem-accepted candidate, pool-wide count",0,4,False
+10,"hem gate refuses a gray-accepted candidate, pool-wide count",n/a,85,True
+8,"seed_annulus_empty passed on all 28 (ROI, condition) runs",28,28,True
+8,seed_annulus n_near_seed == 0 on every run,28,28,True
+6,"n_peaks_preNMS == MAX_PEAKS on all 28 (ROI, condition)",28,28,True
+8,VERIF hard checks passed,144 / 144,158 / 158,False
+8,403 self_score >= cutoff on both conditions (Tier B),True,True,True
+17,nan_rate max,0.0,0.0,True
+17,largest_tie_block max,1,1,True
+17,prose 'tie block expected to run larger' vs the printed value,larger,1 == the minimum possible (no ties at all),False
+8,every n_detections >= max budget (50),True,True,True
+8,every budget_delivered == budget,True,True,True
+27,D8 half-pixel anchor 'still true on 8/14 ROIs' (hem_bbox),8,8,True
+27,same count for gray_bbox (prose does not say which condition),n/a,9,True
+14,worst_roi_file arbitrary on N/168 rows,12,12,True
+23,markdown says 'two panels'; each figure has len(AXES) panels,two panels,3 panels,False
+28,notebook wall clock (s),263,263,True

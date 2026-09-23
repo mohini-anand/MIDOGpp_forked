@@ -1,0 +1,2 @@
+file_name,base_size,match_radius_px,cand_x,cand_y,dist_to_template_centre,dist_to_click,inside_click_radius,rank_tm_score,rank_chromatin_od,n_detections
+403.tiff,31,33.06,2255.0,2988.0,32.898,33.287,False,3282,394,17626

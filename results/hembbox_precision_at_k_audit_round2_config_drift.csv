@@ -1,0 +1,12 @@
+setting,notebook,dataclass_default,decisions,agrees
+MAX_PEAKS,2_000_000,n/a,D9 (2026-09-12): 100,False
+CHANNEL,'hematoxylin_od','gray_inverted',D3 hematoxylin_od,True
+METHOD,cv2.TM_CCOEFF,5,D1 TM_CCOEFF,True
+PEAK_MIN_DISTANCE,7,7,repo default 7,True
+SELF_HIT_RADIUS,5.0,5.0,FSConfig 5.0 fixed px,True
+NMS_RADIUS_UM,ev.MIDOG_RADIUS_UM,n/a,D7 7.5 um,True
+MATCH_RADIUS_UM,ev.MIDOG_RADIUS_UM,n/a,D7 7.5 um,True
+DEEP_FLOOR_Z,-1.5,None,repo convention -1.5,True
+OD_WINDOW,tm.BASE_SIZE,n/a,D5 amendment: od51,True
+AXES (arm set),"['tm_score', 'chromatin_od']",n/a,D5 amendment lists od_contrast as a candidate axis,False
+SEED_INDEX,0,n/a,one click per ROI,True

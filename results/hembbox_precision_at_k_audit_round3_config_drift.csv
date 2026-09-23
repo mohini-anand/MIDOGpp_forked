@@ -1,0 +1,16 @@
+setting,notebook,fsconfig_default,decision,notebook_matches_decision
+search channel,hematoxylin_od,"""gray_inverted""",D3 hematoxylin_od (unclipped),True
+tm method,cv2.TM_CCOEFF,cv2.TM_CCOEFF_NORMED,D1 TM_CCOEFF,True
+nms radius,ev.MIDOG_RADIUS_UM = 7.5 um (per-image px),None,D7 7.5 um == match radius,True
+max_peaks,100,250000,D9 max_peaks = 100 pre-NMS,True
+self_hit_radius,5.0,5.0,repo default 5.0 px,True
+peak_min_distance,7,7,repo default 7,True
+patch_size,FSConfig default -> BORDER 36,tm.PATCH_SIZE,tm.PATCH_SIZE 73,True
+deep floor z,-1.5,None,D9 'DEEP_FLOOR_Z unchanged at -1.5',True
+budgets,"(10, 20, 30, 50)",n/a,D9 'Not tested past K=30',False
+arms,"['tm_score', 'chromatin_od', 'od_contrast']",n/a,"D5 + 2026-09-08 amendment (tm_score, chromatin_od, od_contrast)",True
+FIX 1 joint-validity click gate,True,n/a,round-2 audit spec item 1,True
+FIX 2 MAX_PEAKS = 100,True,250000,D9,True
+FIX 3 peak assert inverted,False,n/a,round-2 audit spec item 3 (the old `n_peaks < MAX_PEAKS` survives only inside a comment),True
+FIX 4 MAX_PEAKS out of Arm(caps=),True,n/a,round-2 audit spec item 4 / max-peaks-not-in-arm-caps,True
+FIX 5 od_contrast scored as a third arm,True,n/a,round-2 audit spec item 5,True

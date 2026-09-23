@@ -1,0 +1,9 @@
+arm,K,mean_same_seed_n11,mean_diff_seed_n3,mean_all_rois_n14,reported_by_notebook,sign_flips_between_subsets
+tm_score,10,-0.0455,0.2667,0.0214,same_seed n=11,True
+tm_score,20,-0.0545,0.15,-0.0107,same_seed n=11,False
+tm_score,30,-0.0576,0.1111,-0.0214,same_seed n=11,False
+tm_score,50,-0.0364,0.08,-0.0114,same_seed n=11,False
+chromatin_od,10,-0.0091,0.0333,0.0,same_seed n=11,False
+chromatin_od,20,0.0,-0.0167,-0.0036,same_seed n=11,True
+chromatin_od,30,-0.003,-0.0444,-0.0119,same_seed n=11,False
+chromatin_od,50,0.0073,0.0,0.0057,same_seed n=11,False

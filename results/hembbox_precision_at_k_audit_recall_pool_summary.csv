@@ -1,0 +1,13 @@
+arm,column,mean_new,mean_old,mean_delta,n_worse,n_effective_units,p_exact_sign_flip
+tm_score,n_detections,17729.6429,17331.0714,398.5714,10,14,0.007
+tm_score,coverage_frac,0.963,0.9564,0.0066,3,14,0.006
+tm_score,full_list_recall,0.9992,0.9985,0.0007,0,2,0.5
+tm_score,read_95,3186.5714,3941.9286,-755.3571,4,14,0.0273
+tm_score,read_100,5735.1538,5858.6364,-871.1429,3,11,0.2764
+tm_score,n_lookalike_in_list,69.0714,68.9286,0.1429,2,6,0.9062
+chromatin_od,n_detections,17729.6429,17331.0714,398.5714,10,14,0.007
+chromatin_od,coverage_frac,0.963,0.9564,0.0066,3,14,0.006
+chromatin_od,full_list_recall,0.9992,0.9985,0.0007,0,2,0.5
+chromatin_od,read_95,3591.6429,3663.7143,-72.0714,10,14,0.618
+chromatin_od,read_100,7172.3846,6054.7273,-2.7857,8,11,0.9883
+chromatin_od,n_lookalike_in_list,69.0714,68.9286,0.1429,2,6,0.9062

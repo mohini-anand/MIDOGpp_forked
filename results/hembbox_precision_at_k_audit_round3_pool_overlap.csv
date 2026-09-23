@@ -1,0 +1,15 @@
+file_name,domain,n_hem,n_gray,n_shared_exact_px,jaccard_exact_px,n_paired_within_match_radius,frac_paired,match_radius_px
+013.tiff,human breast cancer,98,97,2,0.0104,89,0.9082,33.14
+094.tiff,human breast cancer,98,96,0,0.0,81,0.8265,32.63
+201.tiff,canine lung cancer,97,98,0,0.0,31,0.3196,30.22
+233.tiff,canine lung cancer,96,97,0,0.0,71,0.7396,30.22
+245.tiff,canine lymphosarcoma,98,97,0,0.0,19,0.1939,30.22
+246.tiff,canine lymphosarcoma,94,96,0,0.0,66,0.7021,30.22
+300.tiff,canine cutaneous mast cell tumor,99,99,0,0.0,62,0.6263,29.61
+301.tiff,canine cutaneous mast cell tumor,99,98,0,0.0,67,0.6768,29.61
+402.tiff,human neuroendocrine tumor,98,98,2,0.0103,83,0.8469,33.14
+403.tiff,human neuroendocrine tumor,95,98,0,0.0,48,0.5053,33.06
+459.tiff,canine soft tissue sarcoma,99,99,10,0.0532,86,0.8687,30.22
+460.tiff,canine soft tissue sarcoma,99,99,0,0.0,75,0.7576,30.22
+529.tiff,human melanoma,96,97,2,0.0105,76,0.7917,33.06
+548.tiff,human melanoma,98,98,50,0.3425,91,0.9286,32.98

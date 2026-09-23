@@ -1,0 +1,23 @@
+check,expected,got,passed
+raw rows = 14 ROI x 2 arms x 4 budgets,112,112,True
+per_roi rows = 14 ROI x 2 arms,28,28,True
+by_domain rows = 7 domains x 2 arms x 4 budgets,56,56,True
+"delta_a rows (inner merge, no loss)",28,28,True
+"delta_b rows (inner merge, no loss)",56,56,True
+distinct ROIs on disk,14,14,True
+distinct ROIs in raw,14,14,True
+distinct ROIs in per_roi,14,14,True
+ROI set in raw == ROI set on disk,True,True,True
+distinct domains in raw,7,7,True
+every domain has exactly 2 ROIs,True,True,True
+"raw duplicate (file,arm,budget) keys",0,0,True
+"per_roi duplicate (file,arm) keys",0,0,True
+raw fully duplicated rows,0,0,True
+arms in raw,"['chromatin_od', 'tm_score']","['chromatin_od', 'tm_score']",True
+budgets in raw,"[10, 20, 30, 50]","[10, 20, 30, 50]",True
+baseline per_roi ROIs available for merge,14,14,True
+baseline arms include both audited arms,True,True,True
+delta_a domain_new agrees with baseline domain,True,True,True
+no NaN in raw tp_at_budget,0,0,True
+budget_delivered == budget everywhere,True,True,True
+n_detections >= max budget everywhere,True,True,True

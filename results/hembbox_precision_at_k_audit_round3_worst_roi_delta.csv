@@ -1,0 +1,85 @@
+domain,arm,K,worst_hem,worst_gray,delta_worst
+canine cutaneous mast cell tumor,chromatin_od,10,0.8,0.8,0.0
+canine lung cancer,chromatin_od,10,0.4,0.4,0.0
+canine lymphosarcoma,chromatin_od,10,0.1,0.1,0.0
+canine soft tissue sarcoma,chromatin_od,10,0.7,0.7,0.0
+human breast cancer,chromatin_od,10,0.5,0.5,0.0
+human melanoma,chromatin_od,10,0.6,0.6,0.0
+human neuroendocrine tumor,chromatin_od,10,0.4,0.5,-0.1
+canine cutaneous mast cell tumor,chromatin_od,20,0.85,0.9,-0.05
+canine lung cancer,chromatin_od,20,0.3,0.4,-0.1
+canine lymphosarcoma,chromatin_od,20,0.1,0.2,-0.1
+canine soft tissue sarcoma,chromatin_od,20,0.7,0.8,-0.1
+human breast cancer,chromatin_od,20,0.45,0.4,0.05
+human melanoma,chromatin_od,20,0.4,0.35,0.05
+human neuroendocrine tumor,chromatin_od,20,0.35,0.5,-0.15
+canine cutaneous mast cell tumor,chromatin_od,30,0.8667,0.9,-0.0333
+canine lung cancer,chromatin_od,30,0.2333,0.3,-0.0667
+canine lymphosarcoma,chromatin_od,30,0.1667,0.2333,-0.0666
+canine soft tissue sarcoma,chromatin_od,30,0.5,0.5667,-0.0667
+human breast cancer,chromatin_od,30,0.3333,0.3,0.0333
+human melanoma,chromatin_od,30,0.2667,0.2333,0.0334
+human neuroendocrine tumor,chromatin_od,30,0.3333,0.4667,-0.1334
+canine cutaneous mast cell tumor,chromatin_od,50,0.8,0.82,-0.02
+canine lung cancer,chromatin_od,50,0.14,0.2,-0.06
+canine lymphosarcoma,chromatin_od,50,0.24,0.16,0.08
+canine soft tissue sarcoma,chromatin_od,50,0.32,0.4,-0.08
+human breast cancer,chromatin_od,50,0.2,0.18,0.02
+human melanoma,chromatin_od,50,0.16,0.14,0.02
+human neuroendocrine tumor,chromatin_od,50,0.26,0.34,-0.08
+canine cutaneous mast cell tumor,od_contrast,10,0.7,0.8,-0.1
+canine lung cancer,od_contrast,10,0.4,0.4,0.0
+canine lymphosarcoma,od_contrast,10,0.1,0.1,0.0
+canine soft tissue sarcoma,od_contrast,10,0.7,0.7,0.0
+human breast cancer,od_contrast,10,0.5,0.5,0.0
+human melanoma,od_contrast,10,0.6,0.6,0.0
+human neuroendocrine tumor,od_contrast,10,0.4,0.4,0.0
+canine cutaneous mast cell tumor,od_contrast,20,0.8,0.9,-0.1
+canine lung cancer,od_contrast,20,0.3,0.35,-0.05
+canine lymphosarcoma,od_contrast,20,0.1,0.25,-0.15
+canine soft tissue sarcoma,od_contrast,20,0.55,0.65,-0.1
+human breast cancer,od_contrast,20,0.45,0.4,0.05
+human melanoma,od_contrast,20,0.4,0.35,0.05
+human neuroendocrine tumor,od_contrast,20,0.45,0.45,0.0
+canine cutaneous mast cell tumor,od_contrast,30,0.8333,0.9,-0.0667
+canine lung cancer,od_contrast,30,0.2,0.2667,-0.0667
+canine lymphosarcoma,od_contrast,30,0.1333,0.2,-0.0667
+canine soft tissue sarcoma,od_contrast,30,0.4667,0.5667,-0.1
+human breast cancer,od_contrast,30,0.3,0.2667,0.0333
+human melanoma,od_contrast,30,0.2667,0.2333,0.0334
+human neuroendocrine tumor,od_contrast,30,0.3667,0.4667,-0.1
+canine cutaneous mast cell tumor,od_contrast,50,0.78,0.82,-0.04
+canine lung cancer,od_contrast,50,0.16,0.2,-0.04
+canine lymphosarcoma,od_contrast,50,0.24,0.16,0.08
+canine soft tissue sarcoma,od_contrast,50,0.32,0.38,-0.06
+human breast cancer,od_contrast,50,0.2,0.18,0.02
+human melanoma,od_contrast,50,0.16,0.14,0.02
+human neuroendocrine tumor,od_contrast,50,0.24,0.36,-0.12
+canine cutaneous mast cell tumor,tm_score,10,0.9,0.9,0.0
+canine lung cancer,tm_score,10,0.4,0.3,0.1
+canine lymphosarcoma,tm_score,10,0.3,0.1,0.2
+canine soft tissue sarcoma,tm_score,10,0.4,0.6,-0.2
+human breast cancer,tm_score,10,0.5,0.4,0.1
+human melanoma,tm_score,10,0.2,0.3,-0.1
+human neuroendocrine tumor,tm_score,10,0.3,0.4,-0.1
+canine cutaneous mast cell tumor,tm_score,20,0.8,0.85,-0.05
+canine lung cancer,tm_score,20,0.25,0.25,0.0
+canine lymphosarcoma,tm_score,20,0.35,0.1,0.25
+canine soft tissue sarcoma,tm_score,20,0.45,0.5,-0.05
+human breast cancer,tm_score,20,0.3,0.3,0.0
+human melanoma,tm_score,20,0.2,0.2,0.0
+human neuroendocrine tumor,tm_score,20,0.25,0.35,-0.1
+canine cutaneous mast cell tumor,tm_score,30,0.7667,0.8,-0.0333
+canine lung cancer,tm_score,30,0.1667,0.2,-0.0333
+canine lymphosarcoma,tm_score,30,0.3,0.1,0.2
+canine soft tissue sarcoma,tm_score,30,0.3667,0.4,-0.0333
+human breast cancer,tm_score,30,0.2333,0.2333,0.0
+human melanoma,tm_score,30,0.1667,0.1333,0.0334
+human neuroendocrine tumor,tm_score,30,0.2667,0.2667,0.0
+canine cutaneous mast cell tumor,tm_score,50,0.68,0.74,-0.06
+canine lung cancer,tm_score,50,0.12,0.16,-0.04
+canine lymphosarcoma,tm_score,50,0.24,0.12,0.12
+canine soft tissue sarcoma,tm_score,50,0.26,0.3,-0.04
+human breast cancer,tm_score,50,0.14,0.14,0.0
+human melanoma,tm_score,50,0.12,0.12,0.0
+human neuroendocrine tumor,tm_score,50,0.28,0.3,-0.02

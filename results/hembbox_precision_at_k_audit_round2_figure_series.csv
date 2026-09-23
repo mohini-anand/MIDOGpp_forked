@@ -1,0 +1,197 @@
+figure,key,notebook,audit,agrees
+fig1_roi_heatmap,300.tiff/tm_score/K10,0.3,0.3,True
+fig1_roi_heatmap,300.tiff/tm_score/K20,0.1,0.1,True
+fig1_roi_heatmap,300.tiff/tm_score/K30,0.1,0.1,True
+fig1_roi_heatmap,300.tiff/tm_score/K50,0.04,0.04,True
+fig1_star_annotation,300.tiff,False,False,True
+fig1_roi_heatmap,300.tiff/chromatin_od/K10,0.1,0.1,True
+fig1_roi_heatmap,300.tiff/chromatin_od/K20,0.0,0.0,True
+fig1_roi_heatmap,300.tiff/chromatin_od/K30,-0.0333,-0.0333,True
+fig1_roi_heatmap,300.tiff/chromatin_od/K50,0.0,0.0,True
+fig1_star_annotation,300.tiff,False,False,True
+fig1_roi_heatmap,301.tiff/tm_score/K10,0.0,0.0,True
+fig1_roi_heatmap,301.tiff/tm_score/K20,0.0,0.0,True
+fig1_roi_heatmap,301.tiff/tm_score/K30,0.0667,0.0667,True
+fig1_roi_heatmap,301.tiff/tm_score/K50,0.08,0.08,True
+fig1_star_annotation,301.tiff,True,True,True
+fig1_roi_heatmap,301.tiff/chromatin_od/K10,0.0,0.0,True
+fig1_roi_heatmap,301.tiff/chromatin_od/K20,0.0,0.0,True
+fig1_roi_heatmap,301.tiff/chromatin_od/K30,-0.0333,-0.0333,True
+fig1_roi_heatmap,301.tiff/chromatin_od/K50,0.0,0.0,True
+fig1_star_annotation,301.tiff,True,True,True
+fig1_roi_heatmap,201.tiff/tm_score/K10,0.1,0.1,True
+fig1_roi_heatmap,201.tiff/tm_score/K20,0.0,0.0,True
+fig1_roi_heatmap,201.tiff/tm_score/K30,-0.0333,-0.0333,True
+fig1_roi_heatmap,201.tiff/tm_score/K50,-0.1,-0.1,True
+fig1_star_annotation,201.tiff,True,True,True
+fig1_roi_heatmap,201.tiff/chromatin_od/K10,0.0,0.0,True
+fig1_roi_heatmap,201.tiff/chromatin_od/K20,0.0,0.0,True
+fig1_roi_heatmap,201.tiff/chromatin_od/K30,0.0,0.0,True
+fig1_roi_heatmap,201.tiff/chromatin_od/K50,0.02,0.02,True
+fig1_star_annotation,201.tiff,True,True,True
+fig1_roi_heatmap,233.tiff/tm_score/K10,0.1,0.1,True
+fig1_roi_heatmap,233.tiff/tm_score/K20,0.05,0.05,True
+fig1_roi_heatmap,233.tiff/tm_score/K30,-0.0334,-0.0334,True
+fig1_roi_heatmap,233.tiff/tm_score/K50,-0.02,-0.02,True
+fig1_star_annotation,233.tiff,True,True,True
+fig1_roi_heatmap,233.tiff/chromatin_od/K10,0.0,0.0,True
+fig1_roi_heatmap,233.tiff/chromatin_od/K20,0.05,0.05,True
+fig1_roi_heatmap,233.tiff/chromatin_od/K30,0.0,0.0,True
+fig1_roi_heatmap,233.tiff/chromatin_od/K50,0.0,0.0,True
+fig1_star_annotation,233.tiff,True,True,True
+fig1_roi_heatmap,245.tiff/tm_score/K10,0.2,0.2,True
+fig1_roi_heatmap,245.tiff/tm_score/K20,0.25,0.25,True
+fig1_roi_heatmap,245.tiff/tm_score/K30,0.2,0.2,True
+fig1_roi_heatmap,245.tiff/tm_score/K50,0.18,0.18,True
+fig1_star_annotation,245.tiff,False,False,True
+fig1_roi_heatmap,245.tiff/chromatin_od/K10,0.0,0.0,True
+fig1_roi_heatmap,245.tiff/chromatin_od/K20,0.0,0.0,True
+fig1_roi_heatmap,245.tiff/chromatin_od/K30,-0.0667,-0.0667,True
+fig1_roi_heatmap,245.tiff/chromatin_od/K50,0.0,0.0,True
+fig1_star_annotation,245.tiff,False,False,True
+fig1_roi_heatmap,246.tiff/tm_score/K10,-0.2,-0.2,True
+fig1_roi_heatmap,246.tiff/tm_score/K20,-0.2,-0.2,True
+fig1_roi_heatmap,246.tiff/tm_score/K30,-0.2667,-0.2667,True
+fig1_roi_heatmap,246.tiff/tm_score/K50,-0.18,-0.18,True
+fig1_star_annotation,246.tiff,True,True,True
+fig1_roi_heatmap,246.tiff/chromatin_od/K10,0.0,0.0,True
+fig1_roi_heatmap,246.tiff/chromatin_od/K20,0.05,0.05,True
+fig1_roi_heatmap,246.tiff/chromatin_od/K30,0.0667,0.0667,True
+fig1_roi_heatmap,246.tiff/chromatin_od/K50,0.06,0.06,True
+fig1_star_annotation,246.tiff,True,True,True
+fig1_roi_heatmap,459.tiff/tm_score/K10,-0.2,-0.2,True
+fig1_roi_heatmap,459.tiff/tm_score/K20,-0.1,-0.1,True
+fig1_roi_heatmap,459.tiff/tm_score/K30,-0.1333,-0.1333,True
+fig1_roi_heatmap,459.tiff/tm_score/K50,-0.06,-0.06,True
+fig1_star_annotation,459.tiff,True,True,True
+fig1_roi_heatmap,459.tiff/chromatin_od/K10,0.0,0.0,True
+fig1_roi_heatmap,459.tiff/chromatin_od/K20,0.0,0.0,True
+fig1_roi_heatmap,459.tiff/chromatin_od/K30,0.0,0.0,True
+fig1_roi_heatmap,459.tiff/chromatin_od/K50,0.0,0.0,True
+fig1_star_annotation,459.tiff,True,True,True
+fig1_roi_heatmap,460.tiff/tm_score/K10,0.0,0.0,True
+fig1_roi_heatmap,460.tiff/tm_score/K20,-0.05,-0.05,True
+fig1_roi_heatmap,460.tiff/tm_score/K30,-0.0333,-0.0333,True
+fig1_roi_heatmap,460.tiff/tm_score/K50,-0.04,-0.04,True
+fig1_star_annotation,460.tiff,True,True,True
+fig1_roi_heatmap,460.tiff/chromatin_od/K10,0.0,0.0,True
+fig1_roi_heatmap,460.tiff/chromatin_od/K20,0.0,0.0,True
+fig1_roi_heatmap,460.tiff/chromatin_od/K30,0.0,0.0,True
+fig1_roi_heatmap,460.tiff/chromatin_od/K50,0.0,0.0,True
+fig1_star_annotation,460.tiff,True,True,True
+fig1_roi_heatmap,013.tiff/tm_score/K10,0.3,0.3,True
+fig1_roi_heatmap,013.tiff/tm_score/K20,0.1,0.1,True
+fig1_roi_heatmap,013.tiff/tm_score/K30,0.0333,0.0333,True
+fig1_roi_heatmap,013.tiff/tm_score/K50,0.02,0.02,True
+fig1_star_annotation,013.tiff,False,False,True
+fig1_roi_heatmap,013.tiff/chromatin_od/K10,0.0,0.0,True
+fig1_roi_heatmap,013.tiff/chromatin_od/K20,-0.05,-0.05,True
+fig1_roi_heatmap,013.tiff/chromatin_od/K30,-0.0333,-0.0333,True
+fig1_roi_heatmap,013.tiff/chromatin_od/K50,0.0,0.0,True
+fig1_star_annotation,013.tiff,False,False,True
+fig1_roi_heatmap,094.tiff/tm_score/K10,0.1,0.1,True
+fig1_roi_heatmap,094.tiff/tm_score/K20,-0.05,-0.05,True
+fig1_roi_heatmap,094.tiff/tm_score/K30,-0.0333,-0.0333,True
+fig1_roi_heatmap,094.tiff/tm_score/K50,-0.02,-0.02,True
+fig1_star_annotation,094.tiff,True,True,True
+fig1_roi_heatmap,094.tiff/chromatin_od/K10,0.0,0.0,True
+fig1_roi_heatmap,094.tiff/chromatin_od/K20,0.0,0.0,True
+fig1_roi_heatmap,094.tiff/chromatin_od/K30,-0.0334,-0.0334,True
+fig1_roi_heatmap,094.tiff/chromatin_od/K50,0.0,0.0,True
+fig1_star_annotation,094.tiff,True,True,True
+fig1_roi_heatmap,529.tiff/tm_score/K10,-0.1,-0.1,True
+fig1_roi_heatmap,529.tiff/tm_score/K20,0.0,0.0,True
+fig1_roi_heatmap,529.tiff/tm_score/K30,0.0334,0.0334,True
+fig1_roi_heatmap,529.tiff/tm_score/K50,0.0,0.0,True
+fig1_star_annotation,529.tiff,True,True,True
+fig1_roi_heatmap,529.tiff/chromatin_od/K10,0.0,0.0,True
+fig1_roi_heatmap,529.tiff/chromatin_od/K20,0.0,0.0,True
+fig1_roi_heatmap,529.tiff/chromatin_od/K30,0.0,0.0,True
+fig1_roi_heatmap,529.tiff/chromatin_od/K50,0.0,0.0,True
+fig1_star_annotation,529.tiff,True,True,True
+fig1_roi_heatmap,548.tiff/tm_score/K10,-0.1,-0.1,True
+fig1_roi_heatmap,548.tiff/tm_score/K20,-0.05,-0.05,True
+fig1_roi_heatmap,548.tiff/tm_score/K30,-0.0333,-0.0333,True
+fig1_roi_heatmap,548.tiff/tm_score/K50,0.04,0.04,True
+fig1_star_annotation,548.tiff,True,True,True
+fig1_roi_heatmap,548.tiff/chromatin_od/K10,0.0,0.0,True
+fig1_roi_heatmap,548.tiff/chromatin_od/K20,0.0,0.0,True
+fig1_roi_heatmap,548.tiff/chromatin_od/K30,0.0,0.0,True
+fig1_roi_heatmap,548.tiff/chromatin_od/K50,0.0,0.0,True
+fig1_star_annotation,548.tiff,True,True,True
+fig1_roi_heatmap,402.tiff/tm_score/K10,-0.1,-0.1,True
+fig1_roi_heatmap,402.tiff/tm_score/K20,-0.1,-0.1,True
+fig1_roi_heatmap,402.tiff/tm_score/K30,-0.1667,-0.1667,True
+fig1_roi_heatmap,402.tiff/tm_score/K50,-0.08,-0.08,True
+fig1_star_annotation,402.tiff,True,True,True
+fig1_roi_heatmap,402.tiff/chromatin_od/K10,0.0,0.0,True
+fig1_roi_heatmap,402.tiff/chromatin_od/K20,0.0,0.0,True
+fig1_roi_heatmap,402.tiff/chromatin_od/K30,0.0,0.0,True
+fig1_roi_heatmap,402.tiff/chromatin_od/K50,0.0,0.0,True
+fig1_star_annotation,402.tiff,True,True,True
+fig1_roi_heatmap,403.tiff/tm_score/K10,-0.1,-0.1,True
+fig1_roi_heatmap,403.tiff/tm_score/K20,-0.1,-0.1,True
+fig1_roi_heatmap,403.tiff/tm_score/K30,0.0,0.0,True
+fig1_roi_heatmap,403.tiff/tm_score/K50,-0.02,-0.02,True
+fig1_star_annotation,403.tiff,True,True,True
+fig1_roi_heatmap,403.tiff/chromatin_od/K10,-0.1,-0.1,True
+fig1_roi_heatmap,403.tiff/chromatin_od/K20,-0.1,-0.1,True
+fig1_roi_heatmap,403.tiff/chromatin_od/K30,-0.0334,-0.0334,True
+fig1_roi_heatmap,403.tiff/chromatin_od/K50,0.0,0.0,True
+fig1_star_annotation,403.tiff,True,True,True
+fig2_domain_bars,canine cutaneous mast cell tumor/chromatin_od/K10,0.05,0.05,True
+fig2_domain_bars,canine cutaneous mast cell tumor/chromatin_od/K20,0.0,0.0,True
+fig2_domain_bars,canine cutaneous mast cell tumor/chromatin_od/K30,-0.0334,-0.0334,True
+fig2_domain_bars,canine cutaneous mast cell tumor/chromatin_od/K50,0.0,0.0,True
+fig2_domain_bars,canine cutaneous mast cell tumor/tm_score/K10,0.15,0.15,True
+fig2_domain_bars,canine cutaneous mast cell tumor/tm_score/K20,0.05,0.05,True
+fig2_domain_bars,canine cutaneous mast cell tumor/tm_score/K30,0.0834,0.0834,True
+fig2_domain_bars,canine cutaneous mast cell tumor/tm_score/K50,0.06,0.06,True
+fig2_domain_bars,canine lung cancer/chromatin_od/K10,0.0,0.0,True
+fig2_domain_bars,canine lung cancer/chromatin_od/K20,0.025,0.025,True
+fig2_domain_bars,canine lung cancer/chromatin_od/K30,0.0,0.0,True
+fig2_domain_bars,canine lung cancer/chromatin_od/K50,0.01,0.01,True
+fig2_domain_bars,canine lung cancer/tm_score/K10,0.1,0.1,True
+fig2_domain_bars,canine lung cancer/tm_score/K20,0.025,0.025,True
+fig2_domain_bars,canine lung cancer/tm_score/K30,-0.0333,-0.0333,True
+fig2_domain_bars,canine lung cancer/tm_score/K50,-0.06,-0.06,True
+fig2_domain_bars,canine lymphosarcoma/chromatin_od/K10,0.0,0.0,True
+fig2_domain_bars,canine lymphosarcoma/chromatin_od/K20,0.025,0.025,True
+fig2_domain_bars,canine lymphosarcoma/chromatin_od/K30,0.0,0.0,True
+fig2_domain_bars,canine lymphosarcoma/chromatin_od/K50,0.03,0.03,True
+fig2_domain_bars,canine lymphosarcoma/tm_score/K10,0.0,0.0,True
+fig2_domain_bars,canine lymphosarcoma/tm_score/K20,0.025,0.025,True
+fig2_domain_bars,canine lymphosarcoma/tm_score/K30,-0.0333,-0.0333,True
+fig2_domain_bars,canine lymphosarcoma/tm_score/K50,0.0,0.0,True
+fig2_domain_bars,canine soft tissue sarcoma/chromatin_od/K10,0.0,0.0,True
+fig2_domain_bars,canine soft tissue sarcoma/chromatin_od/K20,0.0,0.0,True
+fig2_domain_bars,canine soft tissue sarcoma/chromatin_od/K30,0.0,0.0,True
+fig2_domain_bars,canine soft tissue sarcoma/chromatin_od/K50,0.0,0.0,True
+fig2_domain_bars,canine soft tissue sarcoma/tm_score/K10,-0.1,-0.1,True
+fig2_domain_bars,canine soft tissue sarcoma/tm_score/K20,-0.075,-0.075,True
+fig2_domain_bars,canine soft tissue sarcoma/tm_score/K30,-0.0834,-0.0834,True
+fig2_domain_bars,canine soft tissue sarcoma/tm_score/K50,-0.05,-0.05,True
+fig2_domain_bars,human breast cancer/chromatin_od/K10,0.0,0.0,True
+fig2_domain_bars,human breast cancer/chromatin_od/K20,-0.025,-0.025,True
+fig2_domain_bars,human breast cancer/chromatin_od/K30,-0.0333,-0.0333,True
+fig2_domain_bars,human breast cancer/chromatin_od/K50,0.0,0.0,True
+fig2_domain_bars,human breast cancer/tm_score/K10,0.2,0.2,True
+fig2_domain_bars,human breast cancer/tm_score/K20,0.025,0.025,True
+fig2_domain_bars,human breast cancer/tm_score/K30,0.0,0.0,True
+fig2_domain_bars,human breast cancer/tm_score/K50,0.0,0.0,True
+fig2_domain_bars,human melanoma/chromatin_od/K10,0.0,0.0,True
+fig2_domain_bars,human melanoma/chromatin_od/K20,0.0,0.0,True
+fig2_domain_bars,human melanoma/chromatin_od/K30,0.0,0.0,True
+fig2_domain_bars,human melanoma/chromatin_od/K50,0.0,0.0,True
+fig2_domain_bars,human melanoma/tm_score/K10,-0.1,-0.1,True
+fig2_domain_bars,human melanoma/tm_score/K20,-0.025,-0.025,True
+fig2_domain_bars,human melanoma/tm_score/K30,0.0,0.0,True
+fig2_domain_bars,human melanoma/tm_score/K50,0.02,0.02,True
+fig2_domain_bars,human neuroendocrine tumor/chromatin_od/K10,-0.05,-0.05,True
+fig2_domain_bars,human neuroendocrine tumor/chromatin_od/K20,-0.05,-0.05,True
+fig2_domain_bars,human neuroendocrine tumor/chromatin_od/K30,-0.0167,-0.0167,True
+fig2_domain_bars,human neuroendocrine tumor/chromatin_od/K50,0.0,0.0,True
+fig2_domain_bars,human neuroendocrine tumor/tm_score/K10,-0.1,-0.1,True
+fig2_domain_bars,human neuroendocrine tumor/tm_score/K20,-0.1,-0.1,True
+fig2_domain_bars,human neuroendocrine tumor/tm_score/K30,-0.0834,-0.0834,True
+fig2_domain_bars,human neuroendocrine tumor/tm_score/K50,-0.05,-0.05,True
