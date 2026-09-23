@@ -1,0 +1,29 @@
+domain,file_name,which,ann_id,channel,accepted,base_size,reason
+canine cutaneous mast cell tumor,300.tiff,#1 (seed_index=0),14581,gray_inverted,True,45.0,
+canine cutaneous mast cell tumor,300.tiff,#1 (seed_index=0),14581,hematoxylin_od,False,,click lands on background at this Otsu cut
+canine cutaneous mast cell tumor,300.tiff,"#2 (2nd draw, rng [1,image_id] over pool minus #1)",14575,gray_inverted,True,33.0,
+canine cutaneous mast cell tumor,300.tiff,"#2 (2nd draw, rng [1,image_id] over pool minus #1)",14575,hematoxylin_od,True,19.0,
+canine lung cancer,201.tiff,#1 (seed_index=0),4457,gray_inverted,True,51.0,
+canine lung cancer,201.tiff,#1 (seed_index=0),4457,hematoxylin_od,True,29.0,
+canine lung cancer,201.tiff,"#2 (2nd draw, rng [1,image_id] over pool minus #1)",4469,gray_inverted,True,51.0,
+canine lung cancer,201.tiff,"#2 (2nd draw, rng [1,image_id] over pool minus #1)",4469,hematoxylin_od,True,31.0,
+canine lymphosarcoma,245.tiff,#1 (seed_index=0),6274,gray_inverted,True,47.0,
+canine lymphosarcoma,245.tiff,#1 (seed_index=0),6274,hematoxylin_od,False,,click lands on background at this Otsu cut
+canine lymphosarcoma,245.tiff,"#2 (2nd draw, rng [1,image_id] over pool minus #1)",6243,gray_inverted,True,51.0,
+canine lymphosarcoma,245.tiff,"#2 (2nd draw, rng [1,image_id] over pool minus #1)",6243,hematoxylin_od,True,35.0,
+canine soft tissue sarcoma,459.tiff,#1 (seed_index=0),22441,gray_inverted,True,33.0,
+canine soft tissue sarcoma,459.tiff,#1 (seed_index=0),22441,hematoxylin_od,True,31.0,
+canine soft tissue sarcoma,459.tiff,"#2 (2nd draw, rng [1,image_id] over pool minus #1)",22446,gray_inverted,True,41.0,
+canine soft tissue sarcoma,459.tiff,"#2 (2nd draw, rng [1,image_id] over pool minus #1)",22446,hematoxylin_od,True,39.0,
+human breast cancer,013.tiff,#1 (seed_index=0),254,gray_inverted,True,31.0,
+human breast cancer,013.tiff,#1 (seed_index=0),254,hematoxylin_od,False,,click lands on background at this Otsu cut
+human breast cancer,013.tiff,"#2 (2nd draw, rng [1,image_id] over pool minus #1)",243,gray_inverted,False,,click lands on background at this Otsu cut
+human breast cancer,013.tiff,"#2 (2nd draw, rng [1,image_id] over pool minus #1)",243,hematoxylin_od,False,,click lands on background at this Otsu cut
+human melanoma,529.tiff,#1 (seed_index=0),24918,gray_inverted,True,37.0,
+human melanoma,529.tiff,#1 (seed_index=0),24918,hematoxylin_od,True,33.0,
+human melanoma,529.tiff,"#2 (2nd draw, rng [1,image_id] over pool minus #1)",24937,gray_inverted,True,41.0,
+human melanoma,529.tiff,"#2 (2nd draw, rng [1,image_id] over pool minus #1)",24937,hematoxylin_od,True,33.0,
+human neuroendocrine tumor,402.tiff,#1 (seed_index=0),20254,gray_inverted,True,29.0,
+human neuroendocrine tumor,402.tiff,#1 (seed_index=0),20254,hematoxylin_od,True,25.0,
+human neuroendocrine tumor,402.tiff,"#2 (2nd draw, rng [1,image_id] over pool minus #1)",20258,gray_inverted,True,51.0,
+human neuroendocrine tumor,402.tiff,"#2 (2nd draw, rng [1,image_id] over pool minus #1)",20258,hematoxylin_od,True,33.0,
