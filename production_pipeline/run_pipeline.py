@@ -1,4 +1,10 @@
 """
+    DEPRECATED (2026-09-24): use `production_pipeline/run_frame.py --source midog` -- the single
+    entry point for clicks, drawn boxes and MIDOG annotations. This file is kept, unchanged in
+    code, until the collaborator repo has the new CLI; it is still the only CLI for
+    `seed_selection.build_seed`'s gray-only draw, which differs from run_frame.py's joint-gate
+    draw (300.tiff seed 0: ann 14581 here, 14499 there).
+
     Script form of `production_pipeline_demo.ipynb`: one clicked annotation on one ROI in,
     ranked candidate detections out, no notebook required.
 
