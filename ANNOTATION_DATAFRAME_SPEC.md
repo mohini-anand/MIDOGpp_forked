@@ -4,8 +4,16 @@ Status: implemented. The design was agreed 2026-09-23 and amended the same day a
 amendment is listed, and tagged as a correction or a design decision, in §9. The implementation
 (`2c0d875`) passes every §7 check: 65 checks, 0 divergences, outputs in
 `validation/annotation_frame/out/`. `click_frame` and `production_pipeline/run_frame.py` were added
-on 2026-09-24 (`41ffa2e`, §3). The hand-off prompt is `ANNOTATION_FRAME_IMPLEMENTATION_PROMPT.md`;
-where the two disagree, this spec governs.
+on 2026-09-24 (`41ffa2e`, §3). Later the same day `run_frame.py` became the pipeline's single entry
+point (`--source click|box|midog`), and a drawn box became a seed source whose size sets the Otsu
+gate's window and the fallback template (`box_frame`, `gate_window_side`; §3, §4; `DECISIONS.md`
+D12). Clicks and MIDOG rows, all 50 wide, keep the 51 px window and fallback. The full §7
+harness was re-run after that change: 0 divergences on all 49 ROIs (960,825 values) and on the
+named checks, every regenerated per-ROI result identical to the committed one apart from timings;
+the only changed named output is the edge-error wording. Box-specific checks are in
+`validation/annotation_frame/box_checks.py` (`out/box/box.json`). The
+hand-off prompt is `ANNOTATION_FRAME_IMPLEMENTATION_PROMPT.md`; where the two disagree, this spec
+governs.
 
 Supersedes `CORNER_COORDINATE_REFACTOR_PROMPT.md`. That prompt changed the internal point
 representation of the existing `midog_utils` functions. This spec leaves the existing functions'
@@ -43,6 +51,8 @@ So the frame is a new module on top, and the layers underneath keep working exac
   `FSConfig`, `Seed`, `build_seed`, and `tightened_template_box`'s `(base_size, tx, ty)` return;
 - `production.py` apart from the one addition below;
 - `rerun_bbox3way_postD11.py`, `production_pipeline/run_pipeline.py` and `midog_utils_full/`.
+  (`run_pipeline.py` carries a deprecation note in its docstring since 2026-09-24; its code is
+  unchanged, which `ast_equal.py` proves.)
   `rerun_bbox3way_postD11.main()` writes tracked CSVs that are this spec's validation reference
   (§7), so validation imports that script's functions and never calls `main()`.
 
@@ -54,13 +64,15 @@ and the sort still uses `rank_key`'s column. `info["od_computed"]` becomes
 bit-identical output. That is proven in §7, not assumed.
 
 **New.** One module, `midog_utils/annotation_frame.py`, holds everything this spec defines: the
-frame constants and converters, `click_frame` and `run_roi` (§3), `evaluate` (§6) and
+frame constants and converters, `click_frame`, `box_frame`, `gate_window_side` and `run_roi` (§3,
+§4), `evaluate` (§6) and
 `draw_seed_rows` (§7). It calls the frozen `midog_utils` functions and never re-implements them.
 The one thing it ports is the driver's joint-gate click draw, because a package module cannot
 import a repo-root script; §7 defines the port and requires it to reproduce the driver exactly. The
 module is not added to `midog_utils/__init__.py`; import it as
-`from midog_utils import annotation_frame`. `production_pipeline/run_frame.py` drives it from the
-command line (§3); `run_pipeline.py` stays as it is.
+`from midog_utils import annotation_frame`. `production_pipeline/run_frame.py` is the pipeline's
+single entry point (§3). `run_pipeline.py` is deprecated, code unchanged, until the collaborator
+repo has the new command line.
 
 Research that needs a hook `run_roi` deliberately lacks — a template override, a custom gate, an
 `nms_radius` or `max_peaks` override, an augmented bank, per-detection angle/flip/scale — keeps
@@ -108,9 +120,22 @@ template centre on at least one axis in 207 of the 441 reference runs. On 103 of
 round-half-up would pick a different pixel. `D8_TEMPLATE_ANCHOR.md` describes this tie behaviour.
 
 New code passes continuous centres into the frozen functions and never rounds a coordinate itself,
-with one exception: the refined-seed row's top-left (table below). It must be computed as
-`int(round(tx)) - base_size // 2`, the same expression `read_padded_patch` uses. Never use
-`math.floor(x + 0.5)` or any other round-half-up form.
+with two exceptions:
+
+- the refined-seed row's top-left (table below). It must be computed as
+  `int(round(tx)) - base_size // 2`, the same expression `read_padded_patch` uses. Never use
+  `math.floor(x + 0.5)` or any other round-half-up form for a centre-to-pixel conversion.
+- `box_frame`'s snap of a drawn box (§3), which happens before the row exists: each side becomes
+  `round(w)` pixels raised to odd, centred on the pixel `floor(x0 + w / 2)` that contains the drawn
+  centre (`x0` a pixel edge). In the frame's centre coordinates that is `floor(c + 0.5)`, the
+  round-half-up form banned above, and the carve-out is deliberate: the ban protects conversions
+  that must agree with `read_padded_patch`; this one picks the pixel containing an edge-coordinate
+  point, has no tie, does not depend on where the box sits, and yields an integer centre, so the
+  frozen functions' half-to-even rounding never meets a tie on a box row. `round()` there would make
+  the stored window depend on the box's position.
+
+`gate_window_side` also rounds, but a size, not a coordinate: `round(max(width, height)) + 1`
+pixels, raised to odd (§4).
 
 ### The `+1` that must never be forgotten
 
@@ -122,7 +147,8 @@ This is the price of the seed row round-tripping MIDOG byte-exactly, and it is d
 in the docstring of every function that converts between the two.
 
 The identity holds only for **odd** `base_size`. Every size that reaches it is odd: `_odd()` in
-`seed_selection` and `template_match` forces it, and the fallback is 51. Converters must still
+`seed_selection` and `template_match` forces it, and the fallback is `gate_window_side`'s window,
+odd by construction (51 for clicks and MIDOG rows). Converters must still
 assert it, because for an even size, `round(tx) ± base_size // 2` covers `base_size + 1` pixels.
 
 ### Why this is safe (measured, not argued)
@@ -162,8 +188,9 @@ value above exact.
   the range `run_roi` accepts. Of 100,000 uniform clicks in `[25, 7215)`, 0 fail
   `(c - 25) + 25 == c`. The failures all sit at `c < 25`, below the 36 px border step 2
   enforces.
-- The risk is a non-dyadic width, such as a hand-drawn box. With `width = 47.3`, about 230 in
-  100,000 clicks fail `(c - w/2) + w/2 == c`; with `33.1`, about 60.
+- The risk is a non-dyadic width, such as a hand-built row. With `width = 47.3`, about 230 in
+  100,000 clicks fail `(c - w/2) + w/2 == c`; with `33.1`, about 60. `box_frame` snaps a drawn box
+  to whole pixels, so its row has an integer width and centre and round-trips exactly.
 - The error is one ulp, so it can only change a round-half-to-even result for a click within one
   ulp of a `.5` tie.
 - Tests that assert bit-exact round trips should use clicks on the half-pixel grid and
@@ -188,8 +215,8 @@ Column order is the frame's column order.
 | column | dtype | human seed | refined seed | prediction |
 | --- | --- | --- | --- | --- |
 | `file_name` | str | ROI file name | same | same |
-| `x_tl`, `y_tl` | float64 | MIDOG `x1, y1` verbatim, as `cx - w / 2`, `cy - h / 2` | footprint TL `int(round(tx)) - base_size // 2` (integer-valued) | `cx - 25.0`, `cy - 25.0` |
-| `width`, `height` | float64 | `w`, `h` (50.0) | `base_size - 1` | `BOX_SIZE` (50.0) |
+| `x_tl`, `y_tl` | float64 | MIDOG `x1, y1` verbatim, as `cx - w / 2`, `cy - h / 2`; a click: `cx - 25.0`; a drawn box: snapped by `box_frame` (§3), integer-valued | footprint TL `int(round(tx)) - base_size // 2` (integer-valued) | `cx - 25.0`, `cy - 25.0` |
+| `width`, `height` | float64 | `w`, `h` (50.0; a click: 50.0; a drawn box: its odd pixel count − 1) | `base_size - 1` | `BOX_SIZE` (50.0) |
 | `class` | str | `MITOTIC_GT` | `MITOTIC_GT` | `PREDICTION` |
 | `object_id` | int64 | MIDOG `ann_id` in validation; in production, any integer unique among the ROI's `HUMAN` `MITOTIC_GT` rows | **same** as the human row | 0, 1, 2, … = production's `rank` |
 | `made_by` | str | `HUMAN` | `ALGORITHM` | `ALGORITHM` |
@@ -273,21 +300,23 @@ discriminating column at concat time, the pattern `rerun_bbox3way_postD11.py:252
   the one input row with `class == "MITOTIC_GT"` and `made_by == "HUMAN"`. Zero or several
   matches raise, naming the count.
 - **Input rows.** Every input row must share the seed's `file_name`, and must be
-  `made_by == "HUMAN"` with `class == "MITOTIC_GT"`. Their `object_id`s must be unique. Anything
-  else raises. Feeding `run_roi` its own output back would duplicate the row key of every
-  prediction row, and multi-loop input is deferred (§8).
+  `made_by == "HUMAN"` with `class == "MITOTIC_GT"`. Their `object_id`s must be unique. Every
+  row's box must give a valid gate window (`gate_window_side`, §4: finite, 19–73 px), checked after
+  the column and class checks. Anything else raises. Feeding `run_roi` its own output back would
+  duplicate the row key of every prediction row, and multi-loop input is deferred (§8).
 - Emits **all** post-NMS survivors, not a truncated top-N. Evaluation takes `head(K)`.
 
 **Algorithm.** Every numerical step is delegated to frozen code (§0).
 
-1. Compute `cx = x_tl + width / 2` and `cy = y_tl + height / 2` from the seed row, in float64.
+1. Compute the gate window `gate_window_side(width, height)` (§4), and
+   `cx = x_tl + width / 2` and `cy = y_tl + height / 2`, from the seed row, in float64.
 2. **Border.** If `seed_selection._patch_readable(rgb.shape, cx, cy, tm.PATCH_SIZE)` is `False`,
    raise `ValueError`.
    - This is the same predicate as `border_filter`'s 36 px margin. Every existing draw applies
      `border_filter` to the click before gating it (`build_seed`, the joint gate), and this keeps
      `run_roi` consistent with that.
-   - It also guarantees that the default and fallback template, which is centred on the click, is
-     readable.
+   - It also guarantees that the fallback template and the gate window, both centred on the seed
+     and at most 73 px (36 px margin), are readable.
    - It does **not** mean nothing could be read. A refined template can move inward far enough to
      be readable. On 300.tiff, the click `(25.0, 290.0)` gates on gray to `(33, 37.0, 281.0)`, and
      `(25.0, 715.0)` gates on hematoxylin to `(31, 37.0, 718.5)`; both templates are readable.
@@ -321,10 +350,13 @@ capped at `max_peaks = 100` (D9) inside `extract_peaks`, before NMS runs, and ne
 
 ### What the pipeline consumes from the human row
 
-Only its centre, `x_tl + width/2`. `width` and `height` are accepted and ignored — the template size
-comes from the Otsu gate or the 51 px default. This is a deliberate, documented contract, not an
-oversight: the human's own box is preserved in the frame whether or not the matcher uses it, so
-switching from clicks to hand-drawn boxes later loses no recorded information.
+Its centre, `x_tl + width/2`, and its size: `gate_window_side(width, height)` is the Otsu gate's
+window and the fallback template's side (§4). Every click and MIDOG row is 50 wide, so window 51,
+exactly the behaviour before 2026-09-24. A drawn box's row is stored snapped (`box_frame`, below):
+it is exactly the gate window (for a square box) and the fallback footprint, but the raw drawn box
+is not recoverable from the frame — neither its sub-pixel coordinates nor the difference between an
+even drawn size and the next odd one (decision, user 2026-09-24). A client that needs the raw box
+(e.g. for a later radius-based refinement) must keep it itself.
 
 `run_roi` derives the click centre once, in step 1, and hands it to `_patch_readable` and
 `tightened_template_box`. The template centre `(tx, ty)` from step 3 goes to production. There
@@ -336,12 +368,13 @@ draws. It stays in the package for `run_pipeline.py` and for research.
 ### Building the input row, and the command line
 
 `run_roi` loads nothing itself. Its caller loads `rgb` and `mpp` with `dataset.load_roi` and
-`dataset.roi_mpp`, as `run_pipeline.py` does, and builds the one-row input frame with one of three
+`dataset.roi_mpp`, as `run_pipeline.py` does, and builds the one-row input frame with one of four
 functions:
 
 | source | builder | `object_id` | scored by `run_frame.py` |
 | --- | --- | --- | --- |
 | a raw click (production) | `click_frame(file_name, cx, cy, object_id, *, edge_origin=False)` | the caller's id | no |
+| a drawn box (production) | `box_frame(file_name, x0, y0, w, h, object_id)` | the caller's id | no |
 | a MIDOG annotation | `human_seed_frame(ann, file_name)` | its `ann_id` | yes |
 | the validation draw | `draw_seed_rows(rgb, gt, image_id, *, seed_indices)` (§7.1) | the drawn `ann_id` | yes |
 
@@ -353,11 +386,29 @@ functions:
   centre plus 0.5.
 - `evaluate` accepts a `click_frame` row only when its `object_id` is the mitotic `ann_id` at that
   exact centre (§6). A production click's id is arbitrary, so `run_frame.py` does not score it.
+- `box_frame` takes a drawn box in pixel-edge coordinates (left, top, width, height, as in COCO
+  and canvas APIs) and snaps each side (§1): `n = round(w)` pixels, raised to odd; centre pixel
+  `c = floor(x0 + w / 2)`; `x_tl = c - n // 2`, `width = n - 1`. The stored size depends only on
+  `w`, the position only on the drawn centre. It raises unless the snapped box gives a 19–73 px
+  window (a drawn box of 18–73 px on its longer side). Not for MIDOG boxes, which are already in
+  pixel-centre coordinates.
+- `box_frame(x0, y0, 51, 51)` equals `click_frame(x0 + 25, y0 + 25)` (all columns but
+  `current_time`) for **integer** origins. Elsewhere the box snaps to the pixel containing its
+  centre while a click keeps its sub-pixel centre, e.g. `x0 = 11.5`: box centre 37, click 36.5
+  (which the frozen functions round to 36). No equivalence is claimed there.
 
-`production_pipeline/run_frame.py` is the frame path's counterpart of `run_pipeline.py`:
+`production_pipeline/run_frame.py` is the pipeline's single entry point (since 2026-09-24;
+`run_pipeline.py` is deprecated):
 
-- `--click X Y` (with `--click-id` and `--edge-origin`) and `--ann-id` choose the first two builders
-  and are mutually exclusive. `--seed-index k` (default 0) applies when neither is given.
+- `--source {click,box,midog}` is required and chooses the builder. `--source click` takes
+  `--click X Y` (pixel-centre coordinates unless `--edge-origin`) and `--object-id`; `--source box`
+  takes `--box X Y W H` (pixel-edge coordinates) and `--object-id`; `--source midog` takes
+  `--ann-id`, or `--seed-index k` (default 0) for the validation draw. Another source's option, or a
+  missing required one, is an argparse error before anything loads, and so is an invalid `--box`.
+  `--click-id` was renamed `--object-id`.
+- Click and box seeds are not scored; MIDOG seeds are. `--save-fig` and `--plot` draw the overview:
+  ground truth, the top-N predictions, the seed and template centre, the gate window (white, when a
+  gate ran) and the template footprint (cyan), with a full-resolution zoom on the seed.
 - For `--seed-index k` it draws `range(k + 1)` and keeps the last. Draws are sequential (§7.1), so
   drawing `(k,)` alone gives a different click for any `k > 0`.
 - The joint-gate draw is not `build_seed`'s, so the same `--seed-index` can pick a different click
@@ -371,8 +422,8 @@ Checked 2026-09-24:
 - `run_frame_on_roi` reproduces R1's `seed_ann_id`, `n_detections` and `tp_at_{10,20,30}` on 18
   runs: 300.tiff and 322.tiff, seeds 0–2, all three conditions, `rank_key="chromatin_od"`.
 - On 300.tiff click 14499, `--ann-id`, `--click` and `--edge-origin` give identical frames.
-- The full §7 harness was not re-run. This addition adds a constant and a function and changes none
-  of the functions §7 exercises.
+- The full §7 harness was not re-run for that addition; it was re-run after the box seed and
+  `--source` changes (status line above).
 - Only `rank_key="chromatin_od"` (R1, R2) and `default_51` under `tm_score` (R4) have a committed
   reference. `run_frame.py`'s defaults, `tm_score` with the gray gate, are covered by B2 and V4
   only.
@@ -386,26 +437,38 @@ In production the human clicks once and there is no pool to redraw from, so the 
 
 By this point `run_roi`'s step 2 has already confirmed the click is at least 36 px
 (`tm.PATCH_SIZE // 2`) from every edge; otherwise it raised. Below,
-`channel = ch.to_channel(rgb, refinement_channel)`. Every remaining case is one of these:
+`channel = ch.to_channel(rgb, refinement_channel)` and `W = gate_window_side(width, height)` of the
+seed row: the pixel count of the box's longer side, `round(max(width, height)) + 1`, raised to odd.
+`W` is 51 for every click and MIDOG row (width 50), and must lie in 19–73 (`MIN_WINDOW_PX`,
+`MAX_WINDOW_PX = tm.PATCH_SIZE`), or the input raises. Every remaining case is one of these:
 
 | case | template `(base_size, tx, ty)` | `refined` | `info["refusal_reason"]` |
 | --- | --- | --- | --- |
-| `refinement_channel is None` | `(51, cx, cy)` | `False` | `None` |
-| the gate accepts: `tightened_template_box(channel, cx, cy, otsu_window=51)` returns `(b, tx, ty)` and `_patch_readable(rgb.shape, tx, ty, 73)` holds | `(b, tx, ty)` | `True` | `None` |
-| `tightened_template_box` returns `None` | `(51, cx, cy)` | `False` | `"gate_refused"` |
-| it returns `(b, tx, ty)`, but the template centre is within 36 px of an edge | `(51, cx, cy)` | `False` | `"template_unreadable"` |
+| `refinement_channel is None` | `(W, cx, cy)` | `False` | `None` |
+| the gate accepts: `tightened_template_box(channel, cx, cy, otsu_window=W)` returns `(b, tx, ty)` and `_patch_readable(rgb.shape, tx, ty, 73)` holds | `(b, tx, ty)` | `True` | `None` |
+| `tightened_template_box` returns `None` | `(W, cx, cy)` | `False` | `"gate_refused"` |
+| it returns `(b, tx, ty)`, but the template centre is within 36 px of an edge | `(W, cx, cy)` | `False` | `"template_unreadable"` |
+
+- For a non-square box the window and the fallback are the enclosing square on the longer side,
+  centred on the box centre. The gate's window is always square.
+- `W` bounds the window and the fallback, not the accepted template: the gate can return templates
+  below 19 px (its own floor is 9 px in effect: `min_area = 50` needs a bounding box of at least
+  8 px, made odd), as it could at 51.
+- The window is not in `info`: it is recoverable from the frame's human row with
+  `gate_window_side`, and the fallback size is `info["base_size"]`.
 
 - The first case is the untightened `default_51` arm. It is the control in nearly every recent
   experiment and one third of the validation reference (147 of 441 runs).
   `info["refinement_requested"]` tells it apart from a fallback.
-- After step 2, the 51 px Otsu window (which needs a 25 px margin) is always readable. So
-  `tightened_template_box` returning `None` always means the gate refused: the click's own pixel
+- After step 2, any window up to 73 px (which needs at most a 36 px margin) is readable, and
+  `_template_choice` checks it, raising `RuntimeError` otherwise, so this holds by construction.
+  So `tightened_template_box` returning `None` always means the gate refused: the click's own pixel
   is not foreground, or its component fails `min_area` / `max_area_frac` / `min_solidity`.
   `tighten_box_otsu` is frozen and does not say which. Finer reasons are deferred (§8).
-- The fallback template is the `default_51` template exactly: 51 px, centred on the unrounded
-  click, with its blanked square at the click. So on a refused click, `run_roi` with a refinement
-  channel must return exactly the same predictions as `run_roi(refinement_channel=None)`. §7 tests
-  this.
+- The fallback template is the human's box: `W` px, centred on the unrounded seed centre, with
+  its blanked square there. For clicks and MIDOG rows that is the `default_51` template exactly. So
+  on a refused seed, `run_roi` with a refinement channel must return exactly the same predictions
+  as `run_roi(refinement_channel=None)`. §7 tests this for clicks, `box_checks.py` for boxes.
 - These cases reproduce the driver's `template_spec` (`rerun_bbox3way_postD11.py:79-94`). Its
   `None` for a tightened condition covers both refusal rows. Its hematoxylin readability check for
   `default_51` is the step-2 predicate.
@@ -818,8 +881,8 @@ Together these confirm the environment for both rank keys.
   every existing draw. Two cases differ here:
   - a click 25–35 px from the edge whose gate accepts it and whose refined template moves inward
     could be searched without touching frozen code. `run_roi` would lower step 2's margin to the
-    25 px the Otsu window needs (see §3 step 2's examples). Its fallback would still be
-    unreadable.
+    `W // 2` px the Otsu window needs (25 for clicks; see §3 step 2's examples). Its fallback would
+    still be unreadable.
   - a click closer than 25 px, or any fallback template, would need a padded read, which is a
     change to frozen code.
 
@@ -828,7 +891,12 @@ Together these confirm the environment for both rank keys.
   experiment has used such a click. Revisit only when the product needs edge clicks.
 - **Avoiding the second hematoxylin conversion** when `refinement_channel="hematoxylin_od"` (§3).
   That needs production to accept a precomputed channel.
-- Using the human's drawn `width`/`height` to size the template.
+- Using the human's drawn `width`/`height` to size the template: **partly done 2026-09-24** — the
+  box sets the gate window and the fallback (§4, D12); an accepted template still comes from the
+  Otsu component. Still deferred: rectangular gate windows (the gate uses the enclosing square),
+  windows above 73 px (a padded read or a larger `PATCH_SIZE`) or below 19 px, and a radius-based
+  refinement around the box centre. Windows 53–73 and templates that large are unvalidated
+  (D12).
 - Emitting the tight Otsu component bbox as its own row.
 
 ---
@@ -899,3 +967,8 @@ the ones to review.
 | 0, 1, 3 | `click_frame` builds the input row for a raw click; `edge_origin=True` does §1's 0.5 subtraction. Alternative: leave row construction, and the 0.5 subtraction, to each client. | decision, confirmed by user 2026-09-24 |
 | 0, 3 | `production_pipeline/run_frame.py` added as the frame path's command line; `run_pipeline.py` stays frozen. | decision, confirmed by user 2026-09-24 |
 | — | Status updated: implemented and validated. | correction |
+| 0, 3 | `run_frame.py` becomes the single entry point with a required `--source {click,box,midog}`; `--click-id` renamed `--object-id`; `run_pipeline.py` deprecated by a docstring note, code unchanged, deleted once the collaborator repo has the new CLI. Alternative: keep two entry points. | decision, confirmed by user 2026-09-24 |
+| 1, 3 | `box_frame` builds the input row for a drawn box, snapped to whole pixels (odd size, centre = pixel containing the drawn centre); the snap's `floor` is a stated carve-out from §1's round-half-up ban. The raw drawn box is not kept, reversing §3's earlier promise that the human's box is preserved. Alternative: store the raw box and snap only when running. | decision, confirmed by user 2026-09-24 |
+| 3, 4 | The seed row's box sets the Otsu window and the fallback template (`gate_window_side`: longer side, odd, 19–73 px, raising outside); every input row is checked. 51 for clicks and MIDOG rows, so their runs are unchanged. Alternative: keep the fixed 51 px window and use the box only as a click. | decision, confirmed by user 2026-09-24 (`DECISIONS.md` D12) |
+| 3 | `run_frame.py`: a pinned MIDOG annotation that the gate refuses falls back (no raise), and `--source midog` without `--ann-id` uses the joint-gate draw. | decision, confirmed by user 2026-09-24 |
+| 4 | `_template_choice` raises `RuntimeError` if the gate window is unreadable, so a refusal always means the gate refused. | correction |

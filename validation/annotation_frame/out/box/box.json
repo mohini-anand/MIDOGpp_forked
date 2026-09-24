@@ -1,0 +1,728 @@
+{
+ "checks": {
+  "C1 gate_window_side vectors": {
+   "n_runs": 0,
+   "n_rows": 0,
+   "n_values": 23,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "C2 box_frame geometry": {
+   "n_runs": 0,
+   "n_rows": 0,
+   "n_values": 8,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "C2 box_frame row schema": {
+   "n_runs": 0,
+   "n_rows": 0,
+   "n_values": 8,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "C2 box_frame raises": {
+   "n_runs": 0,
+   "n_rows": 0,
+   "n_values": 7,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "C2 box_frame shift behaviour": {
+   "n_runs": 0,
+   "n_rows": 0,
+   "n_values": 999,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "C2 box_frame == click_frame at integer origins": {
+   "n_runs": 0,
+   "n_rows": 0,
+   "n_values": 5,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "C6 input rows outside the window limits raise": {
+   "n_runs": 0,
+   "n_rows": 0,
+   "n_values": 7,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "C6 positive control: a valid two-row input passes the input checks": {
+   "n_runs": 0,
+   "n_rows": 0,
+   "n_values": 1,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "C5 a 73 px box 36 px from an edge runs": {
+   "n_runs": 2,
+   "n_rows": 0,
+   "n_values": 2,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "C5 the window guard raises on an unreadable window": {
+   "n_runs": 0,
+   "n_rows": 0,
+   "n_values": 1,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "C3 at least 4 verified accepted boxes off 51": {
+   "n_runs": 0,
+   "n_rows": 0,
+   "n_values": 1,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "C4 verified refused boxes found (square and non-square)": {
+   "n_runs": 0,
+   "n_rows": 0,
+   "n_values": 1,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "C3 the gate uses the box's window": {
+   "n_runs": 7,
+   "n_rows": 0,
+   "n_values": 7,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "C4 a refused box falls back to the human's box": {
+   "n_runs": 2,
+   "n_rows": 0,
+   "n_values": 2,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "C4 fallback predictions identical to refinement_channel=None": {
+   "n_runs": 2,
+   "n_rows": 199,
+   "n_values": 1990,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "C4 refinement_channel=None uses the human's box": {
+   "n_runs": 0,
+   "n_rows": 0,
+   "n_values": 2,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "C4 template_unreadable box falls back to the human's box": {
+   "n_runs": 1,
+   "n_rows": 0,
+   "n_values": 1,
+   "n_diverged": 0,
+   "detail": []
+  }
+ },
+ "cases": {
+  "C1": [
+   {
+    "width": 50.0,
+    "height": 50.0,
+    "window": 51
+   },
+   {
+    "width": 51.0,
+    "height": 51.0,
+    "window": 53
+   },
+   {
+    "width": 71.0,
+    "height": 71.0,
+    "window": 73
+   },
+   {
+    "width": 72.0,
+    "height": 72.0,
+    "window": 73
+   },
+   {
+    "width": 17.0,
+    "height": 17.0,
+    "window": 19
+   },
+   {
+    "width": 18.0,
+    "height": 18.0,
+    "window": 19
+   },
+   {
+    "width": 20.0,
+    "height": 50.0,
+    "window": 51
+   },
+   {
+    "width": 50.0,
+    "height": 20.0,
+    "window": 51
+   },
+   {
+    "width": 50.0,
+    "height": 16.0,
+    "window": 51
+   },
+   {
+    "width": 16.0,
+    "height": 72.0,
+    "window": 73
+   },
+   {
+    "width": 16.0,
+    "height": 17.0,
+    "window": 19
+   },
+   {
+    "width": 40.0,
+    "height": 40.0,
+    "window": 41
+   },
+   {
+    "width": 49.5,
+    "height": 49.5,
+    "window": 51
+   },
+   {
+    "width": 50.5,
+    "height": 50.5,
+    "window": 51
+   },
+   {
+    "width": 51.5,
+    "height": 51.5,
+    "window": 53
+   },
+   {
+    "width": 73.0,
+    "height": 73.0,
+    "error": "ValueError: a human box of 74 px needs a 75 px gate window, above the 73 px limit (tm.PATCH_SIZE)"
+   },
+   {
+    "width": 16.0,
+    "height": 16.0,
+    "error": "ValueError: a human box of 17 px gives a 17 px gate window, below the 19 px limit; draw a box of 18 px or more"
+   },
+   {
+    "width": 80.0,
+    "height": 50.0,
+    "error": "ValueError: a human box of 81 px needs a 81 px gate window, above the 73 px limit (tm.PATCH_SIZE)"
+   },
+   {
+    "width": 15.0,
+    "height": 16.0,
+    "error": "ValueError: a human box of 17 px gives a 17 px gate window, below the 19 px limit; draw a box of 18 px or more"
+   },
+   {
+    "width": NaN,
+    "height": 50.0,
+    "error": "ValueError: a human box's width and height must be finite and >= 0, got (nan, 50.0)"
+   },
+   {
+    "width": 50.0,
+    "height": NaN,
+    "error": "ValueError: a human box's width and height must be finite and >= 0, got (50.0, nan)"
+   },
+   {
+    "width": -1.0,
+    "height": 50.0,
+    "error": "ValueError: a human box's width and height must be finite and >= 0, got (-1.0, 50.0)"
+   },
+   {
+    "width": Infinity,
+    "height": 50.0,
+    "error": "ValueError: a human box's width and height must be finite and >= 0, got (inf, 50.0)"
+   }
+  ],
+  "C2": {
+   "cases": [
+    {
+     "box": [
+      0,
+      0,
+      51,
+      51
+     ],
+     "stored": [
+      0.0,
+      0.0,
+      50.0,
+      50.0
+     ]
+    },
+    {
+     "box": [
+      0,
+      0,
+      52,
+      52
+     ],
+     "stored": [
+      0.0,
+      0.0,
+      52.0,
+      52.0
+     ]
+    },
+    {
+     "box": [
+      0,
+      0,
+      40,
+      40
+     ],
+     "stored": [
+      0.0,
+      0.0,
+      40.0,
+      40.0
+     ]
+    },
+    {
+     "box": [
+      0,
+      0,
+      73,
+      73
+     ],
+     "stored": [
+      0.0,
+      0.0,
+      72.0,
+      72.0
+     ]
+    },
+    {
+     "box": [
+      0,
+      0,
+      18,
+      18
+     ],
+     "stored": [
+      0.0,
+      0.0,
+      18.0,
+      18.0
+     ]
+    },
+    {
+     "box": [
+      10,
+      20,
+      30,
+      60
+     ],
+     "stored": [
+      10.0,
+      20.0,
+      30.0,
+      60.0
+     ]
+    },
+    {
+     "box": [
+      10,
+      20,
+      31,
+      61
+     ],
+     "stored": [
+      10.0,
+      20.0,
+      30.0,
+      60.0
+     ]
+    },
+    {
+     "box": [
+      11.5,
+      11.5,
+      51,
+      51
+     ],
+     "stored": [
+      12.0,
+      12.0,
+      50.0,
+      50.0
+     ]
+    },
+    {
+     "box": [
+      0,
+      0,
+      74,
+      74
+     ],
+     "error": "ValueError: drawn box 74 x 74 px snaps to 75 x 75 px: a human box of 75 px needs a 75 px gate window, above the 73 px limit (tm.PATCH_SIZE)"
+    },
+    {
+     "box": [
+      0,
+      0,
+      17,
+      17
+     ],
+     "error": "ValueError: drawn box 17 x 17 px snaps to 17 x 17 px: a human box of 17 px gives a 17 px gate window, below the 19 px limit; draw a box of 18 px or more"
+    },
+    {
+     "box": [
+      0,
+      0,
+      0,
+      0
+     ],
+     "error": "ValueError: a drawn box must be at least one pixel wide, got 0.0"
+    },
+    {
+     "box": [
+      0,
+      0,
+      0.4,
+      30
+     ],
+     "error": "ValueError: a drawn box must be at least one pixel wide, got 0.4"
+    },
+    {
+     "box": [
+      0,
+      0,
+      30,
+      80
+     ],
+     "error": "ValueError: drawn box 30 x 80 px snaps to 31 x 81 px: a human box of 81 px needs a 81 px gate window, above the 73 px limit (tm.PATCH_SIZE)"
+    },
+    {
+     "box": [
+      0,
+      0,
+      NaN,
+      30
+     ],
+     "error": "ValueError: a drawn box's origin and size must be finite, got (0.0, nan)"
+    },
+    {
+     "box": [
+      Infinity,
+      0,
+      30,
+      30
+     ],
+     "error": "ValueError: a drawn box's origin and size must be finite, got (inf, 30.0)"
+    }
+   ],
+   "n_shift_cases": 888,
+   "n_click_equivalence": 5,
+   "non_integer_origin_example": {
+    "box_centre": 37.0,
+    "click_centre": 36.5
+   }
+  },
+  "C6": [
+   {
+    "case": "seed width 80",
+    "error": "ValueError: input row object_id 14499: a human box of 81 px needs a 81 px gate window, above the 73 px limit (tm.PATCH_SIZE)"
+   },
+   {
+    "case": "row 14578 width 80, seed 14499",
+    "error": "ValueError: input row object_id 14578: a human box of 81 px needs a 81 px gate window, above the 73 px limit (tm.PATCH_SIZE)"
+   },
+   {
+    "case": "row 14578 width 80, seed 14578",
+    "error": "ValueError: input row object_id 14578: a human box of 81 px needs a 81 px gate window, above the 73 px limit (tm.PATCH_SIZE)"
+   },
+   {
+    "case": "row 14578 width 16 (window 17), seed 14499",
+    "error": "ValueError: input row object_id 14578: a human box of 17 px gives a 17 px gate window, below the 19 px limit; draw a box of 18 px or more"
+   },
+   {
+    "case": "row 14578 width 16 (window 17), seed 14578",
+    "error": "ValueError: input row object_id 14578: a human box of 17 px gives a 17 px gate window, below the 19 px limit; draw a box of 18 px or more"
+   },
+   {
+    "case": "row 14578 NaN width, seed 14499",
+    "error": "ValueError: input row object_id 14578: a human box's width and height must be finite and >= 0, got (nan, 50.0)"
+   },
+   {
+    "case": "row 14578 NaN width, seed 14578",
+    "error": "ValueError: input row object_id 14578: a human box's width and height must be finite and >= 0, got (nan, 50.0)"
+   }
+  ],
+  "C5": [
+   {
+    "label": "left edge",
+    "box": [
+     0.0,
+     2381.0,
+     73.0,
+     73.0
+    ],
+    "centre": [
+     36.0,
+     2417.0
+    ],
+    "error": null
+   },
+   {
+    "label": "bottom edge",
+    "box": [
+     3187.0,
+     4762.0,
+     73.0,
+     73.0
+    ],
+    "centre": [
+     3223.0,
+     4798.0
+    ],
+    "error": null
+   },
+   {
+    "label": "guard at x = 30, window 73",
+    "error": "RuntimeError: the 73 px gate window at (30.0, 2000.0) is not readable; run_roi's edge check should have raised"
+   }
+  ],
+  "C3": [
+   {
+    "label": "even-pixel box 40 px",
+    "channel": "gray_inverted",
+    "box": [
+     287.5,
+     570.5,
+     40,
+     40
+    ],
+    "ann_id": 14461,
+    "differs_in": "size",
+    "window": 41,
+    "base_size": 35,
+    "template_center": [
+     307.5,
+     592.5
+    ],
+    "at_51": [
+     37,
+     308.0,
+     593.0
+    ],
+    "n_detections": 99
+   },
+   {
+    "label": "box 31 px",
+    "channel": "gray_inverted",
+    "box": [
+     165.0,
+     641.0,
+     31,
+     31
+    ],
+    "ann_id": 14462,
+    "differs_in": "size",
+    "window": 31,
+    "base_size": 29,
+    "template_center": [
+     181.5,
+     657.0
+    ],
+    "at_51": [
+     51,
+     178.5,
+     656.5
+    ],
+    "n_detections": 100
+   },
+   {
+    "label": "box 61 px",
+    "channel": "gray_inverted",
+    "box": [
+     231.0,
+     328.0,
+     61,
+     61
+    ],
+    "ann_id": 14460,
+    "differs_in": "size",
+    "window": 61,
+    "base_size": 37,
+    "template_center": [
+     262.0,
+     361.5
+    ],
+    "at_51": [
+     27,
+     262.0,
+     359.0
+    ],
+    "n_detections": 100
+   },
+   {
+    "label": "non-square 30 x 44 px",
+    "channel": "gray_inverted",
+    "box": [
+     1149.5,
+     379.5,
+     30,
+     44
+    ],
+    "ann_id": 14465,
+    "differs_in": "size",
+    "window": 45,
+    "base_size": 27,
+    "template_center": [
+     1161.5,
+     401.0
+    ],
+    "at_51": [
+     31,
+     1162.0,
+     399.5
+    ],
+    "n_detections": 100
+   },
+   {
+    "label": "half-integer origin, 45 px",
+    "channel": "gray_inverted",
+    "box": [
+     1267.5,
+     477.0,
+     45,
+     45
+    ],
+    "ann_id": 14466,
+    "differs_in": "size",
+    "window": 45,
+    "base_size": 45,
+    "template_center": [
+     1294.5,
+     499.0
+    ],
+    "at_51": [
+     51,
+     1296.0,
+     499.0
+    ],
+    "n_detections": 100
+   },
+   {
+    "label": "hem box 35 px",
+    "channel": "hematoxylin_od",
+    "box": [
+     853.0,
+     537.0,
+     35,
+     35
+    ],
+    "ann_id": 14464,
+    "differs_in": "size",
+    "window": 35,
+    "base_size": 29,
+    "template_center": [
+     867.0,
+     553.5
+    ],
+    "at_51": [
+     33,
+     867.0,
+     554.5
+    ],
+    "n_detections": 99
+   },
+   {
+    "label": "box 72 px, origin fraction .25",
+    "channel": "gray_inverted",
+    "box": [
+     303.25,
+     735.5,
+     72,
+     72
+    ],
+    "ann_id": 14467,
+    "differs_in": "size",
+    "window": 73,
+    "base_size": 47,
+    "template_center": [
+     339.0,
+     770.0
+    ],
+    "at_51": [
+     33,
+     337.0,
+     772.5
+    ],
+    "n_detections": 98
+   }
+  ],
+  "C4": {
+   "refused": [
+    {
+     "label": "refused square 41 px",
+     "box": [
+      6050.0,
+      3415.0,
+      41,
+      41
+     ],
+     "window": 41,
+     "base_size": 41,
+     "refusal_reason": "gate_refused",
+     "refined_row": [
+      6050.0,
+      3415.0,
+      40.0,
+      40.0
+     ],
+     "human_row": [
+      6050.0,
+      3415.0,
+      40.0,
+      40.0
+     ]
+    },
+    {
+     "label": "refused non-square 25 x 57 px",
+     "box": [
+      3573.0,
+      4319.0,
+      25,
+      57
+     ],
+     "window": 57,
+     "base_size": 57,
+     "refusal_reason": "gate_refused",
+     "refined_row": [
+      3557.0,
+      4319.0,
+      56.0,
+      56.0
+     ],
+     "human_row": [
+      3573.0,
+      4319.0,
+      24.0,
+      56.0
+     ]
+    }
+   ],
+   "template_unreadable": {
+    "click": [
+     6410,
+     250
+    ],
+    "found": [
+     "gray_inverted",
+     41
+    ],
+    "channel": "gray_inverted",
+    "window": 41,
+    "refusal_reason": "template_unreadable",
+    "base_size": 41
+   }
+  }
+ },
+ "t_total_s": 109.0
+}

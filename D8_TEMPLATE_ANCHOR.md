@@ -15,7 +15,9 @@ three now come from the Otsu component the click validated.
 connected component **the click's own rounded pixel falls inside** (`center_tolerance = 0`). That
 component must clear `min_area = 50`, `max_area_frac = 0.85`, `min_solidity = 0.5`. If the click
 is not inside such a component, the seed is **refused** and redrawn on the same RNG stream. This
-is unchanged and is not up for revision here.
+is unchanged and is not up for revision here. (Since 2026-09-24 the annotation frame's window is
+the human row's box — still 51 px for clicks and MIDOG annotations, 19–73 px for a drawn box; see
+`DECISIONS.md` D12.)
 
 > **Not "the largest component".** The rule reads `labels[cy, cx]`; it never asks whether that
 > component is the biggest thing in the window. On the 14 ROIs of `images/extra_valid` the two

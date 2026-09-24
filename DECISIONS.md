@@ -954,6 +954,84 @@ theoretical, and it is invisible; it costs exactly one TP, at K=30, across 441 r
 
 ---
 
+## D12 — A human's box sets the Otsu window and the fallback template
+
+**Date:** 2026-09-24
+
+**Status:** applied (uncommitted at the time of writing; see `SINGLE_ENTRY_POINT_PLAN.md` for the
+commits). Code in `midog_utils/annotation_frame.py` (`gate_window_side`, `box_frame`,
+`_template_choice`); spec `ANNOTATION_DATAFRAME_SPEC.md` §1, §3, §4.
+
+### The decision
+
+The seed row's box, not a fixed 51 px, sets two things: the window the Otsu gate
+(`tightened_template_box(..., otsu_window=W)`) thresholds, and the template used when the gate
+refuses or its template is unreadable. `W = gate_window_side(width, height)`: the pixel count of
+the box's longer side, `round(max(width, height)) + 1`, raised to odd, so the window is square and
+centred on the box centre.
+
+- A drawn box's centre is the click (the gate's centre-pixel rule is unchanged). A drawn box is
+  stored snapped to whole pixels (`box_frame`: odd size, centre = the pixel containing the drawn
+  centre), so the stored row is the window and the fallback footprint.
+- `W` must be 19–73 px, i.e. a drawn box of 18–73 px on its longer side; anything else raises, on
+  every human input row, not only the seed. 73 is `tm.PATCH_SIZE`, the patch the template is cut
+  from.
+- **Clicks and MIDOG annotations are unchanged.** Every click row (`CLICK_BOX = 50.0`) and every
+  MIDOG row (all 26,286 boxes are 50 × 50) is 50 wide, so `W = 51`, the old `OTSU_WINDOW` and
+  `DEFAULT_BASE_SIZE`. The full annotation-frame validation re-ran with 0 divergences, and a
+  before/after differential of `run_roi` on 19 cases (accepted, refused, unreadable, untightened,
+  two-row) matched on every column and info key.
+
+### Why, in plain words
+
+The user wanted a drawn box as a seed source, and a box says more than a click: roughly how big the
+figure is. Using it as the gate's window lets a tight box exclude a neighbouring nucleus the 51 px
+window would include, and lets a large figure get a window that holds all of it. The fallback
+follows the same logic: if the gate cannot tighten the human's box, the human's box is the best
+template available, just as 51 px is the implicit "box" of a click.
+
+The limits: above 73 px the window no longer fits the patch `build_augmentations` cuts the template
+from, so it raises rather than silently cropping. Below 19 px the gate mostly refuses (on 300.tiff,
+40 clicks × 2 channels: 28/80 accepted at window 9, 44/80 at 11, 66/80 at 51), the fallback template
+is tiny, and a tiny template means a tiny D11 blank, so the seed's own figure leaks back (a 9 px
+template at 300.tiff/14499 re-detected the seed's figure at rank 62, 9.5 px away). Those two numbers
+come from the plan reviewer's one-off probes, which are not in the repo (`SINGLE_ENTRY_POINT_PLAN.md`
+§0); treat them as indicative. 19 is the smallest `base_size` in the 441 validated reference runs.
+
+### Evidence, and what it does not show
+
+`box_window_probe.py` (output `results/box_window_probe.csv`): 993 agreement-pool mitotic
+annotations on the 14 original ROIs, gray channel, 896 of them accepted by the 51 px gate. For each
+of those 896, a square window of (component size + 2 × margin), centred on that component, simulates
+a tight drawn box.
+
+- Acceptance is 95.5–96.7% at every margin 0–15 px; refusals are almost all "centre pixel not
+  foreground". The 0.85 area cap refuses none at margins 0–10 and 2 of 896 at 15.
+- The template size follows how the box is drawn. At margin 0, 45% of accepted templates are
+  smaller than the 51 px gate's and none larger; at margin 15, 59% are larger and 1% smaller. So two
+  pathologists drawing the same figure differently get different templates.
+- `otsu_window` 50 and 51 give identical results on 993/993 (`read_padded_patch` forces odd).
+
+Not shown: the boxes are simulated, square and centred; hematoxylin was not probed; **precision was
+not measured** for any window other than 51. Windows 53–73 and templates that large are
+unvalidated, and templates of 53–73 px are not rotation-safe inside the 73 px patch (no effect at
+production's single unrotated template). Windows below 19 are refused, not measured.
+
+### What it costs
+
+- The raw drawn box is not recoverable from the frame (sub-pixel position, and an even size versus
+  the next odd one). A client that needs it must keep it.
+- The template now depends on how the human draws, not only on where they click.
+- Rectangular windows are not supported: a non-square box's window is the enclosing square.
+
+### What would change my mind
+
+- A precision@K measurement with drawn (or realistically simulated) boxes showing box-sized windows
+  do worse than a fixed 51 px window at the same clicks: then keep the box as a click only.
+- A radius-based refinement around the box centre (planned) that makes the window moot.
+
+---
+
 ## Cross-references
 
 | decision | primary evidence |
@@ -969,6 +1047,7 @@ theoretical, and it is invisible; it costs exactly one TP, at K=30, across 441 r
 | D9 `max_peaks = 100` | `threshold_maxpeaks_ablation/max_peaks_100_variant.ipynb` (the measurement); `threshold_maxpeaks_ablation/z_floor_tightening_variant.ipynb` (`dynamic_z` branch — bit-exact equivalence proof) |
 | D10 seed mask (one NMS radius) replaces the self-hit filter | **[`SELF_HIT_MASKING_PLAN.md`](SELF_HIT_MASKING_PLAN.md)** — the change, pre-registered numbers and gates; `../cleanup_harness/selfmask/` (the patch, `selfmask_check.py`, expected outputs, `probes/` including `analyze_realcode_output.txt`, `REFERENCE_PROVENANCE.md`); `../cleanup_harness/selfmask/superseded_5um/` (the measured 5 µm variant, with its patch, checker and `analyze_realcode_output_5um.txt`); `../cleanup_harness/runs/selfmask_ref_pre`, `selfmask_ref_post` and `selfmask_ref_post_5um` (captures); `../cleanup_harness/selfmask/SELF_HIT_MASKING_PLAN.midog_utils_full_draft.md` (the rejected ±7 px draft) |
 | D11 image-blanking replaces D10's seed-disc mask | **[`SELF_HIT_MASKING_PLAN.md`](SELF_HIT_MASKING_PLAN.md)** (rewritten for this design) — the change, pre-registered and independently re-derived numbers, and gates; `../cleanup_harness/selfmask/image_blank_design/` (the patch, `imageblank_check.py`, expected outputs, the design session's own `blank_seed_variant_*.py`/logs/CSVs, this verification session's scripts); `../cleanup_harness/runs/imageblank_ref_pre`, `imageblank_ref_post` (captures); `../cleanup_harness/selfmask/SELF_HIT_MASKING_PLAN.valid_mask_disc_design.md` (D10's own design, archived unchanged) |
+| D12 a human's box sets the Otsu window and fallback | `midog_utils/annotation_frame.py` (`gate_window_side`, `box_frame`, `_template_choice`); `ANNOTATION_DATAFRAME_SPEC.md` §1, §3, §4, §9; `SINGLE_ENTRY_POINT_PLAN.md`; `box_window_probe.py` and `results/box_window_probe.csv`; `validation/annotation_frame/box_checks.py` and `out/box/box.json`; `Research Logs/2026-09-24-single-entry-point-and-box-seed.md` |
 
 ## Still open, deliberately
 
