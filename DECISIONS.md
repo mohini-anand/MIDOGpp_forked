@@ -958,9 +958,9 @@ theoretical, and it is invisible; it costs exactly one TP, at K=30, across 441 r
 
 **Date:** 2026-09-24
 
-**Status:** applied (uncommitted at the time of writing; see `SINGLE_ENTRY_POINT_PLAN.md` for the
-commits). Code in `midog_utils/annotation_frame.py` (`gate_window_side`, `box_frame`,
-`_template_choice`); spec `ANNOTATION_DATAFRAME_SPEC.md` §1, §3, §4.
+**Status:** applied 2026-09-24: code in `ed548f1` (`midog_utils/annotation_frame.py`:
+`gate_window_side`, `box_frame`, `_template_choice`), CLI in `8e15afe`, documentation and checks in
+`d061479`. Spec `ANNOTATION_DATAFRAME_SPEC.md` §1, §3, §4.
 
 ### The decision
 

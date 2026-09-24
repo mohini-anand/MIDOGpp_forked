@@ -1,9 +1,13 @@
 # Plan: one pipeline entry point, and a drawn box as a seed source
 
-Status: **implemented and verified 2026-09-24; not yet committed (awaiting the user's go).**
-Results: `Research Logs/2026-09-24-single-entry-point-and-box-seed.md` (V-A 19/19 identical; full
-tier 0 divergences, 49/49 pickles identical; `box_checks.py` 0 divergences; Step 0 CLI frames
-identical). Written 2026-09-24. Reviewed adversarially in two rounds (round 1:
+Status: **implemented, verified and committed 2026-09-24**, on `feature/annotation-frame` after
+`d224c80`, as the three commits of §5: `ed548f1` (`annotation_frame`: box window and fallback,
+`box_frame`, `gate_window_side`, the guard, the input-row check, both regenerated `named.json`),
+`8e15afe` (`run_frame.py --source`, `visualize`; `run_pipeline.py` deprecation docstring) and
+`d061479` (spec, D12, D8 pointer, research log, probe and its CSV, `box_checks.py` and
+`out/box/box.json`, this plan). Results: `Research Logs/2026-09-24-single-entry-point-and-box-seed.md`
+(V-A 19/19 identical; full tier 0 divergences, 49/49 pickles identical; `box_checks.py` 0
+divergences; Step 0 CLI frames identical). Written 2026-09-24. Reviewed adversarially in two rounds (round 1:
 2 MAJOR + 17 MINOR/NIT, all accepted; round 2: AGREE on v2, 4 MINOR + 5 NIT, applied as written in v3).
 v4 records the user's decisions (§1); it was not re-reviewed. Changelogs at the end.
 
@@ -297,7 +301,7 @@ V-D. **CLI.** Each source on 300.tiff (`click 1411 3551`, `box` around ann 14499
      errors before any loading. `run_pipeline.py --help` shows the deprecation note; `run_pipeline.py
      300.tiff --ann-id 14499` output unchanged from Step 0.
 
-## 5. Commits (only when the user says so)
+## 5. Commits (made 2026-09-24 on the user's go: `ed548f1`, `8e15afe`, `d061479`)
 
 1. `annotation_frame`: box window/fallback, `box_frame`, `gate_window_side`, the guard, input-row check.
 2. `run_frame.py`: `--source`, box branch, `visualize`; `run_pipeline.py` deprecation docstring.
