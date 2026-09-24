@@ -3,13 +3,16 @@
     human's click, the template box the algorithm refined it to, and every prediction. `run_roi`
     takes a frame holding the click and returns a new frame with the refined seed and the
     predictions appended; `evaluate` scores that output against MIDOG++ ground truth;
-    `click_frame` builds the input row for a raw click, and `draw_seed_rows` draws the human-seed
-    rows the validation path feeds `run_roi`. A layer on top of the frozen modules, which do every
-    numerical step. Spec: `ANNOTATION_DATAFRAME_SPEC.md`.
+    `click_frame` and `box_frame` build the input row for a raw click or a drawn box, and
+    `draw_seed_rows` draws the human-seed rows the validation path feeds `run_roi`. The seed row's
+    box sets the Otsu gate's window and the fallback template (`gate_window_side`): 51 px for every
+    click and MIDOG row, the drawn box's own size for a box. A layer on top of the frozen modules,
+    which do every numerical step. Spec: `ANNOTATION_DATAFRAME_SPEC.md`.
 """
 
 from __future__ import annotations
 
+import math
 import time
 from datetime import datetime, timezone
 from types import SimpleNamespace
@@ -36,10 +39,12 @@ ALGORITHM = "ALGORITHM"
 GATE_REFUSED = "gate_refused"                # the Otsu gate refused the click
 TEMPLATE_UNREADABLE = "template_unreadable"  # the gate accepted, but the refined template is within 36 px of an edge
 
-DEFAULT_BASE_SIZE = tm.BASE_SIZE   # 51: the untightened template, and the fallback
-OTSU_WINDOW = tm.BASE_SIZE         # 51
+DEFAULT_BASE_SIZE = tm.BASE_SIZE   # 51: the untightened template, and the fallback, for clicks and MIDOG rows (gate_window_side(50, 50))
+OTSU_WINDOW = tm.BASE_SIZE         # 51: the validation draw's gate window (_joint_spec)
 PREDICTION_BOX = float(ds.BOX_SIZE)  # 50.0: a prediction row's width and height
-CLICK_BOX = float(ds.BOX_SIZE)       # 50.0: a raw click's row width and height, MIDOG's own box size
+CLICK_BOX = float(ds.BOX_SIZE)       # 50.0: a raw click's row width and height, MIDOG's own box size; fixes a click's 51 px window and fallback
+MAX_WINDOW_PX = tm.PATCH_SIZE      # 73: the largest gate window; a larger human box raises
+MIN_WINDOW_PX = 19                 # the smallest gate window, i.e. a drawn box of 18 px or more (DECISIONS.md D12)
 REFINEMENT_CHANNELS = (None, "gray_inverted", "hematoxylin_od")
 JOINT_CONDITIONS = {"default_51": None, "gray_bbox": "gray_inverted", "hem_bbox": "hematoxylin_od"}  # the driver's names and order
 
@@ -69,7 +74,7 @@ def footprint_box(base_size: int, tx: float, ty: float) -> tuple[float, float, f
     """
         The frame box of the ``base_size`` pixel footprint centred on ``(round(tx), round(ty))``. Its width is ``base_size - 1``
         (so ``base_size = width + 1``): the box's edges are the centres of the footprint's outermost pixels. Rounds half to
-        even, as ``read_padded_patch`` does -- the one rounding site outside the frozen modules.
+        even, as ``read_padded_patch`` does.
 
         base_size (int): the footprint's side in pixels; must be odd.
         tx (float): footprint centre x, unrounded.
@@ -81,6 +86,54 @@ def footprint_box(base_size: int, tx: float, ty: float) -> tuple[float, float, f
         raise ValueError(f"base_size must be odd for width = base_size - 1 to hold, got {base_size}")
     half = base_size // 2
     return float(int(round(tx)) - half), float(int(round(ty)) - half), float(base_size - 1), float(base_size - 1)
+
+
+def gate_window_side(width, height) -> int:
+    """
+        The Otsu gate's window, and the fallback template's size, for a human row's box: the pixel count of its longer side
+        (extent + 1), raised to odd. 51 for every click and MIDOG row (width 50).
+
+        width (float): the box's extent, ``x2 - x1``, so it spans width + 1 pixels.
+        height (float): the box's extent on y.
+
+        Returns int: the odd window side, MIN_WINDOW_PX..MAX_WINDOW_PX.
+        Raises ValueError when width or height is not finite or negative, or the window falls outside those limits.
+    """
+    width, height = float(width), float(height)
+    if not (math.isfinite(width) and math.isfinite(height) and width >= 0 and height >= 0):
+        raise ValueError(f"a human box's width and height must be finite and >= 0, got ({width}, {height})")
+    n_px = int(round(max(width, height))) + 1  # round half to even
+    side = n_px if n_px % 2 else n_px + 1  # odd: read_padded_patch and blank_seed_square act on 2 * (n // 2) + 1 pixels
+    if side > MAX_WINDOW_PX:
+        raise ValueError(f"a human box of {n_px} px needs a {side} px gate window, above the {MAX_WINDOW_PX} px limit (tm.PATCH_SIZE)")
+    if side < MIN_WINDOW_PX:
+        raise ValueError(f"a human box of {n_px} px gives a {side} px gate window, below the {MIN_WINDOW_PX} px limit; draw a box of {MIN_WINDOW_PX - 1} px or more")
+    assert side % 2 == 1 and side <= tm.PATCH_SIZE
+    return side
+
+
+def _snap_axis(x0: float, w: float) -> tuple[float, float]:
+    """
+        One axis of a drawn box snapped to whole pixels: ``round(w)`` pixels raised to odd, centred on the pixel containing the
+        drawn centre. ``floor(x0 + w / 2)`` is round half up in the frame's centre coordinates, a deliberate carve-out from the
+        spec's ban (§1): it picks the pixel containing an edge-coordinate point, has no tie, and does not depend on the box's
+        position, and the snapped centre is a whole pixel, so the frozen modules' half-to-even rounding never meets a tie.
+
+        x0 (float): the box's left (or top) edge, pixel-edge coordinates.
+        w (float): the box's width (or height) in pixels.
+
+        Returns tuple[float, float]: (x_tl, width) in the frame's pixel-centre coordinates, width = the odd pixel count - 1.
+        Raises ValueError when x0 or w is not finite, or w rounds below one pixel.
+    """
+    x0, w = float(x0), float(w)
+    if not (math.isfinite(x0) and math.isfinite(w)):
+        raise ValueError(f"a drawn box's origin and size must be finite, got ({x0}, {w})")
+    n = int(round(w))
+    if n < 1:
+        raise ValueError(f"a drawn box must be at least one pixel wide, got {w}")
+    n_odd = n if n % 2 else n + 1
+    c = math.floor(x0 + w / 2)
+    return float(c - n_odd // 2), float(n_odd - 1)
 
 
 def _block(n: int, **columns) -> pd.DataFrame:
@@ -113,7 +166,8 @@ def human_seed_frame(ann: pd.Series, file_name: str, current_time: str = None) -
 def click_frame(file_name: str, cx: float, cy: float, object_id: int, *, edge_origin: bool = False, current_time: str = None) -> pd.DataFrame:
     """
         The one-row human-seed frame for a raw click: a CLICK_BOX-wide box centred on it, so ``x_tl + width / 2`` gives the
-        click back. The production counterpart of ``human_seed_frame``, which needs a MIDOG annotation row.
+        click back, and the gate window and fallback template are 51 px, as for a MIDOG row. The production counterpart of
+        ``human_seed_frame``, which needs a MIDOG annotation row.
 
         file_name (str): the ROI's file name.
         cx (float): click x in full-resolution ROI pixels.
@@ -129,6 +183,33 @@ def click_frame(file_name: str, cx: float, cy: float, object_id: int, *, edge_or
         cx, cy = cx - 0.5, cy - 0.5
     half = CLICK_BOX / 2
     return _block(1, file_name=file_name, x_tl=cx - half, y_tl=cy - half, width=CLICK_BOX, height=CLICK_BOX, **{"class": MITOTIC_GT}, object_id=int(object_id), made_by=HUMAN, refined=False, current_time=current_time or now_utc(), score=np.nan, od=np.nan)
+
+
+def box_frame(file_name: str, x0: float, y0: float, w: float, h: float, object_id: int, *, current_time: str = None) -> pd.DataFrame:
+    """
+        The one-row human-seed frame for a box the human drew. Each side is snapped to whole pixels -- ``round`` of its size,
+        raised to odd, centred on the pixel containing the drawn centre -- so the stored row is exactly the gate window (for a
+        square box) and the fallback template. Sub-pixel coordinates, and an even size's difference from the next odd one,
+        are not kept. For drawn boxes only: a MIDOG box is already in pixel-centre coordinates (``human_seed_frame``).
+
+        file_name (str): the ROI's file name.
+        x0 (float): the box's left edge, pixel-edge coordinates (pixel k spans [k, k + 1), as in COCO and canvas APIs).
+        y0 (float): the box's top edge, pixel-edge coordinates.
+        w (float): the box's width in pixels.
+        h (float): the box's height in pixels.
+        object_id (int): the box's id, unique among the ROI's HUMAN MITOTIC_GT rows.
+        current_time (str or None): the drawing time; now when None.
+
+        Returns pd.DataFrame: one MITOTIC_GT, HUMAN, unrefined row.
+        Raises ValueError on a non-finite or empty box, or one whose gate window falls outside 19..73 px (``gate_window_side``).
+    """
+    x_tl, width = _snap_axis(x0, w)
+    y_tl, height = _snap_axis(y0, h)
+    try:
+        gate_window_side(width, height)
+    except ValueError as exc:
+        raise ValueError(f"drawn box {w} x {h} px snaps to {int(width) + 1} x {int(height) + 1} px: {exc}") from None
+    return _block(1, file_name=file_name, x_tl=x_tl, y_tl=y_tl, width=width, height=height, **{"class": MITOTIC_GT}, object_id=int(object_id), made_by=HUMAN, refined=False, current_time=current_time or now_utc(), score=np.nan, od=np.nan)
 
 
 def _select_seed(frame: pd.DataFrame, seed_object_id) -> pd.Series:
@@ -156,7 +237,8 @@ def _input_rows(annotations_df: pd.DataFrame) -> pd.DataFrame:
         annotations_df (pd.DataFrame): the caller's frame; never mutated.
 
         Returns pd.DataFrame: the copy, in the schema's column order.
-        Raises ValueError on missing or extra columns, a row that is not HUMAN MITOTIC_GT, or a duplicated object_id.
+        Raises ValueError on missing or extra columns, a row that is not HUMAN MITOTIC_GT, a duplicated object_id, or a row
+        whose box gives no valid gate window (``gate_window_side``).
     """
     missing = [c for c in COLUMNS if c not in annotations_df.columns]
     extra = [c for c in annotations_df.columns if c not in COLUMNS]
@@ -169,6 +251,11 @@ def _input_rows(annotations_df: pd.DataFrame) -> pd.DataFrame:
         raise ValueError(f"{int(not_seed.sum())} input rows are not HUMAN MITOTIC_GT; run_roi takes only the human's clicks, never a previous run's output")
     if frame["object_id"].duplicated().any():
         raise ValueError(f"input object_ids must be unique; duplicated: {sorted(frame.loc[frame['object_id'].duplicated(), 'object_id'].unique().tolist())}")
+    for object_id, width, height in zip(frame["object_id"], frame["width"], frame["height"]):
+        try:
+            gate_window_side(width, height)
+        except ValueError as exc:
+            raise ValueError(f"input row object_id {int(object_id)}: {exc}") from None
     return frame
 
 
@@ -187,25 +274,30 @@ def _check_schema(frame: pd.DataFrame) -> None:
             raise ValueError(f"frame column {c!r} has dtype {frame[c].dtype}, expected {np.dtype(DTYPES[c])}; an input column breaks the schema")
 
 
-def _template_choice(rgb: np.ndarray, cx: float, cy: float, refinement_channel):
+def _template_choice(rgb: np.ndarray, cx: float, cy: float, refinement_channel, window: int):
     """
-        The template spec for a readable click: the accepted Otsu component's, or the 51 px default centred on the click.
+        The template spec for a readable seed: the accepted Otsu component's, or the human's box (``window`` px) centred on the
+        seed.
 
         rgb (np.ndarray): the ROI's RGB image.
-        cx (float): click x, unrounded.
-        cy (float): click y, unrounded.
+        cx (float): seed centre x, unrounded.
+        cy (float): seed centre y, unrounded.
         refinement_channel (str or None): the gate's channel, or None for no refinement.
+        window (int): the gate window and fallback size, ``gate_window_side`` of the seed row; 51 for clicks and MIDOG rows.
 
         Returns tuple: (base_size, tx, ty, refined, refusal_reason).
+        Raises RuntimeError when the window is not readable at the seed centre, so a refusal always means the gate refused.
     """
     if refinement_channel is None:
-        return DEFAULT_BASE_SIZE, cx, cy, False, None
-    got = ss.tightened_template_box(ch.to_channel(rgb, refinement_channel), cx, cy, otsu_window=OTSU_WINDOW)
+        return window, cx, cy, False, None
+    if not ss._patch_readable(rgb.shape, cx, cy, window):
+        raise RuntimeError(f"the {window} px gate window at ({cx}, {cy}) is not readable; run_roi's edge check should have raised")
+    got = ss.tightened_template_box(ch.to_channel(rgb, refinement_channel), cx, cy, otsu_window=window)
     if got is None:
-        return DEFAULT_BASE_SIZE, cx, cy, False, GATE_REFUSED
+        return window, cx, cy, False, GATE_REFUSED
     base_size, tx, ty = int(got[0]), float(got[1]), float(got[2])
     if not ss._patch_readable(rgb.shape, tx, ty, tm.PATCH_SIZE):
-        return DEFAULT_BASE_SIZE, cx, cy, False, TEMPLATE_UNREADABLE
+        return window, cx, cy, False, TEMPLATE_UNREADABLE
     return base_size, tx, ty, True, None
 
 
@@ -229,17 +321,19 @@ def _prediction_rows(detections: pd.DataFrame, file_name: str, current_time: str
 
 def run_roi(rgb: np.ndarray, annotations_df: pd.DataFrame, mpp: float, *, seed_object_id=None, rank_key: str = "tm_score", refinement_channel="gray_inverted") -> tuple[pd.DataFrame, dict]:
     """
-        One human click in, the refined seed and every post-NMS prediction appended. Never draws a seed and never re-sorts.
+        One human click or box in, the refined seed and every post-NMS prediction appended. Never draws a seed and never
+        re-sorts. The seed row's box sets the gate window and the fallback template (``gate_window_side``).
 
         rgb (np.ndarray): the ROI's full-resolution RGB image (`dataset.load_roi`).
         annotations_df (pd.DataFrame): the frame's input rows, all HUMAN MITOTIC_GT of one ROI; never mutated.
         mpp (float): the ROI's microns per pixel (`dataset.roi_mpp`).
         seed_object_id (int or None): which input row is the seed; None when there is exactly one.
         rank_key (str): "tm_score" or "chromatin_od" -- the sort order only; score and od are both always computed.
-        refinement_channel (str or None): the Otsu gate's channel, "gray_inverted" or "hematoxylin_od", or None for the 51 px default.
+        refinement_channel (str or None): the Otsu gate's channel, "gray_inverted" or "hematoxylin_od", or None for no tightening: the template is the human's box (51 px for clicks and MIDOG).
 
         Returns tuple[pd.DataFrame, dict]: the input rows, the refined seed and the predictions, and the run's info.
-        Raises ValueError on a bad argument or input frame, or a click within 36 px of an edge.
+        Raises ValueError on a bad argument or input frame (including a human box outside the 19..73 px window limits), or a
+        seed centre within 36 px of an edge.
     """
     t_start = time.time()
     if rank_key not in prod.AXES:
@@ -251,13 +345,14 @@ def run_roi(rgb: np.ndarray, annotations_df: pd.DataFrame, mpp: float, *, seed_o
     file_name = seed["file_name"]
     if not (frame["file_name"] == file_name).all():
         raise ValueError(f"every input row must share the seed's file_name {file_name!r}; found {sorted(frame['file_name'].unique().tolist())}")
+    window = gate_window_side(seed["width"], seed["height"])
 
     cx, cy = box_center(float(seed["x_tl"]), float(seed["width"])), box_center(float(seed["y_tl"]), float(seed["height"]))
     if not ss._patch_readable(rgb.shape, cx, cy, tm.PATCH_SIZE):
-        raise ValueError(f"click ({cx}, {cy}) is within {tm.PATCH_SIZE // 2} px of the ROI edge; clicks that close to the edge are not supported")
+        raise ValueError(f"seed centre ({cx}, {cy}) is within {tm.PATCH_SIZE // 2} px of the ROI edge; seeds that close to the edge are not supported")
 
     t0 = time.time()
-    base_size, tx, ty, refined, refusal_reason = _template_choice(rgb, cx, cy, refinement_channel)
+    base_size, tx, ty, refined, refusal_reason = _template_choice(rgb, cx, cy, refinement_channel, window)
     t_refine = time.time() - t0
     refine_time = now_utc()
 

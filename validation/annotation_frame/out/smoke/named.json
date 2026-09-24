@@ -534,14 +534,14 @@
    {
     "case": "300.tiff click (35.0, 2417.0) of (6447, 4835)",
     "raised": true,
-    "error": "ValueError: click (35.0, 2417.0) is within 36 px of the ROI edge; clicks that close to the edge are not supported",
-    "seconds": 0.005
+    "error": "ValueError: seed centre (35.0, 2417.0) is within 36 px of the ROI edge; seeds that close to the edge are not supported",
+    "seconds": 0.007
    },
    {
     "case": "300.tiff click (36.0, 2417.0) of (6447, 4835)",
     "raised": false,
     "error": null,
-    "seconds": 4.104,
+    "seconds": 5.117,
     "refined": false,
     "refusal_reason": "gate_refused",
     "n_rows": 101
@@ -549,14 +549,14 @@
    {
     "case": "300.tiff click (6411.0, 2417.0) of (6447, 4835)",
     "raised": true,
-    "error": "ValueError: click (6411.0, 2417.0) is within 36 px of the ROI edge; clicks that close to the edge are not supported",
-    "seconds": 0.004
+    "error": "ValueError: seed centre (6411.0, 2417.0) is within 36 px of the ROI edge; seeds that close to the edge are not supported",
+    "seconds": 0.006
    },
    {
     "case": "300.tiff click (6410.0, 2417.0) of (6447, 4835)",
     "raised": false,
     "error": null,
-    "seconds": 3.492,
+    "seconds": 5.419,
     "refined": true,
     "refusal_reason": null,
     "n_rows": 100
@@ -564,14 +564,14 @@
    {
     "case": "300.tiff click (3223.0, 35.0) of (6447, 4835)",
     "raised": true,
-    "error": "ValueError: click (3223.0, 35.0) is within 36 px of the ROI edge; clicks that close to the edge are not supported",
-    "seconds": 0.004
+    "error": "ValueError: seed centre (3223.0, 35.0) is within 36 px of the ROI edge; seeds that close to the edge are not supported",
+    "seconds": 0.007
    },
    {
     "case": "300.tiff click (3223.0, 36.0) of (6447, 4835)",
     "raised": false,
     "error": null,
-    "seconds": 3.625,
+    "seconds": 4.902,
     "refined": false,
     "refusal_reason": "template_unreadable",
     "n_rows": 101
@@ -579,14 +579,14 @@
    {
     "case": "300.tiff click (3223.0, 4799.0) of (6447, 4835)",
     "raised": true,
-    "error": "ValueError: click (3223.0, 4799.0) is within 36 px of the ROI edge; clicks that close to the edge are not supported",
-    "seconds": 0.005
+    "error": "ValueError: seed centre (3223.0, 4799.0) is within 36 px of the ROI edge; seeds that close to the edge are not supported",
+    "seconds": 0.006
    },
    {
     "case": "300.tiff click (3223.0, 4798.0) of (6447, 4835)",
     "raised": false,
     "error": null,
-    "seconds": 3.989,
+    "seconds": 4.765,
     "refined": false,
     "refusal_reason": "gate_refused",
     "n_rows": 102
@@ -607,13 +607,13 @@
     "case": "two HUMAN MITOTIC_GT rows, seed_object_id None",
     "raised": true,
     "error": "ValueError: expected exactly one HUMAN MITOTIC_GT seed row, found 2",
-    "seconds": 0.005
+    "seconds": 0.004
    },
    {
     "case": "run_roi's own output fed back in",
     "raised": true,
     "error": "ValueError: 101 input rows are not HUMAN MITOTIC_GT; run_roi takes only the human's clicks, never a previous run's output",
-    "seconds": 0.003
+    "seconds": 0.004
    },
    {
     "case": "input plus the ALGORITHM refined row",
@@ -661,7 +661,7 @@
     "case": "input without the od column",
     "raised": true,
     "error": "ValueError: input frame columns must be exactly ['file_name', 'x_tl', 'y_tl', 'width', 'height', 'class', 'object_id', 'made_by', 'refined', 'current_time', 'score', 'od']; missing ['od'], extra []",
-    "seconds": 0.0
+    "seconds": 0.001
    },
    {
     "case": "evaluate with the seed row renumbered to object_id 1 (an ann_id of image 1)",
@@ -751,5 +751,5 @@
    ]
   }
  },
- "t_total_s": 350.4
+ "t_total_s": 404.3
 }

@@ -534,14 +534,14 @@
    {
     "case": "300.tiff click (35.0, 2417.0) of (6447, 4835)",
     "raised": true,
-    "error": "ValueError: click (35.0, 2417.0) is within 36 px of the ROI edge; clicks that close to the edge are not supported",
-    "seconds": 0.009
+    "error": "ValueError: seed centre (35.0, 2417.0) is within 36 px of the ROI edge; seeds that close to the edge are not supported",
+    "seconds": 0.007
    },
    {
     "case": "300.tiff click (36.0, 2417.0) of (6447, 4835)",
     "raised": false,
     "error": null,
-    "seconds": 8.082,
+    "seconds": 7.502,
     "refined": false,
     "refusal_reason": "gate_refused",
     "n_rows": 101
@@ -549,14 +549,14 @@
    {
     "case": "300.tiff click (6411.0, 2417.0) of (6447, 4835)",
     "raised": true,
-    "error": "ValueError: click (6411.0, 2417.0) is within 36 px of the ROI edge; clicks that close to the edge are not supported",
-    "seconds": 0.009
+    "error": "ValueError: seed centre (6411.0, 2417.0) is within 36 px of the ROI edge; seeds that close to the edge are not supported",
+    "seconds": 0.007
    },
    {
     "case": "300.tiff click (6410.0, 2417.0) of (6447, 4835)",
     "raised": false,
     "error": null,
-    "seconds": 5.596,
+    "seconds": 5.113,
     "refined": true,
     "refusal_reason": null,
     "n_rows": 100
@@ -564,14 +564,14 @@
    {
     "case": "300.tiff click (3223.0, 35.0) of (6447, 4835)",
     "raised": true,
-    "error": "ValueError: click (3223.0, 35.0) is within 36 px of the ROI edge; clicks that close to the edge are not supported",
+    "error": "ValueError: seed centre (3223.0, 35.0) is within 36 px of the ROI edge; seeds that close to the edge are not supported",
     "seconds": 0.007
    },
    {
     "case": "300.tiff click (3223.0, 36.0) of (6447, 4835)",
     "raised": false,
     "error": null,
-    "seconds": 6.401,
+    "seconds": 5.084,
     "refined": false,
     "refusal_reason": "template_unreadable",
     "n_rows": 101
@@ -579,14 +579,14 @@
    {
     "case": "300.tiff click (3223.0, 4799.0) of (6447, 4835)",
     "raised": true,
-    "error": "ValueError: click (3223.0, 4799.0) is within 36 px of the ROI edge; clicks that close to the edge are not supported",
-    "seconds": 0.009
+    "error": "ValueError: seed centre (3223.0, 4799.0) is within 36 px of the ROI edge; seeds that close to the edge are not supported",
+    "seconds": 0.006
    },
    {
     "case": "300.tiff click (3223.0, 4798.0) of (6447, 4835)",
     "raised": false,
     "error": null,
-    "seconds": 6.274,
+    "seconds": 5.068,
     "refined": false,
     "refusal_reason": "gate_refused",
     "n_rows": 102
@@ -595,31 +595,31 @@
     "case": "zero input rows",
     "raised": true,
     "error": "ValueError: expected exactly one HUMAN MITOTIC_GT seed row, found 0",
-    "seconds": 0.007
+    "seconds": 0.005
    },
    {
     "case": "seed_object_id matching no row",
     "raised": true,
     "error": "ValueError: expected exactly one HUMAN MITOTIC_GT seed row with object_id 999999, found 0",
-    "seconds": 0.008
+    "seconds": 0.005
    },
    {
     "case": "two HUMAN MITOTIC_GT rows, seed_object_id None",
     "raised": true,
     "error": "ValueError: expected exactly one HUMAN MITOTIC_GT seed row, found 2",
-    "seconds": 0.006
+    "seconds": 0.005
    },
    {
     "case": "run_roi's own output fed back in",
     "raised": true,
     "error": "ValueError: 101 input rows are not HUMAN MITOTIC_GT; run_roi takes only the human's clicks, never a previous run's output",
-    "seconds": 0.006
+    "seconds": 0.005
    },
    {
     "case": "input plus the ALGORITHM refined row",
     "raised": true,
     "error": "ValueError: 1 input rows are not HUMAN MITOTIC_GT; run_roi takes only the human's clicks, never a previous run's output",
-    "seconds": 0.006
+    "seconds": 0.005
    },
    {
     "case": "a MITOTIC_GT row made_by ALGORITHM",
@@ -631,7 +631,7 @@
     "case": "a HUMAN row of class PREDICTION",
     "raised": true,
     "error": "ValueError: 1 input rows are not HUMAN MITOTIC_GT; run_roi takes only the human's clicks, never a previous run's output",
-    "seconds": 0.005
+    "seconds": 0.004
    },
    {
     "case": "rank_key='od'",
@@ -649,13 +649,13 @@
     "case": "two rows with object_id 14499",
     "raised": true,
     "error": "ValueError: input object_ids must be unique; duplicated: [14499]",
-    "seconds": 0.007
+    "seconds": 0.005
    },
    {
     "case": "a second row from another file",
     "raised": true,
     "error": "ValueError: every input row must share the seed's file_name '300.tiff'; found ['300.tiff', '301.tiff']",
-    "seconds": 0.007
+    "seconds": 0.006
    },
    {
     "case": "input without the od column",
@@ -667,25 +667,25 @@
     "case": "evaluate with the seed row renumbered to object_id 1 (an ann_id of image 1)",
     "raised": true,
     "error": "ValueError: seed object_id 1 is not one mitotic ann_id at the seed's centre (1411.0, 3551.0); evaluate needs the seed row's object_id to be its MIDOG ann_id",
-    "seconds": 0.003
+    "seconds": 0.001
    },
    {
     "case": "evaluate with the seed row renumbered to object_id 14463, a look-alike in 300.tiff",
     "raised": true,
     "error": "ValueError: seed object_id 14463 is not one mitotic ann_id at the seed's centre (1411.0, 3551.0); evaluate needs the seed row's object_id to be its MIDOG ann_id",
-    "seconds": 0.002
+    "seconds": 0.001
    },
    {
     "case": "evaluate with the seed row renumbered to object_id 14459, a mitotic ann_id in 300.tiff at another centre",
     "raised": true,
     "error": "ValueError: seed object_id 14459 is not one mitotic ann_id at the seed's centre (1411.0, 3551.0); evaluate needs the seed row's object_id to be its MIDOG ann_id",
-    "seconds": 0.002
+    "seconds": 0.001
    },
    {
     "case": "evaluate with the seed row renumbered to object_id 999999, no such ann_id",
     "raised": true,
     "error": "ValueError: seed object_id 999999 is not one mitotic ann_id at the seed's centre (1411.0, 3551.0); evaluate needs the seed row's object_id to be its MIDOG ann_id",
-    "seconds": 0.002
+    "seconds": 0.001
    }
   ],
   "V8": [
@@ -851,5 +851,5 @@
    ]
   }
  },
- "t_total_s": 631.9
+ "t_total_s": 674.8
 }
