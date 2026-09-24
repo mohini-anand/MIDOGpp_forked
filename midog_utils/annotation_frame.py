@@ -3,8 +3,9 @@
     human's click, the template box the algorithm refined it to, and every prediction. `run_roi`
     takes a frame holding the click and returns a new frame with the refined seed and the
     predictions appended; `evaluate` scores that output against MIDOG++ ground truth;
-    `draw_seed_rows` draws the human-seed rows the validation path feeds `run_roi`. A layer on
-    top of the frozen modules, which do every numerical step. Spec: `ANNOTATION_DATAFRAME_SPEC.md`.
+    `click_frame` builds the input row for a raw click, and `draw_seed_rows` draws the human-seed
+    rows the validation path feeds `run_roi`. A layer on top of the frozen modules, which do every
+    numerical step. Spec: `ANNOTATION_DATAFRAME_SPEC.md`.
 """
 
 from __future__ import annotations
@@ -38,6 +39,7 @@ TEMPLATE_UNREADABLE = "template_unreadable"  # the gate accepted, but the refine
 DEFAULT_BASE_SIZE = tm.BASE_SIZE   # 51: the untightened template, and the fallback
 OTSU_WINDOW = tm.BASE_SIZE         # 51
 PREDICTION_BOX = float(ds.BOX_SIZE)  # 50.0: a prediction row's width and height
+CLICK_BOX = float(ds.BOX_SIZE)       # 50.0: a raw click's row width and height, MIDOG's own box size
 REFINEMENT_CHANNELS = (None, "gray_inverted", "hematoxylin_od")
 JOINT_CONDITIONS = {"default_51": None, "gray_bbox": "gray_inverted", "hem_bbox": "hematoxylin_od"}  # the driver's names and order
 
@@ -106,6 +108,27 @@ def human_seed_frame(ann: pd.Series, file_name: str, current_time: str = None) -
     """
     cx, cy, w, h = float(ann["cx"]), float(ann["cy"]), float(ann["w"]), float(ann["h"])
     return _block(1, file_name=file_name, x_tl=cx - w / 2, y_tl=cy - h / 2, width=w, height=h, **{"class": MITOTIC_GT}, object_id=int(ann["ann_id"]), made_by=HUMAN, refined=False, current_time=current_time or now_utc(), score=np.nan, od=np.nan)
+
+
+def click_frame(file_name: str, cx: float, cy: float, object_id: int, *, edge_origin: bool = False, current_time: str = None) -> pd.DataFrame:
+    """
+        The one-row human-seed frame for a raw click: a CLICK_BOX-wide box centred on it, so ``x_tl + width / 2`` gives the
+        click back. The production counterpart of ``human_seed_frame``, which needs a MIDOG annotation row.
+
+        file_name (str): the ROI's file name.
+        cx (float): click x in full-resolution ROI pixels.
+        cy (float): click y in full-resolution ROI pixels.
+        object_id (int): the click's id, unique among the ROI's HUMAN MITOTIC_GT rows.
+        edge_origin (bool): True when the click uses pixel-edge coordinates (pixel k spans [k, k + 1), as in COCO and canvas APIs); 0.5 is subtracted to reach the frame's pixel-centre origin.
+        current_time (str or None): the click time; now when None.
+
+        Returns pd.DataFrame: one MITOTIC_GT, HUMAN, unrefined row.
+    """
+    cx, cy = float(cx), float(cy)
+    if edge_origin:
+        cx, cy = cx - 0.5, cy - 0.5
+    half = CLICK_BOX / 2
+    return _block(1, file_name=file_name, x_tl=cx - half, y_tl=cy - half, width=CLICK_BOX, height=CLICK_BOX, **{"class": MITOTIC_GT}, object_id=int(object_id), made_by=HUMAN, refined=False, current_time=current_time or now_utc(), score=np.nan, od=np.nan)
 
 
 def _select_seed(frame: pd.DataFrame, seed_object_id) -> pd.Series:
