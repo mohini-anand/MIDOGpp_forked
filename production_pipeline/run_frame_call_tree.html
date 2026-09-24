@@ -1,0 +1,511 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>[hidden]{display:none!important} body{margin:0} img{max-width:100%}</style>
+<title>run_frame.py Call Tree</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root {
+  --paper: #F4F3F8;
+  --surface: #FFFFFF;
+  --ink: #1C1A2B;
+  --muted: #5E5A74;
+  --faint: #8C88A3;
+  --rule: #DAD7E6;
+  --rule-strong: #B9B4CE;
+  --accent: #4A3B9C;
+  --accent-soft: #ECE9F8;
+  --eosin: #A83A64;
+  --eosin-soft: #F8E6EE;
+  --hit: #FFF0B8;
+  --hit-ink: #5A4600;
+  --m-run_frame: #5B45C9;
+  --m-annotation_frame: #0E8A7E;
+  --m-dataset: #B7791F;
+  --m-channels: #6C8A1E;
+  --m-chromatin: #B0407A;
+  --m-seed_selection: #2F9B4E;
+  --m-template_match: #2C6FD1;
+  --m-find_and_suppress: #1596B8;
+  --m-nms: #7B61A8;
+  --m-production: #22418F;
+  --m-invariants: #6F7482;
+  --m-evaluate: #C95A22;
+  --m-viz: #C23B4B;
+  --sans: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+  --cond: "IBM Plex Sans Condensed", "Arial Narrow", "IBM Plex Sans", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --paper: #14121D;
+    --surface: #1C1929;
+    --ink: #ECEAF6;
+    --muted: #A9A4C2;
+    --faint: #7E7998;
+    --rule: #332F46;
+    --rule-strong: #4B4664;
+    --accent: #A99CFF;
+    --accent-soft: #2A2445;
+    --eosin: #F08CB2;
+    --eosin-soft: #3A1F2E;
+    --hit: #5A4A12;
+    --hit-ink: #FFE89A;
+    --m-run_frame: #A99CFF;
+    --m-annotation_frame: #3CC7B8;
+    --m-dataset: #E3A94B;
+    --m-channels: #A9C95A;
+    --m-chromatin: #EE7FB4;
+    --m-seed_selection: #5BD27D;
+    --m-template_match: #6FA4FF;
+    --m-find_and_suppress: #4EC4E6;
+    --m-nms: #B79BEA;
+    --m-production: #8FA8FF;
+    --m-invariants: #A5AAB8;
+    --m-evaluate: #F39162;
+    --m-viz: #F17584;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --paper: #14121D;
+  --surface: #1C1929;
+  --ink: #ECEAF6;
+  --muted: #A9A4C2;
+  --faint: #7E7998;
+  --rule: #332F46;
+  --rule-strong: #4B4664;
+  --accent: #A99CFF;
+  --accent-soft: #2A2445;
+  --eosin: #F08CB2;
+  --eosin-soft: #3A1F2E;
+  --hit: #5A4A12;
+  --hit-ink: #FFE89A;
+  --m-run_frame: #A99CFF;
+  --m-annotation_frame: #3CC7B8;
+  --m-dataset: #E3A94B;
+  --m-channels: #A9C95A;
+  --m-chromatin: #EE7FB4;
+  --m-seed_selection: #5BD27D;
+  --m-template_match: #6FA4FF;
+  --m-find_and_suppress: #4EC4E6;
+  --m-nms: #B79BEA;
+  --m-production: #8FA8FF;
+  --m-invariants: #A5AAB8;
+  --m-evaluate: #F39162;
+  --m-viz: #F17584;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 14px;
+  line-height: 1.45;
+  padding-inline: 16px;
+  padding-block: 28px 48px;
+}
+.wrap { max-width: 1120px; margin: 0 auto; display: flex; flex-direction: column; gap: 22px; }
+code, .mono { font-family: var(--mono); }
+
+/* header */
+header { display: flex; flex-direction: column; gap: 8px; }
+.eyebrow { font-family: var(--cond); font-weight: 600; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
+h1 { font-family: var(--cond); font-weight: 700; font-size: clamp(26px, 4vw, 36px); line-height: 1.1; margin: 0; text-wrap: balance; }
+h1 code { font-family: var(--mono); font-weight: 600; font-size: 0.86em; }
+.lede { margin: 0; max-width: 70ch; color: var(--muted); font-size: 15px; }
+.stats { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.stats b { color: var(--ink); font-weight: 600; }
+
+/* command */
+.command { background: var(--surface); border: 1px solid var(--rule); border-radius: 8px; padding: 12px 14px; overflow-x: auto; }
+.command pre { margin: 0; font-family: var(--mono); font-size: 13px; line-height: 1.6; white-space: pre; }
+.command .dim { color: var(--faint); }
+.command .src { color: var(--accent); font-weight: 600; }
+
+/* stage strip */
+h2 { font-family: var(--cond); font-weight: 600; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 8px; }
+.strip { display: flex; flex-wrap: wrap; align-items: stretch; gap: 6px; list-style: none; margin: 0; padding: 0; }
+.strip li { display: flex; align-items: stretch; gap: 6px; }
+.strip li + li::before { content: "→"; align-self: center; color: var(--faint); font-size: 16px; }
+.stage { display: flex; flex-direction: column; gap: 2px; text-align: left; background: var(--surface); border: 1px solid var(--rule); border-radius: 8px; padding: 8px 10px; font: inherit; color: inherit; cursor: pointer; min-width: 0; }
+.stage:hover { border-color: var(--rule-strong); }
+.stage:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.stage .n { font-family: var(--cond); font-weight: 700; font-size: 11px; color: var(--faint); letter-spacing: 0.06em; }
+.stage .t { font-weight: 600; font-size: 13px; }
+.stage .f { font-family: var(--mono); font-size: 11.5px; color: var(--muted); }
+.stage.optional { border-style: dashed; }
+.stage .only { font-size: 11px; color: var(--eosin); }
+
+/* controls */
+.controls { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--paper); padding-block: 10px; border-bottom: 1px solid var(--rule); display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; }
+.group { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.group > .lab { font-family: var(--cond); font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-right: 2px; }
+.seg { display: inline-flex; flex-wrap: wrap; border: 1px solid var(--rule-strong); border-radius: 7px; overflow: hidden; }
+.seg button { font: inherit; font-size: 13px; background: var(--surface); color: var(--ink); border: 0; border-right: 1px solid var(--rule); padding: 5px 10px; cursor: pointer; }
+.seg button:last-child { border-right: 0; }
+.seg button[aria-pressed="true"] { background: var(--accent); color: var(--surface); }
+.seg button:focus-visible, .btn:focus-visible, .toggle input:focus-visible + span, #q:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.btn { font: inherit; font-size: 13px; background: var(--surface); color: var(--ink); border: 1px solid var(--rule-strong); border-radius: 7px; padding: 5px 10px; cursor: pointer; }
+.btn:hover, .seg button:hover:not([aria-pressed="true"]) { background: var(--accent-soft); }
+#q { font: inherit; font-size: 13px; font-family: var(--mono); width: 13rem; max-width: 100%; background: var(--surface); color: var(--ink); border: 1px solid var(--rule-strong); border-radius: 7px; padding: 5px 9px; }
+.toggle { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--muted); cursor: pointer; }
+.toggle input { accent-color: var(--accent); }
+#matches { font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; min-width: 6ch; }
+
+/* legend */
+.legend { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 12.5px; color: var(--muted); }
+.legend span { display: inline-flex; align-items: center; gap: 6px; font-family: var(--mono); }
+.dot { width: 9px; height: 9px; border-radius: 50%; flex: none; display: inline-block; }
+
+/* tree */
+.tree-box { background: var(--surface); border: 1px solid var(--rule); border-radius: 10px; padding: 14px 12px 14px 8px; overflow-x: auto; }
+ul.tree, ul.tree ul { list-style: none; margin: 0; padding: 0; }
+ul.tree ul { margin-left: 11px; padding-left: 16px; border-left: 1px solid var(--rule-strong); }
+ul.tree li { position: relative; }
+ul.tree ul > li::before { content: ""; position: absolute; left: -16px; top: 17px; width: 13px; border-top: 1px solid var(--rule-strong); }
+ul.tree ul > li:last-child::after { content: ""; position: absolute; left: -17px; top: 18px; bottom: 0; border-left: 3px solid var(--surface); }
+.row { display: grid; grid-template-columns: 22px minmax(0, 1fr); gap: 4px; padding: 5px 6px 5px 0; border-radius: 6px; min-width: 22rem; }
+.row.flash { animation: flash 1.6s ease-out; }
+@keyframes flash { 0%, 30% { background: var(--accent-soft); } 100% { background: transparent; } }
+.tw { width: 22px; height: 22px; display: grid; place-items: center; border: 0; background: none; color: var(--muted); cursor: pointer; border-radius: 5px; padding: 0; font-size: 11px; }
+.tw:hover { background: var(--accent-soft); color: var(--accent); }
+.tw:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.tw svg { transition: transform 0.15s ease; }
+li[aria-expanded="true"] > .row .tw svg { transform: rotate(90deg); }
+.leaf { width: 22px; height: 22px; display: grid; place-items: center; }
+.leaf::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: var(--rule-strong); }
+.body { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+.head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; }
+.fn { font-family: var(--mono); font-weight: 600; font-size: 14px; color: var(--ink); }
+.fn .paren { color: var(--faint); font-weight: 400; }
+.mod { display: inline-flex; align-items: center; gap: 5px; font-family: var(--mono); font-size: 12px; color: var(--muted); }
+.count { font-family: var(--mono); font-size: 12px; font-variant-numeric: tabular-nums; color: var(--ink); background: var(--accent-soft); border-radius: 4px; padding: 0 5px; }
+.cond { font-size: 12px; color: var(--eosin); background: var(--eosin-soft); border-radius: 999px; padding: 1px 8px; }
+.kindtag { font-size: 11.5px; font-family: var(--cond); font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); border: 1px solid var(--rule-strong); border-radius: 4px; padding: 0 5px; }
+.loc { font-family: var(--mono); font-size: 11.5px; color: var(--faint); }
+.desc { font-size: 13px; color: var(--muted); max-width: 88ch; }
+.desc code { font-size: 12px; }
+li.k-never > .row .fn { font-style: italic; color: var(--muted); }
+li.k-never > .row { opacity: 0.8; }
+li.k-entry > .row .fn { color: var(--accent); font-size: 15px; }
+.hit > .row .fn { background: var(--hit); color: var(--hit-ink); border-radius: 3px; padding: 0 3px; }
+
+/* notes */
+.notes { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); gap: 14px; }
+.note { background: var(--surface); border: 1px solid var(--rule); border-radius: 10px; padding: 14px 16px; font-size: 13.5px; color: var(--muted); }
+.note h3 { font-family: var(--cond); font-weight: 600; font-size: 14px; color: var(--ink); margin: 0 0 6px; }
+.note p { margin: 0 0 8px; }
+.note p:last-child { margin-bottom: 0; }
+.note ul { margin: 0; padding-left: 18px; }
+.note li { margin: 2px 0; }
+.note code { font-size: 12.5px; color: var(--ink); }
+
+@media (max-width: 560px) {
+  .strip li + li::before { content: "↓"; }
+  .strip { flex-direction: column; }
+  .strip li { flex-direction: column; }
+  .strip li + li::before { align-self: flex-start; margin-left: 14px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tw svg { transition: none; }
+  .row.flash { animation: none; background: var(--accent-soft); }
+}
+</style>
+</head>
+<body>
+
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">MIDOG++ mitosis search · single entry point</div>
+    <h1>Every function <code>run_frame.py</code> calls</h1>
+    <p class="lede">From the command line to the last plot: each custom function in <code>production_pipeline/</code> and <code>midog_utils/</code>, nested under the function that calls it, in the order the code calls them. Expand a row to see what it calls.</p>
+    <div class="stats" id="stats"></div>
+  </header>
+
+  <div class="command" aria-label="Entry point command">
+<pre><span class="dim">$</span> python production_pipeline/run_frame.py ROI --source <span class="src">click</span> --click X Y [--object-id N] [--edge-origin]
+<span class="dim">$</span> python production_pipeline/run_frame.py ROI --source <span class="src">box</span>   --box X Y W H [--object-id N]
+<span class="dim">$</span> python production_pipeline/run_frame.py ROI --source <span class="src">midog</span> [--ann-id N | --seed-index K]
+<span class="dim">  common: --rank-key {tm_score,chromatin_od} --refinement-channel {gray_inverted,hematoxylin_od,none} --save-csv --save-fig --plot</span></pre>
+  </div>
+
+  <section aria-labelledby="flow-h">
+    <h2 id="flow-h">The pipeline in nine steps</h2>
+    <ol class="strip" id="strip"></ol>
+  </section>
+
+  <div class="controls" role="toolbar" aria-label="Tree controls">
+    <div class="group" role="group" aria-label="Seed source">
+      <span class="lab">Source</span>
+      <div class="seg" id="seg"></div>
+    </div>
+    <div class="group">
+      <button class="btn" type="button" id="expand">Expand all</button>
+      <button class="btn" type="button" id="collapse">Collapse all</button>
+      <button class="btn" type="button" id="reset">Default view</button>
+    </div>
+    <div class="group">
+      <input id="q" type="search" placeholder="Find a function" aria-label="Find a function" autocomplete="off" spellcheck="false">
+      <span id="matches" aria-live="polite"></span>
+    </div>
+    <label class="toggle"><input type="checkbox" id="never"><span>Show calls that never run here</span></label>
+  </div>
+
+  <div class="legend" id="legend" aria-label="Modules"></div>
+
+  <div class="tree-box">
+    <ul class="tree" role="tree" id="tree" aria-label="Call tree"></ul>
+  </div>
+
+  <div class="notes">
+    <div class="note">
+      <h3>How to read a row</h3>
+      <p><span class="count">×100</span> how many times this caller calls it in one run on 300.tiff (a range when it differs between runs). No badge means once.</p>
+      <p><span class="cond">--source box</span> the call only happens for that option or outcome, relative to its caller. No tag means every run that reaches the caller makes this call.</p>
+      <p><span class="kindtag">dataclass</span> a constructor of a dataclass defined in the repo. Library calls (NumPy, OpenCV, pandas, matplotlib) are not shown.</p>
+    </div>
+    <div class="note">
+      <h3>How this was built</h3>
+      <p>The pipeline was run eight ways on 300.tiff with a profiler hook that records every call between repo functions, with its full chain of callers: <code>midog --ann-id 14499</code> with the gray gate, the hematoxylin gate plus <code>chromatin_od</code>, and no gate; <code>midog</code> random draw; <code>click 1411 3551</code>; <code>click 6410 250</code> (template unreadable); <code>box 1391 3531 41 41</code>; <code>box 6050 3415 41 41</code> (gate refused).</p>
+      <p>Dataclass constructors run generated code the hook cannot see, so <code>FSConfig</code> and <code>Augmentation</code> were added from the source, as were the three calls that never run here. A static scan of every function in the tree found no other call to a repo function. Committed code: <code>c8da799</code>.</p>
+    </div>
+    <div class="note">
+      <h3>Defined in the repo, not called by this pipeline</h3>
+      <ul id="unused"></ul>
+    </div>
+  </div>
+</div>
+
+<script type="application/json" id="data">{"tree":{"id":"n0","name":"run_frame.py","module":"run_frame","file":"production_pipeline/run_frame.py","line":308,"desc":"The command line. `python production_pipeline/run_frame.py ROI --source {click,box,midog} \u2026` runs main().","counts":{"midog_ann":1,"hem_od":1,"none":1,"midog_draw":1,"click":1,"unreadable":1,"box":1,"refused":1},"cond":null,"kind":"entry","children":[{"id":"n1","name":"main","module":"run_frame","file":"production_pipeline/run_frame.py","line":251,"desc":"Reads the command line, checks the seed options, runs the pipeline, prints the summary and the frame, writes --save-csv, and draws the figure when asked.","counts":{"box":1,"click":1,"hem_od":1,"midog_ann":1,"midog_draw":1,"none":1,"refused":1,"unreadable":1},"cond":null,"kind":"fn","children":[{"id":"n2","name":"check_seed_args","module":"run_frame","file":"production_pipeline/run_frame.py","line":65,"desc":"Stops early on an unknown --source, another source's option, or a missing required one. A --box is validated by building it.","counts":{"box":1,"click":1,"hem_od":1,"midog_ann":1,"midog_draw":1,"none":1,"refused":1,"unreadable":1},"cond":null,"kind":"fn","children":[{"id":"n3","name":"box_frame","module":"annotation_frame","file":"midog_utils/annotation_frame.py","line":188,"desc":"One-row seed frame for a drawn box, snapped to whole pixels: odd size, centred on the pixel that holds the drawn centre.","counts":{"box":1,"refused":1},"cond":"--source box","kind":"fn","children":[{"id":"n4","name":"_snap_axis","module":"annotation_frame","file":"midog_utils/annotation_frame.py","line":115,"desc":"Snaps one side of the drawn box: round(w) pixels raised to odd, centred on floor(x0 + w/2).","counts":{"box":2,"refused":2},"cond":null,"kind":"fn","children":[]},{"id":"n5","name":"gate_window_side","module":"annotation_frame","file":"midog_utils/annotation_frame.py","line":91,"desc":"The gate window and fallback size for a box: longer side + 1 px, raised to odd. Raises outside 19\u201373 px. Always 51 for clicks and MIDOG rows.","counts":{"box":1,"refused":1},"cond":null,"kind":"fn","children":[]},{"id":"n6","name":"now_utc","module":"annotation_frame","file":"midog_utils/annotation_frame.py","line":52,"desc":"The current_time stamp: ISO-8601 UTC with microseconds.","counts":{"box":1,"refused":1},"cond":null,"kind":"fn","children":[]},{"id":"n7","name":"_block","module":"annotation_frame","file":"midog_utils/annotation_frame.py","line":139,"desc":"Builds frame rows in the schema's column order and dtypes.","counts":{"box":1,"refused":1},"cond":null,"kind":"fn","children":[]}]}]},{"id":"n8","name":"run_frame_on_roi","module":"run_frame","file":"production_pipeline/run_frame.py","line":131,"desc":"Loads the ROI and its annotations, builds the seed frame, runs run_roi, and scores the result when the seed is a MIDOG annotation.","counts":{"box":1,"click":1,"hem_od":1,"midog_ann":1,"midog_draw":1,"none":1,"refused":1,"unreadable":1},"cond":null,"kind":"fn","children":[{"id":"n9","name":"check_seed_args","module":"run_frame","file":"production_pipeline/run_frame.py","line":65,"desc":"Stops early on an unknown --source, another source's option, or a missing required one. A --box is validated by building it.","counts":{"box":1,"click":1,"hem_od":1,"midog_ann":1,"midog_draw":1,"none":1,"refused":1,"unreadable":1},"cond":null,"kind":"fn","children":[{"id":"n10","name":"box_frame","module":"annotation_frame","file":"midog_utils/annotation_frame.py","line":188,"desc":"One-row seed frame for a drawn box, snapped to whole pixels: odd size, centred on the pixel that holds the drawn centre.","counts":{"box":1,"refused":1},"cond":"--source box","kind":"fn","children":[{"id":"n11","name":"_snap_axis","module":"annotation_frame","file":"midog_utils/annotation_frame.py","line":115,"desc":"Snaps one side of the drawn box: round(w) pixels raised to odd, centred on floor(x0 + w/2).","counts":{"box":2,"refused":2},"cond":null,"kind":"fn","children":[]},{"id":"n12","name":"gate_window_side","module":"annotation_frame","file":"midog_utils/annotation_frame.py","line":91,"desc":"The gate window and fallback size for a box: longer side + 1 px, raised to odd. Raises outside 19\u201373 px. Always 51 for clicks and MIDOG rows.","counts":{"box":1,"refused":1},"cond":null,"kind":"fn","children":[]},{"id":"n13","name":"now_utc","module":"annotation_frame","file":"midog_utils/annotation_frame.py","line":52,"desc":"The current_time stamp: ISO-8601 UTC with microseconds.","counts":{"box":1,"refused":1},"cond":null,"kind":"fn","children":[]},{"id":"n14","name":"_block","module":"annotation_frame","file":"midog_utils/annotation_frame.py","line":139,"desc":"Builds frame rows in the schema's column order and dtypes.","counts":{"box":1,"refused":1},"cond":null,"kind":"fn","children":[]}]}]},{"id":"n15","name":"load_annotations","module":"dataset","file":"midog_utils/dataset.py","line":28,"desc":"Reads databases/MIDOG++.json into an images table and an annotations table (centre, size, category, votes).","counts":{"box":1,"click":1,"hem_od":1,"midog_ann":1,"midog_draw":1,"none":1,"refused":1,"unreadable":1},"cond":null,"kind":"fn","children":[{"id":"n16","name":"canonical_tumor","module":"dataset","file":"midog_utils/dataset.py","line":24,"desc":"Normalises a tumour-type name; runs once per image in the database.","counts":{"box":553,"click":553,"hem_od":553,"midog_ann":553,"midog_draw":553,"none":553,"refused":553,"unreadable":553},"cond":null,"kind":"fn","children":[]}]},{"id":"n17","name":"roi_path","module":"run_frame","file":"production_pipeline/run_frame.py","line":50,"desc":"Finds the ROI's TIFF in images/extra_valid or its testing_set/ subfolder.","counts":{"box":1,"click":1,"hem_od":1,"midog_ann":1,"midog_draw":1,"none":1,"refused":1,"unreadable":1},"cond":null,"kind":"fn","children":[]},{"id":"n18","name":"load_roi","module":"dataset","file":"midog_utils/dataset.py","line":91,"desc":"Reads the ROI TIFF as a full-resolution RGB array.","counts":{"box":1,"click":1,"hem_od":1,"midog_ann":1,"midog_draw":1,"none":1,"refused":1,"unreadable":1},"cond":null,"kind":"fn","children":[]},{"id":"n19","name":"roi_mpp","module":"dataset","file":"midog_utils/dataset.py","line":109,"desc":"Microns per pixel, from the TIFF resolution tags.","counts":{"box":1,"click":1,"hem_od":1,"midog_ann":1,"midog_draw":1,"none":1,"refused":1,"unreadable":1},"cond":null,"kind":"fn","children":[]},{"id":"n20","name":"image_annotations","module":"dataset","file":"midog_utils/dataset.py","line":84,"desc":"This ROI's annotations, every category.","counts":{"box":1,"click":1,"hem_od":1,"midog_ann":1,"midog_draw":1,"none":1,"refused":1,"unreadable":1},"cond":null,"kind":"fn","children":[]},{"id":"n21","name":"build_seed_frame","module":"run_frame","file":"production_pipeline/run_frame.py","line":97,"desc":"Builds run_roi's one-row input frame from the chosen source: a click, a drawn box, a pinned MIDOG annotation, or the validation draw.","counts":{"box":1,"click":1,"hem_od":1,"midog_ann":1,"midog_draw":1,"none":1,"refused":1,"unreadable":1},"cond":null,"kind":"fn","children":[{"id":"n22","name":"check_seed_args","module":"run_frame","file":"production_pipeline/run_frame.py","line":65,"desc":"Stops early on an unknown --source, another source's option, or a missing required one. A --box is validated by building it.","counts":{"box":1,"click":1,"hem_od":1,"midog_ann":1,"midog_draw":1,"none":1,"refused":1,"unreadable":1},"cond":null,"kind":"fn","children":[{"id":"n23","name":"box_frame","module":"annotation_frame","file":"midog_utils/annotation_frame.py","line":188,"desc":"One-row seed frame for a drawn box, snapped to whole pixels: odd size, centred on the pixel that holds the drawn centre.","counts":{"box":1,"refused":1},"cond":"--source box","kind":"fn","children":[{"id":"n24","name":"_snap_axis","module":"annotation_frame","file":"midog_utils/annotation_frame.py","line":115,"desc":"Snaps one side of the drawn box: round(w) pixels raised to odd, centred on floor(x0 + w/2).","counts":{"box":2,"refused":2},"cond":null,"kind":"fn","children":[]},{"id":"n25","name":"gate_window_side","module":"annotation_frame","file":"midog_utils/annotation_frame.py","line":91,"desc":"The gate window and fallback size for a box: longer side + 1 px, raised to odd. Raises outside 19\u201373 px. Always 51 for clicks and MIDOG rows.","counts":{"box":1,"refused":1},"cond":null,"kind":"fn","children":[]},{"id":"n26","name":"now_utc","module":"annotation_frame","file":"midog_utils/annotation_frame.py","line":52,"desc":"The current_time stamp: ISO-8601 UTC with microseconds.","counts":{"box":1,"refused":1},"cond":null,"kind":"fn","children":[]},{"id":"n27","name":"_block","module":"annotation_frame","file":"midog_utils/annotation_frame.py","line":139,"desc":"Builds frame rows in the schema's column order and dtypes.","counts":{"box":1,"refused":1},"cond":null,"kind":"fn","children":[]}]}]},{"id":"n28","name":"click_frame","module":"annotation_frame","file":"midog_utils/annotation_frame.py","line":166,"desc":"One-row seed frame for a raw click: a 50-wide box centred on it.","counts":{"click":1,"unreadable":1},"cond":"--source click","kind":"fn","children":[{"id":"n29","name":"now_utc","module":"annotation_frame","file":"midog_utils/annotation_frame.py","line":52,"desc":"The current_time stamp: ISO-8601 UTC with microseconds.","counts":{"click":1,"unreadable":1},"cond":null,"kind":"fn","children":[]},{"id":"n30","name":"_block","module":"annotation_frame","file":"midog_utils/annotation_frame.py","line":139,"desc":"Builds frame rows in the schema's column order and dtypes.","counts":{"click":1,"unreadable":1},"cond":null,"kind":"fn","children":[]}]},{"id":"n31","name":"box_frame","module":"annotation_frame","file":"midog_utils/annotation_frame.py","line":188,"desc":"One-row seed frame for a drawn box, snapped to whole pixels: odd size, centred on the pixel that holds the drawn centre.","counts":{"box":1,"refused":1},"cond":"--source box","kind":"fn","children":[{"id":"n32","name":"_snap_axis","module":"annotation_frame","file":"midog_utils/annotation_frame.py","line":115,"desc":"Snaps one side of the drawn box: round(w) pixels raised to odd, centred on floor(x0 + w/2).","counts":{"box":2,"refused":2},"cond":null,"kind":"fn","children":[]},{"id":"n33","name":"gate_window_side","module":"annotation_frame","file":"midog_utils/annotation_frame.py","line":91,"desc":"The gate window and fallback size for a box: longer side + 1 px, raised to odd. Raises outside 19\u201373 px. Always 51 for clicks and MIDOG rows.","counts":{"box":1,"refused":1},"cond":null,"kind":"fn","children":[]},{"id":"n34","name":"now_utc","module":"annotation_frame","file":"midog_utils/annotation_frame.py","line":52,"desc":"The current_time stamp: ISO-8601 UTC with microseconds.","counts":{"box":1,"refused":1},"cond":null,"kind":"fn","children":[]},{"id":"n35","name":"_block","module":"annotation_frame","file":"midog_utils/annotation_frame.py","line":139,"desc":"Builds frame rows in the schema's column order and dtypes.","counts":{"box":1,"refused":1},"cond":null,"kind":"fn","children":[]}]},{"id":"n36","name":"human_seed_frame","module":"annotation_frame","file":"midog_utils/annotation_frame.py","line":152,"desc":"One-row seed frame for a MIDOG annotation; its object_id is the ann_id, so the run can be scored.","counts":{"hem_od":1,"midog_ann":1,"none":1},"cond":"--source midog --ann-id","kind":"fn","children":[{"id":"n37","name":"now_utc","module":"annotation_frame","file":"midog_utils/annotation_frame.py","line":52,"desc":"The current_time stamp: ISO-8601 UTC with microseconds.","counts":{"hem_od":1,"midog_ann":1,"none":1},"cond":null,"kind":"fn","children":[]},{"id":"n38","name":"_block","module":"annotation_frame","file":"midog_utils/annotation_frame.py","line":139,"desc":"Builds frame rows in the schema's column order and dtypes.","counts":{"hem_od":1,"midog_ann":1,"none":1},"cond":null,"kind":"fn","children":[]}]},{"id":"n39","name":"draw_seed_rows","module":"annotation_frame","file":"midog_utils/annotation_frame.py","line":433,"desc":"The validation draw: a random mitotic annotation that all three template conditions accept (the joint gate), seeded by (seed_index, image_id).","counts":{"midog_draw":1},"cond":"--source midog, no --ann-id (random draw)","kind":"fn","children":[{"id":"n40","name":"to_channel","module":"channels","file":"midog_utils/channels.py","line":29,"desc":"Converts RGB to a named single channel: gray_inverted or hematoxylin_od.","counts":{"midog_draw":2},"cond":null,"kind":"fn","children":[{"id":"n41","name":"to_gray_inverted","module":"channels","file":"midog_utils/channels.py","line":12,"desc":"255 \u2212 grayscale: the gray gate's channel.","counts":{"midog_draw":1},"cond":null,"kind":"fn","children":[]},{"id":"n42","name":"to_hematoxylin_od","module":"channels","file":"midog_utils/channels.py","line":18,"desc":"Hematoxylin optical density: the search channel, and the hematoxylin gate's channel.","counts":{"midog_draw":1},"cond":null,"kind":"fn","children":[{"id":"n43","name":"hematoxylin_od","module":"chromatin","file":"midog_utils/chromatin.py","line":17,"desc":"Colour deconvolution to unclipped hematoxylin optical density.","counts":{"midog_draw":1},"cond":null,"kind":"fn","children":[]}]}]},{"id":"n44","name":"agreement_pool","module":"seed_selection","file":"midog_utils/seed_selection.py","line":26,"desc":"The ROI's mitotic annotations the draw may use: the unanimous tier, or the 2-of-3 tier if that is empty.","counts":{"midog_draw":1},"cond":null,"kind":"fn","children":[]},{"id":"n45","name":"border_filter","module":"seed_selection","file":"midog_utils/seed_selection.py","line":47,"desc":"Keeps annotations at least 36 px from the ROI edge.","counts":{"midog_draw":1},"cond":null,"kind":"fn","children":[]},{"id":"n46","name":"_joint_spec","module":"annotation_frame","file":"midog_utils/annotation_frame.py","line":416,"desc":"One template condition (51 px default, gray gate, hematoxylin gate) for one candidate click; None if refused or unreadable.","counts":{"midog_draw":381},"cond":null,"kind":"fn","children":[{"id":"n47","name":"tightened_template_box","module":"seed_selection","file":"midog_utils/seed_selection.py","line":105,"desc":"The Otsu gate: thresholds the window around the seed and returns the accepted component's template size and centre, or None.","counts":{"midog_draw":254},"cond":null,"kind":"fn","children":[{"id":"n48","name":"read_padded_patch","module":"template_match","file":"midog_utils/template_match.py","line":56,"desc":"Reads a square patch around a point (73 px unless told otherwise), or None if it would leave the ROI.","counts":{"midog_draw":254},"cond":null,"kind":"fn","children":[]},{"id":"n49","name":"tighten_box_otsu","module":"seed_selection","file":"midog_utils/seed_selection.py","line":65,"desc":"Otsu threshold of the window; returns the component under the centre pixel if it passes the area and solidity checks.","counts":{"midog_draw":254},"cond":null,"kind":"fn","children":[]},{"id":"n50","name":"_odd","module":"seed_selection","file":"midog_utils/seed_selection.py","line":19,"desc":"Raises a size to the next odd number (at least 5).","counts":{"midog_draw":215},"cond":null,"kind":"fn","children":[]}]},{"id":"n51","name":"read_padded_patch","module":"template_match","file":"midog_utils/template_match.py","line":56,"desc":"Reads a square patch around a point (73 px unless told otherwise), or None if it would leave the ROI.","counts":{"midog_draw":342},"cond":null,"kind":"fn","children":[]}]},{"id":"n52","name":"human_seed_frame","module":"annotation_frame","file":"midog_utils/annotation_frame.py","line":152,"desc":"One-row seed frame for a MIDOG annotation; its object_id is the ann_id, so the run can be scored.","counts":{"midog_draw":1},"cond":null,"kind":"fn","children":[{"id":"n53","name":"now_utc","module":"annotation_frame","file":"midog_utils/annotation_frame.py","line":52,"desc":"The current_time stamp: ISO-8601 UTC with microseconds.","counts":{"midog_draw":1},"cond":null,"kind":"fn","children":[]},{"id":"n54","name":"_block","module":"annotation_frame","file":"midog_utils/annotation_frame.py","line":139,"desc":"Builds frame rows in the schema's column order and dtypes.","counts":{"midog_draw":1},"cond":null,"kind":"fn","children":[]}]}]}]},{"id":"n55","name":"run_roi","module":"annotation_frame","file":"midog_utils/annotation_frame.py","line":322,"desc":"The core. Validates the input, chooses the template (Otsu gate or fallback), runs the production search, and appends the refined seed row and every prediction.","counts":{"box":1,"click":1,"hem_od":1,"midog_ann":1,"midog_draw":1,"none":1,"refused":1,"unreadable":1},"cond":null,"kind":"fn","children":[{"id":"n56","name":"_input_rows","module":"annotation_frame","file":"midog_utils/annotation_frame.py","line":233,"desc":"Copies and validates the input rows: exact columns, all HUMAN MITOTIC_GT, unique ids, and a valid window for every box.","counts":{"box":1,"click":1,"hem_od":1,"midog_ann":1,"midog_draw":1,"none":1,"refused":1,"unreadable":1},"cond":null,"kind":"fn","children":[{"id":"n57","name":"gate_window_side","module":"annotation_frame","file":"midog_utils/annotation_frame.py","line":91,"desc":"The gate window and fallback size for a box: longer side + 1 px, raised to odd. Raises outside 19\u201373 px. Always 51 for clicks and MIDOG rows.","counts":{"box":1,"click":1,"hem_od":1,"midog_ann":1,"midog_draw":1,"none":1,"refused":1,"unreadable":1},"cond":null,"kind":"fn","children":[]}]},{"id":"n58","name":"_select_seed","module":"annotation_frame","file":"midog_utils/annotation_frame.py","line":215,"desc":"Picks the one HUMAN MITOTIC_GT seed row, by seed_object_id when given.","counts":{"box":1,"click":1,"hem_od":1,"midog_ann":1,"midog_draw":1,"none":1,"refused":1,"unreadable":1},"cond":null,"kind":"fn","children":[]},{"id":"n59","name":"gate_window_side","module":"annotation_frame","file":"midog_utils/annotation_frame.py","line":91,"desc":"The gate window and fallback size for a box: longer side + 1 px, raised to odd. Raises outside 19\u201373 px. Always 51 for clicks and MIDOG rows.","counts":{"box":1,"click":1,"hem_od":1,"midog_ann":1,"midog_draw":1,"none":1,"refused":1,"unreadable":1},"cond":null,"kind":"fn","children":[]},{"id":"n60","name":"box_center","module":"annotation_frame","file":"midog_utils/annotation_frame.py","line":61,"desc":"A box's centre on one axis: x_tl + width / 2, never rounded.","counts":{"box":2,"click":2,"hem_od":2,"midog_ann":2,"midog_draw":2,"none":2,"refused":2,"unreadable":2},"cond":null,"kind":"fn","children":[]},{"id":"n61","name":"_patch_readable","module":"seed_selection","file":"midog_utils/seed_selection.py","line":163,"desc":"Whether a square patch of the given size, centred there, fits inside the ROI.","counts":{"box":1,"click":1,"hem_od":1,"midog_ann":1,"midog_draw":1,"none":1,"refused":1,"unreadable":1},"cond":null,"kind":"fn","children":[]},{"id":"n62","name":"_template_choice","module":"annotation_frame","file":"midog_utils/annotation_frame.py","line":277,"desc":"Runs the Otsu gate in the seed's window. Returns the accepted component's template, or falls back to the human's box (gate_refused or template_unreadable).","counts":{"box":1,"click":1,"hem_od":1,"midog_ann":1,"midog_draw":1,"none":1,"refused":1,"unreadable":1},"cond":null,"kind":"fn","children":[{"id":"n63","name":"_patch_readable","module":"seed_selection","file":"midog_utils/seed_selection.py","line":163,"desc":"Whether a square patch of the given size, centred there, fits inside the ROI.","counts":{"box":2,"click":2,"hem_od":2,"midog_ann":2,"midog_draw":2,"refused":1,"unreadable":2},"cond":"a gate channel is set (not none)","kind":"fn","children":[]},{"id":"n64","name":"to_channel","module":"channels","file":"midog_utils/channels.py","line":29,"desc":"Converts RGB to a named single channel: gray_inverted or hematoxylin_od.","counts":{"box":1,"click":1,"hem_od":1,"midog_ann":1,"midog_draw":1,"refused":1,"unreadable":1},"cond":"a gate channel is set (not none)","kind":"fn","children":[{"id":"n65","name":"to_gray_inverted","module":"channels","file":"midog_utils/channels.py","line":12,"desc":"255 \u2212 grayscale: the gray gate's channel.","counts":{"box":1,"click":1,"midog_ann":1,"midog_draw":1,"refused":1,"unreadable":1},"cond":"gray gate (default)","kind":"fn","children":[]},{"id":"n66","name":"to_hematoxylin_od","module":"channels","file":"midog_utils/channels.py","line":18,"desc":"Hematoxylin optical density: the search channel, and the hematoxylin gate's channel.","counts":{"hem_od":1},"cond":"hematoxylin gate","kind":"fn","children":[{"id":"n67","name":"hematoxylin_od","module":"chromatin","file":"midog_utils/chromatin.py","line":17,"desc":"Colour deconvolution to unclipped hematoxylin optical density.","counts":{"hem_od":1},"cond":null,"kind":"fn","children":[]}]}]},{"id":"n68","name":"tightened_template_box","module":"seed_selection","file":"midog_utils/seed_selection.py","line":105,"desc":"The Otsu gate: thresholds the window around the seed and returns the accepted component's template size and centre, or None.","counts":{"box":1,"click":1,"hem_od":1,"midog_ann":1,"midog_draw":1,"refused":1,"unreadable":1},"cond":"a gate channel is set (not none)","kind":"fn","children":[{"id":"n69","name":"read_padded_patch","module":"template_match","file":"midog_utils/template_match.py","line":56,"desc":"Reads a square patch around a point (73 px unless told otherwise), or None if it would leave the ROI.","counts":{"box":1,"click":1,"hem_od":1,"midog_ann":1,"midog_draw":1,"refused":1,"unreadable":1},"cond":null,"kind":"fn","children":[]},{"id":"n70","name":"tighten_box_otsu","module":"seed_selection","file":"midog_utils/seed_selection.py","line":65,"desc":"Otsu threshold of the window; returns the component under the centre pixel if it passes the area and solidity checks.","counts":{"box":1,"click":1,"hem_od":1,"midog_ann":1,"midog_draw":1,"refused":1,"unreadable":1},"cond":null,"kind":"fn","children":[]},{"id":"n71","name":"_odd","module":"seed_selection","file":"midog_utils/seed_selection.py","line":19,"desc":"Raises a size to the next odd number (at least 5).","counts":{"box":1,"click":1,"hem_od":1,"midog_ann":1,"midog_draw":1,"unreadable":1},"cond":"the gate found a component","kind":"fn","children":[]}]}]},{"id":"n72","name":"now_utc","module":"annotation_frame","file":"midog_utils/annotation_frame.py","line":52,"desc":"The current_time stamp: ISO-8601 UTC with microseconds.","counts":{"box":2,"click":2,"hem_od":2,"midog_ann":2,"midog_draw":2,"none":2,"refused":2,"unreadable":2},"cond":null,"kind":"fn","children":[]},{"id":"n73","name":"run_production_pipeline","module":"production","file":"midog_utils/production.py","line":30,"desc":"The production search: hematoxylin channel, find_and_suppress, od for every detection, then ranking by tm_score or chromatin_od.","counts":{"box":1,"click":1,"hem_od":1,"midog_ann":1,"midog_draw":1,"none":1,"refused":1,"unreadable":1},"cond":null,"kind":"fn","children":[{"id":"n74","name":"to_channel","module":"channels","file":"midog_utils/channels.py","line":29,"desc":"Converts RGB to a named single channel: gray_inverted or hematoxylin_od.","counts":{"box":1,"click":1,"hem_od":1,"midog_ann":1,"midog_draw":1,"none":1,"refused":1,"unreadable":1},"cond":null,"kind":"fn","children":[{"id":"n75","name":"to_hematoxylin_od","module":"channels","file":"midog_utils/channels.py","line":18,"desc":"Hematoxylin optical density: the search channel, and the hematoxylin gate's channel.","counts":{"box":1,"click":1,"hem_od":1,"midog_ann":1,"midog_draw":1,"none":1,"refused":1,"unreadable":1},"cond":null,"kind":"fn","children":[{"id":"n76","name":"hematoxylin_od","module":"chromatin","file":"midog_utils/chromatin.py","line":17,"desc":"Colour deconvolution to unclipped hematoxylin optical density.","counts":{"box":1,"click":1,"hem_od":1,"midog_ann":1,"midog_draw":1,"none":1,"refused":1,"unreadable":1},"cond":null,"kind":"fn","children":[]}]}]},{"id":"n77","name":"radius_px","module":"evaluate","file":"midog_utils/evaluate.py","line":23,"desc":"7.5 \u00b5m in pixels for this ROI (radius / mpp).","counts":{"box":1,"click":1,"hem_od":1,"midog_ann":1,"midog_draw":1,"none":1,"refused":1,"unreadable":1},"cond":null,"kind":"fn","children":[]},{"id":"n118","name":"FSConfig","module":"find_and_suppress","file":"midog_utils/find_and_suppress.py","line":25,"desc":"Dataclass constructor: the search settings (template size, one unrotated template, peak spacing 7, 100 peaks, NMS radius, floor \u22121.5, border padding, TM_CCOEFF).","counts":{"box":1,"click":1,"hem_od":1,"midog_ann":1,"midog_draw":1,"none":1,"refused":1,"unreadable":1},"cond":null,"kind":"class","children":[],"site":51},{"id":"n78","name":"find_and_suppress","module":"find_and_suppress","file":"midog_utils/find_and_suppress.py","line":44,"desc":"One search from the template centre: cut the template, blank the seed, match, threshold, find peaks, suppress neighbours.","counts":{"box":1,"click":1,"hem_od":1,"midog_ann":1,"midog_draw":1,"none":1,"refused":1,"unreadable":1},"cond":null,"kind":"fn","children":[{"id":"n119","name":"FSConfig","module":"find_and_suppress","file":"midog_utils/find_and_suppress.py","line":25,"desc":"Dataclass constructor for a default config. Never runs here.","counts":{},"cond":"default FSConfig() only when no cfg is passed; production always passes one","kind":"never","children":[],"site":56},{"id":"n79","name":"read_padded_patch","module":"template_match","file":"midog_utils/template_match.py","line":56,"desc":"Reads a square patch around a point (73 px unless told otherwise), or None if it would leave the ROI.","counts":{"box":1,"click":1,"hem_od":1,"midog_ann":1,"midog_draw":1,"none":1,"refused":1,"unreadable":1},"cond":null,"kind":"fn","children":[]},{"id":"n80","name":"build_augmentations","module":"template_match","file":"midog_utils/template_match.py","line":75,"desc":"Cuts the base_size template from the 73 px patch. Production builds one template: no rotation, flip or scaling.","counts":{"box":1,"click":1,"hem_od":1,"midog_ann":1,"midog_draw":1,"none":1,"refused":1,"unreadable":1},"cond":null,"kind":"fn","children":[{"id":"n81","name":"_odd","module":"template_match","file":"midog_utils/template_match.py","line":49,"desc":"Raises a size to the next odd number (at least 5).","counts":{"box":1,"click":1,"hem_od":1,"midog_ann":1,"midog_draw":1,"none":1,"refused":1,"unreadable":1},"cond":null,"kind":"fn","children":[]},{"id":"n120","name":"Augmentation","module":"template_match","file":"midog_utils/template_match.py","line":41,"desc":"Dataclass constructor: records one template's angle, flip, scale and size.","counts":{"box":1,"click":1,"hem_od":1,"midog_ann":1,"midog_draw":1,"none":1,"refused":1,"unreadable":1},"cond":null,"kind":"class","children":[],"site":115}]},{"id":"n82","name":"blank_seed_square","module":"template_match","file":"midog_utils/template_match.py","line":206,"desc":"Blanks the seed's own template footprint in a copy of the search channel, so the seed cannot match itself (D11).","counts":{"box":1,"click":1,"hem_od":1,"midog_ann":1,"midog_draw":1,"none":1,"refused":1,"unreadable":1},"cond":null,"kind":"fn","children":[]},{"id":"n83","name":"fused_response","module":"template_match","file":"midog_utils/template_match.py","line":141,"desc":"TM_CCOEFF template matching over the whole ROI; the maximum across templates.","counts":{"box":1,"click":1,"hem_od":1,"midog_ann":1,"midog_draw":1,"none":1,"refused":1,"unreadable":1},"cond":null,"kind":"fn","children":[{"id":"n121","name":"_robust_z","module":"template_match","file":"midog_utils/template_match.py","line":119,"desc":"Puts each response map on a robust z-scale. Never runs here.","counts":{},"cond":"only with scale_normalize=True; production never sets it","kind":"never","children":[],"site":166}]},{"id":"n84","name":"robust_stats","module":"template_match","file":"midog_utils/template_match.py","line":21,"desc":"Median and MAD of the response map, for the threshold median \u2212 1.5 \u00d7 MAD.","counts":{"box":1,"click":1,"hem_od":1,"midog_ann":1,"midog_draw":1,"none":1,"refused":1,"unreadable":1},"cond":null,"kind":"fn","children":[]},{"id":"n85","name":"extract_peaks","module":"template_match","file":"midog_utils/template_match.py","line":179,"desc":"Local maxima (7 px minimum spacing) above the threshold, best first, at most 100.","counts":{"box":1,"click":1,"hem_od":1,"midog_ann":1,"midog_draw":1,"none":1,"refused":1,"unreadable":1},"cond":null,"kind":"fn","children":[]},{"id":"n86","name":"nms_by_distance","module":"nms","file":"midog_utils/nms.py","line":9,"desc":"Greedy non-maximum suppression: drops any peak within 7.5 \u00b5m of a stronger one.","counts":{"box":1,"click":1,"hem_od":1,"midog_ann":1,"midog_draw":1,"none":1,"refused":1,"unreadable":1},"cond":null,"kind":"fn","children":[]}]},{"id":"n87","name":"check_nms_radius","module":"invariants","file":"midog_utils/invariants.py","line":57,"desc":"Checks that the NMS radius equals 7.5 \u00b5m in pixels (the evaluation match radius).","counts":{"box":1,"click":1,"hem_od":1,"midog_ann":1,"midog_draw":1,"none":1,"refused":1,"unreadable":1},"cond":null,"kind":"fn","children":[{"id":"n88","name":"radius_px","module":"evaluate","file":"midog_utils/evaluate.py","line":23,"desc":"7.5 \u00b5m in pixels for this ROI (radius / mpp).","counts":{"box":1,"click":1,"hem_od":1,"midog_ann":1,"midog_draw":1,"none":1,"refused":1,"unreadable":1},"cond":null,"kind":"fn","children":[]},{"id":"n122","name":"InvariantError","module":"invariants","file":"midog_utils/invariants.py","line":16,"desc":"The error the NMS radius check raises. Never runs on a correct configuration.","counts":{},"cond":"only if the NMS radius check fails","kind":"never","children":[],"site":61}]},{"id":"n89","name":"score_detections","module":"chromatin","file":"midog_utils/chromatin.py","line":43,"desc":"Adds the od column (chromatin darkness) to every detection, without reordering.","counts":{"box":1,"click":1,"hem_od":1,"midog_ann":1,"midog_draw":1,"none":1,"refused":1,"unreadable":1},"cond":null,"kind":"fn","children":[{"id":"n90","name":"chromatin_density","module":"chromatin","file":"midog_utils/chromatin.py","line":23,"desc":"Mean of the darkest 10% of pixels in a 51 px window around one detection.","counts":{"box":100,"click":100,"hem_od":100,"midog_ann":100,"midog_draw":100,"none":100,"refused":99,"unreadable":99},"cond":null,"kind":"fn","children":[{"id":"n91","name":"read_padded_patch","module":"template_match","file":"midog_utils/template_match.py","line":56,"desc":"Reads a square patch around a point (73 px unless told otherwise), or None if it would leave the ROI.","counts":{"box":100,"click":100,"hem_od":100,"midog_ann":100,"midog_draw":100,"none":100,"refused":99,"unreadable":99},"cond":null,"kind":"fn","children":[]}]}]}]},{"id":"n92","name":"footprint_box","module":"annotation_frame","file":"midog_utils/annotation_frame.py","line":73,"desc":"The frame box of the template's pixel footprint, for the refined seed row (width = base_size \u2212 1).","counts":{"box":1,"click":1,"hem_od":1,"midog_ann":1,"midog_draw":1,"none":1,"refused":1,"unreadable":1},"cond":null,"kind":"fn","children":[]},{"id":"n93","name":"_block","module":"annotation_frame","file":"midog_utils/annotation_frame.py","line":139,"desc":"Builds frame rows in the schema's column order and dtypes.","counts":{"box":1,"click":1,"hem_od":1,"midog_ann":1,"midog_draw":1,"none":1,"refused":1,"unreadable":1},"cond":null,"kind":"fn","children":[]},{"id":"n94","name":"_prediction_rows","module":"annotation_frame","file":"midog_utils/annotation_frame.py","line":304,"desc":"One 50 \u00d7 50 PREDICTION row per detection, object_id = rank.","counts":{"box":1,"click":1,"hem_od":1,"midog_ann":1,"midog_draw":1,"none":1,"refused":1,"unreadable":1},"cond":null,"kind":"fn","children":[{"id":"n95","name":"_block","module":"annotation_frame","file":"midog_utils/annotation_frame.py","line":139,"desc":"Builds frame rows in the schema's column order and dtypes.","counts":{"box":1,"click":1,"hem_od":1,"midog_ann":1,"midog_draw":1,"none":1,"refused":1,"unreadable":1},"cond":null,"kind":"fn","children":[]}]},{"id":"n96","name":"_check_schema","module":"annotation_frame","file":"midog_utils/annotation_frame.py","line":262,"desc":"Raises unless the output frame has the schema's columns, in order, with its dtypes.","counts":{"box":1,"click":1,"hem_od":1,"midog_ann":1,"midog_draw":1,"none":1,"refused":1,"unreadable":1},"cond":null,"kind":"fn","children":[]},{"id":"n97","name":"radius_px","module":"evaluate","file":"midog_utils/evaluate.py","line":23,"desc":"7.5 \u00b5m in pixels for this ROI (radius / mpp).","counts":{"box":1,"click":1,"hem_od":1,"midog_ann":1,"midog_draw":1,"none":1,"refused":1,"unreadable":1},"cond":null,"kind":"fn","children":[]}]},{"id":"n98","name":"evaluate","module":"annotation_frame","file":"midog_utils/annotation_frame.py","line":377,"desc":"Scores the predictions against MIDOG++ ground truth with the seed's own annotation excluded, and adds tp at 10, 20 and 30.","counts":{"hem_od":1,"midog_ann":1,"midog_draw":1,"none":1},"cond":"--source midog","kind":"fn","children":[{"id":"n99","name":"_select_seed","module":"annotation_frame","file":"midog_utils/annotation_frame.py","line":215,"desc":"Picks the one HUMAN MITOTIC_GT seed row, by seed_object_id when given.","counts":{"hem_od":1,"midog_ann":1,"midog_draw":1,"none":1},"cond":null,"kind":"fn","children":[]},{"id":"n100","name":"box_center","module":"annotation_frame","file":"midog_utils/annotation_frame.py","line":61,"desc":"A box's centre on one axis: x_tl + width / 2, never rounded.","counts":{"hem_od":4,"midog_ann":4,"midog_draw":4,"none":4},"cond":null,"kind":"fn","children":[]},{"id":"n101","name":"radius_px","module":"evaluate","file":"midog_utils/evaluate.py","line":23,"desc":"7.5 \u00b5m in pixels for this ROI (radius / mpp).","counts":{"hem_od":1,"midog_ann":1,"midog_draw":1,"none":1},"cond":null,"kind":"fn","children":[]},{"id":"n102","name":"evaluate_run","module":"evaluate","file":"midog_utils/evaluate.py","line":163,"desc":"Every metric for one run's ranked detections.","counts":{"hem_od":1,"midog_ann":1,"midog_draw":1,"none":1},"cond":null,"kind":"fn","children":[{"id":"n103","name":"bucket_detections","module":"evaluate","file":"midog_utils/evaluate.py","line":68,"desc":"Matches detections to ground truth and labels each: human_correct, human_rejected (look-alike) or non_human_findings.","counts":{"hem_od":1,"midog_ann":1,"midog_draw":1,"none":1},"cond":null,"kind":"fn","children":[{"id":"n104","name":"greedy_match","module":"evaluate","file":"midog_utils/evaluate.py","line":27,"desc":"One-to-one greedy matching of the ranked detections to ground truth within the radius.","counts":{"hem_od":1,"midog_ann":1,"midog_draw":1,"none":1},"cond":null,"kind":"fn","children":[]}]},{"id":"n105","name":"recall_at_k","module":"evaluate","file":"midog_utils/evaluate.py","line":107,"desc":"Mitotic recall at K = the number of mitotic ground truths.","counts":{"hem_od":1,"midog_ann":1,"midog_draw":1,"none":1},"cond":null,"kind":"fn","children":[]},{"id":"n106","name":"topk_composition","module":"evaluate","file":"midog_utils/evaluate.py","line":138,"desc":"The bucket split of the top-K detections.","counts":{"hem_od":1,"midog_ann":1,"midog_draw":1,"none":1},"cond":null,"kind":"fn","children":[]},{"id":"n107","name":"lookalike_attraction_rate","module":"evaluate","file":"midog_utils/evaluate.py","line":123,"desc":"How often the search lands on look-alikes, at the same budget.","counts":{"hem_od":2,"midog_ann":2,"midog_draw":2,"none":2},"cond":null,"kind":"fn","children":[{"id":"n108","name":"_found_within","module":"evaluate","file":"midog_utils/evaluate.py","line":116,"desc":"Which ground truths were claimed, optionally within the top K.","counts":{"hem_od":4,"midog_ann":4,"midog_draw":4,"none":4},"cond":null,"kind":"fn","children":[]}]},{"id":"n109","name":"recall_by_agreement","module":"evaluate","file":"midog_utils/evaluate.py","line":149,"desc":"Mitotic recall split by whether the experts agreed.","counts":{"hem_od":2,"midog_ann":2,"midog_draw":2,"none":2},"cond":null,"kind":"fn","children":[{"id":"n110","name":"_found_within","module":"evaluate","file":"midog_utils/evaluate.py","line":116,"desc":"Which ground truths were claimed, optionally within the top K.","counts":{"hem_od":4,"midog_ann":4,"midog_draw":4,"none":4},"cond":null,"kind":"fn","children":[]}]},{"id":"n111","name":"coverage_fraction","module":"evaluate","file":"midog_utils/evaluate.py","line":55,"desc":"The fraction of the ROI within the radius of some detection (a saturation check).","counts":{"hem_od":1,"midog_ann":1,"midog_draw":1,"none":1},"cond":null,"kind":"fn","children":[]}]}]}]},{"id":"n112","name":"summarize","module":"run_frame","file":"production_pipeline/run_frame.py","line":169,"desc":"One summary row: source, seed, template size, refusal reason, detection count, and tp and precision at 10, 20 and 30 when scored.","counts":{"box":1,"click":1,"hem_od":1,"midog_ann":1,"midog_draw":1,"none":1,"refused":1,"unreadable":1},"cond":null,"kind":"fn","children":[]},{"id":"n113","name":"visualize","module":"run_frame","file":"production_pipeline/run_frame.py","line":186,"desc":"Draws the overview (ground truth, top-N predictions, seed star, template plus) and a full-resolution zoom with the gate window and the template footprint.","counts":{"box":1,"click":1,"hem_od":1,"midog_ann":1,"midog_draw":1,"none":1},"cond":"--save-fig or --plot","kind":"fn","children":[{"id":"n114","name":"box_center","module":"annotation_frame","file":"midog_utils/annotation_frame.py","line":61,"desc":"A box's centre on one axis: x_tl + width / 2, never rounded.","counts":{"box":2,"click":2,"hem_od":2,"midog_ann":2,"midog_draw":2,"none":2},"cond":null,"kind":"fn","children":[]},{"id":"n115","name":"overlay","module":"viz","file":"midog_utils/viz.py","line":18,"desc":"Draws the downsampled ROI with ground-truth boxes, the top-N detections coloured by bucket, the seed star and the template plus.","counts":{"box":1,"click":1,"hem_od":1,"midog_ann":1,"midog_draw":1,"none":1},"cond":null,"kind":"fn","children":[]},{"id":"n116","name":"gate_window_side","module":"annotation_frame","file":"midog_utils/annotation_frame.py","line":91,"desc":"The gate window and fallback size for a box: longer side + 1 px, raised to odd. Raises outside 19\u201373 px. Always 51 for clicks and MIDOG rows.","counts":{"box":1,"click":1,"hem_od":1,"midog_ann":1,"midog_draw":1,"none":1},"cond":null,"kind":"fn","children":[]},{"id":"n117","name":"draw_box","module":"viz","file":"midog_utils/viz.py","line":64,"desc":"Draws one pixel box (gate window or template footprint) on the overview or the zoom.","counts":{"box":4,"click":4,"hem_od":4,"midog_ann":4,"midog_draw":4,"none":2},"cond":null,"kind":"fn","children":[]}]}]}]},"unused":{"find_and_suppress":["FSConfig.n_augmentations"],"invariants":["check_distinct_seeds"],"seed_selection":["Seed","build_seed"],"template_match":["plant_and_recover"]},"configs":{"midog_ann":{"src":"midog-pinned","ref":"gray","fig":true,"outcome":"accepted"},"hem_od":{"src":"midog-pinned","ref":"hem","fig":true,"outcome":"accepted"},"none":{"src":"midog-pinned","ref":"none","fig":true,"outcome":"untightened"},"midog_draw":{"src":"midog-draw","ref":"gray","fig":true,"outcome":"accepted"},"click":{"src":"click","ref":"gray","fig":true,"outcome":"accepted"},"unreadable":{"src":"click","ref":"gray","fig":false,"outcome":"unreadable"},"box":{"src":"box","ref":"gray","fig":true,"outcome":"accepted"},"refused":{"src":"box","ref":"gray","fig":false,"outcome":"refused"}}}</script>
+<script>
+(function () {
+  const DATA = JSON.parse(document.getElementById("data").textContent);
+  const SOURCES = [
+    { id: "all", label: "All", cfgs: null },
+    { id: "click", label: "click", cfgs: ["click", "unreadable"] },
+    { id: "box", label: "box", cfgs: ["box", "refused"] },
+    { id: "pinned", label: "midog --ann-id", cfgs: ["midog_ann", "hem_od", "none"] },
+    { id: "draw", label: "midog draw", cfgs: ["midog_draw"] },
+  ];
+  const ALL_CFGS = Object.keys(DATA.configs);
+  const DEFAULT_OPEN = new Set(["run_roi", "run_production_pipeline", "find_and_suppress", "_template_choice", "build_seed_frame"]);
+  const STAGES = [
+    { t: "Check options", f: "check_seed_args", path: ["main", "check_seed_args"] },
+    { t: "Load the ROI", f: "load_roi + annotations", path: ["main", "run_frame_on_roi", "load_roi"] },
+    { t: "Build the seed row", f: "build_seed_frame", path: ["main", "run_frame_on_roi", "build_seed_frame"], sub: "click · box · MIDOG · draw" },
+    { t: "Validate the input", f: "_input_rows", path: ["main", "run_frame_on_roi", "run_roi", "_input_rows"] },
+    { t: "Choose the template", f: "_template_choice", path: ["main", "run_frame_on_roi", "run_roi", "_template_choice"], sub: "Otsu gate or fallback" },
+    { t: "Search the ROI", f: "run_production_pipeline", path: ["main", "run_frame_on_roi", "run_roi", "run_production_pipeline"] },
+    { t: "Write the frame", f: "footprint_box, _prediction_rows", path: ["main", "run_frame_on_roi", "run_roi", "_prediction_rows"] },
+    { t: "Score it", f: "evaluate", path: ["main", "run_frame_on_roi", "evaluate"], only: "MIDOG seeds only" },
+    { t: "Summarise and plot", f: "summarize, visualize", path: ["main", "visualize"], only: "plot: --save-fig or --plot" },
+  ];
+
+  let source = "all";
+  let showNever = false;
+  const byId = new Map();
+  const parentOf = new Map();
+
+  function cfgsFor() { const s = SOURCES.find(x => x.id === source); return s.cfgs || ALL_CFGS; }
+
+  function countLabel(node) {
+    if (node.kind === "never") return "";
+    const vals = cfgsFor().filter(c => c in node.counts).map(c => node.counts[c]);
+    if (!vals.length) return "";
+    const lo = Math.min(...vals), hi = Math.max(...vals);
+    if (hi <= 1) return "";
+    return lo === hi ? "×" + hi : "×" + lo + "–" + hi;
+  }
+
+  function visible(node) {
+    if (node.kind === "never") return showNever;
+    return cfgsFor().some(c => c in node.counts);
+  }
+
+  const chevron = '<svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M3 1.5 L7 5 L3 8.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+
+  function esc(s) { return String(s).replace(/[&<>"]/g, ch => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[ch])); }
+  function descHtml(s) { return esc(s).replace(/`([^`]+)`/g, "<code>$1</code>"); }
+
+  function render(node, depth, parentLi) {
+    const li = document.createElement("li");
+    li.setAttribute("role", "treeitem");
+    li.dataset.id = node.id;
+    li.dataset.depth = depth;
+    li.className = "k-" + node.kind;
+    byId.set(node.id, { node, li });
+    if (parentLi) parentOf.set(node.id, parentLi.dataset.id);
+    const hasKids = node.children.length > 0;
+    const row = document.createElement("div");
+    row.className = "row";
+    const tw = hasKids
+      ? `<button class="tw" type="button" aria-label="Show calls inside ${esc(node.name)}">${chevron}</button>`
+      : `<span class="leaf" aria-hidden="true"></span>`;
+    const kind = node.kind === "class" ? '<span class="kindtag">dataclass</span>' : node.kind === "never" ? '<span class="kindtag">never runs here</span>' : "";
+    const name = node.kind === "entry" ? `${esc(node.name)}` : `${esc(node.name)}<span class="paren">()</span>`;
+    row.innerHTML = `${tw}<div class="body"><div class="head">
+        <span class="fn">${name}</span>
+        <span class="mod"><span class="dot" style="background:var(--m-${node.module})"></span>${esc(node.module)}</span>
+        <span class="count" hidden></span>
+        ${node.cond ? `<span class="cond">${esc(node.cond)}</span>` : ""}
+        ${kind}
+        <span class="loc">${esc(node.file)}:${node.line}</span>
+      </div><div class="desc">${descHtml(node.desc)}</div></div>`;
+    li.appendChild(row);
+    if (hasKids) {
+      const ul = document.createElement("ul");
+      ul.setAttribute("role", "group");
+      node.children.forEach(ch => render(ch, depth + 1, li));
+      node.children.forEach(ch => ul.appendChild(byId.get(ch.id).li));
+      li.appendChild(ul);
+      li.setAttribute("aria-expanded", "false");
+      row.querySelector(".tw").addEventListener("click", () => setOpen(li, li.getAttribute("aria-expanded") !== "true"));
+    }
+    return li;
+  }
+
+  function setOpen(li, open) {
+    if (!li.hasAttribute("aria-expanded")) return;
+    li.setAttribute("aria-expanded", open ? "true" : "false");
+    const ul = li.querySelector(":scope > ul");
+    if (ul) ul.hidden = !open;
+    const btn = li.querySelector(":scope > .row .tw");
+    if (btn) btn.setAttribute("aria-label", (open ? "Hide" : "Show") + " calls inside " + byId.get(li.dataset.id).node.name);
+  }
+
+  function applyFilter() {
+    byId.forEach(({ node, li }) => {
+      li.hidden = !visible(node);
+      const c = li.querySelector(":scope > .row .count");
+      const lab = countLabel(node);
+      c.textContent = lab;
+      c.hidden = !lab;
+    });
+    updateStats();
+  }
+
+  function defaultView() {
+    byId.forEach(({ node, li }) => setOpen(li, Number(li.dataset.depth) <= 2 || DEFAULT_OPEN.has(node.name)));
+  }
+
+  function openAncestors(id) {
+    let p = parentOf.get(id);
+    while (p) { setOpen(byId.get(p).li, true); p = parentOf.get(p); }
+  }
+
+  function findPath(names) {
+    let cur = DATA.tree;
+    for (const n of names) {
+      const next = cur.children.find(ch => ch.name === n);
+      if (!next) return cur;
+      cur = next;
+    }
+    return cur;
+  }
+
+  function updateStats() {
+    const cfgs = cfgsFor();
+    const fns = new Set(), mods = new Set();
+    let calls = 0;
+    byId.forEach(({ node }) => {
+      if (node.kind === "entry" || node.kind === "never") return;
+      if (!cfgs.some(c => c in node.counts)) return;
+      fns.add(node.module + "." + node.name + "." + node.kind);
+      mods.add(node.module);
+      calls += 1;
+    });
+    const nClass = [...fns].filter(f => f.endsWith(".class")).length;
+    const label = SOURCES.find(s => s.id === source).label;
+    document.getElementById("stats").innerHTML =
+      `<span><b>${fns.size - nClass}</b> functions${nClass ? ` + <b>${nClass}</b> dataclass constructors` : ""}</span>` +
+      `<span><b>${mods.size}</b> modules</span>` +
+      `<span><b>${calls}</b> call sites in the tree</span>` +
+      `<span>showing: <b>${source === "all" ? "every source" : "--source " + esc(label.replace("midog draw", "midog (draw)"))}</b></span>`;
+  }
+
+  // build
+  const treeEl = document.getElementById("tree");
+  treeEl.appendChild(render(DATA.tree, 0, null));
+  byId.get(DATA.tree.id).li.querySelector(":scope > .row .fn").setAttribute("title", "run_frame.py calls main() at line " + DATA.tree.line);
+
+  // source filter
+  const seg = document.getElementById("seg");
+  SOURCES.forEach(s => {
+    const b = document.createElement("button");
+    b.type = "button"; b.textContent = s.label; b.setAttribute("aria-pressed", s.id === source ? "true" : "false");
+    b.addEventListener("click", () => {
+      source = s.id;
+      seg.querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", x === b ? "true" : "false"));
+      applyFilter();
+      try { localStorage.setItem("calltree-source", source); } catch (e) {}
+    });
+    seg.appendChild(b);
+  });
+
+  // legend
+  const mods = [...new Set([...byId.values()].map(v => v.node.module))];
+  const order = ["run_frame", "annotation_frame", "dataset", "channels", "chromatin", "seed_selection", "template_match", "find_and_suppress", "nms", "production", "invariants", "evaluate", "viz"];
+  mods.sort((a, b) => order.indexOf(a) - order.indexOf(b));
+  document.getElementById("legend").innerHTML = mods.map(m => `<span><span class="dot" style="background:var(--m-${m})"></span>${m}.py</span>`).join("");
+
+  // stages
+  const strip = document.getElementById("strip");
+  STAGES.forEach((s, i) => {
+    const li = document.createElement("li");
+    const b = document.createElement("button");
+    b.type = "button";
+    b.className = "stage" + (s.only ? " optional" : "");
+    b.innerHTML = `<span class="n">STEP ${i + 1}</span><span class="t">${esc(s.t)}</span><span class="f">${esc(s.f)}</span>${s.sub ? `<span class="f">${esc(s.sub)}</span>` : ""}${s.only ? `<span class="only">${esc(s.only)}</span>` : ""}`;
+    b.addEventListener("click", () => {
+      const target = findPath(s.path);
+      const entry = byId.get(target.id);
+      if (entry.li.hidden) { source = "all"; seg.querySelectorAll("button").forEach((x, j) => x.setAttribute("aria-pressed", j === 0 ? "true" : "false")); applyFilter(); }
+      openAncestors(target.id);
+      setOpen(entry.li, true);
+      const row = entry.li.querySelector(":scope > .row");
+      row.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "center" });
+      row.classList.remove("flash"); void row.offsetWidth; row.classList.add("flash");
+    });
+    li.appendChild(b);
+    strip.appendChild(li);
+  });
+
+  // buttons
+  document.getElementById("expand").addEventListener("click", () => byId.forEach(({ li }) => setOpen(li, true)));
+  document.getElementById("collapse").addEventListener("click", () => byId.forEach(({ li }) => setOpen(li, Number(li.dataset.depth) < 1)));
+  document.getElementById("reset").addEventListener("click", () => { defaultView(); document.getElementById("q").value = ""; search(""); });
+  document.getElementById("never").addEventListener("change", e => { showNever = e.target.checked; applyFilter(); });
+
+  // search
+  function search(q) {
+    q = q.trim().toLowerCase();
+    let n = 0;
+    byId.forEach(({ node, li }) => {
+      const hit = q && node.name.toLowerCase().includes(q) && !li.hidden;
+      li.classList.toggle("hit", !!hit);
+      if (hit) { n += 1; openAncestors(node.id); }
+    });
+    document.getElementById("matches").textContent = q ? (n ? n + (n === 1 ? " call" : " calls") : "no match") : "";
+  }
+  document.getElementById("q").addEventListener("input", e => search(e.target.value));
+
+  // unused
+  document.getElementById("unused").innerHTML = Object.entries(DATA.unused).map(([m, names]) => `<li><code>${esc(m)}.py</code>: ${names.map(n => `<code>${esc(n)}</code>`).join(", ")}</li>`).join("") +
+    '<li>Everything else defined in <code>midog_utils/</code> and <code>run_frame.py</code> is in the tree.</li>';
+
+  try { const saved = localStorage.getItem("calltree-source"); if (saved && SOURCES.some(s => s.id === saved)) { source = saved; seg.querySelectorAll("button").forEach((x, j) => x.setAttribute("aria-pressed", SOURCES[j].id === saved ? "true" : "false")); } } catch (e) {}
+  defaultView();
+  applyFilter();
+})();
+</script>
+
+</body>
+</html>
