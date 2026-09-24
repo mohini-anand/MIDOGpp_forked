@@ -1,8 +1,11 @@
 # Annotation DataFrame — the pipeline's input and output format
 
-Status: design, agreed 2026-09-23 and amended the same day after review — every amendment is
-listed, and tagged as a correction or a design decision, in §9. Not yet implemented. The hand-off
-prompt is `ANNOTATION_FRAME_IMPLEMENTATION_PROMPT.md`; where the two disagree, this spec governs.
+Status: implemented. The design was agreed 2026-09-23 and amended the same day after review — every
+amendment is listed, and tagged as a correction or a design decision, in §9. The implementation
+(`2c0d875`) passes every §7 check: 65 checks, 0 divergences, outputs in
+`validation/annotation_frame/out/`. `click_frame` and `production_pipeline/run_frame.py` were added
+on 2026-09-24 (`41ffa2e`, §3). The hand-off prompt is `ANNOTATION_FRAME_IMPLEMENTATION_PROMPT.md`;
+where the two disagree, this spec governs.
 
 Supersedes `CORNER_COORDINATE_REFACTOR_PROMPT.md`. That prompt changed the internal point
 representation of the existing `midog_utils` functions. This spec leaves the existing functions'
@@ -51,11 +54,13 @@ and the sort still uses `rank_key`'s column. `info["od_computed"]` becomes
 bit-identical output. That is proven in §7, not assumed.
 
 **New.** One module, `midog_utils/annotation_frame.py`, holds everything this spec defines: the
-frame constants and converters, `run_roi` (§3), `evaluate` (§6) and `draw_seed_rows` (§7). It
-calls the frozen `midog_utils` functions and never re-implements them. The one thing it ports is
-the driver's joint-gate click draw, because a package module cannot import a repo-root script;
-§7 defines the port and requires it to reproduce the driver exactly. The module is not added to
-`midog_utils/__init__.py`; import it as `from midog_utils import annotation_frame`.
+frame constants and converters, `click_frame` and `run_roi` (§3), `evaluate` (§6) and
+`draw_seed_rows` (§7). It calls the frozen `midog_utils` functions and never re-implements them.
+The one thing it ports is the driver's joint-gate click draw, because a package module cannot
+import a repo-root script; §7 defines the port and requires it to reproduce the driver exactly. The
+module is not added to `midog_utils/__init__.py`; import it as
+`from midog_utils import annotation_frame`. `production_pipeline/run_frame.py` drives it from the
+command line (§3); `run_pipeline.py` stays as it is.
 
 Research that needs a hook `run_roi` deliberately lacks — a template override, a custom gate, an
 `nms_radius` or `max_peaks` override, an augmented bank, per-detection angle/flip/scale — keeps
@@ -82,8 +87,8 @@ function in `midog_utils` already assumes (`read_padded_patch` slices the array 
 A box's edges `x_tl` and `x_tl + width` therefore fall on the centres of its outermost pixels.
 Drawn over an image, it outlines those pixels only at `x_tl - 0.5 .. x_tl + width + 0.5`, which is
 why `viz.draw_box` subtracts 0.5. A client whose coordinates are pixel *edges* (pixel `k` spans
-`[k, k + 1)`, as in COCO and most canvas APIs) must subtract 0.5 before building a row. The frame
-never stores edge coordinates.
+`[k, k + 1)`, as in COCO and most canvas APIs) must subtract 0.5 before building a row;
+`click_frame(..., edge_origin=True)` does this (§3). The frame never stores edge coordinates.
 
 **Layer 2 — pixel footprints (integer indices).** `read_padded_patch`, `blank_seed_square` and
 `build_augmentations` address pixels. A footprint of odd side `base_size` centred on a continuous
@@ -260,8 +265,9 @@ discriminating column at concat time, the pattern `rerun_bbox3way_postD11.py:252
 - **Returns a new frame.** Input rows are copied through with their values unchanged; only the
   coordinate columns are cast to float64, which is lossless. New rows are appended. The caller's
   frame is never mutated.
-- **Never draws a seed.** In production the human already clicked. The validation path uses
-  `draw_seed_rows` (§7) to produce the seed row, then calls this.
+- **Never draws a seed.** In production the human already clicked, and `click_frame` builds that
+  click's row (below). The validation path uses `draw_seed_rows` (§7) to produce the seed row, then
+  calls this.
 - **Seed selection.** If `seed_object_id` is given, the seed is the one input row with
   `class == "MITOTIC_GT"`, `made_by == "HUMAN"` and that `object_id`. If it is `None`, the seed is
   the one input row with `class == "MITOTIC_GT"` and `made_by == "HUMAN"`. Zero or several
@@ -326,6 +332,50 @@ switching from clicks to hand-drawn boxes later loses no recorded information.
 and when no refinement is requested. Each of these frozen functions does its own
 round-half-to-even (§1). `build_seed` is not used: it draws from a pool, and `run_roi` never
 draws. It stays in the package for `run_pipeline.py` and for research.
+
+### Building the input row, and the command line
+
+`run_roi` loads nothing itself. Its caller loads `rgb` and `mpp` with `dataset.load_roi` and
+`dataset.roi_mpp`, as `run_pipeline.py` does, and builds the one-row input frame with one of three
+functions:
+
+| source | builder | `object_id` | scored by `run_frame.py` |
+| --- | --- | --- | --- |
+| a raw click (production) | `click_frame(file_name, cx, cy, object_id, *, edge_origin=False)` | the caller's id | no |
+| a MIDOG annotation | `human_seed_frame(ann, file_name)` | its `ann_id` | yes |
+| the validation draw | `draw_seed_rows(rgb, gt, image_id, *, seed_indices)` (§7.1) | the drawn `ann_id` | yes |
+
+- `click_frame` writes a `CLICK_BOX = 50.0` box centred on the click: `x_tl = cx - 25.0`,
+  `width = 50.0`, `class = MITOTIC_GT`, `made_by = HUMAN`, `refined = False`, `score` and `od` NaN.
+  With `edge_origin=True` it subtracts 0.5 from both coordinates first (§1).
+- At a MIDOG annotation's centre, with `object_id = ann_id`, it returns exactly
+  `human_seed_frame`'s row. Checked on all 26,286 annotations, and with `edge_origin=True` at the
+  centre plus 0.5.
+- `evaluate` accepts a `click_frame` row only when its `object_id` is the mitotic `ann_id` at that
+  exact centre (§6). A production click's id is arbitrary, so `run_frame.py` does not score it.
+
+`production_pipeline/run_frame.py` is the frame path's counterpart of `run_pipeline.py`:
+
+- `--click X Y` (with `--click-id` and `--edge-origin`) and `--ann-id` choose the first two builders
+  and are mutually exclusive. `--seed-index k` (default 0) applies when neither is given.
+- For `--seed-index k` it draws `range(k + 1)` and keeps the last. Draws are sequential (§7.1), so
+  drawing `(k,)` alone gives a different click for any `k > 0`.
+- The joint-gate draw is not `build_seed`'s, so the same `--seed-index` can pick a different click
+  in `run_pipeline.py`. On 300.tiff, seed 0 is 14581 there and 14499 here: 14581 passes the gray
+  gate but not the hematoxylin one.
+- It finds an ROI in `--images-dir` or in its `testing_set/` subfolder, and `--save-csv` writes
+  the whole frame.
+
+Checked 2026-09-24:
+
+- `run_frame_on_roi` reproduces R1's `seed_ann_id`, `n_detections` and `tp_at_{10,20,30}` on 18
+  runs: 300.tiff and 322.tiff, seeds 0–2, all three conditions, `rank_key="chromatin_od"`.
+- On 300.tiff click 14499, `--ann-id`, `--click` and `--edge-origin` give identical frames.
+- The full §7 harness was not re-run. This addition adds a constant and a function and changes none
+  of the functions §7 exercises.
+- Only `rank_key="chromatin_od"` (R1, R2) and `default_51` under `tm_score` (R4) have a committed
+  reference. `run_frame.py`'s defaults, `tm_score` with the gray gate, are covered by B2 and V4
+  only.
 
 ---
 
@@ -841,3 +891,11 @@ the ones to review.
 | 7.2 | V2 adds `git status` for the untracked module; V3 names the sources of R1's columns; V4 notes that B2 has no `od`; V6 pins `rank_key` and `always_od`; V7 adds the input-row, duplicate-id and `evaluate`-seed checks; V10 calls `evaluate` with its default argument. | correction |
 | 7.2 | R4's definition fixed, since the clicks CSV has no `condition` column. The shape-vs-mass run is noted as an identical copy of R4's `tm_score` arm. B2-vs-R4 added to the pre-edit environment gate. | correction |
 | 8 | Multi-loop text reconciled with the input-row rule: pass only `HUMAN` rows, and add a run discriminator when concatenating. | correction |
+
+**Additions after implementation (2026-09-24):**
+
+| § | addition | tag |
+| --- | --- | --- |
+| 0, 1, 3 | `click_frame` builds the input row for a raw click; `edge_origin=True` does §1's 0.5 subtraction. Alternative: leave row construction, and the 0.5 subtraction, to each client. | decision, confirmed by user 2026-09-24 |
+| 0, 3 | `production_pipeline/run_frame.py` added as the frame path's command line; `run_pipeline.py` stays frozen. | decision, confirmed by user 2026-09-24 |
+| — | Status updated: implemented and validated. | correction |
