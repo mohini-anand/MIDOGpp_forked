@@ -1,0 +1,42 @@
+diff --git a/midog_utils/production.py b/midog_utils/production.py
+index 6ac2887..2181edf 100644
+--- a/midog_utils/production.py
++++ b/midog_utils/production.py
+@@ -27,7 +27,7 @@ OD_WINDOW = tm.BASE_SIZE
+ AXES = {"tm_score": "score", "chromatin_od": "od"}
+ 
+ 
+-def run_production_pipeline(rgb: np.ndarray, seed, mpp: float, *, rank_key: str = "tm_score", max_peaks: int = MAX_PEAKS) -> tuple[pd.DataFrame, dict]:
++def run_production_pipeline(rgb: np.ndarray, seed, mpp: float, *, rank_key: str = "tm_score", max_peaks: int = MAX_PEAKS, always_od: bool = False) -> tuple[pd.DataFrame, dict]:
+     """
+         One click's gated seed -> the ranked candidate list for its ROI.
+ 
+@@ -36,9 +36,11 @@ def run_production_pipeline(rgb: np.ndarray, seed, mpp: float, *, rank_key: str
+         mpp (float): the ROI's microns-per-pixel (`dataset.roi_mpp`).
+         rank_key (str): "tm_score" (default) or "chromatin_od" -- which column ranks the list.
+         max_peaks (int): pre-NMS peak cap passed to `find_and_suppress`.
++        always_od (bool): compute the od column whatever rank_key is; rank_key still ranks the list.
+ 
+         Returns tuple[pd.DataFrame, dict]: ranked detections (rank, cx, cy, score, angle,
+-        flip, scale, plus od when rank_key is "chromatin_od") and a per-stage info dict.
++        flip, scale, plus od when rank_key is "chromatin_od" or always_od is True) and a
++        per-stage info dict.
+     """
+     if rank_key not in AXES:
+         raise KeyError(f"rank_key must be one of {sorted(AXES)}, got {rank_key!r}")
+@@ -53,13 +55,13 @@ def run_production_pipeline(rgb: np.ndarray, seed, mpp: float, *, rank_key: str
+     info["max_peaks_binding"] = bool(info["n_peaks"] == max_peaks)
+     inv.check_nms_radius(nms_radius, mpp, label="production_pipeline")
+ 
+-    if rank_key == "chromatin_od":
++    if rank_key == "chromatin_od" or always_od:
+         pad = OD_WINDOW // 2
+         hem_padded = cv2.copyMakeBorder(hem, pad, pad, pad, pad, borderType=cv2.BORDER_REPLICATE)
+         shifted = detections.assign(cx=detections["cx"] + pad, cy=detections["cy"] + pad)
+         scored = cm.score_detections(shifted, hem_padded, window=OD_WINDOW)
+         detections = detections.assign(od=scored["od"].to_numpy())
+-    info["od_computed"] = bool(rank_key == "chromatin_od")
++    info["od_computed"] = bool(rank_key == "chromatin_od" or always_od)
+ 
+     key = AXES[rank_key]
+     detections = detections.sort_values(key, ascending=False, na_position="last", kind="mergesort").reset_index(drop=True)

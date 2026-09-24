@@ -1,0 +1,32 @@
+{
+ "n_rois": 1,
+ "rois": [
+  "300.tiff"
+ ],
+ "r1": {
+  "n_runs": 9,
+  "label": "B1 vs R1",
+  "n_rows": 9,
+  "n_columns": 39,
+  "n_values": 351,
+  "n_diverged": 0,
+  "detail": []
+ },
+ "r2": {
+  "label": "B1 vs R2",
+  "n_rows": 270,
+  "n_columns": 15,
+  "n_values": 4050,
+  "n_diverged": 0,
+  "detail": []
+ },
+ "b2_vs_r4": {
+  "label": "B2 default_51 vs R4 tm_score top30",
+  "n_rows": 90,
+  "n_columns": 9,
+  "n_values": 810,
+  "n_diverged": 0,
+  "detail": [],
+  "n_runs": 3
+ }
+}

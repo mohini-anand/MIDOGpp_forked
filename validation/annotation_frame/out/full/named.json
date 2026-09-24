@@ -1,0 +1,855 @@
+{
+ "tier": "full",
+ "checks": {
+  "V5 candidate re-verified": {
+   "n_runs": 0,
+   "n_rows": 0,
+   "n_values": 4,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "V5 gate_refused: refined False and exact reason": {
+   "n_runs": 8,
+   "n_rows": 0,
+   "n_values": 8,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "V5 gate_refused: predictions identical to refinement_channel=None": {
+   "n_runs": 8,
+   "n_rows": 784,
+   "n_values": 8624,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "V5 extra: fallback template is default_51 at the click": {
+   "n_runs": 0,
+   "n_rows": 0,
+   "n_values": 8,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "V5 other channel: refined True": {
+   "n_runs": 8,
+   "n_rows": 0,
+   "n_values": 8,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "V5 template_unreadable click re-verified": {
+   "n_runs": 0,
+   "n_rows": 0,
+   "n_values": 1,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "V5 template_unreadable: refined False and exact reason": {
+   "n_runs": 4,
+   "n_rows": 0,
+   "n_values": 4,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "V5 template_unreadable: predictions identical to refinement_channel=None": {
+   "n_runs": 4,
+   "n_rows": 396,
+   "n_values": 4356,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "V6 candidate re-verified": {
+   "n_runs": 0,
+   "n_rows": 0,
+   "n_values": 2,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "V6 human row x_tl/y_tl == JSON x1/y1": {
+   "n_runs": 2,
+   "n_rows": 2,
+   "n_values": 2,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "V6 template matches template_spec": {
+   "n_runs": 0,
+   "n_rows": 0,
+   "n_values": 12,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "V6 refined row rounds half to even": {
+   "n_runs": 12,
+   "n_rows": 12,
+   "n_values": 12,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "V6 n_blanked_px == base_size ** 2": {
+   "n_runs": 0,
+   "n_rows": 0,
+   "n_values": 12,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "V6 predictions vs production with a template_spec seed": {
+   "n_runs": 12,
+   "n_rows": 1190,
+   "n_values": 13090,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "V7 edges": {
+   "n_runs": 0,
+   "n_rows": 0,
+   "n_values": 4,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "V7 extra: edges on y": {
+   "n_runs": 0,
+   "n_rows": 0,
+   "n_values": 4,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "V7 zero or two seed rows raise": {
+   "n_runs": 0,
+   "n_rows": 0,
+   "n_values": 3,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "V7 non-HUMAN-MITOTIC_GT input rows raise": {
+   "n_runs": 0,
+   "n_rows": 0,
+   "n_values": 4,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "V7 unknown rank_key / refinement_channel raise": {
+   "n_runs": 0,
+   "n_rows": 0,
+   "n_values": 2,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "V7 duplicate object_ids raise": {
+   "n_runs": 0,
+   "n_rows": 0,
+   "n_values": 1,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "V7 extra: rows from two file_names raise": {
+   "n_runs": 0,
+   "n_rows": 0,
+   "n_values": 1,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "V7 extra: missing column raises": {
+   "n_runs": 0,
+   "n_rows": 0,
+   "n_values": 1,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "V7 evaluate raises on a renumbered seed": {
+   "n_runs": 0,
+   "n_rows": 0,
+   "n_values": 5,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "V8 image is all-int in the raw JSON": {
+   "n_runs": 0,
+   "n_rows": 0,
+   "n_values": 3,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "V8 input coordinate columns are int64": {
+   "n_runs": 0,
+   "n_rows": 0,
+   "n_values": 3,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "V8 schema": {
+   "n_runs": 3,
+   "n_rows": 0,
+   "n_values": 27,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "V8 int64 input comes back float64 with the same values": {
+   "n_runs": 3,
+   "n_rows": 3,
+   "n_values": 3,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "V9 crop definition unchanged": {
+   "n_runs": 0,
+   "n_rows": 0,
+   "n_values": 5,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "V9 detections identical": {
+   "n_runs": 5,
+   "n_rows": 403,
+   "n_values": 2826,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "V9 info identical (non-t_*)": {
+   "n_runs": 5,
+   "n_rows": 0,
+   "n_values": 50,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "V1 contested tier vs select_clicks": {
+   "n_runs": 3,
+   "n_rows": 0,
+   "n_values": 30,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "V1 contested tier: flagged True": {
+   "n_runs": 0,
+   "n_rows": 0,
+   "n_values": 1,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "V1 contested tier: an ROI with >= 3 joint-valid contested clicks found": {
+   "n_runs": 0,
+   "n_rows": 0,
+   "n_values": 1,
+   "n_diverged": 0,
+   "detail": []
+  }
+ },
+ "cases": {
+  "V5": [
+   {
+    "file_name": "462.tiff",
+    "ann_id": 22673,
+    "refused_channel": "gray_inverted",
+    "click": [
+     4961.0,
+     1308.0
+    ],
+    "refused_gate": null,
+    "other_gate": [
+     27,
+     4961.0,
+     1308.5
+    ],
+    "other_readable": true,
+    "verified": true,
+    "n_pred_chromatin_od": 100,
+    "n_pred_tm_score": 100
+   },
+   {
+    "file_name": "529.tiff",
+    "ann_id": 24934,
+    "refused_channel": "gray_inverted",
+    "click": [
+     3405.0,
+     4053.0
+    ],
+    "refused_gate": null,
+    "other_gate": [
+     47,
+     3404.0,
+     4050.5
+    ],
+    "other_readable": true,
+    "verified": true,
+    "n_pred_chromatin_od": 99,
+    "n_pred_tm_score": 99
+   },
+   {
+    "file_name": "300.tiff",
+    "ann_id": 14581,
+    "refused_channel": "hematoxylin_od",
+    "click": [
+     4286.0,
+     2527.0
+    ],
+    "refused_gate": null,
+    "other_gate": [
+     45,
+     4286.0,
+     2527.0
+    ],
+    "other_readable": true,
+    "verified": true,
+    "n_pred_chromatin_od": 99,
+    "n_pred_tm_score": 99
+   },
+   {
+    "file_name": "245.tiff",
+    "ann_id": 6274,
+    "refused_channel": "hematoxylin_od",
+    "click": [
+     6356.0,
+     535.0
+    ],
+    "refused_gate": null,
+    "other_gate": [
+     47,
+     6359.0,
+     537.0
+    ],
+    "other_readable": true,
+    "verified": true,
+    "n_pred_chromatin_od": 94,
+    "n_pred_tm_score": 94
+   },
+   {
+    "file_name": "300.tiff",
+    "click": [
+     6410.0,
+     250.0
+    ],
+    "width": 6447,
+    "x_from_right": 37,
+    "gates": {
+     "gray_inverted": {
+      "spec": [
+       51,
+       6414.0,
+       250.0
+      ],
+      "readable": false
+     },
+     "hematoxylin_od": {
+      "spec": [
+       27,
+       6414.5,
+       257.0
+      ],
+      "readable": false
+     }
+    },
+    "verified": true
+   }
+  ],
+  "V6": [
+   {
+    "file_name": "072.tiff",
+    "ann_id": 1835,
+    "click": [
+     3590.5,
+     3139.5
+    ],
+    "gates": {
+     "gray_inverted": {
+      "spec": [
+       41,
+       3588.0,
+       3140.0
+      ],
+      "readable": true
+     },
+     "hematoxylin_od": {
+      "spec": [
+       37,
+       3588.0,
+       3139.0
+      ],
+      "readable": true
+     }
+    },
+    "half_integer": true,
+    "verified": true,
+    "x_half_even": 3590,
+    "x_half_up": 3591,
+    "y_half_even": 3140,
+    "y_half_up": 3140,
+    "json_bbox": [
+     3565.5,
+     3114.5,
+     3615.5,
+     3164.5
+    ],
+    "templates": {
+     "default_51/chromatin_od": {
+      "base_size": 51,
+      "tx": 3590.5,
+      "ty": 3139.5,
+      "refined_x_tl": 3565.0,
+      "refined_y_tl": 3115.0,
+      "tx_half_up_differs": true,
+      "ty_half_up_differs": false
+     },
+     "default_51/tm_score": {
+      "base_size": 51,
+      "tx": 3590.5,
+      "ty": 3139.5,
+      "refined_x_tl": 3565.0,
+      "refined_y_tl": 3115.0,
+      "tx_half_up_differs": true,
+      "ty_half_up_differs": false
+     },
+     "gray_bbox/chromatin_od": {
+      "base_size": 41,
+      "tx": 3588.0,
+      "ty": 3140.0,
+      "refined_x_tl": 3568.0,
+      "refined_y_tl": 3120.0,
+      "tx_half_up_differs": false,
+      "ty_half_up_differs": false
+     },
+     "gray_bbox/tm_score": {
+      "base_size": 41,
+      "tx": 3588.0,
+      "ty": 3140.0,
+      "refined_x_tl": 3568.0,
+      "refined_y_tl": 3120.0,
+      "tx_half_up_differs": false,
+      "ty_half_up_differs": false
+     },
+     "hem_bbox/chromatin_od": {
+      "base_size": 37,
+      "tx": 3588.0,
+      "ty": 3139.0,
+      "refined_x_tl": 3570.0,
+      "refined_y_tl": 3121.0,
+      "tx_half_up_differs": false,
+      "ty_half_up_differs": false
+     },
+     "hem_bbox/tm_score": {
+      "base_size": 37,
+      "tx": 3588.0,
+      "ty": 3139.0,
+      "refined_x_tl": 3570.0,
+      "refined_y_tl": 3121.0,
+      "tx_half_up_differs": false,
+      "ty_half_up_differs": false
+     }
+    }
+   },
+   {
+    "file_name": "007.tiff",
+    "ann_id": 144,
+    "click": [
+     6922.5,
+     2004.0
+    ],
+    "gates": {
+     "gray_inverted": {
+      "spec": [
+       51,
+       6922.0,
+       2004.0
+      ],
+      "readable": true
+     },
+     "hematoxylin_od": {
+      "spec": [
+       27,
+       6922.0,
+       2004.5
+      ],
+      "readable": true
+     }
+    },
+    "half_integer": true,
+    "verified": true,
+    "x_half_even": 6922,
+    "x_half_up": 6923,
+    "y_half_even": 2004,
+    "y_half_up": 2004,
+    "json_bbox": [
+     6897.5,
+     1979,
+     6947.5,
+     2029
+    ],
+    "templates": {
+     "default_51/chromatin_od": {
+      "base_size": 51,
+      "tx": 6922.5,
+      "ty": 2004.0,
+      "refined_x_tl": 6897.0,
+      "refined_y_tl": 1979.0,
+      "tx_half_up_differs": true,
+      "ty_half_up_differs": false
+     },
+     "default_51/tm_score": {
+      "base_size": 51,
+      "tx": 6922.5,
+      "ty": 2004.0,
+      "refined_x_tl": 6897.0,
+      "refined_y_tl": 1979.0,
+      "tx_half_up_differs": true,
+      "ty_half_up_differs": false
+     },
+     "gray_bbox/chromatin_od": {
+      "base_size": 51,
+      "tx": 6922.0,
+      "ty": 2004.0,
+      "refined_x_tl": 6897.0,
+      "refined_y_tl": 1979.0,
+      "tx_half_up_differs": false,
+      "ty_half_up_differs": false
+     },
+     "gray_bbox/tm_score": {
+      "base_size": 51,
+      "tx": 6922.0,
+      "ty": 2004.0,
+      "refined_x_tl": 6897.0,
+      "refined_y_tl": 1979.0,
+      "tx_half_up_differs": false,
+      "ty_half_up_differs": false
+     },
+     "hem_bbox/chromatin_od": {
+      "base_size": 27,
+      "tx": 6922.0,
+      "ty": 2004.5,
+      "refined_x_tl": 6909.0,
+      "refined_y_tl": 1991.0,
+      "tx_half_up_differs": false,
+      "ty_half_up_differs": true
+     },
+     "hem_bbox/tm_score": {
+      "base_size": 27,
+      "tx": 6922.0,
+      "ty": 2004.5,
+      "refined_x_tl": 6909.0,
+      "refined_y_tl": 1991.0,
+      "tx_half_up_differs": false,
+      "ty_half_up_differs": true
+     }
+    }
+   }
+  ],
+  "V7": [
+   {
+    "case": "300.tiff click (35.0, 2417.0) of (6447, 4835)",
+    "raised": true,
+    "error": "ValueError: click (35.0, 2417.0) is within 36 px of the ROI edge; clicks that close to the edge are not supported",
+    "seconds": 0.009
+   },
+   {
+    "case": "300.tiff click (36.0, 2417.0) of (6447, 4835)",
+    "raised": false,
+    "error": null,
+    "seconds": 8.082,
+    "refined": false,
+    "refusal_reason": "gate_refused",
+    "n_rows": 101
+   },
+   {
+    "case": "300.tiff click (6411.0, 2417.0) of (6447, 4835)",
+    "raised": true,
+    "error": "ValueError: click (6411.0, 2417.0) is within 36 px of the ROI edge; clicks that close to the edge are not supported",
+    "seconds": 0.009
+   },
+   {
+    "case": "300.tiff click (6410.0, 2417.0) of (6447, 4835)",
+    "raised": false,
+    "error": null,
+    "seconds": 5.596,
+    "refined": true,
+    "refusal_reason": null,
+    "n_rows": 100
+   },
+   {
+    "case": "300.tiff click (3223.0, 35.0) of (6447, 4835)",
+    "raised": true,
+    "error": "ValueError: click (3223.0, 35.0) is within 36 px of the ROI edge; clicks that close to the edge are not supported",
+    "seconds": 0.007
+   },
+   {
+    "case": "300.tiff click (3223.0, 36.0) of (6447, 4835)",
+    "raised": false,
+    "error": null,
+    "seconds": 6.401,
+    "refined": false,
+    "refusal_reason": "template_unreadable",
+    "n_rows": 101
+   },
+   {
+    "case": "300.tiff click (3223.0, 4799.0) of (6447, 4835)",
+    "raised": true,
+    "error": "ValueError: click (3223.0, 4799.0) is within 36 px of the ROI edge; clicks that close to the edge are not supported",
+    "seconds": 0.009
+   },
+   {
+    "case": "300.tiff click (3223.0, 4798.0) of (6447, 4835)",
+    "raised": false,
+    "error": null,
+    "seconds": 6.274,
+    "refined": false,
+    "refusal_reason": "gate_refused",
+    "n_rows": 102
+   },
+   {
+    "case": "zero input rows",
+    "raised": true,
+    "error": "ValueError: expected exactly one HUMAN MITOTIC_GT seed row, found 0",
+    "seconds": 0.007
+   },
+   {
+    "case": "seed_object_id matching no row",
+    "raised": true,
+    "error": "ValueError: expected exactly one HUMAN MITOTIC_GT seed row with object_id 999999, found 0",
+    "seconds": 0.008
+   },
+   {
+    "case": "two HUMAN MITOTIC_GT rows, seed_object_id None",
+    "raised": true,
+    "error": "ValueError: expected exactly one HUMAN MITOTIC_GT seed row, found 2",
+    "seconds": 0.006
+   },
+   {
+    "case": "run_roi's own output fed back in",
+    "raised": true,
+    "error": "ValueError: 101 input rows are not HUMAN MITOTIC_GT; run_roi takes only the human's clicks, never a previous run's output",
+    "seconds": 0.006
+   },
+   {
+    "case": "input plus the ALGORITHM refined row",
+    "raised": true,
+    "error": "ValueError: 1 input rows are not HUMAN MITOTIC_GT; run_roi takes only the human's clicks, never a previous run's output",
+    "seconds": 0.006
+   },
+   {
+    "case": "a MITOTIC_GT row made_by ALGORITHM",
+    "raised": true,
+    "error": "ValueError: 1 input rows are not HUMAN MITOTIC_GT; run_roi takes only the human's clicks, never a previous run's output",
+    "seconds": 0.004
+   },
+   {
+    "case": "a HUMAN row of class PREDICTION",
+    "raised": true,
+    "error": "ValueError: 1 input rows are not HUMAN MITOTIC_GT; run_roi takes only the human's clicks, never a previous run's output",
+    "seconds": 0.005
+   },
+   {
+    "case": "rank_key='od'",
+    "raised": true,
+    "error": "ValueError: rank_key must be one of ['chromatin_od', 'tm_score'], got 'od'",
+    "seconds": 0.0
+   },
+   {
+    "case": "refinement_channel='gray'",
+    "raised": true,
+    "error": "ValueError: refinement_channel must be one of [None, 'gray_inverted', 'hematoxylin_od'], got 'gray'",
+    "seconds": 0.0
+   },
+   {
+    "case": "two rows with object_id 14499",
+    "raised": true,
+    "error": "ValueError: input object_ids must be unique; duplicated: [14499]",
+    "seconds": 0.007
+   },
+   {
+    "case": "a second row from another file",
+    "raised": true,
+    "error": "ValueError: every input row must share the seed's file_name '300.tiff'; found ['300.tiff', '301.tiff']",
+    "seconds": 0.007
+   },
+   {
+    "case": "input without the od column",
+    "raised": true,
+    "error": "ValueError: input frame columns must be exactly ['file_name', 'x_tl', 'y_tl', 'width', 'height', 'class', 'object_id', 'made_by', 'refined', 'current_time', 'score', 'od']; missing ['od'], extra []",
+    "seconds": 0.001
+   },
+   {
+    "case": "evaluate with the seed row renumbered to object_id 1 (an ann_id of image 1)",
+    "raised": true,
+    "error": "ValueError: seed object_id 1 is not one mitotic ann_id at the seed's centre (1411.0, 3551.0); evaluate needs the seed row's object_id to be its MIDOG ann_id",
+    "seconds": 0.003
+   },
+   {
+    "case": "evaluate with the seed row renumbered to object_id 14463, a look-alike in 300.tiff",
+    "raised": true,
+    "error": "ValueError: seed object_id 14463 is not one mitotic ann_id at the seed's centre (1411.0, 3551.0); evaluate needs the seed row's object_id to be its MIDOG ann_id",
+    "seconds": 0.002
+   },
+   {
+    "case": "evaluate with the seed row renumbered to object_id 14459, a mitotic ann_id in 300.tiff at another centre",
+    "raised": true,
+    "error": "ValueError: seed object_id 14459 is not one mitotic ann_id at the seed's centre (1411.0, 3551.0); evaluate needs the seed row's object_id to be its MIDOG ann_id",
+    "seconds": 0.002
+   },
+   {
+    "case": "evaluate with the seed row renumbered to object_id 999999, no such ann_id",
+    "raised": true,
+    "error": "ValueError: seed object_id 999999 is not one mitotic ann_id at the seed's centre (1411.0, 3551.0); evaluate needs the seed row's object_id to be its MIDOG ann_id",
+    "seconds": 0.002
+   }
+  ],
+  "V8": [
+   {
+    "file_name": "211.tiff",
+    "ann_id": 4901,
+    "bbox": [
+     249,
+     486,
+     299,
+     536
+    ],
+    "all_int": true,
+    "n_rows": 102,
+    "refined": false,
+    "refusal_reason": "gate_refused",
+    "dtypes": {
+     "file_name": "object",
+     "x_tl": "float64",
+     "y_tl": "float64",
+     "width": "float64",
+     "height": "float64",
+     "class": "object",
+     "object_id": "int64",
+     "made_by": "object",
+     "refined": "bool",
+     "current_time": "object",
+     "score": "float64",
+     "od": "float64"
+    }
+   },
+   {
+    "file_name": "364.tiff",
+    "ann_id": 18747,
+    "bbox": [
+     1450,
+     895,
+     1500,
+     945
+    ],
+    "all_int": true,
+    "n_rows": 102,
+    "refined": true,
+    "refusal_reason": null,
+    "dtypes": {
+     "file_name": "object",
+     "x_tl": "float64",
+     "y_tl": "float64",
+     "width": "float64",
+     "height": "float64",
+     "class": "object",
+     "object_id": "int64",
+     "made_by": "object",
+     "refined": "bool",
+     "current_time": "object",
+     "score": "float64",
+     "od": "float64"
+    }
+   },
+   {
+    "file_name": "529.tiff",
+    "ann_id": 24901,
+    "bbox": [
+     6390,
+     543,
+     6440,
+     593
+    ],
+    "all_int": true,
+    "n_rows": 99,
+    "refined": false,
+    "refusal_reason": "gate_refused",
+    "dtypes": {
+     "file_name": "object",
+     "x_tl": "float64",
+     "y_tl": "float64",
+     "width": "float64",
+     "height": "float64",
+     "class": "object",
+     "object_id": "int64",
+     "made_by": "object",
+     "refined": "bool",
+     "current_time": "object",
+     "score": "float64",
+     "od": "float64"
+    }
+   }
+  ],
+  "V9": [
+   {
+    "file_name": "300.tiff",
+    "x0": 899,
+    "y0": 3039,
+    "click_in_crop": [
+     512.0,
+     512.0
+    ],
+    "n_detections": 61,
+    "n_augmentations": 8
+   },
+   {
+    "file_name": "201.tiff",
+    "x0": 3585,
+    "y0": 1466,
+    "click_in_crop": [
+     512.0,
+     512.0
+    ],
+    "n_detections": 88,
+    "n_augmentations": 8
+   },
+   {
+    "file_name": "245.tiff",
+    "x0": 4262,
+    "y0": 1672,
+    "click_in_crop": [
+     512.0,
+     512.0
+    ],
+    "n_detections": 76,
+    "n_augmentations": 8
+   },
+   {
+    "file_name": "459.tiff",
+    "x0": 1333,
+    "y0": 3491,
+    "click_in_crop": [
+     512.0,
+     512.0
+    ],
+    "n_detections": 97,
+    "n_augmentations": 8
+   },
+   {
+    "file_name": "013.tiff",
+    "x0": 1198,
+    "y0": 2349,
+    "click_in_crop": [
+     512.0,
+     512.0
+    ],
+    "n_detections": 81,
+    "n_augmentations": 8
+   }
+  ],
+  "V1_contested": {
+   "tried": [],
+   "file_name": "201.tiff",
+   "n_removed_unanimous": 7,
+   "n_agreement_pool": 11,
+   "n_after_border": 9,
+   "n_joint_valid": 9,
+   "flagged": true,
+   "clicks": [
+    4453,
+    4444,
+    4480
+   ],
+   "refused": [
+    "",
+    "",
+    ""
+   ]
+  }
+ },
+ "t_total_s": 631.9
+}

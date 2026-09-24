@@ -1,0 +1,22 @@
+{
+ "unanimous_vs_votes_201": {
+  "n_mitotic": 18,
+  "n_agree": 18
+ },
+ "multi_row": {
+  "n_rows": 103,
+  "expected": 103,
+  "input_rows_first": [
+   14578,
+   14499
+  ],
+  "refined_row_equal": true,
+  "seed_object_id": 14499,
+  "click_center": [
+   1411.0,
+   3551.0
+  ],
+  "preds_values": 1100,
+  "preds_diverged": 0
+ }
+}

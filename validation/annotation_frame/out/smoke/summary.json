@@ -1,0 +1,238 @@
+{
+ "tier": "smoke",
+ "n_rois": 2,
+ "rois": [
+  "300.tiff",
+  "007.tiff"
+ ],
+ "n_half_even_vs_half_up_differ": 4,
+ "checks": {
+  "setup: mpp and shape match Step 0": {
+   "n_runs": 0,
+   "n_rows": 0,
+   "n_values": 2,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "setup: gt matches Step 0": {
+   "n_runs": 0,
+   "n_rows": 0,
+   "n_values": 2,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "V1 draw vs select_clicks": {
+   "n_runs": 6,
+   "n_rows": 6,
+   "n_values": 62,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "V1 human-seed row": {
+   "n_runs": 6,
+   "n_rows": 6,
+   "n_values": 6,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "V1 seeds 0-5 vs R4 clicks": {
+   "n_runs": 12,
+   "n_rows": 12,
+   "n_values": 108,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "V1 extra: seeds 0-5 click centre vs R4 clicks": {
+   "n_runs": 12,
+   "n_rows": 12,
+   "n_values": 24,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "V1 extra: range(6) prefix equals default draw": {
+   "n_runs": 0,
+   "n_rows": 0,
+   "n_values": 2,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "V8 per-frame schema": {
+   "n_runs": 36,
+   "n_rows": 0,
+   "n_values": 324,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "V3 predictions vs B1": {
+   "n_runs": 18,
+   "n_rows": 1784,
+   "n_values": 19624,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "V3 production info vs B1": {
+   "n_runs": 18,
+   "n_rows": 0,
+   "n_values": 252,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "V3 row count 2 + n_detections": {
+   "n_runs": 18,
+   "n_rows": 0,
+   "n_values": 18,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "V3 refined row vs R1": {
+   "n_runs": 18,
+   "n_rows": 18,
+   "n_values": 72,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "V3 extra: run_roi's added info": {
+   "n_runs": 18,
+   "n_rows": 0,
+   "n_values": 18,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "V10 metrics vs evaluate_run on B1": {
+   "n_runs": 18,
+   "n_rows": 0,
+   "n_values": 396,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "V10 tp_at_k vs R1": {
+   "n_runs": 18,
+   "n_rows": 0,
+   "n_values": 54,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "V10 extra: seed_object_id": {
+   "n_runs": 0,
+   "n_rows": 0,
+   "n_values": 18,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "V4 coordinate set, chromatin_od vs tm_score": {
+   "n_runs": 18,
+   "n_rows": 1784,
+   "n_values": 18,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "V4 score/od at each coordinate": {
+   "n_runs": 18,
+   "n_rows": 1784,
+   "n_values": 3568,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "V4 extra: tm_score info matches chromatin_od info apart from ranking": {
+   "n_runs": 0,
+   "n_rows": 0,
+   "n_values": 18,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "V4 tm_score predictions vs B2": {
+   "n_runs": 9,
+   "n_rows": 894,
+   "n_values": 8940,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "V2 default always_od vs B2": {
+   "n_runs": 9,
+   "n_rows": 894,
+   "n_values": 6267,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "V2 default always_od vs B2 (info)": {
+   "n_runs": 9,
+   "n_rows": 0,
+   "n_values": 126,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "V2 always_od=True vs B2": {
+   "n_runs": 9,
+   "n_rows": 894,
+   "n_values": 6267,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "V2 always_od=True vs B2 (info)": {
+   "n_runs": 9,
+   "n_rows": 0,
+   "n_values": 126,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "V2 extra: always_od od vs B1 od at each coordinate": {
+   "n_runs": 9,
+   "n_rows": 894,
+   "n_values": 894,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "V2 extra: always_od od vs run_roi tm_score od": {
+   "n_runs": 9,
+   "n_rows": 894,
+   "n_values": 894,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "V4 default_51 tm_score top30 vs R4": {
+   "n_runs": 6,
+   "n_rows": 180,
+   "n_values": 1440,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "V4 default_51 tm_score per-run vs R4": {
+   "n_runs": 6,
+   "n_rows": 6,
+   "n_values": 36,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "V3 R1 recomputed from frame/info/draw_info/evaluate": {
+   "n_runs": 18,
+   "n_rows": 18,
+   "n_values": 702,
+   "n_diverged": 0,
+   "detail": [],
+   "columns": 39
+  },
+  "V3 R2 angle/flip/scale are constants": {
+   "n_runs": 0,
+   "n_rows": 13230,
+   "n_values": 39690,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "V3 R2 recomputed from frame + evaluate": {
+   "n_runs": 18,
+   "n_rows": 540,
+   "n_values": 6480,
+   "n_diverged": 0,
+   "detail": [],
+   "columns": 12
+  },
+  "V1 compare_selection vs R3": {
+   "n_runs": 18,
+   "n_rows": 18,
+   "n_values": 216,
+   "n_diverged": 0,
+   "detail": [],
+   "n_passed": 18
+  }
+ }
+}

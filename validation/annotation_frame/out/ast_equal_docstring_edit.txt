@@ -1,0 +1,1 @@
+docstring-stripped ASTs equal: True (/private/tmp/claude-501/-Users-mohinianand-Desktop-AnnotateDx-MIDOGpp-forked/e93779d4-1985-44c6-ac7b-f5de1d983a0c/scratchpad/annotation_frame.py vs midog_utils/annotation_frame.py)
