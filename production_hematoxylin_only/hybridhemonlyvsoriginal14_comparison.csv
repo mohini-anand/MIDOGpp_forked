@@ -1,0 +1,25 @@
+file_name,ann_id,source,domain,accepted_original,accepted_erodefirst,accepted_hemonly,accepted_radiusonly,base_original,base_erodefirst,base_hemonly,base_radiusonly,n_gray_rejected_original,n_gray_rejected_erodefirst,n_included_original,n_included_erodefirst,n_included_hemonly,n_included_radiusonly,hem_mode,same_box_hemonly_vs_original,same_box_hemonly_vs_erodefirst
+245.tiff,6317,original_14,canine lymphosarcoma,True,True,True,True,21,21,21,41,0,0,1,1,1,3,"base (click on hem foreground, component large enough alone)",True,True
+300.tiff,14499,original_14,canine cutaneous mast cell tumor,True,True,True,True,23,23,23,23,0,0,1,1,1,1,"base (click on hem foreground, component large enough alone)",True,True
+402.tiff,20254,original_14,human neuroendocrine tumor,True,True,True,True,23,23,23,23,0,0,1,1,1,1,"base (click on hem foreground, component large enough alone)",True,True
+094.tiff,2512,original_14,human breast cancer,True,True,True,True,23,23,23,23,0,0,1,1,1,1,"base (click on hem foreground, component large enough alone)",True,True
+233.tiff,5761,original_14,canine lung cancer,True,True,True,True,23,23,23,23,0,0,1,1,1,1,"base (click on hem foreground, component large enough alone)",True,True
+246.tiff,6548,original_14,canine lymphosarcoma,True,True,True,True,25,25,25,25,0,0,1,1,1,1,"base (click on hem foreground, component large enough alone)",True,True
+548.tiff,25804,original_14,human melanoma,True,True,True,True,27,27,27,27,0,0,1,1,1,1,"base (click on hem foreground, component large enough alone)",True,True
+529.tiff,24937,tightening_process_hem_vs_gray,human melanoma,True,True,True,True,29,29,29,29,0,0,1,1,1,2,"base (click on hem foreground, component large enough alone)",True,True
+013.tiff,254,tightening_process_hem_vs_gray,human breast cancer,True,True,True,True,29,29,29,29,0,0,1,1,1,1,"fallback (click on hem background, 3.0um = 13.3px search)",True,True
+403.tiff,20356,original_14,human neuroendocrine tumor,True,True,True,True,29,29,29,29,0,0,1,1,1,1,"base (click on hem foreground, component large enough alone)",True,True
+201.tiff,4469,tightening_process_hem_vs_gray,canine lung cancer,True,True,True,True,29,29,29,29,0,0,1,1,1,2,"base (click on hem foreground, component large enough alone)",True,True
+201.tiff,4457,original_14,canine lung cancer,True,True,True,True,29,29,29,29,0,0,1,1,1,1,"base (click on hem foreground, component large enough alone)",True,True
+300.tiff,14581,tightening_process_hem_vs_gray,canine cutaneous mast cell tumor,True,True,True,True,29,29,29,29,0,0,3,3,3,3,"fallback (click on hem background, 3.0um = 11.8px search)",True,True
+300.tiff,14575,tightening_process_hem_vs_gray,canine cutaneous mast cell tumor,True,True,True,True,29,29,37,37,2,2,3,3,5,5,"fallback (click's hem component alone tightens to 19px < 20px, 3.0um = 11.8px search)",False,False
+245.tiff,6243,tightening_process_hem_vs_gray,canine lymphosarcoma,True,True,True,True,31,19,31,31,0,2,4,2,4,4,"fallback (click's hem component alone tightens to 19px < 20px, 3.0um = 12.1px search)",True,False
+529.tiff,24918,original_14,human melanoma,True,True,True,True,31,31,31,31,0,0,1,1,1,1,"base (click on hem foreground, component large enough alone)",True,True
+301.tiff,14969,original_14,canine cutaneous mast cell tumor,True,True,True,True,31,31,31,31,0,0,1,1,1,2,"base (click on hem foreground, component large enough alone)",True,True
+459.tiff,22441,original_14,canine soft tissue sarcoma,True,True,True,True,31,31,31,31,0,0,1,1,1,1,"base (click on hem foreground, component large enough alone)",True,True
+402.tiff,20258,tightening_process_hem_vs_gray,human neuroendocrine tumor,True,True,True,True,33,33,33,33,0,0,1,1,1,1,"base (click on hem foreground, component large enough alone)",True,True
+245.tiff,6274,tightening_process_hem_vs_gray,canine lymphosarcoma,True,True,True,True,33,33,33,33,0,0,3,3,3,3,"fallback (click on hem background, 3.0um = 12.1px search)",True,True
+460.tiff,22577,original_14,canine soft tissue sarcoma,True,True,True,True,37,37,37,37,0,0,1,1,1,1,"base (click on hem foreground, component large enough alone)",True,True
+459.tiff,22446,tightening_process_hem_vs_gray,canine soft tissue sarcoma,True,True,True,True,39,39,39,39,0,0,1,1,1,1,"base (click on hem foreground, component large enough alone)",True,True
+013.tiff,249,original_14,human breast cancer,True,True,True,True,39,39,39,39,0,0,1,1,1,1,"base (click on hem foreground, component large enough alone)",True,True
+013.tiff,243,tightening_process_hem_vs_gray,human breast cancer,True,True,True,True,41,41,41,41,0,0,2,2,2,2,"fallback (click on hem background, 3.0um = 13.3px search)",True,True
