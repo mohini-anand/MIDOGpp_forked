@@ -1,0 +1,8 @@
+fact,appendix,now
+notebooks found by the recount glob,59,86
+embedded PNGs across notebooks,217,442
+results/*.csv total / untracked,233 / 0 (2026-09-12),602 / 56
+FSConfig.tm_method default,TM_CCOEFF_NORMED,cv2.TM_CCOEFF
+FSConfig.nms_radius default,None = this image's match radius,"None = caller must supply, normally evaluate.radius_px(mpp)"
+image_annotations category_id default,None,None
+MIDOG_RADIUS_UM,7.5,7.5

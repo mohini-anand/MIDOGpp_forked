@@ -1,0 +1,33 @@
+file_name,seed_index,why,arm,S,bs,offset_cheb,fill,mass_wt,flags
+337.tiff,0,smallest bs,mo_box,23,23,2,,,
+337.tiff,0,smallest bs,mo_pad51,51,23,2,0.02,0.052,template_outside_window
+337.tiff,0,smallest bs,mo_pad61,61,23,2,0.022,0.049,template_outside_window
+337.tiff,0,smallest bs,mo_ring5,33,23,2,0.022,0.049,
+425.tiff,1,largest bs,mo_box,55,55,2,,,box_outside_blank; template_outside_window
+425.tiff,1,largest bs,mo_pad51,55,55,2,,,box_outside_blank; template_outside_window; box_ge_S
+425.tiff,1,largest bs,mo_pad61,61,55,2,0.069,0.05,box_outside_blank; template_outside_window
+425.tiff,1,largest bs,mo_ring5,65,55,2,0.067,0.052,box_outside_blank; template_outside_window
+128.tiff,4,largest centre offset,mo_box,37,37,9,,,box_outside_blank; template_outside_window
+128.tiff,4,largest centre offset,mo_pad51,51,37,9,0.014,0.046,box_outside_blank; template_outside_window
+128.tiff,4,largest centre offset,mo_pad61,61,37,9,0.012,0.048,box_outside_blank; template_outside_window
+128.tiff,4,largest centre offset,mo_ring5,47,37,9,0.015,0.045,box_outside_blank; template_outside_window
+007.tiff,3,box_outside_blank,mo_box,49,49,3,,,box_outside_blank; template_outside_window
+007.tiff,3,box_outside_blank,mo_pad51,51,49,3,0.029,0.047,box_outside_blank; template_outside_window
+007.tiff,3,box_outside_blank,mo_pad61,61,49,3,0.026,0.05,box_outside_blank; template_outside_window
+007.tiff,3,box_outside_blank,mo_ring5,59,49,3,0.026,0.05,box_outside_blank; template_outside_window
+300.tiff,0,template_outside_window,mo_box,29,29,4,,,
+300.tiff,0,template_outside_window,mo_pad51,51,29,4,0.02,0.045,template_outside_window
+300.tiff,0,template_outside_window,mo_pad61,61,29,4,0.024,0.042,template_outside_window
+300.tiff,0,template_outside_window,mo_ring5,39,29,4,0.021,0.045,
+128.tiff,0,box_ge_S,mo_box,53,53,5,,,box_outside_blank; template_outside_window
+128.tiff,0,box_ge_S,mo_pad51,53,53,5,,,box_outside_blank; template_outside_window; box_ge_S
+128.tiff,0,box_ge_S,mo_pad61,61,53,5,0.008,0.017,box_outside_blank; template_outside_window
+128.tiff,0,box_ge_S,mo_ring5,63,53,5,0.007,0.017,box_outside_blank; template_outside_window
+301.tiff,2,mass_weight_nonpositive,mo_box,25,25,2,,,
+301.tiff,2,mass_weight_nonpositive,mo_pad51,51,25,2,0.027,0.001,template_outside_window
+301.tiff,2,mass_weight_nonpositive,mo_pad61,61,25,2,0.033,-0.005,template_outside_window; mass_weight_nonpositive
+301.tiff,2,mass_weight_nonpositive,mo_ring5,35,25,2,0.022,0.006,
+322.tiff,0,bs near q25,mo_box,29,29,3,,,
+322.tiff,0,bs near q25,mo_pad51,51,29,3,0.013,0.071,template_outside_window
+322.tiff,0,bs near q25,mo_pad61,61,29,3,0.013,0.07,template_outside_window
+322.tiff,0,bs near q25,mo_ring5,39,29,3,0.015,0.068,

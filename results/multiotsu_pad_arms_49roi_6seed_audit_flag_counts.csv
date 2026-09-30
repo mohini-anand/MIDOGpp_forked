@@ -1,0 +1,5 @@
+condition,my_box_outside_blank,my_template_outside_window,my_box_ge_S,my_mass_weight_nonpositive
+mo_box,14,14,0,0
+mo_pad51,14,276,6,0
+mo_pad61,14,294,0,3
+mo_ring5,14,85,0,0

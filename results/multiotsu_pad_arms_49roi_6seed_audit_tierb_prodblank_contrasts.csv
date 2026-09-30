@@ -1,0 +1,21 @@
+rank_key,contrast,blank,n_roi,pooled_pts,W_L_T,exact_p_7roi
+chromatin_od,mo_pad51 - mo_box,notebook blank (51 at click),7,1.43,3/2/2,0.75
+chromatin_od,mo_pad51 - mo_box,production blank (S at template centre),7,1.43,3/2/2,0.75
+chromatin_od,mo_pad61 - mo_box,notebook blank (51 at click),7,1.67,3/2/2,0.625
+chromatin_od,mo_pad61 - mo_box,production blank (S at template centre),7,1.67,3/2/2,0.625
+chromatin_od,mo_ring5 - mo_box,notebook blank (51 at click),7,1.67,2/2/3,0.625
+chromatin_od,mo_ring5 - mo_box,production blank (S at template centre),7,1.67,2/2/3,0.625
+chromatin_od,mo_pad51 - fill_51,notebook blank (51 at click),7,-0.48,3/3/1,0.84375
+chromatin_od,mo_pad51 - fill_51,production blank (S at template centre),7,-0.48,3/3/1,0.84375
+chromatin_od,mo_pad61 - fill_61,notebook blank (51 at click),7,-0.48,2/3/2,0.75
+chromatin_od,mo_pad61 - fill_61,production blank (S at template centre),7,-0.48,2/3/2,0.75
+tm_score,mo_pad51 - mo_box,notebook blank (51 at click),7,6.67,6/0/1,0.03125
+tm_score,mo_pad51 - mo_box,production blank (S at template centre),7,6.67,6/0/1,0.03125
+tm_score,mo_pad61 - mo_box,notebook blank (51 at click),7,7.62,5/0/2,0.0625
+tm_score,mo_pad61 - mo_box,production blank (S at template centre),7,7.62,5/0/2,0.0625
+tm_score,mo_ring5 - mo_box,notebook blank (51 at click),7,5.48,5/2/0,0.109375
+tm_score,mo_ring5 - mo_box,production blank (S at template centre),7,5.48,5/2/0,0.109375
+tm_score,mo_pad51 - fill_51,notebook blank (51 at click),7,0.0,2/3/2,1.0
+tm_score,mo_pad51 - fill_51,production blank (S at template centre),7,0.0,2/3/2,1.0
+tm_score,mo_pad61 - fill_61,notebook blank (51 at click),7,0.0,3/3/1,1.0
+tm_score,mo_pad61 - fill_61,production blank (S at template centre),7,0.0,3/3/1,1.0

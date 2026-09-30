@@ -1,0 +1,6 @@
+rank_key,contrast,all_exclude_0,closest_bound_pts
+chromatin_od,mo_pad51 - mo_box,True,0.85
+chromatin_od,mo_ring5 - mo_box,True,1.871
+tm_score,mo_pad51 - mo_box,True,4.286
+tm_score,mo_pad61 - mo_box,True,5.646
+tm_score,mo_ring5 - mo_box,True,3.333

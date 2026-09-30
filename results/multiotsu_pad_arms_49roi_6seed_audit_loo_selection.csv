@@ -1,0 +1,5 @@
+rank_key,pool,insample_best,insample_precision,loo_selected_precision,picks
+chromatin_od,3 pads,mo_ring5,0.5755,0.5755,{'mo_ring5': 49}
+chromatin_od,all 7 arms,mo_ring5,0.5755,0.5755,{'mo_ring5': 49}
+tm_score,3 pads,mo_pad61,0.5418,0.5418,{'mo_pad61': 49}
+tm_score,all 7 arms,fill_61,0.5425,0.5361,"{'fill_61': 42, 'mo_pad61': 7}"

@@ -1,0 +1,11 @@
+rank_key,arm,clicks,clicks_changed,tp_gained,tp_lost,net_pts,near_fp60
+chromatin_od,fill_61,42,0,0,0,0.0,0
+chromatin_od,mo_box,42,0,0,0,0.0,0
+chromatin_od,mo_pad51,42,0,0,0,0.0,0
+chromatin_od,mo_pad61,42,0,0,0,0.0,0
+chromatin_od,mo_ring5,42,0,0,0,0.0,0
+tm_score,fill_61,42,0,0,0,0.0,0
+tm_score,mo_box,42,0,0,0,0.0,0
+tm_score,mo_pad51,42,0,0,0,0.0,0
+tm_score,mo_pad61,42,0,0,0,0.0,0
+tm_score,mo_ring5,42,0,0,0,0.0,0

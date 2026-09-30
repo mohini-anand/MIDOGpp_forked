@@ -1,0 +1,23 @@
+check,expected,observed,ok
+clicks rows (49 ROIs x 6 seeds),294,294,True
+ROIs in clicks,49,49,True
+ROIs per domain (7 domains x 7),"{'canine cutaneous mast cell tumor': 7, 'canine lung cancer': 7, 'canine lymphosarcoma': 7, 'canine soft tissue sarcoma': 7, 'human breast cancer': 7, 'human melanoma': 7, 'human neuroendocrine tumor': 7}","{'canine cutaneous mast cell tumor': 7, 'canine lung cancer': 7, 'canine lymphosarcoma': 7, 'canine soft tissue sarcoma': 7, 'human breast cancer': 7, 'human melanoma': 7, 'human neuroendocrine tumor': 7}",True
+domain label == MIDOG++.json tumor_type on every ROI,49,49,True
+tumour types in MIDOG++.json,7,7,True
+per_run rows (294 clicks x 4 arms x 2 axes),2352,2352,True
+per_run duplicate keys,0,0,True
+per_run ROIs,49,49,True
+"per_run rows per (arm, axis)",[294],[294],True
+top30 rows (2352 lists x 30),70560,70560,True
+top30 lists with ranks exactly 0..29,2352,2352,True
+templates rows (294 clicks x 4 arms),1176,1176,True
+templates accepted,1176,1176,True
+per_roi rows (49 x 7 arms x 2 axes),686,686,True
+delta_per_roi rows (60 specs x 49),2940,2940,True
+delta_stats rows (60 recorded + 34 reruns),94,94,True
+selfmatch_sensitivity rows (10 tests x 2 versions),20,20,True
+reference per_run rows (294 x 3 x 2),1764,1764,True
+reference per_run duplicate keys,0,0,True
+reference top30 rows,52920,52920,True
+"clicks equal between clicks CSV and per_run (seed_ann_id, click)",2352,2352,True
+"per_run (file, seed) set == clicks CSV set",True,True,True

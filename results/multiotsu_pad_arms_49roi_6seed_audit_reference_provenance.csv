@@ -1,0 +1,17 @@
+window_sweep_arm,fillgeom_arm,column,n,n_diverged
+default_51,default_51,tp_at_10,588,0
+default_51,default_51,tp_at_20,588,0
+default_51,default_51,tp_at_30,588,0
+default_51,default_51,n_detections,588,0
+default_51,default_51,n_peaks,588,0
+default_51,default_51,tpl_sha1,588,0
+default_51,default_51,n_blanked_px,588,0
+fill_51,hem_rect_fill,tp_at_10,588,0
+fill_51,hem_rect_fill,tp_at_20,588,0
+fill_51,hem_rect_fill,tp_at_30,588,0
+fill_51,hem_rect_fill,n_detections,588,0
+fill_51,hem_rect_fill,n_peaks,588,0
+fill_51,hem_rect_fill,tpl_sha1,588,0
+fill_51,hem_rect_fill,n_blanked_px,588,0
+default_51,clicks CSV sha_default_51,tpl_sha1,588,0
+fill_51,clicks CSV sha_hem_rect_fill,tpl_sha1,588,0

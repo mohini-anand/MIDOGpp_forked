@@ -1,0 +1,30 @@
+path,sha256_12,mtime,last_commit,status
+midog_utils/template_match.py,45049c7bd801,2026-09-17 14:46:48,9e22eb9 2026-09-17 15:59,clean
+midog_utils/evaluate.py,f3e89687c350,2026-09-16 19:55:16,c066829 2026-09-16 20:30,clean
+midog_utils/nms.py,67ce566e8b82,2026-09-14 18:47:47,f9b4a63 2026-09-14 19:13,clean
+midog_utils/chromatin.py,3fc024db59bd,2026-09-16 20:03:03,c066829 2026-09-16 20:30,clean
+midog_utils/channels.py,96a38e2d7147,2026-09-16 20:03:03,c066829 2026-09-16 20:30,clean
+midog_utils/dataset.py,d3a040ea36d1,2026-09-16 19:19:06,c066829 2026-09-16 20:30,clean
+midog_utils/production.py,30b4fa24db0c,2026-09-17 14:46:48,9e22eb9 2026-09-17 15:59,clean
+midog_utils/invariants.py,44d397726e47,2026-09-16 19:47:13,c066829 2026-09-16 20:30,clean
+midog_utils/seed_selection.py,5e0ebc4e1838,2026-09-17 14:46:48,9e22eb9 2026-09-17 15:59,clean
+production_hematoxylin_only/multiotsu_template_refinement_14roi.ipynb,56b81965cd21,2026-09-29 12:23:13,154863e 2026-09-29 12:25,clean
+production_hematoxylin_only/multiotsurefine14_summary.csv,6ed8687a1815,2026-09-29 12:23:07,154863e 2026-09-29 12:25,clean
+results/precision_at_k_49roi_6seed_fillgeom_postD11_clicks.csv,0d0c2964b8f9,2026-09-22 14:15:54,a9293d0 2026-09-22 15:07,clean
+results/precision_at_k_49roi_6seed_fillgeom_postD11_per_run.csv,8668d2697420,2026-09-22 14:56:44,a9293d0 2026-09-22 15:07,clean
+results/precision_at_k_49roi_6seed_fillgeom_postD11_delta_stats.csv,a1e028f4ddfb,2026-09-22 14:56:44,a9293d0 2026-09-22 15:07,clean
+production_hematoxylin_only/window_sweep_51_61_71_49roi_6seed.ipynb,232cf2d7d095,2026-09-30 13:08:19,,??
+results/precision_at_k_49roi_6seed_windowsweep_postD11_per_run.csv,f00edfc37b10,2026-09-29 15:06:17,,??
+results/precision_at_k_49roi_6seed_windowsweep_postD11_top30.csv,e825994ea484,2026-09-29 15:06:18,,??
+results/precision_at_k_49roi_6seed_windowsweep_postD11_delta_stats.csv,1e7cccdbf167,2026-09-29 15:06:24,,??
+MULTIOTSU_PAD_ARMS_PROMPT.md,f80bb9077265,2026-09-29 21:55:23,,??
+production_hematoxylin_only/multiotsu_pad_arms_49roi_6seed.ipynb,f8d1862e9691,2026-09-29 23:51:12,,??
+results/precision_at_k_49roi_6seed_mopad_postD11_templates.csv,3a14a36932b6,2026-09-29 23:46:24,,??
+results/precision_at_k_49roi_6seed_mopad_postD11_per_run.csv,18c42ce0525c,2026-09-29 23:46:23,,??
+results/precision_at_k_49roi_6seed_mopad_postD11_top30.csv,d49bf37897ab,2026-09-29 23:46:24,,??
+results/precision_at_k_49roi_6seed_mopad_postD11_per_roi.csv,d33d798d1ad9,2026-09-29 23:46:24,,??
+results/precision_at_k_49roi_6seed_mopad_postD11_delta_per_roi.csv,d0965370b617,2026-09-29 23:46:33,,??
+results/precision_at_k_49roi_6seed_mopad_postD11_delta_stats.csv,890f35296a94,2026-09-29 23:46:40,,??
+results/precision_at_k_49roi_6seed_mopad_postD11_selfmatch_sensitivity.csv,74c4d6fa6bc5,2026-09-29 23:46:42,,??
+production_hematoxylin_only/mopad_contrasts.png,bb8af43d911b,2026-09-29 23:46:44,,??
+production_hematoxylin_only/mopad_templates.png,bee42919be45,2026-09-29 23:46:50,,??

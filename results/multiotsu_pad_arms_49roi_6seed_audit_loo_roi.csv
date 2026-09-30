@@ -1,0 +1,11 @@
+rank_key,contrast,pooled_pts,d5_full,loo_pooled_min_pts,loo_pooled_max_pts,most_influential_roi,its_domain,its_delta_tp,without_it_pooled_pts,without_it_ci_pts,without_it_wlt,without_it_d5,loo_d5_flips,flip_rois,loo_min_bound_toward_0_pts,n_same_direction,majority_needed,t_ci_excl0_equals_boot_excl0,max_abs_t_minus_boot_bound_pts
+chromatin_od,mo_pad51 - mo_box,2.76,True,2.47,3.23,293.tiff,canine lymphosarcoma,-12,3.23,"[+1.67, +4.86]",26/7/15,True,0,,0.66,26,25,True,0.09
+chromatin_od,mo_pad61 - mo_box,1.97,False,1.63,2.78,293.tiff,canine lymphosarcoma,-22,2.78,"[+1.28, +4.38]",27/10/11,True,1,293.tiff,-0.62,27,25,True,0.25
+chromatin_od,mo_ring5 - mo_box,3.27,True,3.02,3.47,460.tiff,canine soft tissue sarcoma,9,3.02,"[+1.70, +4.34]",26/8/14,True,0,,1.7,27,25,True,0.08
+chromatin_od,mo_pad51 - fill_51,0.24,False,0.0,0.35,293.tiff,canine lymphosarcoma,7,0.0,"[-0.59, +0.59]",12/9/27,False,0,,-0.59,13,25,True,0.06
+chromatin_od,mo_pad61 - fill_61,0.03,False,-0.24,0.14,293.tiff,canine lymphosarcoma,8,-0.24,"[-0.73, +0.24]",9/11/28,False,0,,-0.73,10,25,True,0.1
+tm_score,mo_pad51 - mo_box,6.46,True,5.94,6.77,460.tiff,canine soft tissue sarcoma,19,5.94,"[+3.99, +7.85]",37/7/4,True,0,,3.99,38,25,True,0.15
+tm_score,mo_pad61 - mo_box,8.16,True,7.6,8.51,460.tiff,canine soft tissue sarcoma,21,7.6,"[+5.31, +9.86]",35/8/5,True,0,,5.31,36,25,True,0.14
+tm_score,mo_ring5 - mo_box,5.0,True,4.72,5.21,291.tiff,canine lymphosarcoma,11,4.72,"[+3.09, +6.35]",36/10/2,True,0,,3.09,37,25,True,0.11
+tm_score,mo_pad51 - fill_51,-0.17,False,-0.35,-0.03,404.tiff,human neuroendocrine tumor,5,-0.35,"[-1.08, +0.38]",15/19/14,False,0,,-0.73,19,25,True,0.04
+tm_score,mo_pad61 - fill_61,-0.07,False,-0.21,0.07,245.tiff,canine lymphosarcoma,4,-0.21,"[-0.94, +0.49]",14/17/17,False,0,,-0.8,17,25,True,0.02
