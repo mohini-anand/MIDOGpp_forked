@@ -1,0 +1,65 @@
+rank_key,condition,domain,n_roi,tp_at_10,precision_at_10
+tm_score,default_51,canine cutaneous mast cell tumor,7,257,0.611904761904762
+tm_score,default_51,canine lung cancer,7,135,0.32142857142857145
+tm_score,default_51,canine lymphosarcoma,7,229,0.5452380952380952
+tm_score,default_51,canine soft tissue sarcoma,7,231,0.55
+tm_score,default_51,human breast cancer,7,253,0.6023809523809524
+tm_score,default_51,human melanoma,7,152,0.3619047619047619
+tm_score,default_51,human neuroendocrine tumor,7,238,0.5666666666666667
+tm_score,default_51,all 49 ROIs,49,1495,0.5085034013605442
+tm_score,mo_box,canine cutaneous mast cell tumor,7,246,0.5857142857142857
+tm_score,mo_box,canine lung cancer,7,134,0.319047619047619
+tm_score,mo_box,canine lymphosarcoma,7,249,0.5928571428571429
+tm_score,mo_box,canine soft tissue sarcoma,7,179,0.4261904761904762
+tm_score,mo_box,human breast cancer,7,217,0.5166666666666667
+tm_score,mo_box,human melanoma,7,111,0.2642857142857143
+tm_score,mo_box,human neuroendocrine tumor,7,217,0.5166666666666667
+tm_score,mo_box,all 49 ROIs,49,1353,0.4602040816326531
+tm_score,mo_pad51,canine cutaneous mast cell tumor,7,264,0.6285714285714286
+tm_score,mo_pad51,canine lung cancer,7,148,0.3523809523809524
+tm_score,mo_pad51,canine lymphosarcoma,7,261,0.6214285714285714
+tm_score,mo_pad51,canine soft tissue sarcoma,7,233,0.5547619047619048
+tm_score,mo_pad51,human breast cancer,7,255,0.6071428571428571
+tm_score,mo_pad51,human melanoma,7,143,0.3404761904761905
+tm_score,mo_pad51,human neuroendocrine tumor,7,239,0.569047619047619
+tm_score,mo_pad51,all 49 ROIs,49,1543,0.5248299319727892
+tm_score,mo_pad61,canine cutaneous mast cell tumor,7,272,0.6476190476190476
+tm_score,mo_pad61,canine lung cancer,7,158,0.3761904761904762
+tm_score,mo_pad61,canine lymphosarcoma,7,254,0.6047619047619047
+tm_score,mo_pad61,canine soft tissue sarcoma,7,242,0.5761904761904761
+tm_score,mo_pad61,human breast cancer,7,265,0.6309523809523809
+tm_score,mo_pad61,human melanoma,7,165,0.39285714285714285
+tm_score,mo_pad61,human neuroendocrine tumor,7,237,0.5642857142857143
+tm_score,mo_pad61,all 49 ROIs,49,1593,0.5418367346938775
+chromatin_od,default_51,canine cutaneous mast cell tumor,7,293,0.6976190476190476
+chromatin_od,default_51,canine lung cancer,7,151,0.3595238095238095
+chromatin_od,default_51,canine lymphosarcoma,7,232,0.5523809523809524
+chromatin_od,default_51,canine soft tissue sarcoma,7,262,0.6238095238095238
+chromatin_od,default_51,human breast cancer,7,259,0.6166666666666667
+chromatin_od,default_51,human melanoma,7,190,0.4523809523809524
+chromatin_od,default_51,human neuroendocrine tumor,7,279,0.6642857142857143
+chromatin_od,default_51,all 49 ROIs,49,1666,0.5666666666666667
+chromatin_od,mo_box,canine cutaneous mast cell tumor,7,286,0.680952380952381
+chromatin_od,mo_box,canine lung cancer,7,143,0.3404761904761905
+chromatin_od,mo_box,canine lymphosarcoma,7,244,0.580952380952381
+chromatin_od,mo_box,canine soft tissue sarcoma,7,247,0.5880952380952381
+chromatin_od,mo_box,human breast cancer,7,258,0.6142857142857143
+chromatin_od,mo_box,human melanoma,7,163,0.3880952380952381
+chromatin_od,mo_box,human neuroendocrine tumor,7,255,0.6071428571428571
+chromatin_od,mo_box,all 49 ROIs,49,1596,0.5428571428571428
+chromatin_od,mo_pad51,canine cutaneous mast cell tumor,7,298,0.7095238095238096
+chromatin_od,mo_pad51,canine lung cancer,7,151,0.3595238095238095
+chromatin_od,mo_pad51,canine lymphosarcoma,7,238,0.5666666666666667
+chromatin_od,mo_pad51,canine soft tissue sarcoma,7,260,0.6190476190476191
+chromatin_od,mo_pad51,human breast cancer,7,264,0.6285714285714286
+chromatin_od,mo_pad51,human melanoma,7,188,0.44761904761904764
+chromatin_od,mo_pad51,human neuroendocrine tumor,7,278,0.6619047619047619
+chromatin_od,mo_pad51,all 49 ROIs,49,1677,0.5704081632653061
+chromatin_od,mo_pad61,canine cutaneous mast cell tumor,7,297,0.7071428571428572
+chromatin_od,mo_pad61,canine lung cancer,7,146,0.3476190476190476
+chromatin_od,mo_pad61,canine lymphosarcoma,7,225,0.5357142857142857
+chromatin_od,mo_pad61,canine soft tissue sarcoma,7,257,0.611904761904762
+chromatin_od,mo_pad61,human breast cancer,7,264,0.6285714285714286
+chromatin_od,mo_pad61,human melanoma,7,192,0.45714285714285713
+chromatin_od,mo_pad61,human neuroendocrine tumor,7,273,0.65
+chromatin_od,mo_pad61,all 49 ROIs,49,1654,0.5625850340136055
