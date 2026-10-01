@@ -296,7 +296,7 @@ ax.add_patch(Rectangle((x0 - 0.5, y0 - 0.5), x1 - x0, y1 - y0, fill=False, edgec
 ax.add_patch(Rectangle((wx - bh - 0.5, wy - bh - 0.5), bs, bs, fill=False, edgecolor=BOX, linewidth=2))
 ax.plot(wx, wy, 'o', color=SEL, ms=5, mec='black', mew=0.5)
 mark_click(ax)
-title(x11, ROW2, S, f'11. square box on the bbox centre\nside = odd({long_side}) + 2 × {pad} px ({g["PAD_UM"]} µm margin) = {bs} px\ncyan = box, lime dot = new centre')
+title(x11, ROW2, S, f'11. square box on the bbox centre\nside = odd({long_side}) + 2 × {pad} px margin = {bs} px\ncyan = box, lime dot = new centre')
 
 arrow((x9 + S + 0.1, mid2), (x10 - 0.1, mid2))
 arrow((x10 + S + 0.1, mid2), (x11 - 0.1, mid2))
