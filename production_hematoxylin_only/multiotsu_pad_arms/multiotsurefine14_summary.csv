@@ -1,0 +1,25 @@
+file_name,ann_id,domain,mpp,accepted,mode,n_pieces,selection_um2,base_size_px,pad_px,base_size_um,center_x,center_y,offset_px
+300.tiff,14499,canine cutaneous mast cell tumor,0.2533,True,base,1,16.23,29,2,7.35,1411.5,3555.0,4.0
+300.tiff,14575,canine cutaneous mast cell tumor,0.2533,True,fallback,2,13.86,33,2,8.36,3418.5,2278.5,4.9
+300.tiff,14581,canine cutaneous mast cell tumor,0.2533,True,fallback,3,21.62,35,2,8.87,4284.0,2525.5,2.5
+301.tiff,14969,canine cutaneous mast cell tumor,0.2533,True,base,1,30.16,37,2,9.37,5910.0,3553.5,5.6
+201.tiff,4457,canine lung cancer,0.2482,True,base,1,21.8,33,2,8.19,4093.0,1978.0,4.0
+201.tiff,4469,canine lung cancer,0.2482,True,base,1,23.34,33,2,8.19,6263.0,3300.0,2.2
+233.tiff,5761,canine lung cancer,0.2482,True,base,1,24.82,29,2,7.2,4419.5,2138.5,0.7
+245.tiff,6243,canine lymphosarcoma,0.2482,True,fallback,2,11.76,33,2,8.19,798.5,169.5,4.5
+245.tiff,6274,canine lymphosarcoma,0.2482,True,fallback,2,22.73,39,2,9.68,6357.5,536.5,2.1
+245.tiff,6317,canine lymphosarcoma,0.2482,True,base,1,14.53,25,2,6.2,4768.5,2187.0,6.3
+246.tiff,6548,canine lymphosarcoma,0.2482,True,base,1,17.43,31,2,7.69,3632.0,3619.5,2.5
+459.tiff,22441,canine soft tissue sarcoma,0.2482,True,fallback,1,31.9,35,2,8.69,1846.5,4002.0,1.8
+459.tiff,22446,canine soft tissue sarcoma,0.2482,True,base,1,42.25,41,2,10.17,2796.0,4371.0,2.2
+460.tiff,22577,canine soft tissue sarcoma,0.2482,True,base,1,35.54,41,2,10.17,5149.5,3995.0,4.7
+013.tiff,243,human breast cancer,0.2263,True,fallback,3,16.75,45,2,10.18,1851.0,1604.0,3.2
+013.tiff,249,human breast cancer,0.2263,True,base,1,28.12,41,2,9.28,1712.0,2860.5,2.1
+013.tiff,254,human breast cancer,0.2263,True,fallback,1,24.18,35,2,7.92,6815.0,3777.0,6.3
+094.tiff,2512,human breast cancer,0.2298,True,base,1,16.69,27,2,6.21,5557.5,1177.0,2.7
+529.tiff,24918,human melanoma,0.2268,True,base,1,22.54,31,2,7.03,3417.0,2719.0,4.1
+529.tiff,24937,human melanoma,0.2268,True,base,1,11.63,33,2,7.49,5787.5,4068.0,1.8
+548.tiff,25804,human melanoma,0.2274,True,base,1,23.18,33,2,7.51,5163.0,3867.5,3.5
+402.tiff,20254,human neuroendocrine tumor,0.2263,True,base,1,22.84,31,2,7.02,989.0,4914.5,2.5
+402.tiff,20258,human neuroendocrine tumor,0.2263,True,base,1,30.17,37,2,8.37,2415.5,4970.0,4.5
+403.tiff,20356,human neuroendocrine tumor,0.2269,True,base,1,25.58,35,2,7.94,2224.5,2975.0,5.6

@@ -1,5 +1,5 @@
 """
-    Independent audit of production_hematoxylin_only/multiotsu_pad_arms_49roi_6seed.ipynb.
+    Independent audit of production_hematoxylin_only/multiotsu_pad_arms/multiotsu_pad_arms_49roi_6seed.ipynb.
 
     Tier A re-derives every persisted number from the notebook's CSVs, the window sweep's reference CSVs, the
     fill-geometry CSVs and databases/MIDOG++.json, with matching, statistics and flags written here -- no
@@ -32,7 +32,7 @@ from skimage.filters import threshold_multiotsu
 T0 = time.time()
 REPO = Path(__file__).resolve().parent
 os.chdir(REPO)
-NB = 'production_hematoxylin_only/multiotsu_pad_arms_49roi_6seed.ipynb'
+NB = 'production_hematoxylin_only/multiotsu_pad_arms/multiotsu_pad_arms_49roi_6seed.ipynb'
 MO = 'results/precision_at_k_49roi_6seed_mopad_postD11'
 SW = 'results/precision_at_k_49roi_6seed_windowsweep_postD11'
 FG = 'results/precision_at_k_49roi_6seed_fillgeom_postD11'
@@ -115,7 +115,7 @@ def git(*args):
     return subprocess.run(['git', *args], capture_output=True, text=True, cwd=REPO).stdout.strip()
 
 
-prov_paths = ['midog_utils/template_match.py', 'midog_utils/evaluate.py', 'midog_utils/nms.py', 'midog_utils/chromatin.py', 'midog_utils/channels.py', 'midog_utils/dataset.py', 'midog_utils/production.py', 'midog_utils/invariants.py', 'midog_utils/seed_selection.py', 'production_hematoxylin_only/multiotsu_template_refinement_14roi.ipynb', 'production_hematoxylin_only/multiotsurefine14_summary.csv', f'{FG}_clicks.csv', f'{FG}_per_run.csv', f'{FG}_delta_stats.csv', 'production_hematoxylin_only/window_sweep_51_61_71_49roi_6seed.ipynb', f'{SW}_per_run.csv', f'{SW}_top30.csv', f'{SW}_delta_stats.csv', 'MULTIOTSU_PAD_ARMS_PROMPT.md', NB] + [f'{MO}_{n}.csv' for n in ('templates', 'per_run', 'top30', 'per_roi', 'delta_per_roi', 'delta_stats', 'selfmatch_sensitivity')] + ['production_hematoxylin_only/mopad_contrasts.png', 'production_hematoxylin_only/mopad_templates.png']
+prov_paths = ['midog_utils/template_match.py', 'midog_utils/evaluate.py', 'midog_utils/nms.py', 'midog_utils/chromatin.py', 'midog_utils/channels.py', 'midog_utils/dataset.py', 'midog_utils/production.py', 'midog_utils/invariants.py', 'midog_utils/seed_selection.py', 'production_hematoxylin_only/multiotsu_pad_arms/multiotsu_template_refinement_14roi.ipynb', 'production_hematoxylin_only/multiotsu_pad_arms/multiotsurefine14_summary.csv', f'{FG}_clicks.csv', f'{FG}_per_run.csv', f'{FG}_delta_stats.csv', 'production_hematoxylin_only/window_sweep_51_61_71_49roi_6seed.ipynb', f'{SW}_per_run.csv', f'{SW}_top30.csv', f'{SW}_delta_stats.csv', 'MULTIOTSU_PAD_ARMS_PROMPT.md', NB] + [f'{MO}_{n}.csv' for n in ('templates', 'per_run', 'top30', 'per_roi', 'delta_per_roi', 'delta_stats', 'selfmatch_sensitivity')]
 prov = pd.DataFrame([dict(path=p, sha256_12=hashlib.sha256(open(p, 'rb').read()).hexdigest()[:12], mtime=time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(os.path.getmtime(p))), last_commit=git('log', '-1', '--format=%h %ad', '--date=format:%Y-%m-%d %H:%M', '--', p), status=git('status', '--porcelain', '--', p)[:2].strip() or 'clean') for p in prov_paths])
 print(prov.to_string(index=False))
 save(prov, 'provenance')
@@ -142,7 +142,7 @@ PROI = pd.read_csv(f'{MO}_per_roi.csv', float_precision='round_trip')
 DPR = pd.read_csv(f'{MO}_delta_per_roi.csv', float_precision='round_trip')
 DST = pd.read_csv(f'{MO}_delta_stats.csv', float_precision='round_trip')
 SMS = pd.read_csv(f'{MO}_selfmatch_sensitivity.csv', float_precision='round_trip')
-ADOPT = pd.read_csv('production_hematoxylin_only/multiotsurefine14_summary.csv', float_precision='round_trip')
+ADOPT = pd.read_csv('production_hematoxylin_only/multiotsu_pad_arms/multiotsurefine14_summary.csv', float_precision='round_trip')
 ROI_ORDER = list(pd.unique(FG_RUN['file_name']))
 DOMAIN = CLICKS.drop_duplicates('file_name').set_index('file_name')['domain']
 print(f'{len(IMG)} images, {len(GT)} annotations; ROI order from the fill-geometry per_run ({len(ROI_ORDER)} ROIs)')
