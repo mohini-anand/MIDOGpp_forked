@@ -72,7 +72,7 @@ Caveats:
 - **Outputs:**
   - `OUT_STEM = '../results/precision_at_k_49roi_3seed_chromatin_hemrectfill' + ('' if SMOKE_N_ROIS is None else '_smoke')`.
   - `OUT = {name: f'{OUT_STEM}_{name}.csv' for name in ('clicks', 'per_run', 'top30', 'per_roi', 'delta_per_roi', 'delta_stats', 'verification')}`.
-  - `FIG_PATH = 'hemrectfill_49roi3seed_templates.png'`.
+  - `FIG_PATH = 'hemrectfill_49roi3seed_templates.png'` [file since removed; the figure is embedded in `hem_rect_fill_vs_default_chromatin_od_49roi_3seed.ipynb`].
   - Assert no `OUT` value starts with `B3 + '_'` or `'../results/precision_at_k_14roi_'`.
 
 ### Cell 2: clicks and recorded reference

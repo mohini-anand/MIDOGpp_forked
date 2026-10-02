@@ -99,7 +99,7 @@ extreme."* `45` is not `300.tiff`#2's `gray_inverted` size. It is `300.tiff`**#1
 | `300.tiff` **#2** | 14575 | **33** | **19** | −14 | −42.4 % |
 | `201.tiff` **#1** | 4457 | **51** | **29** | **−22** | **−43.1 %** |
 
-The notebook's own figure contradicts its prose: `tightening_300_14575.png` is titled
+The notebook's own figure contradicts its prose: `tightening_300_14575.png` [file since removed; the figure is embedded in `tightening_process_hem_vs_gray.ipynb`, cell 7] is titled
 `tightened bbox (base_size=33px)` on the top row and `(base_size=19px)` on the bottom.
 
 Two consequences:
@@ -154,7 +154,7 @@ No censored pair falls outside the top four, and no uncensored pair falls inside
 (`results/tightening_process_audit_shrink_ranking.csv`). **The magnitude of effect 2 is carried
 entirely by the pairs whose `gray_inverted` value is not a measurement.**
 
-Reading it off the renders confirms what the numbers say: in `tightening_201_4457.png`'s top row
+Reading it off the renders confirms what the numbers say: in `tightening_201_4457.png`'s top row [file since removed; the figure is embedded in `tightening_process_hem_vs_gray.ipynb`, cell 7]
 the accepted `gray_inverted` component (red, area 1592 px = **61.2 %** of the 2601 px window,
 bbox 50 × 51) is a merged blob of adjacent nuclei and stroma filling the frame, sitting just under
 the `max_area_frac = 0.85` gate — not "the fuller, softer nuclear outline" of the clicked nucleus.
@@ -325,7 +325,7 @@ run's own per-ROI data at every budget."*
   visible, correct. Panel 3's is `plot(marker='+', color='white', ms=13, mew=2, mec='black')`. A
   `'+'` glyph has **no fill**, so `markerfacecolor='white'` is never drawn; the explicit
   `mec='black'` is the stroke, and `label2rgb(labels, bg_label=0)`'s background is **pure black
-  (0, 0, 0)**. Verified by reading the render: `tightening_300_14581.png`'s bottom-row panel 3 shows
+  (0, 0, 0)**. Verified by reading the render: `tightening_300_14581.png`'s bottom-row panel 3 [file since removed; the figure is embedded in `tightening_process_hem_vs_gray.ipynb`, cell 7] shows
   six coloured components and **no marker at all**. Affects **5 of 5** refusals — every refusal in
   the run is "click on background", which is precisely the condition that makes the marker
   invisible. Table: `results/tightening_process_audit_figure_render_defects.csv`.

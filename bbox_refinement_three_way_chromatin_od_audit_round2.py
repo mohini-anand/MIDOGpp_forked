@@ -141,7 +141,7 @@ def execution_and_provenance():
     ex = pd.DataFrame(rows)
     ex['contiguous_from_1'] = ex['execution_count'].tolist() == list(range(1, len(ex) + 1))
 
-    files = [NB_PATH] + [f'{STEM}_{s}.csv' for s in ('per_roi', 'summary', 'by_domain', 'delta_per_roi', 'delta_stats', 'top30', 'verification', 'contested_sensitivity')] + [f'{REPO}/production_hematoxylin_only/bbox3way_{s}.png' for s in ('pooled_precision', 'roi_delta_heatmap', 'win_counts')] + [r1.REF_RAW] + [f'{REPO}/midog_utils/{m}.py' for m in ('channels', 'dataset', 'evaluate', 'production', 'seed_selection', 'template_match', 'find_and_suppress', 'nms', 'chromatin', 'invariants', '__init__')]
+    files = [NB_PATH] + [f'{STEM}_{s}.csv' for s in ('per_roi', 'summary', 'by_domain', 'delta_per_roi', 'delta_stats', 'top30', 'verification', 'contested_sensitivity')] + [r1.REF_RAW] + [f'{REPO}/midog_utils/{m}.py' for m in ('channels', 'dataset', 'evaluate', 'production', 'seed_selection', 'template_match', 'find_and_suppress', 'nms', 'chromatin', 'invariants', '__init__')]
     prov = []
     for f in files:
         rel = os.path.relpath(f, REPO)

@@ -2,7 +2,7 @@
 
 **Scope.** `production_hematoxylin_only/bbox_refinement_three_way_chromatin_od.ipynb` (26 cells, 15 code),
 its seven CSVs `results/precision_at_k_14roi_prodseed_chromatin_bbox3way_{per_roi,summary,by_domain,delta_per_roi,delta_stats,top30,verification}.csv`,
-its three figures `production_hematoxylin_only/bbox3way_{pooled_precision,roi_delta_heatmap,win_counts}.png`, the
+its three figures `production_hematoxylin_only/bbox3way_{pooled_precision,roi_delta_heatmap,win_counts}.png` [files since removed; the figures are embedded in `bbox_refinement_three_way_chromatin_od.ipynb`], the
 reference CSV it gates against (`results/precision_at_k_14roi_prodseed_chromatin_hembbox_raw.csv`), `DECISIONS.md` D1–D9,
 `D8_TEMPLATE_ANCHOR.md`, `PRODUCTION_PIPELINE_CLEANUP.md`. Audit script: `bbox_refinement_three_way_chromatin_od_audit.py`
 (repo root), tables `results/bbox_refinement_three_way_chromatin_od_audit_*.csv` (23 files).
@@ -216,7 +216,7 @@ reader weighing D8 or D5 would want next to this one.
   re-ranked, and that was never validated.
 - **T3-6 — Provenance.** (a) Gate 2 compared against a version of `..._hembbox_raw.csv` that was overwritten at
   18:12:22, 32 minutes after this notebook ran. Re-run against the current file it still passes 28/28 on all seven
-  fields, plus my 224 values. (b) `bbox3way_win_counts.png` on disk has mtime 17:33:37, which predates cell 23's
+  fields, plus my 224 values. (b) `bbox3way_win_counts.png` [file since removed; the figure is embedded in `bbox_refinement_three_way_chromatin_od.ipynb`] on disk has mtime 17:33:37, which predates cell 23's
   recorded execution (21:40:28 UTC = 17:40:28). Its content matches the embedded figure number for number. (c) Every
   artifact is untracked. **Fix:** commit the notebook with its CSVs and figures, and record the reference CSV's hash
   in Gate 2.

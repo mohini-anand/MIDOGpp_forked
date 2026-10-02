@@ -117,7 +117,7 @@ Before running, check `git status --short midog_utils/`. If it shows modificatio
 ## Outputs (never overwrite the committed 14-ROI files)
 - Notebook: `production_hematoxylin_only/bbox_refinement_three_way_chromatin_od_49roi_3seed.ipynb`
 - CSVs: `results/precision_at_k_49roi_3seed_chromatin_bbox3way_{per_run,per_roi,summary,by_domain,by_seed,delta_per_roi,delta_stats,bootstrap_ci,contested_sensitivity,top30,verification}.csv`
-- Figures: `production_hematoxylin_only/bbox3way_49roi3seed_*.png`, using the committed notebook's colours and plotting style:
+- Figures: `production_hematoxylin_only/bbox3way_49roi3seed_*.png` [files since removed; the figures are embedded in `bbox_refinement_three_way_chromatin_od_49roi_3seed.ipynb`], using the committed notebook's colours and plotting style:
   1. pooled precision per condition per K with bootstrap 95% CIs, for `all_49` / `original_14` / `testing_35`;
   2. per-ROI seed-summed delta heatmap (49 rows, 3 pairs x 3 K, shared colour scale) — sum over the 3 seeds, matching the ROI-level statistic used everywhere else, not an average;
   3. per-domain pooled delta for each pair;

@@ -2,7 +2,7 @@
 
 **Scope.** Target: `production_hematoxylin_only/bbox_refinement_three_way_chromatin_od_49roi_3seed.ipynb` (29 cells,
 18 code, 4 figures). Its 11 CSVs are `results/precision_at_k_49roi_3seed_chromatin_bbox3way_{per_run,per_roi,summary,by_domain,by_seed,delta_per_roi,delta_stats,bootstrap_ci,contested_sensitivity,top30,verification}.csv`
-and its 4 saved figures are `production_hematoxylin_only/bbox3way_49roi3seed_*.png`. It also reads the committed
+and its 4 saved figures are `production_hematoxylin_only/bbox3way_49roi3seed_*.png` [files since removed; the figures are embedded in `bbox_refinement_three_way_chromatin_od_49roi_3seed.ipynb`]. It also reads the committed
 14-ROI CSVs `results/precision_at_k_14roi_prodseed_chromatin_bbox3way_{per_roi,top30,delta_per_roi,delta_stats}.csv`.
 Documents read: its spec `BBOX3WAY_49ROI_3SEED_PROMPT.md`, `DECISIONS.md` D4, D5 (with its 2026-09-08 amendment), D7,
 D9 and D10 (the uncommitted working-tree version), `D8_TEMPLATE_ANCHOR.md`, and both image manifests. Audit script:

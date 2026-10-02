@@ -1,6 +1,6 @@
 """
     Render refine_template_box step by step for one click, 245.tiff / 6274, as a two-row flowchart
-    from the 51 px input template to the refined template. Saved next to this script. The method is
+    from the 51 px input template to the refined template. Saved to `../images/` (the images/ folder one level up). The method is
     exec'd from `multiotsu_template_refinement_14roi.ipynb` (cells 1, 3, 4), not copied, and the
     result is asserted against that notebook's recorded box for this click.
 """
@@ -20,7 +20,7 @@ os.chdir(HERE)                                              # the notebook cells
 
 NB = 'multiotsu_template_refinement_14roi.ipynb'
 FN, ANN_ID = '245.tiff', 6274
-OUT = 'multiotsurefine14_flowchart_245_6274.png'
+OUT = '../images/multiotsurefine14_flowchart_245_6274.png'
 
 # Pull the method in verbatim: imports/constants (cell 1), refine_template_box (cell 3), context_crop (cell 4).
 # The asserts below catch it if those cells move or the method changes.

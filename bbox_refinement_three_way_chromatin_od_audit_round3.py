@@ -51,7 +51,6 @@ R1, R2 = r2.R1, r2.OUT
 OUT = f'{REPO}/results/bbox_refinement_three_way_chromatin_od_audit_round3'
 CONDITIONS, PAIRS, BUDGETS, RULES = r1.CONDITIONS, r1.PAIRS, r1.BUDGETS, r2.RULES
 CSV_SUFFIXES = ('per_roi', 'summary', 'by_domain', 'delta_per_roi', 'delta_stats', 'top30', 'verification', 'contested_sensitivity')
-FIG_SUFFIXES = ('pooled_precision', 'roi_delta_heatmap', 'win_counts')
 PRE_CLEANUP = 'af8bd0d'      # last commit before the dead-code cleanup (still defines dataset.check_invariants)
 CLEANUP = 'c066829'          # the cleanup commit, made 20:30:49 while this audit was running
 LEDGER, CLAIMS = [], []
@@ -259,7 +258,7 @@ def tier_c(nb):
 
         nb (dict): the notebook as persisted.
 
-        Returns tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.DataFrame]: run record, CSV identity, printed-output identity, figure-file identity.
+        Returns tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]: run record, CSV identity, printed-output identity.
     """
     tmp = tempfile.mkdtemp(prefix='bbox3way_round3_tierc_')
     copy_path = f'{NB_DIR}/.audit_tmp_bbox3way_round3.ipynb'
@@ -286,7 +285,7 @@ def tier_c(nb):
     run = pd.DataFrame([dict(started=time.strftime('%H:%M:%S', time.localtime(t0)), seconds=round(secs), returncode=proc.returncode, copy_deleted=not os.path.exists(copy_path), stderr_tail=proc.stderr.strip().splitlines()[-1] if proc.stderr.strip() else '')])
     if proc.returncode != 0:
         log(proc.stderr[-3000:])
-        return run, pd.DataFrame(), pd.DataFrame(), pd.DataFrame()
+        return run, pd.DataFrame(), pd.DataFrame()
     ex = json.load(open(f'{tmp}/executed.ipynb'))
     run['execution_counts_contiguous'] = [c.get('execution_count') for c in ex['cells'] if c['cell_type'] == 'code'] == list(range(1, 18))
     run['errors'] = sum(o['output_type'] == 'error' for c in ex['cells'] for o in c.get('outputs', []))
@@ -343,15 +342,8 @@ def tier_c(nb):
         check('tier_c_outputs', f'cell {i}', 'printed text (timings masked)', True, t_nb == t_ex)
         if im_nb or im_ex:
             check('tier_c_outputs', f'cell {i}', 'embedded figure pixels', True, img_same)
-    fig_rows = []
-    for s in FIG_SUFFIXES:
-        a = np.array(Image.open(f'{NB_DIR}/bbox3way_{s}.png'))
-        b = np.array(Image.open(f'{tmp}/bbox3way_{s}.png'))
-        same = a.shape == b.shape and np.array_equal(a, b)
-        fig_rows.append(dict(figure=f'bbox3way_{s}.png', shape=str(a.shape), pixel_identical=same))
-        check('tier_c_figures', s, 'saved PNG pixels', True, same)
     shutil.rmtree(tmp, ignore_errors=True)
-    return run, pd.DataFrame(csv_rows), pd.DataFrame(out_rows), pd.DataFrame(fig_rows)
+    return run, pd.DataFrame(csv_rows), pd.DataFrame(out_rows)
 
 
 # --------------------------------------------------------------------------------------------------
@@ -847,12 +839,11 @@ def main():
 
     if '--skip-tier-c' not in sys.argv:
         log('== Tier C: execute a redirected sibling copy against the current midog_utils ==')
-        run, csv_id, out_id, fig_id = tier_c(nb)
+        run, csv_id, out_id = tier_c(nb)
         save(run, 'tier_c_run')
         if len(csv_id):
             save(csv_id, 'tier_c_csv_identity')
             save(out_id, 'tier_c_output_identity')
-            save(fig_id, 'tier_c_figure_identity')
         log(run.T.to_string())
 
     snap1 = module_snapshot()

@@ -4,7 +4,7 @@
 figures.
 
 - **Writes:** `results/precision_at_k_49roi_6seed_mopad_postD11_{templates,per_run,top30,per_roi,delta_per_roi,delta_stats,selfmatch_sensitivity}.csv`,
-  their `_smoke` twins, and `production_hematoxylin_only/mopad_{contrasts,templates}.png`.
+  their `_smoke` twins, and `production_hematoxylin_only/mopad_{contrasts,templates}.png` [files since removed; the figures are embedded in `multiotsu_pad_arms/multiotsu_pad_arms_49roi_6seed.ipynb`].
 - **Reads:** `results/precision_at_k_49roi_6seed_fillgeom_postD11_{clicks,per_run,delta_stats}.csv` (committed, `a9293d0`),
   `results/precision_at_k_49roi_6seed_windowsweep_postD11_{per_run,top30,delta_stats}.csv` (untracked), and
   `production_hematoxylin_only/multiotsurefine14_summary.csv` (committed, `154863e`).

@@ -281,7 +281,7 @@ def provenance():
 
         Returns pd.DataFrame: one row per file.
     """
-    files = [NB_PATH, REF_NB_PATH] + [f'{STEM}_{s}.csv' for s in ('per_roi', 'summary', 'by_domain', 'delta_per_roi', 'delta_stats', 'top30', 'verification')] + [REF_RAW] + [f'{REPO}/production_hematoxylin_only/bbox3way_{s}.png' for s in ('pooled_precision', 'roi_delta_heatmap', 'win_counts')] + [f'{REPO}/midog_utils/{m}.py' for m in ('channels', 'dataset', 'evaluate', 'production', 'seed_selection', 'template_match', 'find_and_suppress', 'nms', 'chromatin', 'invariants')] + [f'{REPO}/DECISIONS.md', f'{REPO}/D8_TEMPLATE_ANCHOR.md', f'{REPO}/PRODUCTION_PIPELINE_CLEANUP.md']
+    files = [NB_PATH, REF_NB_PATH] + [f'{STEM}_{s}.csv' for s in ('per_roi', 'summary', 'by_domain', 'delta_per_roi', 'delta_stats', 'top30', 'verification')] + [REF_RAW] + [f'{REPO}/midog_utils/{m}.py' for m in ('channels', 'dataset', 'evaluate', 'production', 'seed_selection', 'template_match', 'find_and_suppress', 'nms', 'chromatin', 'invariants')] + [f'{REPO}/DECISIONS.md', f'{REPO}/D8_TEMPLATE_ANCHOR.md', f'{REPO}/PRODUCTION_PIPELINE_CLEANUP.md']
     rows = []
     for f in files:
         rel = os.path.relpath(f, REPO)

@@ -1,6 +1,6 @@
 """
     Render the two hem_rect_fill templates for each 300.tiff click, beside the Otsu steps that
-    produced the rectangle. One figure per click, saved next to this script. The templates are
+    produced the rectangle. One figure per click, saved in the `images/` folder next to this script. The templates are
     rebuilt from the pixels and checked against the recorded run: every SHA-1 must match the
     tpl_sha1 of `precision_at_k_49roi_3seed_chromatin_hemrectfill_per_run.csv`, so the panels
     show the arrays `hem_rect_fill_vs_default_chromatin_od_49roi_3seed.ipynb` actually searched with.
@@ -39,7 +39,7 @@ def main():
     """
         Render one figure per 300.tiff click, after checking each template against the recorded run.
 
-        Returns None: writes hemrectfill_300_<ann_id>.png beside this script.
+        Returns None: writes images/hemrectfill_300_<ann_id>.png beside this script.
     """
     click_table = pd.read_csv(f'{STEM}_clicks.csv', float_precision='round_trip')
     per_run = pd.read_csv(f'{STEM}_per_run.csv', float_precision='round_trip')
@@ -116,7 +116,7 @@ def main():
                      f'Panels 2-5 are hematoxylin_od, bright = more hematoxylin; 4 and 5 share one grey scale.  '
                      f'TP@10/20/30: default_51 {tuple(int(run[f"tp_at_{k}"]) for k in (10, 20, 30))}, hem_rect_fill {tuple(int(fill_run[f"tp_at_{k}"]) for k in (10, 20, 30))}', fontsize=10.5)
         fig.tight_layout()
-        out = f'{HERE}/hemrectfill_300_{ann_id}.png'
+        out = f'{HERE}/images/hemrectfill_300_{ann_id}.png'
         fig.savefig(out, dpi=130, bbox_inches='tight')
         plt.close(fig)
         print(f'seed {s} ann {ann_id}: rect {(y0, y1, x0, x1)}, both templates match the recorded run -> {out}')

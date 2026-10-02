@@ -337,7 +337,7 @@ What was added is a markdown caveat in cell 22 naming the audit finding and tell
 read the printed values rather than the colours. On the render, the panels are ±0.30 and ±0.10 as
 before. The caveat is honest and useful; it is not the correction that was specified.
 
-Reading Figure 2 (`hembbox_domain_delta_heatmap.png`) turns up the same issue one step further out:
+Reading Figure 2 (`hembbox_domain_delta_heatmap.png` [file since removed; the figure is embedded in `production_seed_precision_at_k_chromatin_hem_bbox.ipynb`]) turns up the same issue one step further out:
 its two panels are on independent y-axes (±0.20 left, ±0.05 right), so a +0.05 domain bar is
 one-quarter height on the left and full height on the right. T3-6's target list did not include it.
 Legend-to-series mapping and the zero line are correct on both figures.

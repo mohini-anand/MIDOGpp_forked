@@ -66,7 +66,7 @@ All 171 paths assign to exactly one cluster; sizes sum to 171 with no overlap an
 **Confidence.** Rows 6, 10, 11 are pinned to within 20 seconds of the file's own mtime. Rows 1–5,
 8, 9 to within minutes. Row 7 rests on the activity-window argument above.
 
-**The one weak cell.** `production_hematoxylin_only/tightening_529_24918.png` (mtime 11:27) sits
+**The one weak cell.** `production_hematoxylin_only/tightening_529_24918.png` [file since removed; the figure is embedded in `tightening_process_hem_vs_gray.ipynb`, cell 7] (mtime 11:27) sits
 two hours before its 13 siblings (13:27–13:29) and has no basename-level event anywhere. It is
 assigned to `0a597d57` on session-window grounds alone — that session ran 10:24–16:32 local and
 owns the sibling run. Every other cell in the table is stronger than this one.

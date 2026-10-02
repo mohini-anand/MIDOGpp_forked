@@ -13,7 +13,7 @@ locates it by filename anywhere under the repo rather than by folder. Artifacts:
 (committed `fa94b90`, 2026-09-11), the five sibling
 `precision_at_k_14roi_prodseed*_verification.csv` files, `databases/MIDOG++.json`, and the
 `images/extra_valid/*.tiff` headers and pixels. Figures: `hembbox_roi_delta_heatmap.png`,
-`hembbox_domain_delta_heatmap.png`, `hembbox_win_counts.png` (decoded from the notebook's own
+`hembbox_domain_delta_heatmap.png`, `hembbox_win_counts.png` [files since removed; the figures are embedded in `production_seed_precision_at_k_chromatin_hem_bbox.ipynb`] (decoded from the notebook's own
 cell outputs, which are byte-identical claims). Decisions read: `DECISIONS.md` D1–D9 including
 D5's 2026-09-08 amendment and D9 (2026-09-12); `D8_TEMPLATE_ANCHOR.md` read through both its
 superseded sections. Prior audit reconciled: `Research Logs/2026-09-12-chromatin-od-ranker-variant-audit.md`.
@@ -595,7 +595,7 @@ version of the same claim.
   **CORRECTION TO BE MADE:** add one cell, after the raw table is built, printing
   `raw['nan_rate'].max()` and `raw['largest_tie_block'].max()` — a one-line confirmation that
   neither diagnostic flags a problem, in place of computing and discarding them.
-- **T3-5 — Figure 3 (`hembbox_win_counts.png`) stacks losses on wins and omits ties**, so bar
+- **T3-5 — Figure 3 (`hembbox_win_counts.png` [file since removed; the figure is embedded in `production_seed_precision_at_k_chromatin_hem_bbox.ipynb`]) stacks losses on wins and omits ties**, so bar
   height reads as "cells that were decided", not "11 ROIs", despite the y-label *"ROI count (of 11
   same-seed)"*. At K = 50 the `chromatin_od` bar is 2 tall with 9 ties invisible; at K = 10 it is
   1 tall with 10 ties invisible. A reader cannot tell "few wins" from "almost nothing moved" —
