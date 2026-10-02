@@ -4,7 +4,7 @@
     Re-derives every number the notebook prints, renders into a figure title, or asserts in
     prose, from the primary sources (`databases/MIDOG++.json`, `images/extra_valid/*.tiff`)
     and from the notebook's own persisted artifact
-    (`production_hematoxylin_only/tightening_process_summary.csv`).
+    (`production_hematoxylin_only/data/tightening_process_summary.csv`).
 
     The Otsu tightening is reimplemented here in plain cv2/skimage/numpy rather than by
     calling `midog_utils.seed_selection`, so the Tier A comparison is an independent
@@ -38,7 +38,7 @@ sys.path.insert(0, REPO)
 NB_DIR = os.path.join(REPO, "production_hematoxylin_only")
 NB_PATH = os.path.join(NB_DIR, "tightening_process_hem_vs_gray.ipynb")
 SIB_PATH = os.path.join(NB_DIR, "production_seed_precision_at_k_chromatin_hem_bbox.ipynb")
-SUMMARY_CSV = os.path.join(NB_DIR, "tightening_process_summary.csv")
+SUMMARY_CSV = os.path.join(NB_DIR, "data", "tightening_process_summary.csv")
 IMAGES_DIR = os.path.join(REPO, "images", "extra_valid")
 DB_PATH = os.path.join(REPO, "databases", "MIDOG++.json")
 OUT = os.path.join(REPO, "results")
@@ -263,7 +263,7 @@ for rel in ["midog_utils/seed_selection.py", "midog_utils/template_match.py",
             "midog_utils/channels.py", "midog_utils/chromatin.py",
             "midog_utils/dataset.py", "midog_utils/find_and_suppress.py",
             "production_hematoxylin_only/tightening_process_hem_vs_gray.ipynb",
-            "production_hematoxylin_only/tightening_process_summary.csv"]:
+            "production_hematoxylin_only/data/tightening_process_summary.csv"]:
     p = os.path.join(REPO, rel)
     prov_rows.append(dict(
         path=rel,
