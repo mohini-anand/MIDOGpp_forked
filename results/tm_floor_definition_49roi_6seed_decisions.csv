@@ -1,0 +1,9 @@
+item,result,detail
+"plateau (L050 and L150 non-inferior to A3 on P@10, P@20 and pool)",False,plateau fails on L050: report and stop; no post hoc level
+near-glass floor suffices (L025 non-inferior on all three),False,reported only; the level is not moved in-sample
+alternative estimator W128 non-inferior on all three,True,the ROI-wide Otsu is not special
+upper edge: L200 non-inferior on all three,False,how far above b_otsu the floor can drift
+"any significant loss vs A3 (Holm, P@10 / P@20 / pool)",True,"[{'arm': 'L025', 'metric': 'P@10'}, {'arm': 'L025', 'metric': 'P@20'}, {'arm': 'L025', 'metric': 'pool'}, {'arm': 'L050', 'metric': 'P@10'}, {'arm': 'L050', 'metric': 'P@20'}, {'arm': 'L050', 'metric': 'pool'}]"
+domain flags (non-inferior arm losing > 2 pts in a domain),False,
+zig-zag on the ladder,False,"{10: False, 20: False}"
+degenerate templates,True,"{'L025': 3, 'L050': 2, 'A3': 2, 'L150': 2, 'L200': 0, 'W128': 2}"
