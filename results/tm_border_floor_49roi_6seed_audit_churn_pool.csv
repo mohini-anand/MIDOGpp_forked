@@ -1,0 +1,5 @@
+arm_from,arm_to,tol_px,mit_leave,mit_enter,nonmit_leave,nonmit_enter,mit_leave_by_ann_id,mit_enter_by_ann_id
+A0,A2,0,2524,2962,10309,9794,168,604
+A0,A2,1,364,801,4151,3637,168,604
+A0,A2,3,219,656,3784,3270,168,604
+A0,A3,1,416,869,4496,3961,205,657

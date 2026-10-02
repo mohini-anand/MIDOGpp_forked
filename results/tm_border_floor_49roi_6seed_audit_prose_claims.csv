@@ -1,0 +1,74 @@
+claim,text,notebook,recomputed,match
+C2,A3-A0 tm K=10 pts,3.71,3.707482993197279,True
+C2,P@10 A0,0.542,0.5418367346938775,True
+C2,P@10 A3,0.579,0.5789115646258504,True
+C3,od A3-A0 K=10/20/30 pts,+1.80/+0.97/+0.78,+1.80/+0.97/+0.78,True
+C6,A2-A0 tm K=10 pts,3.2,3.197278911564626,True
+C6,A1-A0 tm K=10 pts,0.41,0.40816326530612246,True
+C7,A0 od top-10 band entries,174,174,True
+C7,share of them unlabelled,0.76,0.7586206896551724,True
+C22,A0 band mitoses in tm top 10s,17,17,True
+C22,A0 band slots in tm top 10s,75,75,True
+C22,A0 tm top-30 band TPs (adv log),44,44,True
+C9,A0 top-10 FPs (tm),1347,1347,True
+C9,A3 top-10 FPs (tm),1238,1238,True
+C9,A0 white-adjacent top-10 FPs,322,322,True
+C9,A3 white-adjacent top-10 FPs,240,240,True
+C20,mast cell A0 white share of top-10 non-mitoses,0.82,0.8243243243243243,True
+C19,"largest single-ROI gain (291.tiff), TP over 6 clicks",13,13,True
+C19,is it the largest,291.tiff,291.tiff,True
+C19,pooled K=10 gain without 291 (pts),3.33,3.3333333333333335,True
+C19,mean within-ROI SD TP@10 A0 (tm),1.03,1.0276587223003932,True
+C19,mean within-ROI SD TP@10 A3 (tm),0.99,0.9874868014226962,True
+C19,mean worst click TP@10 A0,4.06,4.061224489795919,True
+C19,mean worst click TP@10 A3,4.55,4.551020408163265,True
+C19,"count of ROIs whose worst click finds 0, A0 -> A3",4 -> 4,4 -> 4,True
+C19,... and are they the same four ROIs,implied same,"A0 ['211.tiff', '242.tiff', '462.tiff', '524.tiff'] vs A3 ['211.tiff', '242.tiff', '245.tiff', '524.tiff']",False
+C18,pool mitoses per click A0,24.67,24.670068027210885,True
+C18,pool mitoses per click A3,26.21,26.207482993197278,True
+C18,pool mitoses per click A2,26.15,26.153061224489797,True
+C18,pool mitoses per click A1,24.68,24.683673469387756,True
+C18,A3-A0 pool mitoses W/L/T,44/4/1,44/4/1,True
+C18,A3-A0 pool mitoses exact p,4e-10,3.7901770610915264e-10,True
+C10,clicks with b_otsu >= own template fill,156,156,True
+C10,median b_otsu / fill,1.03,1.0298956007627846,True
+C10,range b_otsu / fill,0.47-3.33,0.47-3.33,True
+C10,"clipped / recorded fill, median",1.3,1.2965422245952132,True
+C10,"clipped / recorded fill, max",3.4,3.396702101300318,True
+C10,"clipped / recorded mass weight, median",0.89,0.8907733036783085,True
+C22,mass_weight <= 0: clipped templates / A0 templates,2/3,2/3,True
+C22,threshold mean A0,-0.956,-0.9561185753363873,True
+C22,threshold mean A2,-0.595,-0.5946890515109511,True
+C22,MAX_PEAKS binds on every click of every arm,yes,yes,True
+C22,A1/A0 median ratio median (range),1.004 (0.94-1.03),1.004 (0.94-1.03),True
+C22,A1/A0 MAD ratio median (range),1.001 (1.00-1.14),1.001 (1.00-1.14),True
+C15,additivity gap K=10 (pts),0.1,0.10204081632653061,True
+C15,A3-A1 tm K=10 (pts),3.3,3.2993197278911564,True
+C16,A2-A0 od K=10 (pts),-0.34,-0.3401360544217687,True
+C23,"max |A1-A1v|, |A3-A3v| over K and axis (pts) <= 0.1",yes,yes,True
+C10,"A2m vs A2: ""all Holm p >= 0.21""",min Holm p 0.21,min Holm p 1.00; min raw p 0.18,False
+C10,ROIs with b_otsu clip share > 60 %,20,20,True
+C10,white share 529.tiff,0.01,0.0099315501754526,True
+C10,white share 401.tiff,0.55,0.5534292265999583,True
+C22,"b_otsu CV within domain, min (mast) .. max (neuro)",0.14..0.44,0.14..0.44,True
+C22,every hem.min() is 0,yes,yes,True
+C22,"annotated mitoses within 30 px of the edge / all, 49 ROIs",28/2782,28/2782,True
+C22,edge_px < 2 in A0 pools (cell-1 concern text),264,264,True
+C9,"Spearman white share vs A2-A0 (rho, p)",+0.08 (0.60),+0.08 (0.60),True
+C9,"Spearman clip share vs A2-A0 (rho, p)",-0.26 (0.08),-0.26 (0.08),True
+C20,"od A3-A0 by domain min (melanoma) .. max (neuro), pts",-0.5..+6.0,-0.5..+6.0,True
+C22,band leak: clicks where A1 (A3) pre-NMS top 100 differs from the spec version,68 (67),68 (67),True
+C22,band leak: clicks where the A1 (A3) post-NMS pool differs,68 (67),68 (67),True
+C25,"median seconds per click (all 7 arms, 3 correlations)",6.9,6.866391540970653,True
+C18,"pool size ""83-100 detections per click"" (all arms)",83-100,"79-100 (A0 83-100, A3 79-100)",False
+C20,A3-A0 positive in every domain (tm),yes,yes,True
+C9,top-10 slots that change A0->A3 (exact coordinates),1193 of 2940,1193 of 2940,True
+C9,mitoses leave / enter (exact coordinates),560/669,560/669,True
+C17,"pool A0->A2 mit_leave (""about"", exact-coordinate definition; prose rounds to 10)",2520,2524,True
+C17,"pool A0->A2 nonmit_leave (""about"", exact-coordinate definition; prose rounds to 10)",10310,10309,True
+C17,"pool A0->A2 mit_enter (""about"", exact-coordinate definition; prose rounds to 10)",2960,2962,True
+C17,"pool A0->A2 nonmit_enter (""about"", exact-coordinate definition; prose rounds to 10)",9790,9794,True
+C17,"od top 10, A0->A2 enter_mit (exact-coordinate definition; +/-1 tolerated)",631,632,True
+C17,"od top 10, A0->A2 enter_nonmit (exact-coordinate definition; +/-1 tolerated)",571,570,True
+C17,"od top 10, A0->A2 leave_mit (exact-coordinate definition; +/-1 tolerated)",604,604,True
+C17,"od top 10, A0->A2 leave_nonmit (exact-coordinate definition; +/-1 tolerated)",507,507,True

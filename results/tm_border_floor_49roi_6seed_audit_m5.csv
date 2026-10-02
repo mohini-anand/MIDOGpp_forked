@@ -1,0 +1,14 @@
+item,notebook,recomputed,match
+a t_tissue gap30 A0 ratio,1.0384,1.0383590860100074,True
+a t_tissue gap30 clip ratio,1.0,1.0,True
+a t_tissue gap20 A0 ratio,1.1493,1.149270687062917,True
+a t_above_b gap30 excess frac,0.27026,0.27025544122357287,True
+a t_above_b gap20 excess frac,0.36062,0.360615769658919,True
+a predicted frac t_above_b,0.48026,0.4802638844328585,True
+b edge/interior,0.87473,0.8747349785696862,True
+b edge peak y,0.0,0.0,True
+b replicate/constant y0,1.4131,1.4131288031168672,True
+b replicate/constant y-6,2.0414,2.0414391511229484,True
+c square=none,1.1811,1.1811448335647583,True
+c square=min,1.328,1.3279777765274048,True
+c square=b,1.1726,1.172634243965149,True

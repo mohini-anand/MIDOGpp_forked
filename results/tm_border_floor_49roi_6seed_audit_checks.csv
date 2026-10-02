@@ -1,0 +1,26 @@
+section,what,n_compared,n_divergent,tier,note
+coherence,"execution_count contiguous 1..N, no error, no unrun code cell",18,0,coherence,
+coherence,adversarial_log.csv fields vs the executed cell-33 printout,60,1,coherence,"(post-run hand patch, admitted in cell 34)"
+provenance,input SHA-256 prefixes vs those printed in cell 2,9,0,coherence,
+composition,"per_run 4116 rows, unique keys, 49 ROIs x 6 clicks, 7 domains x 7 ROIs (domain = JSON tumor_type), top30 = 4116 x 30",8,0,A,"{'rows': True, 'dup_keys': True, 'rois': True, 'clicks6': True, 'domains7x7': True, 'domain_matches_json': True, 'top30_rows': True, 'roi_set_equals_order': True}"
+rematch,top-30 buckets re-derived from JSON (own greedy matcher),123480,0,A,
+rematch,top-30 matched_ann_id re-derived,123480,0,A,
+rematch,top-30 rank order non-increasing in its own axis key,119364,0,A,
+rematch,top-30 edge_px re-derived from JSON width/height,123480,0,A,
+rematch,per_run TP@10/20/30 and top-10/30 white/edge/near-seed counts from the re-match,49392,0,A,
+pickle,pickle PER_RUN numeric columns vs per_run.csv,181104,0,A,(the pickle is the run the CSV came from)
+pickle,pool buckets (tm_score order) re-derived from JSON,203441,0,A,
+pickle,"per_run pool columns (n_det, pool mitoses/look-alikes, edge 0/<=2/<30, near-seed) from the pool",14406,0,A,
+stats,"delta_stats: pooled, W/L/T, exact p, n_nonzero, bootstrap CI, t CI, D5 bar, Holm (54 rows x 12)",648,0,A,(bootstrap columns are consistency: same seed and resample)
+M2/M3,"white.csv: M2 shares + bootstrap CIs, M3 counts/total/WLT/exact p/CI, M3 Holm",132,0,A,
+M4,"nearseed.csv totals and deltas (pool counts from the re-matched pool, top 10/30 from the re-match)",45,0,A,
+M1,"edge.csv (edge 0, <=2, <30, top-10 band slots both axes, detections) per arm",42,0,A,
+pooled,pooled P@10/20/30 per arm and axis vs cell-23 printout (4 dp),42,0,A,
+per_roi,"per_roi.csv click sums, SD, worst click, pool mitoses, white counts",6860,0,A,
+domain,"cell-34 per-domain table (clip, white, P@10 x5 arms, A3-A0, W/L/T)",63,0,A,
+tierB,"floors.csv (hem min, b_otsu, b_med, clip shares, white share) re-derived from pixels, 49 ROIs",294,0,B,(to_channel is a dependency)
+tierB,"independent search re-implementation, 10 ROIs x 6 clicks x 5 arms x 2 axes: template SHA, fill, threshold, n_det, top-30 xy/score/od, TP@10/20/30",4800,0,B,
+tierB,"D11-footprint blank (61 px at the template centre) vs the notebook 51 px at the click, A0 and A3, 3 ROIs: TP@10/20/30 changes",108,0,B,(top-30 identical on 36/36 lists)
+tierB,"white_frac_61 recomputed from RGB (top 30, A0 and A3, tm_score)",3600,0,B,
+tierB,"M5 synthetic demonstrations (a, b, b2/b3, c) re-derived with an independent template and correlation",13,0,B,
+prose,"numbers stated in cell 34 / cell outputs (incl. the churn and flow counts), recomputed",73,3,A,(see prose_claims.csv for which)
