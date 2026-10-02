@@ -1,0 +1,4 @@
+arm_from,arm_to,pool_mit_leave_by_id,pool_mit_enter_by_id,pool_mit_net,pool_nonmit_leave_1px,pool_nonmit_enter_1px,pool_nonmit_leave_3px,pool_nonmit_enter_3px,od10_mit_enter_by_id,od10_mit_enter_new_to_pool,od10_mit_leave_by_id,od10_mit_leave_gone_from_pool,od10_nonmit_enter_3px,od10_nonmit_enter_new_to_pool_3px,od10_nonmit_leave_3px,od10_nonmit_leave_gone_from_pool_3px,od10_tp_delta
+A0,A2,168,604,436,4151,3637,3784,3270,49,47,59,2,139,135,129,50,-10
+A1,A3,163,611,448,4213,3685,3848,3320,58,55,72,4,134,126,120,44,-14
+A0,A3,205,657,452,4496,3961,4113,3578,109,57,56,14,193,133,246,192,53

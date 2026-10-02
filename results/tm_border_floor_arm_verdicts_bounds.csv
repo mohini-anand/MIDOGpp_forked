@@ -1,0 +1,25 @@
+rank_key,pair,reading,K,delta_pts,boot_ci_pts,t_ci_pts,largest_diff_not_excluded_pts,wlt,holm_p,clicks_identical_topK,clicks
+tm_score,A2m - A2,floor level: ROI median vs multi-Otsu,10,0.03401360544217687,"[-0.44, +0.51]","[-0.47, +0.54]",0.5369552306625952,13/11/25,1.0,33,294
+tm_score,A2m - A2,floor level: ROI median vs multi-Otsu,20,-0.2380952380952381,"[-0.56, +0.10]","[-0.58, +0.11]",0.5835834876655858,10/21/18,1.0,8,294
+tm_score,A2m - A2,floor level: ROI median vs multi-Otsu,30,0.0,"[-0.24, +0.23]","[-0.23, +0.23]",0.2380952380952381,15/15/19,1.0,3,294
+chromatin_od,A2m - A2,floor level: ROI median vs multi-Otsu,10,-0.13605442176870747,"[-0.54, +0.20]","[-0.51, +0.24]",0.5442176870748299,4/5/40,1.0,75,294
+chromatin_od,A2m - A2,floor level: ROI median vs multi-Otsu,20,-0.2891156462585034,"[-0.70, +0.03]","[-0.68, +0.10]",0.6972789115646258,7/11/31,1.0,36,294
+chromatin_od,A2m - A2,floor level: ROI median vs multi-Otsu,30,-0.022675736961451247,"[-0.36, +0.27]","[-0.35, +0.30]",0.36281179138321995,13/11/25,1.0,24,294
+tm_score,A1 - A1v,band implementation: floored vs the spec valid-only,10,0.03401360544217687,"[+0.00, +0.10]","[-0.03, +0.10]",0.10240254277633443,1/0/48,,287,294
+tm_score,A1 - A1v,band implementation: floored vs the spec valid-only,20,0.08503401360544217,"[+0.02, +0.19]","[-0.00, +0.17]",0.18707482993197277,4/0/45,,281,294
+tm_score,A1 - A1v,band implementation: floored vs the spec valid-only,30,0.03401360544217687,"[+0.00, +0.08]","[-0.00, +0.07]",0.07936507936507936,3/0/46,,279,294
+chromatin_od,A1 - A1v,band implementation: floored vs the spec valid-only,10,0.03401360544217687,"[-0.17, +0.24]","[-0.17, +0.24]",0.24107139577829012,2/1/46,,279,294
+chromatin_od,A1 - A1v,band implementation: floored vs the spec valid-only,20,0.017006802721088433,"[-0.09, +0.10]","[-0.09, +0.12]",0.12053569788914506,4/2/43,,267,294
+chromatin_od,A1 - A1v,band implementation: floored vs the spec valid-only,30,0.05668934240362812,"[-0.10, +0.25]","[-0.12, +0.23]",0.2494331065759637,4/3/42,,260,294
+tm_score,A3 - A3v,"band implementation, given the clip",10,0.06802721088435373,"[+0.00, +0.17]","[-0.03, +0.16]",0.17006802721088435,2/0/47,,287,294
+tm_score,A3 - A3v,"band implementation, given the clip",20,0.06802721088435373,"[+0.02, +0.14]","[+0.00, +0.13]",0.13605442176870747,4/0/45,,284,294
+tm_score,A3 - A3v,"band implementation, given the clip",30,0.07936507936507936,"[+0.01, +0.17]","[-0.00, +0.16]",0.17006802721088435,5/0/44,,280,294
+chromatin_od,A3 - A3v,"band implementation, given the clip",10,-0.03401360544217687,"[-0.20, +0.14]","[-0.22, +0.15]",0.21656211431469327,2/2/45,,278,294
+chromatin_od,A3 - A3v,"band implementation, given the clip",20,-0.017006802721088433,"[-0.14, +0.09]","[-0.13, +0.10]",0.13605442176870747,2/3/44,,270,294
+chromatin_od,A3 - A3v,"band implementation, given the clip",30,0.03401360544217687,"[-0.09, +0.16]","[-0.10, +0.17]",0.16595680286473505,5/3/41,,263,294
+tm_score,A1 - A0,harness correction alone (band out),10,0.40816326530612246,"[+0.03, +0.82]","[-0.00, +0.82]",0.8173078586340948,11/3/35,0.2510223388671875,235,294
+tm_score,A1 - A0,harness correction alone (band out),20,0.37414965986394555,"[+0.07, +0.68]","[+0.06, +0.69]",0.6872360773203692,18/5/26,0.1476588249206543,190,294
+tm_score,A1 - A0,harness correction alone (band out),30,0.2380952380952381,"[+0.01, +0.47]","[-0.00, +0.48]",0.4774565187647896,14/5/30,0.2510223388671875,145,294
+tm_score,A3 - A2,"harness correction, given the clip",10,0.5102040816326531,"[+0.10, +1.02]","[+0.02, +1.00]",1.0204081632653061,8/2/39,0.234375,236,294
+tm_score,A3 - A2,"harness correction, given the clip",20,0.15306122448979592,"[-0.20, +0.51]","[-0.21, +0.52]",0.5176240839125694,12/5/32,0.4693756103515625,190,294
+tm_score,A3 - A2,"harness correction, given the clip",30,0.21541950113378683,"[-0.06, +0.46]","[-0.05, +0.49]",0.48563033822466817,18/6/25,0.27570605278015137,146,294
