@@ -1,0 +1,8 @@
+arm,n_clicks,n_detections,n_edge0,n_edge2,n_edge30,n_edge30_top10_tm,n_edge30_top10_od,m1_expected,m1_holds,spec_vs_floored_top100_differs
+A0,294,29107,252,273,766,75,174,252.0,True,
+A1,294,29104,0,0,0,0,0,0.0,True,68.0
+A1v,294,29103,0,0,0,0,0,0.0,True,
+A2,294,29030,254,273,776,73,177,,,
+A3,294,29025,0,0,0,0,0,0.0,True,67.0
+A3v,294,29026,0,0,0,0,0,0.0,True,
+A2m,294,29046,247,269,773,71,176,,,
