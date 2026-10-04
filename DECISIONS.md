@@ -179,6 +179,81 @@ some *other* normalisation, one that is monotone and does not clip (a log or ran
 say), helps a downstream classifier. Monotone transforms cannot change a ranking, so this
 would only matter for a learned model, not for the ranker.
 
+### Amendment, 2026-10-02 — the search channel is floor-clipped at the ROI's lower multi-Otsu threshold
+
+**Status:** written 2026-10-02 from `tm_border_floor_arm_verdicts.ipynb`, which adopted the clip and said it needs this
+amendment, then checked by three independent adversarial reviews. Not yet in `midog_utils.production`.
+
+**The change.** Before the template is cut and before correlation, the `hematoxylin_od` search channel is clipped from
+below: `np.maximum(hem, b)`, where `b` is the lower threshold of a 3-class multi-Otsu over the whole unclipped channel
+(`b_otsu`). D11's blank fill, the channel's minimum, therefore becomes `b`. Nothing else reads the clipped channel: the
+box refinement, `chromatin_od` and every per-candidate measurement keep reading the unclipped one.
+
+**Why this does not undo D3.** D3 forbids a rescale that clips the *top* of the range, because that parks the darkest
+chromatin on one value and erases the ranking signal exactly where mitoses are. This clip is at the *bottom*, and it
+does not rescale anything. It only raises pixels below `b`. A figure's top-class chromatin (`M_chr`) lies above its
+window's upper multi-Otsu threshold, which is not the ROI's, so this is an empirical fact, not a construction: 0 of
+the 2,658 GT mitoses refined at their annotation centres have an `M_chr` pixel below `b`, while their dilated selection has such pixels on 6.7 % of
+them (measured 2026-10-02 in review scratch code, not in the repo). It does change the template:
+after the clip about a third of a template's kept-box pixels sit at the floor (`kept_share_at_floor`, mean 0.34). The
+channel already had a bottom clip at 0 from `rgb2hed`'s clamp (a median of 3.9 % of pixels per ROI), so a bottom clip
+is not new in kind, though this one is far larger.
+
+**A correction to D3's text.** D3's "what would change my mind" paragraph says "Monotone transforms cannot change a
+ranking". That holds for a
+strictly monotone transform of a *score*. It does not hold for a transform of the *channel* before correlation. With
+the template cut from the same channel, `TM_CCOEFF` scales by a² under aI + c, so the correlation ranking survives any
+affine change with a ≠ 0. The search as a whole is invariant only for a > 0, because D11's blank fills with the
+channel's minimum and the refinement and the floor are multi-Otsu thresholds whose classes swap when a < 0. A
+non-affine monotone change of the channel (a log or rank transform) can reorder candidates, and the floor clip, which
+is monotone but many-to-one, moves P@10 by 3.3 points, which is its purpose. The "what would change my mind" clause
+("monotone and does not clip") is read from now on as being about clips that remove signal at the top of the range.
+
+**Why the clip.** Under `TM_CCOEFF` (D1) the filled template is mostly a mass detector: besides a shape term, the score
+grows with mean H in the template's kept box minus mean H in its filled surround. For a uniform change, one unit of
+surround lightness counts as much as one unit of box darkness, so dark objects beside lumen, glass or pale stroma were
+over-rewarded. The floor caps that reward at `b`, and it also lowers the template's mass weight (median 0.040 →
+0.035).
+
+**Evidence** (`tm_border_floor_49roi_6seed.ipynb`, its audit in
+`Research Logs/2026-10-01-tm-border-floor-49roi-6seed-audit.md`, and the verdict notebook; 49 ROIs × 6 clicks,
+`mo_pad61`, post-D11, in-sample):
+- The product estimate is A3 − A1, the clip measured on the band-corrected harness. At `tm_score` it is +3.30 P@10
+  points [+2.11, +4.63], and +2.62 / +2.30 at K = 20 / 30. It is positive in 7 / 7 domains and for all 6 seed indices.
+  Per click, 95 are better and 20 worse, each loss exactly 1 TP.
+- White-adjacent top-10 false positives fall 316 → 240; the other false positives 1019 → 998 (n.s.). Mitoses leave the
+  top 10 at 8.6–10.3 % in every white-share bin up to 40 % (2.7 % above 40 %, n = 37), so mitoses beside lumen
+  are not the ones lost.
+- It is neutral on `chromatin_od` (−0.48 points at K = 10, n.s.).
+
+**What is clipped.** `b_otsu` clips 26.6–82.5 % of an ROI's pixels (mean 55 %), against a white share (gray > 215) of
+mean 9 % and median 4.9 %. It is the whole lowest Otsu class, not glass only. A floor at 0.25 × `b_otsu`, which clips
+glass plus the palest tissue, recovers only about a quarter of the gain (`tm_floor_definition_49roi_6seed.ipynb`). So
+the nuisance is pale surround broadly, not glass.
+
+**The level.** 1.0 × `b_otsu`, kept by the pre-registered rule because it is the only validated level, not because it
+sits in the middle of a plateau.
+- At 0.5 × it loses about 40 % of the P@10 gain.
+- At 1.5 × and 2.0 × the mean is flat, but the clicks that end worse than no clip rise from 20 to 38 and 58.
+- A 128 µm click-centred window floor (`W128`) is non-inferior to it on the corrected harness. The ROI median (`A2m`)
+  ties the clip on the uncorrected harness (`A2m` − `A2`, +0.03 points at K = 10); it was not run on the corrected one.
+
+**What it costs.**
+- A second per-image statistic in the search. The benchmark computes it per 2 mm² ROI; the region the product computes
+  it over (frame, viewport or slide) is not defined yet.
+- The evidence is in-sample and round 1 only. Held-out confirmation was declined on 2026-09-30, and the floor stress
+  test across stains and scanners is deferred until before shipping (`FUTURE_IDEAS.md` §4.1).
+- Until `midog_utils.production` implements it, the clip lives only in the benchmark notebooks.
+
+**Not part of this amendment.** The 30 px ROI-border band (arm A1) is a benchmark-harness rule for ROI crops, not a
+production change: the product reads real pixels past any frame edge. It makes 28 of 2,782 annotated mitoses
+unreachable and breaks comparability with every earlier `per_run` reference.
+
+**What would change my mind.** A held-out A3 − A1 whose interval includes 0. Or the stress test putting the floor well
+below the level that clips the same share of tissue as `b_otsu` does now, since undershooting is what costs: 0.5 ×
+loses about 40 % of the gain. `FUTURE_IDEAS.md` §4.1 proposes 0.75 × as its trigger; no level between 0.5 × and 1.0 ×
+has been run.
+
 ---
 
 ## D4 — Report recall@K, not depth-to-target
