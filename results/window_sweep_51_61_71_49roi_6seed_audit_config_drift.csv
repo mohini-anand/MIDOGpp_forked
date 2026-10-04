@@ -1,0 +1,10 @@
+setting,notebook,production_py,fsconfig_default,decision
+channel,hematoxylin_od,hematoxylin_od,(caller supplies channel),D3 hematoxylin_od
+tm_method,cv2.TM_CCOEFF (4),cv2.TM_CCOEFF,cv2.TM_CCOEFF,D1 TM_CCOEFF
+peak_min_distance,7,7,7,-
+deep_floor_z,-1.5,-1.5,None,-
+max_peaks,100,100,250000,D9 100
+nms_radius,ev.radius_px(mpp) = 7.5 um,ev.radius_px(mpp),None,D7 7.5 um = 7.5
+od window,51,tm.BASE_SIZE,-,-
+blanked square,"51 for every arm, W = 51 / 61 / 71",seed.base_size (the template side),cfg.base_size,D11: the template footprint (base_size x base_size); diverges for W = 61 / 71
+border padding,"replicate, (W - 1) // 2",border_pad=True,False,-

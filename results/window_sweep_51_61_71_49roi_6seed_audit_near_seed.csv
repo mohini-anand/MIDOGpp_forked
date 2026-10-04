@@ -1,0 +1,15 @@
+rank_key,condition,cheb_all,cheb_fp,euc_all,euc_fp
+chromatin_od,default_51,4,0,2,0
+chromatin_od,default_61,4,0,2,0
+chromatin_od,default_71,8,4,6,4
+chromatin_od,fill_51,4,0,2,0
+chromatin_od,fill_61,4,0,2,0
+chromatin_od,fill_71,4,0,2,0
+chromatin_od,fill_71_pinned,4,0,2,0
+tm_score,default_51,3,0,2,0
+tm_score,default_61,5,3,4,3
+tm_score,default_71,19,17,18,17
+tm_score,fill_51,3,0,2,0
+tm_score,fill_61,3,0,2,0
+tm_score,fill_71,3,0,2,0
+tm_score,fill_71_pinned,3,0,2,0

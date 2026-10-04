@@ -1,0 +1,5 @@
+scope,rank_key,changed,n,mean_overlap,net,per_roi
+all,chromatin_od,69,294,5.49,-34,
+all,tm_score,132,294,5.57,59,
+pilot,chromatin_od,3,12,5.0,1,"{'337.tiff': -1, '509.tiff': 2}"
+pilot,tm_score,9,12,5.92,4,"{'337.tiff': -3, '509.tiff': 7}"

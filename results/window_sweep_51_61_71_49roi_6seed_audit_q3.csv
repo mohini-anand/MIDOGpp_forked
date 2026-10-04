@@ -1,0 +1,12 @@
+item,rho,p,ci_low,ci_high,n
+"Spearman(ROI nucleus px, canine) over 49",-0.6919892375314337,3.6554684010797556e-08,,,49
+"parent Spearman(nucleus, hem_rect_fill - default_51) chromatin_od",0.15752652451542687,0.27970331235861645,,,49
+"parent Spearman(nucleus, hem_rect_fill - default_51) tm_score",-0.3224781336604933,0.023832499562188837,,,49
+between ROIs chromatin_od,0.37426812378433233,0.008065998957591093,0.08201990218034519,0.6137016289363834,49
+within ROIs chromatin_od,-9.69668923849427e-05,0.998679060458908,-0.09742966423152401,0.09703853604628,294
+chromatin_od human ROIs: mean fill_71 - fill_51 pts / median nucleus px,-0.15873015873015872,33.0,,,21
+chromatin_od canine ROIs: mean fill_71 - fill_51 pts / median nucleus px,-1.9047619047619047,25.0,,,28
+between ROIs tm_score,0.495945831224867,0.00029035299770253356,0.27296715468089006,0.66257144453222,49
+within ROIs tm_score,-0.18323516931502137,0.0016038802929952355,-0.3158058180471153,-0.0417889558809596,294
+tm_score human ROIs: mean fill_71 - fill_51 pts / median nucleus px,3.0952380952380953,33.0,,,21
+tm_score canine ROIs: mean fill_71 - fill_51 pts / median nucleus px,1.1904761904761902,25.0,,,28

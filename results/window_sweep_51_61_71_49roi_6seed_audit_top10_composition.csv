@@ -1,0 +1,15 @@
+rank_key,condition,human_correct_label,human_rejected_label,non_human_findings
+chromatin_od,default_51,56.67,12.72,30.61
+chromatin_od,default_61,55.85,12.65,31.5
+chromatin_od,default_71,54.93,12.01,33.06
+chromatin_od,fill_51,56.8,12.82,30.37
+chromatin_od,fill_61,56.22,12.93,30.85
+chromatin_od,fill_71,55.65,12.82,31.53
+chromatin_od,fill_71_pinned,55.34,12.69,31.97
+tm_score,default_51,50.85,13.16,35.99
+tm_score,default_61,48.91,12.04,39.05
+tm_score,default_71,44.56,11.19,44.25
+tm_score,fill_51,52.65,13.47,33.88
+tm_score,fill_61,54.25,13.47,32.28
+tm_score,fill_71,54.66,13.4,31.94
+tm_score,fill_71_pinned,54.39,13.33,32.28

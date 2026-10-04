@@ -1,0 +1,5 @@
+rank_key,scope,n_configs,in_sample_best,in_sample_gain_pts,loo_gain_pts,loo_exact_p,loo_choices
+chromatin_od,"all 9 configurations across the two runs, vs default_51",9,hem_rect_fill_1um,0.5102040816326531,0.5102040816326531,0.2502768039703369,hem_rect_fill_1um:49
+chromatin_od,"fill window only {hem_rect_fill, fill_61, fill_71}, vs fill_51",3,hem_rect_fill,0.0,0.0,1.0,hem_rect_fill:49
+tm_score,"all 9 configurations across the two runs, vs default_51",9,fill_71,3.8095238095238098,3.8095238095238093,3.523595779597599e-06,fill_71:49
+tm_score,"fill window only {hem_rect_fill, fill_61, fill_71}, vs fill_51",3,fill_71,2.0068027210884356,2.006802721088435,0.004393031224026345,fill_71:49

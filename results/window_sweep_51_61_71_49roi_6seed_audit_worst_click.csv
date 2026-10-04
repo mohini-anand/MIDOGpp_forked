@@ -1,0 +1,5 @@
+rank_key,contrast,clicks_up,clicks_down,clicks_down_ge2,clicks_up_ge2,worst_click,best_click,worst_click_id
+chromatin_od,fill_61 - fill_51,17,30,3,1,-3,2,"('293.tiff', 2)"
+chromatin_od,fill_71 - fill_51,21,48,6,0,-3,1,"('293.tiff', 2)"
+tm_score,fill_61 - fill_51,68,31,2,11,-2,3,"('201.tiff', 4)"
+tm_score,fill_71 - fill_51,85,47,4,21,-2,4,"('201.tiff', 4)"

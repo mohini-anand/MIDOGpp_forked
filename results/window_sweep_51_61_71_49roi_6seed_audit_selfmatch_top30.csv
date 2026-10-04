@@ -1,0 +1,4 @@
+condition,rank_key,n_lists,in_top10,at_rank0,rank_median,buckets
+default_61,tm_score,3,3,0,3.0,non_human_findings
+default_71,chromatin_od,13,4,1,13.0,non_human_findings
+default_71,tm_score,24,17,8,2.5,non_human_findings

@@ -1,0 +1,9 @@
+item,value
+n_code_cells,12
+execution_counts,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]"
+contiguous_from_1,True
+error_cells,[]
+unrun_cells,[]
+last_cell_type,markdown
+largest_gap_s,208.1
+largest_gap_before_cell,21

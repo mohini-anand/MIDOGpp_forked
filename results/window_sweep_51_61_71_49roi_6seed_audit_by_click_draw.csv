@@ -1,0 +1,5 @@
+rank_key,contrast,s0,s1,s2,s3,s4,s5,draws_positive
+chromatin_od,fill_61 - fill_51,0,-2,-8,-3,0,-4,0
+chromatin_od,fill_71 - fill_51,-1,-5,-8,-7,-5,-8,0
+tm_score,fill_61 - fill_51,8,8,3,16,2,10,6
+tm_score,fill_71 - fill_51,10,9,6,9,9,16,6

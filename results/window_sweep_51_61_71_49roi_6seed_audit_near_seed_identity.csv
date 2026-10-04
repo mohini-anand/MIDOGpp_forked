@@ -1,0 +1,11 @@
+rank_key,arm,reference,clicks_identical_near_seed_set,clicks,clicks_with_any_near_seed
+chromatin_od,fill_61,fill_51,293,294,4
+chromatin_od,fill_71,fill_51,294,294,4
+chromatin_od,fill_71_pinned,fill_51,294,294,4
+chromatin_od,default_61,default_51,291,294,4
+chromatin_od,default_71,default_51,288,294,8
+tm_score,fill_61,fill_51,294,294,3
+tm_score,fill_71,fill_51,294,294,3
+tm_score,fill_71_pinned,fill_51,294,294,3
+tm_score,default_61,default_51,289,294,6
+tm_score,default_71,default_51,276,294,19

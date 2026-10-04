@@ -1,0 +1,13 @@
+rank_key,contrast,domains_positive,domains_negative,domains_zero,domain_signflip_p,floor,canine cutaneous mast cell tumor,canine lung cancer,canine lymphosarcoma,canine soft tissue sarcoma,human breast cancer,human melanoma,human neuroendocrine tumor
+chromatin_od,fill_61 - fill_51,2,5,0,0.296875,0.015625,-0.24,-0.95,-2.86,-0.71,0.24,0.95,-0.48
+chromatin_od,fill_71 - fill_51,1,5,1,0.09375,0.03125,-0.48,-1.43,-4.76,-0.95,0.0,0.71,-1.19
+chromatin_od,(fill_61 - fill_51) - (default_61 - default_51),5,2,0,0.640625,0.015625,2.14,0.71,-1.9,0.95,-0.71,0.24,0.24
+chromatin_od,(fill_71 - fill_51) - (default_71 - default_51),4,3,0,0.296875,0.015625,1.43,0.48,1.9,-0.48,-0.71,2.14,-0.71
+chromatin_od,default_61 - default_51,2,5,0,0.1875,0.015625,-2.38,-1.67,-0.95,-1.67,0.95,0.71,-0.71
+chromatin_od,default_71 - default_51,1,6,0,0.0625,0.015625,-1.9,-1.9,-6.67,-0.48,0.71,-1.43,-0.48
+tm_score,fill_61 - fill_51,6,1,0,0.0625,0.015625,1.67,0.71,-1.19,3.57,1.67,4.05,0.71
+tm_score,fill_71 - fill_51,5,1,1,0.09375,0.03125,2.14,0.0,-1.43,4.05,2.86,6.19,0.24
+tm_score,(fill_61 - fill_51) - (default_61 - default_51),7,0,0,0.015625,0.015625,2.38,7.14,5.48,3.57,0.24,3.33,2.62
+tm_score,(fill_71 - fill_51) - (default_71 - default_51),7,0,0,0.015625,0.015625,5.95,13.1,11.9,10.24,2.86,7.14,6.9
+tm_score,default_61 - default_51,2,4,1,0.25,0.03125,-0.71,-6.43,-6.67,0.0,1.43,0.71,-1.9
+tm_score,default_71 - default_51,0,6,1,0.03125,0.03125,-3.81,-13.1,-13.33,-6.19,0.0,-0.95,-6.67

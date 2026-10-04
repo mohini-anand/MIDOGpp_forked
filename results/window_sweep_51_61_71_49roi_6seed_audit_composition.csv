@@ -1,0 +1,20 @@
+item,expected,observed,ok
+per_run rows = 49 x 6 x 7 x 2,4116,4116,True
+"per_run duplicate (file, seed, condition, rank_key)",0,0,True
+"per_run rows per (condition, rank_key)",{294},{294},True
+per_run ROIs,49,49,True
+per_run seeds per ROI,{6},{6},True
+per_run arms,"['default_51', 'default_61', 'default_71', 'fill_51', 'fill_61', 'fill_71', 'fill_71_pinned']","['default_51', 'default_61', 'default_71', 'fill_51', 'fill_61', 'fill_71', 'fill_71_pinned']",True
+top30 rows = 4116 x 30,123480,123480,True
+top30 lists with ranks exactly 0..29,4116,4116,True
+per_roi rows = 49 x 7 x 2,686,686,True
+delta_per_roi rows = 46 x 49,2254,2254,True
+delta_stats rows,46,46,True
+delta_stats tested rows,8,8,True
+per_run clicks found in clicks CSV (outer join both),294,294,True
+per_run click fields != clicks CSV (6 fields x 294),0,0,True
+per_run domain == MIDOG++.json tumor_type (49 ROIs),49,49,True
+domains in sample,7,7,True
+ROIs per domain in sample,{7},{7},True
+tumour types in MIDOG++.json (annotated images),7,7,True
+ROI order: parent per_run first appearance == this per_run first appearance,True,True,True
