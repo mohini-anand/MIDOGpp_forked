@@ -27,7 +27,7 @@ OD_WINDOW = tm.BASE_SIZE
 AXES = {"tm_score": "score", "chromatin_od": "od"}
 
 
-def run_production_pipeline(rgb: np.ndarray, seed, mpp: float, *, rank_key: str = "tm_score", max_peaks: int = MAX_PEAKS, always_od: bool = False) -> tuple[pd.DataFrame, dict]:
+def run_production_pipeline(rgb: np.ndarray, seed, mpp: float, *, rank_key: str = "tm_score", max_peaks: int = MAX_PEAKS, always_od: bool = False, extra_blanks=None) -> tuple[pd.DataFrame, dict]:
     """
         One click's gated seed -> the ranked candidate list for its ROI.
 
@@ -37,6 +37,7 @@ def run_production_pipeline(rgb: np.ndarray, seed, mpp: float, *, rank_key: str 
         rank_key (str): "tm_score" (default) or "chromatin_od" -- which column ranks the list.
         max_peaks (int): pre-NMS peak cap passed to `find_and_suppress`.
         always_od (bool): compute the od column whatever rank_key is; rank_key still ranks the list.
+        extra_blanks (list[tuple[float, float, int]] or None): further (cx, cy, side) squares blanked in the search copy only, after the template is cut (`find_and_suppress`); od reads the unblanked channel. None leaves everything as before.
 
         Returns tuple[pd.DataFrame, dict]: ranked detections (rank, cx, cy, score, angle,
         flip, scale, plus od when rank_key is "chromatin_od" or always_od is True) and a
@@ -50,7 +51,7 @@ def run_production_pipeline(rgb: np.ndarray, seed, mpp: float, *, rank_key: str 
 
     cfg = FSConfig(base_size=seed.base_size, scales=(1.0,), n_angles=1, flips=(False,), peak_min_distance=PEAK_MIN_DISTANCE, max_peaks=max_peaks, nms_radius=nms_radius, deep_floor_z=DEEP_FLOOR_Z, border_pad=True, tm_method=TM_METHOD)
 
-    detections, info = find_and_suppress(hem, seed.template_xy, cfg, nms_radius=nms_radius)
+    detections, info = find_and_suppress(hem, seed.template_xy, cfg, nms_radius=nms_radius, extra_blanks=extra_blanks)
 
     info["max_peaks_binding"] = bool(info["n_peaks"] == max_peaks)
     inv.check_nms_radius(nms_radius, mpp, label="production_pipeline")

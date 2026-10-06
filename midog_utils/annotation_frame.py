@@ -7,8 +7,10 @@
     `click_frame` and `box_frame` build the input row for a raw click or a drawn box, and
     `draw_seed_rows` draws the human-seed rows the validation path feeds `run_roi`. The seed row's
     box sets the Otsu gate's window and the fallback template (`gate_window_side`): 51 px for every
-    click and MIDOG row, the drawn box's own size for a box. A layer on top of the frozen modules,
-    which do every numerical step. Spec: `ANNOTATION_DATAFRAME_SPEC.md`.
+    click and MIDOG row, the drawn box's own size for a box. `run_iteration` chains runs into a
+    session: each iteration's seed, refined seed and first k shown predictions are stored with an
+    `iteration` number, and every later search blanks those stored boxes. A layer on top of the
+    frozen modules, which do every numerical step. Spec: `ANNOTATION_DATAFRAME_SPEC.md`.
 """
 
 from __future__ import annotations
@@ -49,6 +51,11 @@ CLICK_BOX = float(ds.BOX_SIZE)       # 50.0: a raw click's row width and height,
 MAX_WINDOW_PX = tm.PATCH_SIZE      # 73: the largest gate window; a larger human box raises
 MIN_WINDOW_PX = 19                 # the smallest gate window, i.e. a drawn box of 18 px or more (DECISIONS.md D12)
 REFINEMENT_CHANNELS = (None, "gray_inverted", "hematoxylin_od")
+
+ITERATION = "iteration"                        # the session column: 0 for the first iteration, then 1, 2, ...
+SESSION_COLUMNS = COLUMNS + (ITERATION,)
+SESSION_KEY = [ITERATION, "class", "object_id", "made_by", "refined"]  # a session's row key (one file_name per session)
+DEFAULT_K = 10                                 # predictions shown, and stored, per iteration (user, 2026-10-06)
 JOINT_CONDITIONS = {"default_51": None, "gray_bbox": "gray_inverted", "hem_bbox": "hematoxylin_od"}  # the driver's names and order
 
 
@@ -358,11 +365,12 @@ def _refined_prediction_rows(rgb: np.ndarray, gate_image, detections: pd.DataFra
     return rows, table
 
 
-def run_roi(rgb: np.ndarray, annotations_df: pd.DataFrame, mpp: float, *, seed_object_id=None, rank_key: str = "tm_score", refinement_channel="gray_inverted", refine_predictions: bool = False) -> tuple[pd.DataFrame, dict]:
+def run_roi(rgb: np.ndarray, annotations_df: pd.DataFrame, mpp: float, *, seed_object_id=None, rank_key: str = "tm_score", refinement_channel="gray_inverted", refine_predictions: bool = False, extra_blanks=None) -> tuple[pd.DataFrame, dict]:
     """
         One human click or box in, the refined seed and every post-NMS prediction appended -- and, with refine_predictions,
         every prediction refined the same way. Never draws a seed and never re-sorts. The seed row's box sets the gate window
-        and the fallback template (``gate_window_side``).
+        and the fallback template (``gate_window_side``). Only the search sees extra_blanks: the gates, the template and od
+        read the unblanked image.
 
         rgb (np.ndarray): the ROI's full-resolution RGB image (`dataset.load_roi`).
         annotations_df (pd.DataFrame): the frame's input rows, all HUMAN MITOTIC_GT of one ROI; never mutated.
@@ -371,6 +379,7 @@ def run_roi(rgb: np.ndarray, annotations_df: pd.DataFrame, mpp: float, *, seed_o
         rank_key (str): "tm_score" or "chromatin_od" -- the sort order only; score and od are both always computed.
         refinement_channel (str or None): the Otsu gate's channel, "gray_inverted" or "hematoxylin_od", or None for no tightening: the template is the human's box (51 px for clicks and MIDOG).
         refine_predictions (bool): also apply the seed's template choice at every prediction (51 px window) and append one PREDICTION_REFINED row each; False leaves the frame and info exactly as before.
+        extra_blanks (list[tuple[float, float, int]] or None): (cx, cy, side) squares blanked in production's search copy beside the seed's own (`find_and_suppress.blank_squares`), e.g. the boxes earlier session iterations stored (`run_iteration`); None leaves the frame and info exactly as before.
 
         Returns tuple[pd.DataFrame, dict]: the input rows, the refined seed, the predictions and (refine_predictions) the refined predictions, and the run's info.
         Raises ValueError on a bad argument or input frame (including a human box outside the 19..73 px window limits), or a
@@ -400,7 +409,7 @@ def run_roi(rgb: np.ndarray, annotations_df: pd.DataFrame, mpp: float, *, seed_o
     if not refine_predictions:
         gate_image = None  # free it before the search, as before; only the prediction refinement reads it again
 
-    detections, prod_info = prod.run_production_pipeline(rgb, SimpleNamespace(base_size=base_size, template_xy=(tx, ty)), mpp, rank_key=rank_key, always_od=(rank_key != "chromatin_od"))
+    detections, prod_info = prod.run_production_pipeline(rgb, SimpleNamespace(base_size=base_size, template_xy=(tx, ty)), mpp, rank_key=rank_key, always_od=(rank_key != "chromatin_od"), extra_blanks=extra_blanks)
     predict_time = now_utc()
 
     x_tl, y_tl, width, height = footprint_box(base_size, tx, ty)
@@ -463,6 +472,222 @@ def evaluate(result_df: pd.DataFrame, gt_df: pd.DataFrame, mpp: float, roi_shape
     metrics["seed_object_id"] = seed_id
     scored = cands.assign(bucket=det_out["bucket"].to_numpy(), matched_ann_id=det_out["matched_ann_id"].to_numpy(), matched_category=det_out["matched_category"].to_numpy())
     return scored, gt_out, metrics
+
+
+SESSION_KINDS = {(MITOTIC_GT, HUMAN), (MITOTIC_GT, ALGORITHM), (PREDICTION, ALGORITHM), (PREDICTION_REFINED, ALGORITHM)}  # the (class, made_by) pairs a session stores
+
+
+def empty_session() -> pd.DataFrame:
+    """
+        A session with no iterations yet, in SESSION_COLUMNS order and dtypes.
+
+        Returns pd.DataFrame: zero rows.
+    """
+    return _block(0, **{c: [] for c in COLUMNS}).assign(**{ITERATION: pd.Series([], dtype=np.int64)})
+
+
+def check_session(session: pd.DataFrame) -> pd.DataFrame:
+    """
+        A validated copy of a session -- every completed iteration's stored rows -- in SESSION_COLUMNS order, coordinates cast
+        to float64 and iteration to int64 (both lossless) and nothing else changed.
+
+        session (pd.DataFrame): the session; never mutated.
+
+        Returns pd.DataFrame: the copy.
+        Raises ValueError on missing or extra columns, a dtype outside the schema, more than one file_name, iterations that are
+        not 0..T-1, a (class, made_by) pair a session never stores, a duplicated row key (SESSION_KEY), a human object_id used
+        twice, an iteration without exactly one human seed and its refined seed, refined predictions that are not one per
+        stored prediction, or a stored algorithm box that is not a square of odd pixel side.
+    """
+    missing = [c for c in SESSION_COLUMNS if c not in session.columns]
+    extra = [c for c in session.columns if c not in SESSION_COLUMNS]
+    if missing or extra:
+        raise ValueError(f"session columns must be exactly {list(SESSION_COLUMNS)}; missing {missing}, extra {extra}")
+    if session.empty:
+        return empty_session()
+    frame = session.loc[:, list(SESSION_COLUMNS)].copy().reset_index(drop=True)
+    frame = frame.astype({**{c: np.float64 for c in COORD_COLUMNS}, ITERATION: np.int64})
+    for c in COLUMNS:
+        if frame[c].dtype != np.dtype(DTYPES[c]):
+            raise ValueError(f"session column {c!r} has dtype {frame[c].dtype}, expected {np.dtype(DTYPES[c])}")
+
+    names = frame["file_name"].unique()
+    if len(names) != 1:
+        raise ValueError(f"a session holds one ROI; found file_names {sorted(names.tolist())}")
+    iterations = np.sort(frame[ITERATION].unique())
+    if not np.array_equal(iterations, np.arange(len(iterations))):
+        raise ValueError(f"session iterations must be 0..T-1; found {iterations.tolist()}")
+    kinds = set(zip(frame["class"], frame["made_by"])) - SESSION_KINDS
+    if kinds:
+        raise ValueError(f"a session never stores (class, made_by) {sorted(kinds)}")
+    if frame.duplicated(SESSION_KEY).any():
+        raise ValueError(f"{int(frame.duplicated(SESSION_KEY).sum())} session rows repeat a row key {SESSION_KEY}")
+    seeds = frame["class"] == MITOTIC_GT
+    human = frame[seeds & (frame["made_by"] == HUMAN)]
+    if human["object_id"].duplicated().any():
+        raise ValueError(f"human object_ids must be unique across the session; repeated: {sorted(human.loc[human['object_id'].duplicated(), 'object_id'].unique().tolist())}")
+    for t, it in frame.groupby(ITERATION, sort=True):
+        h, a = it[(it["class"] == MITOTIC_GT) & (it["made_by"] == HUMAN)], it[(it["class"] == MITOTIC_GT) & (it["made_by"] == ALGORITHM)]
+        if len(h) != 1 or len(a) != 1 or int(h["object_id"].iat[0]) != int(a["object_id"].iat[0]):
+            raise ValueError(f"iteration {t} must hold one human seed and its refined seed (same object_id); found {len(h)} and {len(a)}")
+        pred_ids = sorted(it.loc[it["class"] == PREDICTION, "object_id"].tolist())
+        refined_ids = sorted(it.loc[it["class"] == PREDICTION_REFINED, "object_id"].tolist())
+        if refined_ids and refined_ids != pred_ids:
+            raise ValueError(f"iteration {t}: refined predictions {refined_ids} are not one per stored prediction {pred_ids}")
+    stored = frame[frame["made_by"] == ALGORITHM]
+    side = stored["width"] + 1
+    square = (stored["width"] == stored["height"]) & (side == np.round(side)) & (side % 2 == 1)
+    if not square.all():
+        raise ValueError(f"{int((~square).sum())} stored algorithm boxes are not squares of odd pixel side (width + 1)")
+    return frame
+
+
+def stored_blanks(session: pd.DataFrame) -> pd.DataFrame:
+    """
+        The squares the next iteration blanks: each iteration's refined seed, and each stored prediction's refined box (its
+        PREDICTION_REFINED row: the gate's box when it refined, the prediction's own 51 px box on fallback), or its PREDICTION
+        row when that iteration stored no refined predictions. Human rows are never blanked: as D11 does for the current seed,
+        the refined seed's footprint is. A square is its row's footprint: centre ``x_tl + width / 2``, side ``width + 1``.
+
+        session (pd.DataFrame): a validated session (``check_session``).
+
+        Returns pd.DataFrame: one row per square -- iteration, class, object_id, cx, cy, side -- in session order.
+    """
+    with_refined = set(session.loc[session["class"] == PREDICTION_REFINED, ITERATION].tolist())
+    pick = ((session["class"] == MITOTIC_GT) & (session["made_by"] == ALGORITHM)) | (session["class"] == PREDICTION_REFINED) | ((session["class"] == PREDICTION) & ~session[ITERATION].isin(with_refined))
+    rows = session[pick]
+    return pd.DataFrame({ITERATION: rows[ITERATION].to_numpy(dtype=np.int64), "class": rows["class"].to_numpy(dtype=object), "object_id": rows["object_id"].to_numpy(dtype=np.int64), "cx": box_center(rows["x_tl"], rows["width"]).to_numpy(dtype=np.float64), "cy": box_center(rows["y_tl"], rows["height"]).to_numpy(dtype=np.float64), "side": (rows["width"] + 1).to_numpy(dtype=np.float64).astype(np.int64)})
+
+
+def next_object_id(session) -> int:
+    """
+        The smallest object_id above every human seed's in a session: the default id for the next click or box.
+
+        session (pd.DataFrame or None): the session; None or empty for the first iteration.
+
+        Returns int: 0 for no session, else the largest human object_id + 1.
+    """
+    if session is None or len(session) == 0:
+        return 0
+    human = session[(session["class"] == MITOTIC_GT) & (session["made_by"] == HUMAN)]
+    return int(human["object_id"].max()) + 1
+
+
+def _check_seed_overlap(session: pd.DataFrame, seed: pd.Series) -> None:
+    """
+        Raise if the new seed's box contains the centre of any box the session stored: a human seed, a refined seed, a
+        prediction or a refined prediction. Bounds are inclusive, ``x_tl <= cx <= x_tl + width`` and likewise on y; a click's
+        box is its 50 px CLICK_BOX. Nearness alone is allowed: a box beside a stored one may hold another mitosis.
+
+        session (pd.DataFrame): a validated, non-empty session.
+        seed (pd.Series): the new seed row.
+
+        Returns None. Raises ValueError naming the first stored boxes whose centres fall inside.
+    """
+    cx, cy = box_center(session["x_tl"], session["width"]), box_center(session["y_tl"], session["height"])
+    x0, y0, w, h = float(seed["x_tl"]), float(seed["y_tl"]), float(seed["width"]), float(seed["height"])
+    inside = (cx >= x0) & (cx <= x0 + w) & (cy >= y0) & (cy <= y0 + h)
+    if inside.any():
+        hits = session[inside].head(3)
+        named = "; ".join(f"iteration {int(r[ITERATION])} {r['class']}/{r['made_by']} object_id {int(r['object_id'])} at ({cx[i]}, {cy[i]})" for i, r in hits.iterrows())
+        raise ValueError(f"the new seed's box (x_tl {x0}, y_tl {y0}, {w} x {h}) contains the centres of {int(inside.sum())} stored boxes: {named}; pass check_overlap=False (run_frame.py --allow-overlap) to seed there anyway")
+
+
+def prepare_iteration(session, seed_df: pd.DataFrame, *, check_overlap: bool = True) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, int]:
+    """
+        The input wrapper: validate a session and the human's new seed, number the iteration, and list the squares the search
+        must blank. The seed must be on the session's ROI, with an object_id no stored human row uses, and (check_overlap) a
+        box containing no stored box's centre.
+
+        session (pd.DataFrame or None): every completed iteration's stored rows (SESSION_COLUMNS); None or empty for the first iteration.
+        seed_df (pd.DataFrame): the new seed, one HUMAN MITOTIC_GT row in COLUMNS (``click_frame`` or ``box_frame``).
+        check_overlap (bool): raise when the seed's box contains a stored box's centre.
+
+        Returns tuple: the validated session, the validated one-row seed frame, the squares to blank (``stored_blanks``; none for the first iteration), and the iteration number.
+        Raises ValueError on an invalid session or seed, another ROI's seed, a used object_id, or (check_overlap) an overlap.
+    """
+    session = empty_session() if session is None else check_session(session)
+    seed_frame = _input_rows(seed_df)
+    if len(seed_frame) != 1:
+        raise ValueError(f"the new seed must be exactly one row, got {len(seed_frame)}")
+    seed = seed_frame.iloc[0]
+    if session.empty:
+        return session, seed_frame, stored_blanks(session), 0
+    if seed["file_name"] != session["file_name"].iat[0]:
+        raise ValueError(f"the new seed is on {seed['file_name']!r}, the session on {session['file_name'].iat[0]!r}")
+    human = session[(session["class"] == MITOTIC_GT) & (session["made_by"] == HUMAN)]
+    if int(seed["object_id"]) in set(human["object_id"].tolist()):
+        raise ValueError(f"object_id {int(seed['object_id'])} is already a human seed in this session; the next free id is {next_object_id(session)}")
+    if check_overlap:
+        _check_seed_overlap(session, seed)
+    return session, seed_frame, stored_blanks(session), int(session[ITERATION].max()) + 1
+
+
+def merge_iteration(session: pd.DataFrame, frame: pd.DataFrame, info: dict, blanks: pd.DataFrame, iteration: int, *, k: int = DEFAULT_K) -> tuple[pd.DataFrame, dict]:
+    """
+        The output wrapper: append one ``run_roi`` frame to the session as iteration ``iteration``. It stores the human seed,
+        its refined seed, and the first k predictions in rank order that are not repeats, with their refined rows; nothing
+        beyond the page is stored. A repeat is a prediction whose centre is within the match radius
+        (``info["match_radius_px"]``) of a blanked square's centre -- a leak beside a blanked object, or the uncovered part of
+        a split figure -- and is skipped, never shown.
+
+        session (pd.DataFrame): the validated session the run started from.
+        frame (pd.DataFrame): ``run_roi``'s output for this iteration's seed.
+        info (dict): ``run_roi``'s info for that run.
+        blanks (pd.DataFrame): the squares the run blanked (``stored_blanks``).
+        iteration (int): this iteration's number.
+        k (int): how many predictions to show and store.
+
+        Returns tuple[pd.DataFrame, dict]: the new session, and the info keys this step adds: iteration, k, n_shown,
+        shown_object_ids, repeat_object_ids (every prediction flagged, any rank), n_repeats_in_page (repeats among the raw
+        first k) and session_blanks (the blanked squares).
+    """
+    preds = frame[frame["class"] == PREDICTION].sort_values("object_id", kind="stable")
+    px, py = box_center(preds["x_tl"], preds["width"]).to_numpy(), box_center(preds["y_tl"], preds["height"]).to_numpy()
+    bx, by = blanks["cx"].to_numpy(dtype=np.float64), blanks["cy"].to_numpy(dtype=np.float64)
+    repeat = np.zeros(len(preds), dtype=bool)
+    if len(preds) and len(blanks):
+        repeat = (np.hypot(px[:, None] - bx[None, :], py[:, None] - by[None, :]) <= info["match_radius_px"]).any(axis=1)
+    shown = preds[~repeat].head(k)
+    shown_ids = shown["object_id"].tolist()
+    seed_rows = frame[frame["class"] == MITOTIC_GT]
+    refined = frame[(frame["class"] == PREDICTION_REFINED) & frame["object_id"].isin(shown_ids)].sort_values("object_id", kind="stable")
+    new = pd.concat([seed_rows, shown, refined], ignore_index=True).assign(**{ITERATION: np.int64(iteration)})
+    merged = new if session.empty else pd.concat([session, new], ignore_index=True)
+    added = dict(iteration=int(iteration), k=int(k), n_shown=len(shown_ids), shown_object_ids=[int(i) for i in shown_ids], repeat_object_ids=[int(i) for i in preds["object_id"].to_numpy()[repeat]], n_repeats_in_page=int(repeat[:k].sum()), session_blanks=blanks)
+    return check_session(merged), added
+
+
+def run_iteration(rgb: np.ndarray, session, mpp: float, seed_df: pd.DataFrame, *, k: int = DEFAULT_K, check_overlap: bool = True, rank_key: str = "tm_score", refinement_channel="gray_inverted", refine_predictions: bool = True) -> tuple[pd.DataFrame, pd.DataFrame, dict]:
+    """
+        One iteration of a click-to-verify session: ``prepare_iteration``, then ``run_roi`` with every stored box blanked in the
+        search (after the template is cut), then ``merge_iteration``. The first iteration blanks nothing, so its run is
+        exactly ``run_roi``'s.
+
+        rgb (np.ndarray): the ROI's full-resolution RGB image.
+        session (pd.DataFrame or None): every completed iteration's stored rows; None or empty for the first iteration.
+        mpp (float): the ROI's microns per pixel.
+        seed_df (pd.DataFrame): the human's new seed, one HUMAN MITOTIC_GT row (``click_frame`` or ``box_frame``).
+        k (int): how many predictions to show and store; DEFAULT_K (10).
+        check_overlap (bool): raise when the new seed's box contains the centre of a stored box.
+        rank_key (str): "tm_score" or "chromatin_od".
+        refinement_channel (str or None): the Otsu gate's channel, or None for no tightening.
+        refine_predictions (bool): store each shown prediction's refined box, which later iterations blank; False blanks the prediction's own 51 px box instead.
+
+        Returns tuple[pd.DataFrame, pd.DataFrame, dict]: the new session; ``run_roi``'s full frame for this iteration (every survivor, for scoring and plots); and its info plus ``merge_iteration``'s keys.
+        Raises ValueError on a bad k, session or seed, as prepare_iteration and run_roi do.
+    """
+    if isinstance(k, bool) or not isinstance(k, (int, np.integer)) or k < 1:
+        raise ValueError(f"k must be a positive integer, got {k!r}")
+    session, seed_frame, blanks, iteration = prepare_iteration(session, seed_df, check_overlap=check_overlap)
+    squares = list(zip(blanks["cx"].tolist(), blanks["cy"].tolist(), blanks["side"].tolist())) if len(blanks) else None
+    frame, info = run_roi(rgb, seed_frame, mpp, rank_key=rank_key, refinement_channel=refinement_channel, refine_predictions=refine_predictions, extra_blanks=squares)
+    new_session, added = merge_iteration(session, frame, info, blanks, iteration, k=int(k))
+    clash = sorted(set(added) & set(info))
+    if clash:
+        raise RuntimeError(f"merge_iteration's info keys would overwrite run_roi's: {clash}")
+    info.update(added)
+    return new_session, frame, info
 
 
 def _joint_spec(channel, hem: np.ndarray, cx: float, cy: float):

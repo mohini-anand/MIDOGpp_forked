@@ -1,7 +1,8 @@
 """
     Template-match search from one seed point. `FSConfig` holds the search settings;
     `find_and_suppress` cuts a template, blanks its own footprint out of a copy of the
-    search channel so it can't match itself, correlates against that copy, extracts peaks,
+    search channel so it can't match itself (and, on request, further squares: the boxes
+    earlier session iterations stored), correlates against that copy, extracts peaks,
     suppresses overlaps, and returns detections ranked best-first. See
     `midog_utils/FIND_AND_SUPPRESS_REFERENCE_DIFFS.md` for how this differs from the
     reference implementation it replaces.
@@ -41,7 +42,40 @@ class FSConfig:
         return len(self.scales) * self.n_angles * len(self.flips)
 
 
-def find_and_suppress(img_channel: np.ndarray, seed_xy, cfg: FSConfig = None, nms_radius=None):
+def blank_squares(search_channel: np.ndarray, squares, fill_value: float) -> tuple[int, int]:
+    """
+        Blank extra odd squares into a search channel, in place, with `template_match.blank_seed_square`'s footprint: ``side``
+        pixels centred on ``(round(cx), round(cy))`` (round half to even), clipped to the image. For the boxes earlier
+        iterations of a session stored (`annotation_frame.run_iteration`), written into the copy blank_seed_square returned.
+
+        search_channel (np.ndarray): the search copy; modified in place.
+        squares (iterable[tuple[float, float, int]]): one (cx, cy, side) per square; centres unrounded, side a positive odd integer.
+        fill_value (float): the value written: blank_seed_square's fill, the unblanked channel's minimum.
+
+        Returns tuple[int, int]: the number of squares, and the number of distinct pixels they cover.
+        Raises ValueError on a non-finite centre or a side that is not a positive odd integer.
+    """
+    h, w = search_channel.shape[:2]
+    mask = np.zeros((h, w), dtype=bool)
+    n_squares = 0
+    for cx, cy, side in squares:
+        cx, cy = float(cx), float(cy)
+        if not (np.isfinite(cx) and np.isfinite(cy)):
+            raise ValueError(f"a blanked square's centre must be finite, got ({cx}, {cy})")
+        if float(side) != int(side) or int(side) < 1 or int(side) % 2 != 1:
+            raise ValueError(f"a blanked square's side must be a positive odd integer, got {side}")
+        half = int(side) // 2
+        ix, iy = int(round(cx)), int(round(cy))
+        y0, y1 = max(0, iy - half), min(h - 1, iy + half)
+        x0, x1 = max(0, ix - half), min(w - 1, ix + half)
+        if y0 <= y1 and x0 <= x1:
+            mask[y0:y1 + 1, x0:x1 + 1] = True
+        n_squares += 1
+    search_channel[mask] = fill_value
+    return n_squares, int(mask.sum())
+
+
+def find_and_suppress(img_channel: np.ndarray, seed_xy, cfg: FSConfig = None, nms_radius=None, *, extra_blanks=None):
     """
         Run one single-pass search from one seed point.
 
@@ -49,9 +83,11 @@ def find_and_suppress(img_channel: np.ndarray, seed_xy, cfg: FSConfig = None, nm
         seed_xy (tuple[float, float]): (x, y) pixel to centre the template on.
         cfg (FSConfig or None): search settings, deep_floor_z required; defaults to FSConfig().
         nms_radius (float or None): overrides cfg.nms_radius; one of the two must resolve.
+        extra_blanks (list[tuple[float, float, int]] or None): further (cx, cy, side) squares to blank in the search copy, after the template is cut and beside the seed's own blank (`blank_squares`); None leaves the search and info exactly as before.
 
         Returns tuple[pd.DataFrame, dict]: detections ranked best-first (columns rank, cx,
-        cy, score, angle, flip, scale) and a per-stage info dict of counts and timings.
+        cy, score, angle, flip, scale) and a per-stage info dict of counts and timings;
+        n_extra_blanks and n_extra_blanked_px are added only when extra_blanks is given.
     """
     cfg = cfg or FSConfig()
     seed_x, seed_y = float(seed_xy[0]), float(seed_xy[1])
@@ -81,6 +117,9 @@ def find_and_suppress(img_channel: np.ndarray, seed_xy, cfg: FSConfig = None, nm
     # the caller derives from it, e.g. production.py's chromatin_od ranking) is untouched.
     search_channel, n_blanked = tm.blank_seed_square(img_channel, seed_x, seed_y, cfg.base_size)
     info["n_blanked_px"] = n_blanked
+    if extra_blanks is not None:
+        # Same copy, same fill: the boxes earlier session iterations stored, blanked after the cut so the template stays clean.
+        info["n_extra_blanks"], info["n_extra_blanked_px"] = blank_squares(search_channel, extra_blanks, float(img_channel.min()))
 
     if cfg.border_pad:
         pad = max((t.shape[0] - 1) // 2 for t in templates)

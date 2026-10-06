@@ -13,6 +13,12 @@
     in a 51 px window (its own box) and stored as a PREDICTION_REFINED row, whatever the human later
     decides. `run_pipeline.py` is deprecated in favour of this file.
 
+    Every run is one iteration of a session (`annotation_frame.run_iteration`). Without
+    --session-csv it is the first, iteration 0, and blanks nothing. With it, every box the earlier
+    iterations stored (their refined seeds and shown predictions) is blanked in the search, the new
+    seed's box may not contain a stored box's centre (unless --allow-overlap), and --save-session
+    writes the session with this iteration's seed and first --k shown predictions appended.
+
     Run directly for a quick look -- see the example invocations just below this docstring.
 """
 
@@ -26,6 +32,8 @@
 #   /Users/mohinianand/anaconda3/bin/python3 production_pipeline/run_frame.py 300.tiff --source midog --ann-id 14499 --save-fig /tmp/300_frame.png
 #   /Users/mohinianand/anaconda3/bin/python3 production_pipeline/run_frame.py 322.tiff --source midog --save-csv /tmp/322_frame.csv
 #   /Users/mohinianand/anaconda3/bin/python3 production_pipeline/run_frame.py 300.tiff --source midog --no-refine-predictions   # predictions without PREDICTION_REFINED rows
+#   /Users/mohinianand/anaconda3/bin/python3 production_pipeline/run_frame.py 300.tiff --source midog --ann-id 14499 --save-session /tmp/300_session.csv                                # iteration 0 of a session
+#   /Users/mohinianand/anaconda3/bin/python3 production_pipeline/run_frame.py 300.tiff --source midog --ann-id 14578 --session-csv /tmp/300_session.csv --save-session /tmp/300_session.csv   # iteration 1: blanks iteration 0's stored boxes
 
 from __future__ import annotations
 
@@ -132,26 +140,43 @@ def build_seed_frame(fn: str, rgb, gt: pd.DataFrame, image_id: int, source: str,
     return af.draw_seed_rows(rgb, gt, image_id, seed_indices=range((seed_index or 0) + 1))[-1][0], True
 
 
-def run_frame_on_roi(fn: str, source: str, *, click: tuple | None = None, box: tuple | None = None, object_id: int | None = None, edge_origin: bool | None = None, ann_id: int | None = None, seed_index: int | None = None, rank_key: str = "tm_score", refinement_channel: str | None = "gray_inverted", refine_predictions: bool = True, images_dir: Path | str = DEFAULT_IMAGES_DIR, db_path: Path | str = DEFAULT_DB_PATH, keep_rgb: bool = False) -> dict:
+def read_session(path: Path | str) -> pd.DataFrame:
     """
-        Run the annotation-frame path on one ROI for one seed: load, build the input frame, run_roi, and evaluate when the seed is a MIDOG annotation.
+        Read a session CSV written by --save-session, with round_trip float parsing, and validate it.
+
+        path (Path or str): the CSV.
+
+        Returns pd.DataFrame: the session (`annotation_frame.check_session`).
+    """
+    return af.check_session(pd.read_csv(path, float_precision="round_trip"))
+
+
+def run_frame_on_roi(fn: str, source: str, *, click: tuple | None = None, box: tuple | None = None, object_id: int | None = None, edge_origin: bool | None = None, ann_id: int | None = None, seed_index: int | None = None, rank_key: str = "tm_score", refinement_channel: str | None = "gray_inverted", refine_predictions: bool = True, session: pd.DataFrame | None = None, k: int = af.DEFAULT_K, check_overlap: bool = True, images_dir: Path | str = DEFAULT_IMAGES_DIR, db_path: Path | str = DEFAULT_DB_PATH, keep_rgb: bool = False) -> dict:
+    """
+        Run one iteration of the annotation-frame path on one ROI for one seed: load, build the input frame, run_iteration
+        (run_roi with the session's stored boxes blanked), and evaluate when the seed is a MIDOG annotation and this is
+        iteration 0. Later iterations are not scored: evaluate would read run_roi's raw list, not the page shown, against
+        ground truth that still holds the mitoses found earlier.
 
         fn (str): ROI filename, e.g. "300.tiff".
         source (str): "click", "box" or "midog".
         click (tuple or None): a raw (x, y) click.
         box (tuple or None): a drawn (x, y, w, h) box, pixel-edge coordinates.
-        object_id (int or None): the click's or box's object_id.
+        object_id (int or None): the click's or box's object_id; the session's next free id when None.
         edge_origin (bool or None): the click uses pixel-edge coordinates.
         ann_id (int or None): pin the seed to this mitotic annotation.
         seed_index (int or None): validation-draw seed, used when ann_id is None.
         rank_key (str): which axis ranks the predictions, "tm_score" or "chromatin_od".
         refinement_channel (str or None): the Otsu gate's channel, or None for no tightening: the template is the human's box (51 px for clicks and MIDOG).
         refine_predictions (bool): also refine every prediction's box the way the seed's was and append it as a PREDICTION_REFINED row.
+        session (pd.DataFrame or None): the earlier iterations' stored rows (`read_session`); None for iteration 0.
+        k (int): how many predictions to show and store in the session.
+        check_overlap (bool): raise when the new seed's box contains the centre of a stored box.
         images_dir (Path or str): directory holding the ROI TIFFs.
         db_path (Path or str): path to the MIDOG++.json annotations file.
         keep_rgb (bool): keep the ROI image in the result, for visualize (about 93 MB on 300.tiff).
 
-        Returns dict: fn, source, the output frame and info, evaluate's scored predictions, gt_out and metrics (None unless scorable), and rgb when keep_rgb.
+        Returns dict: fn, source, the output frame (every survivor) and info, the new session, evaluate's scored predictions, gt_out and metrics (None unless scorable at iteration 0), and rgb when keep_rgb.
     """
     check_seed_args(source, click=click, box=box, object_id=object_id, edge_origin=edge_origin, ann_id=ann_id, seed_index=seed_index)
     images, annotations = ds.load_annotations(str(db_path))
@@ -162,10 +187,12 @@ def run_frame_on_roi(fn: str, source: str, *, click: tuple | None = None, box: t
     mpp = ds.roi_mpp(path)
     gt = ds.image_annotations(annotations, fn)
 
+    if source in ("click", "box") and object_id is None:
+        object_id = af.next_object_id(session)
     seed_frame, scorable = build_seed_frame(fn, rgb, gt, image_id, source, click=click, box=box, object_id=object_id, edge_origin=edge_origin, ann_id=ann_id, seed_index=seed_index)
-    frame, info = af.run_roi(rgb, seed_frame, mpp, rank_key=rank_key, refinement_channel=refinement_channel, refine_predictions=refine_predictions)
-    scored, gt_out, metrics = af.evaluate(frame, gt, mpp, rgb.shape, budgets=BUDGETS) if scorable else (None, None, None)
-    result = dict(fn=fn, source=source, frame=frame, info=info, scored=scored, gt_out=gt_out, metrics=metrics)
+    new_session, frame, info = af.run_iteration(rgb, session, mpp, seed_frame, k=k, check_overlap=check_overlap, rank_key=rank_key, refinement_channel=refinement_channel, refine_predictions=refine_predictions)
+    scored, gt_out, metrics = af.evaluate(frame, gt, mpp, rgb.shape, budgets=BUDGETS) if scorable and info["iteration"] == 0 else (None, None, None)
+    result = dict(fn=fn, source=source, frame=frame, info=info, session=new_session, scored=scored, gt_out=gt_out, metrics=metrics)
     if keep_rgb:
         result["rgb"] = rgb
     return result
@@ -173,17 +200,18 @@ def run_frame_on_roi(fn: str, source: str, *, click: tuple | None = None, box: t
 
 def summarize(result: dict) -> dict:
     """
-        One summary row for a run: the source, seed and template, the detection count, how many prediction boxes the gate
-        refined (when refined), and tp/precision at each budget when scored.
+        One summary row for a run: the iteration, source, seed and template, the detection count, how many prediction boxes
+        the gate refined (when refined), the page shown, and tp/precision at each budget when scored.
 
         result (dict): one `run_frame_on_roi` output.
 
         Returns dict: the summary row; precision_at_k = tp_at_k / k, as the reference driver computes it.
     """
     info, metrics = result["info"], result["metrics"]
-    row = dict(roi=result["fn"], source=result["source"], seed_object_id=info["seed_object_id"], refinement_channel=info["refinement_channel"], refined=info["refined"], refusal_reason=info["refusal_reason"], base_size=info["base_size"], rank_key=info["rank_key"], n_detections=info["n_detections"])
+    row = dict(roi=result["fn"], iteration=info["iteration"], source=result["source"], seed_object_id=info["seed_object_id"], refinement_channel=info["refinement_channel"], refined=info["refined"], refusal_reason=info["refusal_reason"], base_size=info["base_size"], rank_key=info["rank_key"], n_detections=info["n_detections"])
     if "n_predictions_refined" in info:
         row["n_predictions_refined"] = info["n_predictions_refined"]
+    row.update(n_blanked_boxes=len(info["session_blanks"]), n_repeats_in_page=info["n_repeats_in_page"], n_shown=info["n_shown"])
     if metrics is not None:
         for k in BUDGETS:
             row[f"tp_at_{k}"] = metrics[f"tp_at_{k}"]
@@ -193,9 +221,10 @@ def summarize(result: dict) -> dict:
 
 def visualize(result: dict, ax=None, downsample: int = 4, top_n: int = 10):
     """
-        Draw one run on its ROI: ground truth (when scored), the top-ranked predictions, the seed (star) and template centre
-        (plus), the gate window (white, when a gate ran), the template footprint (cyan) and, when the frame has them, the
-        top-ranked predictions' refined boxes (magenta when the gate refined them, grey for the fallback).
+        Draw one run on its ROI: ground truth (when scored), the top-ranked predictions (from iteration 1 on, the page
+        shown, repeats skipped), the seed (star) and template centre (plus), the gate window (white, when a gate ran), the
+        template footprint (cyan), the boxes earlier iterations stored and this run blanked (orange) and, when the frame has
+        them, the drawn predictions' refined boxes (magenta when the gate refined them, grey for the fallback).
 
         result (dict): one `run_frame_on_roi` output made with keep_rgb=True.
         ax (matplotlib Axes or None): axes for the overview; None creates a figure with the overview and a full-resolution zoom on the seed.
@@ -216,14 +245,18 @@ def visualize(result: dict, ax=None, downsample: int = 4, top_n: int = 10):
     seed = mitotic[mitotic["made_by"] == af.HUMAN].iloc[0]
     refined = mitotic[mitotic["made_by"] == af.ALGORITHM].iloc[0]
 
-    rows = (result["scored"] if result["scored"] is not None else frame[frame["class"] == af.PREDICTION]).sort_values("object_id", kind="stable")
+    page = info["iteration"] > 0  # from iteration 1 on, draw the page shown: repeats are skipped, so it is not the raw top
+    if page:
+        rows = frame[(frame["class"] == af.PREDICTION) & frame["object_id"].isin(info["shown_object_ids"])].sort_values("object_id", kind="stable")
+    else:
+        rows = (result["scored"] if result["scored"] is not None else frame[frame["class"] == af.PREDICTION]).sort_values("object_id", kind="stable")
     dets = pd.DataFrame({"cx": af.box_center(rows["x_tl"], rows["width"]).to_numpy(), "cy": af.box_center(rows["y_tl"], rows["height"]).to_numpy()})
     if "bucket" in rows:
         dets["bucket"] = rows["bucket"].to_numpy()
     gt = result["gt_out"] if result["gt_out"] is not None else pd.DataFrame({"cx": [], "cy": [], "category_id": []})
 
     how = "refined" if info["refined"] else (info["refusal_reason"] or "untightened")
-    title = f"{result['fn']} -- {result['source']} seed {seed_id}, {info['base_size']} px template ({how}), {info['rank_key']} (top {top_n})"
+    title = f"{result['fn']} -- iteration {info['iteration']}, {result['source']} seed {seed_id}, {info['base_size']} px template ({how}), {info['rank_key']} ({'page' if page else 'top'} {top_n})"
     if result["metrics"] is not None:
         title += f", tp@10 = {result['metrics']['tp_at_10']}"
     zoom = None
@@ -243,7 +276,11 @@ def visualize(result: dict, ax=None, downsample: int = 4, top_n: int = 10):
         boxes.insert(0, (window, "white", 1.0))
     for box, color, lw in boxes:
         viz.draw_box(ax, box, color, lw=lw, scale=1.0 / downsample)
-    refined_preds = frame[(frame["class"] == af.PREDICTION_REFINED) & (frame["object_id"] < top_n)]
+    for sq in info["session_blanks"].itertuples(index=False):
+        bx, by, h = int(round(sq.cx)), int(round(sq.cy)), int(sq.side) // 2  # blank_squares' footprint
+        viz.draw_box(ax, (by - h, by + h + 1, bx - h, bx + h + 1), "#ff9800", lw=0.9, scale=1.0 / downsample)
+    drawn = info["shown_object_ids"][:top_n] if page else range(top_n)
+    refined_preds = frame[(frame["class"] == af.PREDICTION_REFINED) & frame["object_id"].isin(drawn)]
     for pred in refined_preds.itertuples(index=False):
         box = (int(pred.y_tl), int(pred.y_tl + pred.height) + 1, int(pred.x_tl), int(pred.x_tl + pred.width) + 1)
         viz.draw_box(ax, box, "#ff40ff" if pred.refined else "#bdbdbd", lw=0.9, scale=1.0 / downsample)
@@ -267,13 +304,17 @@ def main():
     parser.add_argument("--source", required=True, choices=tuple(SOURCE_OPTIONS), help="where the seed comes from: a raw click, a drawn box, or a MIDOG++ annotation")
     parser.add_argument("--click", type=float, nargs=2, metavar=("X", "Y"), default=None, help="--source click: the click in full-resolution ROI pixels, pixel-centre coordinates unless --edge-origin; predictions only, no scoring")
     parser.add_argument("--box", type=float, nargs=4, metavar=("X", "Y", "W", "H"), default=None, help="--source box: the drawn box's left, top, width and height in pixel-edge coordinates (COCO / canvas); 18 to 73 px on its longer side; predictions only, no scoring")
-    parser.add_argument("--object-id", type=int, default=None, help="--source click or box: the seed row's object_id (default 0)")
+    parser.add_argument("--object-id", type=int, default=None, help="--source click or box: the seed row's object_id (default: the session's next free id, 0 without one)")
     parser.add_argument("--edge-origin", action="store_true", default=None, help="--source click: --click uses pixel-edge coordinates (COCO / canvas); 0.5 is subtracted")
     parser.add_argument("--ann-id", type=int, default=None, help="--source midog: pin the seed to this MIDOG mitotic annotation")
     parser.add_argument("--seed-index", type=int, default=None, help="--source midog without --ann-id: the validation draw's seed (default 0)")
     parser.add_argument("--rank-key", default="tm_score", choices=sorted(prod.AXES))
     parser.add_argument("--refinement-channel", default="gray_inverted", choices=("gray_inverted", "hematoxylin_od", "none"), help="the Otsu gate's channel; none = no tightening: the template is the human's box (51 px for clicks and MIDOG)")
     parser.add_argument("--no-refine-predictions", action="store_true", help="skip refining each prediction's box the way the seed's was (no PREDICTION_REFINED rows)")
+    parser.add_argument("--session-csv", default=None, help="the session so far (a --save-session file): its stored boxes are blanked and this run is its next iteration; without it this is iteration 0")
+    parser.add_argument("--save-session", default=None, help="path to write the session with this iteration appended (may be the --session-csv file)")
+    parser.add_argument("--k", type=int, default=af.DEFAULT_K, help="predictions shown, and stored in the session, per iteration")
+    parser.add_argument("--allow-overlap", action="store_true", help="seed even when the new box contains the centre of a box the session stored")
     parser.add_argument("--images-dir", default=str(DEFAULT_IMAGES_DIR))
     parser.add_argument("--db-path", default=str(DEFAULT_DB_PATH))
     parser.add_argument("--show", type=int, default=5, help="how many predictions to print after the seed rows")
@@ -288,18 +329,25 @@ def main():
         check_seed_args(args.source, **seed_args)
     except ValueError as exc:
         parser.error(str(exc))
+    if args.k < 1:
+        parser.error(f"--k must be at least 1, got {args.k}")
     if args.save_fig and not args.plot:
         import matplotlib
         matplotlib.use("Agg")  # save without opening a window
 
     channel = None if args.refinement_channel == "none" else args.refinement_channel
-    result = run_frame_on_roi(args.roi, args.source, **seed_args, rank_key=args.rank_key, refinement_channel=channel, refine_predictions=not args.no_refine_predictions, images_dir=args.images_dir, db_path=args.db_path, keep_rgb=bool(args.save_fig or args.plot))
+    session = read_session(args.session_csv) if args.session_csv else None
+    result = run_frame_on_roi(args.roi, args.source, **seed_args, rank_key=args.rank_key, refinement_channel=channel, refine_predictions=not args.no_refine_predictions, session=session, k=args.k, check_overlap=not args.allow_overlap, images_dir=args.images_dir, db_path=args.db_path, keep_rgb=bool(args.save_fig or args.plot))
 
     info = result["info"]
-    print(f"{args.roi}: {args.source} seed {info['seed_object_id']} at {info['click_center']}, template {info['base_size']} px at {info['template_center']}, offset {info['offset_px']:.2f}px, refined={info['refined']}, refusal_reason={info['refusal_reason']}")
+    print(f"{args.roi}: iteration {info['iteration']}, {args.source} seed {info['seed_object_id']} at {info['click_center']}, template {info['base_size']} px at {info['template_center']}, offset {info['offset_px']:.2f}px, refined={info['refined']}, refusal_reason={info['refusal_reason']}")
+    if info["iteration"] > 0:
+        print(f"blanked {info['n_extra_blanks']} boxes stored by iterations 0..{info['iteration'] - 1} ({info['n_extra_blanked_px']} px); {info['n_repeats_in_page']} repeats skipped from the first {info['k']} (all repeats: {info['repeat_object_ids'] or 'none'})")
+    print(f"page shown: {info['n_shown']} predictions, object_ids {info['shown_object_ids']}")
     print(pd.Series(summarize(result)).to_frame().T.to_string(index=False))
     if result["metrics"] is None:
-        print(f"{args.source} seed: not scored (its object_id is not a MIDOG ann_id)")
+        why = "multi-round scoring is deferred: evaluate would read the raw list, not the page, against ground truth that still holds earlier finds" if info["iteration"] > 0 else "its object_id is not a MIDOG ann_id"
+        print(f"{args.source} seed: not scored ({why})")
 
     frame = result["frame"]
     n_seed_rows = int((frame["class"] == af.MITOTIC_GT).sum())
@@ -313,6 +361,9 @@ def main():
     if args.save_csv:
         frame.to_csv(args.save_csv, index=False)
         print(f"saved {len(frame)} rows to {args.save_csv}")
+    if args.save_session:
+        result["session"].to_csv(args.save_session, index=False)
+        print(f"saved the session ({info['iteration'] + 1} iterations, {len(result['session'])} rows) to {args.save_session}")
 
     if args.save_fig or args.plot:
         ax = visualize(result, top_n=args.top_n)
