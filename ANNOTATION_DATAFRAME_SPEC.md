@@ -20,7 +20,11 @@ on 2026-10-06 sessions were added (code in `6257e49`; §3 "Sessions", `DECISIONS
 `run_iteration` stores each iteration's seed and its k shown predictions, and every later search
 blanks those stored boxes after the template is cut. Production and `find_and_suppress` gained a
 keyword-only `extra_blanks=None` for this (§0). `session_checks.py` passes with 0 divergences.
-The full §7 harness re-run for the frozen-file change was still running when this was committed.
+The full §7 harness was re-run on that code with outputs redirected:
+- 0 divergences on all 49 ROIs (960,825 values), on the named smoke and full checks, and on
+  `extra_checks.py`, `refine_checks.py` and `box_checks.py`;
+- every regenerated output identical to the committed one apart from timings
+  (`Research Logs/2026-10-06-multi-iteration-sessions.md`).
 The hand-off prompt is `ANNOTATION_FRAME_IMPLEMENTATION_PROMPT.md`; where the two disagree, this spec
 governs.
 

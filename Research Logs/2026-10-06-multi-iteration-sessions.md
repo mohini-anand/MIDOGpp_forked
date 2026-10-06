@@ -60,16 +60,30 @@ Repeats, logged and not judged: how many of the same seed's raw first 10 lie wit
 Each iteration blanked 11 squares (the refined seed and 10 refined predictions): 17,571 and 31,214 px on 300.tiff,
 23,692 and 44,007 px on 245.tiff. No detection fell inside a blanked square in S3's production run.
 
-**The §7 harness re-run (pending).** `find_and_suppress.py` and `production.py` are frozen (spec §0), so the default
-path must be shown unchanged. The re-run was launched on the uncommitted code, which is byte-identical to `6257e49`.
-Outputs are redirected to a scratch directory so the tracked ones stay untouched, with the code checksummed at launch
-and at the end. The run covers:
+**The §7 harness re-run: 0 divergences.** `find_and_suppress.py` and `production.py` are frozen (spec §0), so the
+default path had to be shown unchanged.
+- **Setup.**
+  - It ran on code byte-identical to `6257e49`.
+  - Outputs went to a scratch directory, so the tracked ones were untouched. `common.OUT` was patched after import, and
+    the Step 0 inputs are bound at import.
+  - The code checksum was the same at launch and at the end.
+- **Results:**
+  - `refine_checks.py`: 14 checks. `box_checks.py`: 17 checks.
+  - Smoke tier: 300.tiff (36,571 values) and 007.tiff (13,005), and 33 named smoke checks.
+  - Full tier: 49 ROIs in three shards, **960,825 compared values**, the same count as on 2026-09-24.
+  - 33 named full checks, and `extra_checks.py`.
+- **Against the committed outputs**, ignoring timings, every regenerated output is identical:
+  - the 51 per-ROI result pickles;
+  - `refine.json`, `box.json`, `extra.json` and the smoke summary.
 
-- `refine_checks.py` and `box_checks.py`;
-- the smoke tier and the named smoke checks;
-- the full tier (49 ROIs, three shards), the named full checks, `extra_checks.py` and the aggregate.
-
-It was still running when this log was committed. Its result is to be recorded here.
+  The rest differ only in ways that are not results:
+  - The two `named.json` files differ only in V7's `seconds` field (31 values), a timing without the `t_` prefix.
+  - The full summary lacks `v2_git`, which was not run. As on 2026-09-24, `--git` cannot pass once
+    `annotation_frame.py` changes.
+- **In V2's place:** `git diff --name-only 43f1aec` over `midog_utils/`, `production_pipeline/`, the driver and
+  `midog_utils_full/` lists only the four intended files.
+- **Timing:** the Mac slept for about 25 minutes mid-run (lid closed). That stretched one ROI's wall time and changed
+  nothing else.
 
 ## Not done
 

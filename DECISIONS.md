@@ -1068,8 +1068,9 @@ or a better box rule (e.g. the saliency recipe, or the seed's box size carried o
 
 **Status:** applied 2026-10-06; code in `6257e49`. Spec: `ANNOTATION_DATAFRAME_SPEC.md` §0, §2 "The
 session frame", §3 "Sessions", §5, §8, §9. Checks: `validation/annotation_frame/session_checks.py`
-(0 divergences). The full §7 harness re-run that proves the frozen files' default path unchanged
-was still running when this entry was committed. Its result goes in the research log.
+(0 divergences). The full §7 harness re-run proves the frozen files' default path is unchanged:
+0 divergences over 49 ROIs (960,825 values) and every named check, with every regenerated output
+identical to the committed one apart from timings (`Research Logs/2026-10-06-multi-iteration-sessions.md`).
 
 **The decision.** `run_iteration(rgb, session, mpp, seed_df, *, k=10, ...)` runs one iteration of
 the box → verify → box loop.
