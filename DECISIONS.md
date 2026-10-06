@@ -1032,6 +1032,36 @@ production's single unrotated template). Windows below 19 are refused, not measu
 
 ---
 
+## D13 — Every prediction gets the seed's template refinement, stored as its own row
+
+**Date:** 2026-10-06
+
+**Status:** applied 2026-10-06: code in `54d1bd4`, spec and checks in `921f812`. Spec
+`ANNOTATION_DATAFRAME_SPEC.md` §3 "Refined predictions".
+
+**The decision.** `run_roi(..., refine_predictions=True)` runs the seed's own template choice
+(`_template_choice`, same gate channel) at every post-NMS prediction. Each prediction gets one
+`PREDICTION_REFINED` row, accepted or not, linked by `object_id` = rank.
+- **All survivors**, not only the first page.
+- **51 px window**, the prediction's own box, whatever the seed.
+- **On in `run_frame.py`**, off by default in `run_roi`.
+
+**Why.** The verifier should see each candidate as tightly boxed as the seed, and that box is kept
+whatever the human decides. A separate class is needed because a fallback row in class `PREDICTION`
+would repeat its prediction's row key. Search, ranking and `evaluate` are untouched, so precision
+cannot move.
+
+**Cost.**
+- **Time and memory:** about 0.1–0.2 s per ROI, plus one float32 copy of the ROI held through the search.
+- **Accepted ≠ tighter:** the gate often accepts a component that fills the whole window.
+- **Depends on the seed:** after a refused seed, only 13 of 97 boxes were accepted on the traced
+  example.
+
+**What would change my mind.** A UI or user study showing refined boxes do not help verification,
+or a better box rule (e.g. the saliency recipe, or the seed's box size carried over).
+
+---
+
 ## Cross-references
 
 | decision | primary evidence |
@@ -1048,6 +1078,7 @@ production's single unrotated template). Windows below 19 are refused, not measu
 | D10 seed mask (one NMS radius) replaces the self-hit filter | **[`SELF_HIT_MASKING_PLAN.md`](SELF_HIT_MASKING_PLAN.md)** — the change, pre-registered numbers and gates; `../cleanup_harness/selfmask/` (the patch, `selfmask_check.py`, expected outputs, `probes/` including `analyze_realcode_output.txt`, `REFERENCE_PROVENANCE.md`); `../cleanup_harness/selfmask/superseded_5um/` (the measured 5 µm variant, with its patch, checker and `analyze_realcode_output_5um.txt`); `../cleanup_harness/runs/selfmask_ref_pre`, `selfmask_ref_post` and `selfmask_ref_post_5um` (captures); `../cleanup_harness/selfmask/SELF_HIT_MASKING_PLAN.midog_utils_full_draft.md` (the rejected ±7 px draft) |
 | D11 image-blanking replaces D10's seed-disc mask | **[`SELF_HIT_MASKING_PLAN.md`](SELF_HIT_MASKING_PLAN.md)** (rewritten for this design) — the change, pre-registered and independently re-derived numbers, and gates; `../cleanup_harness/selfmask/image_blank_design/` (the patch, `imageblank_check.py`, expected outputs, the design session's own `blank_seed_variant_*.py`/logs/CSVs, this verification session's scripts); `../cleanup_harness/runs/imageblank_ref_pre`, `imageblank_ref_post` (captures); `../cleanup_harness/selfmask/SELF_HIT_MASKING_PLAN.valid_mask_disc_design.md` (D10's own design, archived unchanged) |
 | D12 a human's box sets the Otsu window and fallback | `midog_utils/annotation_frame.py` (`gate_window_side`, `box_frame`, `_template_choice`); `ANNOTATION_DATAFRAME_SPEC.md` §1, §3, §4, §9; `SINGLE_ENTRY_POINT_PLAN.md`; `box_window_probe.py` and `results/box_window_probe.csv`; `validation/annotation_frame/box_checks.py` and `out/box/box.json`; `Research Logs/2026-09-24-single-entry-point-and-box-seed.md` |
+| D13 every prediction gets the seed's refinement | `midog_utils/annotation_frame.py` (`_refined_prediction_rows`, `run_roi`); `ANNOTATION_DATAFRAME_SPEC.md` §2–§6, §9; `validation/annotation_frame/refine_checks.py` and `out/refine/refine.json` |
 
 ## Still open, deliberately
 
