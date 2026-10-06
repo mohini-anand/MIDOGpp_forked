@@ -1,14 +1,17 @@
 """
     The pipeline's single entry point: one ROI and one human seed in -- a click, a drawn box, or a
     MIDOG++ annotation, chosen with --source -- and the annotation frame out: the seed row, the
-    template box it was refined to, and every ranked prediction, scored against MIDOG++ ground
-    truth when the seed is a MIDOG annotation, and plotted on request.
+    template box it was refined to, every ranked prediction, and each prediction's box refined
+    the same way (unless --no-refine-predictions), scored against MIDOG++ ground truth when the
+    seed is a MIDOG annotation, and plotted on request.
 
     Every step is a direct call into `midog_utils`: `dataset` loads the ROI, and `annotation_frame`
     builds the input frame (`click_frame`, `box_frame`, `human_seed_frame` or `draw_seed_rows`),
     runs it (`run_roi`) and scores it (`evaluate`). This file only chooses which builder to use.
     A drawn box's centre is the click and its size the Otsu gate's window and fallback template;
-    a click or MIDOG seed always uses 51 px. `run_pipeline.py` is deprecated in favour of this file.
+    a click or MIDOG seed always uses 51 px. Each prediction is refined with the seed's gate channel
+    in a 51 px window (its own box) and stored as a PREDICTION_REFINED row, whatever the human later
+    decides. `run_pipeline.py` is deprecated in favour of this file.
 
     Run directly for a quick look -- see the example invocations just below this docstring.
 """
@@ -22,6 +25,7 @@
 #   /Users/mohinianand/anaconda3/bin/python3 production_pipeline/run_frame.py 300.tiff --source midog --ann-id 14499 --rank-key chromatin_od --refinement-channel hematoxylin_od
 #   /Users/mohinianand/anaconda3/bin/python3 production_pipeline/run_frame.py 300.tiff --source midog --ann-id 14499 --save-fig /tmp/300_frame.png
 #   /Users/mohinianand/anaconda3/bin/python3 production_pipeline/run_frame.py 322.tiff --source midog --save-csv /tmp/322_frame.csv
+#   /Users/mohinianand/anaconda3/bin/python3 production_pipeline/run_frame.py 300.tiff --source midog --no-refine-predictions   # predictions without PREDICTION_REFINED rows
 
 from __future__ import annotations
 
@@ -128,7 +132,7 @@ def build_seed_frame(fn: str, rgb, gt: pd.DataFrame, image_id: int, source: str,
     return af.draw_seed_rows(rgb, gt, image_id, seed_indices=range((seed_index or 0) + 1))[-1][0], True
 
 
-def run_frame_on_roi(fn: str, source: str, *, click: tuple | None = None, box: tuple | None = None, object_id: int | None = None, edge_origin: bool | None = None, ann_id: int | None = None, seed_index: int | None = None, rank_key: str = "tm_score", refinement_channel: str | None = "gray_inverted", images_dir: Path | str = DEFAULT_IMAGES_DIR, db_path: Path | str = DEFAULT_DB_PATH, keep_rgb: bool = False) -> dict:
+def run_frame_on_roi(fn: str, source: str, *, click: tuple | None = None, box: tuple | None = None, object_id: int | None = None, edge_origin: bool | None = None, ann_id: int | None = None, seed_index: int | None = None, rank_key: str = "tm_score", refinement_channel: str | None = "gray_inverted", refine_predictions: bool = True, images_dir: Path | str = DEFAULT_IMAGES_DIR, db_path: Path | str = DEFAULT_DB_PATH, keep_rgb: bool = False) -> dict:
     """
         Run the annotation-frame path on one ROI for one seed: load, build the input frame, run_roi, and evaluate when the seed is a MIDOG annotation.
 
@@ -142,6 +146,7 @@ def run_frame_on_roi(fn: str, source: str, *, click: tuple | None = None, box: t
         seed_index (int or None): validation-draw seed, used when ann_id is None.
         rank_key (str): which axis ranks the predictions, "tm_score" or "chromatin_od".
         refinement_channel (str or None): the Otsu gate's channel, or None for no tightening: the template is the human's box (51 px for clicks and MIDOG).
+        refine_predictions (bool): also refine every prediction's box the way the seed's was and append it as a PREDICTION_REFINED row.
         images_dir (Path or str): directory holding the ROI TIFFs.
         db_path (Path or str): path to the MIDOG++.json annotations file.
         keep_rgb (bool): keep the ROI image in the result, for visualize (about 93 MB on 300.tiff).
@@ -158,7 +163,7 @@ def run_frame_on_roi(fn: str, source: str, *, click: tuple | None = None, box: t
     gt = ds.image_annotations(annotations, fn)
 
     seed_frame, scorable = build_seed_frame(fn, rgb, gt, image_id, source, click=click, box=box, object_id=object_id, edge_origin=edge_origin, ann_id=ann_id, seed_index=seed_index)
-    frame, info = af.run_roi(rgb, seed_frame, mpp, rank_key=rank_key, refinement_channel=refinement_channel)
+    frame, info = af.run_roi(rgb, seed_frame, mpp, rank_key=rank_key, refinement_channel=refinement_channel, refine_predictions=refine_predictions)
     scored, gt_out, metrics = af.evaluate(frame, gt, mpp, rgb.shape, budgets=BUDGETS) if scorable else (None, None, None)
     result = dict(fn=fn, source=source, frame=frame, info=info, scored=scored, gt_out=gt_out, metrics=metrics)
     if keep_rgb:
@@ -168,7 +173,8 @@ def run_frame_on_roi(fn: str, source: str, *, click: tuple | None = None, box: t
 
 def summarize(result: dict) -> dict:
     """
-        One summary row for a run: the source, seed and template, the detection count, and tp/precision at each budget when scored.
+        One summary row for a run: the source, seed and template, the detection count, how many prediction boxes the gate
+        refined (when refined), and tp/precision at each budget when scored.
 
         result (dict): one `run_frame_on_roi` output.
 
@@ -176,6 +182,8 @@ def summarize(result: dict) -> dict:
     """
     info, metrics = result["info"], result["metrics"]
     row = dict(roi=result["fn"], source=result["source"], seed_object_id=info["seed_object_id"], refinement_channel=info["refinement_channel"], refined=info["refined"], refusal_reason=info["refusal_reason"], base_size=info["base_size"], rank_key=info["rank_key"], n_detections=info["n_detections"])
+    if "n_predictions_refined" in info:
+        row["n_predictions_refined"] = info["n_predictions_refined"]
     if metrics is not None:
         for k in BUDGETS:
             row[f"tp_at_{k}"] = metrics[f"tp_at_{k}"]
@@ -186,7 +194,8 @@ def summarize(result: dict) -> dict:
 def visualize(result: dict, ax=None, downsample: int = 4, top_n: int = 10):
     """
         Draw one run on its ROI: ground truth (when scored), the top-ranked predictions, the seed (star) and template centre
-        (plus), the gate window (white, when a gate ran) and the template footprint (cyan).
+        (plus), the gate window (white, when a gate ran), the template footprint (cyan) and, when the frame has them, the
+        top-ranked predictions' refined boxes (magenta when the gate refined them, grey for the fallback).
 
         result (dict): one `run_frame_on_roi` output made with keep_rgb=True.
         ax (matplotlib Axes or None): axes for the overview; None creates a figure with the overview and a full-resolution zoom on the seed.
@@ -234,6 +243,10 @@ def visualize(result: dict, ax=None, downsample: int = 4, top_n: int = 10):
         boxes.insert(0, (window, "white", 1.0))
     for box, color, lw in boxes:
         viz.draw_box(ax, box, color, lw=lw, scale=1.0 / downsample)
+    refined_preds = frame[(frame["class"] == af.PREDICTION_REFINED) & (frame["object_id"] < top_n)]
+    for pred in refined_preds.itertuples(index=False):
+        box = (int(pred.y_tl), int(pred.y_tl + pred.height) + 1, int(pred.x_tl), int(pred.x_tl + pred.width) + 1)
+        viz.draw_box(ax, box, "#ff40ff" if pred.refined else "#bdbdbd", lw=0.9, scale=1.0 / downsample)
     if zoom is not None:
         r = af.MAX_WINDOW_PX
         y0, y1, x0, x1 = max(iy - r, 0), min(iy + r + 1, rgb.shape[0]), max(ix - r, 0), min(ix + r + 1, rgb.shape[1])
@@ -260,6 +273,7 @@ def main():
     parser.add_argument("--seed-index", type=int, default=None, help="--source midog without --ann-id: the validation draw's seed (default 0)")
     parser.add_argument("--rank-key", default="tm_score", choices=sorted(prod.AXES))
     parser.add_argument("--refinement-channel", default="gray_inverted", choices=("gray_inverted", "hematoxylin_od", "none"), help="the Otsu gate's channel; none = no tightening: the template is the human's box (51 px for clicks and MIDOG)")
+    parser.add_argument("--no-refine-predictions", action="store_true", help="skip refining each prediction's box the way the seed's was (no PREDICTION_REFINED rows)")
     parser.add_argument("--images-dir", default=str(DEFAULT_IMAGES_DIR))
     parser.add_argument("--db-path", default=str(DEFAULT_DB_PATH))
     parser.add_argument("--show", type=int, default=5, help="how many predictions to print after the seed rows")
@@ -279,7 +293,7 @@ def main():
         matplotlib.use("Agg")  # save without opening a window
 
     channel = None if args.refinement_channel == "none" else args.refinement_channel
-    result = run_frame_on_roi(args.roi, args.source, **seed_args, rank_key=args.rank_key, refinement_channel=channel, images_dir=args.images_dir, db_path=args.db_path, keep_rgb=bool(args.save_fig or args.plot))
+    result = run_frame_on_roi(args.roi, args.source, **seed_args, rank_key=args.rank_key, refinement_channel=channel, refine_predictions=not args.no_refine_predictions, images_dir=args.images_dir, db_path=args.db_path, keep_rgb=bool(args.save_fig or args.plot))
 
     info = result["info"]
     print(f"{args.roi}: {args.source} seed {info['seed_object_id']} at {info['click_center']}, template {info['base_size']} px at {info['template_center']}, offset {info['offset_px']:.2f}px, refined={info['refined']}, refusal_reason={info['refusal_reason']}")
@@ -288,8 +302,14 @@ def main():
         print(f"{args.source} seed: not scored (its object_id is not a MIDOG ann_id)")
 
     frame = result["frame"]
-    n_seed_rows = int((frame["class"] != af.PREDICTION).sum())
+    n_seed_rows = int((frame["class"] == af.MITOTIC_GT).sum())
     print(frame.head(n_seed_rows + args.show).drop(columns="current_time").to_string())
+    if "prediction_refinement" in info:
+        table = info["prediction_refinement"]
+        reasons = table["refusal_reason"].value_counts().to_dict()
+        gate = f"the gate refined {info['n_predictions_refined']} of {len(table)} boxes; fallbacks {reasons or 'none'}" if info["refinement_requested"] else f"no gate (--refinement-channel none), all {len(table)} boxes are the predictions' own"
+        print(f"refined predictions: {gate}")
+        print(frame[frame["class"] == af.PREDICTION_REFINED].head(args.show).drop(columns="current_time").to_string())
     if args.save_csv:
         frame.to_csv(args.save_csv, index=False)
         print(f"saved {len(frame)} rows to {args.save_csv}")

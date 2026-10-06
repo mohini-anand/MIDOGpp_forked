@@ -1,8 +1,9 @@
 """
     The annotation frame: one DataFrame carrying every box of a click-to-verify session -- the
-    human's click, the template box the algorithm refined it to, and every prediction. `run_roi`
-    takes a frame holding the click and returns a new frame with the refined seed and the
-    predictions appended; `evaluate` scores that output against MIDOG++ ground truth;
+    human's click, the template box the algorithm refined it to, every prediction, and, on request,
+    each prediction refined the same way. `run_roi` takes a frame holding the click and returns a
+    new frame with the refined seed and the predictions appended; `evaluate` scores that output
+    against MIDOG++ ground truth;
     `click_frame` and `box_frame` build the input row for a raw click or a drawn box, and
     `draw_seed_rows` draws the human-seed rows the validation path feeds `run_roi`. The seed row's
     box sets the Otsu gate's window and the fallback template (`gate_window_side`): 51 px for every
@@ -33,11 +34,13 @@ COORD_COLUMNS = ("x_tl", "y_tl", "width", "height")
 
 MITOTIC_GT = "MITOTIC_GT"
 PREDICTION = "PREDICTION"
+PREDICTION_REFINED = "PREDICTION_REFINED"  # a prediction's box after the seed's template choice; object_id = that prediction's rank
 HUMAN = "HUMAN"
 ALGORITHM = "ALGORITHM"
 
 GATE_REFUSED = "gate_refused"                # the Otsu gate refused the click
 TEMPLATE_UNREADABLE = "template_unreadable"  # the gate accepted, but the refined template is within 36 px of an edge
+NEAR_EDGE = "near_edge"                      # a prediction centre within 36 px of an edge, not gated (a seed there raises instead)
 
 DEFAULT_BASE_SIZE = tm.BASE_SIZE   # 51: the untightened template, and the fallback, for clicks and MIDOG rows (gate_window_side(50, 50))
 OTSU_WINDOW = tm.BASE_SIZE         # 51: the validation draw's gate window (_joint_spec)
@@ -274,7 +277,7 @@ def _check_schema(frame: pd.DataFrame) -> None:
             raise ValueError(f"frame column {c!r} has dtype {frame[c].dtype}, expected {np.dtype(DTYPES[c])}; an input column breaks the schema")
 
 
-def _template_choice(rgb: np.ndarray, cx: float, cy: float, refinement_channel, window: int):
+def _template_choice(rgb: np.ndarray, cx: float, cy: float, refinement_channel, window: int, gate_image: np.ndarray = None):
     """
         The template spec for a readable seed: the accepted Otsu component's, or the human's box (``window`` px) centred on the
         seed.
@@ -284,6 +287,7 @@ def _template_choice(rgb: np.ndarray, cx: float, cy: float, refinement_channel, 
         cy (float): seed centre y, unrounded.
         refinement_channel (str or None): the gate's channel, or None for no refinement.
         window (int): the gate window and fallback size, ``gate_window_side`` of the seed row; 51 for clicks and MIDOG rows.
+        gate_image (np.ndarray or None): the whole ROI in refinement_channel, when the caller already has it; converted here when None.
 
         Returns tuple: (base_size, tx, ty, refined, refusal_reason).
         Raises RuntimeError when the window is not readable at the seed centre, so a refusal always means the gate refused.
@@ -292,7 +296,9 @@ def _template_choice(rgb: np.ndarray, cx: float, cy: float, refinement_channel, 
         return window, cx, cy, False, None
     if not ss._patch_readable(rgb.shape, cx, cy, window):
         raise RuntimeError(f"the {window} px gate window at ({cx}, {cy}) is not readable; run_roi's edge check should have raised")
-    got = ss.tightened_template_box(ch.to_channel(rgb, refinement_channel), cx, cy, otsu_window=window)
+    if gate_image is None:
+        gate_image = ch.to_channel(rgb, refinement_channel)
+    got = ss.tightened_template_box(gate_image, cx, cy, otsu_window=window)
     if got is None:
         return window, cx, cy, False, GATE_REFUSED
     base_size, tx, ty = int(got[0]), float(got[1]), float(got[2])
@@ -319,10 +325,44 @@ def _prediction_rows(detections: pd.DataFrame, file_name: str, current_time: str
     return _block(n, file_name=file_name, x_tl=cx - PREDICTION_BOX / 2, y_tl=cy - PREDICTION_BOX / 2, width=np.full(n, PREDICTION_BOX), height=np.full(n, PREDICTION_BOX), **{"class": PREDICTION}, object_id=rank, made_by=ALGORITHM, refined=False, current_time=current_time, score=detections["score"].to_numpy(dtype=np.float64), od=detections["od"].to_numpy(dtype=np.float64))
 
 
-def run_roi(rgb: np.ndarray, annotations_df: pd.DataFrame, mpp: float, *, seed_object_id=None, rank_key: str = "tm_score", refinement_channel="gray_inverted") -> tuple[pd.DataFrame, dict]:
+def _refined_prediction_rows(rgb: np.ndarray, gate_image, detections: pd.DataFrame, refinement_channel, file_name: str) -> tuple[pd.DataFrame, pd.DataFrame]:
     """
-        One human click or box in, the refined seed and every post-NMS prediction appended. Never draws a seed and never
-        re-sorts. The seed row's box sets the gate window and the fallback template (``gate_window_side``).
+        The seed's template choice (``_template_choice``) applied at every prediction's centre, with the prediction's own box as
+        the window: 51 px (user, 2026-10-06). One PREDICTION_REFINED row per detection, in production's order, object_id = rank;
+        on a refusal the row is the fallback, the prediction's own box, with refined False. A prediction centre within 36 px of
+        an edge is not gated (NEAR_EDGE), the predicate that makes a seed raise.
+
+        rgb (np.ndarray): the ROI's RGB image.
+        gate_image (np.ndarray or None): the whole ROI in refinement_channel; None when refinement_channel is None.
+        detections (pd.DataFrame): ``run_production_pipeline``'s ranked detections.
+        refinement_channel (str or None): the seed's gate channel, or None for no refinement.
+        file_name (str): the ROI's file name.
+
+        Returns tuple[pd.DataFrame, pd.DataFrame]: the PREDICTION_REFINED block, and one row per prediction with object_id,
+        base_size, the unrounded template centre (template_cx, template_cy), offset_px from the prediction centre, refined and
+        refusal_reason.
+    """
+    window = gate_window_side(PREDICTION_BOX, PREDICTION_BOX)  # 51: the prediction row's own box
+    cx, cy = detections["cx"].to_numpy(dtype=np.float64), detections["cy"].to_numpy(dtype=np.float64)
+    choices = []
+    for x, y in zip(cx, cy):
+        if gate_image is not None and not ss._patch_readable(rgb.shape, x, y, tm.PATCH_SIZE):
+            choices.append((window, x, y, False, NEAR_EDGE))
+        else:
+            choices.append(_template_choice(rgb, x, y, refinement_channel, window, gate_image=gate_image))
+    table = pd.DataFrame(choices, columns=["base_size", "template_cx", "template_cy", "refined", "refusal_reason"]).astype({"base_size": np.int64, "template_cx": np.float64, "template_cy": np.float64, "refined": bool})
+    table.insert(0, "object_id", detections["rank"].to_numpy(dtype=np.int64))
+    table.insert(4, "offset_px", np.hypot(table["template_cx"].to_numpy() - cx, table["template_cy"].to_numpy() - cy))
+    boxes = np.array([footprint_box(b, tx, ty) for b, tx, ty in zip(table["base_size"], table["template_cx"], table["template_cy"])], dtype=np.float64).reshape(-1, 4)
+    rows = _block(len(table), file_name=file_name, x_tl=boxes[:, 0], y_tl=boxes[:, 1], width=boxes[:, 2], height=boxes[:, 3], **{"class": PREDICTION_REFINED}, object_id=table["object_id"].to_numpy(), made_by=ALGORITHM, refined=table["refined"].to_numpy(), current_time=now_utc(), score=np.nan, od=np.nan)
+    return rows, table
+
+
+def run_roi(rgb: np.ndarray, annotations_df: pd.DataFrame, mpp: float, *, seed_object_id=None, rank_key: str = "tm_score", refinement_channel="gray_inverted", refine_predictions: bool = False) -> tuple[pd.DataFrame, dict]:
+    """
+        One human click or box in, the refined seed and every post-NMS prediction appended -- and, with refine_predictions,
+        every prediction refined the same way. Never draws a seed and never re-sorts. The seed row's box sets the gate window
+        and the fallback template (``gate_window_side``).
 
         rgb (np.ndarray): the ROI's full-resolution RGB image (`dataset.load_roi`).
         annotations_df (pd.DataFrame): the frame's input rows, all HUMAN MITOTIC_GT of one ROI; never mutated.
@@ -330,8 +370,9 @@ def run_roi(rgb: np.ndarray, annotations_df: pd.DataFrame, mpp: float, *, seed_o
         seed_object_id (int or None): which input row is the seed; None when there is exactly one.
         rank_key (str): "tm_score" or "chromatin_od" -- the sort order only; score and od are both always computed.
         refinement_channel (str or None): the Otsu gate's channel, "gray_inverted" or "hematoxylin_od", or None for no tightening: the template is the human's box (51 px for clicks and MIDOG).
+        refine_predictions (bool): also apply the seed's template choice at every prediction (51 px window) and append one PREDICTION_REFINED row each; False leaves the frame and info exactly as before.
 
-        Returns tuple[pd.DataFrame, dict]: the input rows, the refined seed and the predictions, and the run's info.
+        Returns tuple[pd.DataFrame, dict]: the input rows, the refined seed, the predictions and (refine_predictions) the refined predictions, and the run's info.
         Raises ValueError on a bad argument or input frame (including a human box outside the 19..73 px window limits), or a
         seed centre within 36 px of an edge.
     """
@@ -352,19 +393,30 @@ def run_roi(rgb: np.ndarray, annotations_df: pd.DataFrame, mpp: float, *, seed_o
         raise ValueError(f"seed centre ({cx}, {cy}) is within {tm.PATCH_SIZE // 2} px of the ROI edge; seeds that close to the edge are not supported")
 
     t0 = time.time()
-    base_size, tx, ty, refined, refusal_reason = _template_choice(rgb, cx, cy, refinement_channel, window)
+    gate_image = None if refinement_channel is None else ch.to_channel(rgb, refinement_channel)
+    base_size, tx, ty, refined, refusal_reason = _template_choice(rgb, cx, cy, refinement_channel, window, gate_image=gate_image)
     t_refine = time.time() - t0
     refine_time = now_utc()
+    if not refine_predictions:
+        gate_image = None  # free it before the search, as before; only the prediction refinement reads it again
 
     detections, prod_info = prod.run_production_pipeline(rgb, SimpleNamespace(base_size=base_size, template_xy=(tx, ty)), mpp, rank_key=rank_key, always_od=(rank_key != "chromatin_od"))
     predict_time = now_utc()
 
     x_tl, y_tl, width, height = footprint_box(base_size, tx, ty)
     refined_row = _block(1, file_name=file_name, x_tl=x_tl, y_tl=y_tl, width=width, height=height, **{"class": MITOTIC_GT}, object_id=int(seed["object_id"]), made_by=ALGORITHM, refined=refined, current_time=refine_time, score=np.nan, od=np.nan)
-    out = pd.concat([frame, refined_row, _prediction_rows(detections, file_name, predict_time)], ignore_index=True)
+    blocks = [frame, refined_row, _prediction_rows(detections, file_name, predict_time)]
+    if refine_predictions:
+        t0 = time.time()
+        refined_preds, pred_table = _refined_prediction_rows(rgb, gate_image, detections, refinement_channel, file_name)
+        t_refine_preds = time.time() - t0
+        blocks.append(refined_preds)
+    out = pd.concat(blocks, ignore_index=True)
     _check_schema(out)
 
     added = dict(file_name=file_name, mpp=mpp, match_radius_px=ev.radius_px(mpp), refinement_channel=refinement_channel, refinement_requested=refinement_channel is not None, channel=prod.CHANNEL, tm_method=prod.TM_METHOD, peak_min_distance=prod.PEAK_MIN_DISTANCE, deep_floor_z=prod.DEEP_FLOOR_Z, max_peaks=prod.MAX_PEAKS, patch_size=tm.PATCH_SIZE, base_size=base_size, seed_object_id=int(seed["object_id"]), click_center=(cx, cy), refined=refined, refusal_reason=refusal_reason, template_center=(tx, ty), offset_px=float(np.hypot(tx - cx, ty - cy)), t_refine_s=round(t_refine, 2))
+    if refine_predictions:
+        added.update(prediction_refinement=pred_table, n_predictions_refined=int(pred_table["refined"].sum()), t_refine_predictions_s=round(t_refine_preds, 2))
     clash = sorted(set(added) & set(prod_info))
     if clash:
         raise RuntimeError(f"run_roi's info keys would overwrite production's: {clash}")
