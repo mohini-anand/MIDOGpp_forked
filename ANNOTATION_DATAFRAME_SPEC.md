@@ -15,8 +15,13 @@ the only changed named output is the edge-error wording. Box-specific checks are
 `refine_predictions` (default `False`; code in `54d1bd4`): the seed's template choice applied at every prediction's
 centre in a 51 px window, one `PREDICTION_REFINED` row per prediction (§2, §3 "Refined
 predictions", §4, §5, §9). `run_frame.py` turns it on unless `--no-refine-predictions`. With the
-default, `run_roi`'s frame and info are unchanged (checks in §3 "Refined predictions"). The
-hand-off prompt is `ANNOTATION_FRAME_IMPLEMENTATION_PROMPT.md`; where the two disagree, this spec
+default, `run_roi`'s frame and info are unchanged (checks in §3 "Refined predictions"). Later
+on 2026-10-06 sessions were added (code in `6257e49`; §3 "Sessions", `DECISIONS.md` D14):
+`run_iteration` stores each iteration's seed and its k shown predictions, and every later search
+blanks those stored boxes after the template is cut. Production and `find_and_suppress` gained a
+keyword-only `extra_blanks=None` for this (§0). `session_checks.py` passes with 0 divergences.
+The full §7 harness re-run for the frozen-file change was still running when this was committed.
+The hand-off prompt is `ANNOTATION_FRAME_IMPLEMENTATION_PROMPT.md`; where the two disagree, this spec
 governs.
 
 Supersedes `CORNER_COORDINATE_REFACTOR_PROMPT.md`. That prompt changed the internal point
@@ -51,25 +56,35 @@ So the frame is a new module on top, and the layers underneath keep working exac
 
 **Frozen** — signatures, defaults, return types, column names and numerics all unchanged:
 
-- every file in `midog_utils/` other than `production.py`, including `__init__.py`,
-  `FSConfig`, `Seed`, `build_seed`, and `tightened_template_box`'s `(base_size, tx, ty)` return;
-- `production.py` apart from the one addition below;
+- every file in `midog_utils/` other than `production.py` and `find_and_suppress.py`, including
+  `__init__.py`, `FSConfig`, `Seed`, `build_seed`, and `tightened_template_box`'s
+  `(base_size, tx, ty)` return;
+- `production.py` and `find_and_suppress.py` apart from the two additions below;
 - `rerun_bbox3way_postD11.py`, `production_pipeline/run_pipeline.py` and `midog_utils_full/`.
   (`run_pipeline.py` carries a deprecation note in its docstring since 2026-09-24; its code is
   unchanged, which `ast_equal.py` proves.)
   `rerun_bbox3way_postD11.main()` writes tracked CSVs that are this spec's validation reference
   (§7), so validation imports that script's functions and never calls `main()`.
 
-**The one change to existing code.** `production.run_production_pipeline` gains a keyword-only
-argument `always_od: bool = False`. When `True`, the `od` column is computed by production's own
-`chromatin_od` block (`production.py:56-61`: same channel, pad and window) whatever `rank_key` is,
-and the sort still uses `rank_key`'s column. `info["od_computed"]` becomes
-`rank_key == "chromatin_od" or always_od`. With the default, every existing caller gets
-bit-identical output. That is proven in §7, not assumed.
+**The two changes to existing code.** Both are keyword-only arguments whose default is the old
+behaviour, so every existing caller gets bit-identical output. That is proven in §7, not assumed.
+
+- `production.run_production_pipeline` gains `always_od: bool = False` (2026-09-23). When `True`,
+  the `od` column is computed by production's own `chromatin_od` block (`production.py:56-61`:
+  same channel, pad and window) whatever `rank_key` is, and the sort still uses `rank_key`'s
+  column. `info["od_computed"]` becomes `rank_key == "chromatin_od" or always_od`.
+- `find_and_suppress` and `production.run_production_pipeline` gain `extra_blanks=None`
+  (2026-10-06, for sessions, §3 "Sessions"). It is a list of `(cx, cy, side)` squares, which
+  `find_and_suppress.blank_squares` (new) paints into the search copy at `blank_seed_square`'s
+  fill and footprint. This happens right after the seed's own blank, so after the template is cut.
+  - The template, and production's `od`, still read the unblanked channel.
+  - `info` gains `n_extra_blanks` and `n_extra_blanked_px` only when the argument is given;
+    `n_blanked_px` still counts the seed's square alone.
+  - Production passes the argument through and does nothing else with it.
 
 **New.** One module, `midog_utils/annotation_frame.py`, holds everything this spec defines: the
 frame constants and converters, `click_frame`, `box_frame`, `gate_window_side` and `run_roi` (§3,
-§4), `evaluate` (§6) and
+§4), the session layer (`run_iteration` and its helpers, §3 "Sessions"), `evaluate` (§6) and
 `draw_seed_rows` (§7). It calls the frozen `midog_utils` functions and never re-implements them.
 The one thing it ports is the driver's joint-gate click draw, because a package module cannot
 import a repo-root script; §7 defines the port and requires it to reproduce the driver exactly. The
@@ -289,12 +304,38 @@ Per-run metadata — `mpp`, `rank_key`, `refinement_channel`, `base_size`, count
 `info`, not as a column repeated on every row. When concatenating runs across conditions, add the
 discriminating column at concat time, the pattern `rerun_bbox3way_postD11.py:252` uses.
 
+### The session frame
+
+A session (§3 "Sessions") is the frame's columns plus one, `iteration` (int64, last):
+
+- `iteration` is 0 for the first iteration, then 1, 2, … in order, with no gaps.
+- Each iteration stores exactly these rows, in this order:
+  - its human seed;
+  - its refined seed;
+  - the predictions shown, at most k of them, in rank order;
+  - with `refine_predictions`, their refined predictions in the same order.
+
+  That is `2 + 2 × n_shown` rows; `n_shown` is k = 10 unless fewer predictions survive.
+- Predictions beyond the page are not stored.
+- **Row key:** `(iteration, class, object_id, made_by, refined)`. A session holds one ROI, so
+  `file_name` is constant.
+  - `iteration` is required in the key: prediction ids restart at 0 on every run.
+- **Unique across the session:**
+  - human `object_id`s;
+  - the link from a refined prediction to its prediction, which is `(iteration, object_id)`.
+- Every stored algorithm row is a square of odd pixel side (`width + 1`). That is the footprint the
+  next iteration blanks.
+- Read a saved session back with `float_precision='round_trip'`; `check_session` validates it.
+- There is no accept/reject column yet (§8). Every stored prediction was shown, and each is
+  blanked whatever the verdict.
+
 ---
 
 ## 3. The production function
 
     run_roi(rgb, annotations_df, mpp, *, seed_object_id=None, rank_key="tm_score",
-            refinement_channel="gray_inverted", refine_predictions=False) -> tuple[pd.DataFrame, dict]
+            refinement_channel="gray_inverted", refine_predictions=False,
+            extra_blanks=None) -> tuple[pd.DataFrame, dict]
 
 - `rgb` is the ROI's full-resolution RGB array (`dataset.load_roi`) and `mpp` its microns per pixel
   (`dataset.roi_mpp`).
@@ -315,8 +356,11 @@ discriminating column at concat time, the pattern `rerun_bbox3way_postD11.py:252
   `made_by == "HUMAN"` with `class == "MITOTIC_GT"`. Their `object_id`s must be unique. Every
   row's box must give a valid gate window (`gate_window_side`, §4: finite, 19–73 px), checked after
   the column and class checks. Anything else raises. Feeding `run_roi` its own output back would
-  duplicate the row key of every prediction row, and multi-loop input is deferred (§8).
+  duplicate the row key of every prediction row. Multi-loop input goes through `run_iteration`
+  (§3 "Sessions"), which passes `run_roi` only the new seed.
 - Emits **all** post-NMS survivors, not a truncated top-N. Evaluation takes `head(K)`.
+- `extra_blanks` is passed to production unchanged (§0). The gate, the template and `od` never see
+  it.
 
 **Algorithm.** Every numerical step is delegated to frozen code (§0).
 
@@ -335,7 +379,7 @@ discriminating column at concat time, the pattern `rerun_bbox3way_postD11.py:252
      Such clicks are refused anyway, by design (§4, §8).
 3. **Template.** Choose the template spec `(base_size, tx, ty)` and set `refined` as §4 specifies.
 4. **Search.** Call
-   `prod.run_production_pipeline(rgb, SimpleNamespace(base_size=base_size, template_xy=(tx, ty)), mpp, rank_key=rank_key, always_od=(rank_key != "chromatin_od"))`.
+   `prod.run_production_pipeline(rgb, SimpleNamespace(base_size=base_size, template_xy=(tx, ty)), mpp, rank_key=rank_key, always_od=(rank_key != "chromatin_od"), extra_blanks=extra_blanks)`.
    - Production reads only those two seed fields. The fill-geometry and shape-vs-mass parity
      checks already pass the same duck-typed object.
    - `always_od` is set only where it changes anything. `chromatin_od` computes `od` anyway, so
@@ -416,6 +460,122 @@ Checked 2026-10-06:
   3 near an edge raise, as seeds there do.
 - `box_checks.py`: 0 divergences. §7 harness, smoke-tier ROIs 300.tiff and 007.tiff: 0
   divergences. Both were run with output redirected, so the committed files are untouched.
+
+### Sessions (`run_iteration`)
+
+Added 2026-10-06 at the user's request (`DECISIONS.md` D14). The human boxes a mitosis and sees k
+candidates, then boxes another, and so on. Every box an earlier iteration stored is blanked before
+the next search, so the same objects are not proposed again.
+
+    run_iteration(rgb, session, mpp, seed_df, *, k=10, check_overlap=True, rank_key="tm_score",
+                  refinement_channel="gray_inverted", refine_predictions=True)
+        -> tuple[session, frame, info]
+
+It is two wrappers around an unchanged `run_roi`.
+
+1. **`prepare_iteration(session, seed_df, *, check_overlap=True)`, the input wrapper.**
+   - It validates the session (`check_session`, §2 "The session frame"). `None` or an empty session
+     is iteration 0.
+   - It validates the new seed: exactly one human row, built by `click_frame` or `box_frame`, on the
+     session's ROI, with an `object_id` no stored human row uses. `next_object_id` gives the next
+     free id.
+   - The iteration number is the session's largest plus one.
+   - It lists the squares to blank (`stored_blanks`):
+     - every iteration's refined seed (the human row is never blanked, as D11 blanks only the
+       current seed's template footprint);
+     - every stored prediction's refined box: the gate's box when it refined, the prediction's own
+       51 px box on fallback;
+     - the prediction's own box, if that iteration stored no refined predictions.
+   - A square is its row's footprint: centre `x_tl + width / 2`, side `width + 1` (§1's +1 rule).
+2. **The overlap guard (`check_overlap`).** It raises when the new seed's box contains the centre of
+   any stored box: a human seed, a refined seed, a prediction or a refined prediction.
+   - Bounds are inclusive: `x_tl ≤ cx ≤ x_tl + width`, and likewise on y.
+   - A click's box is its 50 px `CLICK_BOX`.
+   - Nearness alone is allowed (user, 2026-10-06). A box beside a stored one may well hold another
+     mitosis, and the human is looking at the image.
+   - `check_overlap=False` (`run_frame.py --allow-overlap`) lets such a seed run. Its template is
+     still clean, because the blanks come after the cut.
+3. **`run_roi(..., extra_blanks=squares)`.** Production blanks the squares in its search copy,
+   beside the seed's own (§0). With no session the list is `None`, so iteration 0 is exactly
+   `run_roi`'s run: the same frame and info, no extra keys.
+4. **`merge_iteration(session, frame, info, blanks, iteration, *, k=10)`, the output wrapper.**
+   - A prediction is a **repeat** when its centre is within the match radius
+     (`info["match_radius_px"]`, 7.5 µm) of a blanked square's centre. Examples are a leak beside a
+     blanked object, or the uncovered half of a split figure. Repeats are skipped, never shown or
+     stored (user, 2026-10-06).
+   - The page is the first k non-repeats in rank order. The iteration stores its two seed rows, the
+     page and the page's refined rows, with `iteration` set.
+   - Earlier iterations are returned unchanged.
+
+Returns the new session; `run_roi`'s full frame for this iteration (every survivor, for scoring and
+plots); and `run_roi`'s info plus:
+- `iteration`, `k`, `n_shown`, `shown_object_ids`;
+- `repeat_object_ids`: every prediction flagged, at any rank;
+- `n_repeats_in_page`: repeats among the raw first k, the count of slots blanking alone would have
+  wasted;
+- `session_blanks`: the squares, with their `iteration`, `class` and `object_id`.
+
+From iteration 1 on, production's info also holds `n_extra_blanks` and `n_extra_blanked_px` (§5).
+
+**What it does not do.**
+- **No multi-round scoring.** `evaluate` excludes only the current seed's `ann_id`, and it reads the
+  raw list, not the page. So `run_frame.py` scores iteration 0 only (§8).
+- **No accept/reject column** (§8).
+- **The blank's fill is unchanged.** It is still D11's: the channel's minimum, which equals glass.
+  Neighbours of a blanked box therefore see a glass-like surround. That is deferred (user,
+  2026-10-06; `FUTURE_IDEAS.md` H7). The fill and the template refinement are meant to be
+  swappable.
+
+**Command line.** `run_frame.py` runs every call as an iteration.
+- Without `--session-csv` it is iteration 0, and the frame, info and scoring are as before.
+- `--session-csv PATH` continues a session.
+- `--save-session PATH` writes it, and may name the same file.
+- `--k` sets the page (default 10), and `--allow-overlap` turns the guard off.
+- `--object-id` defaults to the session's next free id.
+- `--save-csv` still writes this iteration's full `run_roi` frame.
+- From iteration 1 on, the figure draws the page shown and, in orange, the blanked squares.
+
+Checked 2026-10-06, `validation/annotation_frame/session_checks.py` (`out/session/session.json`),
+0 divergences:
+- **S1, iteration 0.** On 4 runs (300.tiff seed 0 on gray, untightened and a 41 px box, and
+  245.tiff seed 0 on hematoxylin), it equals `run_roi`: frame, info and prediction table, with no
+  production key added. It stores exactly the seed rows and the first k predictions with their
+  refined rows. An empty session equals `None`.
+- **S2, `blank_squares`.** It paints exactly `blank_seed_square`'s footprint on 7 squares, with
+  half-integer centres and image-edge clipping. It counts the union of overlapping squares once.
+  An empty list changes nothing. Even, zero and fractional sides and non-finite centres raise.
+- **S3, production on 300.tiff.** The squares include one covering the template's whole 73 px
+  patch.
+  - The template patch is identical with and without the blanks (a spy on `build_augmentations`).
+  - Every square is at the fill value in the image `fused_response` correlates.
+  - The counts are right, and `n_blanked_px` is still 49².
+  - `od` is identical on every detection the two runs share.
+  - An empty list gives the same detections, and info plus two zero counts.
+- **S4, three iterations** on each of 300.tiff and 245.tiff (validation-draw seeds 0–2):
+  - the blanks are exactly the earlier refined seeds and stored refined predictions (11 per
+    iteration);
+  - the frame equals `run_roi` with those squares;
+  - the stored page is the first k non-repeats, and no stored prediction lies within the radius of
+    a blank;
+  - earlier iterations are untouched;
+  - a CSV round trip keeps every value and dtype, and the last iteration re-run from the CSV
+    equals the in-memory one.
+- **S5, the guard and the inputs.**
+  - On a hand-built session: boxes containing the stored centre raise, including exactly on the
+    edge; boxes 0.5 px beyond it pass. A drawn 73 × 21 box raises and passes with
+    `check_overlap=False`.
+  - On 245.tiff a click on a stored prediction raises, and with the guard off it runs as
+    iteration 1.
+  - Each of these raises: a used id, another ROI's seed, a two-row seed, k = 0, and nine malformed
+    sessions.
+- **S6.** Without refined predictions, the stored predictions' own 51 px boxes are blanked.
+- **Logged, not judged:** how many of the same seed's raw first 10 would have repeated a stored box
+  without the blanks, against with them.
+
+  | | 300.tiff it. 1 | 300.tiff it. 2 | 245.tiff it. 1 | 245.tiff it. 2 |
+  |---|---|---|---|---|
+  | without the blanks | 0 | 3 | 1 | 2 |
+  | with them | 0 | 0 | 0 | 1 (skipped) |
 
 ### What the pipeline consumes from the human row
 
@@ -574,6 +734,14 @@ dict, with every key kept unchanged:
 - `n_augmentations`, `n_blanked_px`, `pad_px`, `t_match_s`, `deep_floor_median`,
   `deep_floor_mad`, `score_threshold_used`, `n_peaks`, `n_after_nms`, `n_detections`,
   `max_detection_score`, `t_postprocess_s`, `max_peaks_binding`, `od_computed`, `rank_key`.
+- Only when `extra_blanks` is given (§0; a session from iteration 1 on):
+  - `n_extra_blanks`: the number of squares;
+  - `n_extra_blanked_px`: the distinct pixels they cover, overlaps counted once. The seed's own
+    `n_blanked_px` is unchanged.
+
+**Added by `run_iteration`** (§3 "Sessions"), on top of `run_roi`'s: `iteration`, `k`, `n_shown`,
+`shown_object_ids`, `repeat_object_ids`, `n_repeats_in_page` and `session_blanks`. None of them may
+overwrite a `run_roi` key.
 
 **Added by `run_roi`.** None of these may overwrite a production key.
 
@@ -952,15 +1120,19 @@ Together these confirm the environment for both rank keys.
 
 ## 8. Deliberately deferred
 
-- **Multi-loop sessions.** The schema does not block them, but `run_roi` does not accept a
-  previous run's output as input (§3 "Input rows"). A second loop passes only the session's
-  `HUMAN` rows, and `seed_object_id`, since inference needs exactly one `HUMAN` `MITOTIC_GT` row.
-  The caller concatenates each run's `ALGORITHM` rows into the session frame, adding a run
-  discriminator column at concat time (§2): predictions from two runs share `object_id`s.
-  No accept/reject verdict column is defined yet. When one is added, a verdict must name its
-  prediction by run and by `(class == "PREDICTION", object_id)`; `object_id` alone is ambiguous
-  across id spaces (§2). A verdict on a prediction covers its `PREDICTION_REFINED` row too: same
-  run, same `object_id`.
+- **Multi-loop sessions: built 2026-10-06** (§3 "Sessions", D14). `run_iteration` passes
+  `run_roi` only the new seed and adds the run discriminator, `iteration`. What is still deferred:
+  - **An accept/reject verdict column.** No verdict is needed for blanking, since every stored
+    prediction was shown and each is blanked whatever the verdict. When one is added:
+    - a verdict must name its prediction by `(iteration, class == "PREDICTION", object_id)`;
+      `object_id` alone is ambiguous across id spaces and iterations (§2);
+    - a verdict on a prediction covers its `PREDICTION_REFINED` row too: same iteration, same
+      `object_id`.
+  - **Multi-round scoring.** `evaluate` excludes only the current seed's `ann_id` and reads the raw
+    list. A session scorer would score the page shown against ground truth without every mitosis
+    already found. Until then `run_frame.py` scores iteration 0 only.
+  - **The blank's fill value.** It is D11's minimum, which equals glass.
+  - **Paging within one iteration.** k is fixed when the iteration is stored.
 - **A drawn-box seed's window for the refined predictions.** They use their own 51 px box
   whatever the seed (user, 2026-10-06).
 - **A look-alike or rejected class** in the frame. Today ground truth for evaluation stays in the
@@ -1073,3 +1245,17 @@ the ones to review.
 | 3 | The window is 51 px, the prediction's own box, for every seed source. | decision, user 2026-10-06 |
 | 4 | `near_edge` added: a prediction cannot raise at the edge the way a seed does. | correction |
 | 3 | `run_frame.py` refines by default; `run_roi` does not, so validation is unchanged. | decision |
+
+**Additions, 2026-10-06 (sessions):**
+
+| § | addition | tag |
+| --- | --- | --- |
+| 0, 3 | `extra_blanks=None` on `find_and_suppress` and `run_production_pipeline`, through `run_roi`: stored boxes are blanked in the search copy after the template is cut. Alternative: blank the RGB image before `run_roi`. Rejected because it would reach the seed's gate and template, the refined-prediction gate and `od`. | decision, user 2026-10-06 |
+| 2, 3 | `run_iteration` = `prepare_iteration` + `run_roi` + `merge_iteration`. The session is the frame plus `iteration` (0, 1, …). The new seed is an argument; the session holds completed iterations only. | decision, user 2026-10-06 |
+| 2, 3 | Only the k shown predictions (default 10) and their refined rows are stored, and only they are blanked. `run_roi` emits every survivor, so blanking all of them would erase mitoses nobody saw: 64 at ranks 10–99 on 300.tiff's seed 0. | decision, user 2026-10-06 |
+| 3 | Blanked per iteration: the refined seed and each stored refined prediction (the 51 px box on fallback, or the prediction's own box without refined rows). Human rows are not blanked. | decision, user 2026-10-06 |
+| 3 | The guard raises when the new box contains a stored centre, bounds inclusive. Alternative: a match-radius rule. Rejected: a box near a stored one may hold another mitosis. | decision, user 2026-10-06 |
+| 3 | Repeats (within the match radius of a blanked centre) are skipped from the page, not shown with a flag. | decision, user 2026-10-06 |
+| 3 | A used human `object_id` raises; `run_frame.py --object-id` defaults to the next free id. | decision, user 2026-10-06 |
+| 3 | `run_frame.py` scores iteration 0 only. Later iterations would score the raw list against ground truth still holding earlier finds. | decision |
+| 3 | `--save-csv` keeps writing the full `run_roi` frame. The session gets its own `--save-session`. | decision |

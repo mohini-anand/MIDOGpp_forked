@@ -1062,6 +1062,58 @@ or a better box rule (e.g. the saliency recipe, or the seed's box size carried o
 
 ---
 
+## D14 — Multi-iteration sessions blank every stored box in the search
+
+**Date:** 2026-10-06
+
+**Status:** applied 2026-10-06; code in `6257e49`. Spec: `ANNOTATION_DATAFRAME_SPEC.md` §0, §2 "The
+session frame", §3 "Sessions", §5, §8, §9. Checks: `validation/annotation_frame/session_checks.py`
+(0 divergences). The full §7 harness re-run that proves the frozen files' default path unchanged
+was still running when this entry was committed. Its result goes in the research log.
+
+**The decision.** `run_iteration(rgb, session, mpp, seed_df, *, k=10, ...)` runs one iteration of
+the box → verify → box loop.
+- **The session** is the frame plus an `iteration` column (0, 1, …).
+- **What is stored:** each iteration's human seed, its refined seed, and the **k shown predictions**
+  (default 10) with their refined rows. Nothing beyond the page is stored.
+- **What the next search blanks:** every stored refined seed and refined prediction.
+  - The blanks go into production's search copy, **after the template is cut**, with D11's fill and
+    footprint (`extra_blanks`, a keyword-only argument on `find_and_suppress` and
+    `run_production_pipeline`).
+  - The gates, the template and `od` read the unblanked image.
+- **Repeats:** a prediction within the match radius of a blanked centre is skipped from the page.
+- **The guard:** a new box that contains a stored box's centre raises, unless
+  `check_overlap=False`.
+
+**Why.**
+- The product loop needs the next click's list to skip what the human has already seen
+  (`annotatedx-product-goal`).
+- **Storing only the page.** `run_roi` returns every post-NMS survivor (82–100), so blanking all of
+  them would erase unseen mitoses: 64 at ranks 10–99 on 300.tiff's seed 0.
+- **Blanking after the cut.** Blanking the RGB image before `run_roi` would also change four things:
+  - the new seed's gate;
+  - its template, which would be all fill if the human boxed an accepted candidate;
+  - the refined-prediction gate;
+  - `od`.
+- **The repeat skip** catches what a blank cannot remove: a peak that survives near a blanked object
+  once that object's peak is gone, and the uncovered part of a split figure. On 300.tiff and
+  245.tiff, iterations 1–2, the same seeds' raw first 10 would have held 0–3 repeats without the
+  blanks, and held 0–1 with them.
+
+**Cost.**
+- Two frozen files gain a keyword-only argument. With the default, outputs are bit-identical
+  (§7 harness).
+- The blank fill is still D11's minimum, which equals glass. Under TM_CCOEFF a nucleus next to a
+  blank therefore sees a glass-like surround. That is untested (`FUTURE_IDEAS.md` H7) and deferred
+  by the user.
+- Multi-round scoring is not built, so `run_frame.py` scores iteration 0 only.
+
+**What would change my mind.** A multi-round simulation showing that excluding shown candidates
+from the list (no image blanking) gives more mitoses per page than blanking, for example because
+neighbours of blanks get promoted.
+
+---
+
 ## Cross-references
 
 | decision | primary evidence |
@@ -1079,6 +1131,7 @@ or a better box rule (e.g. the saliency recipe, or the seed's box size carried o
 | D11 image-blanking replaces D10's seed-disc mask | **[`SELF_HIT_MASKING_PLAN.md`](SELF_HIT_MASKING_PLAN.md)** (rewritten for this design) — the change, pre-registered and independently re-derived numbers, and gates; `../cleanup_harness/selfmask/image_blank_design/` (the patch, `imageblank_check.py`, expected outputs, the design session's own `blank_seed_variant_*.py`/logs/CSVs, this verification session's scripts); `../cleanup_harness/runs/imageblank_ref_pre`, `imageblank_ref_post` (captures); `../cleanup_harness/selfmask/SELF_HIT_MASKING_PLAN.valid_mask_disc_design.md` (D10's own design, archived unchanged) |
 | D12 a human's box sets the Otsu window and fallback | `midog_utils/annotation_frame.py` (`gate_window_side`, `box_frame`, `_template_choice`); `ANNOTATION_DATAFRAME_SPEC.md` §1, §3, §4, §9; `SINGLE_ENTRY_POINT_PLAN.md`; `box_window_probe.py` and `results/box_window_probe.csv`; `validation/annotation_frame/box_checks.py` and `out/box/box.json`; `Research Logs/2026-09-24-single-entry-point-and-box-seed.md` |
 | D13 every prediction gets the seed's refinement | `midog_utils/annotation_frame.py` (`_refined_prediction_rows`, `run_roi`); `ANNOTATION_DATAFRAME_SPEC.md` §2–§6, §9; `validation/annotation_frame/refine_checks.py` and `out/refine/refine.json` |
+| D14 sessions blank every stored box | `midog_utils/annotation_frame.py` (`run_iteration`, `prepare_iteration`, `merge_iteration`, `stored_blanks`, `check_session`); `midog_utils/find_and_suppress.py` (`blank_squares`, `extra_blanks`); `ANNOTATION_DATAFRAME_SPEC.md` §0, §2, §3 "Sessions", §5, §8, §9; `validation/annotation_frame/session_checks.py` and `out/session/session.json`; `Research Logs/2026-10-06-multi-iteration-sessions.md` |
 
 ## Still open, deliberately
 
