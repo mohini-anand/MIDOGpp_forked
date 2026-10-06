@@ -1,0 +1,317 @@
+{
+ "checks": {
+  "R1 flag off adds no info keys": {
+   "n_runs": 24,
+   "n_rows": 0,
+   "n_values": 24,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "R1 flag-on head equals the flag-off frame": {
+   "n_runs": 24,
+   "n_rows": 2430,
+   "n_values": 26730,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "R1 flag-on info equals flag-off info apart from the new keys": {
+   "n_runs": 24,
+   "n_rows": 0,
+   "n_values": 768,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "R2 one PREDICTION_REFINED row per prediction, object_id = rank, score and od NaN": {
+   "n_runs": 24,
+   "n_rows": 2382,
+   "n_values": 24,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "R2 refined flags match info": {
+   "n_runs": 24,
+   "n_rows": 0,
+   "n_values": 24,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "R3 row key unique": {
+   "n_runs": 24,
+   "n_rows": 0,
+   "n_values": 24,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "R4 a fallback row is its prediction's box": {
+   "n_runs": 24,
+   "n_rows": 886,
+   "n_values": 3544,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "R4 near_edge is exactly the predictions within 36 px of an edge": {
+   "n_runs": 24,
+   "n_rows": 0,
+   "n_values": 24,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "R4 refusal reasons: none when refined, a defined reason on every gated fallback": {
+   "n_runs": 24,
+   "n_rows": 0,
+   "n_values": 24,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "R4 offset_px from the prediction centre": {
+   "n_runs": 24,
+   "n_rows": 0,
+   "n_values": 24,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "R5 evaluate ignores the refined rows": {
+   "n_runs": 18,
+   "n_rows": 0,
+   "n_values": 18,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "R6 the seed path at a prediction's centre gives its refined box": {
+   "n_runs": 57,
+   "n_rows": 0,
+   "n_values": 57,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "R6 a near-edge prediction raises as a seed": {
+   "n_runs": 0,
+   "n_rows": 0,
+   "n_values": 3,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "R7 no detections gives an empty, schema-valid block": {
+   "n_runs": 0,
+   "n_rows": 0,
+   "n_values": 1,
+   "n_diverged": 0,
+   "detail": []
+  }
+ },
+ "runs": [
+  {
+   "run": "300.tiff midog0 gray_inverted tm_score",
+   "n_detections": 100,
+   "n_predictions_refined": 99,
+   "reasons": {
+    "near_edge": 1
+   },
+   "t_refine_predictions_s": 0.13
+  },
+  {
+   "run": "300.tiff midog0 gray_inverted chromatin_od",
+   "n_detections": 100,
+   "n_predictions_refined": 99,
+   "reasons": {
+    "near_edge": 1
+   },
+   "t_refine_predictions_s": 0.1
+  },
+  {
+   "run": "300.tiff midog0 hematoxylin_od tm_score",
+   "n_detections": 100,
+   "n_predictions_refined": 97,
+   "reasons": {
+    "near_edge": 2,
+    "gate_refused": 1
+   },
+   "t_refine_predictions_s": 0.07
+  },
+  {
+   "run": "300.tiff midog0 hematoxylin_od chromatin_od",
+   "n_detections": 100,
+   "n_predictions_refined": 97,
+   "reasons": {
+    "near_edge": 2,
+    "gate_refused": 1
+   },
+   "t_refine_predictions_s": 0.07
+  },
+  {
+   "run": "300.tiff midog0 None tm_score",
+   "n_detections": 100,
+   "n_predictions_refined": 0,
+   "reasons": {},
+   "t_refine_predictions_s": 0.0
+  },
+  {
+   "run": "300.tiff midog0 None chromatin_od",
+   "n_detections": 100,
+   "n_predictions_refined": 0,
+   "reasons": {},
+   "t_refine_predictions_s": 0.0
+  },
+  {
+   "run": "300.tiff box41 gray_inverted tm_score",
+   "n_detections": 100,
+   "n_predictions_refined": 98,
+   "reasons": {
+    "near_edge": 2
+   },
+   "t_refine_predictions_s": 0.13
+  },
+  {
+   "run": "300.tiff box41 gray_inverted chromatin_od",
+   "n_detections": 100,
+   "n_predictions_refined": 98,
+   "reasons": {
+    "near_edge": 2
+   },
+   "t_refine_predictions_s": 0.13
+  },
+  {
+   "run": "300.tiff box41 hematoxylin_od tm_score",
+   "n_detections": 100,
+   "n_predictions_refined": 97,
+   "reasons": {
+    "near_edge": 2,
+    "gate_refused": 1
+   },
+   "t_refine_predictions_s": 0.09
+  },
+  {
+   "run": "300.tiff box41 hematoxylin_od chromatin_od",
+   "n_detections": 100,
+   "n_predictions_refined": 97,
+   "reasons": {
+    "near_edge": 2,
+    "gate_refused": 1
+   },
+   "t_refine_predictions_s": 0.07
+  },
+  {
+   "run": "300.tiff box41 None tm_score",
+   "n_detections": 100,
+   "n_predictions_refined": 0,
+   "reasons": {},
+   "t_refine_predictions_s": 0.0
+  },
+  {
+   "run": "300.tiff box41 None chromatin_od",
+   "n_detections": 100,
+   "n_predictions_refined": 0,
+   "reasons": {},
+   "t_refine_predictions_s": 0.0
+  },
+  {
+   "run": "013.tiff midog0 gray_inverted tm_score",
+   "n_detections": 98,
+   "n_predictions_refined": 87,
+   "reasons": {
+    "gate_refused": 8,
+    "near_edge": 3
+   },
+   "t_refine_predictions_s": 0.08
+  },
+  {
+   "run": "013.tiff midog0 gray_inverted chromatin_od",
+   "n_detections": 98,
+   "n_predictions_refined": 87,
+   "reasons": {
+    "gate_refused": 8,
+    "near_edge": 3
+   },
+   "t_refine_predictions_s": 0.07
+  },
+  {
+   "run": "013.tiff midog0 hematoxylin_od tm_score",
+   "n_detections": 98,
+   "n_predictions_refined": 84,
+   "reasons": {
+    "gate_refused": 11,
+    "near_edge": 3
+   },
+   "t_refine_predictions_s": 0.07
+  },
+  {
+   "run": "013.tiff midog0 hematoxylin_od chromatin_od",
+   "n_detections": 98,
+   "n_predictions_refined": 84,
+   "reasons": {
+    "gate_refused": 11,
+    "near_edge": 3
+   },
+   "t_refine_predictions_s": 0.07
+  },
+  {
+   "run": "013.tiff midog0 None tm_score",
+   "n_detections": 100,
+   "n_predictions_refined": 0,
+   "reasons": {},
+   "t_refine_predictions_s": 0.0
+  },
+  {
+   "run": "013.tiff midog0 None chromatin_od",
+   "n_detections": 100,
+   "n_predictions_refined": 0,
+   "reasons": {},
+   "t_refine_predictions_s": 0.0
+  },
+  {
+   "run": "245.tiff midog0 gray_inverted tm_score",
+   "n_detections": 98,
+   "n_predictions_refined": 89,
+   "reasons": {
+    "gate_refused": 7,
+    "near_edge": 2
+   },
+   "t_refine_predictions_s": 0.09
+  },
+  {
+   "run": "245.tiff midog0 gray_inverted chromatin_od",
+   "n_detections": 98,
+   "n_predictions_refined": 89,
+   "reasons": {
+    "gate_refused": 7,
+    "near_edge": 2
+   },
+   "t_refine_predictions_s": 0.09
+  },
+  {
+   "run": "245.tiff midog0 hematoxylin_od tm_score",
+   "n_detections": 99,
+   "n_predictions_refined": 97,
+   "reasons": {
+    "gate_refused": 1,
+    "near_edge": 1
+   },
+   "t_refine_predictions_s": 0.08
+  },
+  {
+   "run": "245.tiff midog0 hematoxylin_od chromatin_od",
+   "n_detections": 99,
+   "n_predictions_refined": 97,
+   "reasons": {
+    "gate_refused": 1,
+    "near_edge": 1
+   },
+   "t_refine_predictions_s": 0.08
+  },
+  {
+   "run": "245.tiff midog0 None tm_score",
+   "n_detections": 98,
+   "n_predictions_refined": 0,
+   "reasons": {},
+   "t_refine_predictions_s": 0.0
+  },
+  {
+   "run": "245.tiff midog0 None chromatin_od",
+   "n_detections": 98,
+   "n_predictions_refined": 0,
+   "reasons": {},
+   "t_refine_predictions_s": 0.0
+  }
+ ],
+ "t_total_s": 446.3
+}

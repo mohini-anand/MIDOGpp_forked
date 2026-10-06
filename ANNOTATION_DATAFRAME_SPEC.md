@@ -11,7 +11,11 @@ D12). Clicks and MIDOG rows, all 50 wide, keep the 51 px window and fallback. Th
 harness was re-run after that change: 0 divergences on all 49 ROIs (960,825 values) and on the
 named checks, every regenerated per-ROI result identical to the committed one apart from timings;
 the only changed named output is the edge-error wording. Box-specific checks are in
-`validation/annotation_frame/box_checks.py` (`out/box/box.json`). The
+`validation/annotation_frame/box_checks.py` (`out/box/box.json`). On 2026-10-06 `run_roi` gained
+`refine_predictions` (default `False`; code in `54d1bd4`): the seed's template choice applied at every prediction's
+centre in a 51 px window, one `PREDICTION_REFINED` row per prediction (§2, §3 "Refined
+predictions", §4, §5, §9). `run_frame.py` turns it on unless `--no-refine-predictions`. With the
+default, `run_roi`'s frame and info are unchanged (checks in §3 "Refined predictions"). The
 hand-off prompt is `ANNOTATION_FRAME_IMPLEMENTATION_PROMPT.md`; where the two disagree, this spec
 governs.
 
@@ -212,23 +216,29 @@ distinction to that one function.
 
 Column order is the frame's column order.
 
-| column | dtype | human seed | refined seed | prediction |
-| --- | --- | --- | --- | --- |
-| `file_name` | str | ROI file name | same | same |
-| `x_tl`, `y_tl` | float64 | MIDOG `x1, y1` verbatim, as `cx - w / 2`, `cy - h / 2`; a click: `cx - 25.0`; a drawn box: snapped by `box_frame` (§3), integer-valued | footprint TL `int(round(tx)) - base_size // 2` (integer-valued) | `cx - 25.0`, `cy - 25.0` |
-| `width`, `height` | float64 | `w`, `h` (50.0; a click: 50.0; a drawn box: its odd pixel count − 1) | `base_size - 1` | `BOX_SIZE` (50.0) |
-| `class` | str | `MITOTIC_GT` | `MITOTIC_GT` | `PREDICTION` |
-| `object_id` | int64 | MIDOG `ann_id` in validation; in production, any integer unique among the ROI's `HUMAN` `MITOTIC_GT` rows | **same** as the human row | 0, 1, 2, … = production's `rank` |
-| `made_by` | str | `HUMAN` | `ALGORITHM` | `ALGORITHM` |
-| `refined` | bool | `False` | `True` when the gate accepted; `False` on fallback or when no refinement was requested (§4) | `False` |
-| `current_time` | str, ISO-8601 UTC, microseconds | click time (validation: when `draw_seed_rows` built the row) | refinement finished | prediction stage finished |
-| `score` | float64 | `NaN` | `NaN` | fused template-match score, upcast from production's float32 |
-| `od` | float64 | `NaN` | `NaN` | chromatin optical density |
+| column | dtype | human seed | refined seed | prediction | refined prediction (`refine_predictions`, §3) |
+| --- | --- | --- | --- | --- | --- |
+| `file_name` | str | ROI file name | same | same | same |
+| `x_tl`, `y_tl` | float64 | MIDOG `x1, y1` verbatim, as `cx - w / 2`, `cy - h / 2`; a click: `cx - 25.0`; a drawn box: snapped by `box_frame` (§3), integer-valued | footprint TL `int(round(tx)) - base_size // 2` (integer-valued) | `cx - 25.0`, `cy - 25.0` | footprint TL of the prediction's template choice, as for the refined seed (integer-valued) |
+| `width`, `height` | float64 | `w`, `h` (50.0; a click: 50.0; a drawn box: its odd pixel count − 1) | `base_size - 1` | `BOX_SIZE` (50.0) | `base_size - 1` (50.0 on fallback) |
+| `class` | str | `MITOTIC_GT` | `MITOTIC_GT` | `PREDICTION` | `PREDICTION_REFINED` |
+| `object_id` | int64 | MIDOG `ann_id` in validation; in production, any integer unique among the ROI's `HUMAN` `MITOTIC_GT` rows | **same** as the human row | 0, 1, 2, … = production's `rank` | **same** as its prediction |
+| `made_by` | str | `HUMAN` | `ALGORITHM` | `ALGORITHM` | `ALGORITHM` |
+| `refined` | bool | `False` | `True` when the gate accepted; `False` on fallback or when no refinement was requested (§4) | `False` | as the refined seed, plus `False` for a prediction near an edge (§4) |
+| `current_time` | str, ISO-8601 UTC, microseconds | click time (validation: when `draw_seed_rows` built the row) | refinement finished | prediction stage finished | prediction refinement finished |
+| `score` | float64 | `NaN` | `NaN` | fused template-match score, upcast from production's float32 | `NaN` |
+| `od` | float64 | `NaN` | `NaN` | chromatin optical density | `NaN` |
 
 **Conventions.**
 
 - `class` stays `MITOTIC_GT` on the refined row: it is the same object. `made_by` and `refined`
   carry the provenance.
+- A refined prediction is the exception: it gets its own class, `PREDICTION_REFINED` (user,
+  2026-10-06). `made_by` cannot tell it from its prediction, since both are `ALGORITHM`, so in
+  class `PREDICTION` every fallback row (`refined=False`) would repeat its prediction's row key
+  `(file_name, PREDICTION, rank, ALGORITHM, False)`, and duplicate prediction ids would break
+  `evaluate` (§6). Its `object_id` is its prediction's rank: that is the link between the two
+  rows, across the two classes.
 - `object_id` is an **entity** id, not a row key, and it is scoped by `class`. An entity is
   `(file_name, class, object_id)`: ground truth and predictions are separate id spaces that share
   one column.
@@ -250,15 +260,17 @@ Column order is the frame's column order.
 - `refined` is a real bool, never the strings `"TRUE"` / `"FALSE"`.
 - `class` is a Python keyword, so read it as `df["class"]`, never `df.class`.
 - `current_time` has one value per stage, repeated across that stage's rows. Write it as
-  `datetime.now(timezone.utc).isoformat(timespec="microseconds")`. Of the two stamps `run_roi`
-  writes itself, the refinement stamp is never later than the prediction stamp. Input rows keep
+  `datetime.now(timezone.utc).isoformat(timespec="microseconds")`. Of the stamps `run_roi`
+  writes itself, the refinement stamp is never later than the prediction stamp, nor that than the
+  prediction-refinement stamp. Input rows keep
   whatever time the caller gave them. Stamps are not guaranteed to be distinct, and every
   regression comparison excludes the column by name (§7).
 - `score` and `od` are **both always computed**, whatever ranks the list. `rank_key` chooses the
   sort order only. `info["od_computed"]` is therefore always `True`.
 - Row order: the input rows in input order, then the refined seed, then the predictions in exactly
   the order `run_production_pipeline` returned them; `object_id` is that position, which equals
-  production's `rank`. `run_roi` never re-sorts. Production breaks ties with a stable mergesort
+  production's `rank`. With `refine_predictions`, the refined predictions follow, in the same
+  order. `run_roi` never re-sorts. Production breaks ties with a stable mergesort
   over the NMS order, which is score descending, then x ascending, then y ascending (the lexsort in
   `extract_peaks`). The reference top-30s already contain 3 exact `od` ties, and any re-sort could
   reorder them.
@@ -282,7 +294,7 @@ discriminating column at concat time, the pattern `rerun_bbox3way_postD11.py:252
 ## 3. The production function
 
     run_roi(rgb, annotations_df, mpp, *, seed_object_id=None, rank_key="tm_score",
-            refinement_channel="gray_inverted") -> tuple[pd.DataFrame, dict]
+            refinement_channel="gray_inverted", refine_predictions=False) -> tuple[pd.DataFrame, dict]
 
 - `rgb` is the ROI's full-resolution RGB array (`dataset.load_roi`) and `mpp` its microns per pixel
   (`dataset.roi_mpp`).
@@ -333,6 +345,8 @@ discriminating column at concat time, the pattern `rerun_bbox3way_postD11.py:252
    detection, in returned order. Each prediction row gets `x_tl = cx - BOX_SIZE / 2` and
    `y_tl = cy - BOX_SIZE / 2`, from production's integer `cx` and `cy`, and `object_id = rank`.
    Stamp both stages.
+   With `refine_predictions`, append one `PREDICTION_REFINED` row per prediction (below) and stamp
+   that stage too.
 6. **Info.** Assemble `info` (§5).
 
 For `refinement_channel="hematoxylin_od"`, the hematoxylin channel is computed twice: once here for
@@ -341,12 +355,67 @@ call. It is accepted to keep production frozen.
 
 **Row-count contract.** The returned frame has exactly `len(annotations_df) + 1 + n_detections`
 rows: the input rows, the refined seed, and one row per post-NMS survivor. In the single-click case
-that is `2 + n_detections`; the single-click case is the validation path and today's production.
+that is `2 + n_detections`; the single-click case is the validation path. With
+`refine_predictions` it is `len(annotations_df) + 1 + 2 * n_detections`: one refined row per
+prediction, accepted or not.
 Across the 441 reference runs, `n_detections` was 82–100 (median 99), so a frame typically has
 about 101 rows.
 
 Post-NMS survivors are the only detections that reach the frame. The pre-NMS peak count `n_peaks` is
 capped at `max_peaks = 100` (D9) inside `extract_peaks`, before NMS runs, and never becomes rows.
+
+### Refined predictions (`refine_predictions=True`)
+
+Added 2026-10-06 at the user's request: every prediction shown to the verifier carries the box the
+seed's own refinement would give it, stored whatever the human later decides.
+
+- **What runs.** For each post-NMS survivor, in production's order, `run_roi` calls the seed's
+  template choice, `_template_choice` (§4), with the seed's `refinement_channel`, at the
+  prediction's centre `(cx, cy)`, with `W = gate_window_side(50, 50) = 51`: the prediction row's
+  own box. A drawn-box seed's `W` is not carried over (user, 2026-10-06). The row's box is
+  `footprint_box(base_size, tx, ty)`, as for the refined seed.
+- **All of them.** Every survivor is refined (user, 2026-10-06), not only the first page. Each
+  gets exactly one row, accepted or not. On fallback the row's box equals its prediction's box
+  exactly (51 px at production's integer centre).
+- **Near an edge.** Predictions can lie anywhere, but the seed's template choice assumes step 2's
+  36 px margin and raises `RuntimeError` without it. A prediction centre failing step 2's
+  predicate is therefore not gated: fallback, reason `"near_edge"` (§4).
+- **Nothing downstream changes.**
+  - The refinement runs after production returns, so nothing is re-matched or re-sorted.
+  - `score` and `od` stay `NaN`. They belong to the prediction row and were measured at the
+    prediction's centre, not at the refined one.
+  - `evaluate` takes only `class == "PREDICTION"` rows (§6), so metrics are identical with and
+    without refined rows.
+- **Cost.** The gate image is converted once and shared with the seed's gate. With the flag on it
+  stays in memory through production's search: one float32 copy of the ROI, about 124 MB on
+  300.tiff. With the flag off it is freed before the search, as before. On top of that, about 1 ms per prediction: on 300.tiff,
+  013.tiff and 245.tiff, 0.08–0.17 s for 98–100 predictions, against 3–8 s for the run.
+- **Default off.** With the default, `run_roi`'s frame and info are exactly as before, including
+  `info`'s key set, so §7's harness and `box_checks.py` need no change.
+
+Checked 2026-10-06:
+
+- Flag off against a capture taken before the edit, once (a scratch script; it needs the
+  pre-edit code, so it cannot be re-run). 24 runs: 300.tiff (validation seed 0 and a 41 px drawn
+  box), 013.tiff and 245.tiff (seed 0), each × three channels × two rank keys. Frames identical
+  on every column but `current_time`, and info identical on every non-`t_` key, with the same key
+  set.
+- `validation/annotation_frame/refine_checks.py` (`out/refine/refine.json`), flag on against
+  flag off on the same 24 runs:
+  - the first `len + 1 + n` rows equal the flag-off frame;
+  - exactly `n_detections` refined rows follow, `object_id` 0…n−1;
+  - the row key is unique, fallback boxes equal their predictions' boxes, and `near_edge` is
+    exactly the set of predictions within 36 px of an edge;
+  - `evaluate` is unchanged;
+  - no detections gives an empty, schema-valid block.
+  - The gate accepted 84–99 of 98–100 boxes per gated run; every other box fell back, as
+    `gate_refused` (0–11 per run) or `near_edge` (1–3).
+- "The exact same refinement" (also `refine_checks.py`): the first 10 predictions of each gated
+  seed-0 `tm_score` run (6 runs), re-run as `click_frame` seeds through `run_roi`. All 57 that are not near an edge give
+  the identical box, `refined`, `refusal_reason`, unrounded template centre and `base_size`. The
+  3 near an edge raise, as seeds there do.
+- `box_checks.py`: 0 divergences. §7 harness, smoke-tier ROIs 300.tiff and 007.tiff: 0
+  divergences. Both were run with output redirected, so the committed files are untouched.
 
 ### What the pipeline consumes from the human row
 
@@ -416,6 +485,10 @@ functions:
   gate but not the hematoxylin one.
 - It finds an ROI in `--images-dir` or in its `testing_set/` subfolder, and `--save-csv` writes
   the whole frame.
+- It refines every prediction by default (`run_frame_on_roi(..., refine_predictions=True)`;
+  `--no-refine-predictions` turns it off). The printout adds how many boxes the gate refined and
+  the fallback reasons, then the first `--show` refined rows. The figure draws the top-N refined
+  boxes, magenta when refined and grey for a fallback.
 
 Checked 2026-09-24:
 
@@ -456,6 +529,14 @@ seed row: the pixel count of the box's longer side, `round(max(width, height)) +
   8 px, made odd), as it could at 51.
 - The window is not in `info`: it is recoverable from the frame's human row with
   `gate_window_side`, and the fallback size is `info["base_size"]`.
+- **Predictions** (`refine_predictions`, §3): the same table, with `W = 51` and `(cx, cy)` the
+  prediction's centre, plus one case checked before the gate:
+
+  | case | template `(base_size, tx, ty)` | `refined` | refusal reason |
+  | --- | --- | --- | --- |
+  | the prediction centre fails step 2's predicate (within 36 px of an edge; a seed there raises) and a refinement channel was given | `(51, cx, cy)` | `False` | `"near_edge"` |
+
+  Per-prediction reasons are in `info["prediction_refinement"]` (§5), not in the frame.
 
 - The first case is the untightened `default_51` arm. It is the control in nearly every recent
   experiment and one third of the validation reference (147 of 441 runs).
@@ -511,9 +592,16 @@ dict, with every key kept unchanged:
   - `template_center`, the **unrounded** `(tx, ty)` that was passed to production.
   - `offset_px = hypot(tx - cx, ty - cy)`, unrounded. The driver's `tpl_offset_px` is this
     rounded to 3 decimals.
+- **Refined predictions.** Present only with `refine_predictions=True`. They are absent otherwise,
+  so the default `info` is unchanged.
+  - `prediction_refinement`: a DataFrame, one row per prediction in frame order. Columns:
+    `object_id`, `base_size`, the **unrounded** `template_cx` and `template_cy`, `offset_px` from
+    the prediction's centre, `refined` and `refusal_reason` (§4). The frame's box is centred on
+    the rounded centre, so the unrounded one is only here.
+  - `n_predictions_refined`: how many the gate accepted.
 - **Timings.** `t_refine_s` for step 3 and `t_total_s` for the whole call, alongside production's
-  `t_match_s` and `t_postprocess_s`. Every timing key starts with `t_`, and every comparison
-  excludes timing keys.
+  `t_match_s` and `t_postprocess_s`, and `t_refine_predictions_s` with `refine_predictions`. Every
+  timing key starts with `t_`, and every comparison excludes timing keys.
 
 `max_peaks_binding` means the peak pool hit the D9 cap of 100 **before** NMS ran. Measured on the
 reference CSV: `n_peaks == 100` and `max_peaks_binding` is `True` on **all 441 runs**. At production
@@ -575,7 +663,7 @@ Steps:
      run 0…~99, so doing that would silently delete real ground truth whose `ann_id` is small.
 3. **Candidates.** Take the rows with `class == "PREDICTION"`, stable-sorted by `object_id`
    ascending. Greedy matching depends on rank order, so row order is never trusted. The seed rows
-   are never candidates.
+   and `PREDICTION_REFINED` rows are never candidates.
 4. **Convert.** Build the centre-based frame the frozen evaluator reads: `rank = object_id`,
    `cx = x_tl + width / 2`, `cy = y_tl + height / 2`, `score`, `od`.
 5. **Score.** `ev.evaluate_run(detections, gt_eval, ev.radius_px(mpp), area_mm2, roi_shape)`, with
@@ -871,7 +959,10 @@ Together these confirm the environment for both rank keys.
   discriminator column at concat time (§2): predictions from two runs share `object_id`s.
   No accept/reject verdict column is defined yet. When one is added, a verdict must name its
   prediction by run and by `(class == "PREDICTION", object_id)`; `object_id` alone is ambiguous
-  across id spaces (§2).
+  across id spaces (§2). A verdict on a prediction covers its `PREDICTION_REFINED` row too: same
+  run, same `object_id`.
+- **A drawn-box seed's window for the refined predictions.** They use their own 51 px box
+  whatever the seed (user, 2026-10-06).
 - **A look-alike or rejected class** in the frame. Today ground truth for evaluation stays in the
   `load_annotations` format (§6).
 - **Finer refusal reasons.** The frozen `tighten_box_otsu` returns `None` without saying whether the
@@ -972,3 +1063,13 @@ the ones to review.
 | 3, 4 | The seed row's box sets the Otsu window and the fallback template (`gate_window_side`: longer side, odd, 19–73 px, raising outside); every input row is checked. 51 for clicks and MIDOG rows, so their runs are unchanged. Alternative: keep the fixed 51 px window and use the box only as a click. | decision, confirmed by user 2026-09-24 (`DECISIONS.md` D12) |
 | 3 | `run_frame.py`: a pinned MIDOG annotation that the gate refuses falls back (no raise), and `--source midog` without `--ann-id` uses the joint-gate draw. | decision, confirmed by user 2026-09-24 |
 | 4 | `_template_choice` raises `RuntimeError` if the gate window is unreadable, so a refusal always means the gate refused. | correction |
+
+**Additions, 2026-10-06 (refined predictions):**
+
+| § | addition | tag |
+| --- | --- | --- |
+| 2, 3, 5 | `run_roi(..., refine_predictions=False)` adds one `PREDICTION_REFINED` row per prediction: the seed's template choice at its centre. Alternative: class `PREDICTION` with rows only where the gate accepts. A fallback row there would repeat its prediction's row key. | decision, user 2026-10-06 |
+| 3 | Every post-NMS survivor is refined, not only the first 10. | decision, user 2026-10-06 |
+| 3 | The window is 51 px, the prediction's own box, for every seed source. | decision, user 2026-10-06 |
+| 4 | `near_edge` added: a prediction cannot raise at the edge the way a seed does. | correction |
+| 3 | `run_frame.py` refines by default; `run_roi` does not, so validation is unchanged. | decision |
