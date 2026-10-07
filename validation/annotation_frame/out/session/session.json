@@ -1,0 +1,447 @@
+{
+ "checks": {
+  "S2 one square equals blank_seed_square's footprint": {
+   "n_runs": 0,
+   "n_rows": 0,
+   "n_values": 7,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "S2 overlapping squares: union painted and counted once": {
+   "n_runs": 0,
+   "n_rows": 0,
+   "n_values": 1,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "S2 no squares changes nothing": {
+   "n_runs": 0,
+   "n_rows": 0,
+   "n_values": 1,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "S2 a bad square raises": {
+   "n_runs": 0,
+   "n_rows": 0,
+   "n_values": 5,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "S1 iteration 0's frame equals run_roi's": {
+   "n_runs": 4,
+   "n_rows": 806,
+   "n_values": 8866,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "S1 iteration 0's info equals run_roi's apart from the merge keys": {
+   "n_runs": 4,
+   "n_rows": 0,
+   "n_values": 132,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "S1 iteration 0's prediction table equals run_roi's": {
+   "n_runs": 4,
+   "n_rows": 0,
+   "n_values": 4,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "S1 iteration 0 adds no production key": {
+   "n_runs": 4,
+   "n_rows": 0,
+   "n_values": 4,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "S1 iteration 0 stores the seed rows and the first k predictions with their refined rows": {
+   "n_runs": 4,
+   "n_rows": 88,
+   "n_values": 1056,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "S1 iteration 0's merge keys": {
+   "n_runs": 4,
+   "n_rows": 0,
+   "n_values": 4,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "S1 an empty session is iteration 0, as None is": {
+   "n_runs": 1,
+   "n_rows": 22,
+   "n_values": 264,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "S3 the template is cut before the blanks": {
+   "n_runs": 2,
+   "n_rows": 0,
+   "n_values": 1,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "S3 the correlation sees every extra square at the fill value": {
+   "n_runs": 1,
+   "n_rows": 0,
+   "n_values": 1,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "S3 the extra blank counts": {
+   "n_runs": 1,
+   "n_rows": 0,
+   "n_values": 1,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "S3 the seed's own blank is unchanged": {
+   "n_runs": 1,
+   "n_rows": 0,
+   "n_values": 1,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "S3 od reads the unblanked channel": {
+   "n_runs": 1,
+   "n_rows": 100,
+   "n_values": 1,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "S3 an empty list leaves the detections unchanged": {
+   "n_runs": 1,
+   "n_rows": 100,
+   "n_values": 800,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "S3 an empty list adds only the zero counts to info": {
+   "n_runs": 1,
+   "n_rows": 0,
+   "n_values": 14,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "S3 an empty list's counts are zero": {
+   "n_runs": 1,
+   "n_rows": 0,
+   "n_values": 1,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "S4 the blanks are every earlier refined seed and stored refined prediction": {
+   "n_runs": 6,
+   "n_rows": 0,
+   "n_values": 6,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "S4 the frame equals run_roi with the stored boxes blanked": {
+   "n_runs": 6,
+   "n_rows": 1200,
+   "n_values": 13200,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "S4 the iteration stores the seed rows and the first k non-repeats with their refined rows": {
+   "n_runs": 6,
+   "n_rows": 132,
+   "n_values": 1584,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "S4 the repeat keys": {
+   "n_runs": 6,
+   "n_rows": 0,
+   "n_values": 6,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "S4 earlier iterations are untouched": {
+   "n_runs": 6,
+   "n_rows": 132,
+   "n_values": 1716,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "S4 production blanked them all": {
+   "n_runs": 4,
+   "n_rows": 0,
+   "n_values": 4,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "S4 no stored prediction is within the match radius of a blank": {
+   "n_runs": 4,
+   "n_rows": 0,
+   "n_values": 4,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "S4 the session survives a CSV round trip": {
+   "n_runs": 2,
+   "n_rows": 132,
+   "n_values": 1716,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "S4 the round trip keeps the dtypes": {
+   "n_runs": 2,
+   "n_rows": 0,
+   "n_values": 2,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "S4 the last iteration from the CSV session equals the in-memory one": {
+   "n_runs": 4,
+   "n_rows": 132,
+   "n_values": 1584,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "S4 the last iteration's info from the CSV session equals the in-memory one": {
+   "n_runs": 2,
+   "n_rows": 0,
+   "n_values": 82,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "S4 and its blanks": {
+   "n_runs": 2,
+   "n_rows": 0,
+   "n_values": 2,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "S5 a box containing a stored centre raises (bounds inclusive)": {
+   "n_runs": 0,
+   "n_rows": 0,
+   "n_values": 4,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "S5 a box beside a stored centre passes": {
+   "n_runs": 0,
+   "n_rows": 0,
+   "n_values": 3,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "S5 a drawn box containing a stored centre raises": {
+   "n_runs": 0,
+   "n_rows": 0,
+   "n_values": 1,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "S5 check_overlap=False lets it through": {
+   "n_runs": 0,
+   "n_rows": 0,
+   "n_values": 1,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "S5 a drawn box beside it passes": {
+   "n_runs": 0,
+   "n_rows": 0,
+   "n_values": 1,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "S5 a click on a stored prediction raises": {
+   "n_runs": 0,
+   "n_rows": 0,
+   "n_values": 1,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "S5 a seed on a blanked prediction still runs, iteration 1": {
+   "n_runs": 1,
+   "n_rows": 0,
+   "n_values": 1,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "S5 a used object_id raises": {
+   "n_runs": 0,
+   "n_rows": 0,
+   "n_values": 1,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "S5 another ROI's seed raises": {
+   "n_runs": 0,
+   "n_rows": 0,
+   "n_values": 1,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "S5 a two-row seed raises": {
+   "n_runs": 0,
+   "n_rows": 0,
+   "n_values": 1,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "S5 k = 0 raises": {
+   "n_runs": 0,
+   "n_rows": 0,
+   "n_values": 1,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "S5 a bad session raises: no iteration column": {
+   "n_runs": 0,
+   "n_rows": 0,
+   "n_values": 1,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "S5 a bad session raises: an extra column": {
+   "n_runs": 0,
+   "n_rows": 0,
+   "n_values": 1,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "S5 a bad session raises: iterations 0 and 2": {
+   "n_runs": 0,
+   "n_rows": 0,
+   "n_values": 1,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "S5 a bad session raises: two file_names": {
+   "n_runs": 0,
+   "n_rows": 0,
+   "n_values": 1,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "S5 a bad session raises: a second human seed in iteration 0": {
+   "n_runs": 0,
+   "n_rows": 0,
+   "n_values": 1,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "S5 a bad session raises: a refined prediction without its prediction": {
+   "n_runs": 0,
+   "n_rows": 0,
+   "n_values": 1,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "S5 a bad session raises: a non-square stored box": {
+   "n_runs": 0,
+   "n_rows": 0,
+   "n_values": 1,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "S5 a bad session raises: an even stored side": {
+   "n_runs": 0,
+   "n_rows": 0,
+   "n_values": 1,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "S5 a bad session raises: a duplicated row": {
+   "n_runs": 0,
+   "n_rows": 0,
+   "n_values": 1,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "S5 next_object_id": {
+   "n_runs": 0,
+   "n_rows": 0,
+   "n_values": 1,
+   "n_diverged": 0,
+   "detail": []
+  },
+  "S6 without refined predictions their own 51 px boxes are blanked": {
+   "n_runs": 1,
+   "n_rows": 0,
+   "n_values": 1,
+   "n_diverged": 0,
+   "detail": []
+  }
+ },
+ "iterations": [
+  {
+   "roi": "300.tiff",
+   "iteration": 0,
+   "seed_ann_id": 14499,
+   "n_blanks": 0,
+   "n_extra_blanked_px": 0,
+   "n_repeats_in_page": 0,
+   "repeat_object_ids": [],
+   "t_total_s": 3.12
+  },
+  {
+   "roi": "300.tiff",
+   "iteration": 1,
+   "seed_ann_id": 14578,
+   "n_blanks": 11,
+   "n_extra_blanked_px": 17571,
+   "n_repeats_in_page": 0,
+   "repeat_object_ids": [],
+   "t_total_s": 3.04,
+   "unblanked_first_k_within_radius_of_a_stored_box": 0
+  },
+  {
+   "roi": "300.tiff",
+   "iteration": 2,
+   "seed_ann_id": 14553,
+   "n_blanks": 22,
+   "n_extra_blanked_px": 31214,
+   "n_repeats_in_page": 0,
+   "repeat_object_ids": [],
+   "t_total_s": 3.11,
+   "unblanked_first_k_within_radius_of_a_stored_box": 3
+  },
+  {
+   "roi": "245.tiff",
+   "iteration": 0,
+   "seed_ann_id": 6317,
+   "n_blanks": 0,
+   "n_extra_blanked_px": 0,
+   "n_repeats_in_page": 0,
+   "repeat_object_ids": [],
+   "t_total_s": 3.33
+  },
+  {
+   "roi": "245.tiff",
+   "iteration": 1,
+   "seed_ann_id": 6243,
+   "n_blanks": 11,
+   "n_extra_blanked_px": 23692,
+   "n_repeats_in_page": 0,
+   "repeat_object_ids": [],
+   "t_total_s": 3.31,
+   "unblanked_first_k_within_radius_of_a_stored_box": 1
+  },
+  {
+   "roi": "245.tiff",
+   "iteration": 2,
+   "seed_ann_id": 6250,
+   "n_blanks": 22,
+   "n_extra_blanked_px": 44007,
+   "n_repeats_in_page": 1,
+   "repeat_object_ids": [
+    8
+   ],
+   "t_total_s": 3.14,
+   "unblanked_first_k_within_radius_of_a_stored_box": 2
+  }
+ ],
+ "diagnostics": {
+  "s3_detections_inside_a_blank": 0
+ },
+ "t_total_s": 131.1
+}
