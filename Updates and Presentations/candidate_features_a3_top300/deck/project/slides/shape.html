@@ -1,0 +1,39 @@
+<section id="shape" data-transition="fade" style="background:#F6F3EE;color:#1C1B22;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:24px">
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:64px;font-weight:600;line-height:1.15;color:#1E1B3A">Chromatin Shape</h2>
+<div style="display:flex;flex-direction:row;gap:28px;align-items:center">
+<div style="width:140px"></div>
+<div style="width:540px"></div>
+<div style="width:928px;display:flex;flex-direction:row;justify-content:space-between">
+<p style="font-size:24px;font-weight:600;color:#55526A">Mitosis-like end</p>
+<p style="font-size:24px;font-weight:600;color:#55526A">Other end</p>
+</div>
+</div>
+<div style="display:flex;flex-direction:row;gap:28px;align-items:center">
+<img src="/_blob/54fc03cd0240fcae756064652cfc01ce" alt="A smooth round core beside a core with marked notches" style="width:140px;height:140px;object-fit:contain">
+<div style="width:540px;display:flex;flex-direction:column;gap:6px">
+<h3 style="font-family:'Source Serif 4', Georgia, serif;font-size:36px;font-weight:600;line-height:1.15;color:#1E1B3A">Ragged outline</h3>
+<p style="font-size:24px;color:#55526A;font-family:Menlo, 'Courier New', monospace">dark_concavities_per_um</p>
+<p style="font-size:26px;line-height:1.35">Notches along the dark core's outline, counted per micron. Smooth round nuclei score zero.</p>
+</div>
+<img src="/_blob/1d4efbc5e2c155b3f6004f8ee3f9f6a3" alt="Six candidates ordered from most to least ragged outline" style="width:928px;height:147px;object-fit:contain">
+</div>
+<div style="display:flex;flex-direction:row;gap:28px;align-items:center">
+<img src="/_blob/56c7667c0ccfee30012d18df70bf2219" alt="A lobed core inside its dashed convex hull" style="width:140px;height:140px;object-fit:contain">
+<div style="width:540px;display:flex;flex-direction:column;gap:6px">
+<h3 style="font-family:'Source Serif 4', Georgia, serif;font-size:36px;font-weight:600;line-height:1.15;color:#1E1B3A">Convexity</h3>
+<p style="font-size:24px;color:#55526A;font-family:Menlo, 'Courier New', monospace">chr_solidity</p>
+<p style="font-size:26px;line-height:1.35">How much of its convex hull the core fills. Smooth and round is near 1, ragged is lower.</p>
+</div>
+<img src="/_blob/f247e427b51bd4af80ba47e1869f47e1" alt="Six candidates ordered from least to most convex" style="width:928px;height:147px;object-fit:contain">
+</div>
+<div style="display:flex;flex-direction:row;gap:28px;align-items:center">
+<img src="/_blob/7732836978a6390dd55e43da9a617ec9" alt="An ellipse with its long and short axes" style="width:140px;height:140px;object-fit:contain">
+<div style="width:540px;display:flex;flex-direction:column;gap:6px">
+<h3 style="font-family:'Source Serif 4', Georgia, serif;font-size:36px;font-weight:600;line-height:1.15;color:#1E1B3A">Elongation</h3>
+<p style="font-size:24px;color:#55526A;font-family:Menlo, 'Courier New', monospace">chr_elongation</p>
+<p style="font-size:26px;line-height:1.35">Long axis of the core divided by its short axis. Side-on metaphase plates are long.</p>
+</div>
+<img src="/_blob/43a0bd4488e2ca4284e1cf69b2efaa78" alt="Six candidates ordered from most to least elongated" style="width:928px;height:147px;object-fit:contain">
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1664px;font-size:24px;color:#55526A">ROI 128, recorded pool, six candidates spaced evenly along each ranking. Green M = annotated mitosis.</p>
+</section>
