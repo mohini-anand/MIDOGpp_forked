@@ -1,7 +1,0 @@
-uniform c=0.9: pooled PL 0.279 pt; own-ROI losses SD 0.606 pt -> SE of a 49-ROI mean 0.087 pt
-uniform c=0.8: pooled PL 0.558 pt; own-ROI losses SD 1.212 pt -> SE of a 49-ROI mean 0.173 pt
-uniform c=0.7: pooled PL 0.837 pt; own-ROI losses SD 1.818 pt -> SE of a 49-ROI mean 0.260 pt
-Spearman(0.5->1.0 gain, white) = -0.10 (p 0.52)
-Spearman(0.5->1.0 gain, b_otsu) = +0.27 (p 0.06)
-Spearman(0.5->1.0 gain, TOTSU_med) = +0.12 (p 0.42)
-Spearman(0.5->1.0 gain, W128_med) = +0.18 (p 0.21)

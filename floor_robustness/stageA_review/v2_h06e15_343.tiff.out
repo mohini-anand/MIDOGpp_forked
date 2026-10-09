@@ -1,5 +1,0 @@
-343.tiff: shape (4835, 6447)  b0 0.02310  ROI bin/b0 0.044  hem max 0.263  zero-channel px: 0.00000 of ROI, 0.00000 of tissue  tissue clamp share 0.009  setup 1.9s
-  unperturbed: b_otsu 1.000  W128 per-ROI median 0.998  (per click [1.038, 0.854, 1.065, 0.883, 0.958, 1.043])
-  H06     b_otsu  0.829 out | W128  0.822 out (clicks 0.719-0.889) | make 1.53s hem 0.42s est+c_eq 0.17s
-  E15     b_otsu  0.890 out | W128  0.891 out (clicks 0.759-0.939) | make 1.52s hem 0.42s est+c_eq 0.16s
-total 6.5s  peak RSS 4.11 GB

@@ -28,7 +28,6 @@ number as "by scanner and tissue group".
 | `floor_per_roi_by_scanner.csv` | Per ROI: absolute `b_otsu`; its ROI clip share; the white share; the TOTSU / W128 / SFILL floors as multiples of `b_otsu` (from the notebook's `floors.csv`); and the scanner. |
 | `floor_ladder_delta_vs_A1_per_roi.csv` | Per ROI and arm, the change against no clip (`A1`): P@10 points and pool mitoses per click (from the notebook's `per_run.csv`). |
 | `macenko_vectors.py` → `macenko.csv` | Per-ROI H and E stain vectors by Macenko 2009, Algorithm 1 (OD > 0.15; SVD plane through the origin; 1st/99th-percentile angles). Also their angles to `rgb2hed`'s fixed Ruifrok vectors, and `eosin_leak_ratio`, the H-channel response to one unit of the slide's own E vector relative to its H vector. |
-| `stageA_review/` | The Stage A plan review (2026-10-08): pilot scripts and outputs on 7 hand-picked extreme ROIs. See its own README. |
 | `eosin_leak.py` → `eosin_leak.csv` | The H level of eosin-rich non-nuclear tissue (top E quartile, below the upper multi-Otsu H threshold) relative to `b_otsu`, and the Spearman correlation of H with E in non-nuclear tissue. |
 
 The per-scanner summary tables and correlations quoted in the chat answer were computed inline from these CSVs.

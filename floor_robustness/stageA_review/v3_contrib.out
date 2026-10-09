@@ -1,7 +1,0 @@
-H06    b_otsu PL 0.456: top-2 ROIs 401.tiff 0.125 + 128.tiff 0.092 = 0.218; PL without top-2 (5 ROIs, rescaled) 0.334; ROIs with per-ROI c<0.9: 5/7
-H06    W128   PL 0.262: top-2 ROIs 343.tiff 0.076 + 128.tiff 0.066 = 0.142; PL without top-2 (5 ROIs, rescaled) 0.168; ROIs with per-ROI c<0.9: 3/7
-E15    b_otsu PL 0.325: top-2 ROIs 211.tiff 0.099 + 401.tiff 0.084 = 0.183; PL without top-2 (5 ROIs, rescaled) 0.199; ROIs with per-ROI c<0.9: 4/7
-CDN    b_otsu PL 0.223: top-2 ROIs 128.tiff 0.063 + 211.tiff 0.047 = 0.110; PL without top-2 (5 ROIs, rescaled) 0.159; ROIs with per-ROI c<0.9: 2/7
-GAIN09 b_otsu PL 0.207: top-2 ROIs 211.tiff 0.097 + 128.tiff 0.071 = 0.169; PL without top-2 (5 ROIs, rescaled) 0.053; ROIs with per-ROI c<0.9: 2/7
-WBR095 b_otsu PL 0.165: top-2 ROIs 211.tiff 0.073 + 128.tiff 0.070 = 0.143; PL without top-2 (5 ROIs, rescaled) 0.030; ROIs with per-ROI c<0.9: 2/7
-E15    W128   PL 0.170: top-2 ROIs 343.tiff 0.052 + 211.tiff 0.043 = 0.095; PL without top-2 (5 ROIs, rescaled) 0.105; ROIs with per-ROI c<0.9: 1/7

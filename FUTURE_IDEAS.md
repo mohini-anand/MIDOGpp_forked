@@ -387,7 +387,6 @@ reject 0 mitoses.
 
 **Status:** `spec'd`, **deferred until before shipping** (decided 2026-10-02).
 - **Stage A ran on 2026-10-08:** `tm_floor_stress_stageA_49roi.ipynb`, from the plan in `TM_FLOOR_STRESS_STAGE_A_PLAN.md`.
-  Its review scripts are in `floor_robustness/stageA_review/`.
   - All gates held.
   - Fired: H06 × `b_otsu` (predicted P@10 loss 0.41 pt), H06 × W128 (0.33), E15 × `b_otsu` (0.28).
   - Exposure, white balance, contrast, blur, JPEG, the gradient and the window shift did not fire.
@@ -437,10 +436,11 @@ reject 0 mitoses.
     not.
   - **Measured on 128.tiff** (22 % of tissue pixels clamped): `b_otsu` lands at 0.82× its original level under exposure
     ×0.9, and at 1.36× under red ×1.05. That is the multiple of the original `b_otsu` clipping the same tissue share.
-  - **On low-clamp ROIs** they move it by at most about 0.08.
+  - **On low-clamp ROIs** (529, 401 and 201, in the review pilot) they move it by at most about 0.08.
   - Equal-channel gamma stays a near-null: the review measured it at ≤ 0.10, the largest on pigment ROI 211, where
     R = 0 pixels don't scale.
-  - Source: `floor_robustness/stageA_review/check_g_128.tiff.out`.
+  - Source: the full Stage A run, `results/tm_floor_stress_stageA_49roi_clicks.csv` (128.tiff, `b_otsu`: GAIN09 0.821,
+    WBR105 1.357).
 
 **Stage A: a screen of floors only, no searches.** Run first, minutes of compute.
 - **Estimators:**

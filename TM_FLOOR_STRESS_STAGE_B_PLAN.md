@@ -11,7 +11,8 @@
 - **Unperturbed, the candidates already tie 1.0×:** 1.5× at +0.27 pt and W128 at +0.24, neither significant.
 
 Run it before shipping if robustness to other labs must be certified. Real cross-scanner slides (Stage C) would answer
-that better. The review scripts behind §5 live only in that session's scratchpad (`review_stageB/`).
+that better. The review scripts behind §5 were scratch files and were deleted on 2026-10-09; their numbers are
+recorded in §5.
 
 **Sources**
 - `FUTURE_IDEAS.md` §4.1, Stage B: the spec.

@@ -1,9 +1,0 @@
-refine source sha1 (exec-defined; inspect needs a file): 5206533a547f vs 21c43a20db00
-343.tiff: b0 float32-equal to floors.csv: False (rel diff 3.2e-07);  W128 float32-equal 5/6 (max rel diff 7.7e-08);  boxes reproduced 6/6;  hem0==0 share 0.033
-201.tiff: b0 float32-equal to floors.csv: True (rel diff 1.4e-15);  W128 float32-equal 6/6 (max rel diff 2.3e-15);  boxes reproduced 6/6;  hem0==0 share 0.043
-211.tiff: b0 float32-equal to floors.csv: True (rel diff 7.3e-16);  W128 float32-equal 4/6 (max rel diff 2.0e-07);  boxes reproduced 6/6;  hem0==0 share 0.042
-401.tiff: b0 float32-equal to floors.csv: True (rel diff 1.2e-16);  W128 float32-equal 3/6 (max rel diff 2.3e-07);  boxes reproduced 6/6;  hem0==0 share 0.005
-128.tiff: b0 float32-equal to floors.csv: True (rel diff 1.4e-15);  W128 float32-equal 6/6 (max rel diff 3.2e-15);  boxes reproduced 6/6;  hem0==0 share 0.256
-529.tiff: b0 float32-equal to floors.csv: True (rel diff 1.8e-15);  W128 float32-equal 4/6 (max rel diff 3.2e-07);  boxes reproduced 6/6;  hem0==0 share 0.003
-435.tiff: b0 float32-equal to floors.csv: True (rel diff 0.0e+00);  W128 float32-equal 6/6 (max rel diff 2.3e-15);  boxes reproduced 6/6;  hem0==0 share 0.026
-509.tiff: b0 float32-equal to floors.csv: True (rel diff 1.9e-15);  W128 float32-equal 5/6 (max rel diff 9.3e-08);  boxes reproduced 6/6;  hem0==0 share 0.032

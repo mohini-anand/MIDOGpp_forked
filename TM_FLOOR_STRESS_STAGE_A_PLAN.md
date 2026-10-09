@@ -5,6 +5,9 @@
 `results/tm_floor_stress_stageA_49roi_*.csv`. All gates held. Three cells fired: H06 × `b_otsu` (PL 0.41 pt), H06 × W128
 (0.33) and E15 × `b_otsu` (0.28). By the rule, Stage B would run on H06, E15, GRAD, BLUR, JPG and the null control.
 **Stage B was planned** (`TM_FLOOR_STRESS_STAGE_B_PLAN.md`) **and deferred to a pre-ship check on 2026-10-09.**
+**Pruned 2026-10-09:** the run's `roi`, `checks` and `adversarial_log` CSVs and all `_smoke` CSVs were removed.
+- Kept: `clicks`, `boxes`, `summary` and `decision`.
+- `roi` is a groupby of `clicks`. The other outputs come back by re-running the notebook, smoke run first.
 **Source spec:** `FUTURE_IDEAS.md` §4.1, Stage A. This plan makes the spec executable and departs from it where §6 says
 why.
 
@@ -369,7 +372,10 @@ other pilot ROIs. They stay as dark specks in lightened nuclei. The per-ROI coun
 
 ## 6. Review log
 
-### Round 1 (reviewer agent, 2026-10-08; scripts and outputs in `floor_robustness/stageA_review/`)
+### Round 1 (reviewer agent, 2026-10-08)
+
+The pilot scripts and outputs were kept in `floor_robustness/stageA_review/`; they were removed on 2026-10-09, because
+the full 49-ROI run supersedes the 7-ROI pilot.
 
 | # | finding | verdict | action |
 |---|---|---|---|
