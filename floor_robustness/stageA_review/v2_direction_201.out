@@ -1,0 +1,17 @@
+201.tiff: h@Hcol 0.987  e@Hcol 0.118
+H06: (synthesis + hem 2.1s)
+  correct synthesis, correct regressor       n= 27334580  slope(origin)  1.008  slope(OLS)  1.012  icpt +0.00011  r 1.000  pass=True
+  BUG A: H/E labels swapped (self-consistent) n= 27764368  slope(origin)  1.007  slope(OLS)  1.005  icpt -0.00000  r 0.928  pass=True
+  BUG B: k columns swapped (kH on e, kE on h) n= 27764368  slope(origin)  0.041  slope(OLS)  0.002  icpt -0.00113  r 0.037  pass=False
+  regressor without 1/6 (expect ~0.167)      n= 27334580  slope(origin)  0.168  slope(OLS)  0.169  icpt +0.00011  r 1.000  pass=False
+H14: (synthesis + hem 2.1s)
+  correct synthesis, correct regressor       n= 27604328  slope(origin)  1.011  slope(OLS)  1.017  icpt -0.00016  r 0.999  pass=True
+  BUG A: H/E labels swapped (self-consistent) n= 27770049  slope(origin)  1.005  slope(OLS)  1.004  icpt +0.00000  r 0.908  pass=True
+  BUG B: k columns swapped (kH on e, kE on h) n= 27770049  slope(origin)  0.041  slope(OLS)  0.003  icpt +0.00110  r 0.045  pass=False
+  regressor without 1/6 (expect ~0.167)      n= 27604328  slope(origin)  0.169  slope(OLS)  0.169  icpt -0.00016  r 0.999  pass=False
+E15: (synthesis + hem 2.1s)
+  correct synthesis, correct regressor       n= 27706130  slope(origin)  1.005  slope(OLS)  1.010  icpt -0.00001  r 0.931  pass=True
+  BUG A: H/E labels swapped (self-consistent) n= 27416187  slope(origin)  1.011  slope(OLS)  1.017  icpt -0.00021  r 1.000  pass=True
+  BUG B: k columns swapped (kH on e, kE on h) n= 27416187  slope(origin) 12.944  slope(OLS) -0.575  icpt +0.02858  r -0.040  pass=False
+  regressor without 1/6 (expect ~0.167)      n= 27706130  slope(origin)  0.168  slope(OLS)  0.168  icpt -0.00001  r 0.931  pass=False
+zero-channel pixels: 0.00000 of ROI, 0.00000 of tissue

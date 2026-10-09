@@ -1,0 +1,42 @@
+401.tiff: b0 0.02842  Rres refs 0.5x 0.09118 0.75x 0.02521 0.9x 0.00425  clamp share (hem0==0) 0.005, tissue 0.008
+pert      est      b/b0   c_eq     Rres  R-ref75  R-ref90  T1<.75 T3>ref75 stop(c>=.9&R<=ref90)
+WB_R0.95  b_otsu  1.256  1.014  0.00000 -0.02521 -0.00425  False  False  True
+WB_R0.95  TOTSU   1.462  1.214  0.00000 -0.02521 -0.00425  False  False  True
+WB_R0.95  W128    1.453  1.205  0.00000 -0.02521 -0.00425  False  False  True
+WB_R0.95  TW128   1.634  1.393  0.00000 -0.02521 -0.00425  False  False  True
+WB_R0.95  QMATCH  1.243  1.000  0.00002 -0.02519 -0.00424   (floor placed at the original tissue share p0=0.608; 1.8s)
+WB_R1.05  b_otsu  0.795  1.026  0.00000 -0.02521 -0.00425  False  False  True
+WB_R1.05  TOTSU   1.051  1.285  0.00000 -0.02521 -0.00425  False  False  True
+WB_R1.05  W128    0.998  1.232  0.00000 -0.02521 -0.00425  False  False  True
+WB_R1.05  TW128   1.194  1.422  0.00000 -0.02521 -0.00425  False  False  True
+WB_R1.05  QMATCH  0.770  1.000  0.00001 -0.02520 -0.00425   (floor placed at the original tissue share p0=0.608; 1.8s)
+GAIN0.9   b_otsu  1.289  0.963  0.00064 -0.02457 -0.00362  False  False  True
+GAIN0.9   TOTSU   1.342  1.016  0.00000 -0.02521 -0.00425  False  False  True
+GAIN0.9   W128    1.538  1.215  0.00000 -0.02521 -0.00425  False  False  True
+GAIN0.9   TW128   1.538  1.215  0.00000 -0.02521 -0.00425  False  False  True
+GAIN0.9   QMATCH  1.327  1.000  0.00002 -0.02519 -0.00423   (floor placed at the original tissue share p0=0.608; 1.9s)
+CDN       b_otsu  1.050  0.953  0.00099 -0.02422 -0.00327  False  False  True
+CDN       TOTSU   1.241  1.159  0.00000 -0.02521 -0.00425  False  False  True
+CDN       W128    1.234  1.152  0.00000 -0.02521 -0.00425  False  False  True
+CDN       TW128   1.366  1.296  0.00000 -0.02521 -0.00425  False  False  True
+CDN       QMATCH  1.093  1.000  0.00002 -0.02520 -0.00424   (floor placed at the original tissue share p0=0.608; 1.4s)
+H06       b_otsu  0.567  0.671  0.04942 +0.02420 +0.04516  True   True   False
+H06       TOTSU   0.898  1.200  0.00062 -0.02459 -0.00364  False  False  True
+H06       W128    0.806  1.048  0.00222 -0.02299 -0.00204  False  False  True
+H06       TW128   0.964  1.309  0.00027 -0.02495 -0.00399  False  False  True
+H06       QMATCH  0.777  1.000  0.00347 -0.02174 -0.00078   (floor placed at the original tissue share p0=0.608; 3.2s)
+E15       b_otsu  1.000  0.791  0.02106 -0.00415 +0.01681  False  False  False
+E15       TOTSU   1.391  1.171  0.00024 -0.02497 -0.00402  False  False  True
+E15       W128    1.317  1.098  0.00054 -0.02467 -0.00371  False  False  True
+E15       TW128   1.458  1.238  0.00011 -0.02510 -0.00414  False  False  True
+E15       QMATCH  1.217  1.000  0.00179 -0.02342 -0.00247   (floor placed at the original tissue share p0=0.608; 3.2s)
+BLUR      b_otsu  0.967  0.983  0.00449 -0.02072 +0.00023  False  False  False
+BLUR      TOTSU   1.224  1.251  0.00023 -0.02499 -0.00403  False  False  True
+BLUR      W128    1.223  1.249  0.00029 -0.02492 -0.00396  False  False  True
+BLUR      TW128   1.392  1.421  0.00003 -0.02518 -0.00422  False  False  True
+BLUR      QMATCH  0.983  1.000  0.00377 -0.02144 -0.00048   (floor placed at the original tissue share p0=0.608; 1.5s)
+JPG       b_otsu  0.965  0.950  0.00819 -0.01702 +0.00393  False  False  False
+JPG       TOTSU   1.276  1.271  0.00038 -0.02483 -0.00388  False  False  True
+JPG       W128    1.183  1.176  0.00118 -0.02403 -0.00308  False  False  True
+JPG       TW128   1.400  1.398  0.00010 -0.02511 -0.00415  False  False  True
+JPG       QMATCH  1.013  1.000  0.00528 -0.01993 +0.00102   (floor placed at the original tissue share p0=0.608; 1.6s)

@@ -1,0 +1,58 @@
+
+##### 201.tiff shape (4933, 6577) mpp 0.2482 b0 0.03890856355428696 recorded 0.0389085635542869 equal=False  (load+hem 0.8s)
+5a ROI: th dtype float32 th2 == 2*th1 bitwise: True [0.03890856 0.08692338] [0.07781713 0.17384677]
+5a ROI clipped sets identical: True
+5a W128 s0: x2 exact=True  W128=0.039221 rec=0.039221 eq=False  ratio_to_b0=1.008  bin/b=0.032  max=0.319
+5a W128 s1: x2 exact=True  W128=0.040032 rec=0.040032 eq=False  ratio_to_b0=1.029  bin/b=0.030  max=0.306
+5a W128 s2: x2 exact=True  W128=0.038125 rec=0.038125 eq=False  ratio_to_b0=0.980  bin/b=0.027  max=0.260
+5a W128 s3: x2 exact=True  W128=0.035965 rec=0.035965 eq=False  ratio_to_b0=0.924  bin/b=0.035  max=0.323
+5a W128 s4: x2 exact=True  W128=0.039166 rec=0.039166 eq=False  ratio_to_b0=1.007  bin/b=0.029  max=0.291
+5a W128 s5: x2 exact=True  W128=0.041183 rec=0.041183 eq=False  ratio_to_b0=1.058  bin/b=0.024  max=0.248
+N_t=28703677  tissue share=0.885  unique tissue values=328697
+5c c=0.25  c_eq=0.250002  |c_eq-c|=2.13e-06  Rres=0.086525
+5c c=0.5   c_eq=0.500011  |c_eq-c|=1.08e-05  Rres=0.052717
+5c c=0.75  c_eq=0.750008  |c_eq-c|=7.76e-06  Rres=0.018432
+5c c=0.9   c_eq=0.900014  |c_eq-c|=1.41e-05  Rres=0.003645
+5c c=1.0   c_eq=1.000007  |c_eq-c|=7.47e-06  Rres=0.000000
+5c c=1.5   c_eq=1.500017  |c_eq-c|=1.69e-05  Rres=0.000000
+5c c=2.0   c_eq=2.000014  |c_eq-c|=1.38e-05  Rres=0.000000
+5c Rres(b0) exactly 0: True
+5c c_eq(b0)=1.0000074680897144 in [1,1.01): True
+5d Rres refs: {0.5: 0.05272, 0.75: 0.01843, 0.9: 0.00364}
+5d TOTSU b=0.048843 b/b0=1.255 c_eq=1.255 Rres=0.00000
+5d s0: W128 b/b0=1.008 c_eq=1.008 Rres=0.00000 | TW128 b/b0=1.328 c_eq=1.328 Rres=0.00000  tissue share of window=0.87
+5d s1: W128 b/b0=1.029 c_eq=1.029 Rres=0.00000 | TW128 b/b0=1.336 c_eq=1.336 Rres=0.00000  tissue share of window=0.89
+5d s2: W128 b/b0=0.980 c_eq=0.980 Rres=0.00016 | TW128 b/b0=1.163 c_eq=1.163 Rres=0.00000  tissue share of window=0.92
+5d s3: W128 b/b0=0.924 c_eq=0.924 Rres=0.00216 | TW128 b/b0=1.087 c_eq=1.087 Rres=0.00000  tissue share of window=0.91
+5d s4: W128 b/b0=1.007 c_eq=1.007 Rres=0.00000 | TW128 b/b0=1.269 c_eq=1.269 Rres=0.00000  tissue share of window=0.90
+5d s5: W128 b/b0=1.058 c_eq=1.058 Rres=0.00000 | TW128 b/b0=1.208 c_eq=1.208 Rres=0.00000  tissue share of window=0.94
+total 3.8s
+
+##### 343.tiff shape (4835, 6447) mpp 0.2533 b0 0.023097187280654907 recorded 0.0230971947312355 equal=False  (load+hem 0.7s)
+5a ROI: th dtype float32 th2 == 2*th1 bitwise: True [0.02309719 0.06415886] [0.04619437 0.12831771]
+5a ROI clipped sets identical: True
+5a W128 s0: x2 exact=True  W128=0.023968 rec=0.023968 eq=False  ratio_to_b0=1.038  bin/b=0.036  max=0.223
+5a W128 s1: x2 exact=True  W128=0.019719 rec=0.019719 eq=False  ratio_to_b0=0.854  bin/b=0.038  max=0.190
+5a W128 s2: x2 exact=True  W128=0.024607 rec=0.024607 eq=False  ratio_to_b0=1.065  bin/b=0.035  max=0.221
+5a W128 s3: x2 exact=True  W128=0.020399 rec=0.020399 eq=False  ratio_to_b0=0.883  bin/b=0.041  max=0.213
+5a W128 s4: x2 exact=True  W128=0.022116 rec=0.022116 eq=False  ratio_to_b0=0.958  bin/b=0.035  max=0.199
+5a W128 s5: x2 exact=True  W128=0.024088 rec=0.024088 eq=False  ratio_to_b0=1.043  bin/b=0.038  max=0.233
+N_t=21017289  tissue share=0.674  unique tissue values=573591
+5c c=0.25  c_eq=0.250011  |c_eq-c|=1.12e-05  Rres=0.157237
+5c c=0.5   c_eq=0.500005  |c_eq-c|=4.68e-06  Rres=0.083601
+5c c=0.75  c_eq=0.750005  |c_eq-c|=4.76e-06  Rres=0.023742
+5c c=0.9   c_eq=0.900006  |c_eq-c|=6.35e-06  Rres=0.004049
+5c c=1.0   c_eq=1.000023  |c_eq-c|=2.34e-05  Rres=0.000000
+5c c=1.5   c_eq=1.500000  |c_eq-c|=0.00e+00  Rres=0.000000
+5c c=2.0   c_eq=2.000003  |c_eq-c|=2.74e-06  Rres=0.000000
+5c Rres(b0) exactly 0: True
+5c c_eq(b0)=1.000023386704481 in [1,1.01): True
+5d Rres refs: {0.5: 0.0836, 0.75: 0.02374, 0.9: 0.00405}
+5d TOTSU b=0.031310 b/b0=1.356 c_eq=1.356 Rres=0.00000
+5d s0: W128 b/b0=1.038 c_eq=1.038 Rres=0.00000 | TW128 b/b0=1.415 c_eq=1.415 Rres=0.00000  tissue share of window=0.65
+5d s1: W128 b/b0=0.854 c_eq=0.854 Rres=0.00850 | TW128 b/b0=1.240 c_eq=1.240 Rres=0.00000  tissue share of window=0.60
+5d s2: W128 b/b0=1.065 c_eq=1.065 Rres=0.00000 | TW128 b/b0=1.439 c_eq=1.439 Rres=0.00000  tissue share of window=0.67
+5d s3: W128 b/b0=0.883 c_eq=0.883 Rres=0.00549 | TW128 b/b0=1.244 c_eq=1.244 Rres=0.00000  tissue share of window=0.68
+5d s4: W128 b/b0=0.958 c_eq=0.958 Rres=0.00075 | TW128 b/b0=1.293 c_eq=1.293 Rres=0.00000  tissue share of window=0.68
+5d s5: W128 b/b0=1.043 c_eq=1.043 Rres=0.00000 | TW128 b/b0=1.397 c_eq=1.397 Rres=0.00000  tissue share of window=0.66
+total 3.4s

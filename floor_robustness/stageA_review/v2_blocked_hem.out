@@ -1,0 +1,10 @@
+529.tiff original rows= 1024: bit-identical=True (differing px 0, max|d| 0.00e+00)  whole 0.58s blocked 0.50s
+529.tiff original rows=  777: bit-identical=True (differing px 0, max|d| 0.00e+00)  whole 0.58s blocked 0.49s
+529.tiff original rows=    1: bit-identical=True (differing px 0, max|d| 0.00e+00)  whole 0.58s blocked 0.49s
+529.tiff H06      rows= 1024: bit-identical=True (differing px 0, max|d| 0.00e+00)  whole 0.53s blocked 0.49s
+529.tiff H06      rows=  777: bit-identical=True (differing px 0, max|d| 0.00e+00)  whole 0.53s blocked 0.49s
+529.tiff JPG      rows= 1024: bit-identical=True (differing px 0, max|d| 0.00e+00)  whole 0.53s blocked 0.49s
+529.tiff JPG      rows=  777: bit-identical=True (differing px 0, max|d| 0.00e+00)  whole 0.53s blocked 0.49s
+529.tiff BLUR     rows= 1024: bit-identical=True (differing px 0, max|d| 0.00e+00)  whole 0.52s blocked 0.49s
+529.tiff BLUR     rows=  777: bit-identical=True (differing px 0, max|d| 0.00e+00)  whole 0.52s blocked 0.49s
+529.tiff blocked hem 0.50s; peak RSS after load + blocked hem 1.38 GB
