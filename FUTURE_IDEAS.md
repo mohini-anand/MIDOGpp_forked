@@ -175,9 +175,18 @@ features.
   an FP family nobody has reviewed yet, or the most uncertain candidate under H1.
 - This gives up precision now for precision later. Decide the split with the cost model.
 
-**H7. Blank shown candidates in the channel, instead of excluding them from the list.** `idea`, untested (2026-09-30)
-- An A/B costs about 882 re-searches, roughly 75 min.
-- Watch for leak peaks at the blank edges.
+**H7. Blank shown candidates in the channel, instead of excluding them from the list.** `built, precision untested` (2026-10-06)
+- Built on `feature/annotation-frame` as the session loop (`run_iteration`, D14). In the search copy, after the template cut,
+  it blanks each earlier iteration's refined seed and each of the k shown predictions' (default 10) refined box, with D11's
+  fill (the channel minimum, which equals glass).
+  - The blanked side is the box width + 1, so it is usually under 51 px.
+  - A prediction gets its own 51 px box when its refinement fell back, and every prediction does with
+    `refine_predictions=False`.
+  - Human seed rows are never blanked.
+  - Predictions within the match radius of a blank's centre are skipped from the page as repeats.
+- Still open: blanking against list exclusion on precision per page, and a fill that does not look like glass (the user deferred
+  it). An A/B costs about 882 re-searches, roughly 75 min.
+- Watch for leak peaks at the blank edges. In 4 logged iterations (300.tiff, 245.tiff), 0–1 repeats per page reached the skip.
 
 **H8. Widen the search when an ROI is depleted.** `idea`
 - This is the only lever on R_t.
