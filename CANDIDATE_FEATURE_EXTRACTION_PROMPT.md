@@ -16,6 +16,7 @@ notebook's outputs.
 | `directions.csv` gains a `role` column and is frozen before the smoke run; texture gets direction −1; circularity removed; `chr_roughness` gets 0 (it fails the lobulation test) | Sections 2, 5.0, 5.2, 8 |
 | The AUC rules, every named column set, and the montage scope stated exactly | Sections 6, 8 |
 | `chr_concavities_per_um`, `chr_roughness`, `chr_radial_hf` and `chr_edge_sharpness_per_um` constructions pinned down, with checked values | Sections 5.2, 5.8 |
+| Wording pinned: ROI ids, `is_mitosis`, `image_id`, the scanner table, `regionprops` input type, NaN reasons for empty rings and small texture supports, which reason column `chr_edge_sharpness_per_um` fills, the strata and `redundancy.csv` row sets, the count column names, `synthetic_pass`, and when `directions.csv` is written. Three readings chosen where the text allowed two: one `small piece` rule (the largest piece, also for the top-hat columns, which had said whole `M_chr`); `brown_frac_surround` divides by the surround's pixels, not the whole window's; the neighbour unit test is a fully specified 3 × 3 grid with 8 neighbours (it had said 12, with no layout) | Sections 2, 3, 4, 5.1, 5.2, 5.4, 5.6, 5.8, 6, 8 |
 
 ## 0. What this is, and what it is not
 
@@ -97,9 +98,11 @@ find in this spec, and every definition you change, gets a row.
    it. Store every result in `synthetic_tests.csv`. A failing test is reported as failing; never tune a constant or a
    tolerance until it passes.
 2. **Write `directions.csv`** (Section 8). It records what each feature is supposed to show before any real-data value
-   exists. It is frozen from here on: its SHA-1 goes into the spec JSON and is printed by both the smoke run and the
-   full run, which must agree. Do not edit it after seeing real-data values; once you have seen them, a direction is
-   no longer a hypothesis.
+   exists. It is a literal in the notebook, fixed before the first smoke execution and frozen from then on. Its SHA-1
+   is the SHA-1 of the CSV bytes that literal serialises to (the same bytes the file will hold). It goes into the spec
+   JSON and is printed by both the smoke run and the full run, which must agree. The file itself is written at the
+   end, with every other output (Section 8). Do not edit the literal after seeing real-data values; once you have seen
+   them, a direction is no longer a hypothesis.
 
 **The rule for disagreement with this spec.** There are two kinds of failure, treated differently:
 - **A gate fails** (Section 7): the pipeline does not reproduce. Stop, report, do not adapt.
@@ -133,7 +136,8 @@ differing by up to 1.2e-5 and `od` by up to 6e-8. So every float compared with a
 tolerance of 1e-4**, and positions, ranks and labels must match exactly except for float near-ties (gate B).
 
 **Held fixed, copied verbatim** (nothing here is re-tuned):
-- The 49 ROIs: `images/extra_valid/` (14) and `images/extra_valid/testing_set/` (35), 7 per domain.
+- The 49 ROIs: `images/extra_valid/` (14) and `images/extra_valid/testing_set/` (35), 7 per domain. ROI ids in this
+  spec drop the extension: `211` is the `file_name` `211.tiff`.
 - **The 294 recorded clicks and their refinement boxes.** Take the `arm == 'A0'` rows of
   `results/tm_border_floor_49roi_6seed_per_run.csv` with `rank_key == 'tm_score'`: `subset, domain, file_name,
   seed_index, seed_ann_id, click_cx, click_cy, tcx, tcy, bs, mpp, match_radius_px`. This is exactly how
@@ -281,7 +285,11 @@ typical ROI lies above it, cytoplasm included.
 
 **Rings** for the surround features: `ring_k` for k = 1, 2, 3 is the band of pixels whose distance from `M_chr`
 (`scipy.ndimage.distance_transform_edt(~M_chr) * mpp`) lies in `((k−1) µm, k µm]`, clipped to the 51 px window.
-`M_chr` pixels are at distance 0, so no ring contains them.
+`M_chr` pixels are at distance 0, so no ring contains them. A large `M_chr` can leave a ring with no pixels inside the
+window. Then every column that reads that ring is NaN with reason `empty ring` (`nan_reason_ring`, Section 8): the
+ring's `h_ring_k_mean`, `ring_peak_prominence` if any of the three rings is empty, and the `ring1_frac_*` shares and
+`chr_edge_sharpness_per_um` if `ring_1` is empty. (The cytoplasm columns of 5.5 keep their own `no cytoplasm` reason,
+which an empty ring already triggers.)
 
 **Clipped pixels.** A pixel is clipped when any RGB channel is 0 or 255.
 - True clipping occurs on the 3D Histech ROIs: on `249`, `435`, `230` and `460`, 5.7–7.5 % of GT-mitosis `M_chr`
@@ -297,7 +305,9 @@ typical ROI lies above it, cytoplasm included.
   0.44 for top-10 false positives on 7 ROIs), so its AUC is read beside `chr_ns_share`.
 
 **Labels.** Match each click's 300-row list in score order with `ev.bucket_detections` against the ROI's ground truth
-minus the click's own annotation. Store `bucket`, `matched_ann_id`, `is_mitosis`. Independently of matching, store
+minus the click's own annotation. Store `bucket`, `matched_ann_id`, `is_mitosis`. `is_mitosis` is
+`bucket == ev.HUMAN_CORRECT_LABEL`. Every other row, whether matched to a look-alike or unannotated, is an "other" row
+in Section 6. Independently of matching, store
 `nearest_mitosis_um` and `nearest_lookalike_um`, the distance to the nearest annotation of each category, excluding
 the click's own; the downstream analysis needs labels that do not depend on greedy order.
 
@@ -420,8 +430,11 @@ bucket, matched_ann_id, is_mitosis, nearest_mitosis_um, nearest_lookalike_um, sc
 
 - `dist_to_click_um` is the distance from `(cx, cy)` to `(click_cx, click_cy)`, times `mpp`.
 - `n_pieces` is the number of refinement pieces the selection unioned, distinct from `chr_n_pieces` in Section 5.2.
+- `image_id` is the `id` of the entry in the `images` list returned by `ds.load_annotations` whose `file_name`
+  matches.
 - **`scanner`** is read from the `scanner` column of `images/extra_valid/MANIFEST.md` and
-  `images/extra_valid/testing_set/MANIFEST.md`, mapped `3D Histech` → `3dhistech`, `Aperio CS2` → `aperio_cs2`,
+  `images/extra_valid/testing_set/MANIFEST.md`. Each file has more than one table, so use the table whose header has a
+  `scanner` column. Map the values `3D Histech` → `3dhistech`, `Aperio CS2` → `aperio_cs2`,
   `Hamamatsu S360` → `hamamatsu_s360`, `Hamamatsu XR` → `hamamatsu_xr`. Assert that all 49 ROIs get one.
 - **`roi_group`** is `failing9` for `211`, `242`, `524`, `546`, `462`, `527`, `410`, `245` and `289`, and `other40`
   otherwise. The nine are the ROIs below P@10 0.35 on both A3 axes (`low_precision_rois/`). The group was defined after
@@ -431,13 +444,17 @@ bucket, matched_ann_id, is_mitosis, nearest_mitosis_um, nearest_lookalike_um, sc
 
 **The piece.** Columns are computed on the largest 4-connected piece of `M_chr` (`skimage.measure.label(M_chr,
 connectivity=1)`; a tie goes to the lower label) unless marked *whole*. They are NaN, with reason `small piece`, when
-that piece has fewer than 30 px.
+that piece, unfilled, has fewer than 30 px. This is the one `small piece` rule in this spec: every column whose NaN
+reason is `small piece` (Section 8, `nan_reason_geom` and `nan_reason_concav`) uses it, including the 5.8 columns that
+read *whole* `M_chr`. Every `regionprops` call takes `mask.astype(np.uint8)`: skimage 0.24 raises `TypeError` on a
+bool array.
 
 **The filled piece and its outline.** `chr_minor_um` through `chr_concavities_per_um`, and `chr_radial_hf`, read the
 piece with its holes filled (`scipy.ndimage.binary_fill_holes`). Pathologists judge the outer surface contour (C1,
 C5), and on a ring-shaped piece `regionprops` counts the inner boundary too: the vesicular nucleus of Section 5.5,
 whose `M_chr` is its rim, scored solidity 0.21 and roughness 1.82 unfilled, the most "mitotic" values, against 0.99
-and 1.00 filled. `chr_area_um2` and `chr_hole_frac` read the piece unfilled; the hole is `chr_hole_frac`'s job. The
+and 1.00 filled. `chr_area_um2` reads *whole* `M_chr` and `chr_hole_frac` reads the piece, both unfilled; the hole is
+`chr_hole_frac`'s job. The
 **outline** is the longest contour of `cv2.findContours(filled.astype(np.uint8), cv2.RETR_EXTERNAL,
 cv2.CHAIN_APPROX_NONE)`, as (x, y) points.
 
@@ -573,8 +590,10 @@ not stored.
 ### 5.4 Chromatin texture
 
 **The texture support:** `M_chr` eroded once by `scipy.ndimage.binary_erosion` with its default cross, minus every
-pixel whose 3 × 3 neighbourhood contains a clipped pixel (Section 4). Both columns are NaN, reason `clipped`, when the
-support has fewer than `NS_MIN_PX` = 10 pixels.
+pixel whose 3 × 3 neighbourhood contains a clipped pixel (Section 4). Both columns are NaN when the support has fewer
+than `NS_MIN_PX` = 10 pixels, including `h_chr_glcm_contrast`, which reads a different pixel set but shares this rule.
+The reason is `small support` when the eroded `M_chr` alone has fewer than 10 pixels (a small or thin mask), and
+`clipped` when the eroded `M_chr` has at least 10 and the clipped-pixel exclusion takes it below.
 
 | column | definition | unit |
 |---|---|---|
@@ -671,7 +690,7 @@ RGB statistics are on the raw `uint8` image.
 | column | definition | unit |
 |---|---|---|
 | `e_over_h_chr` | mean E / mean H over `M_chr_clip` (Section 4); NaN, reason `clipped`, below `NS_MIN_PX` pixels | ratio |
-| `brown_frac_surround` | share of the 51 px window's pixels outside `M_sel` with `R > G > B`, `R − B > 40` and `gray < 180` | share |
+| `brown_frac_surround` | the number of 51 px window pixels outside `M_sel` with `R > G > B`, `R − B > 40` and `gray < 180`, divided by the number of window pixels outside `M_sel` | share |
 
 The brown rule is a starting heuristic. If the top tiles of its montage (Section 8) are not pigment, calibrate it there,
 log the change, and keep the original as `spec_brown_frac_surround`.
@@ -764,7 +783,8 @@ applies. Every constant named here goes into the spec JSON.
   - `chr_tophat_edge = T[R_edge].sum() / H_w[M_chr].sum()`: thin structure at the surface, the C1 cue;
   - `chr_tophat_core = T[M_core].sum() / H_w[M_chr].sum()`: thin structure inside, which granular interphase chromatin
     also has;
-  - both NaN, reason `small piece`, when `M_chr` has fewer than 30 px, as in Section 5.2.
+  - both NaN, reason `small piece`, under Section 5.2's rule (the largest 4-connected piece of `M_chr` has fewer than
+    30 px), although both read *whole* `M_chr`.
 - **Why the region follows the mask.** A disc about the centroid follows the mask's size, not its shape: on an about
   4:1 bar with spikes at its tips, the tips lie outside it. And one undivided region mixes opposite cues: a disc with
   2 px internal granules scored above a disc with 2 px surface spikes. The split puts granules in `chr_tophat_core` and
@@ -799,6 +819,9 @@ applies. Every constant named here goes into the spec JSON.
   in OD per µm.
 - **The step:** `step = h_chr_mean − h_ring1_mean`, from Section 5.3. If `step` < `EDGE_MIN_STEP` = 0.005 OD, the
   feature is NaN with reason `no edge step`.
+- **Which reason column is filled.** Check in this order and stop at the first that applies: `small piece` goes in
+  `nan_reason_geom`; `empty ring` (`ring_1` empty, so `step` is undefined) goes in `nan_reason_ring`; `no edge step`
+  goes in `nan_reason_edge`. The other two stay empty.
 - **The feature:** `chr_edge_sharpness_per_um = g[B].mean() / step`, in 1/µm. It is roughly the inverse width of the
   edge.
 - **Synthetic suite, mandatory.** A disc and a 2:1 ellipse, at radius 8 and 16 px, 0.20 OD on 0.03, each
@@ -832,9 +855,15 @@ applies. Every constant named here goes into the spec JSON.
   (sarcoma), show the 101 px window with the kept components outlined in one colour and the dropped ones in another,
   embedded in the notebook. If the kept components are not nuclei, the definition is defective (Section 2): fix it, for
   example with `t_dark` or different area bounds, and keep this version as `spec_` columns.
-- **Unit test, mandatory.** A 101 × 101 field at `mpp` 0.25 holding 12 non-touching discs of radius 12 px (about
-  28 µm²), one disc at the centre standing in for the candidate's `M_chr`, and two discs cut by the window edge. It must
-  give `nbr_n` = 12 and a median equal to the rendered disc's pixel count × mpp², within 2 %.
+- **Unit test, mandatory.** A 101 × 101 field at `mpp` 0.25, 0.03 OD, with `t_nuc` = 0.09. Draw 11 discs at 0.15 OD,
+  each the pixels with (x − x_c)² + (y − y_c)² ≤ 144 (radius 12 px, 441 px, 27.5625 µm²), with x the column and y the
+  row:
+  - nine on a 3 × 3 grid with x_c, y_c ∈ {24, 50, 76}; the one at (50, 50) is the candidate's `M_chr`;
+  - two cut by the window edge, at (x_c, y_c) = (100, 12) and (12, 100). Each keeps 233 px (14.56 µm²) inside the
+    window, within the area bounds, so only the edge rule drops it.
+
+  It must give `nbr_n` = 8 and `nbr_nuc_area_med_um2` = 27.5625 µm² exactly (441 px × 0.0625). Checked 2026-10-08: 11
+  components; the two edge discs and the centre disc dropped.
 - **Direction hypothesis:** 0. It should be +1 against apoptotic bodies and lymphocytes, which are smaller than their
   neighbours, but −1 against hyperchromatic interphase nuclei.
 
@@ -892,9 +921,11 @@ on mitoses.
 **Columns of `validity.csv`**, computed on accepted rows with `in_recorded_pool`, the pool production ranks:
 - `n_clicks`, `n1`, `n0`: the clicks kept and the rows they contribute.
 - `auc_within_click`: the AUC with clicks as the groups.
-- `auc_dark_stratified`: **the AUC beyond darkness.** Within each click, split its accepted rows into five strata by
-  within-click rank of `od`: `pd.qcut(od.rank(method='first'), 5, labels=False)`. The AUC with the click-by-stratum
-  cells as the groups. Also store `n_strata_used` and `n1_dark_stratified`. A value near 0.5 means the column adds
+- `auc_dark_stratified`: **the AUC beyond darkness.** Within each click, split the click's rows in the table's
+  population (here accepted rows with `in_recorded_pool`; in `validity_depth300.csv` all accepted rows) into five
+  strata by within-click rank of `od`: `pd.qcut(od.rank(method='first'), 5, labels=False)`. The strata are formed once
+  per click, before any column's NaN rows are dropped, and are shared by every column. The AUC with the
+  click-by-stratum cells as the groups. Also store `n_strata_used` and `n1_dark_stratified`. A value near 0.5 means the column adds
   nothing once the window's darkness is held roughly fixed, whatever its `auc_within_click`. Darkness columns
   themselves will sit nearer 0.5 here by construction; that is the point of the column, not a defect.
 - `auc_area_tertiles`, for the boundary columns only (NaN elsewhere): as `auc_dark_stratified`, with three strata of
@@ -904,13 +935,22 @@ on mitoses.
 - `auc_hole_gt03`, `auc_hole_le03`, for `chr_tophat_edge` only: `auc_within_click` on the rows with `chr_hole_frac`
   above 0.3 and at most 0.3. A ring-shaped `M_chr` (a vesicular nucleus's rim) raises `chr_tophat_edge` (5.8 b).
 - `auc_wc_3dhistech`, `auc_wc_aperio_cs2`, `auc_wc_hamamatsu_xr`, `auc_wc_hamamatsu_s360`: `auc_within_click`
-  restricted to each scanner's clicks, each with its click count. Scanner is confounded with tumour type for 42 of the
+  restricted to each scanner's clicks, each with its kept-click count in `n_clicks_<scanner>` (for example
+  `n_clicks_3dhistech`). Scanner is confounded with tumour type for 42 of the
   49 ROIs, and S360 is 3 ROIs, so read these as scanner-and-tissue groups. For the boundary columns this is the "is the
   cue resolvable on this scan" check; report it beside each group's median `chr_edge_sharpness_per_um`.
-- `auc_wc_failing9`, `auc_wc_other40`: `auc_within_click` by `roi_group`, each with its mitosis count. This shows
+- `auc_wc_failing9`, `auc_wc_other40`: `auc_within_click` by `roi_group`, each with its mitosis count in `n1_failing9`
+  and `n1_other40`. This shows
   whether a column carries signal where darkness fails. The grouping is post hoc, so it is descriptive.
 - `nan_rate_mitosis`, `nan_rate_other`: the share of accepted mitosis and other rows where the column is NaN.
-- `synthetic_pass`: pass, fail or n.a., from Section 5's suites.
+- `synthetic_pass`, from Section 5's suites:
+  - `pass` when every mandatory test that names the column passes;
+  - `fail (predicted)` when the only failures are ones this spec predicts in advance (`chr_radial_hf` and
+    `chr_roughness` on the scale rule, `chr_roughness` on the lobulation test);
+  - `fail` for any other failure;
+  - `n.a.` when no test names the column.
+
+  The per-test results stay in `synthetic_tests.csv`.
 - `direction_hypothesis`, copied from `directions.csv`, and `direction_measured`, the sign of
   `auc_within_click − 0.5`. Report agreement; do not change the hypothesis after the fact.
 
@@ -918,8 +958,10 @@ on mitoses.
 pool production ranks; the depth-300 table is where the failing ROIs have enough mitoses to read. Print the mitosis
 count per `roi_group` for each table.
 
-**`redundancy.csv`:** the matrix of mean within-click Spearman correlations (rows where both columns are non-NaN, clicks
-with at least 10 such rows) between the role-`feature` columns and `od`. Print the pairs above 0.8 in absolute value.
+**`redundancy.csv`:** the matrix of mean within-click Spearman correlations between the role-`feature` columns and
+`od`. It uses `validity.csv`'s population (accepted rows with `in_recorded_pool`). For each pair it averages over the
+clicks that have at least 10 rows where both columns are non-NaN. Print the pairs above 0.8 in absolute value. A
+pairwise matrix cannot detect a column that is a function of two or more others.
 
 **What you may conclude from this report:** whether each measurement is valid, and what it actually measures. **What
 you may not conclude:** which features to use, how to weight them, or whether any ranker is better. Write the report
@@ -973,11 +1015,12 @@ Tables, in `results/`, prefix `candidate_features_a3_top300_`:
   | `nan_reason_geom` | `small piece` | the 5.2 table except `chr_area_um2`, `chr_n_pieces` and `chr_concavities_per_um`; `chr_tophat_edge`, `chr_tophat_core`, `chr_edge_sharpness_per_um` |
   | `nan_reason_concav` | `small piece`, `convexity error` | `chr_concavities_per_um` |
   | `nan_reason_pair` | `no anchor`, `no partner` (all four), `round piece` (the two angles) | the `pair_*` columns |
-  | `nan_reason_texture` | `clipped` | the texture columns |
+  | `nan_reason_texture` | `small support`, `clipped` | the texture columns |
   | `nan_reason_colour` | `clipped` | `e_over_h_chr` |
   | `nan_reason_cyto` | `no cytoplasm` | `e_ring23_mean`, `e_over_h_ring23` |
   | `nan_reason_resid` | `outside_20_235` | `chr_resid_frac` |
-  | `nan_reason_edge` | `no edge step` | `chr_edge_sharpness_per_um` |
+  | `nan_reason_ring` | `empty ring` | `h_ring1_mean`, `h_ring2_mean`, `h_ring3_mean`, `ring_peak_prominence`, the `ring1_frac_*` shares, `chr_edge_sharpness_per_um` (Section 4, Rings) |
+  | `nan_reason_edge` | `no edge step` | `chr_edge_sharpness_per_um` (5.8 c says which of its three reason columns is filled) |
   | `nan_reason_nbr` | `few neighbours` | `nbr_nuc_area_med_um2`, `chr_area_over_nbr` |
 
   Refused rows have every feature NaN and every reason column empty; their `refusal` says why. A NaN this table does
@@ -987,8 +1030,9 @@ Tables, in `results/`, prefix `candidate_features_a3_top300_`:
   and `radius_px`.
 - `directions.csv`: one row per column with a role: `column`, `role`, `claims_to_measure` (one sentence a pathologist
   would accept), `direction_hypothesis` (+1 larger is more mitosis-like, −1, or 0 for no hypothesis), `rationale`,
-  `confound`, `test`. Use the directions and rationale that Section 5.0 or the defining section gives. It is written by a
-  cell that runs after the synthetic suites and before the smoke run, from a literal in the notebook (Section 2).
+  `confound`, `test`. Use the directions and rationale that Section 5.0 or the defining section gives. Its content is a
+  literal in the notebook, fixed before the first smoke execution; its SHA-1 is printed after the synthetic suites and
+  before any real-data cell, and the file is written at the end with the other outputs (Section 2).
 - `validity.csv`, `validity_depth300.csv`, `redundancy.csv` (Section 6), `synthetic_tests.csv` (Section 5).
 - `adversarial_log.csv` (Section 2).
 
