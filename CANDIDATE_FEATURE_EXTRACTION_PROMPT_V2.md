@@ -20,6 +20,7 @@ reviewers agreed on that plan, and the user approved it. The plan holds the evid
 | Definitions changed: the brown rule gains `G − B > 15`; `dark_area_frac_101` excludes the candidate's own selection; `ring1_frac_nuclear` renamed `ring1_frac_above_tnuc`; the top-hat columns' `small piece` rule is whole `M_chr` again | Sections 5.2, 5.5, 5.6, 5.7, 5.8 |
 | New identity columns `matched_unanimous` and `matched_n_mitotic_votes` | Sections 4, 5.1 |
 | Pinned: the `directions.csv` serialisation, the 101 px offset's rounding, and the brown-rule montage ROIs. Recorded: the 2026-10-09 look at real data, which unblinds the spike columns | Sections 2, 4, 6, 8 |
+| Added at the user's request: measured orientation per feature (`orientation_recommended`, sign consistency across ROIs and domains, mitoses in the top 10 against the bottom 10 per click), montages sorted by the oriented value, and a findings document | Sections 2, 6, 8, 9 |
 
 **The 2026-10-08 revision.** The 2026-10-02 text, with its amendment tables, is in git at `0401ae3`.
 
@@ -135,6 +136,9 @@ accepted rows with `in_recorded_pool`.
   the body's mean H used labelled mitosis locations.
 - **What you do:** the first row of `adversarial_log.csv` records this look. Say it again wherever you report these
   five columns.
+- **In-sample orientation is accepted.** The user has accepted that every feature's measured orientation (Section 6) is
+  chosen on real data from these 49 ROIs. `images/extra_valid/testing_set/` is part of the 49, and there is no held-out
+  set. The frozen `directions.csv` records the hypotheses, and Section 6 reports the measured orientation beside them.
 
 **The rule for disagreement with this spec.** There are two kinds of failure, treated differently:
 - **A gate fails** (Section 7): the pipeline does not reproduce. Stop, report, do not adapt.
@@ -1154,6 +1158,30 @@ on mitoses.
     in advance and is not a test.
   - Only `validity_depth300.csv`'s rows with `in_recorded_pool` False are unseen for them.
   - Say so beside those rows.
+- **Measured orientation.** These columns answer one practical question: should a ranker use the raw value or −1 × the
+  value, so that mitoses come first? They are measured on the table's own population, in-sample (Section 2), and sit
+  beside the frozen `direction_hypothesis` without changing it.
+  - **Per-ROI and per-domain AUCs.** Compute the AUC with one ROI's clicks as the groups, for each ROI where it is
+    defined. Do the same per domain.
+  - **`roi_sign_agree_share`:** the share of those ROIs whose AUC lies on the same side of 0.5 as `auc_within_click`.
+    A ROI at exactly 0.5 does not agree.
+  - **`domain_sign_agree_n`:** the same count over the 7 domains.
+  - **Consistent:** `roi_sign_agree_share` ≥ 2/3 and `domain_sign_agree_n` ≥ 5.
+  - **`orientation_recommended`:** `raw` when `auc_within_click` > 0.5 and the sign is consistent; `x-1` when it is
+    < 0.5 and consistent; `non-monotone` otherwise, including `auc_within_click` = 0.5 exactly.
+    - Do not force a sign, and do not fit a transform.
+    - A `non-monotone` column has its mitoses in the middle of the range, or no consistent relation; say which.
+  - **Top 10 against bottom 10, per click.**
+    - The oriented value is the raw value times +1 (`raw`) or −1 (`x-1`). For `non-monotone`, use the side of
+      `auc_within_click` anyway, so the counts show how weak the sign is.
+    - Use the click's rows in the table's population where the column is non-NaN. Skip a click with fewer than 20 such
+      rows.
+    - Sort them in descending order of the oriented value, breaking ties by `cand_rank` ascending. Count the mitoses in
+      the first 10 and in the last 10.
+    - Store `n_clicks_tb` (the clicks used), the totals `top10_mitoses` and `bottom10_mitoses`, and the click counts
+      `n_clicks_top_more`, `n_clicks_bottom_more` and `n_clicks_tied`.
+  - These rank by one column at a time, for description. They are not a ranker and combine nothing (Section 0).
+  - The oriented value is used only for sorting and counting. The stored columns stay raw (Section 5's rules).
 
 **The pair columns.** The four `pair_*` columns carry the anaphase cue only jointly: two parallel pieces of similar
 size, a few µm apart, with the centroid line across their axes. In crowded tissue most candidates have a partner, so
@@ -1169,9 +1197,9 @@ count per `roi_group` for each table.
 clicks that have at least 10 rows where both columns are non-NaN. Print the pairs above 0.8 in absolute value. A
 pairwise matrix cannot detect a column that is a function of two or more others.
 
-**What you may conclude from this report:** whether each measurement is valid, and what it actually measures. **What
-you may not conclude:** which features to use, how to weight them, or whether any ranker is better. Write the report
-in that voice.
+**What you may conclude from this report:** whether each measurement is valid, what it actually measures, and which
+orientation puts mitoses first (in-sample). **What you may not conclude:** which features to use, how to weight them,
+or whether any ranker is better. Write the report in that voice.
 
 ## 7. Gates (halt and report) and flags (report only)
 
@@ -1243,6 +1271,22 @@ Tables, in `results/`, prefix `candidate_features_a3_top300_`:
 - `validity.csv`, `validity_depth300.csv`, `redundancy.csv` (Section 6), `synthetic_tests.csv` (Section 5).
 - `adversarial_log.csv` (Section 2).
 
+**The findings document:** `production_hematoxylin_only/multiotsu_pad_arms/candidate_features_a3_top300_findings.md`,
+or `..._findings_smoke.md` on a smoke run. It is the readable record of this run, separate from the notebook.
+- **It opens with what is wrong:**
+  - the features that do not measure what they claim;
+  - the features whose measured orientation disagrees with `direction_hypothesis`;
+  - the `non-monotone` features;
+  - the definitions you changed.
+- **Then one section per feature:**
+  - whether it measures what it claims, with the synthetic and montage evidence;
+  - its pathology basis, from Section 5.0;
+  - from both validity tables: `orientation_recommended`, the oriented `auc_within_click` and `auc_dark_stratified`,
+    the top-10 against bottom-10 counts, and the sign consistency across ROIs and domains;
+  - any definition you changed, and why.
+- **Then:** the redundancy pairs above 0.8, the synthetic failures, and what you could not check.
+- **Throughout:** label in-sample results as such (Section 2).
+
 Also:
 - **The spec JSON:** `production_hematoxylin_only/multiotsu_pad_arms/data/candidate_features_spec.json`, holding every
   constant (including Section 5.8's), the refinement SHA-1 and the `directions.csv` SHA-1, with sorted keys and no
@@ -1256,11 +1300,15 @@ Also:
     instead:
     - `chr_resid_frac` uses `211`, `289`, `339`;
     - `brown_frac_surround` uses `291`, `410`, `123`. `123` shows whether the red-cell exclusion holds (5.6).
-  - **Tiles per row:** the ten highest values on the left and the ten lowest on the right, from the ROI's accepted
-    depth-300 rows pooled over its 6 clicks, deduplicated by location, NaN excluded, picked greedily in value order and
-    skipping any location within 7.5 µm of one already picked.
+  - **Tiles per row:** the ten highest *oriented* values on the left and the ten lowest on the right, so the left ten
+    are the end that should hold mitoses.
+    - **The orientation** is the column's `orientation_recommended` in `validity_depth300.csv`. For `non-monotone`,
+      use the side of its `auc_within_click`. For the diagnostic `chr_edge_sharpness_per_um`, use the raw value.
+    - **The tiles** come from the ROI's accepted depth-300 rows pooled over its 6 clicks, deduplicated by location,
+      with NaN excluded. Pick them greedily in oriented-value order, skipping any location within 7.5 µm of one already
+      picked.
   - **Each tile:** the 61 px RGB window centred on the location, with `M_chr` outlined, a border coloured by bucket
-    (mitosis green, look-alike orange, unannotated grey), and the value as a caption. Size the figure so that each tile
+    (mitosis green, look-alike orange, unannotated grey), and the raw value and the sign used as a caption. Size the figure so that each tile
     shows at least 2 screen pixels per image pixel when you open it.
   - **Plus** the neighbour-component check of Section 5.8 (d).
   - Your one-sentence judgement per figure goes in the notebook's final markdown cell.
@@ -1282,10 +1330,16 @@ output is written at the end.
 - Docstrings: the opening `"""` on its own line, a brief summary, one line per parameter with type and a short
   description, one line for the return. Function definitions and calls on a single line, never wrapped.
 - Do not commit. Do not modify or delete any existing file. Kill only a PID you started.
-- Order of work: the unit tests and synthetic suites (Section 2, step 1), then `directions.csv` (step 2), then the
-  smoke run, then the full run, then the validity report and montages (steps 3 and 4), then the final markdown cell.
+- Order of work:
+  1. the unit tests and synthetic suites (Section 2, step 1);
+  2. `directions.csv` (step 2);
+  3. the smoke run, then the full run;
+  4. the validity report, then the montages, which need its orientations (steps 3 and 4);
+  5. the final markdown cell and the findings document.
 - Report back with, in this order:
-  - both validity tables, with `auc_dark_stratified` and the `roi_group` columns shown for every feature;
+  - the findings document's path and its opening section (what is wrong);
+  - both validity tables, with `auc_dark_stratified`, `orientation_recommended`, the top-10 against bottom-10 counts
+    and the `roi_group` columns shown for every feature;
   - the pairs above 0.8 in the redundancy matrix;
   - the synthetic failures;
   - the montage judgements;
