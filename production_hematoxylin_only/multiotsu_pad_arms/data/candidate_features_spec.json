@@ -1,0 +1,251 @@
+{
+ "columns": {
+  "diagnostics": [
+   "chr_touches_window",
+   "dark_touches_window",
+   "h_ring1_mean",
+   "h_ring2_mean",
+   "h_ring3_mean",
+   "chr_ns_share",
+   "chr_edge_sharpness_per_um",
+   "nbr_n",
+   "nbr_nuc_area_med_um2"
+  ],
+  "features": [
+   "chr_area_um2",
+   "chr_elongation",
+   "chr_solidity",
+   "chr_concavities_per_um",
+   "dark_concavities_per_um",
+   "chr_hole_frac",
+   "chr_radial_hf",
+   "pair_sep_um",
+   "pair_area_ratio",
+   "pair_parallel_deg",
+   "pair_axis_deg",
+   "h_chr_mean",
+   "h_chr_lap",
+   "ring_peak_prominence",
+   "ring1_frac_above_tnuc",
+   "ring1_frac_pale",
+   "white_frac_gray215_61",
+   "e_h_angle_ring23_deg",
+   "brown_frac_surround",
+   "dark_area_frac_101",
+   "chr_resid_frac",
+   "chr_tophat_edge",
+   "chr_tophat_core",
+   "chr_area_over_nbr"
+  ],
+  "reasons": [
+   "nan_reason_geom",
+   "nan_reason_concav",
+   "nan_reason_dark",
+   "nan_reason_pair",
+   "nan_reason_texture",
+   "nan_reason_cyto",
+   "nan_reason_resid",
+   "nan_reason_ring",
+   "nan_reason_edge",
+   "nan_reason_nbr",
+   "nan_reason_spec_nbr"
+  ],
+  "spec": [
+   "spec_chr_area_over_nbr",
+   "spec_nbr_n",
+   "spec_nbr_nuc_area_med_um2"
+  ]
+ },
+ "deep": {
+  "DEPTH": 300,
+  "UNCAPPED": 10000000
+ },
+ "directions_amendment_sha1": "9b75f8c399c1a8646a3f3f09c324474b87e05fec",
+ "directions_sha1": "620d50f307995984eed9a9c387a047b79abe5b94",
+ "feature_constants": {
+  "BROWN_GRAY_MAX": 180,
+  "BROWN_G_MINUS_B": 15,
+  "BROWN_R_MINUS_B": 40,
+  "CONCAVITY_MIN_UM": 0.25,
+  "EDGE_MIN_STEP": 0.005,
+  "GLASS_GRAY": 215,
+  "MIN_PIECE_PX": 30,
+  "NBR_MAX_UM2": 150.0,
+  "NBR_MIN_N": 3,
+  "NBR_MIN_UM2": 8.0,
+  "NS_HI": 235,
+  "NS_LO": 20,
+  "NS_MIN_PX": 10,
+  "PAIR_ELONG_MIN": 1.2,
+  "PAIR_MAX_UM": 10.0,
+  "PAIR_MIN_RATIO": 0.5,
+  "PAIR_MIN_UM2": 1.0,
+  "RADIAL_BAND": [
+   6,
+   64
+  ],
+  "RADIAL_POINTS": 128,
+  "RESID_DILATE_PX": 2,
+  "RESID_NORMAL": [
+   -0.3321168641376976,
+   -0.08093471415445082,
+   0.9397595227504105
+  ],
+  "TOPHAT_CORE_UM": 0.5,
+  "TOPHAT_RING_UM": 1.0,
+  "TOPHAT_R_UM": 0.5,
+  "WIN101": 101,
+  "WIN61": 61
+ },
+ "gates": {
+  "GATE_C_MAX_SHARE": 0.01,
+  "TOL_FLOAT": 0.0001
+ },
+ "montage": {
+  "MONTAGE_K": 10,
+  "MONTAGE_ROIS": [
+   "300",
+   "201",
+   "013",
+   "529",
+   "425",
+   "211",
+   "546",
+   "524"
+  ],
+  "MONTAGE_ROIS_PIGMENT": {
+   "brown_frac_surround": [
+    "291",
+    "410",
+    "123"
+   ],
+   "chr_resid_frac": [
+    "211",
+    "289",
+    "339"
+   ]
+  },
+  "MONTAGE_SEP_UM": 7.5,
+  "NBR_CHECK_N": 10,
+  "NBR_CHECK_ROIS": [
+   "245",
+   "462"
+  ],
+  "NBR_CHECK_SEED": 20261009
+ },
+ "neighbour_threshold": "t_dark",
+ "notebook": "candidate_features_a3_top300.ipynb",
+ "production": {
+  "DEEP_FLOOR_Z": -1.5,
+  "MAX_PEAKS": 100,
+  "MIDOG_RADIUS_UM": 7.5,
+  "OD_WINDOW": 51,
+  "PEAK_MIN_DISTANCE": 7,
+  "TM_METHOD": 4
+ },
+ "refine_constants": {
+  "CLASSES": 3,
+  "CLICK_RADIUS_UM": 3.75,
+  "DILATE_ITERATIONS": 1,
+  "DILATE_KERNEL": [
+   [
+    0,
+    1,
+    0
+   ],
+   [
+    1,
+    1,
+    1
+   ],
+   [
+    0,
+    1,
+    0
+   ]
+  ],
+  "MAX_AREA_FRAC": 0.85,
+  "MIN_AREA_UM2": 3.0,
+  "MIN_BASE_UM": 5.0,
+  "MIN_PIECE_UM2": 1.0,
+  "PAD_PX": 2,
+  "WINDOW": 51
+ },
+ "refine_sha1": "21c43a20db00dccf7ac3bab88aee423c345441b6",
+ "roi_group_failing9": [
+  "211",
+  "242",
+  "524",
+  "546",
+  "462",
+  "527",
+  "410",
+  "245",
+  "289"
+ ],
+ "scanner_map": {
+  "3D Histech": "3dhistech",
+  "Aperio CS2": "aperio_cs2",
+  "Hamamatsu S360": "hamamatsu_s360",
+  "Hamamatsu XR": "hamamatsu_xr"
+ },
+ "search_constants": {
+  "ARMS": [
+   "mo_box",
+   "mo_pad51",
+   "mo_pad61",
+   "mo_ring5"
+  ],
+  "AXIS_KEY": {
+   "chromatin_od": "od",
+   "tm_score": "score"
+  },
+  "BAND_MODE": "floored",
+  "BLANK_SIZE": 51,
+  "BUDGETS": [
+   10,
+   20,
+   30
+  ],
+  "EDGE_READ_PAD": 36,
+  "FLOOR_CLASSES": 3,
+  "MAX_SIDE": 73,
+  "OD_PAD": 25,
+  "PAD": 30,
+  "PAD_ARMS": [
+   "mo_pad51",
+   "mo_pad61"
+  ],
+  "RANK_KEY": "tm_score",
+  "RING_PX": 5,
+  "SELF_PX": 2,
+  "S_TPL": 61,
+  "TEST_K": 10,
+  "TPL_ARM": "mo_pad61",
+  "WHITE_GRAY": 215,
+  "WHITE_WINDOW": 61
+ },
+ "smoke": false,
+ "smoke_rois": [],
+ "spec": "CANDIDATE_FEATURE_EXTRACTION_PROMPT_V2.md",
+ "validity": {
+  "AREA_COLS": [
+   "chr_solidity",
+   "chr_concavities_per_um",
+   "dark_concavities_per_um",
+   "chr_radial_hf",
+   "chr_tophat_edge",
+   "h_chr_lap",
+   "chr_tophat_core"
+  ],
+  "CONSISTENT_DOMAINS": 5,
+  "CONSISTENT_ROI_SHARE": "2/3",
+  "HOLE_SPLIT": 0.3,
+  "N_AREA_STRATA": 3,
+  "N_OD_STRATA": 5,
+  "TB_K": 10,
+  "TB_MIN_ROWS": 20
+ },
+ "worker": "candidate_features_a3_top300_worker.py",
+ "worker_sha256_12": "8bfdd635d153"
+}
