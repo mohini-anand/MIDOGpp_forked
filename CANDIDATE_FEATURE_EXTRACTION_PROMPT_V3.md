@@ -39,7 +39,7 @@ alone. Every cell of 6.4 and every carried-over V2 value reproduced exactly. The
 | `chr_tophat_edge`'s single-piece CI, the `od` ranker CI and `chr_area_um2`'s mask-free controls, recomputed with this spec's bootstrap and rule. Two labels marked *by eye*, which had been called measured | 5.9, 6.1 |
 | Pool numbers that were depth-300 or rounded loosely: 228 → 49 rows with `chr_hole_frac` > 0.3, 87 → 89 % neighbour NaN, 1.6 → 1.8 % truncated windows, and the per-ROI spread range | Sections 1, 4, 5.8 |
 | Where the `validity.csv` columns this run does not recompute live | Section 8 |
-| The fix plan's Section 1 rows 4, 9, 10, 11, 17 and 18, which the audit errata copies | the fix plan |
+| The fix plan's Section 1 rows 4, 6, 9, 10, 11, 17 and 18, which the audit errata copies | the fix plan |
 
 **The V2 revision (2026-10-09).** It applies the 35-item plan in `CANDIDATE_FEATURE_EXTRACTION_EDIT_PLAN.md`. Two
 reviewers agreed on that plan, and the user approved it. The plan holds the evidence behind each item.
@@ -1504,6 +1504,8 @@ The two other checks of Section 2.1 test this run's new code.
 **Environment:**
 - **Interpreter:** `/Users/mohinianand/anaconda3/bin/python3`, the only one that imports `cv2` and `midog_utils`.
 - **Execute with** `/Users/mohinianand/anaconda3/bin/jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=3600 <path>`.
+- **Checkout:** run in the main checkout, not a git worktree. The ROI TIFFs under `images/` are not tracked, so a
+  worktree has no montage images unless each TIFF is linked in one by one.
 - **Paths:** the notebook sits two levels below the repo root. Use `sys.path.insert(0, '../..')` and `sys.path.insert(0, '.')` (for the V2 worker); images are at `../../images/...` and results at `../../results/`.
 
 **Code conventions:**
