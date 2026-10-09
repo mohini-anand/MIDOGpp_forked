@@ -387,11 +387,21 @@ reject 0 mitoses.
 
 **Status:** `spec'd`, **deferred until before shipping** (decided 2026-10-02).
 - **Stage A ran on 2026-10-08:** `tm_floor_stress_stageA_49roi.ipynb`, from the plan in `TM_FLOOR_STRESS_STAGE_A_PLAN.md`.
+  Its review scripts are in `floor_robustness/stageA_review/`.
   - All gates held.
   - Fired: H06 × `b_otsu` (predicted P@10 loss 0.41 pt), H06 × W128 (0.33), E15 × `b_otsu` (0.28).
-  - So Stage B runs on H06, E15, GRAD, BLUR, JPG and the null control.
-  - Exposure, white balance, contrast, blur, JPEG, the gradient and the window shift do not fire. Where the plan and this section differ, the plan wins: the metric, the Stage B
-  trigger and the perturbation list all changed. Its review scripts are in `floor_robustness/stageA_review/`.
+  - Exposure, white balance, contrast, blur, JPEG, the gradient and the window shift did not fire.
+  - Where the plan and this section differ, the plan wins: the metric, the Stage B trigger and the perturbation list all
+    changed.
+- **Stage B is planned, then deferred (user decision, 2026-10-09).** `TM_FLOOR_STRESS_STAGE_B_PLAN.md` is v3, and a
+  fresh reviewer judged it converged after three rounds. It is ready to build, but deferred to a pre-ship check.
+  - **Its likely verdict is "keep 1.0×".** Stage A's predicted losses (≤ 0.41 pt P@10, about 12 % of the clip's 3.3-pt
+    gain) sit well inside Stage B's 1.1-pt tolerance.
+  - **Its best case is small.** Switching floors could recover at most about 0.4 pt under H06. L150's minimum
+    detectable edge is about 0.97 pt. W128's predicted edge, about 0.09 pt, is below its 0.31-pt minimum.
+    Unperturbed, 1.5× and W128 tie 1.0× (+0.27 and +0.24 pt, not significant).
+  - **Run it before shipping** if robustness to other labs must be certified. Real cross-scanner slides (Stage C) would
+    answer that better.
 - It does not block the per-feature analysis. The window floor ties `b_otsu` (P@10 +0.24, pool +0.04 mitoses per
   click), so the candidate pools barely depend on which floor ships.
 - The clipped A3 pools are saved: `results/tm_floor_definition_49roi_6seed_pool.csv.gz`, 294 clicks, up to 100 each,

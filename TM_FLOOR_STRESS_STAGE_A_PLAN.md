@@ -3,7 +3,8 @@
 **Status:** plan v3 (final), 2026-10-08. The reviewer judged it converged after three rounds (see §6).
 **Run 2026-10-08:** `production_hematoxylin_only/multiotsu_pad_arms/tm_floor_stress_stageA_49roi.ipynb`, with outputs in
 `results/tm_floor_stress_stageA_49roi_*.csv`. All gates held. Three cells fired: H06 × `b_otsu` (PL 0.41 pt), H06 × W128
-(0.33) and E15 × `b_otsu` (0.28). **Stage B runs on H06, E15, GRAD, BLUR, JPG and the null control.**
+(0.33) and E15 × `b_otsu` (0.28). By the rule, Stage B would run on H06, E15, GRAD, BLUR, JPG and the null control.
+**Stage B was planned** (`TM_FLOOR_STRESS_STAGE_B_PLAN.md`) **and deferred to a pre-ship check on 2026-10-09.**
 **Source spec:** `FUTURE_IDEAS.md` §4.1, Stage A. This plan makes the spec executable and departs from it where §6 says
 why.
 
