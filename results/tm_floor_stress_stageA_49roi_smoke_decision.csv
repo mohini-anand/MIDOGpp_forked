@@ -1,0 +1,20 @@
+item,result,detail
+gate 1: worker thread pools at 1,True,
+gate 3: floors and boxes reproduce,True,
+gate 4: ID bit-identical,True,
+gate 5: direction slopes and H/E labels,True,
+gate 6: NULL2 exact,True,
+gate 7: c_eq self-consistency,True,
+smoke determinism (N = 3 vs N = 1),True,
+smoke blocked channel bit-identical,True,
+NULL2 PL == UNPERT PL (b_otsu),True,0.0000
+GAMMA fires nothing (b_otsu),True,0.0145
+JPG95 fires nothing (b_otsu),True,0.0349
+NULL2 PL == UNPERT PL (W128),True,0.0588
+GAMMA fires nothing (W128),True,0.0605
+JPG95 fires nothing (W128),True,0.0585
+fires: H06 x b_otsu,True,PL 0.624 pt (PL); per-ROI median 0.768
+fires: H06 x W128,True,PL 0.296 pt (PL); per-ROI median 0.864
+fires: E15 x b_otsu,True,PL 0.391 pt (PL); per-ROI median 0.850
+Stage B,True,"runs on H06, E15, GRAD, BLUR, JPG + the null control"
+mode,False,"SMOKE: not a result; N = 3, wall 36 s"

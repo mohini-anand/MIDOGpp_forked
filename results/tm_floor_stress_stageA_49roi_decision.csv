@@ -1,0 +1,19 @@
+item,result,detail
+gate 1: worker thread pools at 1,True,
+gate 3: floors and boxes reproduce,True,
+gate 4: ID bit-identical,True,
+gate 5: direction slopes and H/E labels,True,
+gate 6: NULL2 exact,True,
+gate 7: c_eq self-consistency,True,
+gate 8: calibration,True,
+NULL2 PL == UNPERT PL (b_otsu),True,0.0000
+GAMMA fires nothing (b_otsu),True,0.0566
+JPG95 fires nothing (b_otsu),True,0.0726
+NULL2 PL == UNPERT PL (W128),True,0.0559
+GAMMA fires nothing (W128),True,0.0581
+JPG95 fires nothing (W128),True,0.0811
+fires: H06 x b_otsu,True,PL 0.411 pt (PL); per-ROI median 0.858
+fires: H06 x W128,True,PL 0.333 pt (PL); per-ROI median 0.910
+fires: E15 x b_otsu,True,PL 0.284 pt (PL); per-ROI median 0.896
+Stage B,True,"runs on H06, E15, GRAD, BLUR, JPG + the null control"
+mode,True,"FULL; N = 11, wall 210 s"

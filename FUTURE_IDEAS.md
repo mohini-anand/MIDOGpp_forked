@@ -377,6 +377,12 @@ reject 0 mitoses.
 ### 4.1 Floor-clip stress test across stains and scanners
 
 **Status:** `spec'd`, **deferred until before shipping** (decided 2026-10-02).
+- **Stage A ran on 2026-10-08:** `tm_floor_stress_stageA_49roi.ipynb`, from the plan in `TM_FLOOR_STRESS_STAGE_A_PLAN.md`.
+  - All gates held.
+  - Fired: H06 × `b_otsu` (predicted P@10 loss 0.41 pt), H06 × W128 (0.33), E15 × `b_otsu` (0.28).
+  - So Stage B runs on H06, E15, GRAD, BLUR, JPG and the null control.
+  - Exposure, white balance, contrast, blur, JPEG, the gradient and the window shift do not fire. Where the plan and this section differ, the plan wins: the metric, the Stage B
+  trigger and the perturbation list all changed. Its review scripts are in `floor_robustness/stageA_review/`.
 - It does not block the per-feature analysis. The window floor ties `b_otsu` (P@10 +0.24, pool +0.04 mitoses per
   click), so the candidate pools barely depend on which floor ships.
 - The clipped A3 pools are saved: `results/tm_floor_definition_49roi_6seed_pool.csv.gz`, 294 clicks, up to 100 each,
@@ -399,14 +405,23 @@ reject 0 mitoses.
   - the floor and the box refinement are multi-Otsu, with geometry in µm;
   - the template fill is the window's own mean;
   - the border band uses a −3e38 sentinel.
-- So these perturbations should change nothing:
+- So these perturbations should change nothing, apart from 8-bit rounding:
   - both stains scaled together (section thickness);
-  - RGB gain and white balance (a constant added to each OD channel);
-  - pure gamma (a scaling of OD).
+  - pure equal-channel gamma (a scaling of OD).
 - **What breaks the invariance:**
   - the `rgb2hed` clamp of negative values at 0 (3.9% of pixels in the median ROI, up to 25.6%);
   - RGB saturation and 8-bit rounding;
   - every change that is not an affine change of the measured H.
+- **Corrected 2026-10-08: RGB gain and white balance are NOT null.**
+  - They were listed here as predicted null.
+  - They add a constant to each OD channel. A positive scaling commutes with the clamp at 0; an added constant does
+    not.
+  - **Measured on 128.tiff** (22 % of tissue pixels clamped): `b_otsu` lands at 0.82× its original level under exposure
+    ×0.9, and at 1.36× under red ×1.05. That is the multiple of the original `b_otsu` clipping the same tissue share.
+  - **On low-clamp ROIs** they move it by at most about 0.08.
+  - Equal-channel gamma stays a near-null: the review measured it at ≤ 0.10, the largest on pigment ROI 211, where
+    R = 0 pixels don't scale.
+  - Source: `floor_robustness/stageA_review/check_g_128.tiff.out`.
 
 **Stage A: a screen of floors only, no searches.** Run first, minutes of compute.
 - **Estimators:**
@@ -415,9 +430,11 @@ reject 0 mitoses.
   - a tissue-only window or tile floor;
   - TOTSU (tissue-only Otsu over the ROI).
 
-  Optionally add a tissue quantile and an absolute floor as reference points. The product has no 2 mm² ROI, so the
-  window or tile estimators are the ones that could ship.
+  Optionally add a tissue quantile and an absolute floor as reference points.
+  - **Decided 2026-10-08:** the product keeps the default ROI size, so `b_otsu` over the ROI counts as shippable. That
+    replaces the earlier note that the product has no 2 mm² ROI and only window or tile estimators could ship.
 - **Perturbations, at one realistic strength.** Only those the theory does not cover:
+  - RGB gain and white balance (added 2026-10-08; see the correction above);
   - hematoxylin vs eosin ratio change (H ×0.6 and ×1.4, E ×1.5), synthesised in each slide's own stain basis:
     OD_new = OD + (k_H − 1)·c_H·h_slide + (k_E − 1)·c_E·e_slide, using the per-ROI Macenko vectors and keeping the
     residual;
@@ -471,14 +488,17 @@ reject 0 mitoses.
 **Dropped from the proposed plan, and why.**
 - Phase 0b (stain spread and the regression of clip gain): already done in `floor_robustness/`, and null (leakage
   ρ 0.03, nothing above |ρ| 0.26). The per-ROI Macenko spread also mixes tissue with stain.
-- Phase 0's tests through RGB (gain, white balance, gamma): predicted null from the code; one exact gate is enough.
+- Phase 0's tests through RGB.
+  - Gamma stays dropped, as a near-null.
+  - Gain and white balance were dropped as "predicted null from the code". That was wrong (corrected 2026-10-08, see
+    "What theory predicts"), and Stage A now includes them.
 - Two strengths in the screen: one realistic strength.
 
 **Pitfalls the review found.**
 - **A no-op stain test.** Stain changes made through `rgb2hed`'s own fixed matrix test nothing: E there is invisible to
   H by construction, and H there is a pure scaling.
 - **The clamp reaches the clipped pipeline.** It isn't immune: `b_otsu` and the box refinement are computed on the
-  unclipped, clamped channel.
+  unclipped, clamped channel. The clamp also breaks the gain and white-balance nulls (2026-10-08).
 - **Fixed RGB constants.** The white-adjacent FP counts and TOTSU's glass mask use gray > 215. Compute them from the
   *original* image, or the metrics will move even when the lists are identical.
 - **The mean cannot settle 1.0× vs 1.5×.** That trade-off is per-click harm.
